@@ -1,0 +1,145 @@
+<header class="header">
+	<div class="container">	
+		<div class="header__wrap">
+			@@if (active_menu === 'main'){
+				<div class="header__logo"><img src="images/logo.svg" alt=""></div>
+			}
+			@@if (active_menu !== 'main'){
+				<a href="/" class="header__logo"><img src="images/logo.svg" alt=""></a>
+			}
+
+			<a href="#" class="header__linkcat open-category">
+				<span class="hide-tablet-sm">Категории курсов</span>
+				<span class="show-tablet-sm">Курсы</span>
+				<svg class="icon-open" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M0.75 0.75L5 5.25L9.25 0.75" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>			
+				
+				<svg class="icon-close" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M1 1L5.25 5.5L9.5 1" stroke="#9D68F8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M9.5 9.75L5.25 5.25L1 9.75" stroke="#9D68F8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>					
+			</a>
+
+			<div class="search header__search header-search">
+				<form action="" class="search__form header-search-form">
+					<input type="text" class="input search__input" placeholder="Поиск">
+					<input type="submit" value="" class="search__btn">
+				</form>
+				<button class="header__search-open header-search-open"></button>
+			</div>
+
+			@@if (auth === 'user'){
+				<a href="#" class="header__profile" data-open-popup="auth">
+					<svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.53846C6.14717 1.53846 4.64516 3.03085 4.64516 4.8718C4.64516 6.71274 6.14717 8.20513 8 8.20513C9.85283 8.20513 11.3548 6.71274 11.3548 4.8718C11.3548 3.03085 9.85283 1.53846 8 1.53846ZM3.09677 4.8718C3.09677 2.18118 5.29202 0 8 0C10.708 0 12.9032 2.18118 12.9032 4.8718C12.9032 7.56241 10.708 9.74359 8 9.74359C5.29202 9.74359 3.09677 7.56241 3.09677 4.8718Z" fill="#19191B"/>
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M5.46618 13.3333C3.30244 13.3333 1.54839 15.0761 1.54839 17.226C1.54839 17.3389 1.56915 17.4186 1.59092 17.465C1.60929 17.5041 1.62506 17.5153 1.63821 17.5224C2.23987 17.8477 3.92682 18.4615 8 18.4615C12.0732 18.4615 13.7601 17.8477 14.3618 17.5224C14.3749 17.5153 14.3907 17.5041 14.4091 17.465C14.4308 17.4186 14.4516 17.3389 14.4516 17.226C14.4516 15.0761 12.6976 13.3333 10.5338 13.3333H5.46618ZM0 17.226C0 14.2265 2.44729 11.7949 5.46618 11.7949H10.5338C13.5527 11.7949 16 14.2265 16 17.226C16 17.7766 15.7994 18.4966 15.1019 18.8737C14.1779 19.3733 12.1959 20 8 20C3.80414 20 1.82206 19.3733 0.898118 18.8737C0.200634 18.4966 0 17.7766 0 17.226Z" fill="#19191B"/>
+					</svg>			
+					<span>Личный кабинет</span>			
+				</a>
+			}
+			@@if (auth === 'user_auth'){
+				<a href="lk-profile.html" class="header__profile">
+					<svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.53846C6.14717 1.53846 4.64516 3.03085 4.64516 4.8718C4.64516 6.71274 6.14717 8.20513 8 8.20513C9.85283 8.20513 11.3548 6.71274 11.3548 4.8718C11.3548 3.03085 9.85283 1.53846 8 1.53846ZM3.09677 4.8718C3.09677 2.18118 5.29202 0 8 0C10.708 0 12.9032 2.18118 12.9032 4.8718C12.9032 7.56241 10.708 9.74359 8 9.74359C5.29202 9.74359 3.09677 7.56241 3.09677 4.8718Z" fill="#19191B"/>
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M5.46618 13.3333C3.30244 13.3333 1.54839 15.0761 1.54839 17.226C1.54839 17.3389 1.56915 17.4186 1.59092 17.465C1.60929 17.5041 1.62506 17.5153 1.63821 17.5224C2.23987 17.8477 3.92682 18.4615 8 18.4615C12.0732 18.4615 13.7601 17.8477 14.3618 17.5224C14.3749 17.5153 14.3907 17.5041 14.4091 17.465C14.4308 17.4186 14.4516 17.3389 14.4516 17.226C14.4516 15.0761 12.6976 13.3333 10.5338 13.3333H5.46618ZM0 17.226C0 14.2265 2.44729 11.7949 5.46618 11.7949H10.5338C13.5527 11.7949 16 14.2265 16 17.226C16 17.7766 15.7994 18.4966 15.1019 18.8737C14.1779 19.3733 12.1959 20 8 20C3.80414 20 1.82206 19.3733 0.898118 18.8737C0.200634 18.4966 0 17.7766 0 17.226Z" fill="#19191B"/>
+					</svg>			
+					<span>Мой аккаунт</span>			
+				</a>
+			}
+
+			<a href="" class="btn btn--purple header__btn hide-tablet-sm" data-open-popup="auth_course">Добавить курс</a>
+
+			<a href="#" class="header__burger" id="menu_toggler">
+				<svg width="26" height="18" viewBox="0 0 26 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M1 1H25" stroke="#19191B" stroke-width="2" stroke-linecap="round"/>
+					<path d="M1 9H25" stroke="#19191B" stroke-width="2" stroke-linecap="round"/>
+					<path d="M1 17H25" stroke="#19191B" stroke-width="2" stroke-linecap="round"/>
+				</svg>					
+			</a>
+
+			<!-- <li class="@@if (active_menu === 'works'){active}"><a href="works.html">Фото работ</a></li> -->
+		</div>
+	</div>	
+
+	<div class="header__navfix header-navfix">
+		<div class="container">
+			<div class="header__navfix-wrap">
+				<div class="header__navfix-col header__navfix-col--left">
+					@@if (active_menu === 'main'){
+						<div class="header__logo"><img src="images/logo.svg" alt=""></div>
+					}
+					@@if (active_menu !== 'main'){
+						<a href="/" class="header__logo"><img src="images/logo.svg" alt=""></a>
+					}
+				</div>
+
+				<div class="header__navfix-col header__navfix-col--center">
+					<div class="header__navfix-gmi">
+						<ul class="header__menu header__navfix-menu">
+							<li><a href="search-catalog.html">Поиск курсов</a></li>
+							<li><a href="scools.html">Все школы</a></li>
+							<li><a href="">Онлайн-тесты</a></li>
+							<li><a href="blog.html">Блог</a></li>
+							<li><a href="contacts.html">Контакты</a></li>
+						</ul>
+	
+						<div class="header__navfix-info">
+							<div class="header__navfix-info__row header__navfix-info__label">Электронная почта</div>
+							<div class="header__navfix-info__row"><a href="mailto:eduhub@gmail.com">eduhub@gmail.com</a></div>
+							<div class="header__navfix-info__row header__navfix-info__label">Телефон</div>
+							<div class="header__navfix-info__row"><a href="tel:+375296370016">+375 29 637-00-16</a></div>
+							<div class="header__navfix-info__row header__navfix-info__label">Главный офис</div>
+							<div class="header__navfix-info__row">г. Минск, ул. Карла Маркса, 32</div>
+						</div>
+					</div>
+				</div>
+				<div class="header__navfix-col header__navfix-col--right">
+					<button class="btn w-all"  data-open-popup="call">Заказать звонок</button>
+
+					<a href="" class="btn btn--purple w-all show-tablet-sm" data-open-popup="auth_course">Добавить курс</a>
+				</div>
+
+				
+				<div class="header__navfix-col header__navfix-col--close">
+					<a href="#" class="header__navfix-close close-menu"></a>
+				</div>
+			</div>
+		</div>	
+	</div>	
+
+	<div class="header__category header-category">
+		<div class="container">
+			<div class="header__category-wrap">
+				<div class="header__category-col">
+					<div class="header__category-col__name">Языковые курсы</div>
+					<ul class="header__menu header__category-menu">
+						<li><a href="">Английский</a></li>
+						<li><a href="">Немецкий</a></li>
+						<li><a href="">Китайский</a></li>
+						<li><a href="">Итальянский</a></li>
+						<li><a href="">Французский</a></li>
+					</ul>
+				</div>
+				<div class="header__category-col w-2">
+					<div class="header__category-col__name">IT курсы</div>
+					<ul class="header__menu header__category-menu">
+						<li><a href="">Программирование</a></li>
+						<li><a href="">Python</a></li>
+						<li><a href="">Java</a></li>
+						<li><a href="">JavaScript</a></li>
+						<li><a href="">C++</a></li>
+						<li><a href="">Разработка для iOS</a></li>
+						<li><a href="">Разработка для Android</a></li>
+						<li><a href="">Рекрутинг в IT</a></li>
+						<li><a href="">Бизнес-анализ</a></li>
+						<li><a href="">Project Manager</a></li>
+						<li><a href="">Тестировщики</a></li>
+					</ul>
+				</div>
+
+			</div>
+		</div>	
+	</div>	
+
+</header>
