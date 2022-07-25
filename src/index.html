@@ -1,0 +1,985 @@
+@@include('html/head.html', {
+    "title": "Главная"
+})
+
+<section class="wrapper" id="top">
+
+    @@include('html/header.html', {
+        "active_menu": "main",
+        "auth": "user"
+    })
+    
+    <main class="content__wrapper">
+        <section class="promo section__mg">
+            <div class="container">	
+                <div class="promo__wrap section__lr">
+                    <div class="XMLID promo__XMLID-left"></div>
+                    <div class="XMLID promo__XMLID-right"></div>
+                    <div class="promo__inner">
+                        <div class="promo__info">
+                            <h1 class="promo__title">ВЫБРАТЬ нужный КУРС – <span class="text--yellow">ЛЕГКО</span></h1>
+                            <p class="promo__subtitle">Если тебе не подойдет ни один вариант <span class="nowrap">из предложенных</span> - мы сами подберем для тебя!</p>
+                            <div class="promo__buttons">
+                                <button class="btn promo__btn" data-scroll="">Подобрать курс</button>
+                            </div>
+                        </div>
+
+                        <div class="promo__photo"><img src="images/promo/promo.svg" alt=""></div>
+                    </div>
+
+                    <button class="promo__scroll" data-scroll="choose"></button>
+                </div>
+            </div>	
+        </section><!-- promo -->
+
+        
+        <section class="choose section__mg" id="choose">
+            <div class="container">	
+                <div class="choose_how section__lr section__mgb">
+                    <div class="choose_how__wrap">
+                        <div class="choose_how__head">
+                            <h3 class="choose_how__title">Как подобрать нужный тебе курс</h3>
+                            <p class="choose_how__subtitle">Какой-то текст <br> несколько строчек <br> про подбор курса</p>
+                        </div>
+
+                        <div class="choose_how__border"></div>
+
+                        <div class="choose_how__items">
+                            <div class="choose_how__item">
+                                <div class="choose_how__item-icon"><img src="images/icons/edit.svg" alt=""></div>
+                                <p><b>Шаг 1.</b> <br> Укажи какие курсы ты ищешь</p>
+                            </div>
+                            <div class="choose_how__item light-yellow">
+                                <div class="choose_how__item-icon"><img src="images/icons/calendar.svg" alt=""></div>
+                                <p><b>Шаг 2.</b> <br> Выбери удобную дату начала</p>
+                            </div>
+                            <div class="choose_how__item light-green">
+                                <div class="choose_how__item-icon"><img src="images/icons/book.svg" alt=""></div>
+                                <p><b>Шаг 3.</b> <br> Жми ПОИСК и выбирай курсы</p>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--choose_how-->
+            </div>	
+
+            <div class="choose__bg choose__wrap">
+                <div class="container">
+                    <form action="" class="hide-tablet-sm">
+                        <div class="choose__block">
+                            <div class="choose__block-title">Я ищу</div>
+                            <div class="choose__inputs">
+                                <div class="choose__inputs-item w-300">
+                                    <select name="direction" data-placeholder="Направление" class="styler styler--white">
+                                        <option value=""></option>
+                                        <option value="Python">Python</option>
+                                        <option value="Java">Java</option>
+                                        <option value="JavaScript">JavaScript</option>
+                                        <option value="C++">C++</option>
+                                        <option value="Разработка для iOS">Разработка для iOS</option>
+                                        <option value="Рекрутинг в IT">Рекрутинг в IT</option>
+                                        <option value="Бизнес-анализ">Бизнес-анализ</option>
+                                        <option value="Project Manager">Project Manager</option>
+                                        <option value="Тестировщики">Тестировщики</option>
+                                        <option value="Python">Python</option>
+                                        <option value="Java">Java</option>
+                                        <option value="JavaScript">JavaScript</option>
+                                        <option value="C++">C++</option>
+                                        <option value="Разработка для iOS">Разработка для iOS</option>
+                                        <option value="Рекрутинг в IT">Рекрутинг в IT</option>
+                                        <option value="Бизнес-анализ">Бизнес-анализ</option>
+                                        <option value="Project Manager">Project Manager</option>
+                                        <option value="Тестировщики">Тестировщики</option>
+                                        <option value="Python">Python</option>
+                                        <option value="Java">Java</option>
+                                        <option value="JavaScript">JavaScript</option>
+                                        <option value="C++">C++</option>
+                                        <option value="Разработка для iOS">Разработка для iOS</option>
+                                        <option value="Рекрутинг в IT">Рекрутинг в IT</option>
+                                        <option value="Бизнес-анализ">Бизнес-анализ</option>
+                                        <option value="Project Manager">Project Manager</option>
+                                        <option value="Тестировщики">Тестировщики</option>
+                                    </select>
+                                </div>
+                                <div class="choose__inputs-item w-270">
+                                    <select name="category" data-placeholder="Категория курса" class="styler styler--white">
+                                        <option value=""></option>
+                                        <option value="Python">Python</option>
+                                        <option value="Java">Java</option>
+                                        <option value="JavaScript">JavaScript</option>
+                                        <option value="C++">C++</option>
+                                    </select>
+                                </div>
+                                <div class="choose__inputs-item w-320">
+                                    <select name="sub_category" data-placeholder="Подкатегория курса" class="styler styler--white">
+                                        <option value=""></option>
+                                        <option value="Python">Python</option>
+                                        <option value="Java">Java</option>
+                                        <option value="JavaScript">JavaScript</option>
+                                        <option value="C++">C++</option>
+                                    </select>
+                                </div>
+                                <div class="choose__inputs-item w-250">
+                                    <select name="level" data-placeholder="Уровень" class="styler styler--white">
+                                        <option value=""></option>
+                                        <option value="Python">Python</option>
+                                        <option value="Java">Java</option>
+                                        <option value="JavaScript">JavaScript</option>
+                                        <option value="C++">C++</option>
+                                    </select>
+                                </div>
+                                <div class="choose__inputs-item w-200">
+                                    <select name="age" data-placeholder="Возраст" class="styler styler--white">
+                                        <option value=""></option>
+                                        <option value="14-17">14-17</option>
+                                        <option value="18-25">18-25</option>
+                                        <option value="25-35">25-35</option>
+                                    </select>
+                                </div>
+                                <div class="choose__inputs-item w-230">
+                                    <select name="form" data-placeholder="Форма обучения" class="styler styler--white">
+                                        <option value=""></option>
+                                        <option value="очное">очное</option>
+                                        <option value="онлайн">онлайн</option>
+                                    </select>
+                                </div>
+                                <div class="choose__inputs-item w-270 w-230-tablet">
+                                    <select name="format" data-placeholder="Формат обучения" class="styler styler--white">
+                                        <option value=""></option>
+                                        <option value="Формат обучения 1">Формат обучения 1</option>
+                                        <option value="Формат обучения 2">Формат обучения 2</option>
+                                        <option value="Формат обучения 3">Формат обучения 3</option>
+                                    </select>
+                                </div>
+                                <div class="choose__inputs-item w-200">
+                                    <select name="time" data-placeholder="Время обучения" class="styler styler--white">
+                                        <option value=""></option>
+                                        <option value="10-14">10-14</option>
+                                        <option value="15-20">15-20</option>
+                                    </select>
+                                </div>
+                                <div class="choose__inputs-item w-230">
+                                    <select name="days" data-placeholder="Дни занятий" class="styler styler--white">
+                                        <option value=""></option>
+                                        <option value="пн-пт">пн-пт</option>
+                                        <option value="сб-вс">сб-вс</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="choose__block">
+                            <div class="choose__block-title">Место и желаемая дата начала обучения</div>
+                            <div class="choose__inputs">
+                                <div class="choose__inputs-item w-230">
+                                    <select name="city" data-placeholder="Город" class="styler styler--white">
+                                        <option value=""></option>
+                                        <option value="Брест">Брест</option>
+                                        <option value="Минск">Минск</option>
+                                        <option value="Москва">Москва</option>
+                                    </select>
+                                </div>
+                                <div class="choose__inputs-item w-270">
+                                    <select name="region" data-placeholder="Район" class="styler styler--white">
+                                        <option value=""></option>
+                                        <option value="Район 1">Район 1</option>
+                                        <option value="Район 2">Район 2</option>
+                                        <option value="Район 3">Район 3</option>
+                                    </select>
+                                </div>
+                                <div class="choose__inputs-item w-270">
+                                    <select name="metro" data-placeholder="Метро" class="styler styler--white">
+                                        <option value=""></option>
+                                        <option value="Молодёжная">Молодёжная</option>
+                                        <option value="Немига">Немига</option>
+                                        <option value="Пушкинская">Пушкинская</option>
+                                    </select>
+                                </div>
+                                <div class="choose__inputs-item w-210">
+                                    <input type="text" placeholder="Дата с" class="input input--white input--date datepicker-input">
+                                </div>
+                                <div class="choose__inputs-item choose__inputs-button">
+                                    <button class="btn w-all">ПОИСК</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    
+                    <form action="" class="show-tablet-sm choose-filters">
+                        
+                            <div class="choose__block-title">Я ищу</div>
+                            
+                                <div class="choose__inputs-item w-300">
+                                    <select name="direction" data-placeholder="Направление" class="styler styler--white">
+                                        <option value=""></option>
+                                        <option value="Python">Python</option>
+                                        <option value="Java">Java</option>
+                                        <option value="JavaScript">JavaScript</option>
+                                        <option value="C++">C++</option>
+                                        <option value="Разработка для iOS">Разработка для iOS</option>
+                                        <option value="Рекрутинг в IT">Рекрутинг в IT</option>
+                                        <option value="Бизнес-анализ">Бизнес-анализ</option>
+                                        <option value="Project Manager">Project Manager</option>
+                                        <option value="Тестировщики">Тестировщики</option>
+                                        <option value="Python">Python</option>
+                                        <option value="Java">Java</option>
+                                        <option value="JavaScript">JavaScript</option>
+                                        <option value="C++">C++</option>
+                                        <option value="Разработка для iOS">Разработка для iOS</option>
+                                        <option value="Рекрутинг в IT">Рекрутинг в IT</option>
+                                        <option value="Бизнес-анализ">Бизнес-анализ</option>
+                                        <option value="Project Manager">Project Manager</option>
+                                        <option value="Тестировщики">Тестировщики</option>
+                                        <option value="Python">Python</option>
+                                        <option value="Java">Java</option>
+                                        <option value="JavaScript">JavaScript</option>
+                                        <option value="C++">C++</option>
+                                        <option value="Разработка для iOS">Разработка для iOS</option>
+                                        <option value="Рекрутинг в IT">Рекрутинг в IT</option>
+                                        <option value="Бизнес-анализ">Бизнес-анализ</option>
+                                        <option value="Project Manager">Project Manager</option>
+                                        <option value="Тестировщики">Тестировщики</option>
+                                    </select>
+                                </div>
+                                <div class="choose__inputs-item w-270">
+                                    <select name="category" data-placeholder="Категория курса" class="styler styler--white">
+                                        <option value=""></option>
+                                        <option value="Python">Python</option>
+                                        <option value="Java">Java</option>
+                                        <option value="JavaScript">JavaScript</option>
+                                        <option value="C++">C++</option>
+                                    </select>
+                                </div>
+                                <div class="choose__inputs-item w-320">
+                                    <select name="sub_category" data-placeholder="Подкатегория курса" class="styler styler--white">
+                                        <option value=""></option>
+                                        <option value="Python">Python</option>
+                                        <option value="Java">Java</option>
+                                        <option value="JavaScript">JavaScript</option>
+                                        <option value="C++">C++</option>
+                                    </select>
+                                </div>
+
+                                <a href="#" class="choose__inputs-more choose-more-filters">
+                                    <span class="t-opened">Еще фильтры</span>
+                                    <span class="t-closed">Свернуть фильтры</span>
+                                    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.75 0.75L5 5.25L9.25 0.75" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>                                        
+                                </a>
+                                
+                                <div class="choose__inputs-dopf choose-dopf-filters">
+                                    <div class="choose__inputs-item w-250">
+                                        <select name="level" data-placeholder="Уровень" class="styler styler--white">
+                                            <option value=""></option>
+                                            <option value="Python">Python</option>
+                                            <option value="Java">Java</option>
+                                            <option value="JavaScript">JavaScript</option>
+                                            <option value="C++">C++</option>
+                                        </select>
+                                    </div>
+                                    <div class="choose__inputs-item w-200">
+                                        <select name="age" data-placeholder="Возраст" class="styler styler--white">
+                                            <option value=""></option>
+                                            <option value="14-17">14-17</option>
+                                            <option value="18-25">18-25</option>
+                                            <option value="25-35">25-35</option>
+                                        </select>
+                                    </div>
+                                    <div class="choose__inputs-item w-230">
+                                        <select name="form" data-placeholder="Форма обучения" class="styler styler--white">
+                                            <option value=""></option>
+                                            <option value="очное">очное</option>
+                                            <option value="онлайн">онлайн</option>
+                                        </select>
+                                    </div>
+                                    <div class="choose__inputs-item w-270 w-230-tablet">
+                                        <select name="format" data-placeholder="Формат обучения" class="styler styler--white">
+                                            <option value=""></option>
+                                            <option value="Формат обучения 1">Формат обучения 1</option>
+                                            <option value="Формат обучения 2">Формат обучения 2</option>
+                                            <option value="Формат обучения 3">Формат обучения 3</option>
+                                        </select>
+                                    </div>
+                                    <div class="choose__inputs-item w-200">
+                                        <select name="time" data-placeholder="Время обучения" class="styler styler--white">
+                                            <option value=""></option>
+                                            <option value="10-14">10-14</option>
+                                            <option value="15-20">15-20</option>
+                                        </select>
+                                    </div>
+                                    <div class="choose__inputs-item w-230">
+                                        <select name="days" data-placeholder="Дни занятий" class="styler styler--white">
+                                            <option value=""></option>
+                                            <option value="пн-пт">пн-пт</option>
+                                            <option value="сб-вс">сб-вс</option>
+                                        </select>
+                                    </div>
+                            
+                                    <div class="choose__block-title">Место и желаемая дата начала обучения</div>
+                                
+                                    <div class="choose__inputs-item w-230">
+                                        <select name="city" data-placeholder="Город" class="styler styler--white">
+                                            <option value=""></option>
+                                            <option value="Брест">Брест</option>
+                                            <option value="Минск">Минск</option>
+                                            <option value="Москва">Москва</option>
+                                        </select>
+                                    </div>
+                                    <div class="choose__inputs-item w-270">
+                                        <select name="region" data-placeholder="Район" class="styler styler--white">
+                                            <option value=""></option>
+                                            <option value="Район 1">Район 1</option>
+                                            <option value="Район 2">Район 2</option>
+                                            <option value="Район 3">Район 3</option>
+                                        </select>
+                                    </div>
+                                    <div class="choose__inputs-item w-270">
+                                        <select name="metro" data-placeholder="Метро" class="styler styler--white">
+                                            <option value=""></option>
+                                            <option value="Молодёжная">Молодёжная</option>
+                                            <option value="Немига">Немига</option>
+                                            <option value="Пушкинская">Пушкинская</option>
+                                        </select>
+                                    </div>
+                                    <div class="choose__inputs-item w-210">
+                                        <input type="text" placeholder="Дата с" class="input input--white input--date datepicker-input">
+                                    </div>
+                                </div>
+
+                                <div class="choose__inputs-item choose__inputs-button">
+                                    <button class="btn w-all">ПОИСК</button>
+                                </div>
+                            
+                    </form>
+
+                    
+                </div>
+            </div>
+        </section><!-- choose -->
+
+        
+        <section class="skillbox section__mg">
+            <div class="container">	
+                <div class="skillbox__wrap section__lr">
+                    <div class="skillbox__inner">
+                        <picture>
+                            <source type="image/jpeg" srcset="images/skillbox-img-tablet.jpg" media="(max-width:980px)">
+                            <source type="image/jpeg" srcset="images/skillbox-img.jpg">
+                            <img src="images/skillbox-img.jpg" alt="" class="skillbox__photo">
+                        </picture>
+
+                        <div class="skillbox__info">
+                            <div class="skillbox__logo"><img src="images/skillbox-logo.svg" alt=""></div>
+                            <div class="skillbox__title">Востребованные IT‑профессии</div>
+                            <div class="skillbox__desc">Топовые курсы для старта в IT. <br> Вы сможете стать специалистом с нуля, собрать портфолио и начать карьеру через несколько месяцев.</div>
+                            
+                            <div class="skillbox__buttons">
+                                <a href="" class="btn skillbox__btn">Перейти на сайт</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>	
+        </section><!-- skillbox -->
+        
+        
+        <section class="courses courses__bg section__mg section__pd--lg">
+            <div class="container">	
+                <div class="section__head section__head--cols">
+                    <h2 class="section__title">Ближайшие старты</h2>
+
+                    <div class="section__head-right hide-tablet">
+                        <div class="swiper-button-nav">
+                            <div class="swiper-button swiper-button-prev">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19.9987 36.6667C29.2034 36.6667 36.6654 29.2047 36.6654 20C36.6654 10.7953 29.2034 3.33334 19.9987 3.33334C10.794 3.33334 3.33203 10.7953 3.33203 20C3.33203 29.2047 10.794 36.6667 19.9987 36.6667Z" stroke="#7D7D7D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M25.832 20H15.832" stroke="#7D7D7D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M19.168 15L14.168 20L19.168 25" stroke="#7D7D7D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>                            
+                            </div>
+                            <div class="swiper-button swiper-button-next">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19.9987 36.6667C29.2034 36.6667 36.6654 29.2047 36.6654 20C36.6654 10.7953 29.2034 3.33334 19.9987 3.33334C10.794 3.33334 3.33203 10.7953 3.33203 20C3.33203 29.2047 10.794 36.6667 19.9987 36.6667Z" stroke="#7D7D7D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M14.168 20H24.168" stroke="#7D7D7D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M20.832 25L25.832 20L20.832 15" stroke="#7D7D7D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>                            
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+
+                <div class="courses__items courses-carousel swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="courses__item">
+                                <div class="courses__item-photo"><img src="images/courses/1.jpg"></div>
+                                <h3 class="courses__item-title">Факультет Продакт-менеджмента</h3>
+                                <ul class="courses__item-list">
+                                    <li><span>Длительность:</span> 4 месяца</li>
+                                    <li><span>Формат обучения:</span> онлайн</li>
+                                </ul>
+                                <div class="courses__item-date">Начало курса <br> 08.07.2022</div>
+                                <div class="courses__item-button">
+                                    <a href="course.html" class="btn w-all">Подробнее</a>
+                                </div>
+                            </div>    
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="courses__item">
+                                <div class="courses__item-photo"><img src="images/courses/2.jpg"></div>
+                                <h3 class="courses__item-title">Факультет Продакт-менеджмента</h3>
+                                <ul class="courses__item-list">
+                                    <li><span>Длительность:</span> 4 месяца</li>
+                                    <li><span>Формат обучения:</span> онлайн</li>
+                                </ul>
+                                <div class="courses__item-date">Начало курса <br> 08.07.2022</div>
+                                <div class="courses__item-button">
+                                    <a href="course.html" class="btn w-all">Подробнее</a>
+                                </div>
+                            </div>    
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="courses__item">
+                                <div class="courses__item-photo"><img src="images/courses/3.jpg"></div>
+                                <h3 class="courses__item-title">Факультет Продакт-менеджмента</h3>
+                                <ul class="courses__item-list">
+                                    <li><span>Длительность:</span> 4 месяца</li>
+                                    <li><span>Формат обучения:</span> онлайн</li>
+                                </ul>
+                                <div class="courses__item-date">Начало курса <br> 08.07.2022</div>
+                                <div class="courses__item-button">
+                                    <a href="course.html" class="btn w-all">Подробнее</a>
+                                </div>
+                            </div>    
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="courses__item">
+                                <div class="courses__item-photo"><img src="images/courses/4.jpg"></div>
+                                <h3 class="courses__item-title">Факультет Продакт-менеджмента</h3>
+                                <ul class="courses__item-list">
+                                    <li><span>Длительность:</span> 4 месяца</li>
+                                    <li><span>Формат обучения:</span> онлайн</li>
+                                </ul>
+                                <div class="courses__item-date">Начало курса <br> 08.07.2022</div>
+                                <div class="courses__item-button">
+                                    <a href="course.html" class="btn w-all">Подробнее</a>
+                                </div>
+                            </div>    
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="courses__item">
+                                <div class="courses__item-photo"><img src="images/courses/1.jpg"></div>
+                                <h3 class="courses__item-title">Факультет Продакт-менеджмента</h3>
+                                <ul class="courses__item-list">
+                                    <li><span>Длительность:</span> 4 месяца</li>
+                                    <li><span>Формат обучения:</span> онлайн</li>
+                                </ul>
+                                <div class="courses__item-date">Начало курса <br> 08.07.2022</div>
+                                <div class="courses__item-button">
+                                    <a href="course.html" class="btn w-all">Подробнее</a>
+                                </div>
+                            </div>    
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="courses__item">
+                                <div class="courses__item-photo"><img src="images/courses/2.jpg"></div>
+                                <h3 class="courses__item-title">Факультет Продакт-менеджмента</h3>
+                                <ul class="courses__item-list">
+                                    <li><span>Длительность:</span> 4 месяца</li>
+                                    <li><span>Формат обучения:</span> онлайн</li>
+                                </ul>
+                                <div class="courses__item-date">Начало курса <br> 08.07.2022</div>
+                                <div class="courses__item-button">
+                                    <a href="course.html" class="btn w-all">Подробнее</a>
+                                </div>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            </div>	
+        </section><!-- courses -->
+
+        <section class="courses section__mg">
+            <div class="container">	
+                <div class="section__head section__head--cols">
+                    <h2 class="section__title">Популярные курсы</h2>
+
+                    <div class="section__head-right hide-tablet">
+                        <div class="swiper-button-nav">
+                            <div class="swiper-button swiper-button-prev">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19.9987 36.6667C29.2034 36.6667 36.6654 29.2047 36.6654 20C36.6654 10.7953 29.2034 3.33334 19.9987 3.33334C10.794 3.33334 3.33203 10.7953 3.33203 20C3.33203 29.2047 10.794 36.6667 19.9987 36.6667Z" stroke="#7D7D7D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M25.832 20H15.832" stroke="#7D7D7D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M19.168 15L14.168 20L19.168 25" stroke="#7D7D7D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>                            
+                            </div>
+                            <div class="swiper-button swiper-button-next">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19.9987 36.6667C29.2034 36.6667 36.6654 29.2047 36.6654 20C36.6654 10.7953 29.2034 3.33334 19.9987 3.33334C10.794 3.33334 3.33203 10.7953 3.33203 20C3.33203 29.2047 10.794 36.6667 19.9987 36.6667Z" stroke="#7D7D7D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M14.168 20H24.168" stroke="#7D7D7D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M20.832 25L25.832 20L20.832 15" stroke="#7D7D7D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>                            
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+                
+                <div class="courses__wrap">
+                    <div class="courses__items courses-carousel swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="courses__item">
+                                    <div class="courses__item-photo"><img src="images/courses/5.jpg"></div>
+                                    <h3 class="courses__item-title">Профессия <br> Python-разработчик</h3>
+                                    <ul class="courses__item-list">
+                                        <li class="courses__item-list__flex"><div class="courses__item-list__icon"><img src="images/icons/location.svg" alt=""></div> Москва</li>
+                                        <li>
+                                            <a href="skillbox.ru" class="courses__item-list__flex">
+                                                <div class="courses__item-list__icon"><img src="images/icons/global.svg" alt=""></div>
+                                                skillbox.ru
+                                            </a>    
+                                        </li>
+                                    </ul>
+                                    <ul class="courses__item-list">
+                                        <li><span>Длительность:</span> 3 месяца</li>
+                                        <li><span>Формат обучения:</span> онлайн</li>
+                                    </ul>
+                                    <div class="courses__item-price">25 руб./занятие</div>
+
+                                    <div class="courses__item-rev">
+                                        <div class="rating courses__item-rating">
+                                            <span class="active"></span>	
+                                            <span class="active"></span>    
+                                            <span class="active"></span>  
+                                            <span class="active"></span>    
+                                            <span class=""></span>
+                                        </div>
+
+                                        <span class="nowrap">12 отзывов</span>
+                                    </div>
+
+                                    <div class="courses__item-button">
+                                        <a href="course.html" class="btn w-all">Подробнее</a>
+                                    </div>
+                                </div>    <!--courses__item-->
+                            </div>
+
+                            <div class="swiper-slide">       
+                                <div class="courses__item">
+                                    <div class="courses__item-photo"><img src="images/courses/6.jpg"></div>
+                                    <h3 class="courses__item-title">Профессия <br> Python-разработчик</h3>
+                                    <ul class="courses__item-list">
+                                        <li class="courses__item-list__flex"><div class="courses__item-list__icon"><img src="images/icons/location.svg" alt=""></div> Москва</li>
+                                        <li>
+                                            <a href="geekbrains.by" class="courses__item-list__flex">
+                                                <div class="courses__item-list__icon"><img src="images/icons/global.svg" alt=""></div>
+                                                geekbrains.by
+                                            </a>    
+                                        </li>
+                                    </ul>
+                                    <ul class="courses__item-list">
+                                        <li><span>Длительность:</span> 3 месяца</li>
+                                        <li><span>Формат обучения:</span> онлайн</li>
+                                    </ul>
+                                    <div class="courses__item-price">28 руб./занятие</div>
+
+                                    <div class="courses__item-rev">
+                                        <div class="rating courses__item-rating">
+                                            <span class="active"></span>	
+                                            <span class="active"></span>    
+                                            <span class="active"></span>  
+                                            <span class="active"></span>    
+                                            <span class=""></span>
+                                        </div>
+
+                                        <span class="nowrap">5 отзывов</span>
+                                    </div>
+
+                                    <div class="courses__item-button">
+                                        <a href="course.html" class="btn w-all">Подробнее</a>
+                                    </div>
+                                </div>    <!--courses__item-->
+                            </div>
+                                
+                            <div class="swiper-slide">   
+                                <div class="courses__item">
+                                    <div class="courses__item-photo"><img src="images/courses/1.jpg"></div>
+                                    <h3 class="courses__item-title">Профессия <br> Data Scientist</h3>
+                                    <ul class="courses__item-list">
+                                        <li class="courses__item-list__flex"><div class="courses__item-list__icon"><img src="images/icons/location.svg" alt=""></div> Москва</li>
+                                        <li>
+                                            <a href="skillfactory.team" class="courses__item-list__flex">
+                                                <div class="courses__item-list__icon"><img src="images/icons/global.svg" alt=""></div>
+                                                skillfactory.team
+                                            </a>    
+                                        </li>
+                                    </ul>
+                                    <ul class="courses__item-list">
+                                        <li><span>Длительность:</span> 8 месяцев</li>
+                                        <li><span>Формат обучения:</span> онлайн</li>
+                                    </ul>
+                                    <div class="courses__item-price">30 руб./занятие</div>
+
+                                    <div class="courses__item-rev">
+                                        <div class="rating courses__item-rating">
+                                            <span class="active"></span>	
+                                            <span class="active"></span>    
+                                            <span class="active"></span>  
+                                            <span class="active"></span>    
+                                            <span class=""></span>
+                                        </div>
+
+                                        <span class="nowrap">12 отзывов</span>
+                                    </div>
+
+                                    <div class="courses__item-button">
+                                        <a href="course.html" class="btn w-all">Подробнее</a>
+                                    </div>
+                                </div>    <!--courses__item-->
+                            </div>
+                                
+                            <div class="swiper-slide">   
+                                <div class="courses__item">
+                                    <div class="courses__item-photo"><img src="images/courses/7.jpg"></div>
+                                    <h3 class="courses__item-title">Профессия <br> Разработчик на Python</h3>
+                                    <ul class="courses__item-list">
+                                        <li class="courses__item-list__flex"><div class="courses__item-list__icon"><img src="images/icons/location.svg" alt=""></div> Москва</li>
+                                        <li>
+                                            <a href="sky.pro" class="courses__item-list__flex">
+                                                <div class="courses__item-list__icon"><img src="images/icons/global.svg" alt=""></div>
+                                                sky.pro
+                                            </a>    
+                                        </li>
+                                    </ul>
+                                    <ul class="courses__item-list">
+                                        <li><span>Длительность:</span> 3 месяца</li>
+                                        <li><span>Формат обучения:</span> онлайн</li>
+                                    </ul>
+                                    <div class="courses__item-price">25 руб./занятие</div>
+
+                                    <div class="courses__item-rev">
+                                        <div class="rating courses__item-rating">
+                                            <span class="active"></span>	
+                                            <span class="active"></span>    
+                                            <span class="active"></span>  
+                                            <span class="active"></span>    
+                                            <span class=""></span>
+                                        </div>
+
+                                        <span class="nowrap">12 отзывов</span>
+                                    </div>
+
+                                    <div class="courses__item-button">
+                                        <a href="course.html" class="btn w-all">Подробнее</a>
+                                    </div>
+                                </div>    <!--courses__item-->
+                            </div>
+                            
+                            <div class="swiper-slide">       
+                                <div class="courses__item">
+                                    <div class="courses__item-photo"><img src="images/courses/6.jpg"></div>
+                                    <h3 class="courses__item-title">Профессия <br> Python-разработчик</h3>
+                                    <ul class="courses__item-list">
+                                        <li class="courses__item-list__flex"><div class="courses__item-list__icon"><img src="images/icons/location.svg" alt=""></div> Москва</li>
+                                        <li>
+                                            <a href="geekbrains.by" class="courses__item-list__flex">
+                                                <div class="courses__item-list__icon"><img src="images/icons/global.svg" alt=""></div>
+                                                geekbrains.by
+                                            </a>    
+                                        </li>
+                                    </ul>
+                                    <ul class="courses__item-list">
+                                        <li><span>Длительность:</span> 3 месяца</li>
+                                        <li><span>Формат обучения:</span> онлайн</li>
+                                    </ul>
+                                    <div class="courses__item-price">28 руб./занятие</div>
+
+                                    <div class="courses__item-rev">
+                                        <div class="rating courses__item-rating">
+                                            <span class="active"></span>	
+                                            <span class="active"></span>    
+                                            <span class="active"></span>  
+                                            <span class="active"></span>    
+                                            <span class=""></span>
+                                        </div>
+
+                                        <span class="nowrap">5 отзывов</span>
+                                    </div>
+
+                                    <div class="courses__item-button">
+                                        <a href="course.html" class="btn w-all">Подробнее</a>
+                                    </div>
+                                </div>    <!--courses__item-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>	
+        </section><!--  -->
+
+        
+        <section class="advantages section__mg">
+            <div class="container">	
+                <div class="section__cols">
+                    <div class="section__head">
+                        <h2 class="section__title">Наши преимущества</h2>
+                    </div>
+
+                    <div class="section__wrap">
+                        <div class="advantages__items">
+                            <div class="advantages__item">
+                                <div class="advantages__item-icon"><img src="images/advantages-icon1.svg" alt=""></div>
+                                <h5 class="advantages__item-title">экономия времени</h5>
+                                <p class="advantages__item-text">Мы добавили множество фильтров, выбрав которые, вы получите только подходящие для вас предложения</p>
+                            </div>
+                            <div class="advantages__item">
+                                <div class="advantages__item-icon"><img src="images/advantages-icon2.svg" alt=""></div>
+                                <h5 class="advantages__item-title">реальный рейтинг и отзывы</h5>
+                                <p class="advantages__item-text">Отзывы и оценки на нашем ресурсе могут оставлять только реальные пользователи</p>
+                            </div>
+                            <div class="advantages__item">
+                                <div class="advantages__item-icon"><img src="images/advantages-icon3.svg" alt=""></div>
+                                <h5 class="advantages__item-title">Возможность сравнить <br> курсы в избранном</h5>
+                                <p class="advantages__item-text">Зарегистрированные пользователи могут добавлять курсы в избранное, где могут выбрать курсы для сравнения</p>
+                            </div>
+                            <div class="advantages__item">
+                                <div class="advantages__item-icon"><img src="images/advantages-icon4.svg" alt=""></div>
+                                <h5 class="advantages__item-title">Дополнительная скидка <span class="nowrap">на курсы</span></h5>
+                                <p class="advantages__item-text">Дополнительный бонус <span class="nowrap">для зарегистрированных</span> пользователей :)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>	
+        </section><!-- advantages -->
+
+        
+        <section class="blog blog--bgtab section__mg">
+            <div class="container">	
+                <div class="blog__wrap section__lr">
+                    <div class="blog__inner">
+
+                        <div class="section__head section__head--cols">
+                            <h2 class="section__title text--white">Блог</h2>
+
+                            <div class="section__head-right hide-tablet-sm">
+                                <a href="blog.html" class="btn btn--bdwhite blog__btn">Все статьи</a>
+                            </div>
+                        </div>
+                        
+                        <div class="blog__carousel blog-carousel swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="blog__item blog__item--white">
+                                        <div class="blog__item-photo"><img src="images/blog/1.jpg" alt=""></div>
+                                        <div class="blog__item-info">
+                                            <h3 class="blog__item-title">6 лучших онлайн-курсов по компьютерным сетям </h3>
+                                            <p class="blog__item-desc">Даже в небольших организациях и учреждениях компьютеры соединены в единую систему, что дает возможность сотрудникам разных отделов оперативно взаимодействовать друг с другом. Функционирование компьютерной сети</p>
+                                            <a href="article.html" class="blog__item-link">ЧИТАТЬ ДАЛЬШЕ</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="blog__item blog__item--white">
+                                        <div class="blog__item-photo"><img src="images/blog/2.jpg" alt=""></div>
+                                        <div class="blog__item-info">
+                                            <h3 class="blog__item-title">Финансист: обзор, зарплата и обучение профессии</h3>
+                                            <p class="blog__item-desc">Исходя из названия профессии, не сложно догадаться, что она предназначена для управления финансовыми средствами</p>
+                                            <a href="article.html" class="blog__item-link">ЧИТАТЬ ДАЛЬШЕ</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="blog__item blog__item--white">
+                                        <div class="blog__item-photo"><img src="images/blog/3.jpg" alt=""></div>
+                                        <div class="blog__item-info">
+                                            <h3 class="blog__item-title">6 лучших онлайн-курсов для руководителей отдела продаж</h3>
+                                            <p class="blog__item-desc">Руководитель отдела продаж – важное и очень значимое для любой торговой организации лицо. От эффективности и результативности управления им подчиненными, от принимаемых решений и разрабатываемых</p>
+                                            <a href="article.html" class="blog__item-link">ЧИТАТЬ ДАЛЬШЕ</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>        
+                        </div><!--blog__items-->
+
+                        
+                        <div class="section__buttons show-tablet-sm">
+                            <a href="blog.html" class="btn btn--bdwhite blog__btn">Все статьи</a>
+                        </div>
+                    </div>
+                </div>
+            </div>	
+        </section><!-- blog -->
+
+        
+        <section class="reviews section__mg">
+            <div class="container">	
+
+                <div class="section__head section__head--cols">
+                    <h2 class="section__title">Отзывы участников курсов</h2>
+
+                    <div class="section__head-right">
+                        <div class="swiper-button-nav">
+                            <div class="swiper-button swiper-button-prev">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19.9987 36.6667C29.2034 36.6667 36.6654 29.2047 36.6654 20C36.6654 10.7953 29.2034 3.33334 19.9987 3.33334C10.794 3.33334 3.33203 10.7953 3.33203 20C3.33203 29.2047 10.794 36.6667 19.9987 36.6667Z" stroke="#7D7D7D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M25.832 20H15.832" stroke="#7D7D7D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M19.168 15L14.168 20L19.168 25" stroke="#7D7D7D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>                            
+                            </div>
+                            <div class="swiper-button swiper-button-next">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19.9987 36.6667C29.2034 36.6667 36.6654 29.2047 36.6654 20C36.6654 10.7953 29.2034 3.33334 19.9987 3.33334C10.794 3.33334 3.33203 10.7953 3.33203 20C3.33203 29.2047 10.794 36.6667 19.9987 36.6667Z" stroke="#7D7D7D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M14.168 20H24.168" stroke="#7D7D7D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M20.832 25L25.832 20L20.832 15" stroke="#7D7D7D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>                            
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+
+                
+                <div class="reviews__items  reviews-slider swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="reviews__item">
+                                <div class="reviews__item-name">Артём</div>
+                                <div class="reviews__item-course">Курс <a href="course.html">«UX дизайнер с нуля до PRO»</a></div>
+                                <div class="reviews__item-rating rating">
+                                    <span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span class=""></span>
+                                </div>
+                                <div class="reviews__item-text">Проходил здесь курс, связанныый с продвижением сайтов, в течении 1,5 месяца. Что можно сказать? Материала очень много, без воды и длительных вступлений, так что в начале было тяжеловато(особенно, с моим тогдашним уровнем знаний), но потом втянулся. Очень большой акцент именно на практические занятия, а не на теорию и это считаю главным достоинством обучения. Оплату можно произвести в рассрочку, чем и воспользовался, когда увидел, что курсы дают результат, а не просто общие термины и вода. Главное, что сейчас имею хороший дополнительный заработок, благодаря тому, что нашёл заказчиков сразу после обучения.</div>
+                                <div class="reviews__item-date">19.06.2022</div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="reviews__item">
+                                <div class="reviews__item-name">Игорь</div>
+                                <div class="reviews__item-course">Профессия  <a href="course.html">«Менеджер проектов»</a></div>
+                                <div class="reviews__item-rating rating">
+                                    <span class="active"></span><span class="active"></span><span class="active"></span><span></span><span class=""></span>
+                                </div>
+                                <div class="reviews__item-text">Максимально доволен пройденным тут обучением. Никакого негатива, разве что курс действительно интенсивный, поэтому пришлось потеть, чтобы всё успеть. :))) Но грех жаловаться, так как я за столь короткий срок хорошо освоил востребованную профессию веб-разработчика. Конечно, еще есть чему учиться и куда стремиться, но база и практика у меня уже имеются, а это самое важное.
+                                    Хочу поблагодарить ребят, которые придумали такой хороший курс. Да, не очень дешево, но я воспользовался возможностью оплатить всё это дело в рассрочку. Круто, что есть такая опция.
+                                    В общем, всех благ, спасибо большое.</div>
+                                <div class="reviews__item-date">12.06.2022</div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="reviews__item">
+                                <div class="reviews__item-name">Владимир</div>
+                                <div class="reviews__item-course">Курс <a href="course.html">«UX дизайнер с нуля до PRO»</a></div>
+                                <div class="reviews__item-rating rating">
+                                    <span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span>
+                                </div>
+                                <div class="reviews__item-text">Проходил здесь курс, связанныый с продвижением сайтов, в течении 1,5 месяца. Что можно сказать? Материала очень много, без воды и длительных вступлений, так что в начале было тяжеловато(особенно, с моим тогдашним уровнем знаний), но потом втянулся. Очень большой акцент именно на практические занятия, а не на теорию и это считаю главным достоинством обучения. Оплату можно произвести в рассрочку, чем и воспользовался, когда увидел, что курсы дают результат, а не просто общие термины и вода. Главное, что сейчас имею хороший дополнительный заработок, благодаря тому, что нашёл заказчиков сразу после обучения.</div>
+                                <div class="reviews__item-date">19.06.2022</div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="reviews__item">
+                                <div class="reviews__item-name">Игорь</div>
+                                <div class="reviews__item-course">Профессия  <a href="course.html">«Менеджер проектов»</a></div>
+                                <div class="reviews__item-rating rating">
+                                    <span class="active"></span><span class="active"></span><span class="active"></span><span></span><span class=""></span>
+                                </div>
+                                <div class="reviews__item-text">Максимально доволен пройденным тут обучением. Никакого негатива, разве что курс действительно интенсивный, поэтому пришлось потеть, чтобы всё успеть. :))) Но грех жаловаться, так как я за столь короткий срок хорошо освоил востребованную профессию веб-разработчика. Конечно, еще есть чему учиться и куда стремиться, но база и практика у меня уже имеются, а это самое важное.</div>
+                                <div class="reviews__item-date">12.06.2022</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div><!--reviews__items-->
+            </div>	
+        </section><!-- reviews -->
+
+        
+        @@include('html/ordform.html', {
+            "bg_class": ""
+        })
+
+        
+        <section class="faq section__mg">
+            <div class="container">	
+                <div class="section__cols">
+                    <div class="section__head">
+                        <h2 class="section__title">Часто задаваемые вопросы</h2>
+                        <p class="section__intro">Мы попытались ответить<br> на часто задаваемые вопросы</p>
+                    </div>
+
+                    <div class="section__wrap">
+                        <div class="faq__items">
+                            <div class="faq__item accord">
+                                <div class="faq__item-head accord-toggle">
+                                    <div class="faq__item-title">Чем ваши курсы лучше, чем другие?</div>
+                                    <div class="faq__item-drop"></div>
+                                </div>
+                                <div class="faq__item-body accord-body">
+                                    <p>Лучше всего совмещать или чередовать оба формата.</p>
+                                    <p>Индивидуальные занятия предпочтительны на первом этапе, когда нужно поставить произношение или выровнять перекосы в языковых компетенциях.
+                                        Когда начальная база набрана, разговориться поможет группа.</p>
+                                    <p>На самых высоких уровнях по шкале CEFR снова эффективнее индивидуальный формат, так как каждому нужно отшлифовать свои аспекты языка.</p>
+                                    <p>На пробном уроке вы поймете, какой формат больше подойдет в вашей ситуации.</p>
+                                </div>
+                            </div>
+                            <div class="faq__item accord">
+                                <div class="faq__item-head accord-toggle">
+                                    <div class="faq__item-title">За какой срок можно выучить английский язык с нуля?</div>
+                                    <div class="faq__item-drop"></div>
+                                </div>
+                                <div class="faq__item-body accord-body">
+                                    <p>На самых высоких уровнях по шкале CEFR снова эффективнее индивидуальный формат, так как каждому нужно отшлифовать свои аспекты языка.</p>
+                                    <p>На пробном уроке вы поймете, какой формат больше подойдет в вашей ситуации.</p>
+                                </div>
+                            </div>
+                            <div class="faq__item accord">
+                                <div class="faq__item-head accord-toggle">
+                                    <div class="faq__item-title">Есть ли возможность оценить мой уровень знаний заочно?</div>
+                                    <div class="faq__item-drop"></div>
+                                </div>
+                                <div class="faq__item-body accord-body">
+                                    <p>Лучше всего совмещать или чередовать оба формата.</p>
+                                    <p>Индивидуальные занятия предпочтительны на первом этапе, когда нужно поставить произношение или выровнять перекосы в языковых компетенциях.
+                                        Когда начальная база набрана, разговориться поможет группа.</p>
+                                </div>
+                            </div>
+                            <div class="faq__item accord">
+                                <div class="faq__item-head accord-toggle">
+                                    <div class="faq__item-title">Как лучше заниматься: индивидуально или в группе?</div>
+                                    <div class="faq__item-drop"></div>
+                                </div>
+                                <div class="faq__item-body accord-body">
+                                    <p>Лучше всего совмещать или чередовать оба формата.</p>
+                                    <p>Индивидуальные занятия предпочтительны на первом этапе, когда нужно поставить произношение или выровнять перекосы в языковых компетенциях.
+                                        Когда начальная база набрана, разговориться поможет группа.</p>
+                                    <p>На самых высоких уровнях по шкале CEFR снова эффективнее индивидуальный формат, так как каждому нужно отшлифовать свои аспекты языка.</p>
+                                    <p>На пробном уроке вы поймете, какой формат больше подойдет в вашей ситуации.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>	
+        </section><!--  -->
+
+        
+
+	</main><!--content__wrapper-->
+
+    @@include('html/footer.html', {
+        "active_menu": "main"
+    })
+
+</section>
+
+@@include('html/popup.html', {})
+    
+</body>
+</html>

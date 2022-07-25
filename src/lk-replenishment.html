@@ -1,0 +1,152 @@
+@@include('html/head.html', {
+    "title": "Мой профиль"
+})
+
+<section class="wrapper" id="top">
+
+    @@include('html/header.html', {
+        "active_menu": "profile",
+        "auth": "user_auth"
+    })
+    
+    <main class="content__wrapper">
+        
+        <div class="lknav">
+            <div class="container">
+                <div class="lknav__list lknav__list--mw">
+                    <ul>
+                        <li class="active"><a href="lk-profile.html" class="lknav__list-item">
+                            <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.53846C6.14717 1.53846 4.64516 3.03085 4.64516 4.8718C4.64516 6.71274 6.14717 8.20513 8 8.20513C9.85283 8.20513 11.3548 6.71274 11.3548 4.8718C11.3548 3.03085 9.85283 1.53846 8 1.53846ZM3.09677 4.8718C3.09677 2.18118 5.29202 0 8 0C10.708 0 12.9032 2.18118 12.9032 4.8718C12.9032 7.56241 10.708 9.74359 8 9.74359C5.29202 9.74359 3.09677 7.56241 3.09677 4.8718Z" fill="#7D7D7D" class="fill"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.46618 13.3333C3.30244 13.3333 1.54839 15.0761 1.54839 17.226C1.54839 17.3389 1.56915 17.4186 1.59092 17.465C1.60929 17.5041 1.62506 17.5153 1.63821 17.5224C2.23987 17.8477 3.92682 18.4615 8 18.4615C12.0732 18.4615 13.7601 17.8477 14.3618 17.5224C14.3749 17.5153 14.3907 17.5041 14.4091 17.465C14.4308 17.4186 14.4516 17.3389 14.4516 17.226C14.4516 15.0761 12.6976 13.3333 10.5338 13.3333H5.46618ZM0 17.226C0 14.2265 2.44729 11.7949 5.46618 11.7949H10.5338C13.5527 11.7949 16 14.2265 16 17.226C16 17.7766 15.7994 18.4966 15.1019 18.8737C14.1779 19.3733 12.1959 20 8 20C3.80414 20 1.82206 19.3733 0.898118 18.8737C0.200634 18.4966 0 17.7766 0 17.226Z" fill="#7D7D7D" class="fill"/>
+                            </svg>                                
+                            <span>Мой профиль</span>
+                        </a></li>
+
+                        <li class="lknav__list-exit">
+                            <a href="" class="lknav__list-item">
+                                <svg width="60" height="56" viewBox="0 0 60 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M26.8999 23.5602C27.2099 19.9602 29.0599 18.4902 33.1099 18.4902H33.2399C37.7099 18.4902 39.4999 20.2802 39.4999 24.7502V31.2702C39.4999 35.7402 37.7099 37.5302 33.2399 37.5302H33.1099C29.0899 37.5302 27.2399 36.0802 26.9099 32.5402" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M33.0001 28H21.6201" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M23.85 24.6499L20.5 27.9999L23.85 31.3499" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <rect x="0.75" y="0.75" width="58.5" height="54.5" rx="9.25" stroke="#7D7D7D" stroke-width="1.5"/>
+                                </svg>                                    
+                            </a>
+                        </li>
+                    </ul>
+                </div>     
+            </div>
+        </div>
+        
+        
+        <section class="lk replen section__mgb">
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Мой профиль</h2>
+                </div>
+
+                <div class="lk__nav">
+                    <ul>
+                        <li class="active">Пополнение кабинетов школ</li>
+                        <li><a href="lk-analitics.html">Аналитика</a></li>
+                    </ul>
+                </div>
+
+                <form action="" class="replen__action">
+                    <input type="text" class="input w-270" name="unp" placeholder="УНП">
+                    <input type="text" class="input" name="summ" placeholder="Сумма">
+                    <button class="btn w-all">Пополнить</button>
+                </form>
+
+                <div class="replen__filter">
+                    <div class="replen__search">
+                        <form action="" class="search__form">
+                            <input type="text" class="input search__input" placeholder="Поиск по УНП">
+                            <input type="submit" value="" class="search__btn">
+                        </form>
+                    </div>
+                        
+                    <div class="replen__dates">
+                        <div class="replen__dates-item">
+                            <input type="text" placeholder="Дата с" class="input input--date datepicker-input">
+                        </div>
+                        <div class="replen__dates-item">
+                            <input type="text" placeholder="Дата по" class="input input--date datepicker-input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="replen__item">
+                    <div class="replen__item-col replen__item-number">248623876</div>
+                    <div class="replen__item-col replen__item-date">
+                        <div class="replen__item-label show-tablet-sm">Дата пополнения</div>
+                         07.07.2022
+                    </div>
+                    <div class="replen__item-col replen__item-price">
+                        <div class="replen__item-label show-tablet-sm">Сумма</div>
+                        1000 руб.
+                    </div>
+                </div>
+                <div class="replen__item">
+                    <div class="replen__item-col replen__item-number">191258987</div>
+                    <div class="replen__item-col replen__item-date">
+                        <div class="replen__item-label show-tablet-sm">Дата пополнения</div>
+                        14.06.2022
+                    </div>
+                    <div class="replen__item-col replen__item-price">
+                        <div class="replen__item-label show-tablet-sm">Сумма</div>
+                        140 руб.
+                    </div>
+                </div>
+                <div class="replen__item">
+                    <div class="replen__item-col replen__item-number">175248963</div>
+                    <div class="replen__item-col replen__item-date">
+                        <div class="replen__item-label show-tablet-sm">Дата пополнения</div>
+                        22.05.2022
+                    </div>
+                    <div class="replen__item-col replen__item-price">
+                        <div class="replen__item-label show-tablet-sm">Сумма</div>
+                        80 руб.
+                    </div>
+                </div>
+                <div class="replen__item">
+                    <div class="replen__item-col replen__item-number">125478663</div>
+                    <div class="replen__item-col replen__item-date">
+                        <div class="replen__item-label show-tablet-sm">Дата пополнения</div>
+                        15.05.2022
+                    </div>
+                    <div class="replen__item-col replen__item-price">
+                        <div class="replen__item-label show-tablet-sm">Сумма</div>
+                        250 руб.
+                    </div>
+                </div>
+                <div class="replen__item">
+                    <div class="replen__item-col replen__item-number">125588796</div>
+                    <div class="replen__item-col replen__item-date">
+                        <div class="replen__item-label show-tablet-sm">Дата пополнения</div>
+                        11.05.2022
+                    </div>
+                    <div class="replen__item-col replen__item-price">
+                        <div class="replen__item-label show-tablet-sm">Сумма</div>
+                        200 руб.
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- lk -->
+
+
+        
+
+	</main><!--content__wrapper-->
+
+    @@include('html/footer.html', {
+        "active_menu": "profile"
+    })
+
+</section>
+
+@@include('html/popup.html', {})
+    
+</body>
+</html>

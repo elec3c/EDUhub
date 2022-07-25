@@ -1,0 +1,94 @@
+@@include('html/head.html', {
+    "title": "Мой профиль"
+})
+
+<section class="wrapper" id="top">
+
+    @@include('html/header.html', {
+        "active_menu": "profile",
+        "auth": "user_auth"
+    })
+    
+    <main class="content__wrapper">
+
+
+        @@include('html/lknav.html', {
+            "active_menu": "profile",
+            "type": "user"
+        })
+
+        <section class="lk section__mgb">
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Мой профиль</h2>
+                </div>
+
+                <div class="lk__profile">
+                    <div class="lk__profile-form lk__profile-form--mw">
+                        <div class="form__title lk__profile-title">Личные данные</div>
+                        <form action="" method="post">
+                            <input name="controll" class="no-display" type="text">
+                            <div class="input__row">
+                                <input type="text" name="login" class="input" placeholder="Логин">
+                            </div>   
+                            <div class="input__row">
+                                <input type="text" name="email" class="input" placeholder="Электронная почта">
+                            </div>    
+                            <div class="input__row">
+                                <input type="text" name="name" class="input" placeholder="Имя">
+                            </div>   
+                            <div class="input__row">
+                                <input type="tel" name="phone" class="input phone-mask" placeholder="Телефон">
+                            </div>
+                            <div class="input__row">
+                                <input type="text" name="telegram" class="input" placeholder="Ник в телеграм">
+                            </div>  
+
+                            <button class="btn w-all">Сохранить</button>
+                        </form>
+                    </div>
+                    
+                    <div class="lk__profile-form lk__profile-form--mw">
+                        <div class="form__title lk__profile-title">Смена пароля</div>
+                        <form action="" method="post">
+                            <input name="controll" class="no-display" type="text">
+                            
+							<div class="input__row">
+								<input type="password" name="password" class="input" placeholder="Текущий пароль">
+								<button class="btn__eye pass-view"></button>
+							</div>  
+                            <div class="input__row input__row--link">
+                                <a href="" class="link" data-open-popup="password">Не помню пароль</a>
+                            </div>
+
+							<div class="input__row">
+								<input type="password" name="password_new" class="input" placeholder="Новый пароль">
+								<button class="btn__eye pass-view"></button>
+							</div>  
+							<div class="input__row">
+								<input type="password" name="password_new2" class="input" placeholder="Повторите новый пароль">
+								<button class="btn__eye pass-view"></button>
+							</div>  
+
+                            <button class="btn w-all">Сохранить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section><!-- lk -->
+
+
+        
+
+	</main><!--content__wrapper-->
+
+    @@include('html/footer.html', {
+        "active_menu": "profile"
+    })
+
+</section>
+
+@@include('html/popup.html', {})
+    
+</body>
+</html>

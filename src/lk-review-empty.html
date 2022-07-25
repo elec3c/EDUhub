@@ -1,0 +1,45 @@
+@@include('html/head.html', {
+    "title": "Отзывы"
+})
+
+<section class="wrapper" id="top">
+
+    @@include('html/header.html', {
+        "active_menu": "profile",
+        "auth": "user_auth"
+    })
+    
+    <main class="content__wrapper">
+
+
+        @@include('html/lknav.html', {
+            "active_menu": "review",
+            "type": "user"
+        })
+
+        <section class="lk reviews section__mgb">
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Отзывы</h2>
+                </div>
+
+                <p class="section__intro">Вы еще не оставляли ни одного отзыва</p>
+
+            </div>
+        </section><!-- lk -->
+
+
+        
+
+	</main><!--content__wrapper-->
+
+    @@include('html/footer.html', {
+        "active_menu": "profile"
+    })
+
+</section>
+
+@@include('html/popup.html', {})
+    
+</body>
+</html>

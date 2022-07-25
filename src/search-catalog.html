@@ -1,0 +1,483 @@
+@@include('html/head.html', {
+    "title": "Главная"
+})
+
+<section class="wrapper" id="top">
+
+    @@include('html/header.html', {
+        "active_menu": "search",
+        "auth": "user"
+    })
+    
+    <main class="content__wrapper">
+
+        <section class="choose section__mg-sm" id="choose">
+            <div class="container">
+                <div class="choose__title">Результат поиска: <span class="text--orange">найдено 20 курсов по запросу <br> «IT-курсов программирование»</span></div>
+                <form action="" class="hide-tablet-sm"">
+                    <div class="choose__inputs choose__search">
+                        <div class="choose__inputs-item">
+                            <select name="category" data-placeholder="Категория курса" class="styler">
+                                <option value=""></option>
+                                <option value="Python">Python</option>
+                                <option value="Java">Java</option>
+                                <option value="JavaScript">JavaScript</option>
+                                <option value="C++">C++</option>
+                            </select>
+                        </div>
+                        <div class="choose__inputs-item">
+                            <select name="sub_category" data-placeholder="Подкатегория курса" class="styler">
+                                <option value=""></option>
+                                <option value="Python">Python</option>
+                                <option value="Java">Java</option>
+                                <option value="JavaScript">JavaScript</option>
+                                <option value="C++">C++</option>
+                            </select>
+                        </div>
+                        <div class="choose__inputs-item">
+                            <select name="level" data-placeholder="Уровень" class="styler">
+                                <option value=""></option>
+                                <option value="Python">Python</option>
+                                <option value="Java">Java</option>
+                                <option value="JavaScript">JavaScript</option>
+                                <option value="C++">C++</option>
+                            </select>
+                        </div>
+                        <div class="choose__inputs-item">
+                            <select name="age" data-placeholder="Возраст" class="styler">
+                                <option value=""></option>
+                                <option value="14-17">14-17</option>
+                                <option value="18-25">18-25</option>
+                                <option value="25-35">25-35</option>
+                            </select>
+                        </div>
+                        <div class="choose__inputs-item">
+                            <select name="form" data-placeholder="Форма обучения" class="styler">
+                                <option value=""></option>
+                                <option value="очное">очное</option>
+                                <option value="онлайн">онлайн</option>
+                            </select>
+                        </div>
+                        <div class="choose__inputs-item">
+                            <select name="time" data-placeholder="Время обучения" class="styler">
+                                <option value=""></option>
+                                <option value="10-14">10-14</option>
+                                <option value="15-20">15-20</option>
+                            </select>
+                        </div>
+                        <div class="choose__inputs-item">
+                            <select name="days" data-placeholder="Дни занятий" class="styler">
+                                <option value=""></option>
+                                <option value="пн-пт">пн-пт</option>
+                                <option value="сб-вс">сб-вс</option>
+                            </select>
+                        </div>
+                        <div class="choose__inputs-item">
+                            <select name="format" data-placeholder="Формат обучения" class="styler">
+                                <option value=""></option>
+                                <option value="Формат обучения 1">Формат обучения 1</option>
+                                <option value="Формат обучения 2">Формат обучения 2</option>
+                                <option value="Формат обучения 3">Формат обучения 3</option>
+                            </select>
+                        </div>
+                    
+                        <div class="choose__inputs-item">
+                            <select name="city" data-placeholder="Город" class="styler">
+                                <option value=""></option>
+                                <option value="Брест">Брест</option>
+                                <option value="Минск">Минск</option>
+                                <option value="Москва">Москва</option>
+                            </select>
+                        </div>
+                        <div class="choose__inputs-item">
+                            <select name="region" data-placeholder="Район" class="styler">
+                                <option value=""></option>
+                                <option value="Район 1">Район 1</option>
+                                <option value="Район 2">Район 2</option>
+                                <option value="Район 3">Район 3</option>
+                            </select>
+                        </div>
+                        <div class="choose__inputs-item">
+                            <select name="metro" data-placeholder="Метро" class="styler">
+                                <option value=""></option>
+                                <option value="Молодёжная">Молодёжная</option>
+                                <option value="Немига">Немига</option>
+                                <option value="Пушкинская">Пушкинская</option>
+                            </select>
+                        </div>
+                        <div class="choose__inputs-item">
+                            <input type="text" placeholder="Дата с" class="input  input--date datepicker-input">
+                        </div>
+                    </div>    
+                </form>  
+                
+                                
+                <form action="" class="show-tablet-sm choose-filters">
+                    
+                    <div class="choose__inputs-item">
+                        <select name="category" data-placeholder="Категория курса" class="styler">
+                            <option value=""></option>
+                            <option value="Python">Python</option>
+                            <option value="Java">Java</option>
+                            <option value="JavaScript">JavaScript</option>
+                            <option value="C++">C++</option>
+                        </select>
+                    </div>
+                    <div class="choose__inputs-item">
+                        <select name="sub_category" data-placeholder="Подкатегория курса" class="styler">
+                            <option value=""></option>
+                            <option value="Python">Python</option>
+                            <option value="Java">Java</option>
+                            <option value="JavaScript">JavaScript</option>
+                            <option value="C++">C++</option>
+                        </select>
+                    </div>
+                    <div class="choose__inputs-item">
+                        <select name="level" data-placeholder="Уровень" class="styler">
+                            <option value=""></option>
+                            <option value="Python">Python</option>
+                            <option value="Java">Java</option>
+                            <option value="JavaScript">JavaScript</option>
+                            <option value="C++">C++</option>
+                        </select>
+                    </div>
+                            
+                    <a href="#" class="choose__inputs-more choose-more-filters">
+                        <span class="t-opened">Еще фильтры</span>
+                        <span class="t-closed">Свернуть фильтры</span>
+                        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.75 0.75L5 5.25L9.25 0.75" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>                                        
+                    </a>
+                    <div class="choose__inputs-dopf choose-dopf-filters">
+                        <div class="choose__inputs-item">
+                            <select name="age" data-placeholder="Возраст" class="styler">
+                                <option value=""></option>
+                                <option value="14-17">14-17</option>
+                                <option value="18-25">18-25</option>
+                                <option value="25-35">25-35</option>
+                            </select>
+                        </div>
+                        <div class="choose__inputs-item">
+                            <select name="form" data-placeholder="Форма обучения" class="styler">
+                                <option value=""></option>
+                                <option value="очное">очное</option>
+                                <option value="онлайн">онлайн</option>
+                            </select>
+                        </div>
+                        <div class="choose__inputs-item">
+                            <select name="time" data-placeholder="Время обучения" class="styler">
+                                <option value=""></option>
+                                <option value="10-14">10-14</option>
+                                <option value="15-20">15-20</option>
+                            </select>
+                        </div>
+                        <div class="choose__inputs-item">
+                            <select name="days" data-placeholder="Дни занятий" class="styler">
+                                <option value=""></option>
+                                <option value="пн-пт">пн-пт</option>
+                                <option value="сб-вс">сб-вс</option>
+                            </select>
+                        </div>
+                        <div class="choose__inputs-item">
+                            <select name="format" data-placeholder="Формат обучения" class="styler">
+                                <option value=""></option>
+                                <option value="Формат обучения 1">Формат обучения 1</option>
+                                <option value="Формат обучения 2">Формат обучения 2</option>
+                                <option value="Формат обучения 3">Формат обучения 3</option>
+                            </select>
+                        </div>
+                    
+                        <div class="choose__inputs-item">
+                            <select name="city" data-placeholder="Город" class="styler">
+                                <option value=""></option>
+                                <option value="Брест">Брест</option>
+                                <option value="Минск">Минск</option>
+                                <option value="Москва">Москва</option>
+                            </select>
+                        </div>
+                        <div class="choose__inputs-item">
+                            <select name="region" data-placeholder="Район" class="styler">
+                                <option value=""></option>
+                                <option value="Район 1">Район 1</option>
+                                <option value="Район 2">Район 2</option>
+                                <option value="Район 3">Район 3</option>
+                            </select>
+                        </div>
+                        <div class="choose__inputs-item">
+                            <select name="metro" data-placeholder="Метро" class="styler">
+                                <option value=""></option>
+                                <option value="Молодёжная">Молодёжная</option>
+                                <option value="Немига">Немига</option>
+                                <option value="Пушкинская">Пушкинская</option>
+                            </select>
+                        </div>
+                        <div class="choose__inputs-item">
+                            <input type="text" placeholder="Дата с" class="input  input--date datepicker-input">
+                        </div>
+                    </div>    
+                </form>  
+            </div>
+        </section><!-- choose -->
+
+        
+        <section class="skillbox section__mg--sm">
+            <div class="container">	
+                <div class="skillbox__wrap section__lr">
+                    <div class="skillbox__inner">
+                        <img src="images/skillbox-img.jpg" alt="" class="skillbox__photo">
+
+                        <div class="skillbox__info">
+                            <div class="skillbox__logo"><img src="images/skillbox-logo.svg" alt=""></div>
+                            <div class="skillbox__title">Востребованные IT‑профессии</div>
+                            <div class="skillbox__desc">Топовые курсы для старта в IT. <br> Вы сможете стать специалистом с нуля, собрать портфолио и начать карьеру через несколько месяцев.</div>
+                            
+                            <div class="skillbox__buttons">
+                                <button class="btn skillbox__btn" data-scroll="">Подобрать курс</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>	
+        </section><!-- skillbox -->
+        
+
+
+        <section class="courses section__mg--sm">
+            <div class="container">	
+                <div class="courses__block">
+                    <div class="courses__block-content">
+                        <div class="courses__block-head">
+                            <div class="courses__block-photo">
+                                <div class="courses__block-photo__wrap"><img src="images/courses/3.jpg" alt=""></div> 
+                            </div>
+                            <div class="courses__block-info">
+                                <h3 class="courses__block-title"><a href="">Профессия Python-разработчик</a></h3>
+                                <ul class="courses__block-list listinf">
+                                    <li class="courses__block-training online">Online-обучение</li>
+                                    <li class="listinf__flex">
+                                        <div class="listinf__icon"><img src="images/icons/location.svg" alt=""></div> 
+                                        <div class="listinf__str">Москва</div>
+                                    </li>
+                                    <li>
+                                        <a href="skillbox.ru" class="listinf__flex">
+                                            <div class="listinf__icon"><img src="images/icons/global.svg" alt=""></div>
+                                            <div class="listinf__str">skillbox.ru</div>
+                                        </a>    
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="courses__block-text">Этот специалист мультиинструментален. он умеет создавать любой визуальный контент: от печатной продукции до макета сайта. Фундаментальная программа позволит не просто начать путь в востребованную профессию, а получить все знания и навыки для быстрого развития в ней: от junior до senior-дизайнера. На протяжении всего обучения вы будете оттачивать навыки и повышать свою ценность для индустрии дизайна. Занятия удобно совмещать с работой или учебой в ВУЗе. Если вам потребуется пауза, можно заморозить прогресс.</div>
+                    </div>
+
+                    <div class="courses__block-aside">
+                        <div class="courses__block-props">
+                            <div class="courses__block-props__row">
+                                <div class="courses__block-props__item">
+                                    <div class="courses__block-props__numb">3</div>
+                                    месяца
+                                </div>
+                                <div class="courses__block-props__item">
+                                    <div class="courses__block-props__numb">750</div>
+                                    стоимость курса
+                                </div>
+                            </div>
+                            <div class="courses__block-props__row">
+                                <div class="courses__block-props__item">
+                                    <div class="courses__block-props__numb">3</div>
+                                    занятия <br> в неделю
+                                </div>
+                                <div class="courses__block-props__item">
+                                    <div class="courses__block-props__numb">31,25</div>
+                                    стоимость занятия
+                                </div>
+                            </div>
+                            <div class="courses__block-props__row">
+                                <div class="courses__block-props__item">
+                                    <div class="courses__block-props__numb">8</div>
+                                    человек <br> в группе
+                                </div>
+                                <div class="courses__block-props__item">
+                                    <div class="courses__block-props__numb">80 мин</div>
+                                    длительность занятия
+                                </div>
+                            </div>
+                        </div>
+                        <div class="courses__block-buttons btns_cfs">
+                            <button class="btn w-all" data-open-popup="call">Заказать звонок</button>
+
+                            <button class="btn btn--favour">
+                                <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.62 18.81C11.28 18.93 10.72 18.93 10.38 18.81C7.48 17.82 1 13.69 1 6.68998C1 3.59998 3.49 1.09998 6.56 1.09998C8.38 1.09998 9.99 1.97998 11 3.33998C12.01 1.97998 13.63 1.09998 15.44 1.09998C18.51 1.09998 21 3.59998 21 6.68998C21 13.69 14.52 17.82 11.62 18.81Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>                                    
+                            </button>
+
+                            <button class="btn btn--bdpurple" data-open-popup="auth_sale">Получить скидку</button>
+                        </div>
+                    </div>
+
+                    <div class="courses__block-dop">
+                        <a href="" class="courses__block-ditem">
+                            <div class="courses__block-ditem__icon">
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.71094 18.0875L17.8859 9.91251" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10.225 11.9625C11.0742 11.9625 11.7625 11.2742 11.7625 10.425C11.7625 9.57589 11.0742 8.88751 10.225 8.88751C9.37588 8.88751 8.6875 9.57589 8.6875 10.425C8.6875 11.2742 9.37588 11.9625 10.225 11.9625Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M18.4008 19.1125C19.2499 19.1125 19.9383 18.4241 19.9383 17.575C19.9383 16.7258 19.2499 16.0375 18.4008 16.0375C17.5516 16.0375 16.8633 16.7258 16.8633 17.575C16.8633 18.4241 17.5516 19.1125 18.4008 19.1125Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M14 26.5C20.9036 26.5 26.5 20.9036 26.5 14C26.5 7.09644 20.9036 1.5 14 1.5C7.09644 1.5 1.5 7.09644 1.5 14C1.5 20.9036 7.09644 26.5 14 26.5Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>                                    
+                            </div>
+                            <div class="courses__block-ditem__t">15 % скидка</div>
+                        </a>
+                        <a href="" class="courses__block-ditem courses__block-ditem--rate">
+                            <div class="courses__block-ditem__icon">
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.1612 3.38749L18.3612 7.78749C18.6612 8.39999 19.4612 8.98749 20.1362 9.09999L24.1237 9.76249C26.6737 10.1875 27.2737 12.0375 25.4362 13.8625L22.3362 16.9625C21.8112 17.4875 21.5237 18.5 21.6862 19.225L22.5737 23.0625C23.2737 26.1 21.6612 27.275 18.9737 25.6875L15.2362 23.475C14.5612 23.075 13.4487 23.075 12.7612 23.475L9.02367 25.6875C6.34867 27.275 4.72367 26.0875 5.42367 23.0625L6.31117 19.225C6.47367 18.5 6.18617 17.4875 5.66117 16.9625L2.56117 13.8625C0.736166 12.0375 1.32367 10.1875 3.87367 9.76249L7.86117 9.09999C8.52367 8.98749 9.32367 8.39999 9.62367 7.78749L11.8237 3.38749C13.0237 0.999988 14.9737 0.999988 16.1612 3.38749Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>                                    
+                            </div>
+                            <div class="courses__block-ditem__t">26 оценок</div>
+                        </a>
+                        <a href="" class="courses__block-ditem courses__block-ditem--rev">
+                            <div class="courses__block-ditem__icon">
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.625 22.75H9C4 22.75 1.5 21.5 1.5 15.25V9C1.5 4 4 1.5 9 1.5H19C24 1.5 26.5 4 26.5 9V15.25C26.5 20.25 24 22.75 19 22.75H18.375C17.9875 22.75 17.6125 22.9375 17.375 23.25L15.5 25.75C14.675 26.85 13.325 26.85 12.5 25.75L10.625 23.25C10.425 22.975 9.9625 22.75 9.625 22.75Z" stroke="#19191B" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M18.997 12.75H19.0083" stroke="#19191B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M13.9931 12.75H14.0044" stroke="#19191B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8.99313 12.75H9.00436" stroke="#19191B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>                                    
+                            </div>
+                            <div class="courses__block-ditem__t">7 отзывов</div>
+                        </a>
+                    </div>
+                </div>
+
+                
+                <div class="courses__block">
+                    <div class="courses__block-content">
+                        <div class="courses__block-head">
+                            <div class="courses__block-photo">
+                                <div class="courses__block-photo__wrap"><img src="images/courses/3.jpg" alt=""></div> 
+                            </div>
+                            <div class="courses__block-info">
+                                <h3 class="courses__block-title"><a href="">Факультет Продакт-менеджмента</a></h3>
+                                <ul class="courses__block-list listinf">
+                                    <li class="courses__block-training offline">Offline-обучение</li>
+                                    <li class="listinf__flex">
+                                        <div class="listinf__icon"><img src="images/icons/location.svg" alt=""></div> 
+                                        <div class="listinf__str">Минск, ул. Толбухина, 2, пом. 19</div>
+                                    </li>
+                                    <li>
+                                        <a href="skillbox.ru" class="listinf__flex">
+                                            <div class="listinf__icon"><img src="images/icons/global.svg" alt=""></div>
+                                            <div class="listinf__str">skillbox.ru</div>
+                                        </a>    
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="courses__block-text">На Python пишут веб-приложения и нейросети, проводят научные вычисления и автоматизируют процессы. Язык просто выучить, даже если вы никогда не программировали. На курсе вы создадите Telegram-бота, полноценный магазин и задачник для портфолио, а Центр карьеры поможет найти работу Python-разработчиком.</div>
+                    </div>
+
+                    <div class="courses__block-aside">
+                        <div class="courses__block-props">
+                            <div class="courses__block-props__row">
+                                <div class="courses__block-props__item">
+                                    <div class="courses__block-props__numb">3</div>
+                                    месяца
+                                </div>
+                                <div class="courses__block-props__item">
+                                    <div class="courses__block-props__numb">750</div>
+                                    стоимость курса
+                                </div>
+                            </div>
+                            <div class="courses__block-props__row">
+                                <div class="courses__block-props__item">
+                                    <div class="courses__block-props__numb">3</div>
+                                    занятия <br> в неделю
+                                </div>
+                                <div class="courses__block-props__item">
+                                    <div class="courses__block-props__numb">31,25</div>
+                                    стоимость занятия
+                                </div>
+                            </div>
+                            <div class="courses__block-props__row">
+                                <div class="courses__block-props__item">
+                                    <div class="courses__block-props__numb">8</div>
+                                    человек <br> в группе
+                                </div>
+                                <div class="courses__block-props__item">
+                                    <div class="courses__block-props__numb">80 мин</div>
+                                    длительность занятия
+                                </div>
+                            </div>
+                        </div>
+                        <div class="courses__block-buttons btns_cfs">
+                            <button class="btn w-all" data-open-popup="call">Заказать звонок</button>
+
+                            <button class="btn btn--favour active">
+                                <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.62 18.81C11.28 18.93 10.72 18.93 10.38 18.81C7.48 17.82 1 13.69 1 6.68998C1 3.59998 3.49 1.09998 6.56 1.09998C8.38 1.09998 9.99 1.97998 11 3.33998C12.01 1.97998 13.63 1.09998 15.44 1.09998C18.51 1.09998 21 3.59998 21 6.68998C21 13.69 14.52 17.82 11.62 18.81Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>                                    
+                            </button>
+
+                            <button class="btn btn--bdpurple" data-open-popup="auth_sale">Получить скидку</button>
+                        </div>
+                    </div>
+
+                    <div class="courses__block-dop">
+                        <a href="" class="courses__block-ditem">
+                            <div class="courses__block-ditem__icon">
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.71094 18.0875L17.8859 9.91251" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10.225 11.9625C11.0742 11.9625 11.7625 11.2742 11.7625 10.425C11.7625 9.57589 11.0742 8.88751 10.225 8.88751C9.37588 8.88751 8.6875 9.57589 8.6875 10.425C8.6875 11.2742 9.37588 11.9625 10.225 11.9625Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M18.4008 19.1125C19.2499 19.1125 19.9383 18.4241 19.9383 17.575C19.9383 16.7258 19.2499 16.0375 18.4008 16.0375C17.5516 16.0375 16.8633 16.7258 16.8633 17.575C16.8633 18.4241 17.5516 19.1125 18.4008 19.1125Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M14 26.5C20.9036 26.5 26.5 20.9036 26.5 14C26.5 7.09644 20.9036 1.5 14 1.5C7.09644 1.5 1.5 7.09644 1.5 14C1.5 20.9036 7.09644 26.5 14 26.5Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>                                    
+                            </div>
+                            <div class="courses__block-ditem__t">15 % скидка</div>
+                        </a>
+                        <a href="" class="courses__block-ditem courses__block-ditem--rate">
+                            <div class="courses__block-ditem__icon">
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.1612 3.38749L18.3612 7.78749C18.6612 8.39999 19.4612 8.98749 20.1362 9.09999L24.1237 9.76249C26.6737 10.1875 27.2737 12.0375 25.4362 13.8625L22.3362 16.9625C21.8112 17.4875 21.5237 18.5 21.6862 19.225L22.5737 23.0625C23.2737 26.1 21.6612 27.275 18.9737 25.6875L15.2362 23.475C14.5612 23.075 13.4487 23.075 12.7612 23.475L9.02367 25.6875C6.34867 27.275 4.72367 26.0875 5.42367 23.0625L6.31117 19.225C6.47367 18.5 6.18617 17.4875 5.66117 16.9625L2.56117 13.8625C0.736166 12.0375 1.32367 10.1875 3.87367 9.76249L7.86117 9.09999C8.52367 8.98749 9.32367 8.39999 9.62367 7.78749L11.8237 3.38749C13.0237 0.999988 14.9737 0.999988 16.1612 3.38749Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>                                    
+                            </div>
+                            <div class="courses__block-ditem__t">26 оценок</div>
+                        </a>
+                        <a href="" class="courses__block-ditem courses__block-ditem--rev">
+                            <div class="courses__block-ditem__icon">
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.625 22.75H9C4 22.75 1.5 21.5 1.5 15.25V9C1.5 4 4 1.5 9 1.5H19C24 1.5 26.5 4 26.5 9V15.25C26.5 20.25 24 22.75 19 22.75H18.375C17.9875 22.75 17.6125 22.9375 17.375 23.25L15.5 25.75C14.675 26.85 13.325 26.85 12.5 25.75L10.625 23.25C10.425 22.975 9.9625 22.75 9.625 22.75Z" stroke="#19191B" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M18.997 12.75H19.0083" stroke="#19191B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M13.9931 12.75H14.0044" stroke="#19191B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8.99313 12.75H9.00436" stroke="#19191B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>                                    
+                            </div>
+                            <div class="courses__block-ditem__t">7 отзывов</div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>	
+        </section><!-- courses -->
+
+        
+        @@include('html/ordform.html', {
+            "bg_class": "orange"
+        })
+
+        
+
+	</main><!--content__wrapper-->
+
+    @@include('html/footer.html', {
+        "active_menu": "search"
+    })
+
+</section>
+
+@@include('html/popup.html', {})
+    
+</body>
+</html>
