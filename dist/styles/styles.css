@@ -1378,6 +1378,10 @@ textarea.input.height-lg {
           box-shadow: 0px 1px 3px rgba(19, 10, 46, 0.13), 0px 3px 14px rgba(19, 10, 46, 0.03), 0px 8px 32px rgba(19, 10, 46, 0.07), 0px 34px 84px rgba(19, 10, 46, 0.08);
 }
 
+.jq-selectbox.disabled {
+  cursor: default;
+}
+
 .jq-selectbox__select {
   width: 100%;
   height: 56px;
@@ -1416,6 +1420,10 @@ textarea.input.height-lg {
   white-space: nowrap;
 }
 
+.jq-selectbox.disabled .jq-selectbox__select-text {
+  opacity: 0.5;
+}
+
 .jq-selectbox .placeholder {
   color: #7D7D7D;
 }
@@ -1437,6 +1445,10 @@ textarea.input.height-lg {
   -webkit-transform: rotate(-180deg);
       -ms-transform: rotate(-180deg);
           transform: rotate(-180deg);
+}
+
+.jq-selectbox.disabled .jq-selectbox__trigger {
+  opacity: 0.5;
 }
 
 .jq-selectbox__search {
@@ -5111,19 +5123,32 @@ popup
   }
 }
 
-@media (min-width: 1270px) {
+@media (min-width: 1190px) {
   .show-desktop-sm {
     display: none !important;
   }
 }
 
-@media screen and (max-width: 1369.98px) {
+@media (max-width: 1389.98px) {
+  .section__lr {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+@media screen and (max-width: 1189.98px) {
   .container {
     max-width: 960px;
   }
 }
 
-@media (max-width: 1369.98px) {
+@media (max-width: 1189.98px) {
+  .hide-desktop-sm {
+    display: none !important;
+  }
+
   .section__mg {
     margin: 80px 0;
   }
@@ -5159,13 +5184,6 @@ popup
   .section__lr {
     padding-left: 30px;
     padding-right: 30px;
-  }
-
-  .section__lr {
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 50px;
-    padding-right: 50px;
   }
 
   .header__burger {
@@ -5461,6 +5479,10 @@ popup
     width: 20%;
   }
 
+  .compare__item {
+    width: 270px !important;
+  }
+
   .sale__item-head {
     display: none;
   }
@@ -5563,16 +5585,6 @@ popup
   .reports__block {
     margin-left: 0;
     margin-right: 0;
-  }
-}
-
-@media (max-width: 1269.98px) {
-  .hide-desktop-sm {
-    display: none !important;
-  }
-
-  .compare__item {
-    width: 270px !important;
   }
 }
 
