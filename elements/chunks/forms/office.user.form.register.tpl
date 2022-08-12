@@ -1,0 +1,30 @@
+<form action="" method="post" id="office-auth-register">
+						<div class="reg__cols">
+							<input name="controll" class="no-display" type="text">
+							<div class="input__row">
+								<input type="text" name="username" class="input" placeholder="Логин">
+							</div>     
+							<div class="input__row">
+								<input type="tel" name="mobilephone" class="input phone-mask" placeholder="Телефон">
+							</div>
+							<div class="input__row">
+								<input type="text" name="email" class="input" placeholder="Электронная почта">
+							</div>   
+							<div class="input__row">
+								<input type="password" name="password" class="input" placeholder="Пароль">
+								<button class="btn__eye pass-view"></button>
+							</div>
+							<div class="input__row">
+								<input type="text" name="fullname" class="input" placeholder="Имя">
+							</div>    
+							<input type="hidden" name="group" value="users"/>
+							<input type="hidden" name="action" value="auth/formRegister"/>
+							<button class="btn w-all">Зарегистрироваться</button>
+
+							
+							<label class="form__polit">
+								<input type="checkbox" name="polit" class="styler" required>
+								<span>Ознакомлен с <a href="">публичной офертой</a></span>
+							</label>
+						</div>
+					</form>

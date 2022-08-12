@@ -1,18 +1,18 @@
 import * as nodePath from 'path';
 const rootFolder = nodePath.basename(nodePath.resolve());
 
-const buildFolder = `./dist`;
+const buildFolder = `./html`;
 const srcFolder = `./src`;
 
 export const path = {
     build: {
         html: `${buildFolder}/`,
-        css: `${buildFolder}/styles/`,
-        styles: `${buildFolder}/`,
-        js: `${buildFolder}/js/`,
-        images: `${buildFolder}/images/`,
-        fonts: `${buildFolder}/fonts/`,
-        files: `${buildFolder}/files/`,
+        css: `${buildFolder}/assets/css/`,
+        styles: `${buildFolder}/assets/`,
+        js: `${buildFolder}/assets/js/`,
+        images: `${buildFolder}/assets/images/`,
+        fonts: `${buildFolder}/assets/fonts/`,
+        files: `${buildFolder}/assets/files/`,
         dir_root: `${buildFolder}/`
     },
     src: {

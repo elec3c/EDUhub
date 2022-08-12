@@ -1,0 +1,954 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="ru" class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="ru" class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="ru" class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="ru" class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="ru"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="format-detection" content="address=no"/>
+	
+	<title>Все школы</title>
+	<link href="assets/images/favicon/favicon.ico" type="image/x-icon" rel="icon">
+    <link href="assets/images/favicon/favicon.ico" type="image/x-icon" rel="shortcut icon">  
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-64x64.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+
+  	<meta property="og:title" content="Все школы" />
+	<meta property="og:description" content="">
+	<meta property="og:image" content="assets/images/logo.png" />
+	<meta property="og:url" content="" />  
+
+ 	<!--[if IE]>
+    	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]--> 
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&family=Raleway:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet"> 
+ 
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="preload" href="assets/js/swiper/swiper-bundle.min.css" as="style" onload="this.rel='stylesheet'">
+	<link href="assets/css/styles.min.css" rel="stylesheet">
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="assets/js/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.maskedinput.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.formstyler.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.easing.1.3.js"></script>
+		<script type="text/javascript" src="assets/js/jquery.chained.min.js"></script>
+    <script type="text/javascript" src="assets/js/scripts.js"></script>
+
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
+
+<body>
+
+<section class="wrapper" id="top">
+
+    <header class="header">
+	<div class="container">	
+		<div class="header__wrap">
+			
+			
+				<a href="/" class="header__logo"><img src="assets/images/logo.svg" alt=""></a>
+			
+
+			<a href="#" class="header__linkcat open-category">
+				<span class="hide-tablet-sm">Категории курсов</span>
+				<span class="show-tablet-sm">Курсы</span>
+				<svg class="icon-open" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M0.75 0.75L5 5.25L9.25 0.75" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>			
+				
+				<svg class="icon-close" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M1 1L5.25 5.5L9.5 1" stroke="#9D68F8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M9.5 9.75L5.25 5.25L1 9.75" stroke="#9D68F8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>					
+			</a>
+
+			<div class="search header__search header-search">
+				<form action="" class="search__form header-search-form">
+					<input type="text" class="input search__input" placeholder="Поиск">
+					<input type="submit" value="" class="search__btn">
+				</form>
+				<button class="header__search-open header-search-open"></button>
+			</div>
+
+			
+				<a href="#" class="header__profile" data-open-popup="auth">
+					<svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.53846C6.14717 1.53846 4.64516 3.03085 4.64516 4.8718C4.64516 6.71274 6.14717 8.20513 8 8.20513C9.85283 8.20513 11.3548 6.71274 11.3548 4.8718C11.3548 3.03085 9.85283 1.53846 8 1.53846ZM3.09677 4.8718C3.09677 2.18118 5.29202 0 8 0C10.708 0 12.9032 2.18118 12.9032 4.8718C12.9032 7.56241 10.708 9.74359 8 9.74359C5.29202 9.74359 3.09677 7.56241 3.09677 4.8718Z" fill="#19191B"/>
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M5.46618 13.3333C3.30244 13.3333 1.54839 15.0761 1.54839 17.226C1.54839 17.3389 1.56915 17.4186 1.59092 17.465C1.60929 17.5041 1.62506 17.5153 1.63821 17.5224C2.23987 17.8477 3.92682 18.4615 8 18.4615C12.0732 18.4615 13.7601 17.8477 14.3618 17.5224C14.3749 17.5153 14.3907 17.5041 14.4091 17.465C14.4308 17.4186 14.4516 17.3389 14.4516 17.226C14.4516 15.0761 12.6976 13.3333 10.5338 13.3333H5.46618ZM0 17.226C0 14.2265 2.44729 11.7949 5.46618 11.7949H10.5338C13.5527 11.7949 16 14.2265 16 17.226C16 17.7766 15.7994 18.4966 15.1019 18.8737C14.1779 19.3733 12.1959 20 8 20C3.80414 20 1.82206 19.3733 0.898118 18.8737C0.200634 18.4966 0 17.7766 0 17.226Z" fill="#19191B"/>
+					</svg>			
+					<span>Личный кабинет</span>			
+				</a>
+			
+			
+
+			<a href="" class="btn btn--purple header__btn hide-tablet-sm" data-open-popup="auth_course">Добавить курс</a>
+
+			<a href="#" class="header__burger" id="menu_toggler">
+				<svg width="26" height="18" viewBox="0 0 26 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M1 1H25" stroke="#19191B" stroke-width="2" stroke-linecap="round"/>
+					<path d="M1 9H25" stroke="#19191B" stroke-width="2" stroke-linecap="round"/>
+					<path d="M1 17H25" stroke="#19191B" stroke-width="2" stroke-linecap="round"/>
+				</svg>					
+			</a>
+
+			<!-- <li class=""><a href="works.html">Фото работ</a></li> -->
+		</div>
+	</div>	
+
+	<div class="header__navfix header-navfix">
+		<div class="container">
+			<div class="header__navfix-wrap">
+				<div class="header__navfix-col header__navfix-col--left">
+					
+					
+						<a href="/" class="header__logo"><img src="assets/images/logo.svg" alt=""></a>
+					
+				</div>
+
+				<div class="header__navfix-col header__navfix-col--center">
+					<div class="header__navfix-gmi">
+						<ul class="header__menu header__navfix-menu">
+							<li><a href="search-catalog.html">Поиск курсов</a></li>
+							<li><a href="scools.html">Все школы</a></li>
+							<li><a href="">Онлайн-тесты</a></li>
+							<li><a href="blog.html">Блог</a></li>
+							<li><a href="contacts.html">Контакты</a></li>
+						</ul>
+	
+						<div class="header__navfix-info">
+							<div class="header__navfix-info__row header__navfix-info__label">Электронная почта</div>
+							<div class="header__navfix-info__row"><a href="mailto:eduhub@gmail.com">eduhub@gmail.com</a></div>
+							<div class="header__navfix-info__row header__navfix-info__label">Телефон</div>
+							<div class="header__navfix-info__row"><a href="tel:+375296370016">+375 29 637-00-16</a></div>
+							<div class="header__navfix-info__row header__navfix-info__label">Главный офис</div>
+							<div class="header__navfix-info__row">г. Минск, ул. Карла Маркса, 32</div>
+						</div>
+					</div>
+				</div>
+				<div class="header__navfix-col header__navfix-col--right">
+					<button class="btn w-all"  data-open-popup="call">Заказать звонок</button>
+
+					<a href="" class="btn btn--purple w-all show-tablet-sm" data-open-popup="auth_course">Добавить курс</a>
+				</div>
+
+				
+				<div class="header__navfix-col header__navfix-col--close">
+					<a href="#" class="header__navfix-close close-menu"></a>
+				</div>
+			</div>
+		</div>	
+	</div>	
+
+	<div class="header__category header-category">
+		<div class="container">
+			<div class="header__category-wrap">
+				<div class="header__category-col">
+					<div class="header__category-col__name">Языковые курсы</div>
+					<ul class="header__menu header__category-menu">
+						<li><a href="">Английский</a></li>
+						<li><a href="">Немецкий</a></li>
+						<li><a href="">Китайский</a></li>
+						<li><a href="">Итальянский</a></li>
+						<li><a href="">Французский</a></li>
+					</ul>
+				</div>
+				<div class="header__category-col w-2">
+					<div class="header__category-col__name">IT курсы</div>
+					<ul class="header__menu header__category-menu">
+						<li><a href="">Программирование</a></li>
+						<li><a href="">Python</a></li>
+						<li><a href="">Java</a></li>
+						<li><a href="">JavaScript</a></li>
+						<li><a href="">C++</a></li>
+						<li><a href="">Разработка для iOS</a></li>
+						<li><a href="">Разработка для Android</a></li>
+						<li><a href="">Рекрутинг в IT</a></li>
+						<li><a href="">Бизнес-анализ</a></li>
+						<li><a href="">Project Manager</a></li>
+						<li><a href="">Тестировщики</a></li>
+					</ul>
+				</div>
+
+			</div>
+		</div>	
+	</div>	
+
+</header>
+    
+    <main class="content__wrapper">
+
+		<div class="breadcrumbs">
+			<div class="container">
+				<ul class="breadcrumbs__list">
+					<li class="breadcrumbs__item">
+                        <a href="/" class="breadcrumbs__link">Главная</a>
+                    </li>
+					<li class="breadcrumbs__item">Все школы</li>
+				</ul>
+			</div>
+		</div>	
+
+        <section class="scools section__mgb">
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Все школы</h2>
+                </div>
+
+                <div class="scools__items">
+                    <div class="scools__item">
+                        <a href="detail-scool.html" class="scools__item-link">
+
+                            <div class="scools__item-photo"><img src="assets/images/courses/3.jpg" alt=""></div>
+                            <div class="scools__item-info">
+                                <div class="scools__item-title">Skillbox</div> 
+                                <ul class="scools__item-list listinf">
+                                    <li class="listinf__flex"><div class="listinf__icon">
+                                        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9.99891 12.4299C11.722 12.4299 13.1189 11.0331 13.1189 9.30994C13.1189 7.58681 11.722 6.18994 9.99891 6.18994C8.27578 6.18994 6.87891 7.58681 6.87891 9.30994C6.87891 11.0331 8.27578 12.4299 9.99891 12.4299Z" stroke="#7D7D7D"/>
+                                            <path d="M1.62166 7.49C3.59166 -1.17 16.4217 -1.16 18.3817 7.5C19.5317 12.58 16.3717 16.88 13.6017 19.54C11.5917 21.48 8.41166 21.48 6.39166 19.54C3.63166 16.88 0.471662 12.57 1.62166 7.49Z" stroke="#7D7D7D"/>
+                                            </svg>
+                                            
+                                        </div> <div class="listinf__str">Москва</div></li>
+                                    <li class="listinf__flex"><div class="listinf__icon">
+                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11 21C16.5228 21 21 16.5228 21 11C21 5.47715 16.5228 1 11 1C5.47715 1 1 5.47715 1 11C1 16.5228 5.47715 21 11 21Z" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M7.00156 2H8.00156C6.05156 7.84 6.05156 14.16 8.00156 20H7.00156" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M14 2C15.95 7.84 15.95 14.16 14 20" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M2 15V14C7.84 15.95 14.16 15.95 20 14V15" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M2 7.99998C7.84 6.04998 14.16 6.04998 20 7.99998" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            
+                                    </div> <div class="listinf__str">skillbox.ru</div></li>
+                                    <li class="listinf__flex"><div class="listinf__icon">
+                                        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M19 6V16C19 19 17.5 21 14 21H6C2.5 21 1 19 1 16V6C1 3 2.5 1 6 1H14C17.5 1 19 3 19 6Z" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M12.5 3.5V5.5C12.5 6.6 13.4 7.5 14.5 7.5H16.5" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M6 12H10" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M6 16H14" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            
+                                    </div> <div class="listinf__str">3 курса</div></li>
+                                </ul>
+                            </div>
+                        </a>
+                        <button class="favour scools__item-favour">
+                            <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.62 18.81C11.28 18.93 10.72 18.93 10.38 18.81C7.48 17.82 1 13.69 1 6.68998C1 3.59998 3.49 1.09998 6.56 1.09998C8.38 1.09998 9.99 1.97998 11 3.33998C12.01 1.97998 13.63 1.09998 15.44 1.09998C18.51 1.09998 21 3.59998 21 6.68998C21 13.69 14.52 17.82 11.62 18.81Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="scools__item">
+                        <a href="detail-scool.html" class="scools__item-link">
+
+                            <div class="scools__item-photo"><img src="assets/images/courses/6.jpg" alt=""></div>
+                            <div class="scools__item-info">
+                                <div class="scools__item-title">Geekbrains</div> 
+                                <ul class="scools__item-list listinf">
+                                    <li class="listinf__flex"><div class="listinf__icon">
+                                        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9.99891 12.4299C11.722 12.4299 13.1189 11.0331 13.1189 9.30994C13.1189 7.58681 11.722 6.18994 9.99891 6.18994C8.27578 6.18994 6.87891 7.58681 6.87891 9.30994C6.87891 11.0331 8.27578 12.4299 9.99891 12.4299Z" stroke="#7D7D7D"/>
+                                            <path d="M1.62166 7.49C3.59166 -1.17 16.4217 -1.16 18.3817 7.5C19.5317 12.58 16.3717 16.88 13.6017 19.54C11.5917 21.48 8.41166 21.48 6.39166 19.54C3.63166 16.88 0.471662 12.57 1.62166 7.49Z" stroke="#7D7D7D"/>
+                                            </svg>
+                                            
+                                        </div> <div class="listinf__str">Минск</div></li>
+                                    <li class="listinf__flex"><div class="listinf__icon">
+                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11 21C16.5228 21 21 16.5228 21 11C21 5.47715 16.5228 1 11 1C5.47715 1 1 5.47715 1 11C1 16.5228 5.47715 21 11 21Z" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M7.00156 2H8.00156C6.05156 7.84 6.05156 14.16 8.00156 20H7.00156" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M14 2C15.95 7.84 15.95 14.16 14 20" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M2 15V14C7.84 15.95 14.16 15.95 20 14V15" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M2 7.99998C7.84 6.04998 14.16 6.04998 20 7.99998" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            
+                                    </div> <div class="listinf__str">geekbrains.by</div></li>
+                                    <li class="listinf__flex"><div class="listinf__icon">
+                                        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M19 6V16C19 19 17.5 21 14 21H6C2.5 21 1 19 1 16V6C1 3 2.5 1 6 1H14C17.5 1 19 3 19 6Z" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M12.5 3.5V5.5C12.5 6.6 13.4 7.5 14.5 7.5H16.5" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M6 12H10" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M6 16H14" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            
+                                    </div> <div class="listinf__str">10 курсов</div></li>
+                                </ul>
+                            </div>
+                        </a>
+                        <button class="favour active scools__item-favour">
+                            <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.62 18.81C11.28 18.93 10.72 18.93 10.38 18.81C7.48 17.82 1 13.69 1 6.68998C1 3.59998 3.49 1.09998 6.56 1.09998C8.38 1.09998 9.99 1.97998 11 3.33998C12.01 1.97998 13.63 1.09998 15.44 1.09998C18.51 1.09998 21 3.59998 21 6.68998C21 13.69 14.52 17.82 11.62 18.81Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="scools__item">
+                        <a href="detail-scool.html" class="scools__item-link">
+
+                            <div class="scools__item-photo"><img src="assets/images/courses/1.jpg" alt=""></div>
+                            <div class="scools__item-info">
+                                <div class="scools__item-title">Skillfactory</div> 
+                                <ul class="scools__item-list listinf">
+                                    <li class="listinf__flex"><div class="listinf__icon">
+                                        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9.99891 12.4299C11.722 12.4299 13.1189 11.0331 13.1189 9.30994C13.1189 7.58681 11.722 6.18994 9.99891 6.18994C8.27578 6.18994 6.87891 7.58681 6.87891 9.30994C6.87891 11.0331 8.27578 12.4299 9.99891 12.4299Z" stroke="#7D7D7D"/>
+                                            <path d="M1.62166 7.49C3.59166 -1.17 16.4217 -1.16 18.3817 7.5C19.5317 12.58 16.3717 16.88 13.6017 19.54C11.5917 21.48 8.41166 21.48 6.39166 19.54C3.63166 16.88 0.471662 12.57 1.62166 7.49Z" stroke="#7D7D7D"/>
+                                            </svg>
+                                            
+                                        </div> <div class="listinf__str">Москва</div></li>
+                                    <li class="listinf__flex"><div class="listinf__icon">
+                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11 21C16.5228 21 21 16.5228 21 11C21 5.47715 16.5228 1 11 1C5.47715 1 1 5.47715 1 11C1 16.5228 5.47715 21 11 21Z" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M7.00156 2H8.00156C6.05156 7.84 6.05156 14.16 8.00156 20H7.00156" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M14 2C15.95 7.84 15.95 14.16 14 20" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M2 15V14C7.84 15.95 14.16 15.95 20 14V15" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M2 7.99998C7.84 6.04998 14.16 6.04998 20 7.99998" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            
+                                    </div> <div class="listinf__str">Skillfactory.team</div></li>
+                                    <li class="listinf__flex"><div class="listinf__icon">
+                                        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M19 6V16C19 19 17.5 21 14 21H6C2.5 21 1 19 1 16V6C1 3 2.5 1 6 1H14C17.5 1 19 3 19 6Z" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M12.5 3.5V5.5C12.5 6.6 13.4 7.5 14.5 7.5H16.5" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M6 12H10" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M6 16H14" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            
+                                    </div> <div class="listinf__str">10 курсов</div></li>
+                                </ul>
+                            </div>
+                        </a>
+                        <button class="favour scools__item-favour">
+                            <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.62 18.81C11.28 18.93 10.72 18.93 10.38 18.81C7.48 17.82 1 13.69 1 6.68998C1 3.59998 3.49 1.09998 6.56 1.09998C8.38 1.09998 9.99 1.97998 11 3.33998C12.01 1.97998 13.63 1.09998 15.44 1.09998C18.51 1.09998 21 3.59998 21 6.68998C21 13.69 14.52 17.82 11.62 18.81Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="scools__item">
+                        <a href="detail-scool.html" class="scools__item-link">
+
+                            <div class="scools__item-photo"><img src="assets/images/courses/7.jpg" alt=""></div>
+                            <div class="scools__item-info">
+                                <div class="scools__item-title">Skypro</div> 
+                                <ul class="scools__item-list listinf">
+                                    <li class="listinf__flex"><div class="listinf__icon">
+                                        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9.99891 12.4299C11.722 12.4299 13.1189 11.0331 13.1189 9.30994C13.1189 7.58681 11.722 6.18994 9.99891 6.18994C8.27578 6.18994 6.87891 7.58681 6.87891 9.30994C6.87891 11.0331 8.27578 12.4299 9.99891 12.4299Z" stroke="#7D7D7D"/>
+                                            <path d="M1.62166 7.49C3.59166 -1.17 16.4217 -1.16 18.3817 7.5C19.5317 12.58 16.3717 16.88 13.6017 19.54C11.5917 21.48 8.41166 21.48 6.39166 19.54C3.63166 16.88 0.471662 12.57 1.62166 7.49Z" stroke="#7D7D7D"/>
+                                            </svg>
+                                            
+                                        </div> <div class="listinf__str">Минск</div></li>
+                                    <li class="listinf__flex"><div class="listinf__icon">
+                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11 21C16.5228 21 21 16.5228 21 11C21 5.47715 16.5228 1 11 1C5.47715 1 1 5.47715 1 11C1 16.5228 5.47715 21 11 21Z" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M7.00156 2H8.00156C6.05156 7.84 6.05156 14.16 8.00156 20H7.00156" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M14 2C15.95 7.84 15.95 14.16 14 20" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M2 15V14C7.84 15.95 14.16 15.95 20 14V15" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M2 7.99998C7.84 6.04998 14.16 6.04998 20 7.99998" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            
+                                    </div> <div class="listinf__str">sky.pro</div></li>
+                                    <li class="listinf__flex"><div class="listinf__icon">
+                                        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M19 6V16C19 19 17.5 21 14 21H6C2.5 21 1 19 1 16V6C1 3 2.5 1 6 1H14C17.5 1 19 3 19 6Z" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M12.5 3.5V5.5C12.5 6.6 13.4 7.5 14.5 7.5H16.5" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M6 12H10" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M6 16H14" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            
+                                    </div> <div class="listinf__str">10 курсов</div></li>
+                                </ul>
+                            </div>
+                        </a>
+                        <button class="favour active scools__item-favour">
+                            <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.62 18.81C11.28 18.93 10.72 18.93 10.38 18.81C7.48 17.82 1 13.69 1 6.68998C1 3.59998 3.49 1.09998 6.56 1.09998C8.38 1.09998 9.99 1.97998 11 3.33998C12.01 1.97998 13.63 1.09998 15.44 1.09998C18.51 1.09998 21 3.59998 21 6.68998C21 13.69 14.52 17.82 11.62 18.81Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="scools__item">
+                        <a href="detail-scool.html" class="scools__item-link">
+
+                            <div class="scools__item-photo"><img src="assets/images/courses/4.jpg" alt=""></div>
+                            <div class="scools__item-info">
+                                <div class="scools__item-title">IMBA</div> 
+                                <ul class="scools__item-list listinf listinf">
+                                    <li class="listinf__flex"><div class="listinf__icon">
+                                        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9.99891 12.4299C11.722 12.4299 13.1189 11.0331 13.1189 9.30994C13.1189 7.58681 11.722 6.18994 9.99891 6.18994C8.27578 6.18994 6.87891 7.58681 6.87891 9.30994C6.87891 11.0331 8.27578 12.4299 9.99891 12.4299Z" stroke="#7D7D7D"/>
+                                            <path d="M1.62166 7.49C3.59166 -1.17 16.4217 -1.16 18.3817 7.5C19.5317 12.58 16.3717 16.88 13.6017 19.54C11.5917 21.48 8.41166 21.48 6.39166 19.54C3.63166 16.88 0.471662 12.57 1.62166 7.49Z" stroke="#7D7D7D"/>
+                                            </svg>
+                                            
+                                        </div> <div class="listinf__str">Москва</div></li>
+                                    <li class="listinf__flex"><div class="listinf__icon">
+                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11 21C16.5228 21 21 16.5228 21 11C21 5.47715 16.5228 1 11 1C5.47715 1 1 5.47715 1 11C1 16.5228 5.47715 21 11 21Z" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M7.00156 2H8.00156C6.05156 7.84 6.05156 14.16 8.00156 20H7.00156" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M14 2C15.95 7.84 15.95 14.16 14 20" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M2 15V14C7.84 15.95 14.16 15.95 20 14V15" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M2 7.99998C7.84 6.04998 14.16 6.04998 20 7.99998" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            
+                                    </div> <div class="listinf__str">imba.ru</div></li>
+                                    <li class="listinf__flex"><div class="listinf__icon">
+                                        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M19 6V16C19 19 17.5 21 14 21H6C2.5 21 1 19 1 16V6C1 3 2.5 1 6 1H14C17.5 1 19 3 19 6Z" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M12.5 3.5V5.5C12.5 6.6 13.4 7.5 14.5 7.5H16.5" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M6 12H10" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M6 16H14" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            
+                                    </div> <div class="listinf__str">42 курса</div></li>
+                                </ul>
+                            </div>
+                        </a>
+                        <button class="favour scools__item-favour">
+                            <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.62 18.81C11.28 18.93 10.72 18.93 10.38 18.81C7.48 17.82 1 13.69 1 6.68998C1 3.59998 3.49 1.09998 6.56 1.09998C8.38 1.09998 9.99 1.97998 11 3.33998C12.01 1.97998 13.63 1.09998 15.44 1.09998C18.51 1.09998 21 3.59998 21 6.68998C21 13.69 14.52 17.82 11.62 18.81Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="scools__item">
+                        <a href="detail-scool.html" class="scools__item-link">
+
+                            <div class="scools__item-photo"><img src="assets/images/courses/2.jpg" alt=""></div>
+                            <div class="scools__item-info">
+                                <div class="scools__item-title">Advance</div> 
+                                <ul class="scools__item-list listinf">
+                                    <li class="listinf__flex"><div class="listinf__icon">
+                                        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9.99891 12.4299C11.722 12.4299 13.1189 11.0331 13.1189 9.30994C13.1189 7.58681 11.722 6.18994 9.99891 6.18994C8.27578 6.18994 6.87891 7.58681 6.87891 9.30994C6.87891 11.0331 8.27578 12.4299 9.99891 12.4299Z" stroke="#7D7D7D"/>
+                                            <path d="M1.62166 7.49C3.59166 -1.17 16.4217 -1.16 18.3817 7.5C19.5317 12.58 16.3717 16.88 13.6017 19.54C11.5917 21.48 8.41166 21.48 6.39166 19.54C3.63166 16.88 0.471662 12.57 1.62166 7.49Z" stroke="#7D7D7D"/>
+                                            </svg>
+                                            
+                                        </div> <div class="listinf__str">Москва</div></li>
+                                    <li class="listinf__flex"><div class="listinf__icon">
+                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11 21C16.5228 21 21 16.5228 21 11C21 5.47715 16.5228 1 11 1C5.47715 1 1 5.47715 1 11C1 16.5228 5.47715 21 11 21Z" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M7.00156 2H8.00156C6.05156 7.84 6.05156 14.16 8.00156 20H7.00156" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M14 2C15.95 7.84 15.95 14.16 14 20" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M2 15V14C7.84 15.95 14.16 15.95 20 14V15" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M2 7.99998C7.84 6.04998 14.16 6.04998 20 7.99998" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            
+                                    </div> <div class="listinf__str">advance-club.ru</div></li>
+                                    <li class="listinf__flex"><div class="listinf__icon">
+                                        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M19 6V16C19 19 17.5 21 14 21H6C2.5 21 1 19 1 16V6C1 3 2.5 1 6 1H14C17.5 1 19 3 19 6Z" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M12.5 3.5V5.5C12.5 6.6 13.4 7.5 14.5 7.5H16.5" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M6 12H10" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M6 16H14" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            
+                                    </div> <div class="listinf__str">3 курса</div></li>
+                                </ul>
+                            </div>
+                        </a>
+                        <button class="favour scools__item-favour">
+                            <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.62 18.81C11.28 18.93 10.72 18.93 10.38 18.81C7.48 17.82 1 13.69 1 6.68998C1 3.59998 3.49 1.09998 6.56 1.09998C8.38 1.09998 9.99 1.97998 11 3.33998C12.01 1.97998 13.63 1.09998 15.44 1.09998C18.51 1.09998 21 3.59998 21 6.68998C21 13.69 14.52 17.82 11.62 18.81Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                        </button>
+                    </div>
+                    
+                </div>
+                
+                <div class="section__buttons">
+                    <button class="btn btn--more">
+                        <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21.5 11C21.5 16.52 17.02 21 11.5 21C5.98 21 2.61 15.44 2.61 15.44M2.61 15.44H7.13M2.61 15.44V20.44M1.5 11C1.5 5.48 5.94 1 11.5 1C18.17 1 21.5 6.56 21.5 6.56M21.5 6.56V1.56M21.5 6.56H17.06" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>                            
+                        <span>Еще 6 школ</span>
+                    </button>
+                </div>
+            </div>
+        </section><!-- scools -->
+
+
+        
+
+	</main><!--content__wrapper-->
+
+    <footer class="footer">
+    <div class="container">
+        <div class="footer__wrap footer__top">
+            <div class="footer__col footer__col--left">
+                
+                
+                    <a href="/" class="footer__logo"><img src="assets/images/logo-white.svg" alt=""></a>
+                
+            </div>
+            <div class="footer__col footer__col--center">
+                <div class="footer__gmi">
+                    <ul class="footer__menu">
+                        <li><a href="">Поиск курсов</a></li>
+                        <li><a href="">Все школы</a></li>
+                        <li><a href="">Онлайн-тесты</a></li>
+                        <li><a href="">Блог</a></li>
+                        <li><a href="">Контакты</a></li>
+                    </ul>
+
+                    <div class="footer__info">
+                        <div class="footer__info-row footer__info-label">Электронная почта</div>
+                        <div class="footer__info-row"><a href="mailto:eduhub@gmail.com">eduhub@gmail.com</a></div>
+                        <div class="footer__info-row footer__info-label">Телефон</div>
+                        <div class="footer__info-row"><a href="tel:+375296370016">+375 29 637-00-16</a></div>
+                        <div class="footer__info-row footer__info-label">Главный офис</div>
+                        <div class="footer__info-row">г. Минск, ул. Карла Маркса, 32</div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__col footer__col--right">
+                <button class="btn w-all" data-open-popup="call">Заказать звонок</button>
+            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <div class="footer__wrap ">
+                <div class="footer__col footer__col--left">
+                    <a href="" class="footer__polit">Публичная оферта</a>
+                </div>
+
+                <div class="footer__col footer__col--center">
+                    <div class="footer__sname">Дизайн, разработка и продвижение: K2STUDIO</div>
+                </div>
+
+                <div class="footer__col footer__col--right">
+                    <div class="footer__copy">Copyright © 2022 EDUhub</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<a href="#" class="scroll_top scroll-top" data-scroll="top"></a>
+
+</section>
+
+<div class="popup " data-popup="auth">
+	<div class="popup__content">
+		<div class="popup__bg popup-close"></div>
+		<div class="popup__container">
+			<a href="#" class="popup__close popup-close">
+				<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M11 21C16.5 21 21 16.5 21 11C21 5.5 16.5 1 11 1C5.5 1 1 5.5 1 11C1 16.5 5.5 21 11 21Z" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M8.17188 13.8299L13.8319 8.16992" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M13.8319 13.8299L8.17188 8.16992" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>					
+			</a>
+			<div class="popup__body">
+				<div class="popup__head">
+					<div class="popup__title">Вход в личный кабинет</div>
+				</div>
+				
+				<form action="" method="post">
+					<input name="controll" class="no-display" type="text">
+					<div class="input__row">
+						<input type="text" name="login" class="input" placeholder="Логин">
+					</div>    
+					<div class="input__row">
+						<input type="password" name="password" class="input" placeholder="Пароль">
+						<button class="btn__eye pass-view"></button>
+					</div>
+
+					<button class="btn w-all">Войти</button>
+					
+				</form>
+
+				<div class="auth__remember">
+					<a href="" class="link" data-open-popup="password">Не помню пароль</a>
+				</div>
+				
+				<div class="auth__bottom">
+					Нет аккаунта? <a href="" class="link" data-open-popup="reg">Зарегистрироваться</a>
+				</div>
+				
+			</div>
+		</div><!--popup__container-->
+	</div>
+</div>
+
+<div class="popup " data-popup="password">
+	<div class="popup__content">
+		<div class="popup__bg popup-close"></div>
+		<div class="popup__container">
+			<a href="#" class="popup__close popup-close">
+				<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M11 21C16.5 21 21 16.5 21 11C21 5.5 16.5 1 11 1C5.5 1 1 5.5 1 11C1 16.5 5.5 21 11 21Z" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M8.17188 13.8299L13.8319 8.16992" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M13.8319 13.8299L8.17188 8.16992" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>					
+			</a>
+			<div class="popup__body">
+				<div class="popup__head">
+					<div class="popup__title">Восстановление пароля</div>
+					<div class="popup__intro">Введите свою электронную почту, на которую будет выслана ссылкадля сброса пароля</div>
+				</div>
+				
+				<form action="" method="post">
+					<input name="controll" class="no-display" type="text">
+					<div class="input__row">
+						<input type="text" name="email" class="input" placeholder="Электронная почта">
+					</div>  
+					
+					<label class="form__polit">
+						<input type="checkbox" name="polit" class="styler">
+						<span>Ознакомлен с <a href="">публичной офертой</a></span>
+					</label>
+
+
+					<div class="form__btn">
+						<button class="btn w-all">Отправить</button>
+					</div>
+				</form>
+			</div>
+		</div><!--popup__container-->
+	</div>
+</div>
+<div class="popup popup-thank" data-popup="password_thank">
+	<div class="popup__content">
+		<div class="popup__bg popup-close"></div>
+		<div class="popup__container">
+			<a href="#" class="popup__close popup-close">
+				<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M11 21C16.5 21 21 16.5 21 11C21 5.5 16.5 1 11 1C5.5 1 1 5.5 1 11C1 16.5 5.5 21 11 21Z" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M8.17188 13.8299L13.8319 8.16992" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M13.8319 13.8299L8.17188 8.16992" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>					
+			</a>
+			<div class="popup__body">
+				<div class="popup__title">Письмо со ссылкойна сброс пароля отправлено на почту</div>
+			
+				
+			</div>
+		</div><!--popup__container-->
+	</div>
+</div>
+
+<div class="popup popup-reg" data-popup="reg">
+	<div class="popup__content">
+		<div class="popup__bg popup-close"></div>
+		<div class="popup__container">
+			<a href="#" class="popup__close popup-close">
+				<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M11 21C16.5 21 21 16.5 21 11C21 5.5 16.5 1 11 1C5.5 1 1 5.5 1 11C1 16.5 5.5 21 11 21Z" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M8.17188 13.8299L13.8319 8.16992" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M13.8319 13.8299L8.17188 8.16992" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>					
+			</a>
+			<div class="popup__body reg">
+				<div class="reg__head reg__cols">
+					<div class="popup__title">Регистрация аккаунта</div>
+
+					<div class="reg__navt">
+						<ul>
+							<li><a href="#" data-tab="user" class="btn reg-navt-link active">Пользователь</a></li>
+							<li><a href="#" data-tab="center" class="btn reg-navt-link">Учебный центр</a></li>
+						</ul>
+					</div>
+				</div>
+				
+				<div class="reg__tab reg-tab active" data-tab="user">
+					<form action="" method="post">
+						<div class="reg__cols">
+							<input name="controll" class="no-display" type="text">
+							<div class="input__row">
+								<input type="text" name="login" class="input" placeholder="Логин">
+							</div>     
+							<div class="input__row">
+								<input type="tel" name="phone" class="input phone-mask" placeholder="Телефон">
+							</div>
+							<div class="input__row">
+								<input type="text" name="email" class="input" placeholder="Электронная почта">
+							</div>   
+							<div class="input__row">
+								<input type="password" name="password" class="input" placeholder="Пароль">
+								<button class="btn__eye pass-view"></button>
+							</div>
+							<div class="input__row">
+								<input type="text" name="name" class="input" placeholder="Имя">
+							</div>    
+
+							<button class="btn w-all">Зарегистрироваться</button>
+
+							
+							<label class="form__polit">
+								<input type="checkbox" name="polit" class="styler">
+								<span>Ознакомлен с <a href="">публичной офертой</a></span>
+							</label>
+						</div>
+					</form>
+				</div>
+
+				<div class="reg__tab reg-tab" data-tab="center">
+					<form action="" method="post">
+						<div class="reg__cols">
+							<input name="controll" class="no-display" type="text">   
+							<div class="input__row">
+								<input type="text" name="name" class="input" placeholder="Наименование организации">
+							</div>   
+							<div class="input__row">
+								<input type="tel" name="phone" class="input phone-mask" placeholder="Телефон">
+							</div>
+							<div class="input__row">
+								<input type="text" name="login" class="input" placeholder="Логин">
+							</div> 
+							<div class="input__row">
+								<input type="text" name="city" class="input" placeholder="Город">
+							</div>      
+							<div class="input__row">
+								<input type="text" name="email" class="input" placeholder="Электронная почта">
+							</div>   
+							<div class="input__row">
+								<input type="password" name="password" class="input" placeholder="Пароль">
+								<button class="btn__eye pass-view"></button>
+							</div>  
+
+							
+							<label class="form__polit">
+								<input type="checkbox" name="polit" class="styler">
+								<span>Ознакомлен с <a href="">публичной офертой</a></span>
+							</label>
+
+							<button class="btn w-all">Зарегистрироваться</button>
+						</div>
+					</form>
+				</div>
+				
+			</div>
+		</div><!--popup__container-->
+	</div>
+</div>
+
+<div class="popup " data-popup="call">
+	<div class="popup__content">
+		<div class="popup__bg popup-close"></div>
+		<div class="popup__container">
+			<a href="#" class="popup__close popup-close">
+				<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M11 21C16.5 21 21 16.5 21 11C21 5.5 16.5 1 11 1C5.5 1 1 5.5 1 11C1 16.5 5.5 21 11 21Z" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M8.17188 13.8299L13.8319 8.16992" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M13.8319 13.8299L8.17188 8.16992" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>					
+			</a>
+			<div class="popup__body">
+				<div class="popup__head">
+					<div class="popup__title">Заказать обратный звонок</div>
+					<div class="popup__intro">Оставь свои контактные данные — мы позвоним и ответим на все вопросы</div>
+				</div>
+				<form action="" method="post">
+					<input name="controll" class="no-display" type="text">
+					<input type="hidden" name="form" value="Заказать обратный звонок">
+					<div class="input__row">
+						<input type="text" name="name" class="input" placeholder="Имя">
+					</div>  
+					<div class="input__row">
+						<input type="tel" name="phone" class="input phone-mask" placeholder="Телефон">
+					</div>
+					<div class="input__row">
+						<input type="text" name="email" class="input" placeholder="Электронная почта">
+					</div>  
+					
+					<label class="form__polit">
+						<input type="checkbox" name="polit" class="styler">
+						<span>Ознакомлен с <a href="">публичной офертой</a></span>
+					</label>
+
+
+					<div class="form__btn">
+						<button class="btn w-all">Отправить</button>
+					</div>
+				</form>
+			</div>
+		</div><!--popup__container-->
+	</div>
+</div>
+
+<div class="popup popup-thank" data-popup="thank">
+	<div class="popup__content">
+		<div class="popup__bg popup-close"></div>
+		<div class="popup__container">
+			<a href="#" class="popup__close popup-close">
+				<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M11 21C16.5 21 21 16.5 21 11C21 5.5 16.5 1 11 1C5.5 1 1 5.5 1 11C1 16.5 5.5 21 11 21Z" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M8.17188 13.8299L13.8319 8.16992" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M13.8319 13.8299L8.17188 8.16992" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>					
+			</a>
+			<div class="popup__body">
+				<div class="popup__title">Заявка на обратный звонок отправлена</div>
+				<div class="popup__intro">В ближайшее время мы с тобой свяжемся</div>
+			
+				
+			</div>
+		</div><!--popup__container-->
+	</div>
+</div>
+
+
+<div class="popup " data-popup="auth_favour">
+	<div class="popup__content">
+		<div class="popup__bg popup-close"></div>
+		<div class="popup__container">
+			<a href="#" class="popup__close popup-close">
+				<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M11 21C16.5 21 21 16.5 21 11C21 5.5 16.5 1 11 1C5.5 1 1 5.5 1 11C1 16.5 5.5 21 11 21Z" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M8.17188 13.8299L13.8319 8.16992" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M13.8319 13.8299L8.17188 8.16992" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>					
+			</a>
+			<div class="popup__body">
+				<div class="popup__head">
+					<div class="popup__title">Добавить школу или курс в избранное может только авторизованный пользователь</div>
+				</div>
+
+				<button class="btn w-all" data-open-popup="auth">Войти</button>
+				
+				<div class="auth__bottom">
+					Нет аккаунта? <a href="" class="link" data-open-popup="reg">Зарегистрироваться</a>
+				</div>
+			</div>
+		</div><!--popup__container-->
+	</div>
+</div>
+
+<div class="popup " data-popup="auth_course">
+	<div class="popup__content">
+		<div class="popup__bg popup-close"></div>
+		<div class="popup__container">
+			<a href="#" class="popup__close popup-close">
+				<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M11 21C16.5 21 21 16.5 21 11C21 5.5 16.5 1 11 1C5.5 1 1 5.5 1 11C1 16.5 5.5 21 11 21Z" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M8.17188 13.8299L13.8319 8.16992" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M13.8319 13.8299L8.17188 8.16992" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>					
+			</a>
+			<div class="popup__body">
+				<div class="popup__head">
+					<div class="popup__title">Добавить курс может только авторизованный пользователь</div>
+				</div>
+
+				<button class="btn btn--purple w-all" data-open-popup="auth">Войти</button>
+				
+				<div class="auth__bottom">
+					Нет аккаунта? <a href="" class="link" data-open-popup="reg">Зарегистрироваться</a>
+				</div>
+			</div>
+		</div><!--popup__container-->
+	</div>
+</div>
+
+<div class="popup " data-popup="auth_sale">
+	<div class="popup__content">
+		<div class="popup__bg popup-close"></div>
+		<div class="popup__container">
+			<a href="#" class="popup__close popup-close">
+				<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M11 21C16.5 21 21 16.5 21 11C21 5.5 16.5 1 11 1C5.5 1 1 5.5 1 11C1 16.5 5.5 21 11 21Z" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M8.17188 13.8299L13.8319 8.16992" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M13.8319 13.8299L8.17188 8.16992" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>					
+			</a>
+			<div class="popup__body">
+				<div class="popup__head">
+					<div class="popup__title">Получить скидку может только авторизованный пользователь</div>
+				</div>
+
+				<button class="btn btn--purple w-all" data-open-popup="auth">Войти</button>
+				
+				<div class="auth__bottom">
+					Нет аккаунта? <a href="" class="link" data-open-popup="reg">Зарегистрироваться</a>
+				</div>
+			</div>
+		</div><!--popup__container-->
+	</div>
+</div>
+
+<!-- Удаление скидки -->
+<div class="popup " data-popup="sale_remove">
+	<div class="popup__content">
+		<div class="popup__bg popup-close"></div>
+		<div class="popup__container">
+			<a href="#" class="popup__close popup-close">
+				<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M11 21C16.5 21 21 16.5 21 11C21 5.5 16.5 1 11 1C5.5 1 1 5.5 1 11C1 16.5 5.5 21 11 21Z" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M8.17188 13.8299L13.8319 8.16992" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M13.8319 13.8299L8.17188 8.16992" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>					
+			</a>
+			<div class="popup__body">
+				<div class="popup__head">
+					<div class="popup__title">Вы уверены, что хотите <br> удалить эту скидку?</div>
+				</div>
+
+				<button class="btn btn--red w-all">Удалить</button>
+				<button class="btn btn--bdred w-all popup-close">Отмена</button>
+			</div>
+		</div><!--popup__container-->
+	</div>
+</div>
+
+<!--Удаление лида-->
+<div class="popup " data-popup="lead_remove">
+	<div class="popup__content">
+		<div class="popup__bg popup-close"></div>
+		<div class="popup__container">
+			<a href="#" class="popup__close popup-close">
+				<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M11 21C16.5 21 21 16.5 21 11C21 5.5 16.5 1 11 1C5.5 1 1 5.5 1 11C1 16.5 5.5 21 11 21Z" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M8.17188 13.8299L13.8319 8.16992" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M13.8319 13.8299L8.17188 8.16992" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>					
+			</a>
+			<div class="popup__body">
+				<div class="popup__head">
+					<div class="popup__title">Лид обработан, <br> договор не заключен. <br> Удалить из списка лидов?</div>
+				</div>
+
+				<button class="btn btn--red w-all">Удалить</button>
+				<button class="btn btn--bdred w-all popup-close">Отмена</button>
+			</div>
+		</div><!--popup__container-->
+	</div>
+</div>
+
+<div class="popup popup-thank" data-popup="dogovor_thank">
+	<div class="popup__content">
+		<div class="popup__bg popup-close"></div>
+		<div class="popup__container">
+			<a href="#" class="popup__close popup-close">
+				<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M11 21C16.5 21 21 16.5 21 11C21 5.5 16.5 1 11 1C5.5 1 1 5.5 1 11C1 16.5 5.5 21 11 21Z" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M8.17188 13.8299L13.8319 8.16992" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M13.8319 13.8299L8.17188 8.16992" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>					
+			</a>
+			<div class="popup__body">
+				<div class="popup__title">Поздравляем! <br> Договор на обучение <br> заключен</div>				
+			</div>
+		</div><!--popup__container-->
+	</div>
+</div>
+
+
+    
+</body>
+</html>
