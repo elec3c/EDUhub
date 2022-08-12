@@ -239,6 +239,9 @@ textarea.input {
         border-radius: 10px;
         box-shadow: 0px 1px 3px rgba(19, 10, 46, 0.13), 0px 3px 14px rgba(19, 10, 46, 0.03), 0px 8px 32px rgba(19, 10, 46, 0.07), 0px 34px 84px rgba(19, 10, 46, 0.08);
     }
+    &.disabled {
+        cursor: default;
+    }
         
     &__select {
         width: 100%;
@@ -270,6 +273,9 @@ textarea.input {
         text-overflow: ellipsis;
         white-space: nowrap;
     }
+    &.disabled &__select-text  {
+        opacity: 0.5;
+    }
     & .placeholder {
         color: #7D7D7D;
     }
@@ -288,6 +294,9 @@ textarea.input {
     }
     &.opened &__trigger {
         transform: rotate(-180deg);
+    }
+    &.disabled &__trigger  {
+        opacity: 0.5;
     }
 
     &__search {
