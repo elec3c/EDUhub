@@ -28,26 +28,27 @@
 	<meta property="og:url" content="" />  
 
  	<!--[if IE]>
-    	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js?_v=20220812141125"></script>
+    	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js?_v=20220812141125"></script>
     <![endif]--> 
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&family=Raleway:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&family=Raleway:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap&_v=20220812141125" rel="stylesheet"> 
  
-	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="preload" href="js/swiper/swiper-bundle.min.css" as="style" onload="this.rel='stylesheet'">
-	<link href="styles/styles.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css?_v=20220812141125">
+    <link rel="preload" href="js/swiper/swiper-bundle.min.css?_v=20220812141125" as="style" onload="this.rel='stylesheet'">
+	<link href="styles/styles.min.css?_v=20220812141125" rel="stylesheet">
 
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/swiper/swiper-bundle.min.js"></script>
-    <script type="text/javascript" src="js/jquery.maskedinput.js"></script>
-    <script type="text/javascript" src="js/jquery.formstyler.js"></script>
-    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-    <script type="text/javascript" src="js/scripts.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js?_v=20220812141125" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/swiper/swiper-bundle.min.js?_v=20220812141125"></script>
+    <script type="text/javascript" src="js/jquery.maskedinput.js?_v=20220812141125"></script>
+    <script type="text/javascript" src="js/jquery.formstyler.js?_v=20220812141125"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js?_v=20220812141125"></script>
+    <script type="text/javascript" src="js/jquery.chained.min.js?_v=20220812141125"></script>
+    <script type="text/javascript" src="js/scripts.js?_v=20220812141125"></script>
 
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js?_v=20220812141125"></script>
 
 </head>
 
@@ -281,7 +282,7 @@
                                     </select>
                                 </div>
                                 <div class="choose__inputs-item w-270">
-                                    <select name="category" data-placeholder="Категория курса" class="styler styler--white">
+                                    <select name="category" data-placeholder="Категория курса" class="styler styler--white" id="category-select">
                                         <option value=""></option>
                                         <option value="Python">Python</option>
                                         <option value="Java">Java</option>
@@ -290,21 +291,25 @@
                                     </select>
                                 </div>
                                 <div class="choose__inputs-item w-320">
-                                    <select name="sub_category" data-placeholder="Подкатегория курса" class="styler styler--white">
+                                    <select name="sub_category" data-placeholder="Подкатегория курса" class="styler styler--white" id="sub_category-select">
                                         <option value=""></option>
-                                        <option value="Python">Python</option>
-                                        <option value="Java">Java</option>
-                                        <option value="JavaScript">JavaScript</option>
-                                        <option value="C++">C++</option>
+                                        <option value="Python" data-chained="Python">Python 1</option>
+                                        <option value="Python-2" data-chained="Python">Python 2</option>
+                                        <option value="Java" data-chained="Java">Java</option>
+                                        <option value="JavaScript" data-chained="JavaScript">JavaScript</option>
+                                        <option value="C++" data-chained="C++">C++</option>
+                                        <option value="C++ 2" data-chained="C++ 2">C++ 2</option>
                                     </select>
                                 </div>
                                 <div class="choose__inputs-item w-250">
-                                    <select name="level" data-placeholder="Уровень" class="styler styler--white">
+                                    <select name="level" data-placeholder="Уровень" class="styler styler--white" id="level-select">
                                         <option value=""></option>
-                                        <option value="Python">Python</option>
-                                        <option value="Java">Java</option>
-                                        <option value="JavaScript">JavaScript</option>
-                                        <option value="C++">C++</option>
+                                        <option value="Python" data-chained="Python">Python level 1</option>
+                                        <option value="Python" data-chained="Python">Python level 2</option>
+                                        <option value="Python-2" data-chained="Python-2">Python 2 level 1</option>
+                                        <option value="Java" data-chained="Java">Java level 1</option>
+                                        <option value="Java" data-chained="Java">Java level 2</option>
+                                        <option value="Java" data-chained="Java">Jav3 level 1</option>
                                     </select>
                                 </div>
                                 <div class="choose__inputs-item w-200">

@@ -101,7 +101,7 @@
                                     </select>
                                 </div>
                                 <div class="choose__inputs-item w-270">
-                                    <select name="category" data-placeholder="Категория курса" class="styler styler--white">
+                                    <select name="category" data-placeholder="Категория курса" class="styler styler--white" id="category-select">
                                         <option value=""></option>
                                         <option value="Python">Python</option>
                                         <option value="Java">Java</option>
@@ -110,21 +110,25 @@
                                     </select>
                                 </div>
                                 <div class="choose__inputs-item w-320">
-                                    <select name="sub_category" data-placeholder="Подкатегория курса" class="styler styler--white">
+                                    <select name="sub_category" data-placeholder="Подкатегория курса" class="styler styler--white" id="sub_category-select">
                                         <option value=""></option>
-                                        <option value="Python">Python</option>
-                                        <option value="Java">Java</option>
-                                        <option value="JavaScript">JavaScript</option>
-                                        <option value="C++">C++</option>
+                                        <option value="Python" data-chained="Python">Python 1</option>
+                                        <option value="Python-2" data-chained="Python">Python 2</option>
+                                        <option value="Java" data-chained="Java">Java</option>
+                                        <option value="JavaScript" data-chained="JavaScript">JavaScript</option>
+                                        <option value="C++" data-chained="C++">C++</option>
+                                        <option value="C++ 2" data-chained="C++ 2">C++ 2</option>
                                     </select>
                                 </div>
                                 <div class="choose__inputs-item w-250">
-                                    <select name="level" data-placeholder="Уровень" class="styler styler--white">
+                                    <select name="level" data-placeholder="Уровень" class="styler styler--white" id="level-select">
                                         <option value=""></option>
-                                        <option value="Python">Python</option>
-                                        <option value="Java">Java</option>
-                                        <option value="JavaScript">JavaScript</option>
-                                        <option value="C++">C++</option>
+                                        <option value="Python" data-chained="Python">Python level 1</option>
+                                        <option value="Python" data-chained="Python">Python level 2</option>
+                                        <option value="Python-2" data-chained="Python-2">Python 2 level 1</option>
+                                        <option value="Java" data-chained="Java">Java level 1</option>
+                                        <option value="Java" data-chained="Java">Java level 2</option>
+                                        <option value="Java" data-chained="Java">Jav3 level 1</option>
                                     </select>
                                 </div>
                                 <div class="choose__inputs-item w-200">
