@@ -182,9 +182,11 @@ $(function(){
         
         $(this).toggleClass('opened').next().slideToggle();
 	})		
-/*
+
 	$("#sub_category-select").chained("#category-select");
-    $("#level-select").chained("#sub_category-select");*/
+	$("#type-select").chained("#category-select");
+  $("#level-select").chained("#category-select");
+
 	$('body').on('change', 'select.styler', function(e){
         e.preventDefault();
         

@@ -1,29 +1,29 @@
 <form action="[[~[[*id]]]]" enctype="multipart/form-data" method="post">
     <input type="hidden" name="nospam:blank" />
     <input type="hidden" name="resource_id" value="[[+fi.id]]" />
-    <input id="parent" type="text" name="parent" value="65" />
+    <input id="parent" type="hidden" name="parent" value="65" />
     <input type="hidden" name="pagetitle" value="[[+fi.pagetitle]]"/>
     
 
-    <div class="label">Название</div>
+    <!--<div class="label">Название</div>
     [[+fi.error.pagetitle]]
     <input class="field" type="text" name="pagetitle" value="[[+fi.pagetitle]]" />
     <h3>Подробное описание</h3>
     [[+fi.error.content]]
-    <textarea class="textinput" cols="70" name="content" rows="10">[[+fi.content]]</textarea>
+    <textarea class="textinput" cols="70" name="content" rows="10">[[+fi.content]]</textarea>-->
     
     <div class="cadd__block">
         <div class="cadd__label">Категория курса</div>
-            <div class="">
-                <div class="">
-                    <select name="category" id="type" data-placeholder="Категория курса" class="">
+            <div class="cadd__inputs cadd__in1">
+                <div class="cadd__input">
+                    <select name="category" id="type" data-placeholder="Категория курса" class="styler">
                         <option value=""></option>
                         <option value="11">IT</option>
                         <option value="10">Языковые</option>
                     </select>
                 </div>
-                <div class="">
-                    <select name="sub_category" id="cat" data-placeholder="Подкатегория курса" class="">
+                <div class="cadd__input">
+                    <select name="sub_category" id="cat" data-placeholder="Подкатегория курса" class="styler">
                         <option  data-chained="11" value=""></option>
                         <option  data-chained="11" value="Python">Python</option>
                         <option   data-chained="11" value="Java">Java</option>
@@ -35,7 +35,7 @@
                     </select>
                 </div>
                 <div class="cadd__input">
-                    <select name="sub_category" data-placeholder="Вид курса" class="">
+                    <select name="sub_category" data-placeholder="Вид курса" class="styler">
                         <option value=""></option>
                         <option value="Python">Python</option>
                         <option value="Java">Java</option>
@@ -46,7 +46,7 @@
             </div>
         </div>
 
-                    <!--<div class="cadd__block">
+                    <div class="cadd__block">
                         <div class="cadd__label">Продолжительность</div>
                         <div class="cadd__inputs cadd__in2">
                             <div class="cadd__input cadd__input--date">
@@ -171,29 +171,28 @@
                                     <option value="Москва">Москва</option>
                                 </select>
                             </div>
+                            <div class="cadd__input">
+                                <select name="area" data-placeholder="Район" class="styler">
+                                    <option value=""></option>
+                                    <option value="Фрунзенский">Фрунзенский</option>
+                                    <option value="Советский">Советский</option>
+                                    <option value="Первомайский">Первомайский</option>
+                                </select>
+                            </div>
+                            <div class="cadd__input">
+                                <select name="metro" data-placeholder="Метро" class="styler">
+                                    <option value=""></option>
+                                    <option value="Октябрьская">Октябрьская</option>
+                                    <option value="Первомайская">Первомайская</option>
+                                    <option value="Каменная горка">Каменная горка</option>
+                                </select>
+                            </div>
                         </div>
+
                     </div>
 
-                    <div class="cadd__block">
-                        <div class="cadd__label cadd__label--m">Район</div>
-                        
-                            <label class="form__lcheck"><input type="checkbox" class="styler" name="Фрунзенский"><span>Фрунзенский</span></label>
-                            <label class="form__lcheck"><input type="checkbox" class="styler" name="Советский"><span>Советский</span></label>
-                            <label class="form__lcheck"><input type="checkbox" class="styler" name="Первомайский"><span>Первомайский</span></label>
-                            <label class="form__lcheck"><input type="checkbox" class="styler" name="Центральный"><span>Центральный</span></label>
-                    </div>
-
-                    <div class="cadd__block">
-                        <div class="cadd__label cadd__label--m">Метро</div>
-                        <label class="form__lcheck"><input type="checkbox" class="styler" name="Октябрьская"><span>Октябрьская</span></label>
-                        <label class="form__lcheck"><input type="checkbox" class="styler" name="Первомайская"><span>Первомайская</span></label>
-                        <label class="form__lcheck"><input type="checkbox" class="styler" name="Каменная горка"><span>Каменная горка</span></label>
-                        <label class="form__lcheck"><input type="checkbox" class="styler" name="Кунцевщина"><span>Кунцевщина</span></label>
-
-                    </div>-->
-
-    <input class="add-button" type="submit" value="Добавить курс" />
-             <!--       <div class="cadd__button">
+    <!--<input class="add-button" type="submit" value="Добавить курс" />-->
+                    <div class="cadd__button">
                         <div class="btn w-all">Опубликовать</div>
-                    </div>-->
+                    </div>
 </form>    
