@@ -49,7 +49,7 @@
                                 {'!pdoResources' | snippet : [
                                     'parents'=>'85'
                                     'depth'=>0,
-                                    'tpl'=>'@CODE <option value="{$alias}">{$menutitle}</option>{$wrapper}',
+                                    'tpl'=>'@CODE <option value="{$id}">{$menutitle}</option>{$wrapper}',
                                 ]}
                             </select>
                         </div>
@@ -60,13 +60,13 @@
                                 {'!pdoResources' | snippet : [
                                         'parents'=>'10'
                                         'depth'=>0,
-                                        'tpl'=>'@CODE <option data-chained="language-courses" value="{$alias}">{$menutitle}
+                                        'tpl'=>'@CODE <option data-chained="10" value="{$alias}">{$menutitle}
                                 </option>{$wrapper}',
                                 ]}
                                 {'!pdoResources' | snippet : [
                                         'parents'=>'11'
                                         'depth'=>0,
-                                        'tpl'=>'@CODE <option data-chained="it-courses" value="{$alias}">{$menutitle}
+                                        'tpl'=>'@CODE <option data-chained="11" value="{$alias}">{$menutitle}
                                 </option>{$wrapper}',
                                 ]}
                             </select>
@@ -75,10 +75,10 @@
                             <select name="type" data-placeholder="Тип" class="styler styler--white"
                                 id="type-select">
                                 <option value=""></option>
-                                <option value="casual" data-chained="language-courses it-courses">Обычные</option>
-                                <option value="intensive" data-chained="language-courses it-courses">Интенсив</option>
-                                <option value="business" data-chained="language-courses">Деловой</option>
-                                <option value="for-it" data-chained="language-courses">Для IT</option>
+                                <option value="casual" data-chained="10 11">Обычные</option>
+                                <option value="intensive" data-chained="10 11">Интенсив</option>
+                                <option value="business" data-chained="10">Деловой</option>
+                                <option value="for-it" data-chained="10">Для IT</option>
                             </select>
                         </div>
 
@@ -86,16 +86,16 @@
                         <select name="type" data-placeholder="Уровень" class="styler styler--white"
                                 id="level-select">
                                 <option value=""></option>
-                                <option value="zero" data-chained="language-courses it-courses">Начальный</option>
-                                <option value="junior" data-chained="it-courses">Junior</option>
-                                <option value="middle" data-chained="it-courses">Middle</option>
-                                <option value="senior" data-chained="it-courses">Senior</option>
-                                <option value="a1" data-chained="language-courses">A1</option>
-                                <option value="a2" data-chained="language-courses">A2</option>
-                                <option value="b1" data-chained="language-courses">B1</option>
-                                <option value="b2" data-chained="language-courses">B2</option>
-                                <option value="c1" data-chained="language-courses">C1</option>
-                                <option value="c2" data-chained="language-courses">C2</option>
+                                <option value="zero" data-chained="10 11">Начальный</option>
+                                <option value="junior" data-chained="11">Junior</option>
+                                <option value="middle" data-chained="11">Middle</option>
+                                <option value="senior" data-chained="11">Senior</option>
+                                <option value="a1" data-chained="10">A1</option>
+                                <option value="a2" data-chained="10">A2</option>
+                                <option value="b1" data-chained="10">B1</option>
+                                <option value="b2" data-chained="10">B2</option>
+                                <option value="c1" data-chained="10">C1</option>
+                                <option value="c2" data-chained="10">C2</option>
                             </select>
                         </div>
                         <div class="choose__inputs-item w-200">
