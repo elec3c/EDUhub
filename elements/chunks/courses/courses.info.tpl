@@ -1,20 +1,27 @@
+{set $page_id = $page_id ?: $res.id}
+
+
 <section class="section__mgb--md">
                             <div class="detail__props">
                                 <div class="detail__props-title">Длительность обучения</div>
+                                
                                 <div class="detail__props-item">
                                     <div class="detail__props-item__label">Продолжительность </div>
                                     <div>3 месяца</div>
                                 </div>
+                                
                                 {if $_modx->resource.num_lesson_per_week && $_modx->resource.lesson_duration}                                
                                 <div class="detail__props-item">
                                     <div class="detail__props-item__label">Интенсивность</div>
                                     <div>{$_modx->resource.num_lesson_per_week} занятие в неделю по {$_modx->resource.lesson_duration} часов</div>
                                 </div>
                                 {/if}
+                                {if $_modx->resource.data_from && $_modx->resource.data_to}                                
                                 <div class="detail__props-item">
                                     <div class="detail__props-item__label">Дата старта</div>
-                                    <div>с 15 июля по 15 октября 2022</div>
+                                    <div>с {$_modx->resource.data_from | date_format:"%e %B"} по {$_modx->resource.data_from | date_format:"%e %B %Y"}</div>
                                 </div>
+                                {/if}
                             </div>
                             
                             <div class="detail__props">
@@ -69,17 +76,27 @@
                             
                             <div class="detail__props">
                                 <div class="detail__props-title">Месторасположение</div>
+                                {set $city = ($_modx->runSnippet('!outputMultipleTV', ['tvName' => 'course_city', 'resourceId' => $page_id]))}
+                                {set $region = ($_modx->runSnippet('!outputMultipleTV', ['tvName' => 'course_region', 'resourceId' => $page_id]))}
+                                {set $metro = ($_modx->runSnippet('!outputMultipleTV', ['tvName' => 'course_metro', 'resourceId' => $page_id]))}
+                                
+                                {if $city}
                                 <div class="detail__props-item">
                                     <div class="detail__props-item__label">Город</div>
-                                    <div>Москва</div>
+                                    <div>{$city}</div>
                                 </div>
+                                {/if}
+                                {if $region}
                                 <div class="detail__props-item">
                                     <div class="detail__props-item__label">Район</div>
-                                    <div>Первомайский, Центральный</div>
+                                    <div>{$region}</div>
                                 </div>
+                                {/if}
+                                {if $metro}
                                 <div class="detail__props-item">
                                     <div class="detail__props-item__label">Метро</div>
-                                    <div>Каменная горка, Кунцевщина</div>
+                                    <div>{$metro}</div>
                                 </div>
+                                {/if}
                             </div>
                         </section>

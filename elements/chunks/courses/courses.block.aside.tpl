@@ -1,5 +1,4 @@
 {set $page_id = $page_id ?: $res.id}
-
 {set $price_course  = $page_id | resource: 'price_course'}
 {set $price_lesson  = $page_id | resource: 'price_lesson'}
 {set $course_duration  = $page_id | resource: 'course_duration'}

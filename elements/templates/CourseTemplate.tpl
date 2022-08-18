@@ -8,12 +8,12 @@
     </div>
     <div class="detail__cols">
         <div class="detail__content">
-            {include 'file:chunks/courses/courses.content.tpl'}
-            {include 'file:chunks/courses/courses.info.tpl'}
-            {include 'file:chunks/reviews/reviews.list.tpl'}
-            {include 'file:chunks/reviews/reviews.form.tpl'}
+            {include 'file:chunks/courses/courses.content.tpl' page_id=$_modx->resource.id}
+            {include 'file:chunks/courses/courses.info.tpl'    page_id=$_modx->resource.id}
+            {include 'file:chunks/reviews/reviews.list.tpl'    page_id=$_modx->resource.id}
+            {include 'file:chunks/reviews/reviews.form.tpl'     page_id=$_modx->resource.id}
         </div>
-        {include 'file:chunks/courses/courses.detail.aside.tpl'}
+        {include 'file:chunks/courses/courses.detail.aside.tpl' page_id=$_modx->resource.id}
     </div>
 </section><!-- detail -->
 {/block}

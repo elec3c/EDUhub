@@ -15,7 +15,7 @@
 					<div class="popup__title">Вы уверены, что хотите <br> получить эту скидку?</div>
 				</div>
 
-				<button class="btn btn--red w-all">Получить</button>
+				<button class="btn btn--red w-all get_promocode">Получить</button>
 				<button class="btn btn--bdred w-all popup-close">Отмена</button>
 			</div>
 		</div><!--popup__container-->

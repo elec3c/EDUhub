@@ -19,7 +19,7 @@
                                 <div class="profile-edit-person">
                                     <div class="profile-edit-person__img">
                                         {if $_modx->user.photo is empty}
-                                            <img loading="lazy" src="assets/images/profile-edit-person-img.png" alt="img">
+                                            {*<img loading="lazy" src="assets/images/profile-edit-person-img.png" alt="img">*}
                                         {else}
                                             <img loading="lazy" src="{$_modx->user.photo}" alt="img">
                                         {/if}

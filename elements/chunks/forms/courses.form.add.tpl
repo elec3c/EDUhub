@@ -1,57 +1,21 @@
 <form action="[[~[[*id]]]]" enctype="multipart/form-data" method="post">
     <input type="hidden" name="nospam:blank" />
+    <input type="hidden" name="parent" value="[[+fi.parent]]" id="parent"/>
     <input type="hidden" name="resource_id" value="[[+fi.id]]" />
-    <input id="parent" type="hidden" name="parent" value="65" />
-    <input type="hidden" name="pagetitle" value="[[+fi.pagetitle]]" />
-
-
-    <!--<div class="label">Название</div>
-    [[+fi.error.pagetitle]]
-    <input class="field" type="text" name="pagetitle" value="[[+fi.pagetitle]]" />
-    <h3>Подробное описание</h3>
-    [[+fi.error.content]]
-    <textarea class="textinput" cols="70" name="content" rows="10">[[+fi.content]]</textarea>-->
+    <input type="hidden" name="course_owner" value="{$_modx->user.id}" />
+    <input type="hidden" name="pagetitle" value="[[+fi.pagetitle]]" id="pagetitle"/>
 
     <div class="cadd__block">
         <div class="cadd__label">Категория курса</div>
         <div class="cadd__inputs cadd__in1">
             <div class="cadd__input">
-                <select name="category" data-placeholder="Категория курса" class="styler"
-                    id="category-select">
-                    <option value=""></option>
-                    {'!pdoResources' | snippet : [
-                        'parents'=>'85'
-                        'depth'=>0,
-                        'tpl'=>'@CODE <option value="{$id}">{$menutitle}</option>{$wrapper}',
-                    ]}
-                </select>
+                {insert 'file:chunks/forms/fields/fields.courses.category.tpl'}
             </div>
             <div class="cadd__input">
-                <select name="sub_category" data-placeholder="Подкатегория курса" class="styler"
-                    id="sub_category-select">
-                    <option value=""></option>
-                    {'!pdoResources' | snippet : [
-                        'parents'=>'10'
-                        'depth'=>0,
-                        'tpl'=>'@CODE <option data-chained="10" value="{$alias}">{$menutitle}
-                    </option>{$wrapper}',
-                    ]}
-                    {'!pdoResources' | snippet : [
-                        'parents'=>'11'
-                        'depth'=>0,
-                        'tpl'=>'@CODE <option data-chained="11" value="{$alias}">{$menutitle}
-                    </option>{$wrapper}',
-                    ]}
-                </select>
+                {insert 'file:chunks/forms/fields/fields.courses.sub_category.tpl'}
             </div>
             <div class="cadd__input">
-                <select name="type" data-placeholder="Тип" class="styler" id="type-select">
-                    <option value=""></option>
-                    <option value="casual" data-chained="10 11">Обычные</option>
-                    <option value="intensive" data-chained="10 11">Интенсив</option>
-                    <option value="business" data-chained="10">Деловой</option>
-                    <option value="for-it" data-chained="10">Для IT</option>
-                </select>
+                {insert 'file:chunks/forms/fields/fields.courses.type.tpl'}
             </div>
         </div>
     </div>
@@ -60,38 +24,20 @@
         <div class="cadd__label">Продолжительность</div>
         <div class="cadd__inputs cadd__in2">
             <div class="cadd__input cadd__input--date">
-                <input type="text" placeholder="Дата от" class="input input--date datepicker-input">
+                <input type="text" name="data_from" placeholder="Дата от" class="input input--date datepicker-input" value='[[+fi.data_from]]'>
             </div>
             <div class="cadd__input cadd__input--date">
-                <input type="text" placeholder="Дата до" class="input input--date datepicker-input">
+                <input type="text" name="data_to" placeholder="Дата до" class="input input--date datepicker-input"  value='[[+fi.data_to]]'>
             </div>
             <div class="cadd__input">
-                <select name="time" data-placeholder="Длительность курса" class="styler">
-                    <option value=""></option>
-                    <option value="10-14">100 ч</option>
-                    <option value="15-20">150 ч</option>
-                </select>
+                <input type="text" class="input" name="course_duration" placeholder="Длительность курса в ч." value="[[+fi.course_duration]]">
             </div>
             <div class="cadd__input">
-                <select name="time" data-placeholder="Кол-во занятий в неделю" class="styler">
-                    <option value=""></option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                </select>
+                {insert 'file:chunks/forms/fields/fields.courses.num_lesson_per_week.tpl'}
+
             </div>
             <div class="cadd__input">
-                <select name="time" data-placeholder="Длительность занятия" class="styler">
-                    <option value=""></option>
-                    <option value="30 мин">30 мин</option>
-                    <option value="45 мин">45 мин</option>
-                    <option value="60 мин">60 мин</option>
-                    <option value="90 мин">90 мин</option>
-                    <option value="120 мин">120 мин</option>
-                </select>
+                {insert 'file:chunks/forms/fields/fields.courses.lesson_duration.tpl'}
             </div>
         </div>
     </div>
@@ -100,109 +46,58 @@
         <div class="cadd__label">Детали</div>
         <div class="cadd__inputs cadd__in3">
             <div class="cadd__input w-1">
-                <select name="form" data-placeholder="Форма обучения" class="styler">
-                    <option value=""></option>
-                    <option value="очное">очное</option>
-                    <option value="онлайн">онлайн</option>
-                </select>
+                {insert 'file:chunks/forms/fields/fields.courses.form_of_study.tpl'}
             </div>
             <div class="cadd__input w-320 w-2">
-                <select name="people_group" data-placeholder="Количество человек в группе" class="styler">
-                    <option value=""></option>
-                    <option value="8-10">8-10</option>
-                    <option value="10-15">10-15</option>
-                    <option value="15-20">15-20</option>
-                    <option value="20-25">20-25</option>
-                    <option value="25-30">25-30</option>
-                </select>
+                {insert 'file:chunks/forms/fields/fields.courses.num_people_in_group.tpl'}
             </div>
         </div>
         <div class="cadd__inputs cadd__in3">
             <div class="cadd__input">
-                <select name="level_from" data-placeholder="Для уровня от" class="styler">
-                    <option value=""></option>
-                    <option value="Python">Python</option>
-                    <option value="Java">Java</option>
-                    <option value="JavaScript">JavaScript</option>
-                    <option value="C++">C++</option>
-                </select>
+                {insert 'file:chunks/forms/fields/fields.courses.levels_from.tpl'}
             </div>
             <div class="cadd__input">
-                <select name="level_to" data-placeholder="Для уровня до" class="styler">
-                    <option value=""></option>
-                    <option value="Python">Python</option>
-                    <option value="Java">Java</option>
-                    <option value="JavaScript">JavaScript</option>
-                    <option value="C++">C++</option>
-                </select>
+                {insert 'file:chunks/forms/fields/fields.courses.levels_to.tpl'}
             </div>
             <div class="cadd__input w-210">
-                <select name="age_from" data-placeholder="Для возраста от" class="styler">
-                    <option value=""></option>
-                    <option value="14-17">14-17</option>
-                    <option value="18-25">18-25</option>
-                    <option value="25-35">25-35</option>
-                </select>
+                {insert 'file:chunks/forms/fields/fields.courses.ages_from.tpl'}
             </div>
             <div class="cadd__input w-210">
-                <select name="age_to" data-placeholder="Для возраста до" class="styler">
-                    <option value=""></option>
-                    <option value="14-17">14-17</option>
-                    <option value="18-25">18-25</option>
-                    <option value="25-35">25-35</option>
-                </select>
+                {insert 'file:chunks/forms/fields/fields.courses.ages_to.tpl'}
             </div>
         </div>
     </div>
-
     <div class="cadd__block">
         <div class="cadd__label">Стоимость и скидки</div>
         <div class="cadd__inputs cadd__in4">
             <div class="cadd__input">
-                <input type="text" class="input" name="price_course" placeholder="Стоимость курса">
+                {insert 'file:chunks/forms/fields/fields.courses.price_course.tpl'}
             </div>
             <div class="cadd__input">
-                <input type="text" class="input" name="price_lesson" placeholder="Стоимость занятия">
+                {insert 'file:chunks/forms/fields/fields.courses.price_lesson.tpl'}
             </div>
             <div class="cadd__input w-210">
-                <input type="text" class="input" name="sale" placeholder="Размер скидки">
+                {insert 'file:chunks/forms/fields/fields.courses.sale.tpl'}
             </div>
         </div>
     </div>
-
     <div class="cadd__block">
         <div class="cadd__label">Месторасположение</div>
         <div class="cadd__inputs cadd__in5">
             <div class="cadd__input">
-                <select name="city" data-placeholder="Город" class="styler">
-                    <option value=""></option>
-                    <option value="Брест">Брест</option>
-                    <option value="Минск">Минск</option>
-                    <option value="Москва">Москва</option>
-                </select>
+                {insert 'file:chunks/forms/fields/fields.location.city.tpl'}
             </div>
             <div class="cadd__input">
-                <select name="area" data-placeholder="Район" class="styler">
-                    <option value=""></option>
-                    <option value="Фрунзенский">Фрунзенский</option>
-                    <option value="Советский">Советский</option>
-                    <option value="Первомайский">Первомайский</option>
-                </select>
+                {insert 'file:chunks/forms/fields/fields.location.region.tpl'}
             </div>
             <div class="cadd__input">
-                <select name="metro" data-placeholder="Метро" class="styler">
-                    <option value=""></option>
-                    <option value="Октябрьская">Октябрьская</option>
-                    <option value="Первомайская">Первомайская</option>
-                    <option value="Каменная горка">Каменная горка</option>
-                </select>
+                {insert 'file:chunks/forms/fields/fields.location.metro.tpl'}
             </div>
         </div>
 
     </div>
 
-    <!--<input class="add-button" type="submit" value="Добавить курс" />-->
     <div class="cadd__button">
-        <div class="btn w-all">Опубликовать</div>
+        <button class="btn w-all" type="submit">{$btn}</button>
     </div>
 </form>

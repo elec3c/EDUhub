@@ -1,0 +1,1 @@
+<input type="text" class="input" name="price_lesson" placeholder="Стоимость занятия" value="[[+fi.price_lesson]]">

@@ -1,13 +1,13 @@
 {extends 'file:templates/BaseTemplate.tpl'}
 {block 'content'}
-    {include 'file:chunks/promo/promo.tpl'}
-    {include 'file:chunks/choose/choose.tpl'}
-    {include 'file:chunks/skillbox/skillbox.tpl'}
-    {include 'file:chunks/courses/courses.starts.tpl'}
-    {include 'file:chunks/courses/courses.popular.tpl'}
-    {include 'file:chunks/advantages/advantages.tpl'}
-    {include 'file:chunks/blog/blog.tpl'}
-    {include 'file:chunks/reviews/reviews.tpl'}
-    {include 'file:chunks/callback/callback.tpl'}
-    {include 'file:chunks/faq/faq.tpl'}
+    {include 'file:chunks/promo/promo.main.tpl'}
+    {include 'file:chunks/choose/choose.main.tpl'}
+    {include 'file:chunks/skillbox/skillbox.main.tpl'}
+    {include 'file:chunks/courses/courses.starts.main.tpl'}
+    {include 'file:chunks/courses/courses.popular.main.tpl'}
+    {include 'file:chunks/advantages/advantages.main.tpl'}
+    {include 'file:chunks/blog/blog.main.tpl'}
+    {include 'file:chunks/reviews/reviews.main.tpl'}
+    {include 'file:chunks/callback/callback.main.tpl'}
+    {include 'file:chunks/faq/faq.main.tpl'}
 {/block}

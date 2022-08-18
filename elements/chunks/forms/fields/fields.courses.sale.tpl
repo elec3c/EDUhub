@@ -1,0 +1,1 @@
+<input type="text" class="input" name="sale" placeholder="Размер скидки" value="[[+fi.sale]]">

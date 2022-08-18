@@ -11,126 +11,41 @@
                 </div>
 
                 <div class="lk__profile">
-                    <div class="lk__profile-form">
-                        <div class="form__title lk__profile-title">Личные данные</div>
-                        <form action="" method="post" enctype="multipart/form-data">
-                            <input name="controll" class="no-display" type="text"> 
-                            <div class="lk__profile-cols">
-                                <div class="lk__profile-cols__inputs">
-                                    <div class="lk__profile-cols__left">
-                                        <div class="input__row">
-                                            <input type="text" name="name" class="input" placeholder="Наименование организации">
-                                        </div>   
-                                        <div class="input__row">
-                                            <input type="text" name="login" class="input" placeholder="Логин">
-                                        </div>   
-                                        <div class="input__row">
-                                            <input type="text" name="email" class="input" placeholder="Электронная почта">
-                                        </div>    
-                                        <div class="input__row">
-                                            <input type="tel" name="phone" class="input phone-mask" placeholder="Телефон">
-                                        </div>
-                                        <div class="input__row">
-                                            <input type="text" name="city" class="input" placeholder="Город">
-                                        </div>   
-                                    </div>
-                                    
-                                    <div class="lk__profile-cols__right">
-                                        <div class="input__row">
-                                            <input type="text" name="unp" class="input" placeholder="УНП">
-                                        </div>  
-                                        <div class="input__row">
-                                            <input type="text" name="bik" class="input" placeholder="БИК">
-                                        </div>  
-                                        <div class="input__row">
-                                            <input type="text" name="rs" class="input" placeholder="Р/с">
-                                        </div>  
-                                        <div class="input__row">
-                                            <input type="text" name="bank" class="input" placeholder="Наименование банка">
-                                        </div>  
-                                        <div class="input__row">
-                                            <input type="text" name="addr_bank" class="input" placeholder="Адрес банка">
-                                        </div>  
-                                    </div>
-                                </div>
-                                <div class="lk__profile-cols__logo">
-                                    <label class="lk__profile-cols__uploading uploading">
-                                        <input type="file" name="sc_photo1" accept="image/jpg,image/jpeg,image/png">
-                                        <span class="uploading__open">Загрузить логотип</span>
-                                        <div class="uploading__change">Изменить логотип</div>
-                                    </label>
-                                </div>
-
-                                <div class="lk__profile-cols__desc">
-                                    <textarea name="desc" placeholder="Описание компании" class="input"></textarea>
-                                </div>
-                                <div class="lk__profile-cols__btn">
-                                    <button class="btn w-all">Сохранить</button>
-                                </div>
-                            </div>
- 
-
-                            
-                        </form>
-                    </div>
+                    {'!officeProfile' | snippet : [
+                        'tplProfile'=>'@FILE chunks/forms/lks.form.profile.edit.tpl',
+                        'profileFields'=>'username,fullname,email,mobilephone,photo,city,unp,bik,rs,bank,addr_bank,desc,specifiedpassword,confirmpassword'
+                    ]} 
 
                     <div class="lk__profile-form">
                         <div class="form__title lk__profile-title">Мультимедиа</div>
-                        <div class="lk__profile-photos">
-                            <div class="lk__profile-photo">
-                                <label class=" uploading">
-                                    <input type="file" name="sc_photo1" accept="image/jpg,image/jpeg,image/png">
-                                    <span class="uploading__open">Загрузить фото</span>
-                                    <div class="uploading__change">Изменить фото</div>
-                                </label>
-                            </div>
-                            <div class="lk__profile-photo">
-                                <label class=" uploading">
-                                    <input type="file" name="sc_photo2" accept="image/jpg,image/jpeg,image/png">
-                                    <span class="uploading__open">Загрузить фото</span>
-                                    <div class="uploading__change">Изменить фото</div>
-                                </label>
-                            </div>
-                            <div class="lk__profile-photo">
-                                <label class=" uploading">
-                                    <input type="file" name="sc_photo3" accept="image/jpg,image/jpeg,image/png">
-                                    <span class="uploading__open">Загрузить фото</span>
-                                    <div class="uploading__change">Изменить фото</div>
-                                </label>
-                            </div>
-                            <div class="lk__profile-photo">
-                                <label class=" uploading">
-                                    <input type="file" name="sc_photo4" accept="image/jpg,image/jpeg,image/png">
-                                    <span class="uploading__open">Загрузить фото</span>
-                                    <div class="uploading__change">Изменить фото</div>
-                                </label>
-                            </div>
-                        </div>
+                        {'!ufform' | snippet : [
+                            'class'=>'modUser',
+                            'list'=>'school',
+                            'parent'=>$_modx->user.id,
+                            'dropzone'=>'{"maxFilesize":4,"maxFiles":5,"acceptedFiles":".jpg, .jpeg, .gif, .png","template":"edit"}'
+                        ]}
+                       
                     </div>    
                     
                     <div class="lk__profile-form lk__profile-form--mw">
                         <div class="form__title lk__profile-title">Смена пароля</div>
-                        <form action="" method="post">
-                            <input name="controll" class="no-display" type="text">
+                        <form action="" method="post" id="office-profile-form-password">
+                            <input type="hidden" name="email" value="{$_modx->user.email}" placeholder="{'office_profile_email' | lexicon}"/>
+                            <input type="hidden" name="fullname" value="{$_modx->user.fullname}" class="input" placeholder="Наименование организации">
+                            <input type="hidden" name="username" value="{$_modx->user.username}" class="input" placeholder="Логин">
+                            <div class="input__row">
+                                <input type="password" class="input" name="specifiedpassword" value="" placeholder="Новый пароль" class="form-control"/>
+                                <button class="btn__eye pass-view"></button>
+                                <div class="help-block message">{$error_specifiedpassword}</div>
+                            </div>            
                             
-							<div class="input__row">
-								<input type="password" name="password" class="input" placeholder="Текущий пароль">
-								<button class="btn__eye pass-view"></button>
-							</div>  
-                            <div class="input__row input__row--link">
-                                <a href="" class="link" data-open-popup="password">Не помню пароль</a>
-                            </div>
-
-							<div class="input__row">
-								<input type="password" name="password_new" class="input" placeholder="Новый пароль">
-								<button class="btn__eye pass-view"></button>
-							</div>  
-							<div class="input__row">
-								<input type="password" name="password_new2" class="input" placeholder="Повторите новый пароль">
-								<button class="btn__eye pass-view"></button>
-							</div>  
-
-                            <button class="btn w-all">Сохранить</button>
+                            <div class="input__row">            
+                                <input type="password" class="input" name="confirmpassword" value="" placeholder="Повторите новый пароль" class="form-control"/>
+                                <button class="btn__eye pass-view"></button>
+                                <div class="help-block message">{$error_confirmpassword}</div>
+                            </div>            
+                        
+                            <button type="submit" class="btn w-all">Сохранить</button>
                         </form>
                     </div>
                 </div>

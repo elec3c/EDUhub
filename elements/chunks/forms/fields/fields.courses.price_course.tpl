@@ -1,0 +1,1 @@
+<input type="text" class="input" name="price_course" placeholder="Стоимость курса" value="[[+fi.price_course]]">

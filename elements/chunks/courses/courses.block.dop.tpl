@@ -1,5 +1,4 @@
 {set $page_id = $page_id ?: $res.id}
-
 {set $sale  = $page_id | resource: 'sale'}
 <div class="courses__block-dop">
     <a href="" class="courses__block-ditem">
