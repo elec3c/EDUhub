@@ -185,11 +185,7 @@ $(function(){
 
 	$("#sub_category-select").chained("#category-select");
 	$("#type-select").chained("#category-select");
-    $("#level-select").chained("#category-select");
-    
-    $("#region-select").chained("#city-select");
-	$("#metro-select").chained("#city-select");
-    
+  $("#level-select").chained("#category-select");
 
 	$('body').on('change', 'select.styler', function(e){
         e.preventDefault();
@@ -199,8 +195,6 @@ $(function(){
 		}, 1)
 	})	
 	
-	
-
 
 	/**************************************************************
 	accord
@@ -254,18 +248,6 @@ $(function(){
 			}
 		});
 	})	
-
-
-    $('#sub_category-select').on('change', function() {
-        $('#parent').val(this.value);
-   });
-   
-   
-   $('#category-select').on('change', function() {
-        $('#pagetitle').val(this.value);
-   });	
-    
-    
 	
 	/**************************************************************
 	Карусель Статей

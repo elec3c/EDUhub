@@ -141,7 +141,7 @@
                 
                         </section><!-- reviews -->
 
-                        <section class="reviews section__mgb--md"">
+                        <section class="reviews section__mgb--md">
                             <h2 class="section__title">Оставить отзыв</h2>
                             <p class="section__intro">Чтобы оставить отзыв, необходимо <a href="#" class="link" data-open-popup="auth">войти в личный кабинет</a></p>
 
@@ -233,7 +233,7 @@
                                     </svg>                                    
                                 </button>
 
-                                <button class="btn btn--bdpurple" data-popup="sale">Получить скидку</button>
+                                <!--<button class="btn btn--bdpurple" data-popup="sale">Получить скидку</button>-->
                             </div>
                         </div>
                     </div>

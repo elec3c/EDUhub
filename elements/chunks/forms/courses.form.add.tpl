@@ -94,9 +94,13 @@
                 {insert 'file:chunks/forms/fields/fields.location.metro.tpl'}
             </div>
         </div>
-
     </div>
-
+    <div class="cadd__block">
+        <div class="cadd__label">Описание</div>
+        <div class="cadd__inputs">
+            <textarea name="introtext" rows="4" cols="50" placeholder="Описание курса" class="input tmp-disabled"></textarea>
+        </div>
+    </div>
     <div class="cadd__button">
         <button class="btn w-all" type="submit">{$btn}</button>
     </div>

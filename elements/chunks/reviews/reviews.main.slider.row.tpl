@@ -1,4 +1,4 @@
-{set $page_id = $thread_name|replace:"resource-":""}
+{set $page_id = $thread_name|replace:"thread-":""}
 <div id="ec-{$thread_name}-message-{$id}" class="swiper-slide">
     <div class="reviews__item">
         <div class="reviews__item-name">{$user_name}</div>

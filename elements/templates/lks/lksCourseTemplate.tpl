@@ -25,8 +25,8 @@
                         {$_modx->runSnippet('pdoPage', [
                             'parents'=>85,
                             'tpl'=>'@FILE chunks/lks/lks.courses.item.tpl',
-                            'includeTVs' => 'small_image, course_owner, course_address, data_from',
-                            'templates' => 8,
+                            'includeTVs' => 'small_image, course_owner, course_address, course_city, course_region, course_metro, data_from',
+                            'templates' => '8',
                             'processTVs'=>'1',
                             'limit'=>'3',
                             'showUnpublished'=>'1',

@@ -55,7 +55,7 @@
     <div class="courses__block-buttons btns_cfs">
         <button class="btn w-all" data-open-popup="call">Заказать звонок</button>
 
-        {include 'file:chunks/favorites/favorites.like.tpl' page_id=$page_id}
+        {include 'file:chunks/favorites/favorites.courses.like.tpl' page_id=$page_id}
         
         <button class="btn btn--bdpurple">Получить скидку</button>
     </div>

@@ -9,10 +9,10 @@
 
                 <div id="pdopage">
                     <div class="scools__items rows">
-                        {$_modx->runSnippet('pdoPage', [
+                        {$_modx->runSnippet('!pdoPage', [
                             'tpl'=>'@FILE chunks/scools/scools.item.tpl',
                             'sortby'=>'createdon',
-                            'includeTVs' => 'small_image',
+                            'includeTVs' => 'small_image, scools_owner',
                             'processTVs'=>'1',
                             'limit'=>'6',
                             'ajaxMode' => 'button',

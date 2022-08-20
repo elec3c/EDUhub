@@ -1,12 +1,19 @@
 <div class="courses__scool lk__wraplr section__lr">
     <div class="courses__scool-info">
-        <div class="courses__scool-title">{$pagetitle}</div>
-        {if $_pls['tv.course_address']}
-            <div class="courses__scool-prop">
+        <div class="courses__scool-title"><a href="{$id | url}">{$pagetitle}</a></div>
+        
+        <div class="courses__scool-prop">
                 <div class="courses__scool-prop__label">Адрес</div>
-                {$_pls['tv.course_address']}
-            </div>
-        {/if}
+                {if $_pls['tv.course_address']}
+                    {$_pls['tv.course_address']}
+                {else}
+                    {set $city = ($_modx->runSnippet('!outputMultipleTV', ['tvName' => 'course_city', 'resourceId' => $id]))}
+                    {set $region = ($_modx->runSnippet('!outputMultipleTV', ['tvName' => 'course_region', 'resourceId' => $id]))}
+                    {set $metro = ($_modx->runSnippet('!outputMultipleTV', ['tvName' => 'course_metro', 'resourceId' => $id]))}
+                    {if $city}г. {$city}{/if}{if $region}, район {$region}{/if}{if $metro}, метро {$metro}{/if}
+                {/if}
+        </div>
+        
         {if $_pls['tv.data_from']}
             <div class="courses__scool-prop">
                 <div class="courses__scool-prop__label">Дата старта</div>

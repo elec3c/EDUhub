@@ -1,6 +1,7 @@
 <section class="reviews section__mgb--md">
     <div class="detail__btitle section__head--cols">
-        <h2 class="section__title">Отзывы<span class="hide-tablet"> о курсе</span> ({'!ecMessagesCount'|snippet})</h2>
+        {set $thread = $_modx->resource.course_template?'thread-'~$_modx->resource.course_template:'resource-'~$id}
+        <h2 class="section__title">Отзывы<span class="hide-tablet"> о курсе</span> ({'!ecMessagesCount'|snippet: ['thread' => $thread]})</h2>
         <div class="section__head-right">
             <div class="swiper-button-nav">
                 <div class="swiper-button swiper-button-prev">

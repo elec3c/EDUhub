@@ -11,16 +11,10 @@
                 </div>
 
                 <div class="courses__filter">
-                    <select name="category" data-placeholder="Категория курса" class="styler">
-                        <option value=""></option>
-                        <option value="Python">Python</option>
-                        <option value="Java">Java</option>
-                        <option value="JavaScript">JavaScript</option>
-                        <option value="C++">C++</option>
-                    </select>
+                    {include 'file:chunks/forms/fields/fields.courses.sub_category.tpl'}
                 </div>
 
-                {insert 'file:chunks/favorites/favorites.tpl'}
+                {include 'file:chunks/favorites/favorites.courses.tpl'}
 
                 <div class="courses__compare">
                     <a href="lk-compare.html" class="btn btn--purple">Сравнить 2 курса</a>

@@ -1,7 +1,14 @@
 {set $tpl = ["10","11"]}
 
 {if $_modx->resource.template in $tpl}
-    {set $parent = $_modx->resource.parent}
+
+    {if $_modx->resource.template == 10}
+        {set $parent = 23}
+    {/if}
+    {if $_modx->resource.template == 11}
+        {set $parent = 30}
+    {/if}
+    
 {/if}
 
 
@@ -9,23 +16,43 @@
     <div class="container">
         <div class="lknav__list lknav__list--mw">
             <ul>
-                {'!pdoMenu' | snippet: [
-            'parents' => $parent,
+                
+{set $arr = [37]}
+
+{if $_modx->resource.parent in $arr}
+        {set $rows = ('!getList' | snippet: ['id' => 30, 'arr' => 1])}
+        {foreach $rows as $k => $v}                    
+            {set $parent = $k | resourse:'parent'}
+            {set $url = $parent | resourse:'alias'}
+            {if $k == 61}{continue}{/if}
+            {if $k != 37}
+            <li><a href="{$k | url}" class="lknav__list-item"><img src="/assets/images/icons/{$url | resource:'alias'}.svg" alt="{$v}"><span>{$v}</span></a></li>
+            {else}
+            <li class="active"><a href="{$k | url}" class="lknav__list-item"><img src="/assets/images/icons/{$url | resource:'alias'}_active.svg" alt="{$v}"><span>{$v}</span></a></li>
+            {/if}
+        {/foreach}
+{else}
+        {'!pdoMenu' | snippet: [
+            'parents' => $parent?:$modx->resource.parent,
             'prefix' => $prefix,
             'displayStart' => 0,
             'showUnpublished' => 1,
             'level' => 0,
             'tplOuter' => '@INLINE {$wrapper}',
-                'tpl' => '@INLINE <li><a href="{$link}" class="lknav__list-item">
+            'tpl' => '@INLINE <li><a href="{$link}" class="lknav__list-item">
                         <img src="/assets/images/icons/{$alias}.svg" alt="{$menutitle}">
                         <span>{$menutitle}</span>
                     </a></li>',
 
-                'tplHere' => '@INLINE <li class="active"><a href="{$link}" class="lknav__list-item">
+            'tplHere' => '@INLINE <li class="active"><a href="{$link}" class="lknav__list-item">
                         <img src="/assets/images/icons/{$alias}_active.svg" alt="{$menutitle}">
                         <span>{$menutitle}</span>
                     </a></li>'
-                ]}
+            ]}
+            
+{/if}            
+            
+            
                 <li class="lknav__list-exit">
                     <a href="/?action=auth/logout" class="lknav__list-item">
                         <svg width="60" height="56" viewBox="0 0 60 56" fill="none" xmlns="http://www.w3.org/2000/svg">

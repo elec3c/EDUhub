@@ -5,5 +5,6 @@
 {/if}                
                 <select name="course_region" data-placeholder="Район" class="{$styler}" 
                     id="region-select">
+<option value=""></option>
                     [[!getValuesTV?  &tvid = `41` &chained = `minsk` &curr = `[[+fi.course_region]]`]]
                 </select>

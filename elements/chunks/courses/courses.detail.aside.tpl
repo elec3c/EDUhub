@@ -23,7 +23,7 @@
                                         {set $metro = ($_modx->runSnippet('!outputMultipleTV', ['tvName' => 'course_metro', 'resourceId' => $_modx->resource.id]))}
                                         <li class="listinf__flex">
                                             <div class="listinf__icon"><img src="/assets/images/icons/location.svg" alt="location"></div> 
-                                            <div class="listinf__str">{if $city}г. {$city}{/if}{if $region}, район {$region}{/if}{if $metro}, метро {$_modx->resource.course_metro}{/if}</div>
+                                            <div class="listinf__str">{if $city}г. {$city}{/if}{if $region}, район {$region}{/if}{if $metro}, метро {$metro}{/if}</div>
                                         </li>
                                         {/if}                                
                                         {if $fullname}                                

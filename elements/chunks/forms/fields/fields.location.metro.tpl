@@ -5,5 +5,6 @@
 {/if}                
                 <select name="course_metro" data-placeholder="Метро" class="{$styler}"
                     id="metro-select">
+<option value=""></option>
                     [[!getValuesTV?  &tvid = `42` &chained = `minsk` &curr = `[[+fi.course_metro]]`]]
                 </select>
