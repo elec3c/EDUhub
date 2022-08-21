@@ -72,10 +72,10 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="cadd__block">
                         <div class="cadd__label">Детали</div>
-                        <div class="cadd__inputs cadd__in3">                        
+                        <div class="cadd__inputs cadd__in3">
                             <div class="cadd__input w-1">
                                 <select name="form" data-placeholder="Форма обучения" class="styler">
                                     <option value=""></option>
@@ -84,7 +84,8 @@
                                 </select>
                             </div>
                             <div class="cadd__input w-320 w-2">
-                                <select name="people_group" data-placeholder="Количество человек в группе" class="styler">
+                                <select name="people_group" data-placeholder="Количество человек в группе"
+                                    class="styler">
                                     <option value=""></option>
                                     <option value="8-10">8-10</option>
                                     <option value="10-15">10-15</option>
@@ -131,7 +132,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="cadd__block">
                         <div class="cadd__label">Стоимость и скидки</div>
                         <div class="cadd__inputs cadd__in4">
@@ -144,9 +145,9 @@
                             <div class="cadd__input w-210">
                                 <input type="text" class="input" name="sale" placeholder="Размер скидки">
                             </div>
-                        </div>        
+                        </div>
                     </div>
-                    
+
                     <div class="cadd__block">
                         <div class="cadd__label">Месторасположение</div>
                         <div class="cadd__inputs cadd__in5">
@@ -163,23 +164,31 @@
 
                     <div class="cadd__block">
                         <div class="cadd__label cadd__label--m">Район</div>
-                        
-                            <label class="form__lcheck"><input type="checkbox" class="styler" name="Фрунзенский"><span>Фрунзенский</span></label>
-                            <label class="form__lcheck"><input type="checkbox" class="styler" name="Советский"><span>Советский</span></label>
-                            <label class="form__lcheck"><input type="checkbox" class="styler" name="Первомайский"><span>Первомайский</span></label>
-                            <label class="form__lcheck"><input type="checkbox" class="styler" name="Центральный"><span>Центральный</span></label>
+
+                        <label class="form__lcheck"><input type="checkbox" class="styler"
+                                name="Фрунзенский"><span>Фрунзенский</span></label>
+                        <label class="form__lcheck"><input type="checkbox" class="styler"
+                                name="Советский"><span>Советский</span></label>
+                        <label class="form__lcheck"><input type="checkbox" class="styler"
+                                name="Первомайский"><span>Первомайский</span></label>
+                        <label class="form__lcheck"><input type="checkbox" class="styler"
+                                name="Центральный"><span>Центральный</span></label>
                     </div>
 
                     <div class="cadd__block">
                         <div class="cadd__label cadd__label--m">Метро</div>
-                        <label class="form__lcheck"><input type="checkbox" class="styler" name="Октябрьская"><span>Октябрьская</span></label>
-                        <label class="form__lcheck"><input type="checkbox" class="styler" name="Первомайская"><span>Первомайская</span></label>
-                        <label class="form__lcheck"><input type="checkbox" class="styler" name="Каменная горка"><span>Каменная горка</span></label>
-                        <label class="form__lcheck"><input type="checkbox" class="styler" name="Кунцевщина"><span>Кунцевщина</span></label>
+                        <label class="form__lcheck"><input type="checkbox" class="styler"
+                                name="Октябрьская"><span>Октябрьская</span></label>
+                        <label class="form__lcheck"><input type="checkbox" class="styler"
+                                name="Первомайская"><span>Первомайская</span></label>
+                        <label class="form__lcheck"><input type="checkbox" class="styler"
+                                name="Каменная горка"><span>Каменная горка</span></label>
+                        <label class="form__lcheck"><input type="checkbox" class="styler"
+                                name="Кунцевщина"><span>Кунцевщина</span></label>
 
                     </div>
 
                     <div class="cadd__button">
                         <div class="btn w-all">Опубликовать</div>
                     </div>
-                </form>
+</form>

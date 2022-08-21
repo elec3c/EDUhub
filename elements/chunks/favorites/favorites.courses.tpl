@@ -15,7 +15,7 @@
         </svg><span>Показать еще статьи</span></button></div>' 
         ]}
     </div>
-    
+    123123123
     {$_modx->getPlaceholder('page.nav')}
     
     [[!+total:gt=`0`:then=`
