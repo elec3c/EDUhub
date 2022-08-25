@@ -11,7 +11,7 @@
                 </div>
 
                 <div class="courses__filter">
-                    {include 'file:chunks/forms/fields/fields.courses.sub_category.tpl'}
+                    {*include 'file:chunks/forms/fields/fields.courses.sub_category.tpl'*}
                 </div>
 
                 {include 'file:chunks/favorites/favorites.courses.tpl'}

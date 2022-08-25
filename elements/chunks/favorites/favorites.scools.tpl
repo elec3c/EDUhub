@@ -28,7 +28,7 @@
         <button class="btn btn-default btn--more msfavorites msfavorites-action"
                 data-click
                 data-data-list="default"
-                data-data-type="resource"
+                data-data-type="scools"
                 data-data-method="clear"
         >
             Очистить список

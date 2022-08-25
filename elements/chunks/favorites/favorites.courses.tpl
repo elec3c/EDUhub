@@ -15,7 +15,6 @@
         </svg><span>Показать еще статьи</span></button></div>' 
         ]}
     </div>
-    123123123
     {$_modx->getPlaceholder('page.nav')}
     
     [[!+total:gt=`0`:then=`
@@ -23,7 +22,7 @@
         <button class="btn btn-default btn--more msfavorites msfavorites-action"
                 data-click
                 data-data-list="default"
-                data-data-type="resource"
+                data-data-type="courses"
                 data-data-method="clear"
         >
             Очистить список

@@ -15,7 +15,7 @@
 					<div class="popup__title">Лид обработан, <br> договор не заключен. <br> Удалить из списка лидов?</div>
 				</div>
 
-				<button class="btn btn--red w-all">Удалить</button>
+				<button class="btn btn--red w-all button-promocode-delete">Удалить</button>
 				<button class="btn btn--bdred w-all popup-close">Отмена</button>
 			</div>
 		</div><!--popup__container-->

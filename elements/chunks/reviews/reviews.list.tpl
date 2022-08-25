@@ -1,3 +1,4 @@
+{set $id = ($page_id?:$_modx->resource.id)}
 <section class="reviews section__mgb--md">
     <div class="detail__btitle section__head--cols">
         {set $thread = $_modx->resource.course_template?'thread-'~$_modx->resource.course_template:'resource-'~$id}

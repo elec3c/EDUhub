@@ -22,7 +22,7 @@
                 </div>
                 <div id="pdopage">
                     <div class="rows">
-                        {$_modx->runSnippet('pdoPage', [
+                        {$_modx->runSnippet('!pdoPage', [
                             'parents'=>85,
                             'tpl'=>'@FILE chunks/lks/lks.courses.item.tpl',
                             'includeTVs' => 'small_image, course_owner, course_address, course_city, course_region, course_metro, data_from',

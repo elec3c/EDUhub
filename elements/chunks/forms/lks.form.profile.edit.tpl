@@ -10,7 +10,10 @@
                     </div>   
                     <div class="input__row">
                         <input type="text" name="username" value="{$username}" class="input" placeholder="Логин">
-                    </div>   
+                    </div>  
+                    <div class="input__row">
+                        <input type="text" name="site" value="{$site}" class="input" placeholder="Адрес сайта">
+                    </div>  
                     <div class="input__row">
                         <input type="text" name="email" value="{$email}" class="input" placeholder="Электронная почта">
                     </div>    

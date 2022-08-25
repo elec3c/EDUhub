@@ -182,10 +182,16 @@ $(function(){
         
         $(this).toggleClass('opened').next().slideToggle();
 	})		
-
+	
 	$("#sub_category-select").chained("#category-select");
 	$("#type-select").chained("#category-select");
   $("#level-select").chained("#category-select");
+	$("#level-from-select").chained("#category-select");
+	$("#level-to-select").chained("#category-select");
+	$("#for_ages_to").chained("#for_ages_from");
+	$("#course_metro").chained("#course_city");
+	 $("#course_region").chained("#course_city");
+	
 
 	$('body').on('change', 'select.styler', function(e){
         e.preventDefault();

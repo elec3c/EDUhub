@@ -1,9 +1,9 @@
 <div class="courses__scool lk__wraplr section__lr">
     <div class="courses__scool-info">
-        <div class="courses__scool-title"><a href="{$id | url}">{$pagetitle}</a></div>
-        
+        {set $course_title = ($id | resource:'course_group_title')}
+        <div class="courses__scool-title"><a href="{$id | url}">{$course_title?:$pagetitle}</a></div>
         <div class="courses__scool-prop">
-                <div class="courses__scool-prop__label">Адрес</div>
+                <div class="courses__scool-prop__label">Адрес!!!</div>
                 {if $_pls['tv.course_address']}
                     {$_pls['tv.course_address']}
                 {else}

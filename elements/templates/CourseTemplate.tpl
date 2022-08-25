@@ -3,8 +3,11 @@
 {include 'file:chunks/crumbs/crumbs.tpl'}
 <section class="detail section__mgb">
     <div class="container">
+    <div class="section__head detail__head">
+        <h2 class="section__title">{$_modx->resource.course_group_title?:$_modx->resource.pagetitle}</h2>
+    </div>
     <div class="section__head detail__head show-tablet-sm">
-        <h2 class="section__title">{$_modx->resource.pagetitle ?: $_modx->resource.longtitle}</h2>
+        <h2 class="section__title">{$_modx->resource.course_group_title?:$_modx->resource.pagetitle}</h2>
     </div>
     <div class="detail__cols">
         <div class="detail__content">

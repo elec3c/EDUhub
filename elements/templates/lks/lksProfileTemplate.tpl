@@ -13,7 +13,7 @@
                 <div class="lk__profile">
                     {'!officeProfile' | snippet : [
                         'tplProfile'=>'@FILE chunks/forms/lks.form.profile.edit.tpl',
-                        'profileFields'=>'username,fullname,email,mobilephone,photo,city,unp,bik,rs,bank,addr_bank,desc,specifiedpassword,confirmpassword'
+                        'profileFields'=>'username,fullname,email,mobilephone,photo,site,city,unp,bik,rs,bank,addr_bank,desc,specifiedpassword,confirmpassword'
                     ]} 
 
                     <div class="lk__profile-form">
@@ -24,7 +24,6 @@
                             'parent'=>$_modx->user.id,
                             'dropzone'=>'{"maxFilesize":4,"maxFiles":5,"acceptedFiles":".jpg, .jpeg, .gif, .png","template":"edit"}'
                         ]}
-                       
                     </div>    
                     
                     <div class="lk__profile-form lk__profile-form--mw">

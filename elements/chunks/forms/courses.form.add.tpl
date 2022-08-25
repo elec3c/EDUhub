@@ -6,6 +6,15 @@
     <input type="hidden" name="pagetitle" value="[[+fi.pagetitle]]" id="pagetitle"/>
 
     <div class="cadd__block">
+        <div class="cadd__label">Название группы курса</div>
+        <div class="cadd__inputs cadd__in1">
+            <div class="cadd__input">
+                {insert 'file:chunks/forms/fields/fields.courses.group_title.tpl'}
+            </div>
+        </div>
+    </div>
+
+    <div class="cadd__block">
         <div class="cadd__label">Категория курса</div>
         <div class="cadd__inputs cadd__in1">
             <div class="cadd__input">

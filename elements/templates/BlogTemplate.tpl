@@ -11,7 +11,7 @@
 
                 <div id="pdopage">
                     <div class="blog__items rows">
-                        {$_modx->runSnippet('pdoPage', [
+                        {$_modx->runSnippet('!pdoPage', [
                             'tpl'=>'@FILE chunks/blog/blog.row.tpl',
                             'sortby'=>'createdon',
                             'includeTVs' => 'small_image',

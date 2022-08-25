@@ -3,9 +3,10 @@
 {set $course_address  = $page_id | resource: 'course_address'}
 {set $course_owner  = $page_id | resource: 'course_owner'}
 {set $course_user = $course_owner | user: 'username'}
+{set $course_group_title = $page_id | resource:'course_group_title'}
 
 <div class="courses__block-info">
-    <h3 class="courses__block-title"><a href="{$uri}">{$longtitle ?: $pagetitle}</a></h3>
+    <h3 class="courses__block-title"><a href="{$uri}">{$course_group_title ?: $pagetitle}</a></h3>
     <ul class="courses__block-list listinf">
         {if $form_of_study}
         <li class="courses__block-training online">
