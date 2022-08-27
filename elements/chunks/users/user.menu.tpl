@@ -2,40 +2,36 @@
   <div class="container">
     <div class="lknav__list lknav__list--mw">
       <ul>
-        {if $_modx->resource.parent in ["23","30"]}
+        {if $_modx->resource.parent in ["23","30", "63"]}
           {set $parentMenu = $_modx->resource.parent}
         {else}
           {set $parentMenu = $_modx->resource.parent | resource : 'parent'}
         {/if}
         {'!pdoMenu' | snippet: [
-        'parents' => $parentMenu,
-        'prefix' => '',
-        'displayStart' => 0,
-        'showUnpublished' => 1,
-        'includeTVs' => 'menu_img,menu_img_active',
-        'level' => 2,
-        'tplOuter' => '@INLINE {$wrapper}',
-        'tpl' => '@INLINE {if $_modx->resource.parent == $id}<li class="active"><a href="{$link}"
-            class="lknav__list-item">
-            <img src="/assets/images/{$menu_img_active}" alt="{$menutitle}">
-            <span>{$menutitle}</span>
-          </a></li>
-        {else}
-        <li><a href="{$link}" class="lknav__list-item">
-            <img src="/assets/images/{$menu_img}" alt="{$menutitle}">
-            <span>{$menutitle}</span>
-          </a></li>
-
-
-        {/if}',
-
-        'tplHere' => '@INLINE <li class="active"><a href="{$link}" class="lknav__list-item">
-            <img src="/assets/images/{$menu_img_active}" alt="{$menutitle}">
-            <span>{$menutitle}</span>
-          </a></li>'
+            'parents' => $parentMenu,
+            'prefix' => '',
+            'displayStart' => 0,
+            'showUnpublished' => 1,
+            'includeTVs' => 'menu_img,menu_img_active',
+            'level' => 2,
+            'tplOuter' => '@INLINE {$wrapper}',
+            'tpl' => '@INLINE {if $_modx->resource.parent == $id}<li class="active"><a href="{$link}"
+                class="lknav__list-item">
+                <img src="/assets/images/{$menu_img_active}" alt="{$menutitle}">
+                <span>{$menutitle}</span>
+              </a></li>
+            {else}
+            <li><a href="{$link}" class="lknav__list-item">
+                <img src="/assets/images/{$menu_img}" alt="{$menutitle}">
+                <span>{$menutitle}</span>
+              </a></li>
+            {/if}',
+    
+            'tplHere' => '@INLINE <li class="active"><a href="{$link}" class="lknav__list-item">
+                <img src="/assets/images/{$menu_img_active}" alt="{$menutitle}">
+                <span>{$menutitle}</span>
+              </a></li>'
         ]}
-
-
 
         <li class="lknav__list-exit">
           <a href="/?action=auth/logout" class="lknav__list-item">
@@ -52,6 +48,7 @@
             </svg>
           </a>
         </li>
+        
       </ul>
     </div>
   </div>

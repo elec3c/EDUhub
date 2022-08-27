@@ -60,11 +60,9 @@
 				</div>
 				<div class="header__navfix-col header__navfix-col--right">
 					<button class="btn w-all"  data-open-popup="call">Заказать звонок</button>
-
 					<a href="" class="btn btn--purple w-all show-tablet-sm" data-open-popup="auth_course">Добавить курс</a>
+					{*'!getComparison' | snippet: ['list' => 'courses']*}
 				</div>
-
-				
 				<div class="header__navfix-col header__navfix-col--close">
 					<a href="#" class="header__navfix-close close-menu"></a>
 				</div>

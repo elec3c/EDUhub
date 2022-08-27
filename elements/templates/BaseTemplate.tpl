@@ -47,6 +47,9 @@
             {include 'file:chunks/modals/popup-reg.tpl'}
         </div>
         {include 'file:chunks/modals/call.tpl'}
+        {include 'file:chunks/modals/call_to_school_reg.tpl'}
+        {include 'file:chunks/modals/call_to_school_thx.tpl'}
+        {include 'file:chunks/modals/call_to_school.tpl'}
         {include 'file:chunks/modals/dogovor_thank.tpl'}
         {include 'file:chunks/modals/lead_remove.tpl'}
         {include 'file:chunks/modals/password_thank.tpl'}

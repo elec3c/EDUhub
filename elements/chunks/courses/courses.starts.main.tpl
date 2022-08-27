@@ -25,91 +25,20 @@
 
                 <div class="courses__items courses-carousel swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="courses__item">
-                                <div class="courses__item-photo"><img src="assets/images/courses/1.jpg"></div>
-                                <h3 class="courses__item-title">Факультет Продакт-менеджмента</h3>
-                                <ul class="courses__item-list">
-                                    <li><span>Длительность:</span> 4 месяца</li>
-                                    <li><span>Формат обучения:</span> онлайн</li>
-                                </ul>
-                                <div class="courses__item-date">Начало курса <br> 08.07.2022</div>
-                                <div class="courses__item-button">
-                                    <a href="course.html" class="btn w-all">Подробнее</a>
-                                </div>
-                            </div>    
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="courses__item">
-                                <div class="courses__item-photo"><img src="assets/images/courses/2.jpg"></div>
-                                <h3 class="courses__item-title">Факультет Продакт-менеджмента</h3>
-                                <ul class="courses__item-list">
-                                    <li><span>Длительность:</span> 4 месяца</li>
-                                    <li><span>Формат обучения:</span> онлайн</li>
-                                </ul>
-                                <div class="courses__item-date">Начало курса <br> 08.07.2022</div>
-                                <div class="courses__item-button">
-                                    <a href="course.html" class="btn w-all">Подробнее</a>
-                                </div>
-                            </div>    
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="courses__item">
-                                <div class="courses__item-photo"><img src="assets/images/courses/3.jpg"></div>
-                                <h3 class="courses__item-title">Факультет Продакт-менеджмента</h3>
-                                <ul class="courses__item-list">
-                                    <li><span>Длительность:</span> 4 месяца</li>
-                                    <li><span>Формат обучения:</span> онлайн</li>
-                                </ul>
-                                <div class="courses__item-date">Начало курса <br> 08.07.2022</div>
-                                <div class="courses__item-button">
-                                    <a href="course.html" class="btn w-all">Подробнее</a>
-                                </div>
-                            </div>    
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="courses__item">
-                                <div class="courses__item-photo"><img src="assets/images/courses/4.jpg"></div>
-                                <h3 class="courses__item-title">Факультет Продакт-менеджмента</h3>
-                                <ul class="courses__item-list">
-                                    <li><span>Длительность:</span> 4 месяца</li>
-                                    <li><span>Формат обучения:</span> онлайн</li>
-                                </ul>
-                                <div class="courses__item-date">Начало курса <br> 08.07.2022</div>
-                                <div class="courses__item-button">
-                                    <a href="course.html" class="btn w-all">Подробнее</a>
-                                </div>
-                            </div>    
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="courses__item">
-                                <div class="courses__item-photo"><img src="assets/images/courses/1.jpg"></div>
-                                <h3 class="courses__item-title">Факультет Продакт-менеджмента</h3>
-                                <ul class="courses__item-list">
-                                    <li><span>Длительность:</span> 4 месяца</li>
-                                    <li><span>Формат обучения:</span> онлайн</li>
-                                </ul>
-                                <div class="courses__item-date">Начало курса <br> 08.07.2022</div>
-                                <div class="courses__item-button">
-                                    <a href="course.html" class="btn w-all">Подробнее</a>
-                                </div>
-                            </div>    
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="courses__item">
-                                <div class="courses__item-photo"><img src="assets/images/courses/2.jpg"></div>
-                                <h3 class="courses__item-title">Факультет Продакт-менеджмента</h3>
-                                <ul class="courses__item-list">
-                                    <li><span>Длительность:</span> 4 месяца</li>
-                                    <li><span>Формат обучения:</span> онлайн</li>
-                                </ul>
-                                <div class="courses__item-date">Начало курса <br> 08.07.2022</div>
-                                <div class="courses__item-button">
-                                    <a href="course.html" class="btn w-all">Подробнее</a>
-                                </div>
-                            </div>    
-                        </div>
+                        {'!pdoResources' | snippet : [
+                            'tpl'=>'@FILE chunks/courses/courses.starts.carousel.row.tpl',
+                            'sortby'=>'{"data_from":"asc"}',
+                            'parents'=>85,
+                            'depth'=>2,
+                            'includeTVs' => 'small_image,course_group_title,data_from,data_to,course_owner,form_of_study',
+                            'processTVs'=>1,
+                            'limit'=>12,
+                            'where' => ["template:=" => "8","data_from:>" => $.php.time()],
+                        ]}
                     </div>
                 </div>
+                
+                
+                
             </div>	
         </section><!-- courses -->

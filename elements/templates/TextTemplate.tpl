@@ -12,7 +12,7 @@
             {if $_modx->resource.richtext == 1}
                 {$_modx->resource.content}							
             {else}
-                {$_modx->resource.content}						
+                {$_modx->resource.introtext}						
             {/if}
         </div>
     </div>

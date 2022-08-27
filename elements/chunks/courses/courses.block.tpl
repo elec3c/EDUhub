@@ -8,7 +8,7 @@
             {/if}
             <div class="courses__block-photo">
                 <div class="courses__block-photo__wrap">
-                    {include 'file:chunks/courses/courses.block.photo.tpl' page_id=$id}
+                    {include 'file:chunks/courses/courses.block.photo.tpl' user_id=$_pls['tv.course_owner']}
                 </div>
             </div>
             {include 'file:chunks/courses/courses.block.info.tpl' page_id=$id}        

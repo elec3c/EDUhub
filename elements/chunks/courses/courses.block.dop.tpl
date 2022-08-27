@@ -23,7 +23,7 @@
                 <path d="M16.1612 3.38749L18.3612 7.78749C18.6612 8.39999 19.4612 8.98749 20.1362 9.09999L24.1237 9.76249C26.6737 10.1875 27.2737 12.0375 25.4362 13.8625L22.3362 16.9625C21.8112 17.4875 21.5237 18.5 21.6862 19.225L22.5737 23.0625C23.2737 26.1 21.6612 27.275 18.9737 25.6875L15.2362 23.475C14.5612 23.075 13.4487 23.075 12.7612 23.475L9.02367 25.6875C6.34867 27.275 4.72367 26.0875 5.42367 23.0625L6.31117 19.225C6.47367 18.5 6.18617 17.4875 5.66117 16.9625L2.56117 13.8625C0.736166 12.0375 1.32367 10.1875 3.87367 9.76249L7.86117 9.09999C8.52367 8.98749 9.32367 8.39999 9.62367 7.78749L11.8237 3.38749C13.0237 0.999988 14.9737 0.999988 16.1612 3.38749Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>                                    
         </div>
-        <div class="courses__block-ditem__t">{'!ecThreadRating'|snippet: ['thread' => $thread, 'tpl'=>'@INLINE {$.php.round($rating_wilson)}']} оценок!!!</div>
+        <div class="courses__block-ditem__t">{'!ecThreadRating'|snippet: ['thread' => $thread, 'tpl'=>'@INLINE {$.php.round($rating_wilson, 1)}']} баллов</div>
     </a>
     <a href="{$_modx->makeUrl($page_id)}" class="courses__block-ditem courses__block-ditem--rev">
         <div class="courses__block-ditem__icon">

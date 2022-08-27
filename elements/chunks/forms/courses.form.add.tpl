@@ -1,4 +1,4 @@
-<form action="[[~[[*id]]]]" enctype="multipart/form-data" method="post">
+<form action="[[~[[*id]]]]" enctype="multipart/form-data" method="post" id="courseFormAdd">
     <input type="hidden" name="nospam:blank" />
     <input type="hidden" name="parent" value="[[+fi.parent]]" id="parent"/>
     <input type="hidden" name="resource_id" value="[[+fi.id]]" />
@@ -106,9 +106,7 @@
     </div>
     <div class="cadd__block">
         <div class="cadd__label">Описание</div>
-        <div class="cadd__inputs">
-            <textarea name="introtext" rows="4" cols="50" placeholder="Описание курса" class="input tmp-disabled"></textarea>
-        </div>
+        {insert 'file:chunks/forms/fields/fields.courses.introtext.tpl'}
     </div>
     <div class="cadd__button">
         <button class="btn w-all" type="submit">{$btn}</button>

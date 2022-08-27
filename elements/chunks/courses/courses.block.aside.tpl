@@ -29,9 +29,9 @@
                     занятия <br> в неделю
             </div>
             {/if}
-            {if $price_course}
+            {if $price_lesson}
             <div class="courses__block-props__item">
-                <div class="courses__block-props__numb">{$price_course}</div>
+                <div class="courses__block-props__numb">{$price_lesson}</div>
                     стоимость занятия
                 </div>
             {/if}

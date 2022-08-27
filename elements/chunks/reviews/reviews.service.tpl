@@ -7,7 +7,7 @@
                 <div class="rating__numb">4.8</div>
             </div>
             <br>
-            <a href="" class="reviews__service-link">{'!ecMessagesCount'|snippet} отзывов</a>
+            <a href="" class="reviews__service-link">12 отзывов</a>
         </div>
     </div>
     <div class="reviews__service-row">

@@ -1,8 +1,5 @@
 {'!msFavorites.initialize' | snippet}
 {set $ids = '!msFavorites.ids' | snippet:['type'=>'scools']}
-
-
-
                 
 <div id="pdopage" class="msfavorites-parent">
     <div class="scools__items rows">
@@ -12,7 +9,7 @@
         'sortby'=>'pagetitle'
         'totalVar'=>'total',
         'limit'=>'6',
-        'tpl'=>'@FILE chunks/scools/scools.item.tpl',
+        'tpl'=>'@FILE chunks/scools/scools.block.tpl',
         'ajaxMode' => 'button',
         'ajaxElemMore'=>'#pdopage .btn--more',
         'ajaxTplMore'=>'@INLINE <div class="section__buttons"><button class="btn btn--more"><svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
