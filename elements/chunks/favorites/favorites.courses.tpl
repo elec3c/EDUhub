@@ -7,6 +7,8 @@
         'resources'=> $ids,
         'limit'=>'6',
         'totalVar'=>'total',
+        'tvPrefix' => '',
+        'includeTVs' => 'course_owner',
         'tpl'=>'@FILE chunks/courses/courses.block.tpl',
         'ajaxMode' => 'button',
         'ajaxElemMore'=>'#pdopage .btn--more',

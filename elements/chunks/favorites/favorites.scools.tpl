@@ -8,6 +8,7 @@
         'resources'=> $ids,
         'sortby'=>'pagetitle'
         'totalVar'=>'total',
+        'includeTVs' => 'scools_owner',
         'limit'=>'6',
         'tpl'=>'@FILE chunks/scools/scools.block.tpl',
         'ajaxMode' => 'button',

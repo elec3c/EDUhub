@@ -1,3 +1,5 @@
+
+{*
 <div class="reviews__service">
     <div class="reviews__service-row">
         <a href="" target="_blank" class="reviews__service-logo"><img src="/assets/images/google-logo.svg" alt=""></a>
@@ -22,3 +24,4 @@
         </div>
     </div>
 </div>
+*}

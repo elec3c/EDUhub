@@ -34,6 +34,10 @@
         </div>
 
         <div class="courses__scool-links">
+            <a href="{39 | url}?copy={$id}" class="courses__scool-edit">
+                <img src="/assets/images/icons/edit-purple.svg" alt="Edit">
+                Копировать
+            </a>
             <a href="{39 | url}?edit={$id}" class="courses__scool-edit">
                 <img src="/assets/images/icons/edit-purple.svg" alt="Edit">
                 Редактировать

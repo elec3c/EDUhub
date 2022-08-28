@@ -5,10 +5,18 @@
         <section class="reviews section__mgb--md">
             <h2 class="section__title">Оставить отзыв</h2>
             {set $thread = $_modx->resource.course_template?'thread-'~$_modx->resource.course_template:'resource-'~$id}
-            {'!ecForm' | snippet: [
-                'thread' => $thread
-                'tplForm' => '@FILE chunks/forms/reviews.form.tpl'
+            {if '!checkCode' | snippet: [
+                'userID' => $_modx->user.id,
+                'pageId' => $_modx->resource.id
             ]}
+            {'!ecForm' | snippet: [
+                'thread' => $thread,
+                'tplForm' => '@FILE chunks/forms/reviews.form.tpl',
+                'autoPublish' => 'All'
+            ]}
+            {else}
+                <p class="section__intro">Отзыв может оставить только пользователь прошедший курс.</p>    
+            {/if}    
         </section>
     {/if}
 {else}

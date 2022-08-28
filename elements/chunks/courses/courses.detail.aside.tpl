@@ -50,26 +50,23 @@
         </div>
 
         <div class="btns_cfs detail__aside-buttons">
-            
-        {if ('' | isloggedin : 'web')}
-            {if !$_modx->user.urlico && !$_modx->user.manager}
-                <button class="btn w-all"  data-open-popup="call_to_school_reg">Заказать звонок</button>
+
+            {if ('' | isloggedin : 'web')}
+                {if !$_modx->user.urlico && !$_modx->user.manager}
+                    <button class="btn w-all" data-open-popup="call_to_school_reg">Заказать звонок</button>
+                {/if}
+            {else}
+                <button class="btn w-all " data-open-popup="call_to_school">Заказать звонок</button>
             {/if}
-        {else}
-        
             {'!addComparison' | snippet: [
                 'list_id' => 174,
                 'list' => 'courses',
                 'id' => $_modx->resource.id,
                 'tpl' => 'compare.add.tpl',
-            ]}   
-    
-        
-            <button class="btn w-all "  data-open-popup="call_to_school">Заказать звонок</button>
-        {/if}    
-        {if !$_modx->user.urlico && !$_modx->user.manager}
-            {include 'file:chunks/favorites/favorites.like.tpl' type_name='courses'}
-        {/if}
+            ]}
+            {if !$_modx->user.urlico && !$_modx->user.manager}
+                {include 'file:chunks/favorites/favorites.like.tpl' type_name='courses'}
+            {/if}
             {if $.php.time() < $.php.strtotime($_modx->resource.data_to)}
                 {'!promocode' | snippet :['data_to' => $_modx->resource.data_to]}
                 {if $_modx->user.id == 0}

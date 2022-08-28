@@ -1,4 +1,6 @@
-{set $user_id = $id | resource:'scools_owner'}
+{set $user_id = $_pls['tv.scools_owner']}
+
+
 {set $city = $user_id | user:'city'}
 {set $website = $user_id | user:'website'}
 <div class="scools__item">
@@ -7,7 +9,7 @@
             {include 'file:chunks/courses/courses.block.photo.tpl' user_id=$user_id}
         </div>
         <div class="scools__item-info">
-            <div class="scools__item-title">{$menutitle ?: $pagetitle}</div> 
+            <div class="scools__item-title">{$menutitle ?: $pagetitle} {$_pls['tv.scools_owner']}</div> 
             <ul class="scools__item-list listinf">
                 {if $city}
                 <li class="listinf__flex">

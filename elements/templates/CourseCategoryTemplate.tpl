@@ -4,6 +4,7 @@
             'parents' => $_modx->resource.id,
             'limit'=>'6',
             'depth'=>'2',
+            'includeTVs' => 'course_owner',
             'filters'=>'
                 tv|course_type,
                 tv|form_of_study,

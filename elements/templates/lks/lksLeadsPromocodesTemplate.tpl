@@ -109,7 +109,10 @@
                             '
                         ]}
                     </div>
-                    {'page.nav' | placeholder}
+                    <div class="section__buttons">
+                        {'page.nav' | placeholder}
+                    </div>
+                    
                 </div>
                 
                 

@@ -11,10 +11,17 @@
 			</a>
 			<div class="popup__body">
 				<div class="popup__head">
-					<div class="popup__title">Заказать обратный звонок</div>
-					<div class="popup__intro">Оставь свои контактные данные — мы позвоним и ответим на все вопросы</div>
+					<div class="popup__title">Заказать обратный звонок может только зарегистрированный пользователь</div>
+                    
+				</div>
+                <button class="btn btn--purple w-all" data-open-popup="auth">Войти</button>
+				
+				<div class="auth__bottom">
+					Нет аккаунта? <a href="" class="link" data-open-popup="reg">Зарегистрироваться</a>
 				</div>
 				
+
+                {*
                 {var $email = ('contact.Email' | config) ?: 'emailsender' | config}
                 {var $subject  = $subject  ?: 'Обратный звонок с сайта '  ~ $_modx->config.http_host}
                 {var $emailto  = $emailto  ?: $_modx->config.emailto}
@@ -35,7 +42,7 @@
                     'validationErrorMessage' => $error,
                     'successMessage' => $success
                 ]}         				
-				
+				*}
 			</div>
 		</div><!--popup__container-->
 	</div>

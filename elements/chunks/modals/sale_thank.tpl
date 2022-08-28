@@ -12,7 +12,7 @@
 			</a>
 			<div class="popup__body">
 				<div class="popup__head">
-					<div class="popup__title">Скидка активирована <br> и перемещена в ваш личный кабинет.</div>
+					<div class="popup__title">Скидка активирована <br> и перемещена в ваш <a href="{$_modx->makeUrl(34)}">личный кабинет</a>.</div>
 				</div>
 
 				<button class="btn btn--bdred w-all popup-close">Закрыть</button>

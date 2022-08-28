@@ -15,8 +15,10 @@
                             {$_modx->resource.content ?: $_modx->resource.introtext}
                         </div>
                         {include 'file:chunks/scools/scools.detail.program.tpl'}
+                        {*
                         {include 'file:chunks/reviews/reviews.list.tpl'    page_id=$_modx->resource.id}
                         {include 'file:chunks/reviews/reviews.form.tpl'     page_id=$_modx->resource.id}
+                        *}
                         {include 'file:chunks/scools/scools.detail.photo.tpl'}
                     </div>
                     {include 'file:chunks/scools/scools.detail.aside.tpl'}

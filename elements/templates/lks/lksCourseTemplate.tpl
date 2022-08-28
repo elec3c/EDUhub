@@ -39,7 +39,9 @@
                             
                         ])}
                     </div>
-                    {$_modx->getPlaceholder('page.nav')}
+                    <div class="section__buttons">
+                        {$_modx->getPlaceholder('page.nav')}
+                    </div>
                 </div>
             </div>
         </section><!-- lk -->
