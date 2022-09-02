@@ -1,0 +1,164 @@
+@@include('html/head.html', {
+  "title": "Избранные курсы"
+  })
+  
+  <section class="wrapper" id="top">
+  
+      @@include('html/header.html', {
+      "active_menu": "profile",
+      "auth": "user_auth"
+      })
+  
+      <main class="content__wrapper">
+  
+  
+          @@include('html/lknav.html', {
+          "active_menu": "course",
+          "type": "user"
+          })
+  
+          <section class="lk compare section__mgb">
+              <div class="container">
+                  <div class="section__head section__head--cols">
+                      <h2 class="section__title">Сравнение курсов</h2>
+                      <div class="section__head-right">
+                          <button class="btn btn--gray compare__clear">Очистить сравнение</button>
+                      </div>
+                  </div>
+              </div>
+  
+                  <div class="compare__scroll ">
+                      <table class="comparison comparison-table table table-hover">
+                          <thead>
+                              <tr class="comparison-row">
+                                  <td class="comparison-corner">
+                                      <a href="#" class="comparison-params-all comparison-link">Все параметры</a><br>
+                                      <a href="#"
+                                          class="comparison-params-unique comparison-link active">Различающиеся</a>
+                                  </td>
+                                  <td class="comparison-head" data-id="60" data-list="courses">
+                                      <img src="images/courses/1.jpg" alt="" title=""><br>
+                                      <a href="python/professiya-python-razrabotchik.html">Профессия
+                                          Python-разработчик </a><br>
+                                      <a href="#" class="comparison-remove comparison-link"
+                                          data-text="Обновляю список...">Удалить</a>
+                                  </td>
+                                  <td class="comparison-head" data-id="111" data-list="courses">
+                                      <img src="images/courses/2.jpg" alt="" title=""><br>
+                                      <a href="python/it-kursyi-python-2-8.html">IT курсы_Python_2</a><br>
+                                      <a href="#" class="comparison-remove comparison-link"
+                                          data-text="Обновляю список...">Удалить</a>
+                                  </td>
+                                  <td class="comparison-head" data-id="60" data-list="courses">
+                                      <img src="images/courses/1.jpg" alt="" title=""><br>
+                                      <a href="python/professiya-python-razrabotchik.html">Профессия
+                                          Python-разработчик </a><br>
+                                      <a href="#" class="comparison-remove comparison-link"
+                                          data-text="Обновляю список...">Удалить</a>
+                                  </td>
+                                  <td class="comparison-head" data-id="111" data-list="courses">
+                                      <img src="images/courses/2.jpg" alt="" title=""><br>
+                                      <a href="python/it-kursyi-python-2-8.html">IT курсы_Python_2</a><br>
+                                      <a href="#" class="comparison-remove comparison-link"
+                                          data-text="Обновляю список...">Удалить</a>
+                                  </td>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr class="comparison-row">
+                                  <td class="comparison-param">
+                                      1. <strong>comparison_field_data_from</strong>
+                                  </td>
+                                  <td class="comparison-cell field-data_from">2022-08-17 09:01:00</td>
+                                  <td class="comparison-cell field-data_from">2022-08-19 00:00:00</td>
+                                  <td class="comparison-cell field-data_from">2022-08-17 09:01:00</td>
+                                  <td class="comparison-cell field-data_from">2022-08-19 00:00:00</td>
+                              </tr>
+                              <tr class="comparison-row same" style="display: none;">
+                                  <td class="comparison-param">
+                                      2. <strong>comparison_field_course_duration</strong>
+                                  </td>
+                                  <td class="comparison-cell field-course_duration">100</td>
+                                  <td class="comparison-cell field-course_duration">100</td>
+                                  <td class="comparison-cell field-course_duration">100</td>
+                                  <td class="comparison-cell field-course_duration">100</td>
+                              </tr>
+                              <tr class="comparison-row">
+                                  <td class="comparison-param">
+                                      3. <strong>comparison_field_lesson_duration</strong>
+                                  </td>
+                                  <td class="comparison-cell field-lesson_duration">30</td>
+                                  <td class="comparison-cell field-lesson_duration">45</td>
+                                  <td class="comparison-cell field-lesson_duration">30</td>
+                                  <td class="comparison-cell field-lesson_duration">45</td>
+                              </tr>
+                              <tr class="comparison-row">
+                                  <td class="comparison-param">
+                                      4. <strong>comparison_field_price_course</strong>
+                                  </td>
+                                  <td class="comparison-cell field-price_course">750</td>
+                                  <td class="comparison-cell field-price_course">100</td>
+                                  <td class="comparison-cell field-price_course">750</td>
+                                  <td class="comparison-cell field-price_course">100</td>
+                              </tr>
+                              <tr class="comparison-row">
+                                  <td class="comparison-param">
+                                      5. <strong>comparison_field_price_lesson</strong>
+                                  </td>
+                                  <td class="comparison-cell field-price_lesson">31.25</td>
+                                  <td class="comparison-cell field-price_lesson">200</td>
+                                  <td class="comparison-cell field-price_lesson">31.25</td>
+                                  <td class="comparison-cell field-price_lesson">200</td>
+                              </tr>
+                              <tr class="comparison-row">
+                                  <td class="comparison-param">
+                                      6. <strong>comparison_field_format_of_study</strong>
+                                  </td>
+                                  <td class="comparison-cell field-format_of_study">individual</td>
+                                  <td class="comparison-cell field-format_of_study">group</td>
+                                  <td class="comparison-cell field-format_of_study">individual</td>
+                                  <td class="comparison-cell field-format_of_study">group</td>
+                              </tr>
+                              <tr class="comparison-row">
+                                  <td class="comparison-param">
+                                      7. <strong>comparison_field_form_of_study</strong>
+                                  </td>
+                                  <td class="comparison-cell field-form_of_study">offline</td>
+                                  <td class="comparison-cell field-form_of_study">online</td>
+                                  <td class="comparison-cell field-form_of_study">offline</td>
+                                  <td class="comparison-cell field-form_of_study">online</td>
+                              </tr>
+                              <tr class="comparison-row same" style="display: none;">
+                                  <td class="comparison-param">
+                                      8. <strong>comparison_field_num_people_in_group</strong>
+                                  </td>
+                                  <td class="comparison-cell field-num_people_in_group">8-10</td>
+                                  <td class="comparison-cell field-num_people_in_group">8-10</td>
+                                  <td class="comparison-cell field-num_people_in_group">8-10</td>
+                                  <td class="comparison-cell field-num_people_in_group">8-10</td>
+                              </tr>
+                          </tbody>
+                      </table>
+  
+                  </div>
+  
+  
+          </section><!-- lk -->
+  
+  
+  
+  
+      </main>
+      <!--content__wrapper-->
+  
+      @@include('html/footer.html', {
+      "active_menu": "profile"
+      })
+  
+  </section>
+  
+  @@include('html/popup.html', {})
+  
+  </body>
+  
+  </html>
