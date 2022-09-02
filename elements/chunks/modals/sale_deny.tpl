@@ -1,4 +1,5 @@
-<div class="popup " data-popup="call_to_school">
+<!-- Удаление скидки -->
+<div class="popup " data-popup="sale_deny">
 	<div class="popup__content">
 		<div class="popup__bg popup-close"></div>
 		<div class="popup__container">
@@ -11,14 +12,11 @@
 			</a>
 			<div class="popup__body">
 				<div class="popup__head">
-					<div class="popup__title">Заказать обратный звонок может только зарегистрированный пользователь</div>
-                    
+					<div class="popup__title">К сожалению у школы только, что закончилисть промокоды.</div>
 				</div>
-                <button class="btn btn--purple w-all" data-open-popup="auth">Войти</button>
-				
-				<div class="auth__bottom">
-					Нет аккаунта? <a href="" class="link" data-open-popup="reg">Зарегистрироваться</a>
-				</div>
+
+
+				<button class="btn btn--bdred w-all popup-close">Закрыть</button>
 			</div>
 		</div><!--popup__container-->
 	</div>

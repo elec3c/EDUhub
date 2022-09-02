@@ -1,40 +1,75 @@
 {extends 'file:templates/BaseTemplate.tpl'}
 {block 'content'} 
-        {'!mFilter2' | snippet : [
-            'parents' => $_modx->resource.id,
-            'limit'=>'6',
-            'depth'=>'2',
-            'includeTVs' => 'course_owner',
-            'filters'=>'
+{'!promocode' | snippet :[]}
+{if $_modx->resource.id == 10 || $_modx->resource.id == 11}
+{set $filter = '
+                tv|course_sub_category,
                 tv|course_type,
+                tv|for_ages,
+                tv|for_levels,
                 tv|form_of_study,
                 tv|format_of_study,
                 tv|course_city,
                 tv|course_region,
                 tv|course_metro
+            '}
+{else}
+{set $filter = '
+                tv|course_type,
+                tv|for_ages,
+                tv|for_levels,
+                tv|form_of_study,
+                tv|format_of_study,
+                tv|course_city,
+                tv|course_region,
+                tv|course_metro
+            '}
+{/if}
+
+        {'!mFilter2' | snippet : [
+            'parents'       => $_modx->resource.id,
+            'limit'         => '6',
+            'filters'       => $filter,
+            'aliases'=>'tv|course_sub_category==course_sub_category,
+                        tv|course_type==course_type,
+                        tv|for_ages==for_ages,
+                        tv|for_levels==for_levels,
+                        tv|form_of_study==form_of_study,
+                        tv|format_of_study==format_of_study,
+                        tv|course_city==course_city,
+                        tv|course_region==course_region,
+                        tv|course_metro==course_metro
             ',
-            'tplOuter'=>'@FILE chunks/filter/filter.outer.tpl',
-            'tpls'=>'@FILE chunks/courses/courses.block.tpl',
+            'tplOuter'       =>'@FILE chunks/filter/filter.outer.tpl',
+            'tpls'           =>'@FILE chunks/courses/courses.block.tpl',
+            
             'tplFilter.outer.resource|parent'=>'@FILE chunks/filter/filter.select.tpl',
             'tplFilter.row.resource|parent'=>'@FILE chunks/filter/filter.option.tpl',
-            'tplFilter.outer.tv|course_type'=>'@FILE chunks/filter/filter.select.tpl',
-            'tplFilter.row.tv|course_type'=>'@FILE chunks/filter/filter.option.tpl',
-            'tplFilter.outer.tv|course_sub_categoty'=>'@FILE chunks/filter/filter.select.tpl',
-            'tplFilter.row.tv|course_sub_categoty'=>'@FILE chunks/filter/filter.option.tpl',
-            'tplFilter.outer.tv|form_of_study'=>'@FILE chunks/filter/filter.select.tpl',
-            'tplFilter.row.tv|form_of_study'=>'@FILE chunks/filter/filter.option.tpl',
-            'tplFilter.outer.tv|format_of_study'=>'@FILE chunks/filter/filter.select.tpl',
-            'tplFilter.row.tv|format_of_study'=>'@FILE chunks/filter/filter.option.tpl',
-            'tplFilter.outer.tv|course_city'=>'@FILE chunks/filter/filter.select.tpl',
-            'tplFilter.row.tv|course_city'=>'@FILE chunks/filter/filter.option.tpl',
-            'tplFilter.outer.tv|course_region'=>'@FILE chunks/filter/filter.select.tpl',
-            'tplFilter.row.tv|course_region'=>'@FILE chunks/filter/filter.option.tpl',
-            'tplFilter.outer.tv|course_metro'=>'@FILE chunks/filter/filter.select.tpl',
-            'tplFilter.row.tv|course_metro'=>'@FILE chunks/filter/filter.option.tpl',
-            'suggestionsRadio'=>'resource|parent',
-            'showEmptyFilters'=>'1',
-            'filterOptions'=>'{"autoLoad":1}',
-            'where' => ["template:=" => "8"],
-            'ajaxMode' => 'button'
+            'tplFilter.outer.course_sub_category'=>'@FILE chunks/filter/filter.select.tpl',
+            'tplFilter.row.course_sub_category'=>'@FILE chunks/filter/filter.option.tpl',
+            'tplFilter.outer.course_type'=>'@FILE chunks/filter/filter.select.tpl',
+            'tplFilter.row.course_type'=>'@FILE chunks/filter/filter.option.tpl',
+            'tplFilter.outer.for_ages'=>'@FILE chunks/filter/filter.select.tpl',
+            'tplFilter.row.for_ages'=>'@FILE chunks/filter/filter.option.tpl',
+            'tplFilter.outer.for_levels'=>'@FILE chunks/filter/filter.select.tpl',
+            'tplFilter.row.for_levels'=>'@FILE chunks/filter/filter.option.tpl',            
+            'tplFilter.outer.course_sub_categoty'=>'@FILE chunks/filter/filter.select.tpl',
+            'tplFilter.row.course_sub_categoty'=>'@FILE chunks/filter/filter.option.tpl',
+            'tplFilter.outer.form_of_study'=>'@FILE chunks/filter/filter.select.tpl',
+            'tplFilter.row.form_of_study'=>'@FILE chunks/filter/filter.option.tpl',
+            'tplFilter.outer.format_of_study'=>'@FILE chunks/filter/filter.select.tpl',
+            'tplFilter.row.format_of_study'=>'@FILE chunks/filter/filter.option.tpl',
+            'tplFilter.outer.course_city'=>'@FILE chunks/filter/filter.select.tpl',
+            'tplFilter.row.course_city'=>'@FILE chunks/filter/filter.option.tpl',
+            'tplFilter.outer.course_region'=>'@FILE chunks/filter/filter.select.tpl',
+            'tplFilter.row.course_region'=>'@FILE chunks/filter/filter.option.tpl',
+            'tplFilter.outer.course_metro'=>'@FILE chunks/filter/filter.select.tpl',
+            'tplFilter.row.course_metro'=>'@FILE chunks/filter/filter.option.tpl',
+            
+            'suggestionsRadio'   =>'resource|parent',
+            'showEmptyFilters'   =>'1',
+            'filterOptions'      =>'{"autoLoad":1}',
+            'where'              => ["template:=" => "8"],
+            'ajaxMode'           => 'button'
         ]}
 {/block}

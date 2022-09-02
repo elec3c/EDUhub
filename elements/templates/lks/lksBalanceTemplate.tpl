@@ -16,7 +16,7 @@
                 </div>
                 <div class="balance__item">
                     <div class="balance__item-label">Пополнения в текущем месяце</div>
-                    <div class="balance__item-val">480</div>
+                    <div class="balance__item-val">{'!budgetReplenishmentMonth' | snippet: ['user_id' => $_modx->user.id]}</div>
                 </div>
                 <div class="balance__item">
                     <div class="balance__item-label">Комиссия за договор</div>
@@ -24,11 +24,11 @@
                 </div>
                 <div class="balance__item">
                     <div class="balance__item-label">Услуга обратный звонок</div>
-                    <div class="balance__item-val">20</div>
+                    <div class="balance__item-val">{'!callCnt' | snippet: ['school_id' => $_modx->user.id]}</div>
                 </div>
                 <div class="balance__item">
                     <div class="balance__item-label">Свободный остаток</div>
-                    <div class="balance__item-val">275</div>
+                    <div class="balance__item-val">{'!budgetSum' | snippet: ['user_id' => $_modx->user.id]}</div>
                 </div>
                 <div class="balance__item">
                     <div class="balance__item-label">Рекомендуемая сумма к пополнению</div>

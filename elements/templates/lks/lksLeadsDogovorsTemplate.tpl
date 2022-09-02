@@ -55,7 +55,9 @@
                                 'modResource'=>'modResource.pagetitle,modResource.id as res_id',
                                 'modUserProfile'=>'modUserProfile.fullname,modUserProfile.mobilephone,modUserProfile.email',
                             ],
-                            
+                            'sortby'=>[
+                                'PromoCodeItem.id'=>'DESC',
+                            ],
                             'tpl'=>'@INLINE
                                 <div class="leads__block">
                                     <div class="leads__header lk__wraplr section__lr">{$pagetitle}</div>
@@ -85,7 +87,7 @@
                                         </div>
                                         <div class="leads__item-col leads__item-action">
                                             <input type="text" class="input input--white" readonly value="Промокод: {$code}">
-                                            <button class="btn promocode-dogovor-remove" data-id="{$id}">Отменить договор</button>
+                                            {*<button class="btn promocode-dogovor-remove" data-id="{$id}">Отменить договор</button>*}
                                         </div>
                                     </div>
                                 </div>

@@ -19,15 +19,15 @@
                 {var $subject  = $subject  ?: 'Обратный звонок с сайта '  ~ $_modx->config.http_host}
                 {var $emailto  = $emailto  ?: $_modx->config.emailto}
                 {var $validate = $validate ?: 'name:required,phone:required,email:required'}
-                {var $success  = $success  ?: 'Сообщение успешно отправлено.'}
+                {var $success  = $success  ?: 'Обратный звонок анонимным пользователем заказан!'}
                 {var $error    = $error    ?: 'В форме содержатся ошибки!'}
                 {var $form     = '@FILE chunks/forms/modal.call.form.tpl'}
-                {var $emailTpl  = $emailTpl      ?: '@FILE chunks/emails/email.tpl'}				
+                {var $emailTpl  = $emailTpl ?: '@FILE chunks/emails/email.tpl'}				
 				
                 {'!AjaxForm'|snippet:[
                     'snippet' => 'FormIt',
                     'form' => $form,
-                    'hooks' => 'csrf,EmailQueue',
+                    'hooks' => 'csrf,callRequest,EmailQueue',
                     'emailSubject' => $subject,
                     'emailTo' => $emailto,
                     'emailFrom' => $_modx->config.emailsender,
@@ -35,7 +35,6 @@
                     'validationErrorMessage' => $error,
                     'successMessage' => $success
                 ]}         				
-				
 			</div>
 		</div><!--popup__container-->
 	</div>

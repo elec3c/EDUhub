@@ -16,13 +16,16 @@
                         <li><a href="{$_modx->makeUrl(162)}">Аналитика</a></li>
                     </ul>
                 </div>
-
-                <form action="" class="replen__action">
-                    <input type="text" class="input w-270" name="unp" placeholder="УНП">
-                    <input type="text" class="input" name="summ" placeholder="Сумма">
-                    <button class="btn w-all">Пополнить</button>
-                </form>
-
+                
+                {'!AjaxForm'|snippet:[
+                    'snippet'      => 'FormIt',
+                    'form'         => '@FILE chunks/forms/budget.operation.form.tpl',
+                    'hooks'        => 'FormSave,budgetTransactions',
+                    'validate'     => 'unp:required,sum:required',
+                    'validationErrorMessage' => 'В форме содержатся ошибки!',
+                    'successMessage'         => 'Счет учебного центра успешно пополнен!'
+                ]}                
+                
                 <div class="replen__filter">
                     <div class="replen__search">
                         <form action="" class="search__form">
@@ -40,62 +43,11 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="replen__item">
-                    <div class="replen__item-col replen__item-number">248623876</div>
-                    <div class="replen__item-col replen__item-date">
-                        <div class="replen__item-label show-tablet-sm">Дата пополнения</div>
-                         07.07.2022
-                    </div>
-                    <div class="replen__item-col replen__item-price">
-                        <div class="replen__item-label show-tablet-sm">Сумма</div>
-                        1000 руб.
-                    </div>
-                </div>
-                <div class="replen__item">
-                    <div class="replen__item-col replen__item-number">191258987</div>
-                    <div class="replen__item-col replen__item-date">
-                        <div class="replen__item-label show-tablet-sm">Дата пополнения</div>
-                        14.06.2022
-                    </div>
-                    <div class="replen__item-col replen__item-price">
-                        <div class="replen__item-label show-tablet-sm">Сумма</div>
-                        140 руб.
-                    </div>
-                </div>
-                <div class="replen__item">
-                    <div class="replen__item-col replen__item-number">175248963</div>
-                    <div class="replen__item-col replen__item-date">
-                        <div class="replen__item-label show-tablet-sm">Дата пополнения</div>
-                        22.05.2022
-                    </div>
-                    <div class="replen__item-col replen__item-price">
-                        <div class="replen__item-label show-tablet-sm">Сумма</div>
-                        80 руб.
-                    </div>
-                </div>
-                <div class="replen__item">
-                    <div class="replen__item-col replen__item-number">125478663</div>
-                    <div class="replen__item-col replen__item-date">
-                        <div class="replen__item-label show-tablet-sm">Дата пополнения</div>
-                        15.05.2022
-                    </div>
-                    <div class="replen__item-col replen__item-price">
-                        <div class="replen__item-label show-tablet-sm">Сумма</div>
-                        250 руб.
-                    </div>
-                </div>
-                <div class="replen__item">
-                    <div class="replen__item-col replen__item-number">125588796</div>
-                    <div class="replen__item-col replen__item-date">
-                        <div class="replen__item-label show-tablet-sm">Дата пополнения</div>
-                        11.05.2022
-                    </div>
-                    <div class="replen__item-col replen__item-price">
-                        <div class="replen__item-label show-tablet-sm">Сумма</div>
-                        200 руб.
-                    </div>
-                </div>
+                
+                {'!budgetListOperation' | snippet: [
+                    'manager_id' => $_modx->user.id,
+                    'tpl' => '@FILE chunks/budget/budget.operation.block.tpl',
+                ]}                   
 
             </div>
         </section><!-- lk -->

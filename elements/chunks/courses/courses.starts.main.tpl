@@ -33,7 +33,7 @@
                             'includeTVs' => 'small_image,course_group_title,data_from,data_to,course_owner,form_of_study',
                             'processTVs'=>1,
                             'limit'=>12,
-                            'where' => ["template:=" => "8","data_from:>" => $.php.time()],
+                            'where' => ["template:=" => "8","data_from:>" => $.php.date("Y-m-d H:i:s")],
                         ]}
                     </div>
                 </div>

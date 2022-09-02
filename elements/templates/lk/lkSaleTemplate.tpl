@@ -60,6 +60,9 @@
                                 'modUserProfile'=>'modUserProfile.website,modUserProfile.photo',
                                 'TVcourse_owner'=>'IFNULL(`TVcourse_owner`.`value`, \'\') AS `course_city`',
                             ],
+                            'sortby'=>[
+                                'PromoCodeItem.id'=>'DESC',
+                            ],
                             'includeTVs'=>'form_of_study,course_city,sale,data_to',
                             'tpl'=>'@INLINE
                                 <div class="sale__item">
@@ -90,7 +93,11 @@
                                             </div>
                                             <div class="sale__item-col sale__item-code">
                                                 <div class="sale__item-label">Промокод</div>
-                                                {$code}
+                                                {if $active and empty($deleted)}
+                                                    {$code}
+                                                {else}
+                                                    Отменен
+                                                {/if}
                                             </div>
                                             <div class="sale__item-col sale__item-date">
                                                 <div class="sale__item-label">Срок действия</div>

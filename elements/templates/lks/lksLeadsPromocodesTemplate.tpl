@@ -55,7 +55,9 @@
                                 'modResource'=>'modResource.pagetitle,modResource.id as res_id',
                                 'modUserProfile'=>'modUserProfile.fullname,modUserProfile.mobilephone,modUserProfile.email',
                             ],
-                            
+                            'sortby'=>[
+                                'PromoCodeItem.id'=>'DESC',
+                            ],
                             'tpl'=>'@INLINE
                                 <div class="leads__block">
                                     <div class="leads__header lk__wraplr section__lr">{$pagetitle}</div>

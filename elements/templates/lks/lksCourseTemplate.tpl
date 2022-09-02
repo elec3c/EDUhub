@@ -25,10 +25,11 @@
                         {$_modx->runSnippet('!pdoPage', [
                             'parents'=>85,
                             'tpl'=>'@FILE chunks/lks/lks.courses.item.tpl',
-                            'includeTVs' => 'small_image, course_owner, course_address, course_city, course_region, course_metro, data_from',
+                            'includeTVs' => 'small_image, course_owner, course_address, course_city, course_region, course_metro, data_from, res_type',
                             'templates' => '8',
                             'processTVs'=>'1',
                             'limit'=>'3',
+                            'sortby'=>'{"createdon":"DESC"}',
                             'showUnpublished'=>'1',
                             'where' => '{"course_owner":'~$_modx->user.id~'}',
                             'ajaxMode' => 'button',

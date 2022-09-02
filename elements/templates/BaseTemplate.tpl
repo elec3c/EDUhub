@@ -1,6 +1,3 @@
-{*if $_modx->user.id | ismember: 'Users'}
-    {set $group = 'Users'}
-{/if*}
 {set $res = $_modx->resource}
 {set $site_start = ('site_start' | config) ?: 1}
 {set $site_name = 'site_name' | config}

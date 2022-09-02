@@ -50,31 +50,34 @@
         </div>
 
         <div class="btns_cfs detail__aside-buttons">
-
-            {if ('' | isloggedin : 'web')}
-                {if !$_modx->user.urlico && !$_modx->user.manager}
-                    <button class="btn w-all" data-open-popup="call_to_school_reg">Заказать звонок</button>
+        {set $cnt = $_modx->runSnippet('!callCheckUID', [
+            'user_id'      => $_modx->user.id , 
+            'group_id'     => $_modx->resource.id,
+            'school_id'    => $user_id
+        ])}
+        
+        {if ('' | isloggedin : 'web')}
+            {if !$_modx->user.urlico && !$_modx->user.manager}
+                {if $cnt == 0}
+                    <button class="btn w-all" data-open-popup="call_to_school_reg" data-groupid="{$page_id}">Заказать звонок</button>
                 {/if}
-            {else}
-                <button class="btn w-all " data-open-popup="call_to_school">Заказать звонок</button>
             {/if}
-            {'!addComparison' | snippet: [
-                'list_id' => 174,
-                'list' => 'courses',
-                'id' => $_modx->resource.id,
-                'tpl' => 'compare.add.tpl',
-            ]}
+        {else}
+            <button class="btn w-all " data-open-popup="call_to_school" data-groupid="{$page_id}">Заказать звонок</button>
+        {/if}
+           {include 'file:chunks/compare/compare.button.tpl'}
+
             {if !$_modx->user.urlico && !$_modx->user.manager}
                 {include 'file:chunks/favorites/favorites.like.tpl' type_name='courses'}
             {/if}
-            {if $.php.time() < $.php.strtotime($_modx->resource.data_to)}
-                {'!promocode' | snippet :['data_to' => $_modx->resource.data_to]}
+            {*if $.php.time() < $.php.strtotime($_modx->resource.data_to)*}
+                {'!promocode' | snippet :[]}
                 {if $_modx->user.id == 0}
                     <button class="btn btn--bdpurple" data-open-popup="auth_course">Получить скидку</button>
                 {elseif !$_modx->user.urlico and !$_modx->user.manager}
-                    <button class="btn btn--bdpurple" data-open-popup="sale_add">Получить скидку</button>
+                    <button class="btn btn--bdpurple add-promocode" data-id="{$page_id}">Получить скидку</button>
                 {/if}
-            {/if}
+            {*/if*}
         </div>
     </div>
 </div>

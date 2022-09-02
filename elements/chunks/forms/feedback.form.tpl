@@ -1,4 +1,4 @@
-<form action="{$_modx->resource.uri}" method="post">
+<form action="{$_modx->resource.uri}" method="post" id="feedbackForm">
     <input type="hidden" name="csrf-token" value="{$.session['csrf-token']}">
     <input name="controll" class="no-display" type="text">
     <input type="hidden" name="form" value="Обратная связь">

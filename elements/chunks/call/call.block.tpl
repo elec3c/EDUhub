@@ -24,23 +24,40 @@
 
         
         <div class="leads__item-col">
-            {if $phone}
             <div class="leads__item-prop">
                 <div class="leads__item-prop__label">Телефон</div>
-                <a href="tel:{$phone|clearphone}">{$phone}</a>
+                {set $status = $_modx->runSnippet('!callCheckBuy', [
+                    'user_id'      => $user_id, 
+                    'group_id'     => $group_id,
+                    'school_id'    => $school_id
+                ])}
+
+                {if ($status == 1) && !empty($phone)}
+                    <a href="tel:{$phone | clearphone}">{$phone}</a>
+                {elseif ($status == 2)}                    
+                    <i>Пользователь выбрал другую школу</i>
+                {else}
+                    <span style="color:red">Скрыт</span>
+                {/if}
             </div>
-            {/if}
-            {if $email}
-            <div class="leads__item-prop">
-                <div class="leads__item-prop__label">Mail</div>
-                <a href="mailto:test@test.by">{$email}</a>
-            </div>
-            {/if}
         </div>
         
         <div class="leads__item-col leads__item-action">
             <input type="text" class="input input--white" readonly value="Промокод: 12554869">
-            <button class="btn dogovor-add">Заключить договор</button>
+            
+            {if $status == null || $status == 0}
+             {'!AjaxForm'|snippet:[
+                'snippet' => 'FormIt',
+                'form' => '@FILE chunks/forms/budget.buy.form.tpl',
+                'user_id' => $user_id,
+                'group_id' => $group_id,
+                'school_id' => $school_id,
+                'price' => 10,
+                'hooks' => 'budgetBuy',
+                'successMessage' => 'Покупка прошла успешна!'
+            ]}            
+            {/if}
+            
             <button class="btn btn--remove leads__item-remove lead-remove">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path

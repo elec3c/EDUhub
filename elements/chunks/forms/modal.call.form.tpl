@@ -6,7 +6,7 @@
     <input type="hidden" name="resource_id" value="{$_modx->resource.id}" />
     
 	<input name="controll" class="no-display" type="text">
-	<input type="hidden" name="form" value="Заказать обратный звонок">
+	<input type="hidden" name="form" value="Заказ обратного звонка анонимным пользователем">
 	<div class="input__row">
 		<input type="text" name="name" class="input" placeholder="Имя">
 	</div>  

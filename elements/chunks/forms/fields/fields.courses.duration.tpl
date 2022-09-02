@@ -1,0 +1,1 @@
+<input type="text" class="input" name="course_duration" placeholder="Длительность курса в ч." value="[[+fi.course_duration]]">

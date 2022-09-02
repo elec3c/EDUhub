@@ -1,5 +1,6 @@
 {set $page_id = $page_id ?: $res.id}
 {set $price_course  = $page_id | resource: 'price_course'}
+{set $course_owner  = $page_id | resource: 'course_owner'}
 {set $price_lesson  = $page_id | resource: 'price_lesson'}
 {set $course_duration  = $page_id | resource: 'course_duration'}
 {set $lesson_duration  = $page_id | resource: 'lesson_duration'}
@@ -57,11 +58,19 @@
                 'list' => 'courses',
                 'id' => $page_id,
                 'tpl' => 'compare.add.tpl',
-            ]}
+        ]}
+        
+        {set $cnt = $_modx->runSnippet('!callCheckUID', [
+            'user_id'      => $_modx->user.id , 
+            'group_id'     => $page_id,
+            'school_id'    => $course_owner
+        ])}
+        
         {if ('' | isloggedin : 'web')}
             {if !$_modx->user.urlico && !$_modx->user.manager}
-                <button class="btn w-all" data-open-popup="call_to_school_reg" data-groupid="{$page_id}">Заказать
-                    звонок</button>
+                {if $cnt == 0}
+                    <button class="btn w-all" data-open-popup="call_to_school_reg" data-groupid="{$page_id}">Заказать звонок</button>
+                {/if}
             {/if}
         {else}
             <button class="btn w-all " data-open-popup="call_to_school" data-groupid="{$page_id}">Заказать звонок</button>
@@ -70,7 +79,7 @@
         {if $_modx->user.id == 0}
             <button class="btn btn--bdpurple" data-open-popup="auth_course">Получить скидку</button>
         {elseif !$_modx->user.urlico and !$_modx->user.manager}
-            <button class="btn btn--bdpurple" data-open-popup="sale_add">Получить скидку</button>
+            <button class="btn btn--bdpurple add-promocode" data-id="{$page_id}">Получить скидку</button>
         {/if}
     </div>
 </div>

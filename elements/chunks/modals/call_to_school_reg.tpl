@@ -15,8 +15,27 @@
 					<div class="popup__title">Вы уверены, что хотите <br> передать ваши данные школе для обратного звонка?</div>
 				</div>
 
-				<button class="btn btn--red w-all get_promocode">Да</button>
-				<button class="btn btn--bdred w-all popup-close">Отмена</button>
+                {var $email = ('contact.Email' | config) ?: 'emailsender' | config}
+                {var $subject  = $subject  ?: 'Обратный звонок с сайта '  ~ $_modx->config.http_host}
+                {var $emailto  = $emailto  ?: $_modx->config.emailto}
+                {var $validate = $validate ?: 'name:required,phone:required,email:required'}
+                {var $success  = $success  ?: 'Обратный звонок пользователем заказан!'}
+                {var $error    = $error    ?: 'В форме содержатся ошибки!'}
+                {var $form     = '@FILE chunks/forms/modal.call.user.form.tpl'}
+                {var $emailTpl  = $emailTpl      ?: '@FILE chunks/emails/email.tpl'}				
+				
+                {'!AjaxForm'|snippet:[
+                    'snippet' => 'FormIt',
+                    'form' => $form,
+                    'hooks' => 'csrf,callRequest,EmailQueue',
+                    'emailSubject' => $subject,
+                    'emailTo' => $emailto,
+                    'emailFrom' => $_modx->config.emailsender,
+                    'validate' => '',
+                    'validationErrorMessage' => $error,
+                    'successMessage' => $success
+                ]}
+                
 			</div>
 		</div><!--popup__container-->
 	</div>

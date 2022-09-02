@@ -1,4 +1,4 @@
-            <form action="{18 | url}" class="hide-tablet-sm">
+            <form action="{18 | url}" class="hide-tablet-sm" id="chooseForm">
                 <div class="choose__block">
                     <div class="choose__block-title">Я ищу</div>
                     <div class="choose__inputs">
@@ -15,7 +15,7 @@
                             {include 'file:chunks/forms/fields/fields.courses.level.tpl' style='styler--white'}
                         </div>
                         <div class="choose__inputs-item w-200">
-                            {include 'file:chunks/forms/fields/fields.courses.age.tpl' style='styler--white'}
+                            {include 'file:chunks/forms/fields/fields.courses.ages.tpl' style='styler--white'}
                         </div>
                         <div class="choose__inputs-item w-230">
                             {include 'file:chunks/forms/fields/fields.courses.form_of_study.tpl' style='styler--white'}
@@ -23,7 +23,7 @@
                         <div class="choose__inputs-item w-270 w-230-tablet">
                             {include 'file:chunks/forms/fields/fields.courses.format_of_study.tpl' style='styler--white'}
                         </div>
-                        <div class="choose__inputs-item w-200">
+                        <!--<div class="choose__inputs-item w-200">
                             <select name="time" data-placeholder="Время обучения" class="styler styler--white">
                                 <option value=""></option>
                                 <option value="10-14">10-14</option>
@@ -36,7 +36,7 @@
                                 <option value="пн-пт">пн-пт</option>
                                 <option value="сб-вс">сб-вс</option>
                             </select>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
                 <div class="choose__block">
@@ -52,7 +52,7 @@
                             {include 'file:chunks/forms/fields/fields.location.metro.tpl' style='styler--white'}
                         </div>
                         <div class="choose__inputs-item w-210">
-                            <input type="text" placeholder="Дата с"
+                            <input type="text" name="data_from" placeholder="Дата с"
                                 class="input input--white input--date datepicker-input">
                         </div>
                         <div class="choose__inputs-item choose__inputs-button">
@@ -61,10 +61,8 @@
                     </div>
                 </div>
             </form>
-            <form action="" class="show-tablet-sm choose-filters">
-
+            <form action="{18 | url}" class="show-tablet-sm choose-filters" id="chooseForm">
                 <div class="choose__block-title">Я ищу</div>
-
                 <!--<div class="choose__inputs-item w-300">
                     <select name="direction" data-placeholder="Направление" class="styler styler--white">
                         <option value=""></option>
@@ -118,7 +116,7 @@
                         {include 'file:chunks/forms/fields/fields.courses.level.tpl' style='styler--white'}
                     </div>
                     <div class="choose__inputs-item w-200">
-                        {include 'file:chunks/forms/fields/fields.courses.age.tpl' style='styler--white'}
+                        {include 'file:chunks/forms/fields/fields.courses.ages.tpl' style='styler--white'}
                     </div>
                     <div class="choose__inputs-item w-230">
                         {include 'file:chunks/forms/fields/fields.courses.form_of_study.tpl' style='styler--white'}

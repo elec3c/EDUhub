@@ -1,6 +1,8 @@
 <form action="[[~[[*id]]]]" enctype="multipart/form-data" method="post" id="courseFormAdd">
+<input type="hidden" name="csrf-token" value="{$.session['csrf-token']}">
     <input type="hidden" name="nospam:blank" />
-    <input type="hidden" name="parent" value="[[+fi.parent]]" id="parent"/>
+    <input type="hidden" name="action" value="[[+fi.action]]" id="action"/>
+    <!--<input type="hidden" name="parent" value="[[+fi.course_sub_category]]" id="parent"/>-->
     <input type="hidden" name="resource_id" value="[[+fi.id]]" />
     <input type="hidden" name="course_owner" value="{$_modx->user.id}" />
     <input type="hidden" name="pagetitle" value="[[+fi.pagetitle]]" id="pagetitle"/>
@@ -35,22 +37,20 @@
             <div class="cadd__input cadd__input--date">
                 <input type="text" name="data_from" placeholder="Дата от" class="input input--date datepicker-input" value='[[+fi.data_from]]'>
             </div>
-            <div class="cadd__input cadd__input--date">
+            <!--<div class="cadd__input cadd__input--date">
                 <input type="text" name="data_to" placeholder="Дата до" class="input input--date datepicker-input"  value='[[+fi.data_to]]'>
-            </div>
+            </div>-->
             <div class="cadd__input">
-                <input type="text" class="input" name="course_duration" placeholder="Длительность курса в ч." value="[[+fi.course_duration]]">
+                {insert 'file:chunks/forms/fields/fields.courses.duration.tpl'}
             </div>
             <div class="cadd__input">
                 {insert 'file:chunks/forms/fields/fields.courses.num_lesson_per_week.tpl'}
-
             </div>
             <div class="cadd__input">
                 {insert 'file:chunks/forms/fields/fields.courses.lesson_duration.tpl'}
             </div>
         </div>
     </div>
-
     <div class="cadd__block">
         <div class="cadd__label">Детали</div>
         <div class="cadd__inputs cadd__in3">
