@@ -4,6 +4,7 @@
 {if $_modx->resource.id == 10 || $_modx->resource.id == 11}
 {set $filter = '
                 tv|course_sub_category,
+                tv|course_sub_category_type,
                 tv|course_type,
                 tv|for_ages,
                 tv|for_levels,
@@ -15,6 +16,7 @@
             '}
 {else}
 {set $filter = '
+                tv|course_sub_category_type,
                 tv|course_type,
                 tv|for_ages,
                 tv|for_levels,
@@ -30,7 +32,9 @@
             'parents'       => $_modx->resource.id,
             'limit'         => '6',
             'filters'       => $filter,
+
             'aliases'=>'tv|course_sub_category==course_sub_category,
+                        tv|course_sub_category_type==course_sub_category_type,
                         tv|course_type==course_type,
                         tv|for_ages==for_ages,
                         tv|for_levels==for_levels,
@@ -42,11 +46,13 @@
             ',
             'tplOuter'       =>'@FILE chunks/filter/filter.outer.tpl',
             'tpls'           =>'@FILE chunks/courses/courses.block.tpl',
-            
+            'includeTVs' => 'course_owner',
             'tplFilter.outer.resource|parent'=>'@FILE chunks/filter/filter.select.tpl',
             'tplFilter.row.resource|parent'=>'@FILE chunks/filter/filter.option.tpl',
             'tplFilter.outer.course_sub_category'=>'@FILE chunks/filter/filter.select.tpl',
             'tplFilter.row.course_sub_category'=>'@FILE chunks/filter/filter.option.tpl',
+            'tplFilter.outer.course_sub_category_type'=>'@FILE chunks/filter/filter.select.tpl',
+            'tplFilter.row.course_sub_category_type'=>'@FILE chunks/filter/filter.option.tpl',            
             'tplFilter.outer.course_type'=>'@FILE chunks/filter/filter.select.tpl',
             'tplFilter.row.course_type'=>'@FILE chunks/filter/filter.option.tpl',
             'tplFilter.outer.for_ages'=>'@FILE chunks/filter/filter.select.tpl',
@@ -65,11 +71,10 @@
             'tplFilter.row.course_region'=>'@FILE chunks/filter/filter.option.tpl',
             'tplFilter.outer.course_metro'=>'@FILE chunks/filter/filter.select.tpl',
             'tplFilter.row.course_metro'=>'@FILE chunks/filter/filter.option.tpl',
-            
             'suggestionsRadio'   =>'resource|parent',
             'showEmptyFilters'   =>'1',
             'filterOptions'      =>'{"autoLoad":1}',
-            'where'              => ["template:=" => "8"],
-            'ajaxMode'           => 'button'
+            'where' => ["template:=" => "8"]
+            
         ]}
 {/block}

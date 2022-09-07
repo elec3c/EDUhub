@@ -6,6 +6,7 @@
             'filters'=>'
                 tv|course_category,
                 tv|course_sub_category,
+                tv|course_sub_category_type,
                 tv|course_type,
                 tv|for_ages,
                 tv|for_levels,
@@ -17,6 +18,7 @@
             ',
             'aliases'=>'tv|course_category==course_category,
                         tv|course_sub_category==course_sub_category,
+                        tv|course_sub_category_type==course_sub_category_type,
                         tv|course_type==course_type,
                         tv|for_ages==for_ages,
                         tv|for_levels==for_levels,
@@ -35,6 +37,8 @@
             'tplFilter.row.course_category'=>'@FILE chunks/filter/filter.option.tpl',
             'tplFilter.outer.course_sub_category'=>'@FILE chunks/filter/filter.select.tpl',
             'tplFilter.row.course_sub_category'=>'@FILE chunks/filter/filter.option.tpl',
+            'tplFilter.outer.course_sub_category_type'=>'@FILE chunks/filter/filter.select.tpl',
+            'tplFilter.row.course_sub_category_type'=>'@FILE chunks/filter/filter.option.tpl',            
             'tplFilter.outer.course_type'=>'@FILE chunks/filter/filter.select.tpl',
             'tplFilter.row.course_type'=>'@FILE chunks/filter/filter.option.tpl',
             'tplFilter.outer.for_ages'=>'@FILE chunks/filter/filter.select.tpl',
@@ -51,12 +55,10 @@
             'tplFilter.row.course_region'=>'@FILE chunks/filter/filter.option.tpl',
             'tplFilter.outer.course_metro'=>'@FILE chunks/filter/filter.select.tpl',
             'tplFilter.row.course_metro'=>'@FILE chunks/filter/filter.option.tpl',
-            
             'suggestionsRadio'=>'resource|parent',
             'showEmptyFilters'=>'1',
             'filterOptions'=>'{"autoLoad":0}',
-            'where' => ["template:=" => "8"],
-            'ajaxMode' => 'button'
+            'where' => ["template:=" => "8"]
         ]}
 
     {include 'file:chunks/callback/callback.main.tpl'}

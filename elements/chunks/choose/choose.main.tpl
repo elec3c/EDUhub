@@ -34,7 +34,7 @@
         <!--choose_how-->
     </div>
     
-    <div class="choose__bg choose__wrap">
+    <div class="choose__bg choose__wrap" id="pick_up_a_course">
         <div class="container">
             {include 'file:chunks/forms/choose.form.tpl'}
         </div>

@@ -5,8 +5,8 @@
     <div class="container">
         
             {'!CompareList' | snippet: [
-                'fields' => '{"courses":["data_from", "course_duration", "lesson_duration", "price_course","price_lesson", "format_of_study","form_of_study","num_people_in_group"]}',
-                'maxItems' => 5
+                'fields' => '{"courses":["data_from", "for_ages_from", "course_duration", "lesson_duration", "price_course","price_lesson", "format_of_study","form_of_study","num_people_in_group"]}',
+                'maxItems' => 5,
             ]} 
         
     </div>

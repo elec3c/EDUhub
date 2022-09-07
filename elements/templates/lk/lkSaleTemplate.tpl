@@ -116,6 +116,7 @@
                             '
                         ]}
                     </div>
+                    <p>&nbsp;</p>
                     {'page.nav' | placeholder}
                 </div>
 

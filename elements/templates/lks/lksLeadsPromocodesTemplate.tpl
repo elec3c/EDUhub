@@ -29,6 +29,7 @@
                             'parents'=>85,
                             'ajaxMode'=>'default'
                             'class'=>'modResource',
+                            'toPlaceholder' => 'leads',
                             'includeTVs'=>'course_owner',
                             'tvPrefix'=>'',
                             'loadModels'=>'promocode',
@@ -110,6 +111,7 @@
                                 </div>
                             '
                         ]}
+                        {$leads ? $leads : 'У вас ещё нет сгенерированных промокодов'}
                     </div>
                     <div class="section__buttons">
                         {'page.nav' | placeholder}

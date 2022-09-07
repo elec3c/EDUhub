@@ -11,7 +11,7 @@
 			</a>
 			<div class="popup__body">
 				<div class="popup__title">Письмо отправлено на вашу почту</div>
-				<div class="popup__intro">текст</div>
+				<div class="popup__intro">В случае если вы не можете найти письмо проверьте папку "Спам"</div>
 			
 				
 			</div>

@@ -79,7 +79,9 @@
         {if $_modx->user.id == 0}
             <button class="btn btn--bdpurple" data-open-popup="auth_course">Получить скидку</button>
         {elseif !$_modx->user.urlico and !$_modx->user.manager}
-            <button class="btn btn--bdpurple add-promocode" data-id="{$page_id}">Получить скидку</button>
+            {if '!checkBudget' | snippet : ['page_id'=>$page_id]}
+                <button class="btn btn--bdpurple add-promocode" data-id="{$page_id}">Получить скидку</button>
+            {/if}
         {/if}
     </div>
 </div>

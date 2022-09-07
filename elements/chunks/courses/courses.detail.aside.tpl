@@ -70,14 +70,14 @@
             {if !$_modx->user.urlico && !$_modx->user.manager}
                 {include 'file:chunks/favorites/favorites.like.tpl' type_name='courses'}
             {/if}
-            {*if $.php.time() < $.php.strtotime($_modx->resource.data_to)*}
+            {if '!checkBudget' | snippet : ['page_id'=>$page_id]}
                 {'!promocode' | snippet :[]}
                 {if $_modx->user.id == 0}
                     <button class="btn btn--bdpurple" data-open-popup="auth_course">Получить скидку</button>
                 {elseif !$_modx->user.urlico and !$_modx->user.manager}
                     <button class="btn btn--bdpurple add-promocode" data-id="{$page_id}">Получить скидку</button>
                 {/if}
-            {*/if*}
+            {/if}
         </div>
     </div>
 </div>

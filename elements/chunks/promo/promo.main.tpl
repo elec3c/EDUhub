@@ -12,7 +12,7 @@
                     <p class="promo__subtitle">{$_modx->resource.promo_text}</p>
                     {/if}
                     <div class="promo__buttons">
-                        <button class="btn promo__btn" data-scroll="">Подобрать курс</button>
+                        <button class="btn promo__btn" data-scroll="pick_up_a_course">Подобрать курс</button>
                     </div>
                 </div>
                 {set $src = $_modx->resource.promo_image}

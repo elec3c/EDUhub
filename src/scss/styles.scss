@@ -973,6 +973,9 @@
                 margin-left: 10px;
                 flex: 0 0 210px;
             }
+            form {
+                display: flex;
+            }
         }
         &-links {
             margin-top: 66px;

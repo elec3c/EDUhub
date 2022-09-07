@@ -17,7 +17,7 @@
     </div>
 
     <div class="cadd__block">
-        <div class="cadd__label">Категория курса</div>
+        <div class="cadd__label">Общая информация</div>
         <div class="cadd__inputs cadd__in1">
             <div class="cadd__input">
                 {insert 'file:chunks/forms/fields/fields.courses.category.tpl'}
@@ -25,6 +25,9 @@
             <div class="cadd__input">
                 {insert 'file:chunks/forms/fields/fields.courses.sub_category.tpl'}
             </div>
+            <div class="cadd__input">
+                {insert 'file:chunks/forms/fields/fields.courses.sub_category_type.tpl'}
+            </div>            
             <div class="cadd__input">
                 {insert 'file:chunks/forms/fields/fields.courses.type.tpl'}
             </div>

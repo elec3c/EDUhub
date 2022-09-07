@@ -40,8 +40,7 @@
             <input type="text" name="telegram" class="input" placeholder="Ник в телеграмме" value="{$telegram}"/>
         </div>
     
-        <hr/>
-        
+      
         <button type="submit" class="btn w-all">Сохранить</button>
         <br/><br/>
          <div class="input__row input__row--link">

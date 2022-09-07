@@ -8,6 +8,9 @@
                         <div class="choose__inputs-item w-320">
                             {include 'file:chunks/forms/fields/fields.courses.sub_category.tpl' style='styler--white'}
                         </div>
+                        <div class="choose__inputs-item w-320">
+                            {include 'file:chunks/forms/fields/fields.courses.sub_category_type.tpl' style='styler--white'}
+                        </div>
                         <div class="choose__inputs-item w-250">
                             {include 'file:chunks/forms/fields/fields.courses.type.tpl' style='styler--white'}
                         </div>

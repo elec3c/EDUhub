@@ -30,6 +30,7 @@
                             'ajaxMode'=>'default'
                             'class'=>'modResource',
                             'includeTVs'=>'course_owner',
+                            'toPlaceholder' => 'leads',
                             'tvPrefix'=>'',
                             'loadModels'=>'promocode',
                             'innerJoin'=>[
@@ -93,6 +94,7 @@
                                 </div>
                             '
                         ]}
+                        {$leads ? $leads : 'У вас ещё нет договоров'}
                     </div>
                     {'page.nav' | placeholder}
                 </div>
