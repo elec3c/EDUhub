@@ -3,13 +3,17 @@
     <div class="detail__props">
         <div class="detail__props-title">Длительность обучения</div>
             <div class="detail__props-item">
-                <div class="detail__props-item__label">Продолжительность </div>
-                <div>{'!getDateDiff' | snippet: ['date_from' => $_modx->resource.data_from, 'date_to' => $_modx->resource.data_to, 'type' => 'month']}</div>
+                <div class="detail__props-item__label">Старт курса </div>
+                <div>{$_modx->resource.data_from  | date : "d.m.Y"}</div>
+            </div>
+            <div class="detail__props-item">
+                <div class="detail__props-item__label">Количество часов </div>
+                <div>{$_modx->resource.course_duration}</div>
             </div>
             {if $_modx->resource.num_lesson_per_week && $_modx->resource.lesson_duration}                                
             <div class="detail__props-item">
                 <div class="detail__props-item__label">Интенсивность</div>
-                <div>{$_modx->resource.num_lesson_per_week} занятие в неделю по {$_modx->resource.lesson_duration} часов</div>
+                <div>{$_modx->resource.num_lesson_per_week} занятие в неделю по {$_modx->resource.lesson_duration} минут</div>
             </div>
             {/if}
             {if $_modx->resource.data_from && $_modx->resource.data_to}                                

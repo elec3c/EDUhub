@@ -53,6 +53,7 @@
         {include 'file:chunks/modals/sale_add.tpl'}
         {include 'file:chunks/modals/sale_thank.tpl'}
         {include 'file:chunks/modals/sale_declain.tpl'}
+        {include 'file:chunks/modals/sale_deny.tpl'}
         {include 'file:chunks/modals/popup-thank.tpl'}
         {include 'file:chunks/modals/sale_remove.tpl'}
 

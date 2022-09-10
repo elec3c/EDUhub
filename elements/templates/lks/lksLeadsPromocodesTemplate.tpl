@@ -21,7 +21,7 @@
                         'tplHere' => '@INLINE <li class="active">{$menutitle}</li>'
                     ]}                    
                 </div>
-                {'PromoCode' | snippet}
+                {'!PromoCode' | snippet}
                 <div id="pdopage">
                     <div class="rows">
                         {'!pdoPage' | snippet :[
@@ -29,7 +29,6 @@
                             'parents'=>85,
                             'ajaxMode'=>'default'
                             'class'=>'modResource',
-                            'toPlaceholder' => 'leads',
                             'includeTVs'=>'course_owner',
                             'tvPrefix'=>'',
                             'loadModels'=>'promocode',
@@ -111,7 +110,6 @@
                                 </div>
                             '
                         ]}
-                        {$leads ? $leads : 'У вас ещё нет сгенерированных промокодов'}
                     </div>
                     <div class="section__buttons">
                         {'page.nav' | placeholder}

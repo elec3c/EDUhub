@@ -33,7 +33,6 @@
                         {'!pdoPage' | snippet :[
                             'showLog'=>1,
                             'parents'=>85,
-                            'ajaxMode'=>'default'
                             'class'=>'modResource',
                             
                             'tvPrefix'=>'',
@@ -63,7 +62,7 @@
                             'sortby'=>[
                                 'PromoCodeItem.id'=>'DESC',
                             ],
-                            'includeTVs'=>'form_of_study,course_city,sale,data_to',
+                            'includeTVs'=>'form_of_study,course_city,sale,data_from',
                             'tpl'=>'@INLINE
                                 <div class="sale__item">
                                     <div class="lk__wraplr sale__item-wrap section__lr">
@@ -101,7 +100,7 @@
                                             </div>
                                             <div class="sale__item-col sale__item-date">
                                                 <div class="sale__item-label">Срок действия</div>
-                                                {$data_to}
+                                                {$data_from}
                                             </div>
                                         </div>
                                         {if $active and empty($deal) and empty($deleted)}
@@ -109,6 +108,9 @@
                                                 <a href="" class="a-promocode-remove" data-id="{$id}">
                                                     <img src="assets/images/icons/remove.svg" alt="">
                                                 </a>
+                                            </div>
+                                        {else}
+                                            <div class="sale__item-col sale__item-remove">
                                             </div>
                                         {/if}
                                     </div>

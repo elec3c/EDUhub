@@ -31,7 +31,7 @@
                             'templates' => '8',
                             'processTVs'=>'1',
                             'limit'=>'10',
-                            'sortby'=>'{"createdon":"DESC"}',
+                            'sortby'=>'{"data_from":"DESC"}',
                             'showUnpublished'=>'1',
                             'where' => '{"course_owner":'~$_modx->user.id~'}',
               

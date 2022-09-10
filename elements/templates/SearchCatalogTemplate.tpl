@@ -3,6 +3,7 @@
         {'!mFilter2' | snippet : [
             'parents'=>'11',
             'limit'=>'6',
+            'templates' => 8,
             'filters'=>'
                 tv|course_category,
                 tv|course_sub_category,
@@ -58,7 +59,7 @@
             'suggestionsRadio'=>'resource|parent',
             'showEmptyFilters'=>'1',
             'filterOptions'=>'{"autoLoad":0}',
-            'where' => ["template:=" => "8"]
+            'where'=> '["data_from >= NOW()"]'
         ]}
 
     {include 'file:chunks/callback/callback.main.tpl'}

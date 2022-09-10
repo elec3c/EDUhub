@@ -63,7 +63,7 @@
             <span style="color:red;">Создан на основе шаблона</span>
             {elseif $_pls['tv.res_type'] == 1}
             <a href="{39 | url}?copy={$id}" class="courses__scool-edit">
-                <img src="/assets/images/icons/edit-purple.svg" alt="Edit">
+                <img src="/assets/images/icons/edit-purple.svg" alt="Copy">
                 Копировать
             </a>
             {/if}

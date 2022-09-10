@@ -8,6 +8,9 @@
 <div class="courses__block-info">
     <h3 class="courses__block-title"><a href="{$uri}">{$course_group_title ?: $pagetitle}</a></h3>
     <ul class="courses__block-list listinf">
+        <li class="listinf__flex">
+            Группа стартует: {$data_from|dateago:'{"dateNow":0, "dateFormat":"d F Y"}'}
+        </li>
         {if $form_of_study}
         <li class="courses__block-training online">
             {switch  $form_of_study}
@@ -20,7 +23,6 @@
             {/switch}
         </li>
         {/if}
-        
         {if $course_address}
         <li class="listinf__flex">
             <div class="listinf__icon"><img src="/assets/images/icons/location.svg" alt=""></div> 

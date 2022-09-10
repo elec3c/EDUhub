@@ -27,12 +27,13 @@
                 tv|course_metro
             '}
 {/if}
-
+    
         {'!mFilter2' | snippet : [
             'parents'       => $_modx->resource.id,
             'limit'         => '6',
             'filters'       => $filter,
-
+            'sortby'=>'{"data_from":"ASC"}',
+            'templates' => 8,
             'aliases'=>'tv|course_sub_category==course_sub_category,
                         tv|course_sub_category_type==course_sub_category_type,
                         tv|course_type==course_type,
@@ -46,7 +47,7 @@
             ',
             'tplOuter'       =>'@FILE chunks/filter/filter.outer.tpl',
             'tpls'           =>'@FILE chunks/courses/courses.block.tpl',
-            'includeTVs' => 'course_owner',
+            'includeTVs' => 'course_owner, data_from',
             'tplFilter.outer.resource|parent'=>'@FILE chunks/filter/filter.select.tpl',
             'tplFilter.row.resource|parent'=>'@FILE chunks/filter/filter.option.tpl',
             'tplFilter.outer.course_sub_category'=>'@FILE chunks/filter/filter.select.tpl',
@@ -74,7 +75,7 @@
             'suggestionsRadio'   =>'resource|parent',
             'showEmptyFilters'   =>'1',
             'filterOptions'      =>'{"autoLoad":1}',
-            'where' => ["template:=" => "8"]
-            
+            'where'=> '["data_from >= NOW()"]'
+
         ]}
 {/block}
