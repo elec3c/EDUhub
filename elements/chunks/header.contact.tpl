@@ -5,7 +5,7 @@
 <div class="header__navfix-info">
 {if $email}
 	<div class="header__navfix-info__row header__navfix-info__label">Электронная почта</div>
-	<div class="header__navfix-info__row"><a href="mailto:eduhub@gmail.com">{$email}</a></div>
+	<div class="header__navfix-info__row"><a href="mailto:{$email}">{$email}</a></div>
 {/if}
 {if $phone}
 	<div class="header__navfix-info__row header__navfix-info__label">Телефон</div>

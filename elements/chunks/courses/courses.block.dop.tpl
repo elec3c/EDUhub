@@ -12,7 +12,7 @@
             </svg>                                    
         </div>
         {if $sale}
-            <div class="courses__block-ditem__t">{$sale} % скидка</div>
+            <div class="courses__block-ditem__t">{$sale} руб. скидка</div>
         {else}
             <div class="courses__block-ditem__t">нет скидки</div>
         {/if}

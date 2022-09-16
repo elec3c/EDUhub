@@ -36,10 +36,10 @@
                             
                     <div class="replen__dates">
                         <div class="replen__dates-item">
-                            <input type="text" placeholder="Дата с" name="data_from" class="input input--date datepicker-input">
+                            <input type="date" placeholder="Дата с" name="data_from" class="input input--date" v-model="startDate" value="">
                         </div>
                         <div class="replen__dates-item">
-                            <input type="text" placeholder="Дата по" name="data_to" class="input input--date datepicker-input">
+                            <input type="date" placeholder="Дата по" name="data_to" class="input input--date" v-model="endDate" value="">
                         </div>
                     </div>
                 </div>
@@ -47,10 +47,6 @@
                     
                 <div v-for="recipe in filteredRecipes" :key="recipe.title">      
                 
-                    {*'!budgetListOperation' | snippet: [
-                        'manager_id' => $_modx->user.id,
-                        'tpl' => '@FILE chunks/budget/budget.operation.block.tpl',
-                    ]*}
                     
                 {ignore}    
                     <div class="replen__item" style="margin-top:10px;">
@@ -92,7 +88,8 @@
     data() {
     
         return {
-        
+            startDate: '',
+            endDate: '',
             ascending: true,      
             searchValue: '',
           
@@ -113,9 +110,9 @@
         let tempRecipes = this.recipes
         
         if (this.searchValue != '' && this.searchValue) {
-        
-            tempRecipes = tempRecipes.filter((item) => {
             
+            tempRecipes = tempRecipes.filter((item) => {
+                
               return item.title
                 .toUpperCase()
                 .includes(this.searchValue.toUpperCase())
@@ -123,12 +120,71 @@
             })
         }                    
           
-        if (!this.ascending) {
         
-            tempRecipes.reverse()
+        var startDate = this.startDate;
+        var endDate = this.endDate;
+        
+        
+        var fromDate = null;
+        var toDate = null;
+        
+        if(startDate != "") {
+        
+            fromDate = new Date(startDate);
             
         }
             
+        if(endDate != "") {
+        
+            toDate = new Date(endDate);
+            
+        }
+            
+        
+        var r = false;
+        
+        if(startDate != "" || endDate != "") {
+        
+            tempRecipes = tempRecipes.filter((item) => {
+                
+                var currDate = item.data;
+                var d1 = currDate.split(".");
+                var itemDate = new Date(d1[2], parseInt(d1[1])-1, d1[0]);
+                
+                
+                if (fromDate != null && toDate != null) {
+            
+                  r = (fromDate.getTime() <= itemDate.getTime() && itemDate.getTime() <= toDate.getTime());            
+                  
+                  return r;
+                      
+                }
+                
+                if (fromDate != null && toDate == null) {
+                
+                    r = (fromDate.getTime() <= itemDate.getTime());
+                    
+                    return r;
+                      
+                }
+                    
+                if (fromDate == null && toDate != null) {
+                    
+                    r = (itemDate.getTime() <= toDate.getTime());
+                    
+                    return r;
+                      
+                }
+                    
+            })
+            
+        }
+        
+        
+
+
+
+
         return tempRecipes
         
   }    

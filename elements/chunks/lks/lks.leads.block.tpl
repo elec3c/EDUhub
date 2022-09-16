@@ -1,68 +1,349 @@
-<div class="leads__block">
-    <div class="leads__header lk__wraplr section__lr">английский с нуля</div>
-    <div class="leads__item lk__wraplr section__lr">
-        <div class="leads__item-name show-desktop-sm">Василий</div>
-
-        <div class="leads__item-col col--first">
-            <div class="leads__item-name hide-desktop-sm">Василий</div>
-            {*
-                            <div class="leads__item-prop">
-                                <div class="leads__item-prop__label">Уровень</div>
-                                A1
-                            </div>
-                            *}
+<div class="reports__scroll">
+    <div class="reports__block">
+        <div class="reports__item reports__head">
+            <div class="reports__item-cell reports__head-cell"></div>
+            <div class="reports__item-cell reports__head-cell">ЛИМИТ, РУБ</div>
+            <div class="reports__item-cell reports__head-cell">ПРОМОКОДЫ</div>
+            <div class="reports__item-cell reports__head-cell">сумма комиссии</div>
+            <div class="reports__item-cell reports__head-cell">Свободный остаток</div>
+            <div class="reports__item-cell reports__item-cell--empty"></div>
         </div>
+    </div>
 
-        <div class="leads__item-col hide-desktop-sm">
-            <div class="leads__item-prop">
-                <div class="leads__item-prop__label">Группа</div>
-                <a href="#">Смотреть</a>
-            </div>
-
-        </div>
-        {*
-                        <div class="leads__item-col show-desktop-sm">
-                            <div class="leads__item-prop">
-                                <div class="leads__item-prop__label">Дата</div>
-                                с 01.07.2022
-                            </div>
-                            <div class="leads__item-prop">
-                                <div class="leads__item-prop__label">Время</div>
-                                выходные дни
-                            </div>
-
-                        </div>
-                        *}
-        <div class="leads__item-col">
-            <div class="leads__item-prop">
-                <div class="leads__item-prop__label">Телефон</div>
-                <a href="tel:+375291111111">+375291111111</a>
-            </div>
-            <div class="leads__item-prop">
-                <div class="leads__item-prop__label">Mail</div>
-                <a href="mailto:test@test.by">test@test.by</a>
-            </div>
-        </div>
-        <div class="leads__item-col leads__item-action">
-            <input type="text" class="input input--white" readonly value="Промокод: 12554869">
-            <button class="btn dogovor-add">Заключить договор</button>
-            <button class="btn btn--remove leads__item-remove lead-remove">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M21 5.97998C17.67 5.64998 14.32 5.47998 10.98 5.47998C9 5.47998 7.02 5.57998 5.04 5.77998L3 5.97998"
-                        stroke="#D60000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M8.5 4.97L8.72 3.66C8.88 2.71 9 2 10.69 2H13.31C15 2 15.13 2.75 15.28 3.67L15.5 4.97"
-                        stroke="#D60000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path
-                        d="M18.8484 9.14014L18.1984 19.2101C18.0884 20.7801 17.9984 22.0001 15.2084 22.0001H8.78844C5.99844 22.0001 5.90844 20.7801 5.79844 19.2101L5.14844 9.14014"
-                        stroke="#D60000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M10.3281 16.5H13.6581" stroke="#D60000" stroke-width="1.5" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                    <path d="M9.5 12.5H14.5" stroke="#D60000" stroke-width="1.5" stroke-linecap="round"
+    <div class="reports__block">
+        <div class="reports__item reports__header">
+            <div class="reports__item-cell reports__header-cell"><b>Python</b>
+                <br>Запуск: 17.01.2022<br>
+                <a href="#" class="reports__item-more reports-item-more">
+                <span>Еще</span>
+                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.75 0.75L5 5.25L9.25 0.75" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round"
                         stroke-linejoin="round" />
                 </svg>
-                <span class="show-tablet-sm">Удалить</span>
-            </button>
+            </a>
+            <div class="reports__item-dop reports-item-dop">
+                <div class="reports__item-prop">
+                    <div class="reports__item-label">Уровень</div> A1
+                </div>
+                <div class="reports__item-prop">
+                    <div class="reports__item-label">Форма обучения</div> группы
+                </div>
+                <div class="reports__item-prop">
+                    <div class="reports__item-label">Формат/адрес</div> г. Минск, м. Купаловская
+                </div>
+                <div class="reports__item-prop">
+                    <div class="reports__item-label">Время</div> будние дни, вечер
+                </div>
+            </div>
+            </div>
+            <div class="reports__item-cell reports__header-cell">
+                <div class="reports__item-label show-tablet-sm">Лимит, руб.</div> 120
+            </div>
+            <div class="reports__item-cell reports__header-cell">
+                <div class="reports__item-label show-tablet-sm">Промокоды</div> 1
+            </div>
+            <div class="reports__item-cell reports__header-cell">
+                <div class="reports__item-label show-tablet-sm">Сумма <br> комиссии</div> 40
+            </div>
+            <div class="reports__item-cell reports__header-cell">
+                <div class="reports__item-label show-tablet-sm">Свободный <br> остаток</div> 80
+            </div>
+            <div class="reports__item-cell reports__item-cell--empty"></div>
+        </div>
+        <div class="reports__item">
+            <div class="reports__item-cell">
+                <div class="reports__item-name reports-open-contacts">Василий, 30 лет
+                <br>Договор заключён
+                </div>
+                <div class="reports__item-contacts reports-popup-contacts">
+                    <div class="reports__item-name">Василий, 30 лет
+                    <br>Договор заключён
+                    </div>
+                    <div class="reports__item-prop">
+                        <div class="reports__item-label">Электронная почта</div> vs@mail.ru
+                    </div>
+                    <div class="reports__item-prop">
+                        <div class="reports__item-label">Телефон</div> +375297897638
+                    </div>
+                    <div class="reports__item-prop">
+                        <div class="reports__item-label">Telegram</div> vasilii30
+                    </div>
+                </div>
+
+                <div class="reports__item-props">
+                    <div class="reports__item-prop show-tablet-sm">
+                        <div class="reports__item-label">Промокод</div> ххх-ххххх-01
+                    </div>
+                    <div class="reports__item-prop show-tablet-sm">
+                        <div class="reports__item-label">Сумма <br> комиссии</div> 40
+                    </div>
+                    <div class="reports__item-prop show-tablet-sm">
+                        <div class="reports__item-label">Свободный <br> остаток</div> -
+                    </div>
+
+                </div>
+
+
+                <a href="#" class="reports__item-more reports-item-more">
+                    <span>Еще</span>
+                    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.75 0.75L5 5.25L9.25 0.75" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </a>
+                <div class="reports__item-dop reports-item-dop">
+                    <div class="reports__item-prop">
+                        <div class="reports__item-label">Email</div> vs@mail.ru
+                    </div>
+                    <div class="reports__item-prop">
+                        <div class="reports__item-label">Telegram</div> vasilii30
+                    </div>
+                    <div class="reports__item-prop">
+                        <div class="reports__item-label">Телефон</div> +375297897638
+                    </div>
+                </div>
+            </div>
+            <div class="reports__item-cell hide-tablet-sm"></div>
+            <div class="reports__item-cell hide-tablet-sm">ххх-ххххх-01</div>
+            <div class="reports__item-cell hide-tablet-sm">40</div>
+            <div class="reports__item-cell hide-tablet-sm"></div>
+            <div class="reports__item-cell reports__item-cell--empty"></div>
+        </div>
+        <div class="reports__item">
+            <div class="reports__item-cell">
+                <div class="reports__item-name reports-open-contacts">Олег, 30 лет
+                </div>
+                <div class="reports__item-contacts reports-popup-contacts">
+                    <div class="reports__item-name">Олег, 30 лет
+                    </div>
+                    <div class="reports__item-prop">
+                        <div class="reports__item-label">Электронная почта</div> vs@mail.ru
+                    </div>
+                    <div class="reports__item-prop">
+                        <div class="reports__item-label">Телефон</div> +375297897638
+                    </div>
+                    <div class="reports__item-prop">
+                        <div class="reports__item-label">Telegram</div> vasilii30
+                    </div>
+                </div>
+
+                <div class="reports__item-props">
+                    <div class="reports__item-prop show-tablet-sm">
+                        <div class="reports__item-label">Промокод</div> ххх-ххххх-01
+                    </div>
+                    <div class="reports__item-prop show-tablet-sm">
+                        <div class="reports__item-label">Сумма <br> комиссии</div> 40
+                    </div>
+                    <div class="reports__item-prop show-tablet-sm">
+                        <div class="reports__item-label">Свободный <br> остаток</div> -
+                    </div>
+
+                </div>
+
+
+                <a href="#" class="reports__item-more reports-item-more">
+                    <span>Еще</span>
+                    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.75 0.75L5 5.25L9.25 0.75" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </a>
+                <div class="reports__item-dop reports-item-dop">
+                    <div class="reports__item-prop">
+                        <div class="reports__item-label">Email</div> vs@mail.ru
+                    </div>
+                    <div class="reports__item-prop">
+                        <div class="reports__item-label">Telegram</div> vasilii30
+                    </div>
+                    <div class="reports__item-prop">
+                        <div class="reports__item-label">Телефон</div> +375297897638
+                    </div>
+                </div>
+            </div>
+            <div class="reports__item-cell hide-tablet-sm"></div>
+            <div class="reports__item-cell hide-tablet-sm">ххх-ххххх-01</div>
+            <div class="reports__item-cell hide-tablet-sm">40</div>
+            <div class="reports__item-cell hide-tablet-sm"></div>
+            <div class="reports__item-cell reports__item-cell--empty"></div>
+        </div>
+        <!--reports__item-->
+    </div>
+    <div class="reports__block">
+        <div class="reports__item reports__header">
+            <div class="reports__item-cell reports__header-cell"><b>Разговорный английский</b>
+                <br>Запуск: 17.01.2022<br>
+                <a href="#" class="reports__item-more reports-item-more">
+                <span>Еще</span>
+                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.75 0.75L5 5.25L9.25 0.75" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </a>
+            <div class="reports__item-dop reports-item-dop">
+                <div class="reports__item-prop">
+                    <div class="reports__item-label">Уровень</div> A1
+                </div>
+                <div class="reports__item-prop">
+                    <div class="reports__item-label">Форма обучения</div> группы
+                </div>
+                <div class="reports__item-prop">
+                    <div class="reports__item-label">Формат/адрес</div> г. Минск, м. Купаловская
+                </div>
+                <div class="reports__item-prop">
+                    <div class="reports__item-label">Время</div> будние дни, вечер
+                </div>
+            </div>
+            </div>
+            <div class="reports__item-cell reports__header-cell">
+                <div class="reports__item-label show-tablet-sm">Лимит, руб.</div> 120
+            </div>
+            <div class="reports__item-cell reports__header-cell">
+                <div class="reports__item-label show-tablet-sm">Промокоды</div> 1
+            </div>
+            <div class="reports__item-cell reports__header-cell">
+                <div class="reports__item-label show-tablet-sm">Сумма <br> комиссии</div> 40
+            </div>
+            <div class="reports__item-cell reports__header-cell">
+                <div class="reports__item-label show-tablet-sm">Свободный <br> остаток</div> 80
+            </div>
+            <div class="reports__item-cell reports__item-cell--empty"></div>
+        </div>
+        <div class="reports__item">
+            <div class="reports__item-cell">
+                <div class="reports__item-name reports-open-contacts">Василий, 30 лет
+                <br>Договор заключён
+                </div>
+                <div class="reports__item-contacts reports-popup-contacts">
+                    <div class="reports__item-name">Василий, 30 лет
+                    <br>Договор заключён
+                    </div>
+                    <div class="reports__item-prop">
+                        <div class="reports__item-label">Электронная почта</div> vs@mail.ru
+                    </div>
+                    <div class="reports__item-prop">
+                        <div class="reports__item-label">Телефон</div> +375297897638
+                    </div>
+                    <div class="reports__item-prop">
+                        <div class="reports__item-label">Telegram</div> vasilii30
+                    </div>
+                </div>
+
+                <div class="reports__item-props">
+                    <div class="reports__item-prop show-tablet-sm">
+                        <div class="reports__item-label">Промокод</div> ххх-ххххх-01
+                    </div>
+                    <div class="reports__item-prop show-tablet-sm">
+                        <div class="reports__item-label">Сумма <br> комиссии</div> 40
+                    </div>
+                    <div class="reports__item-prop show-tablet-sm">
+                        <div class="reports__item-label">Свободный <br> остаток</div> -
+                    </div>
+
+                </div>
+
+
+                <a href="#" class="reports__item-more reports-item-more">
+                    <span>Еще</span>
+                    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.75 0.75L5 5.25L9.25 0.75" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </a>
+                <div class="reports__item-dop reports-item-dop">
+                    <div class="reports__item-prop">
+                        <div class="reports__item-label">Email</div> vs@mail.ru
+                    </div>
+                    <div class="reports__item-prop">
+                        <div class="reports__item-label">Telegram</div> vasilii30
+                    </div>
+                    <div class="reports__item-prop">
+                        <div class="reports__item-label">Телефон</div> +375297897638
+                    </div>
+                </div>
+            </div>
+            <div class="reports__item-cell hide-tablet-sm"></div>
+            <div class="reports__item-cell hide-tablet-sm">ххх-ххххх-01</div>
+            <div class="reports__item-cell hide-tablet-sm">40</div>
+            <div class="reports__item-cell hide-tablet-sm"></div>
+            <div class="reports__item-cell reports__item-cell--empty"></div>
+        </div>
+        <div class="reports__item">
+            <div class="reports__item-cell">
+                <div class="reports__item-name reports-open-contacts">Олег, 30 лет
+                </div>
+                <div class="reports__item-contacts reports-popup-contacts">
+                    <div class="reports__item-name">Олег, 30 лет
+                    </div>
+                    <div class="reports__item-prop">
+                        <div class="reports__item-label">Электронная почта</div> vs@mail.ru
+                    </div>
+                    <div class="reports__item-prop">
+                        <div class="reports__item-label">Телефон</div> +375297897638
+                    </div>
+                    <div class="reports__item-prop">
+                        <div class="reports__item-label">Telegram</div> vasilii30
+                    </div>
+                </div>
+
+                <div class="reports__item-props">
+                    <div class="reports__item-prop show-tablet-sm">
+                        <div class="reports__item-label">Промокод</div> ххх-ххххх-01
+                    </div>
+                    <div class="reports__item-prop show-tablet-sm">
+                        <div class="reports__item-label">Сумма <br> комиссии</div> 40
+                    </div>
+                    <div class="reports__item-prop show-tablet-sm">
+                        <div class="reports__item-label">Свободный <br> остаток</div> -
+                    </div>
+
+                </div>
+
+
+                <a href="#" class="reports__item-more reports-item-more">
+                    <span>Еще</span>
+                    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.75 0.75L5 5.25L9.25 0.75" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </a>
+                <div class="reports__item-dop reports-item-dop">
+                    <div class="reports__item-prop">
+                        <div class="reports__item-label">Email</div> vs@mail.ru
+                    </div>
+                    <div class="reports__item-prop">
+                        <div class="reports__item-label">Telegram</div> vasilii30
+                    </div>
+                    <div class="reports__item-prop">
+                        <div class="reports__item-label">Телефон</div> +375297897638
+                    </div>
+                </div>
+            </div>
+            <div class="reports__item-cell hide-tablet-sm"></div>
+            <div class="reports__item-cell hide-tablet-sm">ххх-ххххх-01</div>
+            <div class="reports__item-cell hide-tablet-sm">40</div>
+            <div class="reports__item-cell hide-tablet-sm"></div>
+            <div class="reports__item-cell reports__item-cell--empty"></div>
+        </div>
+        <!--reports__item-->
+    </div>
+    <!--reports__block-->
+
+    <div class="reports__block">
+        <div class="reports__item reports__footer">
+            <div class="reports__item-cell reports__footer-cell"><b class="show-tablet-sm">Итого</b></div>
+            <div class="reports__item-cell reports__footer-cell">
+                <div class="reports__item-label show-tablet-sm">Лимит, руб.</div> <b>520</b>
+            </div>
+            <div class="reports__item-cell reports__footer-cell">
+                <div class="reports__item-label show-tablet-sm">Промокоды</div> <b>3</b>
+            </div>
+            <div class="reports__item-cell reports__footer-cell">
+                <div class="reports__item-label show-tablet-sm">Сумма <br> комиссии</div> <b>165</b>
+            </div>
+            <div class="reports__item-cell reports__footer-cell">
+                <div class="reports__item-label show-tablet-sm">Свободный <br> остаток</div> <b>355</b>
+            </div>
+            <div class="reports__item-cell reports__item-cell--empty"></div>
         </div>
     </div>
 </div>

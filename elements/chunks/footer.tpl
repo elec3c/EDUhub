@@ -1,3 +1,7 @@
+{set $contact_page_id = 13}
+{set $email = ($contact_page_id | resource : 'email')}    
+{set $phone = ($contact_page_id | resource : 'phone')}
+{set $address = ($contact_page_id | resource : 'address')}
 <footer class="footer">
   <div class="container">
     <div class="footer__wrap footer__top">
@@ -22,11 +26,11 @@
 
           <div class="footer__info">
             <div class="footer__info-row footer__info-label">Электронная почта</div>
-            <div class="footer__info-row"><a href="mailto:eduhub@gmail.com">eduhub@gmail.com</a></div>
+            <div class="footer__info-row"><a href="mailto:{$email}">{$email}</a></div>
             <div class="footer__info-row footer__info-label">Телефон</div>
-            <div class="footer__info-row"><a href="tel:+375296370016">+375 29 637-00-16</a></div>
+            <div class="footer__info-row"><a href="tel:{$phone | clearphone}">{$phone}</a></div>
             <div class="footer__info-row footer__info-label">Главный офис</div>
-            <div class="footer__info-row">г. Минск, ул. Карла Маркса, 32</div>
+            <div class="footer__info-row">{$address}</div>
           </div>
         </div>
       </div>

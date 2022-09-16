@@ -88,7 +88,7 @@
                                         <div class="sale__item-col sale__item-dop">
                                             <div class="sale__item-col sale__item-numb">
                                                 <div class="sale__item-label">Скидка</div>
-                                                {$sale} %
+                                                {$sale} руб.
                                             </div>
                                             <div class="sale__item-col sale__item-code">
                                                 <div class="sale__item-label">Промокод</div>

@@ -40,7 +40,7 @@
             {if $_modx->resource.sale}
             <div class="detail__props-item">
                 <div class="detail__props-item__label">Скидка</div>
-                    <div>{$_modx->resource.sale} %</div>
+                    <div>{$_modx->resource.sale} руб.</div>
                 </div>
             {/if}                                
             </div>

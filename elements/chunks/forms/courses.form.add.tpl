@@ -108,6 +108,15 @@
         </div>
     </div>
     <div class="cadd__block">
+        <div class="cadd__label">Адрес</div>
+        <div class="cadd__inputs cadd__in1">
+            <div class="cadd__input">
+                {insert 'file:chunks/forms/fields/fields.location.address.tpl'}
+            </div>
+        </div>
+    </div>    
+    
+    <div class="cadd__block">
         <div class="cadd__label">Описание</div>
         {insert 'file:chunks/forms/fields/fields.courses.introtext.tpl'}
     </div>

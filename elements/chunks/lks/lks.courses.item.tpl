@@ -33,6 +33,7 @@
                 <div class="courses__scool-prop">
                     <div class="courses__scool-prop__label">Продвижение</div>
                     <span style="color:red"><b>Не продвигается</b></span>
+                    <i>{$promote['lead']} лидов</i>
                 </div>
                 {/if}
             {else}
