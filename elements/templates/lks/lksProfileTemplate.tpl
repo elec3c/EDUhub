@@ -1,9 +1,7 @@
 {extends 'file:templates/BaseTemplate.tpl'}
 {block 'content'}
     <main class="content__wrapper">
-        
         {insert 'file:chunks/users/user.menu.tpl'}
-
         <section class="lk section__mgb">
             <div class="container">
                 <div class="section__head">
@@ -50,9 +48,5 @@
                 </div>
             </div>
         </section><!-- lk -->
-
-
-        
-
 	</main><!--content__wrapper-->
 {/block}

@@ -66,14 +66,17 @@
             'school_id'    => $course_owner
         ])}
         
-        {if ('' | isloggedin : 'web')}
-            {if !$_modx->user.urlico && !$_modx->user.manager}
-                {if $cnt == 0}
-                    <button class="btn w-all" data-open-popup="call_to_school_reg" data-groupid="{$page_id}">Заказать звонок</button>
+        
+        {if $_modx->resource.template == 8}
+            {if ('' | isloggedin : 'web')}
+                {if !$_modx->user.urlico && !$_modx->user.manager}
+                    {if $cnt == 0}
+                        <button class="btn w-all" data-open-popup="call_to_school_reg" data-groupid="{$page_id}">Заказать звонок</button>
+                    {/if}
                 {/if}
+            {else}
+                <button class="btn w-all " data-open-popup="call_to_school" data-groupid="{$page_id}">Заказать звонок</button>
             {/if}
-        {else}
-            <button class="btn w-all " data-open-popup="call_to_school" data-groupid="{$page_id}">Заказать звонок</button>
         {/if}
         {include 'file:chunks/favorites/favorites.courses.like.tpl' page_id=$page_id}
         {if $_modx->user.id == 0}

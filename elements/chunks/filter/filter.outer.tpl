@@ -14,30 +14,114 @@
             {/if}
 
             <div class="choose__title">Результат поиска: <span class="text--orange">найдено <span id="mse2_total">{$total}</span> курсов</span></div>
-   
-        	<form action="{$id | url}" method="post" id="mse2_filters" class="hide-tablet-sm">
-                <div class="choose__inputs choose__search">
-        		    {$filters}
-        	    </div>
-                <div class="section__buttons">
-            	    <button type="reset" class="btn btn-default hidden">[[%mse2_reset]]</button>
-                	<button type="submit" class="btn btn-success pull-right hidden">[[%mse2_submit]]</button>
-                </div>            	
-        	</form> 
-        	
-            <!--<form action="[[~[[*id]]]]" method="post" id="mse2_filters_sm" class="show-tablet-sm choose-filters">            	
-                <div class="choose__inputs choose__search">
-        		    [[+filters]]
-        	    </div>
-        	        
-        		    <div class="section__buttons">
-                		[[+filters:isnot=``:then=`
-                			<button type="reset" class="btn btn-default hidden">[[%mse2_reset]]</button>
-                			<br/>
-                			<button type="submit" class="btn btn-success pull-right hidden">[[%mse2_submit]]</button>
-                		`]]
+
+            {if 'standard' | mobiledetect}
+            
+            	<form action="{$id | url}" method="post" id="mse2_filters" class="hide-tablet-sm">
+                    <div class="choose__inputs choose__search">
+            		    {$filters}
             	    </div>
-            </form>-->
+                    <div class="section__buttons">
+                	    <button type="reset" class="btn btn-default hidden">[[%mse2_reset]]</button>
+                    	<button type="submit" class="btn btn-success pull-right hidden">[[%mse2_submit]]</button>
+                    </div>            	
+            	</form> 
+            	
+            {else}
+            
+                <form action="{$id | url}" method="post" id="mse2_filters" class="show-tablet-sm choose-filters">            	
+                
+                        {$filters}
+
+
+                        <div class="choose__inputs-dopf choose-dopf-filters">
+                            <div class="choose__inputs-item">
+                                <select name="age" data-placeholder="Возраст" class="styler">
+                                    <option value=""></option>
+                                    <option value="14-17">14-17</option>
+                                    <option value="18-25">18-25</option>
+                                    <option value="25-35">25-35</option>
+                                </select>
+                            </div>
+                            <div class="choose__inputs-item">
+                                <select name="form" data-placeholder="Форма обучения" class="styler">
+                                    <option value=""></option>
+                                    <option value="очное">очное</option>
+                                    <option value="онлайн">онлайн</option>
+                                </select>
+                            </div>
+                            <div class="choose__inputs-item">
+                                <select name="time" data-placeholder="Время обучения" class="styler">
+                                    <option value=""></option>
+                                    <option value="10-14">10-14</option>
+                                    <option value="15-20">15-20</option>
+                                </select>
+                            </div>
+                            <div class="choose__inputs-item">
+                                <select name="days" data-placeholder="Дни занятий" class="styler">
+                                    <option value=""></option>
+                                    <option value="пн-пт">пн-пт</option>
+                                    <option value="сб-вс">сб-вс</option>
+                                </select>
+                            </div>
+                            <div class="choose__inputs-item">
+                                <select name="format" data-placeholder="Формат обучения" class="styler">
+                                    <option value=""></option>
+                                    <option value="Формат обучения 1">Формат обучения 1</option>
+                                    <option value="Формат обучения 2">Формат обучения 2</option>
+                                    <option value="Формат обучения 3">Формат обучения 3</option>
+                                </select>
+                            </div>
+                        
+                            <div class="choose__inputs-item">
+                                <select name="city" data-placeholder="Город" class="styler">
+                                    <option value=""></option>
+                                    <option value="Брест">Брест</option>
+                                    <option value="Минск">Минск</option>
+                                    <option value="Москва">Москва</option>
+                                </select>
+                            </div>
+                            <div class="choose__inputs-item">
+                                <select name="region" data-placeholder="Район" class="styler">
+                                    <option value=""></option>
+                                    <option value="Район 1">Район 1</option>
+                                    <option value="Район 2">Район 2</option>
+                                    <option value="Район 3">Район 3</option>
+                                </select>
+                            </div>
+                            <div class="choose__inputs-item">
+                                <select name="metro" data-placeholder="Метро" class="styler">
+                                    <option value=""></option>
+                                    <option value="Молодёжная">Молодёжная</option>
+                                    <option value="Немига">Немига</option>
+                                    <option value="Пушкинская">Пушкинская</option>
+                                </select>
+                            </div>
+                            <div class="choose__inputs-item">
+                                <input type="text" placeholder="Дата с" class="input  input--date datepicker-input">
+                            </div>
+                        </div>
+                        
+                        
+                        
+            		    {*$filters*}
+            	    
+            	        
+            		    <div class="section__buttons">
+                    		
+                    			<button type="reset" class="btn btn-default hidden">[[%mse2_reset]]</button>
+                    			</div>
+                    	<div class="section__buttons">	
+                    			<button type="submit" class="btn btn-success pull-right hidden">[[%mse2_submit]]</button>
+                    			</div>
+                    		
+                	    
+                </form>
+            {/if}
+   
+
+        	
+
             <!--<form action="" class="show-tablet-sm choose-filters">
                 <div class="choose__inputs-item">
                         <select name="level" data-placeholder="Уровень" class="styler"

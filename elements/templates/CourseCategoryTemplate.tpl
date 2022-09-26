@@ -49,11 +49,9 @@
             'tpls'           =>'@FILE chunks/courses/courses.block.tpl',
             'includeTVs' => 'course_owner, data_from, sortWeight, deposit, sale',
             'tplFilter.outer.resource|parent'=>'@FILE chunks/filter/filter.courses.category.select.tpl',
-            'tplFilter.row.resource|parent'=>'@FILE chunks/filter/filter.option.tpl',
             'tplFilter.outer.course_sub_category'=>'@FILE chunks/filter/filter.courses.sub_category.select.tpl',
-            'tplFilter.row.course_sub_category'=>'@FILE chunks/filter/filter.option.tpl',
             'tplFilter.outer.course_sub_category_type'=>'@FILE chunks/filter/filter.courses.sub_category_type.select.tpl',
-            'tplFilter.row.course_sub_category_type'=>'@FILE chunks/filter/filter.option.tpl',            
+            
             'tplFilter.outer.course_type'=>'@FILE chunks/filter/filter.select.tpl',
             'tplFilter.row.course_type'=>'@FILE chunks/filter/filter.option.tpl',
             'tplFilter.outer.for_ages'=>'@FILE chunks/filter/filter.select.tpl',
@@ -66,12 +64,11 @@
             'tplFilter.row.form_of_study'=>'@FILE chunks/filter/filter.option.tpl',
             'tplFilter.outer.format_of_study'=>'@FILE chunks/filter/filter.select.tpl',
             'tplFilter.row.format_of_study'=>'@FILE chunks/filter/filter.option.tpl',
+            
             'tplFilter.outer.course_city'=>'@FILE chunks/filter/fields.location.city.tpl',
-            'tplFilter.row.course_city'=>'@FILE chunks/filter/filter.option.tpl',
             'tplFilter.outer.course_region'=>'@FILE chunks/filter/filter.location.region.tpl',
-            'tplFilter.row.course_region'=>'@FILE chunks/filter/filter.option.tpl',
             'tplFilter.outer.course_metro'=>'@FILE chunks/filter/fields.location.metro.tpl',
-            'tplFilter.row.course_metro'=>'@FILE chunks/filter/filter.option.tpl',
+            
             'suggestionsRadio'   =>'resource|parent',
             'showEmptyFilters'   =>'1',
             'filterOptions'      =>'{"autoLoad":1}',

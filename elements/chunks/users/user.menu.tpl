@@ -17,18 +17,18 @@
             'tplOuter' => '@INLINE {$wrapper}',
             'tpl' => '@INLINE {if $_modx->resource.parent == $id}<li class="active"><a href="{$link}"
                 class="lknav__list-item">
-                <img src="/assets/images/{$menu_img_active}" alt="{$menutitle}">
+                {if $menu_img_active}<img src="/assets/images/{$menu_img_active}" alt="{$menutitle}">{/if}
                 <span>{$menutitle}</span>
               </a></li>
             {else}
             <li><a href="{$link}" class="lknav__list-item">
-                <img src="/assets/images/{$menu_img}" alt="{$menutitle}">
+              {if $menu_img}<img src="/assets/images/{$menu_img}" alt="{$menutitle}">{/if}
                 <span>{$menutitle}</span>
               </a></li>
             {/if}',
     
             'tplHere' => '@INLINE <li class="active"><a href="{$link}" class="lknav__list-item">
-                <img src="/assets/images/{$menu_img_active}" alt="{$menutitle}">
+              {if $menu_img_active}<img src="/assets/images/{$menu_img_active}" alt="{$menutitle}">{/if}
                 <span>{$menutitle}</span>
               </a></li>'
         ]}

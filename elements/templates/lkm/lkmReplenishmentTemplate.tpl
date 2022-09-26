@@ -6,16 +6,10 @@
         
         <section class="lk replen section__mgb" id="app">
             <div class="container">
-                <div class="section__head">
-                    <h2 class="section__title">Мой профиль</h2>
-                </div>
 
                 <div class="lk__nav">
-                    <ul>
-                        <li class="active">Пополнение кабинетов школ</li>
-                        <li><a href="{$_modx->makeUrl(162)}">Аналитика</a></li>
-                    </ul>
-                </div>
+                        {insert 'file:chunks/menu/lkm.menu.tpl'}
+                    </div>
                 
                 {'!AjaxForm'|snippet:[
                     'snippet'      => 'FormIt',
@@ -44,161 +38,14 @@
                     </div>
                 </div>
                     
-                    
                 <div v-for="recipe in filteredRecipes" :key="recipe.title">      
-                
-                    
-                {ignore}    
-                    <div class="replen__item" style="margin-top:10px;">
-                        <div class="replen__item-col replen__item-number">{{ recipe.title }}</div>
-                            <div class="replen__item-col replen__item-date">
-                                <div class="replen__item-label show-tablet-sm">Дата пополнения</div>
-                                    {{ recipe.data }}    
-                                </div>
-                                <div class="replen__item-col replen__item-price">
-                                    <div class="replen__item-label show-tablet-sm">Сумма</div>
-                                    {{ recipe.price }} руб.
-                                </div>
-                        </div>                                     
-                    </div>
-                {/ignore}      
-            </div>
+                [[$replenishment.item]]
+                </div>
         </section><!-- lk -->
 
-        {if $.get['unp'] > 0}
-            {set $unp = $.get['unp']}
-        {else}
-            {set $unp = 0}
-        {/if}
-        
-        {set $data = '!budgetListOperation' | snippet: [
-            'manager_id' => $_modx->user.id,
-            'tpl' => '@FILE chunks/budget/vue.budget.operation.block.tpl',
-            'unp' => $.php.trim($unp)
-        ]} 
-
-
-{ignore}
-
-
-<script>
-  const { createApp } = Vue
-  
-  createApp({
-    data() {
-    
-        return {
-            startDate: '',
-            endDate: '',
-            ascending: true,      
-            searchValue: '',
-          
-            recipes: [
-                {/ignore}       
-                
-                {$data}
-                
-                {ignore}                
-                
-            ]};
-    },
-    
-    computed: {
-    
-      filteredRecipes() {
-      
-        let tempRecipes = this.recipes
-        
-        if (this.searchValue != '' && this.searchValue) {
-            
-            tempRecipes = tempRecipes.filter((item) => {
-                
-              return item.title
-                .toUpperCase()
-                .includes(this.searchValue.toUpperCase())
-                
-            })
-        }                    
-          
-        
-        var startDate = this.startDate;
-        var endDate = this.endDate;
-        
-        
-        var fromDate = null;
-        var toDate = null;
-        
-        if(startDate != "") {
-        
-            fromDate = new Date(startDate);
-            
-        }
-            
-        if(endDate != "") {
-        
-            toDate = new Date(endDate);
-            
-        }
-            
-        
-        var r = false;
-        
-        if(startDate != "" || endDate != "") {
-        
-            tempRecipes = tempRecipes.filter((item) => {
-                
-                var currDate = item.data;
-                var d1 = currDate.split(".");
-                var itemDate = new Date(d1[2], parseInt(d1[1])-1, d1[0]);
-                
-                
-                if (fromDate != null && toDate != null) {
-            
-                  r = (fromDate.getTime() <= itemDate.getTime() && itemDate.getTime() <= toDate.getTime());            
-                  
-                  return r;
-                      
-                }
-                
-                if (fromDate != null && toDate == null) {
-                
-                    r = (fromDate.getTime() <= itemDate.getTime());
-                    
-                    return r;
-                      
-                }
-                    
-                if (fromDate == null && toDate != null) {
-                    
-                    r = (itemDate.getTime() <= toDate.getTime());
-                    
-                    return r;
-                      
-                }
-                    
-            })
-            
-        }
-        
-        
-
-
-
-
-        return tempRecipes
-        
-  }    
-  
-}
-        }).mount('#app')
-</script>
-
-
-{/ignore}
+        [[$vue.replenishment]]
         
 
 	</main><!--content__wrapper-->
 	
 {/block}
-
-

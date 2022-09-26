@@ -6,279 +6,69 @@
         
         <section class="lk analitics section__mgb">
             <div class="container">
-                <div class="section__head">
-                    <h2 class="section__title">Мой профиль</h2>
-                </div>
-
-
                 <div class="analitics__head">
                     <div class="lk__nav">
-                        <ul>
-                            <li><a href="{$_modx->makeUrl(161)}">Пополнение кабинетов школ</a></li>
-                            <li class="active">Аналитика</li>
-                        </ul>
+                        {insert 'file:chunks/menu/lkm.menu.tpl'}
                     </div>
-                        
                     <div class="analitics__dates">
                         <div class="analitics__dates-item">
-                            <input type="text" placeholder="Дата с" class="input input--date datepicker-input">
+                            <input type="date" placeholder="Дата с" id="dataFrom" name="data_from" class="input input--date" v-model="startDate" value="">
                         </div>
                         <div class="analitics__dates-item">
-                            <input type="text" placeholder="Дата по" class="input input--date datepicker-input">
+                            <input type="date" placeholder="Дата по" id="dataTo" name="data_to" class="input input--date" v-model="endDate" value="">
                         </div>
-                        <button class="btn btn--excel"><img src="assets/images/icons/excel.svg" alt=""></button>
+                        <a href="{294 | url}" id="exportData"><button class="btn btn--excel"><img src="/assets/images/icons/excel.svg" alt=""></button></a>
                     </div>
                 </div>
 
-                <div class="analitics__block lk__wraplr section__lr">
-                    <div class="analitics__item">
-                        <div class="analitics__item-bl">
-                            <div class="analitics__item-title">лид</div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Имя</div>
-                                    Алексей
-                                </div>
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Образовательный центр</div>
-                                    2English
-                                </div>
-                            </div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Курс</div>
-                                    общий английский
-                                </div>
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Запрос на звонок</div>
-                                    12.07.2022
-                                </div>
-                            </div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Открыт контакт</div>
-                                    -
-                                </div>
-                            </div>
+                {'PromoCode' | snippet}
+                <div id="pdopage">
+                    <div class="analitics__block lk__wraplr section__lr">
+                        <div class="rows">
+                            {'!pdoPage' | snippet :[
+                                'showLog'=>0,
+                                'parents'=>85,
+                                'class'=>'modResource',
+                                'limit'=>5,
+                                'tvPrefix'=>'',
+                                'loadModels'=>'promocode',
+                                'innerJoin'=>[
+                                    'PromoCodeItem'=>[
+                                        'class'=>'PromoCodeItem',
+                                        'on'=>'modResource.id = PromoCodeItem.groupId',
+                                    ],
+                                ],
+                                'leftJoin'=>[
+                                    'TVcourse_owner'=>[
+                                        'class'=>'modTemplateVarResource',
+                                        'on'=>'TVcourse_owner.contentid = modResource.id and TVcourse_owner.tmplvarid = 32',
+                                    ],
+                                    'modUserProfile'=>[
+                                        'class'=>'modUserProfile',
+                                        'on'=>'modUserProfile.internalKey = TVcourse_owner.value',
+                                    ],
+                                ],
+                                'select'=>[
+                                    'PromoCodeItem'=>'*',
+                                    'modResource'=>'modResource.pagetitle,modResource.id as res_id',
+                                    'modUserProfile'=>'modUserProfile.website,modUserProfile.photo',
+                                    'TVcourse_owner'=>'IFNULL(`TVcourse_owner`.`value`, \'\') AS `course_city`',
+                                    'TVcourse_owner'=>'IFNULL(`TVcourse_owner`.`value`, \'\') AS `course_owner`',
+                                ],
+                                'sortby'=>[
+                                    'PromoCodeItem.id'=>'DESC',
+                                ],
+                                'includeTVs'=>'course_group_title,form_of_study,course_city,TVcourse_owner,sale,data_from',
+                                'tpl'=>'@FILE chunks/lkm/lkm.analitics.block.tpl'
+    
+                            ]}
                         </div>
-                        <div class="analitics__item-bl">
-                            <div class="analitics__item-title">Промокоды</div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Дата получения</div>
-                                    -
-                                </div>
-                            </div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Срок действия</div>
-                                    -
-                                </div>
-                            </div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Скидка</div>
-                                    -
-                                </div>
-                            </div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Отменен</div>
-                                    -
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div><!--analitics__item-->
-                    
-                    <div class="analitics__item">
-                        <div class="analitics__item-bl">
-                            <div class="analitics__item-title show-tablet">лид</div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Имя</div>
-                                    Алексей
-                                </div>
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Образовательный центр</div>
-                                    Стримлайн
-                                </div>
-                            </div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Курс</div>
-                                    разговорный
-                                </div>
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Запрос на звонок</div>
-                                    15.07.2022
-                                </div>
-                            </div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Открыт контакт</div>
-                                    16.07.2022
-                                </div>
-                            </div>
-                        </div>
-                        <div class="analitics__item-bl">
-                            <div class="analitics__item-title show-tablet">Промокоды</div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Дата получения</div>
-                                    15.07.2022
-                                </div>
-                            </div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Срок действия</div>
-                                    01.09.2022
-                                </div>
-                            </div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Скидка</div>
-                                    20 руб.
-                                </div>
-                            </div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Отменен</div>
-                                    16.07.2022 <br> пользователем
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div><!--analitics__item-->
-                    
-                    <div class="analitics__item">
-                        <div class="analitics__item-bl">
-                            <div class="analitics__item-title show-tablet">лид</div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Имя</div>
-                                    Ирина
-                                </div>
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Образовательный центр</div>
-                                    Панда скул
-                                </div>
-                            </div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Курс</div>
-                                    разговорный
-                                </div>
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Запрос на звонок</div>
-                                    15.07.2022
-                                </div>
-                            </div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Открыт контакт</div>
-                                    16.07.2022
-                                </div>
-                            </div>
-                        </div>
-                        <div class="analitics__item-bl">
-                            <div class="analitics__item-title show-tablet">Промокоды</div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Дата получения</div>
-                                    15.07.2022
-                                </div>
-                            </div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Срок действия</div>
-                                    01.09.2022
-                                </div>
-                            </div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Скидка</div>
-                                    20 руб.
-                                </div>
-                            </div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Отменен</div>
-                                    16.07.2022 <br> пользователем
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div><!--analitics__item-->
-                </div><!--analitics__block-->
-                
-                <div class="analitics__block lk__wraplr section__lr">
-                    <div class="analitics__item">
-                        <div class="analitics__item-bl">
-                            <div class="analitics__item-title">лид</div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Имя</div>
-                                    Ирина
-                                </div>
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Образовательный центр</div>
-                                    Панда скул
-                                </div>
-                            </div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Курс</div>
-                                    разговорный
-                                </div>
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Запрос на звонок</div>
-                                    15.07.2022
-                                </div>
-                            </div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Открыт контакт</div>
-                                    16.07.2022
-                                </div>
-                            </div>
-                        </div>
-                        <div class="analitics__item-bl">
-                            <div class="analitics__item-title">Промокоды</div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Дата получения</div>
-                                    15.07.2022
-                                </div>
-                            </div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Срок действия</div>
-                                    01.09.2022
-                                </div>
-                            </div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Скидка</div>
-                                    20 руб.
-                                </div>
-                            </div>
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Отменен</div>
-                                    -
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div><!--analitics__item-->
-                </div><!--analitics__block-->
+                    </div><!--analitics__block-->
+                    <p>&nbsp;</p>
+                    {'page.nav' | placeholder}
+                </div>
             </div>
         </section><!-- lk -->
-
-
-        
-
 	</main><!--content__wrapper-->        
 
 {/block}
