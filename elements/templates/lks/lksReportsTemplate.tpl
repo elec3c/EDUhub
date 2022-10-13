@@ -20,7 +20,8 @@
                         'tplHere' => '@INLINE <li class="active">{$menutitle}</li>'
                     ]}                    
                 </div>
-                {include 'file:chunks/lks/lks.report.block.tpl'}    
+                {*include 'file:chunks/lks/lks.report.block.tpl'*}
+                {'!schoolLeadReports' | snippet}
             </div>
         </section><!-- lk -->
                 

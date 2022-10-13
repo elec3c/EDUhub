@@ -6,7 +6,7 @@
             <div class="container">
             {if ($.get.copy && ($.get.edit is empty) && ($.get.delete is empty))}
                 <div class="section__head">
-                    <h2 class="section__title">Создание курса на основе шаблона</h2>
+                    <h2 class="section__title">Создание группы на основе курса/шаблона</h2>
                 </div>  
                 {if $.get.copy | resource:'course_owner' == $_modx->user.id}
                 {'!AjaxForm'|snippet:[
@@ -14,7 +14,7 @@
                     'form' => '@FILE chunks/forms/courses.form.add.tpl',
                     'preHooks'=>'Resource2FormIt',
                     'hooks' => 'FormIt2Resource',
-                    'resource2formitfields' => 'course_group_title,introtext,course_duration,course_city,course_region,course_metro,course_address,price_course,price_lesson,sale,form_of_study,format_of_study,for_ages_from,for_ages_to,for_levels_from,for_levels_to,num_people_in_group,course_category,course_sub_category,course_sub_category_type,course_type,lesson_duration,num_lesson_per_week',
+                    'resource2formitfields' => 'course_group_title,introtext,course_duration,course_city,course_region,course_metro,course_address,price_course,price_lesson,sale,form_of_study,format_of_study,for_ages_from,for_ages_to,for_levels_from,for_levels_to,num_people_in_group,schedule,time,course_category,course_sub_category,course_sub_category_type,course_type,lesson_duration,num_lesson_per_week',
                     'template' => 8,
                     'validationErrorMessage' => 'В форме содержатся ошибки!',
                     'successMessage' => 'Курс успешно создан на основе шаблона.'
@@ -36,14 +36,14 @@
                     'form' => '@FILE chunks/forms/courses.form.add.tpl',
                     'preHooks'=>'Resource2FormIt',
                     'hooks' => 'FormIt2Resource',
-                    'resource2formitfields' => 'course_group_title,introtext,course_duration,course_city,course_region,course_metro,course_address,price_course,price_lesson,sale,form_of_study,format_of_study,for_ages_from,for_ages_to,for_levels_from,for_levels_to,num_people_in_group,course_category,course_sub_category,course_sub_category_type,course_type,data_from,lesson_duration,num_lesson_per_week',
+                    'resource2formitfields' => 'course_group_title,introtext,course_duration,course_city,course_region,course_metro,course_address,price_course,price_lesson,sale,form_of_study,format_of_study,for_ages_from,for_ages_to,for_levels_from,for_levels_to,num_people_in_group,schedule,time,course_category,course_sub_category,course_sub_category_type,course_type,data_from,lesson_duration,num_lesson_per_week',
                     'template' => 8,
                     'validationErrorMessage' => 'В форме содержатся ошибки!',
                     'successMessage' => 'Курс успешно отредактирован.'
                     'btn' => 'Отредактировать курс'
                  ]}
                  {else}
-                     Курс вам не принадлежит. 
+                    <p class="section__intro">Курс вам не принадлежит.</p> 
                      {include 'file:chunks/nav/nav.button.tpl' $url='{36 | url}' $title='Просмотреть курсы'}
                  {/if}
                  
@@ -61,7 +61,7 @@
                     'successMessage' => 'Курс успешно удален!'
                  ]}
                 {else}
-                     Курс вам не принадлежит. 
+                     <p class="section__intro">Курс вам не принадлежит.</p> 
                      {include 'file:chunks/nav/nav.button.tpl' $url='{36 | url}' $title='Просмотреть курсы'}
                 {/if}    
             {else}

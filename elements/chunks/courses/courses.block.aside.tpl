@@ -67,7 +67,7 @@
         ])}
         
         
-        {if $_modx->resource.template == 8}
+        {if $page_id | resource: 'template' == 8}
             {if ('' | isloggedin : 'web')}
                 {if !$_modx->user.urlico && !$_modx->user.manager}
                     {if $cnt == 0}

@@ -5,6 +5,5 @@
 <script type="text/javascript" src="/assets/js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="/assets/js/jquery.chained.min.js"></script>
 <script type="text/javascript" src="/assets/js/scripts.js"></script>
-<script type="text/javascript" src="/assets/js/custom.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="/assets/custom/custom.js"></script>

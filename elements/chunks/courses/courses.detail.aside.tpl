@@ -20,13 +20,22 @@
                             <div class="listinf__str">{$_modx->resource.course_address}</div>
                         </li>
                     {else}
-                        {set $city = ($_modx->runSnippet('!outputMultipleTV', ['tvName' => 'course_city', 'resourceId' => $_modx->resource.id]))}
-                        {set $region = ($_modx->runSnippet('!outputMultipleTV', ['tvName' => 'course_region', 'resourceId' => $_modx->resource.id]))}
-                        {set $metro = ($_modx->runSnippet('!outputMultipleTV', ['tvName' => 'course_metro', 'resourceId' => $_modx->resource.id]))}
+                        {*set $city = ($_modx->runSnippet('!outputMultipleTV', ['tvName' => 'course_city', 'resourceId' => $_modx->resource.id]))*}
+                        {*set $region = ($_modx->runSnippet('!outputMultipleTV', ['tvName' => 'course_region', 'resourceId' => $_modx->resource.id]))*}
+                        {*set $metro = ($_modx->runSnippet('!outputMultipleTV', ['tvName' => 'course_metro', 'resourceId' => $_modx->resource.id]))*}
+                        
+                        {set $city_lat = ($_modx->resource.id | resource: 'course_city')}
+                        {set $region_lat = ($_modx->resource.id | resource: 'course_region')}
+                        {set $metro_lat = ($_modx->resource.id | resource: 'course_metro')}
+                        
+                        {set $city = $_modx->runSnippet('getListCities', ['name' => 'city', 'arr'=>1])}
+                        {set $region = $_modx->runSnippet('getListCities', ['name' => 'districts', 'arr'=>1, 'city'=>'Минск'])}
+                        {set $metro = $_modx->runSnippet('getListCities', ['name' => 'metro', 'arr'=>1])}
+                        
                         <li class="listinf__flex">
                             <div class="listinf__icon"><img src="/assets/images/icons/location.svg" alt="location"></div>
-                            <div class="listinf__str">{if $city}г. {$city}{/if}{if $region}, район
-                                {$region}{/if}{if $metro}, метро {$metro}{/if}</div>
+                            <div class="listinf__str">{if $.php.is_array($city)}г. {$city[$city_lat]}{/if}{if $.php.is_array($region)}, район
+                                {$region[$region_lat]}{/if}{if $.php.is_array($metro)}, метро {$metro[$metro_lat]}{/if}</div>
                         </li>
                     {/if}
                     {if $fullname}

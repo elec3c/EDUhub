@@ -40,9 +40,6 @@
             <div class="cadd__input cadd__input--date">
                 <input type="text" name="data_from" placeholder="Дата от" class="input input--date datepicker-input" value='[[+fi.data_from]]'>
             </div>
-            <!--<div class="cadd__input cadd__input--date">
-                <input type="text" name="data_to" placeholder="Дата до" class="input input--date datepicker-input"  value='[[+fi.data_to]]'>
-            </div>-->
             <div class="cadd__input">
                 {insert 'file:chunks/forms/fields/fields.courses.duration.tpl'}
             </div>
@@ -63,18 +60,24 @@
             <div class="cadd__input w-320 w-2">
                 {insert 'file:chunks/forms/fields/fields.courses.num_people_in_group.tpl'}
             </div>
+            <div class="cadd__input w-220 w-2">
+                {insert 'file:chunks/forms/fields/fields.courses.schedule.tpl'}
+            </div>
+            <div class="cadd__input w-220 w-2">
+                {insert 'file:chunks/forms/fields/fields.courses.time.tpl'}
+            </div>
         </div>
         <div class="cadd__inputs cadd__in3">
-            <div class="cadd__input">
+            <div class="cadd__input w-220">
                 {insert 'file:chunks/forms/fields/fields.courses.levels_from.tpl'}
             </div>
-            <div class="cadd__input">
+            <div class="cadd__input w-320">
                 {insert 'file:chunks/forms/fields/fields.courses.levels_to.tpl'}
             </div>
-            <div class="cadd__input w-210">
+            <div class="cadd__input w-220">
                 {insert 'file:chunks/forms/fields/fields.courses.ages_from.tpl'}
             </div>
-            <div class="cadd__input w-210">
+            <div class="cadd__input w-220">
                 {insert 'file:chunks/forms/fields/fields.courses.ages_to.tpl'}
             </div>
         </div>

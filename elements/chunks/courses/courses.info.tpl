@@ -58,6 +58,18 @@
                     <div>{$_modx->resource.form_of_study}</div>
                 </div>
                 {/if}
+                {if $_modx->resource.schedule}
+                <div class="detail__props-item">
+                    <div class="detail__props-item__label">Расписание</div>
+                    <div>{($_modx->runSnippet('!outputMultipleTV', ['tvName' => 'schedule', 'resourceId' => $page_id]))}</div>
+                </div>
+                {/if}
+                {if $_modx->resource.time}
+                <div class="detail__props-item">
+                    <div class="detail__props-item__label">Время</div>
+                    <div>{($_modx->runSnippet('!outputMultipleTV', ['tvName' => 'time', 'resourceId' => $page_id]))}</div>
+                </div>
+                {/if}                
                 {if $_modx->resource.for_levels_from && $_modx->resource.for_levels_to}
                 <div class="detail__props-item">
                     <div class="detail__props-item__label">Уровень</div>

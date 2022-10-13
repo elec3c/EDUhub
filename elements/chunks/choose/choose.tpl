@@ -36,7 +36,7 @@
     
     <div class="choose__bg choose__wrap">
         <div class="container">
-            {include 'file:chunks/forms/choose.form.tpl'}
+            {insert 'file:chunks/forms/choose.form.tpl'}
         </div>
     </div>
     

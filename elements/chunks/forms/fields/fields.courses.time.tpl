@@ -3,7 +3,7 @@
 {else}
 {set $styler = 'styler'}
 {/if}                            
-<select name="format_of_study" data-placeholder="Формат обучения" class="{$styler}">
+<select name="time" data-placeholder="Время" class="{$styler}">
     <option value=""></option>
-    [[!getValuesTV?  &tvid = `36` &curr = `[[+fi.format_of_study]]`]]
+    [[!getValuesTV?  &tvid = `66` &curr = `[[+fi.time]]`]]
 </select>

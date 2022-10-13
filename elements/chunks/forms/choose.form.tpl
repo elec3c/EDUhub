@@ -27,20 +27,12 @@
             <div class="choose__inputs-item w-270 w-230-tablet">
                 {include 'file:chunks/forms/fields/fields.courses.format_of_study.tpl' style='styler--white'}
             </div>
-            {*<div class="choose__inputs-item w-200">
-                <select name="time" data-placeholder="Время обучения" class="styler styler--white">
-                    <option value=""></option>
-                    <option value="10-14">10-14</option>
-                    <option value="15-20">15-20</option>
-                </select>
+            <div class="choose__inputs-item w-270">
+                {include 'file:chunks/forms/fields/fields.courses.schedule.tpl' style='styler--white'}
             </div>
-            <div class="choose__inputs-item w-230">
-                <select name="days" data-placeholder="Дни занятий" class="styler styler--white">
-                    <option value=""></option>
-                    <option value="пн-пт">пн-пт</option>
-                    <option value="сб-вс">сб-вс</option>
-                </select>
-            </div>*}
+            <div class="choose__inputs-item w-270">
+                {include 'file:chunks/forms/fields/fields.courses.time.tpl' style='styler--white'}
+            </div>
         </div>
     </div>
     <div class="choose__block">
@@ -55,10 +47,9 @@
             <div class="choose__inputs-item w-270">
                 {include 'file:chunks/forms/fields/fields.location.metro.tpl' style='styler--white'}
             </div>
-            {*<div class="choose__inputs-item w-210">
-                <input type="text" name="data_from" placeholder="Дата с"
-                    class="input input--white input--date datepicker-input">
-            </div>*}
+            <div class="choose__inputs-item w-210">
+                {include 'file:chunks/forms/fields/fields.courses.data_from.tpl' style='styler--white'}
+            </div>
             <div class="choose__inputs-item choose__inputs-button">
                 <button class="btn w-all">ПОИСК</button>
             </div>
@@ -102,20 +93,12 @@
         <div class="choose__inputs-item w-270 w-230-tablet">
             {include 'file:chunks/forms/fields/fields.courses.format_of_study.tpl' style='styler--white'}
         </div>
-        {*<div class="choose__inputs-item w-200">
-            <select name="time" data-placeholder="Время обучения" class="styler styler--white">
-                <option value=""></option>
-                <option value="10-14">10-14</option>
-                <option value="15-20">15-20</option>
-            </select>
+        <div class="choose__inputs-item w-200">
+            {include 'file:chunks/forms/fields/fields.courses.schedule.tpl' style='styler--white'}
         </div>
         <div class="choose__inputs-item w-230">
-            <select name="days" data-placeholder="Дни занятий" class="styler styler--white">
-                <option value=""></option>
-                <option value="пн-пт">пн-пт</option>
-                <option value="сб-вс">сб-вс</option>
-            </select>
-        </div>*}
+            {include 'file:chunks/forms/fields/fields.courses.time.tpl' style='styler--white'}
+        </div>
         <div class="choose__block-title">Место и желаемая дата начала обучения</div>
             <div class="choose__inputs-item w-230">
                 {include 'file:chunks/forms/fields/fields.location.city.tpl' style='styler--white'}
@@ -126,9 +109,9 @@
             <div class="choose__inputs-item w-270">
                 {include 'file:chunks/forms/fields/fields.location.metro.tpl' style='styler--white'}
             </div>
-            {*<div class="choose__inputs-item w-210">
-                <input type="data_from" placeholder="Дата с" class="input input--white input--date datepicker-input">
-            </div>*}
+            <div class="choose__inputs-item w-210">
+                {include 'file:chunks/forms/fields/fields.courses.data_from.tpl' style='styler--white'}
+            </div>
         </div>
         <div class="choose__inputs-item choose__inputs-button">
             <button class="btn w-all">ПОИСК</button>

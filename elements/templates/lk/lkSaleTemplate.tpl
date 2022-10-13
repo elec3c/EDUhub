@@ -100,7 +100,7 @@
                                             </div>
                                             <div class="sale__item-col sale__item-date">
                                                 <div class="sale__item-label">Срок действия</div>
-                                                {$data_from | date : "d.m.Y"}
+                                                {$created~" +28 days" | strtotime | date : "d.m.Y"}
                                             </div>
                                         </div>
                                         {if $active and empty($deal) and empty($deleted)}

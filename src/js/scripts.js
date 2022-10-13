@@ -20,7 +20,7 @@ function isMobile() {
 $(function(){
 
 
-	$(".phone-mask").mask("+375(999)999-99-99");
+	$(".phone-mask").mask("+375(99)999-99-99");
 
 	$.datepicker.regional['ru'] = {
 		closeText: 'Закрыть',

@@ -21,55 +21,41 @@
                         <a href="{295 | url}" id="exportData"><button class="btn btn--excel"><img src="/assets/images/icons/excel.svg" alt=""></button></a>
                     </div>
                 </div>
-
-                
-
                 <div id="pdopage">
-                    <div class="rows">
                     <div class="analitics__block lk__wraplr section__lr">
-                        {'!pdoPage' | snippet :[
-                            'parents'=>85,
-                            'ajaxMode'=>'default',
-                            'limit'=>5,
-                            'class'=>'modResource',
-                            'includeTVs'=>'course_owner',
-                            'tvPrefix'=>'',
-                            'loadModels'=>'calls',
-                            'innerJoin'=>[
-                                'EduCalls'=>[
-                                    'class'=>'EduCalls',
-                                    'on'=>'modResource.id = EduCalls.group_id',
+                        <div class="rows">
+                            {'!pdoPage' | snippet :[
+                                'parents'=>85,
+                                'ajaxMode'=>'default',
+                                'limit'=>20,
+                                'idx'=>5,
+                                'class'=>'modResource',
+                                'includeTVs'=>'course_owner',
+                                'tvPrefix'=>'',
+                                'loadModels'=>'calls',
+                                'innerJoin'=>[
+                                    'EduCalls'=>[
+                                        'class'=>'EduCalls',
+                                        'on'=>'modResource.id = EduCalls.group_id',
+                                    ],
                                 ],
-                            ],
-                            'select'=>[
-                                'EduCalls'=>'*',
-                                'modResource'=>'modResource.pagetitle,modResource.id as res_id',
-                            ],
-                            'sortby'=>[
-                                'EduCalls.id'=>'DESC',
-                            ],
-                            
-                            'tpl'=>'@FILE chunks/lkm/lkm.call.analitics.block.tpl'
-                        ]}
-                    </div>
+                                'select'=>[
+                                    'EduCalls'=>'*',
+                                    'modResource'=>'modResource.pagetitle,modResource.id as res_id',
+                                ],
+                                'sortby'=>[
+                                    'EduCalls.id'=>'DESC',
+                                ],
+                                
+                                'tpl'=>'@FILE chunks/lkm/lkm.call.analitics.block.tpl'
+                            ]}
+                        </div>
                     </div><!--analitics__block-->
                     <div class="section__buttons">
                         {'page.nav' | placeholder}
                     </div>
                 </div>
-
-                
-                
-
-                
-                
-                
             </div>
         </section><!-- lk -->
-
-
-        
-
 	</main><!--content__wrapper-->        
-
 {/block}

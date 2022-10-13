@@ -1,6 +1,8 @@
                     <div class="analitics__item">
                         <div class="analitics__item-bl">
+                            {if !($idx % 5)}
                             <div class="analitics__item-title">Курс</div>
+                            {/if}
                             <div class="analitics__item-col">
                                 <div class="analitics__item-prop">
                                     <div class="analitics__item-prop__label">Имя</div>
@@ -23,7 +25,9 @@
                              </div>
                         </div>
                         <div class="analitics__item-bl">
+                            {if !($idx % 5)}
                             <div class="analitics__item-title">данные</div>
+                            {/if}
                             <div class="analitics__item-col">
                                 <div class="analitics__item-prop">
                                     <div class="analitics__item-prop__label">заказан</div>

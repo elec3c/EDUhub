@@ -8,5 +8,5 @@
 {set $data_stop = $data_to | date : "d.m.Y"}
 {set $commission = $cur_commission}
 {if $deal}{set $dogovor = "Заключен"}{else}{set $dogovor = "Отменен"}{/if}
-["fullname":"{$fullname}", "school":"{$school}", "group":"{$group}", "url":"{$url}", "promocode":"{$promocode}", "data_start":"{$data_start}","data_stop": "{$data_stop}","commission":"{$commission}","dogovor":"{$dogovor}"],
+["fullname":"{$fullname}", "school":"{$school}", "group":"{$group}", "url":"{$url}", "promocode":"{$promocode}", "data_stop": "{$data_stop}","commission":"{$commission}","dogovor":"{$dogovor}"],
 
