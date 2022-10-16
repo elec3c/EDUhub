@@ -48,8 +48,10 @@
                             'sortby'=>[
                                 'EduTeachers.id'=>'DESC',
                             ],
-                            'tpl'=>'@FILE chunks/lkm/lkm.school.teachers.block.tpl',
-                            'where' => '{"school":'~$_modx->user.id~'}'
+                            'tpl'=>'@FILE chunks/lks/lks.school.teachers.block.tpl',
+                            'where'=>[
+                                'school'=>$_modx->user.id
+                            ]
                         ]}
                     </div>
                     <div class="section__buttons">

@@ -24,7 +24,7 @@
                                 {set $fields="address"}
                             {case "rooms"}
                                 {set $type="комнаты"}
-                                {set $fields="rooms"}
+                                {set $fields="addres_id"}
                             {default}
                                 {set $type=""}
                         {/switch}

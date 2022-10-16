@@ -37,19 +37,37 @@
                 <p>&nbsp;</p>                
                 <div id="pdopage">
                     <div class="rows">
-                        {$_modx->runSnippet('!pdoPage', [
-                            'parents'=>61,
-                            'tpl'=>'@FILE chunks/lks/lks.courses.course.item.tpl',
-                            'includeTVs' => 'small_image, course_owner, course_address, course_city, course_region, course_metro, data_from, res_type',
-                            'templates' => '8',
+                        {'!pdoPage' | snippet :[
+                            'ajaxMode'=>'default',
+                            'idx'=>5,
+                            'class'=>'EduAddress',
+                            'tvPrefix'=>'',
                             'processTVs'=>'1',
-                            'limit'=>'10',
-                            'sortby'=>'{"data_from":"DESC"}',
-                            'showUnpublished'=>'1',
-                            'where' => '{"course_owner":'~$_modx->user.id~'}',
-              
+                            'limit'=>'10',                            
+                            'loadModels'=>'school',
+                            'sortby'=>[
+                                'EduRooms.id'=>'DESC',
+                            ],
                             
-                        ])}
+                            'innerJoin'=>[
+                                'EduRooms'=>[
+                                    'class'=>'EduRooms',
+                                    'on'=>'EduAddress.id = EduRooms.addres_id',
+                                ],
+                            ],                            
+                            
+                            'tpl'=>'@FILE chunks/lks/lks.school.rooms.block.tpl',
+                            
+                            'select'=>[
+                                'EduRooms'=>'*',
+                                'EduAddress'=>'EduAddress.address as address'
+                            ],  
+                            
+                            'where'=>[
+                                'EduAddress.school'=>$_modx->user.id
+                            ]
+                        ]}
+
                     </div>
                     <div class="section__buttons">
                         {$_modx->getPlaceholder('page.nav')}
