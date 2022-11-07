@@ -786,6 +786,7 @@
         border-bottom: 1px solid rgba(125, 125, 125, 0.5);
         display: grid;
         grid-template-columns: minmax(auto, 770px) 300px;
+        grid-template-rows: 1fr auto;
         grid-gap: 30px;
         justify-content: space-between;
         & + & {
@@ -872,21 +873,28 @@
         }
 
         &-dop {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 10px;
-            max-width: 380px;
+            // display: grid;
+            // grid-template-columns: repeat(3, 1fr);
+            // grid-gap: 10px;
+            // max-width: 380px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         &-ditem {
             display: flex;
             align-items: center;
-            justify-content: center;
+            // justify-content: center;
             flex-direction: column;
-            height: 100px;
+            flex: auto 0;
+            width: 120px;
+            min-height: 110px;
             border-radius: 20px;
             font-size: 14px;
+            text-align: center;
             transition: all .3s ease-in-out;
             background: #FFCCA1;
+            padding: 24px 5px 24px;
             &:hover {
                 color: #fff;   
                 background: #FE5233;
@@ -903,6 +911,12 @@
                     background: #9D68F8;
                 }
             }
+            &--user {
+                background: #FFEB9D;
+                &:hover {
+                    background: #E4C133;
+                }
+            }
             &__icon {
                 margin-bottom: 6px;
                 height: 25px;
@@ -915,6 +929,27 @@
             }
             &:hover path {
                 stroke: #fff;
+            }
+        }
+        &-times {
+            flex: 1 0 0;
+            background: #F1F1F1 !important;
+            color: $color-body !important;
+            &__days {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                li {
+                    &.active {
+                        padding: 3px 8px;
+                        background: $bg-orange;
+                        border-radius: 6px;
+                        color: #fff !important;
+                    }
+                }
+            }
+            &__hours {
+                margin-top: 20px;
             }
         }
     }
@@ -1062,6 +1097,26 @@
                     padding-bottom: 0;
                     height: 140px;
                 }
+            }  
+            &-dop {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 10px;
+                max-width: 380px;
+                &--individ {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+            &-ditem {
+                width: auto;
+                height: 110px;
+                justify-content: center;
+            }
+            &-dop--group &-times {
+                grid-column: span 2;
+            }
+            &-times__hours {
+                margin-top: 10px;
             }
         }
         &__filter {
@@ -1139,7 +1194,7 @@
                 margin-top: 20px;
             }
             &-action {
-                margin-top: 30px;
+                margin-top: 30px;   
                 padding: 0;
                 display: block;
             }
@@ -1162,7 +1217,9 @@
 
     }
     @media (max-width: $md-mobile-sm) {
-
+        &__block-ditem {
+            font-size: 12px;
+        }
     }
     @media (max-width: 340px) {
         
@@ -2509,6 +2566,9 @@
         }
         .input__row {
             margin-bottom: 14px;
+            * + * {
+                margin-top: 14px;
+            }
             &--link {
                 margin-top: -4px;
             }
@@ -2665,6 +2725,9 @@
         &__profile {
             .input__row {
                 margin-bottom: 10px;
+                * + * {
+                    margin-top: 10px;
+                }
             }
             &-title {
                 font-size: 18px;
@@ -3255,6 +3318,10 @@
         max-width: 370px;
         margin-top: 50px;
     }
+    &__schedule {
+        margin-top: 14px;
+        display: none;
+    }
 
         
 
@@ -3302,7 +3369,15 @@
 
 }
 
-
+.schedule {
+    &__inputs {
+        padding-bottom: 14px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+        max-width: 430px;
+    }
+}
 
 
 /**************************************************************

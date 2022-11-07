@@ -21,6 +21,7 @@ $(function(){
 
 
 	$(".phone-mask").mask("+375(99)999-99-99");
+	$(".time-mask").mask("99:99");
 
 	$.datepicker.regional['ru'] = {
 		closeText: 'Закрыть',
@@ -173,6 +174,111 @@ $(function(){
 		}
 	});
 
+	/**************************************************************
+	Блокировка ввода
+	**************************************************************/
+	$('body').on('input', '.input-number', function(){
+		this.value = this.value.replace(/[^0-9\.\,]/g, '');
+	});
+	$('body').on('input', '.input-spch', function(){
+		this.value = this.value.replace(/[№~`!@#$%\^&*()+=\-\[\]\\';,/{}|\\":<>\?]/g, '');
+	});
+	
+
+	/**************************************************************
+	Мульти селект
+	**************************************************************/
+	$('.check-select:not(.disabled)').each(function(){
+		let str = [], value = [];
+		$(this).find('.check-param:checked').each(function(){
+			str.push($(this).parents('label').find('span').text());
+			value.push($(this).val());
+		})
+		if (value.length == 0) return;
+		$(this).find('.check-select-text').removeClass('placeholder').text(str.join(', '));
+		$(this).find('.check-select-value').val(value.join(','));
+		console.log(str);
+		console.log(value);
+	})
+	$('.check-select-toggle').click(function(){
+		
+		if ($(this).parents('.check-select').hasClass('disabled')) return;
+		$(this).parents('.check-select').toggleClass('opened');
+	})	
+	$('.check-select .check-param').change(function(){
+		let str = [], value = [];
+		$(this).parents('.check-select-dropdown').find('.check-param:checked').each(function(){
+			str.push($(this).parents('label').find('span').text());
+			value.push($(this).val());
+		})
+		if (value.length == 0) return;
+		$(this).parents('.check-select').find('.check-select-text').removeClass('placeholder').text(str.join(', '));
+		$(this).parents('.check-select').find('.check-select-value').val(value.join(','));
+		console.log(str);
+		console.log(value);
+
+		let id_select = $(this).parents('.check-select').attr('data-check-select');
+		if (id_select === undefined || id_select === '') return;
+
+		id_select = id_select.split(',')
+		
+		$(id_select).each(function(i, el){
+			el = $.trim(el);
+			$(el).removeClass('disabled').find('.check-select-dropdown label').addClass('hide').find('.check-param').prop('checked', false);
+			setTimeout(function() {
+				$('.check-param.styler').trigger('refresh');
+			}, 1)
+
+			$(value).each(function(i_c, el_c){
+				$(el).find('.check-param[data-chained="'+el_c+'"]').parents('label').removeClass('hide');
+			});
+			
+			$(el).find('.check-select-text').addClass('placeholder').text( $(el).attr('data-placeholder') );
+			$(el).find('.check-select-value').val('');
+		});
+	})	
+
+	$(document).mouseup( function(e){ 
+		if (!$( ".check-select" ).is(e.target)   && $( ".check-select" ).has(e.target).length === 0
+		   ) { 
+				$('.check-select').removeClass('opened');
+		}
+		
+	});
+
+	function chainedCheckSelect(select) {
+		let chained = $(select).val(),
+			id_select = $(select).attr('data-check-select').split(',');
+
+		if (chained === '') return;
+
+
+		$(id_select).each(function(i, el){
+			el = $.trim(el);
+			$(el).removeClass('disabled').find('.check-select-dropdown label').addClass('hide').find('.check-param').prop('checked', false);
+			setTimeout(function() {
+				$('.check-param.styler').trigger('refresh');
+			}, 1)
+
+			$(el).find('.check-param[data-chained="'+chained+'"]').parents('label').removeClass('hide');
+			$(el).find('.check-select-text').addClass('placeholder').text( $(el).attr('data-placeholder') );
+			$(el).find('.check-select-value').val('');
+		});
+	}
+	$('[data-check-select]').each(function(){
+
+		if ($(this).hasClass('check-select')) {
+			
+
+			return;
+		}
+		
+		chainedCheckSelect(this);
+	})
+	$('[data-check-select]').change(function(){
+		chainedCheckSelect(this);
+
+	})
 
 	/**************************************************************
 	ФИльтр на главной
@@ -190,8 +296,8 @@ $(function(){
 	$("#level-from-select").chained("#category-select");
 	$("#level-to-select").chained("#category-select");
 	$("#for_ages_to").chained("#for_ages_from");
-	$("#course_metro").chained("#course_city");
-	 $("#course_region").chained("#course_city");
+	//$("#course_metro").chained("#course_city");
+	 //$("#course_region").chained("#course_city");
 	
 
 	$('body').on('change', 'select.styler', function(e){
@@ -504,7 +610,24 @@ $(function(){
         }
 
     });
-	
+		
+	/**************************************************************
+	Формы
+	**************************************************************/
+	if ($('.add-schedule').is(':checked')) $('.schedule').show();
+	$('.add-schedule').change( function(e){
+        e.preventDefault();
+		$('.schedule').slideToggle();
+	});
+
+	$('.add-schedule-time').each(function(){
+		if ($(this).is(':checked')) $(this).parents('.schedule-row').find('.schedule-inputs').show();
+	})
+	$('.add-schedule-time').change( function(e){
+        e.preventDefault();
+		console.log($(this).is(':checked'));
+		$(this).parents('.schedule-row').find('.schedule-inputs').slideToggle();
+	});
 });
 
 
@@ -518,3 +641,4 @@ $(function(){
 		});
 	});
 })(jQuery);
+
