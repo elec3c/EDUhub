@@ -1,0 +1,219 @@
+@@include('html/head.html', {
+    "title": "Отчет"
+})
+
+<section class="wrapper" id="top">
+
+    @@include('html/header.html', {
+        "active_menu": "profile",
+        "auth": "user_auth"
+    })
+    
+    <main class="content__wrapper">
+
+
+        @@include('html/lknav.html', {
+            "active_menu": "kpreport",
+            "type": "scool"
+        }) 
+
+        <section class="lk kpreport section__mgb">
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Отчет</h2>
+                </div>
+
+
+                <div class="kpreport__block">
+                    <div class="kpreport__item lk__wraplr section__lr">
+                        <div class="kpreport__item-name">Запрос</div>
+                        <div class="kpreport__item-head">
+                            <div class="kpreport__item-col">
+                                <div class="kpreport__item-prop">
+                                    <div class="kpreport__item-prop__label">Курсы</div>
+                                    Языки
+                                </div>
+                                <div class="kpreport__item-prop">
+                                    <div class="kpreport__item-prop__label">Какой язык</div>
+                                    Английский
+                                </div>
+                                <div class="kpreport__item-prop">
+                                    <div class="kpreport__item-prop__label">Тип курса</div>
+                                    Языки
+                                </div>
+                                <div class="kpreport__item-prop">
+                                    <div class="kpreport__item-prop__label">Форма обучения</div>
+                                    Онлайн
+                                </div>
+                                
+                            </div>
+                            <div class="kpreport__item-col">
+                                <div class="kpreport__item-prop">
+                                    <div class="kpreport__item-prop__label">Время обучения</div>
+                                    В рабочее время
+                                </div>
+                                <div class="kpreport__item-prop">
+                                    <div class="kpreport__item-prop__label">Количество обучающихся</div>
+                                    10-15
+                                </div>
+                                <div class="kpreport__item-prop">
+                                    <div class="kpreport__item-prop__label">Форма оплаты</div>
+                                    Предоплата
+                                </div>
+                            </div>
+                            <div class="kpreport__item-col">
+                                <div class="kpreport__item-prop">
+                                    <div class="kpreport__item-prop__label">Дата запроса</div>
+                                    11.10.2022
+                                </div>
+                                <div class="kpreport__item-prop">
+                                    <div class="kpreport__item-prop__label">Дата окончания приема заявок</div>
+                                    31.10.2022
+                                </div>
+                                <div class="kpreport__item-prop">
+                                    <div class="kpreport__item-prop__label">Deadline по выбору школы</div>
+                                    -
+                                </div>
+                            </div>   
+                            
+                        </div><!--kpreport__item-head-->
+
+                        <div class="kpreport__item-row kpreport__item-row--head">
+                            <div class="kpreport__item-cell kpreport__item-label">Учебные центры</div>
+                            <div class="kpreport__item-cell kpreport__item-label">Статус</div>
+                            <div class="kpreport__item-cell kpreport__item-cell--download kpreport__item-label">КП (вложенные файлы)</div>
+                            <div class="kpreport__item-cell kpreport__item-action"></div>
+                        </div>
+                        <div class="kpreport__item-row">
+                            <div class="kpreport__item-cell">
+                                <div class="kpreport__item-label show-desktop">Учебный центр</div>
+                                2ENGLISH
+                            </div>
+                            <div class="kpreport__item-cell">
+                                <div class="kpreport__item-label show-desktop">Статус</div>
+                                Получено
+                            </div>
+                            <div class="kpreport__item-cell kpreport__item-cell--download">
+                                <div class="kpreport__item-label show-desktop">КП (вложенные файлы)</div>
+                                -
+                            </div>
+                            <div class="kpreport__item-cell kpreport__item-action">
+                                <buttons class="btn btn--purple">Заключить договор</buttons>
+                                <button class="btn btn--red kpreport-refuse">Отказать</button>
+                                <button class="btn btn--remove btn--white">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M21 5.97998C17.67 5.64998 14.32 5.47998 10.98 5.47998C9 5.47998 7.02 5.57998 5.04 5.77998L3 5.97998" stroke="#D60000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M8.5 4.97L8.72 3.66C8.88 2.71 9 2 10.69 2H13.31C15 2 15.13 2.75 15.28 3.67L15.5 4.97" stroke="#D60000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M18.8484 9.14014L18.1984 19.2101C18.0884 20.7801 17.9984 22.0001 15.2084 22.0001H8.78844C5.99844 22.0001 5.90844 20.7801 5.79844 19.2101L5.14844 9.14014" stroke="#D60000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M10.3281 16.5H13.6581" stroke="#D60000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M9.5 12.5H14.5" stroke="#D60000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>                                   
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="kpreport__item-row">
+                            <div class="kpreport__item-cell">
+                                <div class="kpreport__item-label show-desktop">Учебный центр</div>
+                                Стримлайн
+                            </div>
+                            <div class="kpreport__item-cell">
+                                <div class="kpreport__item-label show-desktop">Статус</div>
+                                Принято в работу
+                            </div>
+                            <div class="kpreport__item-cell kpreport__item-cell--download">
+                                <div class="kpreport__item-label show-desktop">КП (вложенные файлы)</div>
+                                -
+                            </div>
+                            <div class="kpreport__item-cell kpreport__item-action">
+                                <buttons class="btn btn--purple">Заключить договор</buttons>
+                                <button class="btn btn--red kpreport-refuse">Отказать</button>
+                                <button class="btn btn--remove btn--white">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M21 5.97998C17.67 5.64998 14.32 5.47998 10.98 5.47998C9 5.47998 7.02 5.57998 5.04 5.77998L3 5.97998" stroke="#D60000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M8.5 4.97L8.72 3.66C8.88 2.71 9 2 10.69 2H13.31C15 2 15.13 2.75 15.28 3.67L15.5 4.97" stroke="#D60000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M18.8484 9.14014L18.1984 19.2101C18.0884 20.7801 17.9984 22.0001 15.2084 22.0001H8.78844C5.99844 22.0001 5.90844 20.7801 5.79844 19.2101L5.14844 9.14014" stroke="#D60000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M10.3281 16.5H13.6581" stroke="#D60000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M9.5 12.5H14.5" stroke="#D60000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>                                  
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="kpreport__item-row">
+                            <div class="kpreport__item-cell">
+                                <div class="kpreport__item-label show-desktop">Учебный центр</div>
+                                Панда
+                            </div>
+                            <div class="kpreport__item-cell">
+                                <div class="kpreport__item-label show-desktop">Статус</div>
+                                Отправлено КП
+                            </div>
+                            <div class="kpreport__item-cell kpreport__item-cell--download">
+                                <div class="kpreport__item-label show-desktop">КП (вложенные файлы)</div>
+                                <a href="" class="download"><span>КП.pdf</span></a>
+                            </div>
+                            <div class="kpreport__item-cell kpreport__item-action">
+                                <buttons class="btn btn--purple">Заключить договор</buttons>
+                                <button class="btn btn--red kpreport-refuse">Отказать</button>
+                                <button class="btn btn--remove btn--white">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M21 5.97998C17.67 5.64998 14.32 5.47998 10.98 5.47998C9 5.47998 7.02 5.57998 5.04 5.77998L3 5.97998" stroke="#D60000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M8.5 4.97L8.72 3.66C8.88 2.71 9 2 10.69 2H13.31C15 2 15.13 2.75 15.28 3.67L15.5 4.97" stroke="#D60000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M18.8484 9.14014L18.1984 19.2101C18.0884 20.7801 17.9984 22.0001 15.2084 22.0001H8.78844C5.99844 22.0001 5.90844 20.7801 5.79844 19.2101L5.14844 9.14014" stroke="#D60000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M10.3281 16.5H13.6581" stroke="#D60000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M9.5 12.5H14.5" stroke="#D60000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>                                   
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="kpreport__item-row">
+                            <div class="kpreport__item-cell">
+                                <div class="kpreport__item-label show-desktop">Учебный центр</div>
+                                IH
+                            </div>
+                            <div class="kpreport__item-cell">
+                                <div class="kpreport__item-label show-desktop">Статус</div>
+                                Отправлено КП
+                            </div>
+                            <div class="kpreport__item-cell kpreport__item-cell--download">
+                                <div class="kpreport__item-label show-desktop">КП (вложенные файлы)</div>
+                                <a href="" class="download"><span>КП.pdf</span></a>
+                            </div>
+                            <div class="kpreport__item-cell kpreport__item-action">
+                                <span>Отказано вами</span>
+                                <button class="btn btn--bdgray">Отменить</button>
+                                <button class="btn btn--remove btn--white">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M21 5.97998C17.67 5.64998 14.32 5.47998 10.98 5.47998C9 5.47998 7.02 5.57998 5.04 5.77998L3 5.97998" stroke="#D60000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M8.5 4.97L8.72 3.66C8.88 2.71 9 2 10.69 2H13.31C15 2 15.13 2.75 15.28 3.67L15.5 4.97" stroke="#D60000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M18.8484 9.14014L18.1984 19.2101C18.0884 20.7801 17.9984 22.0001 15.2084 22.0001H8.78844C5.99844 22.0001 5.90844 20.7801 5.79844 19.2101L5.14844 9.14014" stroke="#D60000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M10.3281 16.5H13.6581" stroke="#D60000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M9.5 12.5H14.5" stroke="#D60000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>                                  
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+        </section><!-- lk -->
+
+
+        
+
+	</main><!--content__wrapper-->
+
+    @@include('html/footer.html', {
+        "active_menu": "profile"
+    })
+
+</section>
+
+@@include('html/popup.html', {})
+    
+</body>
+</html>

@@ -1,0 +1,257 @@
+@@include('html/head.html', {
+    "title": "Корпоративные лиды"
+})
+
+<section class="wrapper" id="top">
+
+    @@include('html/header.html', {
+        "active_menu": "profile",
+        "auth": "user_auth"
+    })
+    
+    <main class="content__wrapper">
+
+
+        @@include('html/lknav.html', {
+            "active_menu": "leads_korp",
+            "type": "scool"
+        }) 
+
+        <section class="lk leads section__mgb">
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Корпоративные лиды</h2>
+                </div>
+
+
+                <div class="leads__block">
+                    <div class="leads__header lk__wraplr section__lr">бизнес английский</div>
+                    <div class="leads__item lk__wraplr section__lr">
+                        <div class="leads__item-head">
+                            <div class="leads__item-date">11.10.2022</div>
+
+                            <div class="leads__item-4cols">
+                                <div class="leads__item-col">
+                                    <div class="leads__item-prop">
+                                        <div class="leads__item-prop__label">Наименование организации</div>
+                                        ООО Рога и копыта
+                                    </div>
+                                </div>
+                                <div class="leads__item-col">
+                                    <div class="leads__item-prop">
+                                        <div class="leads__item-prop__label">Контактное лицо</div>
+                                        эйчар Иванов Иван Иваныч
+                                    </div>
+                                </div>
+                                <div class="leads__item-col">
+                                    <div class="leads__item-prop">
+                                        <div class="leads__item-prop__label">Электронная почта для КП</div>
+                                        roga@mail.ru
+                                    </div>
+                                </div>                                    
+                                <div class="leads__item-col">
+                                    <div class="leads__item-prop">
+                                        <div class="leads__item-prop__label">Телефон</div>
+                                        +37529ХХХХХХХ
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--leads__item-head-->
+
+                        
+                        <div class="leads__item-4cols">
+                            <div class="leads__item-col">
+                                <div class="leads__item-prop">
+                                    <div class="leads__item-prop__label">Категория</div>
+                                    языковые
+                                </div>
+                                <div class="leads__item-prop">
+                                    <div class="leads__item-prop__label">Подкатегория</div>
+                                    английский
+                                </div>
+                                <div class="leads__item-prop">
+                                    <div class="leads__item-prop__label">Тип</div>
+                                    IT
+                                </div>
+                                <div class="leads__item-prop">
+                                    <div class="leads__item-prop__label">Форма</div>
+                                    индивидуальные + группы
+                                </div>
+                                <div class="leads__item-prop">
+                                    <div class="leads__item-prop__label">Формат</div>
+                                    только офлайн <br> по адресу заказчика <br> (ул. Танковая люк 6)
+                                </div>
+                            </div>
+                            <div class="leads__item-col">
+                                <div class="leads__item-prop">
+                                    <div class="leads__item-prop__label">Время обучения</div>
+                                    посе работы
+                                </div>
+                                <div class="leads__item-prop">
+                                    <div class="leads__item-prop__label">Количество человек </div>
+                                    16
+                                </div>
+                                <div class="leads__item-prop">
+                                    <div class="leads__item-prop__label">Условия оплаты</div>
+                                    только по факту оказания услуг
+                                </div>
+                                <div class="leads__item-prop">
+                                    <div class="leads__item-prop__label">Дата окончания приема КП</div>
+                                    30.11.2022
+                                </div>
+                                <div class="leads__item-prop">
+                                    <div class="leads__item-prop__label">Дедлайн по принятию решения</div>
+                                    не указан
+                                </div>
+                            </div>
+                            <div class="leads__item-col leads__item-col--w2">
+                                <div class="leads__item-prop">
+                                    <div class="leads__item-prop__label">Сопроводительное письмо</div>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+                                </div>
+                                <div class="leads__item-prop">
+                                    <div class="leads__item-prop__label">Прикрепленные файлы</div>
+                                    <a href="" class="download">
+                                        <span>ввооава.doc</span>
+                                    </a>
+                                </div>
+                                <div class="leads__item-prop leads__item-buttons">
+                                    <button class="btn ">Принять</button>
+                                    <button class="btn btn--bdpurple">Отклонить</button>
+                                </div>
+                            </div>   
+                        </div>
+
+                        
+                        <div class="chat">
+                            <div class="chat__messages chat__scroll chat-scroll" id="chat_messages">   
+                                <div class="chat__messages-date">22 сентября 2022</div>
+
+                                <div class="chat__messages-item">
+                                    <div class="chat__messages-item__photo"><img src="assets/images/photo1.jpg" alt=""></div>
+                                    <div class="chat__messages-item__cont">
+                                        <div class="chat__messages-item__head">
+                                            <div class="chat__messages-item__name">Иван Иванов</div>
+                                            <div class="chat__messages-item__date">12:40</div>
+                                        </div>    
+                                        <div class="chat__messages-item__text">
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                                        </div>
+                                    </div>
+                                </div><!--chat__messages-item -->
+    
+                                <div class="chat__messages-item chat__messages-item-right">
+                                    <div class="chat__messages-item__photo"><img src="assets/images/photo2.jpg" alt=""></div>
+                                    <div class="chat__messages-item__cont">
+                                        <div class="chat__messages-item__head">
+                                            <div class="chat__messages-item__name">Иннокентий Петров</div>
+                                            <div class="chat__messages-item__date">12:40</div>
+                                        </div>   
+                                        <div class="chat__messages-item__text">
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                                        </div>
+                                    </div>
+                                </div><!--chat__messages-item -->
+                                
+                                <div class="chat__messages-date">24 сентября 2022</div>
+                                
+                                <div class="chat__messages-item chat__messages-item-right">
+                                    <div class="chat__messages-item__photo"><img src="assets/images/photo2.jpg" alt=""></div>
+                                    <div class="chat__messages-item__cont">
+                                        <div class="chat__messages-item__head">
+                                            <div class="chat__messages-item__name">Иннокентий Петров</div>
+                                            <div class="chat__messages-item__date">12:40</div>
+                                        </div> 
+                                        <div class="chat__messages-item__text">
+                                            Lorem ipsum dolor sit amet
+                                        </div>
+                                    </div>
+                                </div><!--chat__messages-item -->
+                                
+            
+                                <div class="chat__messages-item">
+                                    <div class="chat__messages-item__photo"><img src="assets/images/photo1.jpg" alt=""></div>
+                                    <div class="chat__messages-item__cont">
+                                        <div class="chat__messages-item__head">
+                                            <div class="chat__messages-item__name">Иван Иванов</div>
+                                            <div class="chat__messages-item__date">12:40</div>
+                                        </div>   
+                                        <div class="chat__messages-item__text">
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                                            <a href="" class="download">
+                                                <span>ввооава.doc</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div><!--chat__messages-item -->
+    
+                                
+                                <div class="chat__messages-date">26 сентября 2022</div>
+                                
+                                <div class="chat__messages-item chat__messages-item-right">
+                                    <div class="chat__messages-item__photo"><img src="assets/images/photo2.jpg" alt=""></div>
+                                    <div class="chat__messages-item__cont">
+                                        <div class="chat__messages-item__head">
+                                            <div class="chat__messages-item__name">Иннокентий Петров</div>
+                                            <div class="chat__messages-item__date">12:40</div>
+                                        </div> 
+                                        <div class="chat__messages-item__text">
+                                            Lorem ipsum dolor sit amet
+                                        </div>
+                                    </div>
+                                </div><!--chat__messages-item -->
+                                
+            
+                                <div class="chat__messages-item">
+                                    <div class="chat__messages-item__photo"><img src="assets/images/photo1.jpg" alt=""></div>
+                                    <div class="chat__messages-item__cont">
+                                        <div class="chat__messages-item__head">
+                                            <div class="chat__messages-item__name">Иван Иванов</div>
+                                            <div class="chat__messages-item__date">12:40</div>
+                                        </div>   
+                                        <div class="chat__messages-item__text">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur luctus at dolor in congue. Proin convallis metus eget nisi congue, ac accumsan lacus iaculis.
+                                        </div>
+                                    </div>
+                                </div><!--chat__messages-item -->
+    
+                            </div><!--chat__messages-->
+    
+                            <div class="chat__form chat__content-pd">
+                                <form action="" id="chat_form" enctype="multipart/form-data">
+                                    <div class="chat__form-wrap">
+                                        <textarea placeholder="Введите текст сообщения" class="input chat__form-input"></textarea>
+
+                                        <input type="file" name="file" class="styler">
+                                        <button type="submit" class="chat__form-submit">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M19.29 9.48377L7.7 3.38377C4.95 1.93377 1.96 4.86377 3.35 7.64377L4.97 10.8838C5.42 11.7838 5.42 12.8438 4.97 13.7438L3.35 16.9838C1.96 19.7638 4.95 22.6838 7.7 21.2438L19.29 15.1438C21.57 13.9438 21.57 10.6838 19.29 9.48377Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>                                                    
+                                        </button>
+                                    </div>
+                                </form>
+                            </div><!--chat__form-->
+                        </div>
+
+                    </div>
+                </div>
+                
+
+            </div>
+        </section><!-- lk -->
+
+
+        
+
+	</main><!--content__wrapper-->
+
+    @@include('html/footer.html', {
+        "active_menu": "profile"
+    })
+
+</section>
+
+@@include('html/popup.html', {})
+    
+</body>
+</html>

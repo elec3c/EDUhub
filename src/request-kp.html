@@ -1,0 +1,146 @@
+@@include('html/head.html', {
+    "title": "Запрос КП"
+})
+
+<section class="wrapper" id="top">
+
+    @@include('html/header.html', {
+        "active_menu": "",
+        "auth": "user"
+    })
+    
+    <main class="content__wrapper">
+
+        <section class="rkp section__mg">
+            <div class="container">
+                <form class="rkp__form" enctype="multipart/form-data">
+                    <div class="rkp__box">
+                        <div class="rkp__box-title">1. Какие курсы вас интересуют?</div>
+                        
+                        <label class="form__lcheck form__lcheck--btn"><input type="radio" class="styler styler--transparent" name="course_all" value="IT"><span>IT</span></label>
+                        <label class="form__lcheck form__lcheck--btn"><input type="radio" class="styler styler--transparent" name="course_all" value="Языки" checked><span>Языки</span></label>
+                    </div>
+                    
+                    <div class="rkp__box">
+                        <div class="rkp__box-title">2. Какой именно курс вас интересует?</div>
+                        <label class="form__lcheck form__lcheck--btn"><input type="radio" class="styler styler--transparent" name="course" value="Английский" checked><span>Английский</span></label>
+                        <label class="form__lcheck form__lcheck--btn"><input type="radio" class="styler styler--transparent" name="course" value="Немецкий"><span>Немецкий</span></label>
+                        <label class="form__lcheck form__lcheck--btn"><input type="radio" class="styler styler--transparent" name="course" value="Китайский"><span>Китайский</span></label>
+                        <label class="form__lcheck form__lcheck--btn"><input type="radio" class="styler styler--transparent" name="course" value="Итальянский"><span>Итальянский</span></label>
+                        <label class="form__lcheck form__lcheck--btn"><input type="radio" class="styler styler--transparent" name="course" value="Итальянский"><span>Другое (введите текст)</span></label>
+                    </div>
+                    
+                    <div class="rkp__box">
+                        <div class="rkp__box-title">3. Тип курса</div>
+                        
+                        <div class="input__label">Укажите ваши пожелания к курсу</div>
+                        <select name="direction" data-placeholder="Направление"
+                        class="styler">
+                            <option value=""></option>
+                            <option value="Python">Python</option>
+                            <option value="Java">Java</option>
+                            <option value="JavaScript">JavaScript</option>
+                            <option value="C++">C++</option>
+                        </select>
+                    </div>
+                    
+                    <div class="rkp__box">
+                        <div class="rkp__box-title">4. Форма обучения</div>
+                        
+                        <div class="rkp__box-row">
+                            <div class="input__label">Какая форма обучения вам подходит больше?</div>
+                            <label class="form__lcheck form__lcheck--btn"><input type="radio" class="styler styler--transparent" name="format" value="Онлайн" checked><span>Онлайн</span></label>
+                            <label class="form__lcheck form__lcheck--btn"><input type="radio" class="styler styler--transparent" name="format" value="В офисе школы"><span>В офисе школы</span></label>
+                            <label class="form__lcheck form__lcheck--btn"><input type="radio" class="styler styler--transparent" name="format" value="В вашем офисе с выездом преподавателя"><span>В вашем офисе с выездом преподавателя</span></label>
+                            <label class="form__lcheck form__lcheck--btn"><input type="radio" class="styler styler--transparent" name="format" value="Не выбрано"><span>Не выбрано</span></label>
+                        </div>
+                        
+                        <div class="rkp__box-row">
+                            <div class="input__label">Время обучения</div>
+                            <label class="form__lcheck form__lcheck--btn"><input type="radio" class="styler styler--transparent" name="time" value="В рабочее время" checked><span>В рабочее время</span></label>
+                            <label class="form__lcheck form__lcheck--btn"><input type="radio" class="styler styler--transparent" name="time" value="Не в рабочее время"><span>Не в рабочее время</span></label>
+                            <label class="form__lcheck form__lcheck--btn"><input type="radio" class="styler styler--transparent" name="time" value="Не выбрано"><span>Не выбрано</span></label>
+                        </div>
+                        
+                        <div class="rkp__box-row">
+                            <div class="input__label">Предполагаемое количество обучающихся</div>
+                            <select name="тumber_persons" data-placeholder="Количество человек"
+                            class="styler">
+                                <option value=""></option>
+                                <option value="1-5">1-5</option>
+                                <option value="6-10">6-10</option>
+                                <option value="11-15">11-15</option>
+                                <option value="16-25">16-25</option>
+                            </select>
+                        </div>
+                        
+                        <div class="rkp__box-row">
+                            <div class="input__label">Форма оплаты</div>
+                            <label class="form__lcheck form__lcheck--btn"><input type="radio" class="styler styler--transparent" name="pay" value="Предоплата" checked><span>Предоплата</span></label>
+                            <label class="form__lcheck form__lcheck--btn"><input type="radio" class="styler styler--transparent" name="pay" value="Частичная предоплата"><span>Частичная предоплата</span></label>
+                            <label class="form__lcheck form__lcheck--btn"><input type="radio" class="styler styler--transparent" name="pay" value="Оплата только по факту оказания услуг"><span>Оплата только по факту оказания услуг</span></label>
+                            <label class="form__lcheck form__lcheck--btn"><input type="radio" class="styler styler--transparent" name="pay" value="Возмещение работникам затрат на обучение"><span>Возмещение работникам затрат на обучение</span></label>
+                            <label class="form__lcheck form__lcheck--btn"><input type="radio" class="styler styler--transparent" name="pay" value="Не выбрано"><span>Не выбрано</span></label>
+                        </div>
+                    </div>
+                    
+                    <div class="rkp__box">
+                        <div class="rkp__box-title">5. Стоп лист</div>
+
+                        <div class="input__label">Выберите из списка школы, которым не отправлять запрос на коммерческое предложение</div>
+                        <select name="number_persons" data-placeholder="Количество человек"
+                        class="styler">
+                            <option value=""></option>
+                            <option value="1-5">1-5</option>
+                            <option value="6-10">6-10</option>
+                            <option value="11-15">11-15</option>
+                            <option value="16-25">16-25</option>
+                        </select>
+                    </div>
+                    
+                    <div class="rkp__box">
+                        <div class="input__label">Сопроводительное письмо</div>
+                        <div class="input__row">
+                            <textarea name="" class="input" placeholder="Введите текст"></textarea>
+                        </div>
+                        <div class="input__sign">Нельзя указывать контакты, название организации и т.д.</div>
+                        
+                    </div>
+                    
+                    <div class="rkp__box">
+                        <div class="rkp__box-row">
+                            <div class="input__label">Дата окончания приема коммерческого предложения</div>
+                            <input type="text" placeholder="Дата" class="input input--date datepicker-input">
+                        </div>
+                        <div class="rkp__box-row">
+                            <div class="input__label">Дедлайн по принятию решения</div>
+                            <input type="text" placeholder="Дата" class="input input--date datepicker-input">
+                        </div>
+                        <div class="rkp__box-row">
+                            <label class="form__polit">
+                                <input type="checkbox" name="polit" class="styler styler--transparent">
+                                <span>Согласен с условиями <a href="">Пользовательского соглашения</a></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="rkp__box rkp__buttons">
+                        <input type="file" name="file" class="styler" data-placeholder="Прикрепить файл">
+                        <button class="btn">Отправить</button>
+                    </div>
+                </form>
+            </div>
+        </section><!-- rkp -->
+
+	</main><!--content__wrapper-->
+
+    @@include('html/footer.html', {
+        "active_menu": ""
+    })
+
+</section>
+
+@@include('html/popup.html', {})
+    
+</body>
+</html>

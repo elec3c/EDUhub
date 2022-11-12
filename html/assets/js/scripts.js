@@ -543,6 +543,18 @@ $(function(){
 		
 		$(this).toggleClass('opened').next('.reports-item-dop').slideToggle();
 	});
+
+	
+	/**************************************************************
+	отказать в кп
+	**************************************************************/
+	$('body').on('click', '.kpreport-refuse', function(e){
+        e.preventDefault();
+		
+		openModal('refuse_kp');
+	});
+
+	
 	
 	
 	/**************************************************************
@@ -625,9 +637,40 @@ $(function(){
 	})
 	$('.add-schedule-time').change( function(e){
         e.preventDefault();
-		console.log($(this).is(':checked'));
+		
 		$(this).parents('.schedule-row').find('.schedule-inputs').slideToggle();
 	});
+
+
+
+	$('.rollup-toggle').click( function(e){
+        e.preventDefault();
+		
+		$(this).toggleClass('opened').parents('.rollup-box').find('.rollup-tab').slideToggle();
+	});
+
+
+	/**************************************************************
+	Переписка
+	**************************************************************/
+	function chatScrollBottom() {
+		setTimeout(function(){
+			$('#chat_messages').mCustomScrollbar('scrollTo','bottom');
+		}, 100);
+	} 
+
+	$(".chat-scroll").mCustomScrollbar({
+        scrollButtons:{
+            enable:false
+        },
+        scrollInertia:50,
+        horizontalScroll:false,
+        autoDraggerLength:true,
+        autoHideScrollbar:false,
+        advanced:{autoScrollOnFocus: false,autoExpandHorizontalScroll:true,updateOnContentResize:true}
+    });   
+    chatScrollBottom();
+	
 });
 
 

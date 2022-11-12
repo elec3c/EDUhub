@@ -1,0 +1,348 @@
+@@include('html/head.html', {
+    "title": "Мои курсы - группы"
+})
+
+<section class="wrapper" id="top">
+
+    @@include('html/header.html', {
+        "active_menu": "profile",
+        "auth": "user_auth"
+    })
+    
+    <main class="content__wrapper">
+
+
+        @@include('html/lknav.html', {
+            "active_menu": "course",
+            "type": "scool"
+        })
+
+        <section class="lk courses section__mgb">
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Мои курсы</h2>
+                </div>
+
+                <form class="cgfilters lk__wraplr section__lr rollup-box">
+                    <div class="cghead">
+                        <div class="cgtitle">Фильтр</div>
+
+                        <a href="#" class="link__more rollup-toggle">
+                            <span class="open_t">Свернуть</span><span class="close_t">Развернуть</span>
+                        </a>
+                    </div>
+
+                    
+                    <div class="cgfilters__chrow">
+                        <div class="cgfilters__checks">
+                            <label class="form__lcheck"><input type="radio" class="styler styler--transparent" name="format" value="all" checked><span>Все</span></label>
+                            <label class="form__lcheck"><input type="radio" class="styler styler--transparent" name="format" value="online"><span>Онлайн</span></label>
+                            <label class="form__lcheck"><input type="radio" class="styler styler--transparent" name="format" value="offline"><span>Офлайн</span></label>
+                        </div>
+                        <div class="cgfilters__checks">
+                            <label class="form__lcheck"><input type="radio" class="styler styler--transparent" name="type" value="all" checked><span>Все</span></label>
+                            <label class="form__lcheck"><input type="radio" class="styler styler--transparent" name="type" value="groups"><span>Группы</span></label>
+                            <label class="form__lcheck"><input type="radio" class="styler styler--transparent" name="type" value="individual"><span>Индивидуальные</span></label>
+                        </div>
+                    </div>
+
+                    <div class="rollup-tab">
+                        <div class=" cgfilters__inputs">
+                            <div class="cgfilters__input">
+                                <select name="category" data-placeholder="Категория курса" class="styler styler--white">
+                                    <option value=""></option>
+                                    <option value="Python">Python</option>
+                                    <option value="Java">Java</option>
+                                    <option value="JavaScript">JavaScript</option>
+                                    <option value="C++">C++</option>
+                                </select>
+                            </div>
+                            <div class="cgfilters__input w-300">
+                                <select name="sub_category" data-placeholder="Подкатегория курса" class="styler styler--white">
+                                    <option value=""></option>
+                                    <option value="Python">Python</option>
+                                    <option value="Java">Java</option>
+                                    <option value="JavaScript">JavaScript</option>
+                                    <option value="C++">C++</option>
+                                </select>
+                            </div>
+                            <div class="cgfilters__input w-300">
+                                <select name="direction" data-placeholder="Направление"
+                                    class="styler styler--white">
+                                    <option value=""></option>
+                                    <option value="Python">Python</option>
+                                    <option value="Java">Java</option>
+                                    <option value="JavaScript">JavaScript</option>
+                                    <option value="C++">C++</option>
+                                </select>
+                            </div>
+                            <div class="cgfilters__input">
+                                <select name="peculiar" data-placeholder="Особенности"
+                                    class="styler styler--white">
+                                    <option value=""></option>
+                                    <option value="Python">Python</option>
+                                    <option value="Java">Java</option>
+                                    <option value="JavaScript">JavaScript</option>
+                                    <option value="C++">C++</option>
+                                </select>
+                            </div>
+                            
+                            <div class="cgfilters__input w-age">
+                                <select name="age" data-placeholder="Возраст" class="styler styler--white">
+                                    <option value=""></option>
+                                    <option value="14-17">14-17</option>
+                                    <option value="18-25">18-25</option>
+                                    <option value="25-35">25-35</option>
+                                </select>
+                            </div>
+                            <div class="cgfilters__input w-city">
+                                <select name="city" data-placeholder="Город" class="styler styler--white">
+                                    <option value=""></option>
+                                    <option value="minsk">Минск</option>
+                                    <option value="brest">Брест</option>
+                                    <option value="grodno">Гродно</option>
+                                    <option value="gomel">Гомель</option>
+                                    <option value="vitebsk">Витебск</option>
+                                    <option value="mogelyov">Могелёв</option>;
+
+                                </select> 
+                            </div>
+                            <div class="cgfilters__input w-330 w-addr">
+                                <select name="addr" data-placeholder="Адрес" class="styler styler--white">
+                                    <option value=""></option>
+                                    <option value="minsk">Минск</option>
+                                    <option value="brest">Брест</option>
+                                    <option value="grodno">Гродно</option>
+                                    <option value="gomel">Гомель</option>
+                                    <option value="vitebsk">Витебск</option>
+                                    <option value="mogelyov">Могелёв</option>
+                                </select> 
+                            </div>
+                        </div>
+                        <div class="cgfilters__inputs">   
+                            <div class="cgfilters__input w-date">
+                                <input type="text" placeholder="Дата от" class="input input--white input--date datepicker-input">
+                            </div>
+                            <div class="cgfilters__input w-date">
+                                <input type="text" placeholder="Дата до" class="input input--white input--date datepicker-input">
+                            </div>
+                        </div>
+
+                        <div class="cgfilters__checks">
+                            <label class="form__lcheck"><input type="checkbox" class="styler styler--transparent" name="days" value="Понедельник"><span>Понедельник</span></label>
+                            <label class="form__lcheck"><input type="checkbox" class="styler styler--transparent" name="days" value="Вторник"><span>Вторник</span></label>
+                            <label class="form__lcheck"><input type="checkbox" class="styler styler--transparent" name="days" value="Среда"><span>Среда</span></label>
+                            <label class="form__lcheck"><input type="checkbox" class="styler styler--transparent" name="days" value="Четверг"><span>Четверг</span></label>
+                            <label class="form__lcheck"><input type="checkbox" class="styler styler--transparent" name="days" value="Пятница"><span>Пятница</span></label>
+                            <label class="form__lcheck"><input type="checkbox" class="styler styler--transparent" name="days" value="Суббота"><span>Суббота</span></label>
+                            <label class="form__lcheck"><input type="checkbox" class="styler styler--transparent" name="days" value="Воскресенье"><span>Воскресенье</span></label>    
+                        </div>
+
+                        <div class="cgfilters__inputs cgfilters__times">
+                            <div class="cgfilters__input w-date">
+                                <input type="text" placeholder="Время от" class="input input--white input--time time-mask">
+                            </div>    
+                            <div class="cgfilters__input w-date">
+                                <input type="text" placeholder="Время до" class="input input--white input--time time-mask">
+                            </div>
+                        </div>
+                    </div>    
+                </form>
+
+                <div class="cgcourse rollup-box">
+                    <div class="cghead">
+                        <div class="cgtitle">Профессия Python-разработчик</div>
+
+                        <a href="#" class="link__more rollup-toggle">
+                            <span class="open_t">Свернуть</span><span class="close_t">Развернуть</span>
+                        </a>
+                    </div>
+
+                    <div class="rollup-tab">
+                        <div class="cgcourse__cols">
+                            <div class="cgcourse__info">
+                                <div class="cgcourse__info-col">
+                                    <div class="cgcourse__item">
+                                        <div class="cgcourse__item-label">Группа</div>
+                                        Программирование
+                                    </div>
+                                    <div class="cgcourse__item">
+                                        <div class="cgcourse__item-label">Дата старта</div>
+                                        Java
+                                    </div>
+                                    <div class="cgcourse__item">
+                                        <div class="cgcourse__item-label">Категория</div>
+                                        г. Москва, Ленинский проспект, дом 6, строение 20
+                                    </div>
+                                    <div class="cgcourse__item">
+                                        <div class="cgcourse__item-label">Подкатегория</div>
+                                        Школы продвигают курсы 80 лидов
+                                    </div>
+                                    <div class="cgcourse__item">
+                                        <div class="cgcourse__item-label">Направление</div>
+                                        Школы продвигают курсы 80 лидов
+                                    </div>
+                                    <div class="cgcourse__item">
+                                        <div class="cgcourse__item-label">Особенности</div>
+                                        Школы продвигают курсы 80 лидов
+                                    </div>
+                                </div>
+                                <div class="cgcourse__info-col">
+                                    <div class="cgcourse__item">
+                                        <div class="cgcourse__item-label">Формат</div>
+                                        офлайн <br> Минск, ул. Маркса, 32, кабинет 13
+                                    </div>
+                                    <div class="cgcourse__item">
+                                        <div class="cgcourse__item-label">Дни</div>
+                                        будние: пн, ср
+                                    </div>
+                                    <div class="cgcourse__item">
+                                        <div class="cgcourse__item-label">Время</div>
+                                        вечернее: 18:30-19:50
+                                    </div>
+                                    <div class="cgcourse__item">
+                                        <div class="cgcourse__item-label">Преподаватель</div>
+                                        г. Москва, Ленинский проспект, дом 6, строение 20
+                                    </div>
+                                    <div class="cgcourse__item">
+                                        <div class="cgcourse__item-label">Уровень</div>
+                                        10 июля 2022
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cgcourse__action">
+                                <div class="cgcourse__action-buttons">
+                                    <div class="input__row cgcourse__action-select">
+                                        <select name="commission" class="styler">
+                                            <option value="40" selected>Комиссия 40 руб.</option>
+                                            <option value="50">Комиссия 50 руб.</option>
+                                            <option value="60">Комиссия 60 руб.</option>
+                                        </select>
+                                    </div>
+                                    <div class="input__row">
+                                        <input type="text" name="budget" class="input" placeholder="Введите бюджет">
+                                    </div>
+                                    <div class="input__row">
+                                        <button class="btn w-all">Продвигать</button>
+                                    </div>
+                                </div>
+                                <div class="cgcourse__action-links">
+                                    <a href="" class="link__icon">
+                                        <img src="assets/images/icons/edit-purple.svg" alt="">
+                                        <span>Редактировать</span>
+                                    </a>
+                                    <a href="" class="link__icon link__icon--red">
+                                        <img src="assets/images/icons/remove.svg" alt="">
+                                        <span>Удалить</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cglistener rollup-box">
+                    <div class="cghead">
+                        <div class="cghead__left">
+                            <div class="cgtitle">Слушатели:</div>
+                            <ul class="cglist">
+                                <li>Мест в группе: 8</li>
+                                <li>Слушателей: 2</li>
+                                <li>Свободных мест: 6</li>
+                            </ul>
+                        </div>
+
+                        <a href="#" class="link__more rollup-toggle">
+                            <span class="open_t">Свернуть</span><span class="close_t">Развернуть</span>
+                        </a>
+                    </div>
+
+                    <div class="rollup-tab">
+                        <div class="cglistener__table">
+                            <div class="cglistener__row cglistener__row--head">
+                                <div class="cglistener__col cglistener__col--number cglistener__label">Номер</div>
+                                <div class="cglistener__col cglistener__label">Дата внесения</div>
+                                <div class="cglistener__col cglistener__label">ФИО</div>
+                                <div class="cglistener__col cglistener__label">Контакт</div>
+                                <div class="cglistener__col cglistener__col--pr cglistener__label">Примечание</div>
+                                <div class="cglistener__col cglistener__col--action"></div>
+                            </div>
+                            <div class="cglistener__row">
+                                <div class="cglistener__col cglistener__col--number"><div class="cglistener__label show-tablet-sm">Номер</div>1.</div>
+                                <div class="cglistener__col"><div class="cglistener__label show-tablet">Дата внесения</div>01.10.2022</div>
+                                <div class="cglistener__col"><div class="cglistener__label show-tablet">ФИО</div>Иванов Иван</div>
+                                <div class="cglistener__col"><div class="cglistener__label show-tablet">Контакт</div>+375297456982</div>
+                                <div class="cglistener__col cglistener__col--pr"><div class="cglistener__label show-tablet">Примечание</div>г. Москва, Ленинский проспект, дом 6, строение 20</div>
+                                <div class="cglistener__col cglistener__col--action">
+                                    <a href="" class="cglistener-edit">
+                                        <img src="assets/images/icons/edit-purple.svg" alt="">
+                                    </a>
+                                    <a href="" class="cglistener-remove">
+                                        <img src="assets/images/icons/remove.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="cglistener__row">
+                                <div class="cglistener__col cglistener__col--number"><div class="cglistener__label show-tablet-sm">Номер</div>2.</div>
+                                <div class="cglistener__col"><div class="cglistener__label show-tablet">Дата внесения</div>01.10.2022</div>
+                                <div class="cglistener__col"><div class="cglistener__label show-tablet">ФИО</div>Иванов Иван</div>
+                                <div class="cglistener__col"><div class="cglistener__label show-tablet">Контакт</div>+375297456982</div>
+                                <div class="cglistener__col cglistener__col--pr"><input type="text" class="input" placeholder="Введите примечание"></div>
+                                <div class="cglistener__col cglistener__col--action">
+                                    <a href="" class="cglistener-edit">
+                                        <img src="assets/images/icons/edit-purple.svg" alt="">
+                                    </a>
+                                    <a href="" class="cglistener-remove">
+                                        <img src="assets/images/icons/remove.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="cglistener__row">
+                                <div class="cglistener__col cglistener__col--number"><div class="cglistener__label show-tablet-sm">Номер</div>3.</div>
+                                <div class="cglistener__col"><div class="cglistener__label show-tablet">Дата внесения</div>01.10.2022</div>
+                                <div class="cglistener__col"><div class="cglistener__label show-tablet">ФИО</div>Иванов Иван</div>
+                                <div class="cglistener__col"><div class="cglistener__label show-tablet">Контакт</div>+375297456982</div>
+                                <div class="cglistener__col cglistener__col--pr"><input type="text" class="input" placeholder="Введите примечание"></div>
+                                <div class="cglistener__col cglistener__col--action">
+                                    <a href="" class="cglistener-edit">
+                                        <img src="assets/images/icons/edit-purple.svg" alt="">
+                                    </a>
+                                    <a href="" class="cglistener-remove">
+                                        <img src="assets/images/icons/remove.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="cglistener__buttons">
+                            <button class="btn btn--purple btn--icons">
+                                <img src="assets/images/icons/add-circle-white.svg" alt="">
+                                Добавить
+                            </button>
+                            <buttons class="btn btn--red btn--icons">
+                                <img src="assets/images/icons/remove-white.svg" alt="">
+                                Удалить
+                            </buttons>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- lk -->
+
+
+        
+
+	</main><!--content__wrapper-->
+
+    @@include('html/footer.html', {
+        "active_menu": "profile"
+    })
+
+</section>
+
+@@include('html/popup.html', {})
+    
+</body>
+</html>

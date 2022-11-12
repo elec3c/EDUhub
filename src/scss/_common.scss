@@ -154,7 +154,7 @@
 
 .no-display {display:none;}
 
-.hide-desktop-sm {
+.hide-desktop {
     @media (max-width: $md-desktop) {
         display: none !important;
     }
@@ -509,6 +509,57 @@
     }
 }
 
+.link__more {
+    display: inline-flex;
+    align-items: center;
+    color: $bg-purple;
+    font-size: 16px;
+    line-height: lh(22, 16);
+    gap: 4px;
+    &:after {
+        width: 24px; height: 24px;
+        background: url(../images/icons/rollup.svg) no-repeat center center;
+        transform: rotate(180deg);
+        content: '';
+    }
+    .close_t {
+        display: none;
+    }
+    &.opened .open_t {
+        display: none;
+    }
+    &.opened .close_t {
+        display: block;
+    }
+    &:hover {
+        
+    }
+    .icon {
+        width: 24px; height: 24px;
+    }
+    &.opened {
+        &:after {
+            transform: rotate(0deg);
+        }
+    }
+    @media (max-width: $md-tablet-sm) {
+        &.opened {
+            display: none;
+        }
+    }
+}
+.link__icon {
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    gap: 8px;
+    &:hover {
+        color: $bg-purple;
+    }
+    &--red:hover {
+        color: #D60000;
+    }
+}
 
 
 @media (max-width: $md-desktop) {
