@@ -52,6 +52,8 @@
             {/if}
         </div>
     </div>
+    
+    {if $page_id | resource: 'parent' != 61}
     <div class="courses__block-buttons btns_cfs">
         {'!addComparison' | snippet: [
                 'list_id' => 174,
@@ -71,7 +73,9 @@
             {if ('' | isloggedin : 'web')}
                 {if !$_modx->user.urlico && !$_modx->user.manager}
                     {if $cnt == 0}
-                        <button class="btn w-all" data-open-popup="call_to_school_reg" data-groupid="{$page_id}">Заказать звонок</button>
+                        {set $school_id = $page_id | resource:'course_owner'}
+                        <button class="btn w-all" data-open-popup="call_to_school_reg{$id}" data-schoolid="{$school_id}" data-groupid="{$page_id}">Заказать звонок</button>
+                        {include 'file:chunks/modals/call_to_school_reg.tpl' groupid=$page_id schoolid=$school_id}
                     {/if}
                 {/if}
             {else}
@@ -87,4 +91,5 @@
             {/if}
         {/if}
     </div>
+    {/if}
 </div>

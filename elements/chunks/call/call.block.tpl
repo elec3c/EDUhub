@@ -17,7 +17,7 @@
             <div class="leads__item-prop">
                 <div class="leads__item-prop__label">Группа</div>
                 {if $group_id > 0}
-                <a href="{$modx->makeUrl($group_id)}">Смотреть</a>
+                    <a href="{$modx->makeUrl($group_id)}">Смотреть</a>
                 {/if}
             </div>
         </div>
@@ -32,7 +32,7 @@
                     'school_id'    => $school_id
                 ])}
 
-                {if ($status == 1) && !empty($phone)}
+                {if ($status == 1)}
                     <a href="tel:{$phone | clearphone}">{$phone}</a>
                 {elseif ($status == 2)}                    
                     <i>Пользователь выбрал другую школу</i>
@@ -47,13 +47,12 @@
             {if $status == null || $status == 0}
              {'!AjaxForm'|snippet:[
                 'snippet' => 'FormIt',
+                'hooks' => 'budgetBuy',
                 'form' => '@FILE chunks/forms/budget.buy.form.tpl',
                 'user_id' => $user_id,
                 'group_id' => $group_id,
                 'school_id' => $school_id,
-                'price' => 10,
-                'hooks' => 'budgetBuy',
-                'successMessage' => 'Покупка прошла успешна!'
+                'price' => 10
             ]}            
             {/if}
             

@@ -11,7 +11,10 @@
                 <div class="lk__profile">
                     {'!officeProfile' | snippet : [
                         'tplProfile'=>'@FILE chunks/forms/lks.form.profile.edit.tpl',
-                        'profileFields'=>'username,fullname,email,mobilephone,photo,site,city,unp,bik,rs,bank,addr_bank,desc,specifiedpassword,confirmpassword'
+                        'profileFields'=>'email:50,fullname:50,mobilephone:17,photo,website,city,ooo,unp,bik,rs,bank,addr_bank,desc,specifiedpassword,confirmpassword'
+                        'requiredFields'=>'fullname,email',
+                        'syncUsername' => 'email'
+
                     ]} 
 
                     <div class="lk__profile-form">
@@ -27,7 +30,7 @@
                     <div class="lk__profile-form lk__profile-form--mw">
                         <div class="form__title lk__profile-title">Смена пароля</div>
                         <form action="" method="post" id="office-profile-form-password">
-                            <input type="hidden" name="email" value="{$_modx->user.email}" placeholder="{'office_profile_email' | lexicon}"/>
+                            <input type="hidden" name="email" value="{$_modx->user.email}" placeholder="{'office_profile_email' | lexicon}">
                             <input type="hidden" name="fullname" value="{$_modx->user.fullname}" class="input" placeholder="Наименование организации">
                             <input type="hidden" name="username" value="{$_modx->user.username}" class="input" placeholder="Логин">
                             <div class="input__row">

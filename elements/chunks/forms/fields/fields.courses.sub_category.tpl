@@ -3,7 +3,7 @@
 {else}
 {set $styler = 'styler'}
 {/if}
-<select name="course_sub_category" data-placeholder="Подкатегория курса" class="{$styler}" id="sub_category-select">
+<select name="course_sub_category" data-placeholder="Подкатегория курса" class="{$styler}" id="sub_category-select" {if $req==1}required{/if}>
 <option value=""></option>
     [[!getList? &id=`11` &option=`1` &chained=`11` &curr=`[[+fi.course_sub_category]]`]]
     [[!getList? &id=`10` &option=`1` &chained=`10` &curr=`[[+fi.course_sub_category]]`]]

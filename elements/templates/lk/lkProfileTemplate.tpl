@@ -24,16 +24,18 @@
                     <div class="lk__profile-form lk__profile-form--mw">
                         <div class="form__title lk__profile-title">Редактирование личных данных</div>
                         {'!officeProfile' | snippet : [
-                             'tplProfile'=>'@FILE chunks/forms/user.form.profile.edit.tpl',
-                             'profileFields'=>'username,fullname,email,mobilephone,photo,telegram,specifiedpassword,confirmpassword'
+                             'tplProfile'=>'@FILE chunks/forms/lk.form.profile.edit.tpl',
+                             'profileFields'=>'email:50,fullname:50,mobilephone:17,photo,telegram,confirm_phone,specifiedpassword,confirmpassword',
+                             'requiredFields'=>'fullname,email',
+                             'syncUsername' => 'email'
                          ]}   
                     </div>                
                     <div class="lk__profile-form lk__profile-form--mw">
                         <div class="form__title lk__profile-title">Смена пароля</div>
                         <form action="" method="post" id="office-profile-form-password">
-                            <input type="hidden" name="email" value="{$_modx->user.email}" placeholder="{'office_profile_email' | lexicon}"/>
-                            <input type="hidden" name="fullname" value="{$_modx->user.fullname}" class="input" placeholder="Наименование организации">
-                            <input type="hidden" name="username" value="{$_modx->user.username}" class="input" placeholder="Логин">
+                            <input type="hidden" name="email" value="{$_modx->user.email}" placeholder="{'office_profile_email' | lexicon}" required>
+                            <input type="hidden" name="fullname" value="{$_modx->user.fullname}" class="input" placeholder="Наименование организации" required>
+                            <input type="hidden" name="username" value="{$_modx->user.username}" class="input" placeholder="Логин" required>
                             <div class="input__row">
                                 <input type="password" class="input" name="specifiedpassword" value="" placeholder="Новый пароль" class="form-control"/>
                                 <button class="btn__eye pass-view"></button>

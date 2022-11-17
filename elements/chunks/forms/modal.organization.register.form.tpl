@@ -2,17 +2,19 @@
 	<div class="reg__cols">
 		<input name="controll" class="no-display" type="text">
 		<div class="input__row">
-			<input type="text" name="fullname" class="input" placeholder="Наименование организации">
+			<input type="text" name="fullname" class="input" placeholder="Бренд">
 		</div>
 		<div class="input__row">
 			<input type="tel" name="mobilephone" class="input phone-mask" placeholder="Телефон">
 		</div>
+		{*
 		<div class="input__row">
 			<input type="text" name="username" class="input" placeholder="Логин">
 		</div>
+		
 		<div class="input__row">
 			<input type="text" name="city" class="input" placeholder="Юридический адрес">
-		</div>
+		</div>*}
 		<div class="input__row">
 			<input type="text" name="email" class="input" placeholder="Электронная почта">
 		</div>

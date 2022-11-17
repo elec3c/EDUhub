@@ -13,6 +13,7 @@
                     'sortby'=>'createdon',
                     'includeTVs' => 'small_image, scools_owner',
                     'processTVs'=>'1',
+                    'template'=>'16',
                     'limit'=>'6',
                     'ajaxMode' => 'button',
                     'ajaxElemMore'=>'#pdopage .btn--more',

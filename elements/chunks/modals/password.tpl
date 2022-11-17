@@ -15,26 +15,9 @@
       <div class="popup__body">
         <div class="popup__head">
           <div class="popup__title">Восстановление пароля</div>
-          <div class="popup__intro">Введите свою электронную почту, на которую будет выслана ссылкадля сброса пароля
-          </div>
+          <div class="popup__intro">Введите свою электронную почту, на которую будет выслана ссылка для сброса пароля</div>
         </div>
-
-        <form action="" method="post">
-          <input name="controll" class="no-display" type="text">
-          <div class="input__row">
-            <input type="text" name="email" class="input" placeholder="Электронная почта">
-          </div>
-
-          <label class="form__polit">
-            <input type="checkbox" name="polit" class="styler">
-            <span>Ознакомлен с <a href="">публичной офертой</a></span>
-          </label>
-
-
-          <div class="form__btn">
-            <button class="btn w-all">Отправить</button>
-          </div>
-        </form>
+        {include 'file:chunks/forms/modal.user.reset.password.form.tpl'}
       </div>
     </div>
     <!--popup__container-->

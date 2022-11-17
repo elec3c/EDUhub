@@ -1,1 +1,1 @@
-<input type="text" class="input" name="price_course" placeholder="Стоимость курса" value="[[+fi.price_course]]">
+<input type="text" class="input" name="price_course" placeholder="Стоимость курса" value="[[!+fi.price_course]]" {if $req==1}required{/if}>

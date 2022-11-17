@@ -3,6 +3,7 @@
 
 {set $filter = '
                 tv|course_category,
+                tv|course_sub_category,                
                 tv|course_sub_category_type,
                 tv|course_type,
                 tv|for_ages,
@@ -13,8 +14,7 @@
                 tv|time,
                 tv|course_city,
                 tv|course_region,
-                tv|course_metro, 
-                tv|data_from
+                tv|course_metro
 '}
             
 {'!mFilter2' | snippet : [
@@ -24,6 +24,7 @@
     'templates' => 8,
     'filters'=>$filter,
     'aliases'=>'tv|course_category==course_category,
+                tv|course_sub_category==course_sub_category,
                 tv|course_sub_category_type==course_sub_category_type,
                 tv|course_type==course_type,
                 tv|for_ages==for_ages,
@@ -43,24 +44,16 @@
     'tplFilter.outer.course_category'=>'@FILE chunks/filter/filter.courses.category.select.tpl',
     'tplFilter.outer.course_sub_category'=>'@FILE chunks/filter/filter.courses.sub_category.select.tpl',
     'tplFilter.outer.course_sub_category_type'=>'@FILE chunks/filter/filter.courses.sub_category_type.select.tpl',
+    'tplFilter.outer.course_type'=>'@FILE chunks/filter/filter.courses.course_type.select.tpl',
     
-    'tplFilter.outer.course_type'=>'@FILE chunks/filter/filter.select.tpl',
-    'tplFilter.row.course_type'=>'@FILE chunks/filter/filter.option.tpl',
-    'tplFilter.outer.for_ages'=>'@FILE chunks/filter/filter.select.tpl',
-    'tplFilter.row.for_ages'=>'@FILE chunks/filter/filter.option.tpl',
-    'tplFilter.outer.for_levels'=>'@FILE chunks/filter/filter.select.tpl',
-    'tplFilter.row.for_levels'=>'@FILE chunks/filter/filter.option.tpl',            
-    'tplFilter.outer.course_sub_categoty'=>'@FILE chunks/filter/filter.select.tpl',
-    'tplFilter.row.course_sub_categoty'=>'@FILE chunks/filter/filter.option.tpl',
-    'tplFilter.outer.form_of_study'=>'@FILE chunks/filter/filter.select.tpl',
-    'tplFilter.row.form_of_study'=>'@FILE chunks/filter/filter.option.tpl',
-    'tplFilter.outer.format_of_study'=>'@FILE chunks/filter/filter.select.tpl',
-    'tplFilter.row.format_of_study'=>'@FILE chunks/filter/filter.option.tpl',
-    'tplFilter.outer.schedule'=>'@FILE chunks/filter/filter.select.tpl',
-    'tplFilter.row.schedule'=>'@FILE chunks/filter/filter.option.tpl',
-    'tplFilter.outer.time'=>'@FILE chunks/filter/filter.select.tpl',
-    'tplFilter.row.time'=>'@FILE chunks/filter/filter.option.tpl',
-            
+    'tplFilter.outer.for_ages'=>'@FILE chunks/filter/filter.for_ages.select.tpl',
+    'tplFilter.outer.for_levels'=>'@FILE chunks/filter/filter.for_levels.select.tpl',
+    'tplFilter.outer.form_of_study'=>'@FILE chunks/filter/filter.form_of_study.select.tpl',
+    
+    'tplFilter.outer.format_of_study'=>'@FILE chunks/filter/filter.format_of_study.select.tpl',
+    'tplFilter.outer.schedule'=>'@FILE chunks/filter/filter.schedule.select.tpl',
+    'tplFilter.outer.time'=>'@FILE chunks/filter/filter.time.select.tpl',
+    
     'tplFilter.outer.course_city'=>'@FILE chunks/filter/fields.location.city.tpl',
     'tplFilter.outer.course_region'=>'@FILE chunks/filter/filter.location.region.tpl',
     'tplFilter.outer.course_metro'=>'@FILE chunks/filter/fields.location.metro.tpl',

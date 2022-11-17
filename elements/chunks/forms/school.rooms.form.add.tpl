@@ -43,6 +43,6 @@
         </div>
     </div>
     <div class="cadd__button">
-        <button class="btn w-all" type="submit">{$btn}</button>
+        <button class="btn" type="submit">{$btn}</button>
     </div>
 </form>

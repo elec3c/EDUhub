@@ -35,6 +35,10 @@
                         <div class="balance__item-label">Свободный остаток</div>
                         <div class="balance__item-val">{'!budgetSum' | snippet: ['user_id' => $_modx->user.id]}</div>
                     </div>
+                    <div class="balance__item">
+                        <div class="balance__item-label">Заблокировано средств</div>
+                        <div class="balance__item-val">{'!budgetBlocked' | snippet: ['user_id' => $_modx->user.id]}</div>
+                    </div>                    
                     {*
                     <div class="balance__item">
                         <div class="balance__item-label">Рекомендуемая сумма к пополнению</div>

@@ -1,5 +1,5 @@
 <!-- Удаление скидки -->
-<div class="popup " data-popup="call_to_school_reg">
+<div class="popup " data-popup="call_to_school_reg{$id}">
 	<div class="popup__content">
 		<div class="popup__bg popup-close"></div>
 		<div class="popup__container">
@@ -12,7 +12,7 @@
 			</a>
 			<div class="popup__body">
 				<div class="popup__head">
-					<div class="popup__title">Вы уверены, что хотите <br> передать ваши данные школе для обратного звонка?</div>
+					<div class="popup__title">Вы уверены, что хотите <br> передать ваши данные школе {($schoolid?:$_modx->resource.course_owner) | user:'fullname'} для обратного звонка?</div>
 				</div>
 
                 {var $email = ('contact.Email' | config) ?: 'emailsender' | config}
@@ -27,6 +27,8 @@
                 {'!AjaxForm'|snippet:[
                     'snippet' => 'FormIt',
                     'form' => $form,
+                    'groupid' => $groupid,
+                    'schoolid' => $schoolid,
                     'hooks' => 'csrf,callRequest,EmailQueue',
                     'emailSubject' => $subject,
                     'emailTo' => $emailto,

@@ -11,7 +11,7 @@
 			</a>
 			<div class="popup__body">
 				<div class="popup__head">
-					<div class="popup__title">Заказать обратный звонок может только зарегистрированный пользователь</div>
+					<div class="popup__title">Функция доступна только зарегистрированным пользователям</div>
                     
 				</div>
                 <button class="btn btn--purple w-all" data-open-popup="auth">Войти</button>

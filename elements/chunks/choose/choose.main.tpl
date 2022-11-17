@@ -14,7 +14,7 @@
                 <div class="choose_how__items">
                     {if $_modx->resource.choose}
                         {set $rows = json_decode($_modx->resource.choose, true)}
-                        {set $color = ["","light-yellow","light-green"]}
+                        {set $color = ["","light-yellow","light-green","light-yellow","light-green"]}
                         {foreach $rows as $idx => $row}
                             {if $idx != 0 && $color[$idx]}
                                 {set $class = "choose_how__item " ~ $color[$idx]}

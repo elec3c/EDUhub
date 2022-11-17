@@ -1,9 +1,1 @@
-{if $_modx->resource.template == 3}
-{set $styler = 'styler styler--white'}
-{else}
-{set $styler = 'styler'}
-{/if}                
-                <select name="lesson_duration" data-placeholder="Длительность занятия" class="{$styler}">
-                    <option value=""></option>
-                    [[!getValuesTV?  &tvid = `21` &curr = `[[+fi.lesson_duration]]`]]
-                </select>
+<input type="text" class="input" name="lesson_duration" placeholder="Длительность занятия в мин." value="[[+fi.lesson_duration]]" {if $req==1}required{/if}>

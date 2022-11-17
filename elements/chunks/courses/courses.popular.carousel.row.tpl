@@ -55,5 +55,3 @@
         </div>
     </div>    <!--courses__item-->
 </div>
-
-{*'!ecThreadRating'|snippet: ['thread' => $thread, 'tpl'=>'@INLINE {$.php.round($rating_wilson, 1)}']*}

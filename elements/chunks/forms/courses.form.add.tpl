@@ -96,7 +96,8 @@
             </div>
         </div>
     </div>
-    <div class="cadd__block">
+    {*
+    <div class="cadd__block" id="location">
         <div class="cadd__label">Месторасположение</div>
         <div class="cadd__inputs cadd__in5">
             <div class="cadd__input">
@@ -110,7 +111,8 @@
             </div>
         </div>
     </div>
-    <div class="cadd__block">
+    *}
+    <div class="cadd__block" id="address">
         <div class="cadd__label">Адрес</div>
         <div class="cadd__inputs cadd__in1">
             <div class="cadd__input">

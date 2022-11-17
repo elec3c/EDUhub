@@ -20,19 +20,10 @@
                         'tplHere' => '@INLINE <li class="active">{$menutitle}</li>'
                     ]}                    
                 </div>                
-                {*
-                <div class="courses__filter">
-                    <select name="category" data-placeholder="Категория курса" class="styler"
-                        id="category-select">
-                        <option value=""></option>
-                        {'!pdoResources' | snippet : [
-                            'parents'=>'85'
-                            'depth'=>0,
-                            'tpl'=>'@CODE <option value="{$id}">{$menutitle}</option>{$wrapper}',
-                        ]}
-                    </select>
-                </div>
-                *}
+                
+                {include 'file:chunks/forms/courses.select.group.form.add.tpl'}
+  
+                <p>&nbsp;</p>
                 <div id="pdopage">
                     <div class="rows">
                         {$_modx->runSnippet('!pdoPage', [
@@ -42,12 +33,11 @@
                             'templates' => '8',
                             'processTVs'=>'1',
                             'limit'=>'10',
-                            'sortby'=>'{"data_from":"DESC"}',
+                            'sortby'=>'{"id":"DESC"}'
                             'showUnpublished'=>'1',
                             'where' => '{"course_owner":'~$_modx->user.id~'}',
-              
-                            
                         ])}
+                        {*'sortby'=>'{"data_from":"ASC"}',*}
                     </div>
                     <div class="section__buttons">
                         {$_modx->getPlaceholder('page.nav')}
