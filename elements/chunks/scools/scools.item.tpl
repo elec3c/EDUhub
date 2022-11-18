@@ -1,6 +1,7 @@
 {set $user_id = $id | resource:'scools_owner'}
 {set $city = $user_id | user:'city'}
 {set $website = $user_id | user:'website'}
+{set $course_count = '!getCountCourses' | snippet : [ 'user_id' => $user_id ]}
 <div class="scools__item">
                         <a href="{$uri}" class="scools__item-link">
 
@@ -44,7 +45,9 @@
                                             <path d="M6 16H14" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                                             </svg>
                                         </div> 
-                                        <div class="listinf__str">3 курса</div>
+                                        <div class="listinf__str">
+                                            {$course_count} - {$course_count | declension : 'курс|курса|курсов'}
+                                        </div>
                                     </li>
                                 </ul>
                             </div>

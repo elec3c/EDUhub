@@ -7,7 +7,7 @@
         <section class="lk courses section__mgb">
             <div class="container">
                 <div class="section__head">
-                    <h2 class="section__title">Мои учителя</h2>
+                    <h2 class="section__title">Мои преподаватели</h2>
                 </div>
                 <div class="lk__nav">
                     {'!pdoMenu' | snippet: [
@@ -20,20 +20,7 @@
                         'tplHere' => '@INLINE <li class="active">{$menutitle}</li>'
                     ]}                    
                 </div>                
-                {*
-                <div class="courses__filter">
-                    <select name="category" data-placeholder="Категория курса" class="styler"
-                        id="category-select">
-                        <option value=""></option>
-                        {'!pdoResources' | snippet : [
-                            'parents'=>'85'
-                            'depth'=>0,
-                            'tpl'=>'@CODE <option value="{$id}">{$menutitle}</option>{$wrapper}',
-                        ]}
-                    </select>
-                </div>
-                *}
-                <a class="btn" href="{$_modx->makeUrl(319)}?type=teachers">Создать учителей школы</a>
+                <a class="btn" href="{$_modx->makeUrl(319)}?type=teachers">Создать преподавателя школы</a>
                 <p>&nbsp;</p>                
                 <div id="pdopage">
                     <div class="rows">

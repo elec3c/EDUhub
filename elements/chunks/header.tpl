@@ -1,15 +1,13 @@
     <header class="header">
     	<div class="container">
     		<div class="header__wrap">
-
     			<div class="header__logo">
     				{if $_modx->resource.id != 1}
-	    				<a href="/"><img src="/assets/images/logo.svg" alt=""></a>
+	    				<a href="/"><img src="/assets/images/logo.svg" alt="{$_modx->config.site_name}"></a>
     				{else}
-	    				<img src="/assets/images/logo.svg" alt="">
+	    				<a href="/"><img src="/assets/images/logo.svg" alt="{$_modx->config.site_name}"></a>
     				{/if}
     			</div>
-
     			<a href="#" class="header__linkcat open-category">
     				<span class="hide-tablet-sm">Категории курсов</span>
     				<span class="show-tablet-sm">Курсы</span>
@@ -35,7 +33,7 @@
 	    			<a href="#" class="btn btn--purple header__btn hide-tablet-sm" data-open-popup="auth_course">Добавить курс</a>
     			{/if}
 					{if $_modx->user.urlico && ('' | isloggedin : 'web')}
-						<a href="{$_modx->makeUrl(39)}" class="btn btn--purple header__btn hide-tablet-sm">Добавить курс</a>
+						<a href="{$_modx->makeUrl(39)}?type=course" class="btn btn--purple header__btn hide-tablet-sm">Добавить курс</a>
 					{/if}
     			<a href="#" class="header__burger" id="menu_toggler">
     				<svg width="26" height="18" viewBox="0 0 26 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -70,11 +68,11 @@
     				<div class="header__navfix-col header__navfix-col--right">
     					<button class="btn w-all" data-open-popup="call">Заказать звонок</button>
     					{if !('' | isloggedin : 'web')}
-	    					<a href="" class="btn btn--purple w-all show-tablet-sm" data-open-popup="auth_course">Добавить курс</a>
+	    					<a href="" class="btn btn--purple w-all show-tablet-sm" data-open-popup="auth_course">Добавить курс/шаблон</a>
 	    					{*'!getComparison' | snippet: ['list' => 'courses']*}
     					{/if}
 							{if $_modx->user.urlico && ('' | isloggedin : 'web')}
-								<a href="{$_modx->makeUrl(39)}" class="btn btn--purple w-all show-tablet-sm">Добавить курс</a>
+								<a href="{$_modx->makeUrl(39)}?type=course" class="btn btn--purple w-all show-tablet-sm">Добавить курс/шаблон</a>
 							{/if}
     				</div>
     				<div class="header__navfix-col header__navfix-col--close">

@@ -1,8 +1,9 @@
 {set $page_id = $page_id ?: $res.id}
+{set $pid = ($page_id | resource: 'parent')}
 {set $user_id  = ($page_id | resource: 'course_owner')}
 {set $phone = ($user_id | user:'phone')}
 {set $fullname = ($user_id | user:'fullname')}
-{set $site = ($user_id | user:'site')}
+{set $site = ($user_id | user:'website')}
 
 <div class="detail__aside">
     <div class="detail__sticky">
@@ -10,37 +11,44 @@
             <div class="dcard__photo">
                 {include 'file:chunks/courses/courses.block.photo.tpl' user_id=$user_id}
             </div>
-            <div class="dcard__info">
+
+            {if $_modx->resource.parent != 61}
+            
+                {if $city[$city_lat] || $region[$region_lat] || $metro[$metro_lat] || $site}                                        
+                <div class="dcard__info">
                 <div class="dcard__title">Контакты</div>
                 <ul class="listinf dcard__list">
-
-                    {if $_modx->resource.course_address}
-                        <li class="listinf__flex">
-                            <div class="listinf__icon"><img src="/assets/images/icons/location.svg" alt="location"></div>
-                            <div class="listinf__str">{$_modx->resource.course_address}</div>
-                        </li>
-                    {else}
-                        {*set $city = ($_modx->runSnippet('!outputMultipleTV', ['tvName' => 'course_city', 'resourceId' => $_modx->resource.id]))*}
-                        {*set $region = ($_modx->runSnippet('!outputMultipleTV', ['tvName' => 'course_region', 'resourceId' => $_modx->resource.id]))*}
-                        {*set $metro = ($_modx->runSnippet('!outputMultipleTV', ['tvName' => 'course_metro', 'resourceId' => $_modx->resource.id]))*}
+                        {if $_modx->resource.course_address}
+                            {set $addr = $_modx->runSnippet('getListCities', ['name'=>'address', 'uid'=>$_modx->resource.course_address, 'arr'=>1, 'index'=>1])}
+                            {if $addr[$_modx->resource.course_address]}
+                            <li class="listinf__flex">
+                                <div class="listinf__icon"><img src="/assets/images/icons/location.svg" alt=""></div> 
+                                    <div class="listinf__str">{$addr[$_modx->resource.course_address]}</div>
+                            </li>
+                            {/if}
                         
-                        {set $city_lat = ($_modx->resource.id | resource: 'course_city')}
-                        {set $region_lat = ($_modx->resource.id | resource: 'course_region')}
-                        {set $metro_lat = ($_modx->resource.id | resource: 'course_metro')}
+                            {set $a =  $modx->runSnippet('getListCities', ['name'=>'city,district,metro', 'uid'=>$_modx->resource.course_address, 'arr'=>1, 'index'=>1])}
+                            {set $city_lat = ($_modx->resource.id | resource: 'course_city')}
+                            {set $region_lat = ($_modx->resource.id | resource: 'course_region')}
+                            {set $metro_lat = ($_modx->resource.id | resource: 'course_metro')}
+                            
+                            {set $city = $_modx->runSnippet('getListCities', ['name' => 'city', 'arr'=>1])}
+                            {set $region = $_modx->runSnippet('getListCities', ['name' => 'districts', 'arr'=>1, 'city'=>$city[$city_lat]])}
+                            {set $metro = $_modx->runSnippet('getListCities', ['name' => 'metro', 'arr'=>1])}
                         
-                        {set $city = $_modx->runSnippet('getListCities', ['name' => 'city', 'arr'=>1])}
-                        {set $region = $_modx->runSnippet('getListCities', ['name' => 'districts', 'arr'=>1, 'city'=>'Минск'])}
-                        {set $metro = $_modx->runSnippet('getListCities', ['name' => 'metro', 'arr'=>1])}
+                            <li class="listinf__flex">
+                                <div class="listinf__str">{if $.php.is_array($city) && $city[$city_lat]}г. {$city[$city_lat]}{/if}{if $.php.is_array($region) && $region[$region_lat]}, район
+                                    {$region[$region_lat]}{/if}{if $.php.is_array($metro) && $metro[$metro_lat]}, метро {$metro[$metro_lat]}{/if}</div>
+                            </li>
+                            
+                        {/if}
                         
-                        <li class="listinf__flex">
-                            <div class="listinf__icon"><img src="/assets/images/icons/location.svg" alt="location"></div>
-                            <div class="listinf__str">{if $.php.is_array($city)}г. {$city[$city_lat]}{/if}{if $.php.is_array($region)}, район
-                                {$region[$region_lat]}{/if}{if $.php.is_array($metro)}, метро {$metro[$metro_lat]}{/if}</div>
-                        </li>
-                    {/if}
-                    {if $fullname}
+                        
+                        
+                        
+                    {if $fullname && $site}
                         <li>
-                            <a href="{$site ? $site : '#'}" class="listinf__flex">
+                            <a href="{$site}" class="listinf__flex">
                                 <div class="listinf__icon"><img src="/assets/images/icons/global.svg" alt="global"></div>
                                 <div class="listinf__str">{$fullname}</div>
                             </a>
@@ -56,8 +64,10 @@
                     {/if}
                 </ul>
             </div>
+                {/if}
+            {/if}
         </div>
-
+        {if $_modx->resource.parent != 61}
         <div class="btns_cfs detail__aside-buttons">
         {set $cnt = $_modx->runSnippet('!callCheckUID', [
             'user_id'      => $_modx->user.id , 
@@ -88,5 +98,6 @@
                 {/if}
             {/if}
         </div>
+        {/if}
     </div>
 </div>

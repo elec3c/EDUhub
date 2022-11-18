@@ -73,16 +73,20 @@
                                             <h3 class="sale__item-title"><a href="{$res_id | url}">{$pagetitle}</a></h3>
                                             <ul class="sale__item-list listinf">
                                                 <li class="sale__item-training online">{if $form_of_study==\'offline\'}Офлайн{else}Онлайн{/if}-обучение</li>
+                                                {if $course_city}    
                                                 <li class="listinf__flex">
                                                     <div class="listinf__icon"><img src="/assets/images/icons/location.svg" alt=""></div> 
                                                     <div class="listinf__str">{$course_city}</div>
                                                 </li>
+                                                {/if}
+                                                {if $website}
                                                 <li>
                                                     <a href="{$website}" class="listinf__flex">
                                                         <div class="listinf__icon"><img src="/assets/images/icons/global.svg" alt=""></div>
                                                         <div class="listinf__str">{$website}</div>
                                                     </a>    
                                                 </li>
+                                                {/if}
                                             </ul>
                                         </div>
                                         <div class="sale__item-col sale__item-dop">

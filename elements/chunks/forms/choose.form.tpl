@@ -1,7 +1,7 @@
 {if 'standard' | mobiledetect}
-<form action="{18 | url}" class="hide-tablet-sm" method="POST" id="chooseForm">
+<form action="{18 | url}" class="hide-tablet-sm" method="POST" id="mse2_filters">
 <div class="choose__block">
-    <div class="choose__block-title">Я ищу</div>
+    <div class="choose__block-title"> Я ищу {*&nbsp;&nbsp;&nbsp;<span style="color:red;">*если вы не выберете значения из какого-либо поля - вам покажут все результаты из этого поля</span>*}</div>
         <div class="choose__inputs">
             <div class="choose__inputs-item w-270">
                 {include 'file:chunks/forms/fields/fields.courses.category.tpl' style='styler--white'}
@@ -33,6 +33,9 @@
             <div class="choose__inputs-item w-270">
                 {include 'file:chunks/forms/fields/fields.courses.time.tpl' style='styler--white'}
             </div>
+            <div class="choose__inputs-item choose__inputs-button">
+                <button type="reset" class="btn w-all" id="btnReset">Сбросить</button>
+            </div>
         </div>
     </div>
     <div class="choose__block">
@@ -48,16 +51,22 @@
                 {include 'file:chunks/forms/fields/fields.location.metro.tpl' style='styler--white'}
             </div>
             <div class="choose__inputs-item w-210">
-                {include 'file:chunks/forms/fields/fields.courses.data_from.tpl' style='styler--white'}
+                {*include 'file:chunks/forms/fields/fields.courses.data_from.tpl' style='styler--white'*}
             </div>
             <div class="choose__inputs-item choose__inputs-button">
-                <button class="btn w-all">ПОИСК</button>
+                <button class="btn w-all">Искать</button>
             </div>
+            {*
+            <div class="choose__inputs-item choose__inputs-button">
+
+                <button type="button" data-open-popup="call_to_school" class="btn w-all" id="btnSaveFilter" data-userid="{$_modx->user.id}">Сохранить</button>
+            </div>
+            *}            
         </div>
     </div>
 </form>
 {else}
-<form action="{18 | url}" class="show-tablet-sm choose-filters" method="POST" id="chooseForm">
+<form action="{18 | url}" class="show-tablet-sm choose-filters" method="POST" id="mse2_filters">
     <div class="choose__block-title">Я ищу</div>
     <div class="choose__inputs-item w-300">
         {include 'file:chunks/forms/fields/fields.courses.category.tpl' style='styler--white'}
@@ -99,6 +108,11 @@
         <div class="choose__inputs-item w-230">
             {include 'file:chunks/forms/fields/fields.courses.time.tpl' style='styler--white'}
         </div>
+
+        
+        <div class="choose__inputs-item choose__inputs-button">
+            <button type="reset" class="btn w-all" id="btnReset">Сбросить</button>
+        </div>        
         <div class="choose__block-title">Место и желаемая дата начала обучения</div>
             <div class="choose__inputs-item w-230">
                 {include 'file:chunks/forms/fields/fields.location.city.tpl' style='styler--white'}
@@ -110,12 +124,17 @@
                 {include 'file:chunks/forms/fields/fields.location.metro.tpl' style='styler--white'}
             </div>
             <div class="choose__inputs-item w-210">
-                {include 'file:chunks/forms/fields/fields.courses.data_from.tpl' style='styler--white'}
+                {*include 'file:chunks/forms/fields/fields.courses.data_from.tpl' style='styler--white'*}
             </div>
         </div>
         <div class="choose__inputs-item choose__inputs-button">
-            <button class="btn w-all">ПОИСК</button>
+            <button class="btn w-all">Искать</button>
+        </div> 
+        {*
+                        {if ('' | isloggedin : 'web') && !$_modx->user.urlico && !$_modx->user.manager}
+        <div class="choose__inputs-item choose__inputs-button">
+            <button type="button" data-open-popup="call_to_school" class="btn w-all" id="btnSaveFilter" data-userid="{$_modx->user.id}">Сохранить</button>
         </div>
-
+        *}
     </form>
 {/if}

@@ -5,12 +5,21 @@
 {set $course_user = $course_owner | user: 'username'}
 {set $course_group_title = $page_id | resource:'course_group_title'}
 
+{set $promote = $_modx->runSnippet('promoteCheckLead', ['group_id'=>$page_id])}
+
+
 <div class="courses__block-info">
     <h3 class="courses__block-title"><a href="{$uri}">{$course_group_title ?: $pagetitle}</a></h3>
     <ul class="courses__block-list listinf">
+        {if $promote['lead'] > 0}
         <li class="listinf__flex">
-            Группа стартует: {$data_from|dateago:'{"dateNow":0, "dateFormat":"d F Y"}'}
+            {if $.php.strtotime($data_from) > $.php.strtotime("now")}
+                Группа стартует:&nbsp;{$data_from|dateago:'{"dateNow":0, "dateFormat":"d F Y"}'}
+            {else}
+                Действующая группа:&nbsp;с {$data_from|dateago:'{"dateNow":0, "dateFormat":"d F Y"}'}
+            {/if}
         </li>
+        {/if}
         {if $form_of_study}
         <li class="courses__block-training online">
             {switch  $form_of_study}
@@ -19,14 +28,16 @@
                 {case 'offline'}
                     Офлайн-обучение
                 {default}
-                    {$form_of_study}-обучение
+                    Форма обучения не указана
             {/switch}
         </li>
         {/if}
+        
         {if $course_address}
+            {set $addr = $_modx->runSnippet('getListCities', ['name'=>'address', 'uid'=>$course_address, 'arr'=>1, 'index'=>1])}
         <li class="listinf__flex">
             <div class="listinf__icon"><img src="/assets/images/icons/location.svg" alt=""></div> 
-                <div class="listinf__str">{$course_address}</div>
+                <div class="listinf__str">{$addr[$course_address]}</div>
         </li>
         {/if}
         {if $course_user}

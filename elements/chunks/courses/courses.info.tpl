@@ -1,14 +1,17 @@
 {set $page_id = $page_id ?: $res.id}
+{set $promote = $_modx->runSnippet('promoteCheckLead', ['group_id'=>$page_id])}
 <section class="section__mgb--md">
     <div class="detail__props">
         <div class="detail__props-title">Длительность обучения</div>
+            {if $promote['lead'] > 0}
             <div class="detail__props-item">
                 <div class="detail__props-item__label">Старт курса </div>
                 <div>{$_modx->resource.data_from  | date : "d.m.Y"}</div>
             </div>
+            {/if}
             <div class="detail__props-item">
                 <div class="detail__props-item__label">Количество часов </div>
-                <div>{$_modx->resource.course_duration}</div>
+                <div>{$_modx->resource.course_duration} часов</div>
             </div>
             {if $_modx->resource.num_lesson_per_week && $_modx->resource.lesson_duration}                                
             <div class="detail__props-item">
@@ -28,16 +31,16 @@
             {if $_modx->resource.price_course}                                
             <div class="detail__props-item">
                 <div class="detail__props-item__label">Стоимость за весь курс</div>
-                <div>{$_modx->resource.price_course}</div>
+                <div>{$_modx->resource.price_course} руб.</div>
             </div>
             {/if}                                
             {if $_modx->resource.price_lesson}
             <div class="detail__props-item">
                 <div class="detail__props-item__label">Стоимость за 1 занятие</div>
-                    <div>{$_modx->resource.price_lesson}</div>
+                    <div>{$_modx->resource.price_lesson} руб.</div>
                 </div>
-            {/if}                                
-            {if $_modx->resource.sale}
+            {/if}                     
+            {if ($_modx->resource.sale) && ($promote['lead'] > 0)}
             <div class="detail__props-item">
                 <div class="detail__props-item__label">Скидка</div>
                     <div>{$_modx->resource.sale} руб.</div>
@@ -55,16 +58,25 @@
                 {if $_modx->resource.form_of_study}
                 <div class="detail__props-item">
                     <div class="detail__props-item__label">Форма обучения</div>
-                    <div>{$_modx->resource.form_of_study}</div>
+                    <div>
+                        {switch  $_modx->resource.form_of_study}
+                            {case 'online'}
+                                Онлайн-обучение
+                            {case 'offline'}
+                                Офлайн-обучение
+                            {default}
+                                Форма обучения не указана
+                        {/switch}
+                    </div>
                 </div>
                 {/if}
-                {if $_modx->resource.schedule}
+                {if ($_modx->resource.schedule) && ($promote['lead'] > 0)}
                 <div class="detail__props-item">
                     <div class="detail__props-item__label">Расписание</div>
                     <div>{($_modx->runSnippet('!outputMultipleTV', ['tvName' => 'schedule', 'resourceId' => $page_id]))}</div>
                 </div>
                 {/if}
-                {if $_modx->resource.time}
+                {if ($_modx->resource.time) && ($promote['lead'] > 0)}
                 <div class="detail__props-item">
                     <div class="detail__props-item__label">Время</div>
                     <div>{($_modx->runSnippet('!outputMultipleTV', ['tvName' => 'time', 'resourceId' => $page_id]))}</div>
@@ -82,30 +94,47 @@
                     <div>{$_modx->resource.for_ages_from}-{$_modx->resource.for_ages_to} лет</div>
                 </div>
                 {/if}
+                {if $_modx->resource.employment && $_modx->resource.course_category == 11}
+                <div class="detail__props-item">
+                    <div class="detail__props-item__label">Трудоустройство</div>
+                    <div>{($_modx->runSnippet('!outputMultipleTV', ['tvName' => 'employment', 'resourceId' => $page_id]))}</div>
+                </div>
+                {/if}                
             </div>
-    <div class="detail__props">
+{if $_modx->resource.parent != 61}            
+
+    {set $a =  $modx->runSnippet('getListCities', ['name'=>'city,district,metro', 'uid'=>$_modx->resource.course_address, 'arr'=>1, 'index'=>1])}
+    {set $city_lat = ($_modx->resource.id | resource: 'course_city')}
+    {set $region_lat = ($_modx->resource.id | resource: 'course_region')}
+    {set $metro_lat = ($_modx->resource.id | resource: 'course_metro')}
+                            
+    {set $city = $_modx->runSnippet('getListCities', ['name' => 'city', 'arr'=>1])}
+    {set $region = $_modx->runSnippet('getListCities', ['name' => 'districts', 'arr'=>1, 'city'=>$city[$city_lat]])}
+    {set $metro = $_modx->runSnippet('getListCities', ['name' => 'metro', 'arr'=>1])}
+                
+    {if $city[$city_lat] || $region[$region_lat] || $metro[$metro_lat]}                
+        <div class="detail__props">
                 <div class="detail__props-title">Месторасположение</div>
-                {set $city = ($_modx->runSnippet('!outputMultipleTV', ['tvName' => 'course_city', 'resourceId' => $page_id]))}
-                {set $region = ($_modx->runSnippet('!outputMultipleTV', ['tvName' => 'course_region', 'resourceId' => $page_id]))}
-                {set $metro = ($_modx->runSnippet('!outputMultipleTV', ['tvName' => 'course_metro', 'resourceId' => $page_id]))}
-                                
-                {if $city}
+            
+                {if $.php.is_array($city) && $city[$city_lat]}
                 <div class="detail__props-item">
                     <div class="detail__props-item__label">Город</div>
-                    <div>{$city}</div>
+                    <div>{$city[$city_lat]}</div>
                 </div>
                 {/if}
-                {if $region}
+                {if $.php.is_array($region) && $region[$region_lat]}
                 <div class="detail__props-item">
                     <div class="detail__props-item__label">Район</div>
-                    <div>{$region}</div>
+                    <div>{$region[$region_lat]}</div>
                 </div>
                 {/if}
-                {if $metro}
+                {if $.php.is_array($metro) && $metro[$metro_lat]}
                 <div class="detail__props-item">
                     <div class="detail__props-item__label">Метро</div>
-                    <div>{$metro}</div>
+                    <div>{$metro[$metro_lat]}</div>
                 </div>
                 {/if}
-            </div>
+        </div>
+    {/if}        
+{/if}
 </section>

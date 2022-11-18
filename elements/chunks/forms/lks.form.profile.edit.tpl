@@ -6,28 +6,28 @@
             <div class="lk__profile-cols__inputs">
                 <div class="lk__profile-cols__left">
                     <div class="input__row">
-                        <input type="text" name="fullname" value="{$fullname}" class="input" placeholder="Наименование организации">
-                    </div>   
+                        <input type="text" name="fullname" value="{$fullname}" class="input" placeholder="Бренд *" maxlength="50" required> 
+                    </div>                     
                     <div class="input__row">
-                        <input type="text" name="username" value="{$username}" class="input" placeholder="Логин">
+                        <input type="text" name="website" value="{$website}" class="input" placeholder="Адрес сайта">
                     </div>  
                     <div class="input__row">
-                        <input type="text" name="site" value="{$site}" class="input" placeholder="Адрес сайта">
-                    </div>  
-                    <div class="input__row">
-                        <input type="text" name="email" value="{$email}" class="input" placeholder="Электронная почта">
+                        <input type="email" name="email" value="{$email}" class="input" placeholder="Электронная почта *" maxlength="50" required>
                     </div>    
                     <div class="input__row">
-                        <input type="tel" name="mobilephone" value="{$mobilephone}" class="input phone-mask" placeholder="Телефон">
+                        <input type="tel" name="mobilephone" class="input phone-mask" id="mobilephone" placeholder="Телефон *" value="{$mobilephone}"  minlength="17" maxlength="17" required>
                     </div>
                     <div class="input__row">
-                        <input type="text" name="city" value="{$city}" class="input" placeholder="Город">
+                        <input type="text" name="city" value="{$city}" class="input" placeholder="Юридический адрес школы *" required>
                     </div>   
                 </div>
                 
                 <div class="lk__profile-cols__right">
                     <div class="input__row">
-                        <input type="text" name="unp" value="{$unp}" class="input" placeholder="УНП">
+                        <input type="text" name="ooo" value="{$ooo}" class="input" placeholder="Наименование организации *" maxlength="70" required> 
+                    </div>                                      
+                    <div class="input__row">
+                        <input type="text" name="unp" value="{$unp}" id="unp" class="input" placeholder="УНП">
                     </div>  
                     <div class="input__row">
                         <input type="text" name="bik" value="{$bik}" class="input" placeholder="БИК">
@@ -76,7 +76,7 @@
                 <textarea name="desc" placeholder="Описание компании" class="input">{$desc}</textarea>
             </div>
             <div class="lk__profile-cols__btn">
-                <button class="btn w-all">Сохранить</button>
+                <button type="submit" class="btn w-all" id="btnProfile">Сохранить</button>
             </div>
         </div>
 

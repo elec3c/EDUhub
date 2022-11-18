@@ -19,12 +19,15 @@
                             {case "teachers"}
                                 {set $type="учителя"}
                                 {set $fields="name"}
+                                {set $load_fields="name"}
                             {case "address"}
                                 {set $type="адрес"}
                                 {set $fields="address"}
+                                {set $load_fields="address,course_city,course_region,course_metro"}
                             {case "rooms"}
                                 {set $type="комнаты"}
                                 {set $fields="addres_id"}
+                                {set $load_fields="address_id"}
                             {default}
                                 {set $type=""}
                         {/switch}
@@ -39,14 +42,14 @@
                             'hooks' => 'FormIt2School',
                             'validate' => $fields~':required',
                             'preHooks'=>'School2FormIt',
-                            'school2formitfields' => $fields,
+                            'school2formitfields' => $load_fields,
                             'validationErrorMessage' => 'В форме содержатся ошибки!',
                             'successMessage' => $.php.ucfirst($type)~' успешно отредактирован.',
                             'btn' => 'Редактировать '~$type
                          ]}
                     {elseif ($.get.delete && ($.get.edit is empty))}                 
                         <div class="section__head">
-                            <h2 class="section__title">Удалить {$type}{if $.get.name}: {$.get.name}{/if}<br/>ID = {$.get.delete}</h2>
+                            <h2 class="section__title">Удалить {$type}{if $.get.name}: {$.get.name}{/if}</h2>
                         </div>  
                           {'!AjaxForm'|snippet:[
                             'snippet' => 'FormIt',

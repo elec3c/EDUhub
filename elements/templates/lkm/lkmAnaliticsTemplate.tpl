@@ -11,16 +11,16 @@
                         {insert 'file:chunks/menu/lkm.menu.tpl'}
                     </div>
                     <div class="analitics__dates">
-                        {*<div class="analitics__dates-item">
+                        <div class="analitics__dates-item">
                             <input type="date" placeholder="Дата с" id="dataFrom" name="data_from" class="input input--date" v-model="startDate" value="">
                         </div>
                         <div class="analitics__dates-item">
                             <input type="date" placeholder="Дата по" id="dataTo" name="data_to" class="input input--date" v-model="endDate" value="">
-                        </div>*}
+                        </div>
                         <a href="{294 | url}" id="exportData"><button class="btn btn--excel"><img src="/assets/images/icons/excel.svg" alt=""></button></a>
                     </div>
                 </div>
-
+                        
                 {'PromoCode' | snippet}
                 <div id="pdopage">
                     <div class="analitics__block lk__wraplr section__lr">

@@ -47,17 +47,8 @@
                             <div class="analitics__item-col">
                                 <div class="analitics__item-prop">
                                     <div class="analitics__item-prop__label">Комиссия</div>
-                                    10 руб
+                                    0 руб
                                 </div>
                             </div>
-                            {*
-                            <div class="analitics__item-col">
-                                <div class="analitics__item-prop">
-                                    <div class="analitics__item-prop__label">Договор</div>
-                                    -
-                                </div>
-                            </div>
-                            *}
-                            
                         </div>
                     </div><!--analitics__item-->

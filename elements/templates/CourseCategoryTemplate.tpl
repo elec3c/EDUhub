@@ -2,23 +2,25 @@
 {block 'content'} 
 {'!promocode' | snippet :[]}
 {if $_modx->resource.id == 10 || $_modx->resource.id == 11}
-{set $filter = '
-                tv|course_sub_category,
-                tv|course_sub_category_type,
-                tv|course_type,
-                tv|for_ages,
-                tv|for_levels,
-                tv|form_of_study,
-                tv|format_of_study,
-                tv|schedule,
-                tv|time,                
-                tv|course_city,
-                tv|course_region,
-                tv|course_metro, 
-                tv|data_from
-            '}
+
+        
+        {set $filter = '
+                        tv|course_sub_category,
+                        tv|course_sub_category_type,
+                        tv|course_type,
+                        tv|for_ages,
+                        tv|for_levels,
+                        tv|form_of_study,
+                        tv|format_of_study,
+                        tv|schedule,
+                        tv|time,                
+                        tv|course_city,
+                        tv|course_region,
+                        tv|course_metro
+        '}
 {else}
-{set $filter = '
+    {if $_modx->resource.id == 44}
+    {set $filter = '
                 tv|course_sub_category_type,
                 tv|course_type,
                 tv|for_ages,
@@ -26,12 +28,28 @@
                 tv|form_of_study,
                 tv|format_of_study,
                 tv|schedule,
-                tv|time,                    
+                tv|time,
                 tv|course_city,
                 tv|course_region,
-                tv|course_metro,
-                tv|data_from
+                tv|course_metro
             '}
+    {else}
+
+    {set $filter = '
+        tv|course_type,
+        tv|for_ages,
+        tv|for_levels,
+        tv|form_of_study,
+        tv|format_of_study,
+        tv|schedule,
+        tv|time,
+        tv|course_city,
+        tv|course_region,
+        tv|course_metro
+        
+    '}
+    {/if}
+    
 {/if}
     
         {'!mFilter2' | snippet : [
@@ -48,11 +66,10 @@
                         tv|form_of_study==form_of_study,
                         tv|format_of_study==format_of_study,
                         tv|schedule==schedule,
-                        tv|time==time,                        
+                        tv|time==time,
                         tv|course_city==course_city,
                         tv|course_region==course_region,
-                        tv|course_metro==course_metro,
-                        tv|data_from==data_from
+                        tv|course_metro==course_metro
             ',
             'tplOuter'       =>'@FILE chunks/filter/filter.outer.tpl',
             'tpls'           =>'@FILE chunks/courses/courses.block.tpl',
@@ -65,8 +82,10 @@
             'tplFilter.row.course_type'=>'@FILE chunks/filter/filter.option.tpl',
             'tplFilter.outer.for_ages'=>'@FILE chunks/filter/filter.select.tpl',
             'tplFilter.row.for_ages'=>'@FILE chunks/filter/filter.option.tpl',
-            'tplFilter.outer.for_levels'=>'@FILE chunks/filter/filter.select.tpl',
-            'tplFilter.row.for_levels'=>'@FILE chunks/filter/filter.option.tpl',            
+            
+            'tplFilter.outer.course_sub_category_type'=>'@FILE chunks/filter/filter.courses.sub_category_type.select.tpl',
+            'tplFilter.outer.for_levels'=>'@FILE chunks/filter/filter.for_levels.select.tpl',
+            
             'tplFilter.outer.course_sub_categoty'=>'@FILE chunks/filter/filter.select.tpl',
             'tplFilter.row.course_sub_categoty'=>'@FILE chunks/filter/filter.option.tpl',
             'tplFilter.outer.form_of_study'=>'@FILE chunks/filter/filter.select.tpl',
@@ -77,6 +96,7 @@
             'tplFilter.row.schedule'=>'@FILE chunks/filter/filter.option.tpl',
             'tplFilter.outer.time'=>'@FILE chunks/filter/filter.select.tpl',
             'tplFilter.row.time'=>'@FILE chunks/filter/filter.option.tpl',
+      
             
             'tplFilter.outer.course_city'=>'@FILE chunks/filter/fields.location.city.tpl',
             'tplFilter.outer.course_region'=>'@FILE chunks/filter/filter.location.region.tpl',

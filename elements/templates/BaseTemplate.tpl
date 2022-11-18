@@ -56,6 +56,8 @@
         {include 'file:chunks/modals/sale_deny.tpl'}
         {include 'file:chunks/modals/popup-thank.tpl'}
         {include 'file:chunks/modals/sale_remove.tpl'}
+        {include 'file:chunks/modals/confirm_phone.tpl'}
+        {include 'file:chunks/modals/confirm_phone_thank.tpl'}        
 
     {/block}
 

@@ -1,1 +1,1 @@
-<input type="text" class="input" name="sale" placeholder="Размер скидки" value="[[+fi.sale]]">
+<input type="text" class="input" name="sale" placeholder="Размер скидки" value="[[!+fi.sale]]" {if $req==1}required{/if}>

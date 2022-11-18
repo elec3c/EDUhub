@@ -42,11 +42,15 @@
     <div class="footer__bottom">
       <div class="footer__wrap ">
         <div class="footer__col footer__col--left">
-          <a href="" class="footer__polit">Публичная оферта</a>
+          <a href="{8 | url}"   target="blank" class="footer__polit">Политика конфиденциальности</a>
+          <a href="{369 | url}" target="blank" class="footer__polit">Публичная оферта</a>
+          <a href="{370 | url}" target="blank" class="footer__polit">Пользовательское соглашение</a>
+          <br>
+          <a href="{494 | url}" target="blank" class="footer__polit">Тарифы (для учебных центров)</a>
         </div>
 
         <div class="footer__col footer__col--center">
-          <div class="footer__sname">Дизайн, разработка и продвижение: K2STUDIO</div>
+          <div class="footer__sname">Дизайн, разработка и продвижение: <a href="http://k2studio.pro/">K2STUDIO</a></div>
         </div>
 
         <div class="footer__col footer__col--right">

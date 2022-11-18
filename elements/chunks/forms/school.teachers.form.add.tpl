@@ -6,7 +6,7 @@
     <input type="hidden" name="school" value="{$_modx->user.id}" />
     
     <div class="cadd__block">
-        <div class="cadd__label">Учитель</div>
+        <div class="cadd__label">Преподаватель</div>
         <div class="cadd__inputs cadd__in1">
             <div class="cadd__input">
                 <input type="text" class="input" name="name" placeholder="ФИО преподавателя" value="[[!+fi.name]]">
@@ -14,6 +14,6 @@
         </div>
     </div>
     <div class="cadd__button">
-        <button class="btn w-all" type="submit">{$btn}</button>
+        <button class="btn" type="submit">{$btn}</button>
     </div>
 </form>

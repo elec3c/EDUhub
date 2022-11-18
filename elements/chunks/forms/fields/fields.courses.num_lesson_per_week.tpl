@@ -3,7 +3,7 @@
 {else}
 {set $styler = 'styler'}
 {/if}                
-                <select name="num_lesson_per_week" data-placeholder="Кол-во занятий в неделю" class="{$styler}">
-                    <option value=""></option>
+                <select name="num_lesson_per_week" data-placeholder="Кол-во занятий в неделю" class="{$styler}" {if $req==1}required{/if}>
+<option value=""></option>
                     [[!getValuesTV?  &tvid = `20` &curr = `[[+fi.num_lesson_per_week]]`]]
                 </select>

@@ -1,1 +1,1 @@
-<option value="{$value}" {$selected} {$disabled} class="{$disabled}">{if $title == 'смешанные'}не важно{else}{$title}{/if}</option>
+<option value="{$value}" {$selected}>{if $title == 'смешанные'}показать все{else}{$title}{/if}</option>

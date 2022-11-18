@@ -28,7 +28,7 @@
                          ]}
                     {elseif ($.get.delete && ($.get.edit is empty))}                 
                         <div class="section__head">
-                            <h2 class="section__title">Удаление адреса <br/>{if $.get.city}город {$.get.city}{/if}{if $.get.delete} ID = {$.get.delete}{/if}</h2>
+                            <h2 class="section__title">Удаление адреса {if $.get.city}город {$.get.city}{/if}</h2>
                         </div>  
                           {'!AjaxForm'|snippet:[
                             'snippet' => 'FormIt',

@@ -1,15 +1,18 @@
 {set $user_id = $_pls['tv.scools_owner']}
-
-
+{if $user_id > 0}
 {set $city = $user_id | user:'city'}
 {set $website = $user_id | user:'website'}
+{set $course_count = $_modx->runSnippet('!getCountCourses', ['user_id' => $user_id])}
+{/if}
+
 <div class="scools__item">
-    <a href="{$uri}" class="scools__item-link">
+    <div class="scools__item-link">
         <div class="scools__item-photo">
-            {include 'file:chunks/courses/courses.block.photo.tpl' user_id=$user_id}
+            <a href="{$id | url}">{include 'file:chunks/courses/courses.block.photo.tpl' user_id=$user_id}</a>
         </div>
         <div class="scools__item-info">
-            <div class="scools__item-title">{$menutitle ?: $pagetitle} {$_pls['tv.scools_owner']}</div> 
+            <div class="scools__item-title">{$menutitle ?: $pagetitle}</div> 
+            {if $user_id > 0}
             <ul class="scools__item-list listinf">
                 {if $city}
                 <li class="listinf__flex">
@@ -45,10 +48,15 @@
                         <path d="M6 16H14" stroke="#7D7D7D" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div> 
-                    <div class="listinf__str">{'!getCountCourses' | snippet: ['user_id'=>$user_id]} курса</div>
+                    <div class="listinf__str">
+                        {$course_count} - {$course_count | declension : 'курс|курса|курсов'}
+                    </div>
                 </li>
             </ul>
+            {else}
+              школа без владельца
+            {/if}
         </div>
-    </a>
+    </div>
     {include 'file:chunks/favorites/favorites.scools.like.tpl' page_id=$id}
 </div>
