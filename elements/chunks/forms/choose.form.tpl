@@ -33,12 +33,9 @@
             <div class="choose__inputs-item w-270">
                 {include 'file:chunks/forms/fields/fields.courses.time.tpl' style='styler--white'}
             </div>
-            <div class="choose__inputs-item choose__inputs-button">
-                <button type="reset" class="btn w-all" id="btnReset">Сбросить</button>
-            </div>
         </div>
     </div>
-    <div class="choose__block">
+    
         <div class="choose__block-title">Место и желаемая дата начала обучения</div>
         <div class="choose__inputs">
             <div class="choose__inputs-item w-230">
@@ -50,19 +47,36 @@
             <div class="choose__inputs-item w-270">
                 {include 'file:chunks/forms/fields/fields.location.metro.tpl' style='styler--white'}
             </div>
-            <div class="choose__inputs-item w-210">
-                {*include 'file:chunks/forms/fields/fields.courses.data_from.tpl' style='styler--white'*}
-            </div>
-            <div class="choose__inputs-item choose__inputs-button">
-                <button class="btn w-all">Искать</button>
-            </div>
-            {*
-            <div class="choose__inputs-item choose__inputs-button">
-
-                <button type="button" data-open-popup="call_to_school" class="btn w-all" id="btnSaveFilter" data-userid="{$_modx->user.id}">Сохранить</button>
-            </div>
-            *}            
+            {*<div class="choose__inputs-item w-210">
+                include 'file:chunks/forms/fields/fields.courses.data_from.tpl' style='styler--white'
+            </div>*}
         </div>
+        
+        
+        <div class="choose__block">
+            <div class="choose__inputs">
+                <div id="msgSubmit" class="form-message" style="padding-bottom:20px;"></div>
+            </div>
+            <div class="choose__inputs">            
+                <div class="choose__inputs-item choose__inputs-button">
+                    <button class="btn w-all">Найти</button>
+                </div>
+                {if ('' | isloggedin : 'web') && !$_modx->user.urlico && !$_modx->user.manager}
+                    <div class="choose__inputs-item choose__inputs-button">
+                        <button type="button" class="btn w-all" id="btnSaveFilter" data-userid="{$_modx->user.id}">Уведомить</button>
+                    </div>
+                {else}
+                    <div class="choose__inputs-item choose__inputs-button">
+                        <button type="button" data-open-popup="call_to_school" class="btn w-all">Уведомить</button>
+                    </div>            
+                {/if}            
+                <div class="choose__inputs-item choose__inputs-button">
+                    <button type="reset" class="btn w-all" id="btnReset">Сбросить</button>
+            </div>                        
+        </div>
+        
+</div>
+
     </div>
 </form>
 {else}
@@ -109,10 +123,6 @@
             {include 'file:chunks/forms/fields/fields.courses.time.tpl' style='styler--white'}
         </div>
 
-        
-        <div class="choose__inputs-item choose__inputs-button">
-            <button type="reset" class="btn w-all" id="btnReset">Сбросить</button>
-        </div>        
         <div class="choose__block-title">Место и желаемая дата начала обучения</div>
             <div class="choose__inputs-item w-230">
                 {include 'file:chunks/forms/fields/fields.location.city.tpl' style='styler--white'}
@@ -123,18 +133,32 @@
             <div class="choose__inputs-item w-270">
                 {include 'file:chunks/forms/fields/fields.location.metro.tpl' style='styler--white'}
             </div>
-            <div class="choose__inputs-item w-210">
-                {*include 'file:chunks/forms/fields/fields.courses.data_from.tpl' style='styler--white'*}
+            {*<div class="choose__inputs-item w-210">
+                include 'file:chunks/forms/fields/fields.courses.data_from.tpl' style='styler--white'
+            </div>*}
+        </div>
+        <div class="choose__block">
+            <div class="choose__inputs">
+                <div id="msgSubmit" class="form-message"></div>
             </div>
-        </div>
-        <div class="choose__inputs-item choose__inputs-button">
-            <button class="btn w-all">Искать</button>
-        </div> 
-        {*
-                        {if ('' | isloggedin : 'web') && !$_modx->user.urlico && !$_modx->user.manager}
-        <div class="choose__inputs-item choose__inputs-button">
-            <button type="button" data-open-popup="call_to_school" class="btn w-all" id="btnSaveFilter" data-userid="{$_modx->user.id}">Сохранить</button>
-        </div>
-        *}
+            <div class="choose__inputs">        
+                <div class="choose__inputs-item choose__inputs-button">
+                    <button class="btn w-all">Найти</button>
+                </div> 
+                {if ('' | isloggedin : 'web') && !$_modx->user.urlico && !$_modx->user.manager}
+                    <div class="choose__inputs-item choose__inputs-button">
+                        <button type="button" class="btn w-all" id="btnSaveFilter" data-userid="{$_modx->user.id}">Уведомить</button>
+                    </div>
+                {else}
+                    <div class="choose__inputs-item choose__inputs-button">
+                        <button type="button" data-open-popup="call_to_school" class="btn w-all">Уведомить</button>
+                    </div>        
+                {/if}        
+                <div class="choose__inputs-item choose__inputs-button">
+                    <button type="reset" class="btn w-all" id="btnReset">Сбросить</button>
+                </div>
+            </div>
+        </div>            
+
     </form>
 {/if}

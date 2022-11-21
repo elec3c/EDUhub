@@ -41,14 +41,6 @@
             <div class="cadd__input">
                 {include 'file:chunks/forms/fields/fields.courses.num_people_in_group.tpl' req=1}
             </div>
-            
-            {set $category_id = $pid | resource: 'course_category'}
-            
-            {if $category_id == 11}            
-            <div class="cadd__input">
-                {include 'file:chunks/forms/fields/fields.courses.employment.tpl' req=1}
-            </div>                        
-            {/if}
         </div>
     </div>
     <div class="cadd__block">
@@ -88,10 +80,18 @@
         </div>
     </div>
     {/if}
+
+    
     <div class="cadd__block">
         <div class="cadd__label">Описание</div>
         {include 'file:chunks/forms/fields/fields.courses.introtext.tpl' req=0}
     </div>
+    
+    
+    {include 'file:chunks/forms/fields/fields.courses.days.tpl' req=0}
+    
+    
+    
     <div class="cadd__button">
         <button class="btn w-all" type="submit">{$btn}</button>
     </div>

@@ -29,7 +29,7 @@
                         {$_modx->runSnippet('!pdoPage', [
                             'parents'=>85,
                             'tpl'=>'@FILE chunks/lks/lks.courses.group.item.tpl',
-                            'includeTVs' => 'small_image, course_owner, course_address, course_city, course_region, course_metro, data_from, res_type',
+                            'includeTVs' => 'small_image, course_owner, course_address, course_city, course_region, course_metro, data_from, res_type, time, schedule',
                             'templates' => '8',
                             'processTVs'=>'1',
                             'limit'=>'10',

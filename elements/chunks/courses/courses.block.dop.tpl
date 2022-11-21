@@ -1,6 +1,8 @@
 {set $thread = $_modx->resource.course_template?'thread-'~$_modx->resource.course_template:'resource-'~$id}
 {set $page_id = $page_id ?: $res.id}
 {set $sale  = $page_id | resource: 'sale'}
+{set $format_of_study  = $page_id | resource: 'format_of_study'}
+{set $num_people_in_group  = $page_id | resource: 'num_people_in_group'}
 <div class="courses__block-dop">
     <a href="" class="courses__block-ditem">
         <div class="courses__block-ditem__icon">
@@ -38,4 +40,66 @@
         {var $reviews = '!ecMessagesCount'|snippet: ['thread' => $thread]}
         <div class="courses__block-ditem__t">{$reviews ? $reviews~' отзывов' : 'Нет отзывов'}</div>
     </a>
+
+
+
+    {switch $format_of_study}
+        {case 'individual'}
+            <a href="{$_modx->makeUrl($page_id)}" class="courses__block-ditem courses__block-ditem--user">
+                <div class="courses__block-ditem__icon">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 15C18.4518 15 21.25 12.2018 21.25 8.75C21.25 5.29822 18.4518 2.5 15 2.5C11.5482 2.5 8.75 5.29822 8.75 8.75C8.75 12.2018 11.5482 15 15 15Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M25.7377 27.5C25.7377 22.6625 20.9252 18.75 15.0002 18.75C9.07519 18.75 4.2627 22.6625 4.2627 27.5" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                                     
+                </div>
+                <div class="courses__block-ditem__t">индивид. <br> занятия</div>
+            </a>        
+        {case 'group'}
+            <a href="{$_modx->makeUrl($page_id)}" class="courses__block-ditem courses__block-ditem--user">
+                <div class="courses__block-ditem__icon">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.4502 13.5875C11.3252 13.575 11.1752 13.575 11.0377 13.5875C8.0627 13.4875 5.7002 11.05 5.7002 8.05C5.7002 4.9875 8.1752 2.5 11.2502 2.5C14.3127 2.5 16.8002 4.9875 16.8002 8.05C16.7877 11.05 14.4252 13.4875 11.4502 13.5875Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M20.5121 5C22.9371 5 24.8871 6.9625 24.8871 9.375C24.8871 11.7375 23.0121 13.6625 20.6746 13.75C20.5746 13.7375 20.4621 13.7375 20.3496 13.75" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M5.20039 18.2C2.17539 20.225 2.17539 23.525 5.20039 25.5375C8.63789 27.8375 14.2754 27.8375 17.7129 25.5375C20.7379 23.5125 20.7379 20.2125 17.7129 18.2C14.2879 15.9125 8.65039 15.9125 5.20039 18.2Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M22.9248 25C23.8248 24.8125 24.6748 24.45 25.3748 23.9125C27.3248 22.45 27.3248 20.0375 25.3748 18.575C24.6873 18.05 23.8498 17.7 22.9623 17.5" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                                                                      
+                </div>
+                <div class="courses__block-ditem__t">{$num_people_in_group} человек {*<br> (2 свободно)*}</div>
+            </a>
+
+    {/switch}
+                        
+
+    {set $promote = $_modx->runSnippet('promoteCheckLead', ['group_id'=>$page_id])}
+    {if $promote['lead'] > 0}
+        {set $days = $_modx->runSnippet('outputMultipleTV', ['tvName' => 'days', 'resourceId'=>$page_id, 'arr'=>1])}
+        {if $.php.is_array($days) && $.php.count($days) > 0}
+        <div class="courses__block-ditem courses__block-times">
+            <ul class="courses__block-times__days">
+                {set $days_arr = $_modx->runSnippet('getValuesTV', ['tvid' => 69, 'arr' => 1])}
+                {foreach $days_arr as $k=>$v}
+                    {if $days[$k] == $v}
+                        <li class="active">{$k}</li>
+                    {else}
+                        <li>{$k}</li>
+                    {/if}
+                {/foreach}
+            </ul>
+            <div class="courses__block-times__hours">
+            {foreach $days_arr as $k=>$v}                
+                {set $prefix = $_modx->runSnippet('RU2LAT', ['str' => $k])}
+                {if $days[$k] == $v}
+                    {set $days_period = $_modx->runSnippet('pdoField', ['field' => 'days_period_'~$prefix, 'id'=>$page_id])}
+                    {set $a = $.php.explode('||',$days_period)}
+                    {set $days_period_from = ($.php.strlen($a[0])==4)?('0'~$a[0]):($a[0])}
+                    {set $days_period_to = ($.php.strlen($a[1])==4)?('0'~$a[1]):($a[1])}
+                    {if $days_period_from && $days_period_to}
+                        {$k}: {$days_period_from}-{$days_period_to}<br>
+                    {/if}
+                {/if}
+            {/foreach}
+            </div>
+        </div>        
+        {/if}
+    {/if}
 </div>

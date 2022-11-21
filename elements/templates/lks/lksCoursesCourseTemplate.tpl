@@ -40,7 +40,7 @@
                         {$_modx->runSnippet('!pdoPage', [
                             'parents'=>61,
                             'tpl'=>'@FILE chunks/lks/lks.courses.course.item.tpl',
-                            'includeTVs' => 'small_image, course_owner, course_address, course_city, course_region, course_metro, data_from, res_type',
+                            'includeTVs' => 'small_image, course_owner, course_address, course_city, course_region, course_metro, data_from, res_type, course_duration, num_lesson_per_week, lesson_duration, format_of_study, form_of_study, num_people_in_group, for_ages_from, for_ages_to, price_course, price_lesson',
                             'templates' => '8',
                             'processTVs'=>'1',
                             'limit'=>'10',

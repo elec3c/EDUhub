@@ -18,36 +18,70 @@
             {if 'standard' | mobiledetect}
             
             	<form action="{$id | url}" method="post" id="mse2_filters" class="hide-tablet-sm">
-                    <div class="choose__inputs choose__search">
-            		    {$filters}
-            	    </div>
-                    <div class="section__buttons">
-                	    <button type="reset" id="btnReset" class="btn btn-default hidden">[[%mse2_reset]]</button>
-                    	<button type="submit" class="btn btn-success pull-right hidden">Поиск</button>
-                        {*
-                        {if ('' | isloggedin : 'web') && !$_modx->user.urlico && !$_modx->user.manager}
-                            <button type="button" class="btn "  id="btnSaveFilter" data-userid="{$_modx->user.id}">Сохранить</button>
-                        {else}
-                            <button type="button" class="btn "  data-open-popup="call_to_school" id="btnSaveFilter" data-userid="{$_modx->user.id}">Сохранить</button>
-                        {/if}
-                        *}
-                    </div>            	
-            	</form> 
+                    <div class="choose__block">
+                        <div class="choose__inputs choose__search">
+                            {$filters}
+                        </div>
+                    </div>                                 	    
+
+                    <div class="choose__block">
+                                <div class="choose__inputs">
+                                    <div id="msgSubmit" class="form-message" style="padding-bottom:20px;"></div>
+                                </div>
+                                <div class="choose__inputs">            
+                                    <div class="choose__inputs-item choose__inputs-button">
+                                        <button class="btn w-all">Найти</button>
+                                    </div>
+                                    {if ('' | isloggedin : 'web') && !$_modx->user.urlico && !$_modx->user.manager}
+                                        <div class="choose__inputs-item choose__inputs-button">
+                                            <button type="button" class="btn w-all" id="btnSaveFilter" data-userid="{$_modx->user.id}">Уведомить</button>
+                                        </div>
+                                    {else}
+                                        <div class="choose__inputs-item choose__inputs-button">
+                                            <button type="button" data-open-popup="call_to_school" class="btn w-all">Уведомить</button>
+                                        </div>            
+                                    {/if}            
+                                    <div class="choose__inputs-item choose__inputs-button">
+                                        <button type="reset" class="btn w-all" id="btnReset">Сбросить</button>
+                                </div>                        
+                            </div>
+                    </div>
+
             	
+            	</form> 
+
             {else}
                 <form action="{$id | url}" method="post" id="mse2_filters" class="show-tablet-sm choose-filters">            	
-                        {$filters}
-            		    <div class="section__buttons">
-                    		<button type="reset" id="btnReset" class="btn btn-default hidden">[[%mse2_reset]]</button>
-                    	</div>
-                    	<div class="section__buttons">	
-                    		<button type="submit" class="btn btn-success pull-right hidden">Поиск</button>
-                    	</div>
-                        {*
-                        <div class="section__buttons">	
-                            {include 'file:chunks/forms/fields/filter.save.button.tpl'}
-                    	</div>
-                        *}
+                        <div class="choose__block">
+                            <div class="choose__inputs choose__search">
+                                {$filters}
+                            </div>
+                        </div>                            
+                        
+                        <div class="choose__block">
+                                    <div class="choose__inputs">
+                                        <div id="msgSubmit" class="form-message"></div>
+                                    </div>
+                                    <div class="choose__inputs">            
+                                        <div class="choose__inputs-item choose__inputs-button">
+                                            <button class="btn w-all">Найти</button>
+                                        </div>
+                                        {if ('' | isloggedin : 'web') && !$_modx->user.urlico && !$_modx->user.manager}
+                                            <div class="choose__inputs-item choose__inputs-button">
+                                                <button type="button" class="btn w-all" id="btnSaveFilter" data-userid="{$_modx->user.id}">Уведомить</button>
+                                            </div>
+                                        {else}
+                                            <div class="choose__inputs-item choose__inputs-button">
+                                                <button type="button" class="btn w-all" data-open-popup="call_to_school">Уведомить</button>
+                                            </div>            
+                                        {/if}            
+                                        <div class="choose__inputs-item choose__inputs-button">
+                                            <button type="reset" class="btn w-all" id="btnReset">Сбросить</button>
+                                    </div>                        
+                                </div>
+                        </div>
+
+                    	
                 </form>
             {/if}
 

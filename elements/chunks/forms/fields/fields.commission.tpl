@@ -1,5 +1,5 @@
 {set $styler = 'styler styler--white'}
-<select name="commission" id="commission" data-placeholder="Комиссия" class="{$styler}" {if $req==1}required{/if}>
+<select name="commission" id="commission" data-placeholder="Комиссия" class="styler" {if $req==1}required{/if}>
 <option value=""></option>
 {if $format_of_study == "group"}
     [[!getValuesTV? &tvid = `56` &curr = `[[+fi.commission]]`]]
