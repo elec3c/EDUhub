@@ -2,3 +2,4 @@
 /dist
 /html
 /.vscode
+/gulp/version.json

@@ -197,8 +197,6 @@ $(function(){
 		if (value.length == 0) return;
 		$(this).find('.check-select-text').removeClass('placeholder').text(str.join(', '));
 		$(this).find('.check-select-value').val(value.join(','));
-		console.log(str);
-		console.log(value);
 	})
 	$('.check-select-toggle').click(function(){
 		
@@ -211,11 +209,14 @@ $(function(){
 			str.push($(this).parents('label').find('span').text());
 			value.push($(this).val());
 		})
-		if (value.length == 0) return;
+		if (value.length == 0) {
+			let s = $(this).parents('.check-select');
+			$(s).find('.check-select-text').addClass('placeholder').text( $(s).attr('data-placeholder') );
+			$(s).find('.check-select-value').val( '' );
+			return;
+		} 
 		$(this).parents('.check-select').find('.check-select-text').removeClass('placeholder').text(str.join(', '));
 		$(this).parents('.check-select').find('.check-select-value').val(value.join(','));
-		console.log(str);
-		console.log(value);
 
 		let id_select = $(this).parents('.check-select').attr('data-check-select');
 		if (id_select === undefined || id_select === '') return;
@@ -292,7 +293,7 @@ $(function(){
 	$("#sub_category-select").chained("#category-select");
 	$("#sub_category_type-select").chained("#sub_category-select");
 	$("#type-select").chained("#category-select");
-  $("#level-select").chained("#category-select");
+    $("#level-select").chained("#category-select");
 	$("#level-from-select").chained("#category-select");
 	$("#level-to-select").chained("#category-select");
 	$("#for_ages_to").chained("#for_ages_from");
@@ -307,6 +308,31 @@ $(function(){
 			$('select.styler').trigger('refresh');
 		}, 1)
 	})	
+
+	$('.choose-clear').on('click', function(e){
+		e.preventDefault();
+		console.log('clear');
+
+		$('.choose-filters').trigger("reset");
+		$('.choose-filters [type="checkbox"]').prop('checked', false);
+		//$('.choose-filters select').val('');
+		$('.choose-filters select').prop('selectedIndex', 0);
+
+			
+		$('.checkselect').each(function(){
+			$(this).find('.check-select-text').addClass('placeholder').text( $(this).attr('data-placeholder') );
+			$(this).find('.check-select-value').val( '' );
+			$(this).find('.check-select-dropdown label').addClass('hide');
+		})
+		$("#sub_category-select").chained("#category-select");
+		$("#sub_category_type-select").chained("#sub_category-select");
+		$("#type-select").chained("#category-select");
+		$("#level-select").chained("#category-select");
+
+		setTimeout(function() {
+			$('.choose-filters .styler').trigger('refresh');
+		}, 1);
+	});
 	
 
 	/**************************************************************
