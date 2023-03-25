@@ -1,0 +1,118 @@
+@@include('html/head.html', {
+    "title": "Партнерские программы"
+})
+
+<section class="wrapper" id="top">
+
+    @@include('html/header.html', {
+        "active_menu": "profile",
+        "auth": "user_auth"
+    })
+    
+    <main class="content__wrapper">
+
+
+        @@include('html/lknav.html', {
+            "active_menu": "partnership",
+            "type": "company"
+        })
+
+        <section class="lk section__mgb">
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Партнерские программы</h2>
+                </div>
+                
+                <div class="lk__nav">
+                    <ul>
+                        <li><a href="lkc-partnership-settings.html">Настройки</a></li>
+                        <li class="active active--count"><span>Запросы</span> <span class="count">13</span></li>
+                        <li><a href="lkc-partnership-signing.html">На подписание</a><span class="count">13</span></li>
+                        <li><a href="lkc-partnership-contracts.html">Действующие договоры</a></li>
+                    </ul>
+                </div>
+
+                <div class="pprequest">
+                    <div class="pprequest__head">
+                        <div class="pprequest__date">28/02/23 </div>    
+                        <div class="pprequest__name">Инглиш папа</div>    
+                    </div>
+                    <div class="pprequest__item lk__wraplr section__lr">
+                        <div class="pprequest__item-col">
+                            <div class="pprequest__item-prop">
+                                <div class="pprequest__item-label">Категории</div>
+                                <div class="pprequest__item-val">
+                                    <ul class="pprequest__item-list">
+                                        <li>IT</li>
+                                        <li>Языковые</li>
+                                        <li>Маркетинг</li>
+                                        <li>Бизнес</li>
+                                        <li>Финансы</li>
+                                        <li>Продажи</li>
+                                        <li>Управление персоналом</li>
+                                        <li>Дизайн и графика</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="pprequest__item-col">
+                            <div class="pprequest__item-prop">
+                                <div class="pprequest__item-label">Размер скидки</div>
+                                <div class="pprequest__item-val">5% на весь курс</div>
+                            </div>
+                            <div class="pprequest__item-prop">
+                                <div class="pprequest__item-label">На что дается скидка</div>
+                                <div class="pprequest__item-val">5% на весь курс</div>
+                            </div>
+                            <div class="pprequest__item-prop">
+                                <div class="pprequest__item-label">Примечание</div>
+                                <div class="pprequest__item-val">при предьявдении пропуска</div>
+                            </div>
+                        </div>
+                        
+                        <div class="pprequest__item-col col-last">
+                            <div class="pprequest__item-prop">
+                                <div class="pprequest__item-label">Форма подписания договора школой</div>
+                                <div class="pprequest__item-val">Любая форма</div>
+                            </div>
+                            <div class="pprequest__item-prop">
+                                <div class="pprequest__item-label">Выберите способ подписания договора</div>
+                                <div class="pprequest__item-val">Оферта: приняв предложение договора будет подписан. <br> Бумажный носитель: приняв предложение договор не будет подписан, он переместится на страницу"На подписании"</div>
+                                
+                                <div class="pprequest__item-pf">
+                                    <div class="input__row">
+                                        <select name="" class="styler styler--white">
+                                            <option value="Публичная оферта">Публичная оферта</option>
+                                            <option value="Бумажный носитель">Бумажный носитель</option>
+                                        </select>
+                                    </div>
+                                    <button class="btn btn--green w-all">Принять</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pprequest__item-buttons">
+                            <button class="btn btn--blue">Контакты</button>
+                            <button class="btn btn--red">Отклонить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- lk -->
+
+
+        
+
+	</main><!--content__wrapper-->
+
+    @@include('html/footer.html', {
+        "active_menu": "profile"
+    })
+
+</section>
+
+@@include('html/popup.html', {})
+    
+</body>
+</html>

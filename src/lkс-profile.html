@@ -1,0 +1,153 @@
+@@include('html/head.html', {
+    "title": "Мой профиль"
+})
+
+<section class="wrapper" id="top">
+
+    @@include('html/header.html', {
+        "active_menu": "profile",
+        "auth": "user_auth"
+    })
+    
+    <main class="content__wrapper">
+
+
+        @@include('html/lknav.html', {
+            "active_menu": "profile",
+            "type": "company"
+        })
+
+        <section class="lk section__mgb">
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Мой профиль</h2>
+                </div>
+
+                <div class="lk__profile lk__profile-pcols">
+                    <div class="lk__profile-lcol lk__profile-form--mw">
+                        <div class="lk__profile-form">
+                            <div class="form__title lk__profile-title">Личные данные</div>
+                            <form action="" method="post">
+                                <input name="controll" class="no-display" type="text">
+                                <div class="input__row">
+                                    <input type="text" name="brand" class="input" placeholder="Бренд">
+                                </div>  
+                                <div class="input__row">
+                                    <input type="text" name="login" class="input" placeholder="Логин">
+                                </div>   
+                                <div class="input__row">
+                                    <input type="text" name="email" class="input" placeholder="Электронная почта">
+                                </div>    
+                                <div class="input__row">
+                                    <input type="text" name="name" class="input" placeholder="Имя">
+                                </div>   
+                                <div class="input__row">
+                                    <input type="tel" name="phone" class="input phone-mask" placeholder="Телефон">
+                                </div>
+                                <div class="input__row">
+                                    <input type="text" name="telegram" class="input" placeholder="Ник в телеграм">
+                                </div>  
+
+                                <button class="btn w-all">Сохранить</button>
+                            </form>
+                        </div>
+                        
+                        <div class="lk__profile-form">
+                            <div class="form__title lk__profile-title">Смена пароля</div>
+                            <form action="" method="post">
+                                <input name="controll" class="no-display" type="text">
+                                
+                                <div class="input__row">
+                                    <input type="password" name="password" class="input" placeholder="Текущий пароль">
+                                    <button class="btn__eye pass-view"></button>
+                                </div>  
+                                <div class="input__row input__row--link">
+                                    <a href="" class="link" data-open-popup="password">Не помню пароль</a>
+                                </div>
+
+                                <div class="input__row">
+                                    <input type="password" name="password_new" class="input" placeholder="Новый пароль">
+                                    <button class="btn__eye pass-view"></button>
+                                </div>  
+                                <div class="input__row">
+                                    <input type="password" name="password_new2" class="input" placeholder="Повторите новый пароль">
+                                    <button class="btn__eye pass-view"></button>
+                                </div>  
+
+                                <button class="btn w-all">Сохранить</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="lk__profile-rcol">
+                        <div class="lk__profile-form">
+                            <div class="form__title lk__profile-title hide-tablet-sm">&nbsp;</div>
+                            <form action="" method="post">
+                                <input name="controll" class="no-display" type="text">
+                                <div class="input__row mw-i">
+                                    <select name="resident_country" class="styler" data-placeholder="Резидент страны">
+                                        <option value=""></option>
+                                        <option value="Республика Беларусь">Республика Беларусь</option>
+                                        <option value="Российская Федерация">Российская Федерация</option>
+                                        <option value="Польша">Польша</option>
+                                        <option value="Литва">Литва</option>
+                                        <option value="Грузия">Грузия</option>
+                                        <option value="Казахстан">Казахстан</option>
+                                    </select>
+                                </div>  
+                                <div class="input__row mw-i">
+                                    <select name="resident_city" class="styler" data-placeholder="Город">
+                                        <option value=""></option>
+                                        <option value="Минск">Минск</option>
+                                        <option value="Брест">Брест</option>
+                                        <option value="Москва">Москва</option>
+                                    </select>
+                                </div>   
+                                <div class="input__row mw-i">
+                                    <select name="scope" class="styler" data-placeholder="Сфера деятельности компании">
+                                        <option value=""></option>
+                                        <option value="Минск">Минск</option>
+                                        <option value="Брест">Брест</option>
+                                        <option value="Москва">Москва</option>
+                                    </select>
+                                </div>    
+                                <div class="input__row mw-i">
+                                    <input type="text" name="count_employees" class="input" placeholder="Количество сотрудников в компании">
+                                </div>   
+                                <div class="input__row mw-i">
+                                    <input type="text" name="site" class="input" placeholder="Официальный сайт">
+                                </div>
+                                <div class="input__row">
+                                    <label class="form__lcheck">
+                                        <input type="radio" name="show_user" value="0" class="styler" checked>
+                                        <span>Не показывать пользователям сайта в списке зарегистрированных компаний</span>
+                                    </label>
+                                    <label class="form__lcheck">
+                                        <input type="radio" name="show_user" value="1" class="styler">
+                                        <span>Показывать пользователям сайта в списке зарегистрированных компаний</span>
+                                    </label>
+                                </div>
+
+                                <button class="btn w-all mw-i">Сохранить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- lk -->
+
+
+        
+
+	</main><!--content__wrapper-->
+
+    @@include('html/footer.html', {
+        "active_menu": "profile"
+    })
+
+</section>
+
+@@include('html/popup.html', {})
+    
+</body>
+</html>

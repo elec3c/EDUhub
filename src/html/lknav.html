@@ -55,6 +55,7 @@
                     </ul>
                 </div>    
                 }
+
                 @@if (type === 'scool'){
                 <div class="lknav__list">
                     <ul>
@@ -129,6 +130,55 @@
                         </li>
                     </ul>
                 </div>
+                }
+
+                @@if (type === 'company'){
+                <div class="lknav__list lknav__list--mw">
+                    <ul>
+                        <li @@if (active_menu === 'profile'){class="active"}><a href="lkс-profile.html" class="lknav__list-item">
+                            <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.53846C6.14717 1.53846 4.64516 3.03085 4.64516 4.8718C4.64516 6.71274 6.14717 8.20513 8 8.20513C9.85283 8.20513 11.3548 6.71274 11.3548 4.8718C11.3548 3.03085 9.85283 1.53846 8 1.53846ZM3.09677 4.8718C3.09677 2.18118 5.29202 0 8 0C10.708 0 12.9032 2.18118 12.9032 4.8718C12.9032 7.56241 10.708 9.74359 8 9.74359C5.29202 9.74359 3.09677 7.56241 3.09677 4.8718Z" fill="#7D7D7D" class="fill"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.46618 13.3333C3.30244 13.3333 1.54839 15.0761 1.54839 17.226C1.54839 17.3389 1.56915 17.4186 1.59092 17.465C1.60929 17.5041 1.62506 17.5153 1.63821 17.5224C2.23987 17.8477 3.92682 18.4615 8 18.4615C12.0732 18.4615 13.7601 17.8477 14.3618 17.5224C14.3749 17.5153 14.3907 17.5041 14.4091 17.465C14.4308 17.4186 14.4516 17.3389 14.4516 17.226C14.4516 15.0761 12.6976 13.3333 10.5338 13.3333H5.46618ZM0 17.226C0 14.2265 2.44729 11.7949 5.46618 11.7949H10.5338C13.5527 11.7949 16 14.2265 16 17.226C16 17.7766 15.7994 18.4966 15.1019 18.8737C14.1779 19.3733 12.1959 20 8 20C3.80414 20 1.82206 19.3733 0.898118 18.8737C0.200634 18.4966 0 17.7766 0 17.226Z" fill="#7D7D7D" class="fill"/>
+                            </svg>                                
+                            <span>Мой профиль</span>
+                        </a></li>
+                        <li @@if (active_menu === 'employees'){class="active"}><a href="lkс-employees.html" class="lknav__list-item">
+                            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18.5001 7.16C18.4401 7.15 18.3701 7.15 18.3101 7.16C16.9301 7.11 15.8301 5.98 15.8301 4.58C15.8301 3.15 16.9801 2 18.4101 2C19.8401 2 20.9901 3.16 20.9901 4.58C20.9801 5.98 19.8801 7.11 18.5001 7.16Z" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M17.4695 14.44C18.8395 14.67 20.3495 14.43 21.4095 13.72C22.8195 12.78 22.8195 11.24 21.4095 10.3C20.3395 9.59004 18.8095 9.35003 17.4395 9.59003" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M6.46852 7.16C6.52852 7.15 6.59852 7.15 6.65852 7.16C8.03852 7.11 9.13852 5.98 9.13852 4.58C9.13852 3.15 7.98852 2 6.55852 2C5.12852 2 3.97852 3.16 3.97852 4.58C3.98852 5.98 5.08852 7.11 6.46852 7.16Z" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M7.49945 14.44C6.12945 14.67 4.61945 14.43 3.55945 13.72C2.14945 12.78 2.14945 11.24 3.55945 10.3C4.62945 9.59004 6.15945 9.35003 7.52945 9.59003" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12.5001 14.63C12.4401 14.62 12.3701 14.62 12.3101 14.63C10.9301 14.58 9.83008 13.45 9.83008 12.05C9.83008 10.62 10.9801 9.46997 12.4101 9.46997C13.8401 9.46997 14.9901 10.63 14.9901 12.05C14.9801 13.45 13.8801 14.59 12.5001 14.63Z" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9.5907 17.78C8.1807 18.72 8.1807 20.26 9.5907 21.2C11.1907 22.27 13.8107 22.27 15.4107 21.2C16.8207 20.26 16.8207 18.72 15.4107 17.78C13.8207 16.72 11.1907 16.72 9.5907 17.78Z" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>                                                               
+                            <span>Сотрудники</span>
+                        </a></li>
+                        <li @@if (active_menu === 'partnership'){class="active"}><a href="lkс-partnership.html" class="lknav__list-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.4604 13.73C13.0123 13.73 14.2704 12.4719 14.2704 10.92C14.2704 9.36806 13.0123 8.10999 11.4604 8.10999C9.90847 8.10999 8.65039 9.36806 8.65039 10.92C8.65039 12.4719 9.90847 13.73 11.4604 13.73Z" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16.6495 20.2C16.6495 17.87 14.3295 15.97 11.4595 15.97C8.58953 15.97 6.26953 17.86 6.26953 20.2" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M21 12.5C21 17.75 16.75 22 11.5 22C6.25 22 2 17.75 2 12.5C2 7.25 6.25 3 11.5 3C12.81 3 14.06 3.25999 15.2 3.73999C15.07 4.13999 15 4.56 15 5C15 5.75 15.21 6.46 15.58 7.06C15.78 7.4 16.04 7.70997 16.34 7.96997C17.04 8.60997 17.97 9 19 9C19.44 9 19.86 8.92998 20.25 8.78998C20.73 9.92998 21 11.19 21 12.5Z" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M23 5C23 5.32 22.96 5.62999 22.88 5.92999C22.79 6.32999 22.63 6.72 22.42 7.06C21.94 7.87 21.17 8.49998 20.25 8.78998C19.86 8.92998 19.44 9 19 9C17.97 9 17.04 8.60997 16.34 7.96997C16.04 7.70997 15.78 7.4 15.58 7.06C15.21 6.46 15 5.75 15 5C15 4.56 15.07 4.13999 15.2 3.73999C15.39 3.15999 15.71 2.64002 16.13 2.21002C16.86 1.46002 17.88 1 19 1C20.18 1 21.25 1.51002 21.97 2.33002C22.61 3.04002 23 3.98 23 5Z" stroke="#7D7D7D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M20.4898 4.97998H17.5098" stroke="#7D7D7D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M19 3.52002V6.51001" stroke="#7D7D7D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                
+                            <span>Партнерские программы</span>
+                        </a></li>
+
+                        
+                        <li class="lknav__list-exit">
+                            <a href="" class="lknav__list-item">
+                                <svg width="60" height="56" viewBox="0 0 60 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M26.8999 23.5602C27.2099 19.9602 29.0599 18.4902 33.1099 18.4902H33.2399C37.7099 18.4902 39.4999 20.2802 39.4999 24.7502V31.2702C39.4999 35.7402 37.7099 37.5302 33.2399 37.5302H33.1099C29.0899 37.5302 27.2399 36.0802 26.9099 32.5402" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M33.0001 28H21.6201" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M23.85 24.6499L20.5 27.9999L23.85 31.3499" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <rect x="0.75" y="0.75" width="58.5" height="54.5" rx="9.25" stroke="#7D7D7D" stroke-width="1.5"/>
+                                </svg>                                    
+                            </a>
+                        </li>
+                    </ul>
+                </div>    
                 }
             </div>
         </div>

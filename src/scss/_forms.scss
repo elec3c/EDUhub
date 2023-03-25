@@ -142,6 +142,18 @@ textarea.input {
             background: $bg-orange-hover;
         }
     }
+    &--green {
+        background: #82DC74;
+        &:hover {
+            background: #6BCF5B;
+        }
+    }
+    &--blue {
+        background: #3B2DFF;
+        &:hover {
+            background: #2B1DED;
+        }
+    }
     &--bdwhite {
         background: none;
         border: 1px solid #fff;
@@ -176,6 +188,16 @@ textarea.input {
         &:hover {
             background: $bg-orange;
             border-color: $bg-orange;
+            color: #fff;
+        }
+    }
+    &--bdrred {
+        background: none;
+        border: 2px solid #D60000;
+        color: #D60000;
+        &:hover {
+            background: #D60000;
+            border-color: #D60000;
             color: #fff;
         }
     }
@@ -397,6 +419,7 @@ textarea.input {
 .checkselect {
 	position: relative;
     z-index: 99;
+    font-weight: normal;
     &.opened {
         border-radius: 10px;
         box-shadow: 0px 1px 3px rgba(19, 10, 46, 0.13), 0px 3px 14px rgba(19, 10, 46, 0.03), 0px 8px 32px rgba(19, 10, 46, 0.07), 0px 34px 84px rgba(19, 10, 46, 0.08);
@@ -435,6 +458,24 @@ textarea.input {
             background: url(../images/icons/drop-select.svg) no-repeat center center;
             transition: all 0.2s ease-in-out;
             content: '';
+        }
+        &--check {
+            padding-left: 50px;
+            &::before {
+                position: absolute;
+                left: 20px; top: 50%;
+                transform: translateY(-50%);
+                margin-top: 0px;
+                flex: 0 0 auto;
+                border-radius: 6px;
+                border: 1.5px solid #19191B;
+                width: 20px;
+                height: 20px;
+                background: url(../images/icons/check-small.svg) no-repeat center center;
+                background-color: $bg-purple;
+                border-color: $bg-purple;
+                content: '';
+            }
         }
     }
     &.opened &__select {
@@ -480,6 +521,8 @@ textarea.input {
         overflow: auto;
         max-height: 250px;
         padding-bottom: 5px;
+        scrollbar-color: $bg-purple #F1F1F1;
+        scrollbar-width: thin;
         label {
             min-height: 30px;
             padding: 4px 20px 4px;

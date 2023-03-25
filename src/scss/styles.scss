@@ -2569,6 +2569,7 @@
 
     @media (max-width: $md-tablet) {
         padding: 15px 0 5px;
+        overflow: hidden;
         &__list {
             ul {
                 overflow: auto;
@@ -2604,7 +2605,32 @@
         border-radius: 20px;
     }
     &__profile {
-        
+        &-pcols {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-gap: 130px;
+        }
+        &-lcol {
+            width: 370px;
+        }
+        &-rcol {
+            flex: 1 0 0;
+            .mw-i {
+                max-width: 470px;
+            }
+            .form__lcheck {
+                margin-bottom: 12px;
+                font-size: 16px;
+                align-items: start;
+                .jq-radio {
+                    position: relative;
+                    top: 2px;
+                }
+                span {
+                    min-height: 22px;
+                }
+            }
+        }
         &-title {
             font-size: 20px;
         }
@@ -2680,7 +2706,7 @@
         }
     }
     &__nav {
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         ul {
             display: flex;
             margin: 0 -20px;
@@ -2693,6 +2719,9 @@
             margin: 0 20px;
             font-size: 20px;
             white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 10px;
             &.active {
                 font-weight: bold;
             }
@@ -2705,6 +2734,9 @@
                 border-radius: 100px;
                 content: '';
             }
+            &.active--count:after {
+                width: calc(100% - 30px);
+            }
         }
         a {
             color: #7D7D7D;
@@ -2713,6 +2745,16 @@
                 color: $bg-purple;
             }
         }
+        .count {
+            width: 30px; height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #82DC74;
+            border-radius: 100px;
+            font-size: 14px;
+            color: #fff;
+        }
     }
 
     @media (max-width: $md-desktop) {
@@ -2720,6 +2762,9 @@
             padding: 30px;
         }
         &__profile {
+            &-pcols {
+                grid-gap: 30px;
+            }
             &-photo {
                 width: calc(100% / 5);
             }
@@ -2727,6 +2772,12 @@
     }
     @media (max-width: $md-tablet) {
         &__profile {
+            &-pcols {
+                grid-template-columns: 1fr 1fr;
+            }
+            &-lcol {
+                width: 100%;
+            }
             &-photos {
                 padding: 0 80px;
                 margin: 0 -95px -30px;
@@ -2778,9 +2829,13 @@
     }
     @media (max-width: $md-tablet-sm) {
         &__profile {
+            &-pcols {
+                grid-template-columns: 1fr;
+                grid-gap: 20px;
+            }
             .input__row {
                 margin-bottom: 10px;
-                * + * {
+                > * + * {
                     margin-top: 10px;
                 }
             }
@@ -5109,6 +5164,430 @@ pagination
         grid-gap: 10px;
     }
 }
+
+
+/**************************************************************
+Сотрудники
+**************************************************************/
+.employees {
+    &__adds {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 40px 30px;
+    }
+    &__form {
+        &-intro {
+            margin-bottom: 30px;
+        }
+        &-row {
+            display: grid;
+            grid-template-columns: 2.2fr 1fr;
+            grid-gap: 30px;
+            align-items: center;
+            & + & {
+                margin-top: 14px;
+            }
+        }
+        &-head {
+            margin-bottom: 10px;
+            align-items: flex-end;
+        }
+    }
+    @media (max-width: $md-tablet) {
+        &__adds {
+            grid-template-columns: 1fr;
+        }
+        &__form {
+            &-intro {
+                margin-bottom: 20px;
+            }
+        }
+    }
+    @media (max-width: $md-tablet-sm) {
+        &__adds {
+            grid-gap: 30px;
+        }
+        &__form {
+            &-intro {
+                margin-bottom: 10px;
+            }
+            &-row {
+                grid-template-columns: 1fr 20px;
+                grid-gap: 14px;
+            }
+            &-head {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 30px;
+    }
+    &__item {
+        &-row {
+            & + & {
+                margin-top: 14px;
+            }
+        }
+        &-photo {
+            position: relative;
+            width: 200px; height: 200px;
+            border: 1px solid #7D7D7D;
+        }
+    }
+    @media (max-width: $md-tablet) {
+        &__items {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+    @media (max-width: $md-tablet-sm) {
+        &__items {
+            grid-template-columns: 1fr;
+            grid-gap: 20px;
+        }
+        &__item {
+            &-photo {
+                width: 244px;
+            }
+        }
+    }
+}
+
+
+/**************************************************************
+Партнерские программы  Запросы
+**************************************************************/
+.pprequest {
+    & + & {
+        margin-top: 40px;
+    }
+    &__head {
+        margin-bottom: 20px;
+        font-weight: 700;
+        font-size: 20px;
+    }
+    &__date {
+        margin-bottom: 10px;
+    }
+    &__name {
+        margin-bottom: 10px;
+    }
+    &__item {
+        padding-top: 30px;
+        padding-bottom: 50px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1.36fr;
+        grid-gap: 0 80px;
+        &-label {
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        &-prop {
+            & + & {
+                margin-top: 30px;
+            }
+        }
+        &-list {
+            li + li {
+                margin-top: 10px;
+            }
+        }
+        &-pf {
+            max-width: 320px;
+            margin-top: 10px;
+        }
+        &-buttons {
+            grid-column: span 3;
+            margin-top: 95px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 270px);
+            grid-gap: 20px;
+        }
+    }
+    @media (max-width: $md-desktop) {
+        &__item {
+            grid-gap: 40px;
+        }
+    }
+    @media (max-width: $md-tablet) {
+        &__item {
+            padding-bottom: 30px;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 30px 60px;
+            &-col.col-last {
+                grid-column: span 2;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 60px;
+                align-items: start;
+                .pprequest__item-prop {
+                    margin-top: 0;
+                }
+            }
+            &-buttons {
+                grid-column: span 2;
+                margin-top: 35px;
+                grid-template-columns: calc(50% + 20px) 1fr;
+                grid-gap: 10px;
+            }
+        }
+    }
+    @media (max-width: $md-tablet-sm) {
+        &__head {
+            display: none;
+        }
+        &__item {
+            padding: 20px;
+            grid-template-columns: 1fr;
+            grid-gap: 30px;
+            &-col.col-last {
+                grid-column: initial;
+                display: block;
+                .pprequest__item-prop + .pprequest__item-prop {
+                    margin-top: 30px;
+                }
+            }
+            &-pf {
+                max-width: 480px;
+            }
+            &-buttons {
+                grid-column: initial;
+                margin-top: 50px;
+                grid-template-columns: 1fr;
+                grid-gap: 10px;
+            }
+        }
+    }
+}
+
+
+
+
+/**************************************************************
+
+**************************************************************/
+.ppcontracts {
+    &__rcols {
+        display: flex;
+        align-items: flex-start;
+        gap: 30px;
+    }
+    &__head {
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+    &__item {
+        padding-bottom: 50px;
+        & + & {
+            margin-top: 20px;
+        }
+        &-col {
+            flex: 0 0 auto;
+            &--info {
+                width: 15%;
+            }
+            &--category {
+                width: 300px;
+            }
+            &--sale {
+                width: 15%;
+            }
+            &--note {
+                flex: 1 0 0;
+            }
+            &--count {
+                width: 150px;
+            }
+        }
+        &-label {
+            margin-bottom: 10px;
+            font-weight: 700;
+            display: none;
+        }
+        &-val + &-val {
+            margin-top: 10px;
+        }
+        &-buttons {
+            // grid-column: span 3;
+            margin-top: 85px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 270px);
+            grid-gap: 20px;
+        }
+    }
+    @media (max-width: $md-desktop-md) {
+        &__head {
+            padding: 0 30px;
+        }
+        &__item {
+            padding: 30px;
+            &-col {
+                &--category {
+                    width: 250px;   
+                }
+            }
+        }
+    }
+    @media (max-width: $md-desktop) {
+        &__rcols {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 30px;
+        }
+        &__head {
+            padding: 0;
+            margin-bottom: 20px;
+            .ppcontracts__item-col {
+                display: none;
+                &--category {
+                    display: block;
+                }
+            }
+            .ppcontracts__item-label {
+                font-weight: normal;
+            }
+        }
+        &__item {
+            padding: 30px;
+            &-col {
+               width: 100% !important;
+            }
+            &-label {
+                display: block;
+            }
+        }
+    }
+    @media (max-width: $md-tablet) {
+        &__rcols {
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 30px 20px;
+        }
+        &__item {
+            &-buttons {
+                margin-top: 75px;
+                grid-template-columns: repeat(auto-fit, 200px);
+                grid-gap: 10px;
+            }
+        }
+    }
+    @media (max-width: $md-tablet-sm) {
+        &__rcols {
+            grid-template-columns: 1fr;
+            grid-gap: 20px;
+        }
+        &__item {
+            padding: 20px;
+            &-buttons {
+                margin-top: 75px;
+                grid-template-columns:1fr;
+                grid-gap: 10px;
+            }
+        }
+    }
+}
+
+
+
+
+
+/**************************************************************
+Партнерские программы - Настройки
+**************************************************************/
+.ppsettings {
+    &__cols {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 130px;
+        max-width: 870px;
+    }
+    &__item {
+        & + & {
+            margin-top: 30px;
+        }
+    }
+    &__category {
+        margin-top: 60px;
+        display: flex;
+        gap: 30px;
+        &-intro {
+        
+            font-size: 20px;
+        }
+        &-select {
+            flex: 0 0 auto;
+            width: 370px;
+        }
+    }
+    @media (max-width: $md-desktop) {
+        &__cols {
+            max-width: 100%;
+            grid-gap: 90px;
+        }
+    }
+    @media (max-width: $md-tablet) {
+        &__cols {
+            max-width: 440px;
+            grid-template-columns: 1fr;
+            grid-gap: 40px;
+        }
+        &__category {
+            margin-top: 40px;
+            flex-direction: column;
+            gap: 20px;
+            &-select {
+                width: 100%;
+                max-width: 440px;
+            }
+        }
+    }
+    @media (max-width: $md-tablet-sm) {
+        &__item {
+            & + & {
+                margin-top: 20px;
+            }
+        }
+        &__category {
+            &-intro {
+            
+                font-size: 16px;
+            }
+        }
+        
+    }
+}
+
+
+
+
+
+/**************************************************************
+
+**************************************************************/
+
+
+
+
+
+
+/**************************************************************
+
+**************************************************************/
+
+
+
+
+
+
+/**************************************************************
+
+**************************************************************/
+
+
+
+
 
 
 /**************************************************************

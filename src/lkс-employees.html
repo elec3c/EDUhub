@@ -1,0 +1,193 @@
+@@include('html/head.html', {
+    "title": "Сотрудники"
+})
+
+<section class="wrapper" id="top">
+
+    @@include('html/header.html', {
+        "active_menu": "profile",
+        "auth": "user_auth"
+    })
+    
+    <main class="content__wrapper">
+
+
+        @@include('html/lknav.html', {
+            "active_menu": "employees",
+            "type": "company"
+        })
+
+        <section class="lk section__mgb">
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Сотрудники</h2>
+                </div>
+
+                <div class="employees">
+                    <div class="employees__adds">
+                        <form class="employees__form" action="" method="post" enctype="multipart/form-data">
+                            <input name="controll" class="no-display" type="text"> 
+
+                            <div class="employees__form-intro">Укажите контактные данные работника, с кем школы смогут вести коммуникацию <b>по вопросам партнерских программ.</b> Школам будут видны только те данные, которые вы отметите.</div>
+                            <div class="employees__form-head employees__form-row">
+                                <div><span class="show-tablet-sm">И отметьте те поля, которые нужно показывать компаниям.</span></div>
+                                <div class="hide-tablet-sm">Показывать школам</div>
+                            </div>
+                            <div class="employees__form-row">
+                                <input type="text" name="lastname" class="input" placeholder="Фамилия*">
+                                <div class="input__row-check"><input type="checkbox" name="check_lastname" class="styler" checked=""></div>
+                            </div>
+                            <div class="employees__form-row">
+                                <input type="text" name="name" class="input" placeholder="Имя*">
+                                <div class="input__row-check"><input type="checkbox" name="check_name" class="styler" checked=""></div>
+                            </div>
+                            <div class="employees__form-row">
+                                <input type="text" name="surname" class="input" placeholder="Отчество">
+                                <div class="input__row-check"><input type="checkbox" name="check_surname" class="styler" checked=""></div>
+                            </div>
+                            <div class="employees__form-row">
+                                <input type="text" name="post" class="input" placeholder="Должность">
+                                <div class="input__row-check"><input type="checkbox" name="check_post" class="styler" checked=""></div>
+                            </div>
+                            <div class="employees__form-row">
+                                <input type="text" name="email" class="input" placeholder="Электронная почта*">
+                                <div class="input__row-check"><input type="checkbox" name="check_email" class="styler" checked=""></div>
+                            </div>
+                            <div class="employees__form-row">
+                                <input type="text" name="phone" class="input phone-mask" placeholder="Мобильный телефон*">
+                                <div class="input__row-check"><input type="checkbox" name="check_phone" class="styler" checked=""></div>
+                            </div>
+                            <div class="employees__form-row">
+                                <input type="text" name="viber" class="input" placeholder="Вайбер">
+                                <div class="input__row-check"><input type="checkbox" name="check_viber" class="styler" checked=""></div>
+                            </div>
+                            <div class="employees__form-row">
+                                <input type="text" name="telegram" class="input" placeholder="Телеграм">
+                                <div class="input__row-check"><input type="checkbox" name="check_telegram" class="styler" checked=""></div>
+                            </div>
+                            <div class="employees__form-row">
+                                <button class="btn btn--bdpurple w-all">Редактировать</button>
+                            </div>
+                            <div class="employees__form-row">
+                                <button class="btn w-all">Сохранить</button>
+                            </div>
+                            
+                        </form>
+                        
+                        <form class="employees__form" action="" method="post" enctype="multipart/form-data">
+                            <input name="controll" class="no-display" type="text"> 
+
+                            <div class="employees__form-intro">Укажите контактные данные работника, с кем школы смогут вести коммуникацию <b>по вопросам партнерских программ.</b> Школам будут видны только те данные, которые вы отметите.</div>
+                            <div class="employees__form-head employees__form-row">
+                                <div><span class="show-tablet-sm">И отметьте те поля, которые нужно показывать компаниям.</span></div>
+                                <div class="hide-tablet-sm">Показывать школам</div>
+                            </div>
+                            <div class="employees__form-row">
+                                <input type="text" name="lastname" class="input" placeholder="Фамилия*">
+                                <div class="input__row-check"><input type="checkbox" name="check_lastname" class="styler" checked=""></div>
+                            </div>
+                            <div class="employees__form-row">
+                                <input type="text" name="name" class="input" placeholder="Имя*">
+                                <div class="input__row-check"><input type="checkbox" name="check_name" class="styler" checked=""></div>
+                            </div>
+                            <div class="employees__form-row">
+                                <input type="text" name="surname" class="input" placeholder="Отчество">
+                                <div class="input__row-check"><input type="checkbox" name="check_surname" class="styler" checked=""></div>
+                            </div>
+                            <div class="employees__form-row">
+                                <input type="text" name="post" class="input" placeholder="Должность">
+                                <div class="input__row-check"><input type="checkbox" name="check_post" class="styler" checked=""></div>
+                            </div>
+                            <div class="employees__form-row">
+                                <input type="text" name="email" class="input" placeholder="Электронная почта*">
+                                <div class="input__row-check"><input type="checkbox" name="check_email" class="styler" checked=""></div>
+                            </div>
+                            <div class="employees__form-row">
+                                <input type="text" name="phone" class="input phone-mask" placeholder="Мобильный телефон*">
+                                <div class="input__row-check"><input type="checkbox" name="check_phone" class="styler" checked=""></div>
+                            </div>
+                            <div class="employees__form-row">
+                                <input type="text" name="viber" class="input" placeholder="Вайбер">
+                                <div class="input__row-check"><input type="checkbox" name="check_viber" class="styler" checked=""></div>
+                            </div>
+                            <div class="employees__form-row">
+                                <input type="text" name="telegram" class="input" placeholder="Телеграм">
+                                <div class="input__row-check"><input type="checkbox" name="check_telegram" class="styler" checked=""></div>
+                            </div>
+                            <div class="employees__form-row">
+                                <button class="btn btn--bdpurple w-all">Редактировать</button>
+                            </div>
+                            <div class="employees__form-row">
+                                <button class="btn w-all">Сохранить</button>
+                            </div>
+                            
+                        </form>
+                        
+                        <form class="employees__form" action="" method="post" enctype="multipart/form-data">
+                            <input name="controll" class="no-display" type="text"> 
+
+                            <div class="employees__form-intro">Укажите контактные данные работника, с кем школы смогут вести коммуникацию <b>по вопросам партнерских программ.</b> Школам будут видны только те данные, которые вы отметите.</div>
+                            <div class="employees__form-head employees__form-row">
+                                <div><span class="show-tablet-sm">И отметьте те поля, которые нужно показывать компаниям.</span></div>
+                                <div class="hide-tablet-sm">Показывать школам</div>
+                            </div>
+                            <div class="employees__form-row">
+                                <input type="text" name="lastname" class="input" placeholder="Фамилия*">
+                                <div class="input__row-check"><input type="checkbox" name="check_lastname" class="styler" checked=""></div>
+                            </div>
+                            <div class="employees__form-row">
+                                <input type="text" name="name" class="input" placeholder="Имя*">
+                                <div class="input__row-check"><input type="checkbox" name="check_name" class="styler" checked=""></div>
+                            </div>
+                            <div class="employees__form-row">
+                                <input type="text" name="surname" class="input" placeholder="Отчество">
+                                <div class="input__row-check"><input type="checkbox" name="check_surname" class="styler" checked=""></div>
+                            </div>
+                            <div class="employees__form-row">
+                                <input type="text" name="post" class="input" placeholder="Должность">
+                                <div class="input__row-check"><input type="checkbox" name="check_post" class="styler" checked=""></div>
+                            </div>
+                            <div class="employees__form-row">
+                                <input type="text" name="email" class="input" placeholder="Электронная почта*">
+                                <div class="input__row-check"><input type="checkbox" name="check_email" class="styler" checked=""></div>
+                            </div>
+                            <div class="employees__form-row">
+                                <input type="text" name="phone" class="input phone-mask" placeholder="Мобильный телефон*">
+                                <div class="input__row-check"><input type="checkbox" name="check_phone" class="styler" checked=""></div>
+                            </div>
+                            <div class="employees__form-row">
+                                <input type="text" name="viber" class="input" placeholder="Вайбер">
+                                <div class="input__row-check"><input type="checkbox" name="check_viber" class="styler" checked=""></div>
+                            </div>
+                            <div class="employees__form-row">
+                                <input type="text" name="telegram" class="input" placeholder="Телеграм">
+                                <div class="input__row-check"><input type="checkbox" name="check_telegram" class="styler" checked=""></div>
+                            </div>
+                            <div class="employees__form-row">
+                                <button class="btn btn--bdpurple w-all">Редактировать</button>
+                            </div>
+                            <div class="employees__form-row">
+                                <button class="btn w-all">Сохранить</button>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section><!-- lk -->
+
+
+        
+
+	</main><!--content__wrapper-->
+
+    @@include('html/footer.html', {
+        "active_menu": "profile"
+    })
+
+</section>
+
+@@include('html/popup.html', {})
+    
+</body>
+</html>

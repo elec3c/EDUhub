@@ -193,6 +193,8 @@ $(function(){
 		$(this).find('.check-param:checked').each(function(){
 			str.push($(this).parents('label').find('span').text());
 			value.push($(this).val());
+			console.log($(this).val());
+			if ($(this).val() === 'all') return false;
 		})
 		if (value.length == 0) return;
 		$(this).find('.check-select-text').removeClass('placeholder').text(str.join(', '));
@@ -205,9 +207,26 @@ $(function(){
 	})	
 	$('.check-select .check-param').change(function(){
 		let str = [], value = [];
-		$(this).parents('.check-select-dropdown').find('.check-param:checked').each(function(){
+		let all = false;
+		if ($(this).val() === 'all' && $(this).is(':checked')) {
+			console.log('==');
+			$(this).parents('.check-select-dropdown').find('.check-param').prop('checked', true);
 			str.push($(this).parents('label').find('span').text());
+			all = true;
+		}
+		if ($(this).val() !== 'all') {
+			
+			$(this).parents('.check-select-dropdown').find('.check-param[value="all"]').addClass('fdsfsd')
+			$(this).parents('.check-select-dropdown').find('.check-param[value="all"]').prop('checked', false);
+		}
+		setTimeout(function() {
+			$('.check-param.styler').trigger('refresh');
+		}, 1)
+		
+		$(this).parents('.check-select-dropdown').find('.check-param:checked').each(function(){
+			if (!all) str.push($(this).parents('label').find('span').text());
 			value.push($(this).val());
+			
 		})
 		if (value.length == 0) {
 			let s = $(this).parents('.check-select');

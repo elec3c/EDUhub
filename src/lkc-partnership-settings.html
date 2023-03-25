@@ -1,0 +1,110 @@
+@@include('html/head.html', {
+    "title": "Партнерские программы - Настройки"
+})
+
+<section class="wrapper" id="top">
+
+    @@include('html/header.html', {
+        "active_menu": "profile",
+        "auth": "user_auth"
+    })
+    
+    <main class="content__wrapper">
+
+
+        @@include('html/lknav.html', {
+            "active_menu": "partnership",
+            "type": "company"
+        })
+
+        <section class="lk section__mgb">
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Партнерские программы</h2>
+                </div>
+                
+                <div class="lk__nav">
+                    <ul>
+                        <li class="active"><span>Настройки</span></li>
+                        <li><a href="lkс-partnership.html">Запросы</a> <span class="count">13</span></li>
+                        <li><a href="lkc-partnership-signing.html">На подписание</a><span class="count">13</span></li>
+                        <li><a href="lkc-partnership-contracts.html">Действующие договоры</a></li>
+                    </ul>
+                </div>
+
+                <div class="ppsettings">
+                    <div class="ppsettings__cols">
+                        <div class="ppsettings__col">
+                            <div class="ppsettings__item">
+                                <div class="input__row">
+                                    <input type="text" name="link" class="input" placeholder="Тут появится ссылка">
+                                </div>  
+                                <button class="btn w-all">Сгенерировать ссылку для сотрудников</button>
+                            </div>
+
+                            <div class="ppsettings__item">
+                                <div class="input__row">
+                                    <button class="btn btn--purple w-all">Присоединиться к оферте</button>
+                                </div>  
+                                <label class="form__lcheck">
+                                    <input type="checkbox" name="policy" value="1" class="styler">
+                                    <span>С офертой ознакомлены и согласны</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="ppsettings__col">
+                            <div class="ppsettings__item">
+                                <div class="input__row">
+                                    <button class="btn w-all">Сгенерировать промокод</button>
+                                </div>    
+                                <div class="input__row">
+                                    <input type="text" name="promocode" class="input" placeholder="Поле с промокодом">
+                                </div>  
+                                <button class="btn btn--purple w-all">Сохранить</button>
+                            </div>
+                            
+                        </div>
+                    </div><!--ppsettings__cols-->
+
+                    <div class="ppsettings__category">
+                        <div class="ppsettings__category-intro">Укажите направления, которые интересны для вашей программы лояльности. Школы, которые оказывают услуги по выбранным направлениям, получат запрос на предоставление скидки для ваших сотрудников</div>
+                        <div class="ppsettings__category-select">
+                            <div class="checkselect  check-select" data-placeholder="Все направления">
+                                <input type="hidden" name="course_metro" class="check-select-value">
+                                <div class="checkselect__select checkselect__select--check placeholder check-select-toggle check-select-text">Все направления</div>
+                                <div class="checkselect__dropdown check-select-dropdown">
+                                    <div class="checkselect__list">
+                                        <label><input type="checkbox"  class="styler check-param" name="category[]" checked value="all"><span>Все направления</span></label>
+                                        <label><input type="checkbox"  class="styler check-param" name="category[]" checked value=""><span>IT</span></label>
+                                        <label><input type="checkbox"  class="styler check-param" name="category[]" checked value=""><span>Языковые</span></label>
+                                        <label><input type="checkbox"  class="styler check-param" name="category[]" checked value=""><span>Маркетинг</span></label>
+                                        <label><input type="checkbox"  class="styler check-param" name="category[]" checked value=""><span>Бизнес</span></label>
+                                        <label><input type="checkbox"  class="styler check-param" name="category[]" checked value=""><span>Финансы</span></label>
+                                        <label><input type="checkbox"  class="styler check-param" name="category[]" checked value=""><span>Продажи</span></label>
+                                        <label><input type="checkbox"  class="styler check-param" name="category[]" checked value=""><span>Управление персоналом</span></label>
+                                        <label><input type="checkbox"  class="styler check-param" name="category[]" checked value=""><span>Дизайн и графика</span></label>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div><!--ppsettings-->
+            </div>
+        </section><!-- lk -->
+
+
+        
+
+	</main><!--content__wrapper-->
+
+    @@include('html/footer.html', {
+        "active_menu": "profile"
+    })
+
+</section>
+
+@@include('html/popup.html', {})
+    
+</body>
+</html>
