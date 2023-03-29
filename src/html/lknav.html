@@ -11,6 +11,18 @@
                             </svg>                                
                             <span>Мой профиль</span>
                         </a></li>
+                        <li @@if (active_menu === 'my-company'){class="active"}><a href="lk-work-account.html" class="lknav__list-item">
+                            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.5 22H5.5C3.5 22 2.5 21 2.5 19V11C2.5 9 3.5 8 5.5 8H10.5V19C10.5 21 11.5 22 13.5 22Z" stroke="#7D7D7D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10.61 4C10.53 4.3 10.5 4.63 10.5 5V8H5.5V6C5.5 4.9 6.4 4 7.5 4H10.61Z" stroke="#7D7D7D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14.5 8V13" stroke="#7D7D7D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M18.5 8V13" stroke="#7D7D7D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M17.5 17H15.5C14.95 17 14.5 17.45 14.5 18V22H18.5V18C18.5 17.45 18.05 17 17.5 17Z" stroke="#7D7D7D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M6.5 13V17" stroke="#7D7D7D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10.5 19V5C10.5 3 11.5 2 13.5 2H19.5C21.5 2 22.5 3 22.5 5V19C22.5 21 21.5 22 19.5 22H13.5C11.5 22 10.5 21 10.5 19Z" stroke="#7D7D7D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>                                                              
+                            <span>Моя компания</span>
+                        </a></li>
                         <li @@if (active_menu === 'scool'){class="active"}><a href="lk-scool.html" class="lknav__list-item">
                             <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M11.62 18.8101C11.28 18.9301 10.72 18.9301 10.38 18.8101C7.48 17.8201 1 13.6901 1 6.6901C1 3.6001 3.49 1.1001 6.56 1.1001C8.38 1.1001 9.99 1.9801 11 3.3401C12.01 1.9801 13.63 1.1001 15.44 1.1001C18.51 1.1001 21 3.6001 21 6.6901C21 13.6901 14.52 17.8201 11.62 18.8101Z" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -108,6 +120,36 @@
                                 <path d="M7 12H14" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>                                                             
                             <span>Баланс</span>
+                        </a></li>
+                        
+                        <li @@if (active_menu === 'subscrib'){class="active"}><a href="lks-subscrib.html" class="lknav__list-item">
+                            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.0596 18V13" stroke="#7D7D7D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12.5 15.5H7.5" stroke="#7D7D7D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8.5 2V5" stroke="#7D7D7D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16.5 2V5" stroke="#7D7D7D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16.3098 3.42004C19.6498 3.54004 21.3398 4.77004 21.4398 9.47004L21.5698 15.64C21.6498 19.76 20.6998 21.83 15.6998 21.94L9.69983 22.06C4.69983 22.16 3.65983 20.12 3.57983 16.01L3.43983 9.83004C3.33983 5.13004 4.98983 3.83004 8.30983 3.58004L16.3098 3.42004Z" stroke="#7D7D7D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>                                                                                                                         
+                            <span>Подписки</span>
+                        </a></li>
+                        <li @@if (active_menu === 'partnership'){class="active"}><a href="lks-partnership.html" class="lknav__list-item">
+                            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.9594 13.73C13.5113 13.73 14.7694 12.4719 14.7694 10.92C14.7694 9.36806 13.5113 8.10999 11.9594 8.10999C10.4075 8.10999 9.14941 9.36806 9.14941 10.92C9.14941 12.4719 10.4075 13.73 11.9594 13.73Z" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M17.1495 20.2C17.1495 17.87 14.8295 15.97 11.9595 15.97C9.08953 15.97 6.76953 17.86 6.76953 20.2" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M21.5 12.5C21.5 17.75 17.25 22 12 22C6.75 22 2.5 17.75 2.5 12.5C2.5 7.25 6.75 3 12 3C13.31 3 14.56 3.25999 15.7 3.73999C15.57 4.13999 15.5 4.56 15.5 5C15.5 5.75 15.71 6.46 16.08 7.06C16.28 7.4 16.54 7.70997 16.84 7.96997C17.54 8.60997 18.47 9 19.5 9C19.94 9 20.36 8.92998 20.75 8.78998C21.23 9.92998 21.5 11.19 21.5 12.5Z" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M23.5 5C23.5 5.32 23.46 5.62999 23.38 5.92999C23.29 6.32999 23.13 6.72 22.92 7.06C22.44 7.87 21.67 8.49998 20.75 8.78998C20.36 8.92998 19.94 9 19.5 9C18.47 9 17.54 8.60997 16.84 7.96997C16.54 7.70997 16.28 7.4 16.08 7.06C15.71 6.46 15.5 5.75 15.5 5C15.5 4.56 15.57 4.13999 15.7 3.73999C15.89 3.15999 16.21 2.64002 16.63 2.21002C17.36 1.46002 18.38 1 19.5 1C20.68 1 21.75 1.51002 22.47 2.33002C23.11 3.04002 23.5 3.98 23.5 5Z" stroke="#7D7D7D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M20.9898 4.97998H18.0098" stroke="#7D7D7D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M19.5 3.52002V6.51001" stroke="#7D7D7D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                                                                                                                                     
+                            <span>Партнерские программы</span>
+                        </a></li>
+                        <li @@if (active_menu === 'setting-b2c'){class="active"}><a href="lks-setting-b2c.html" class="lknav__list-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="#7D7D7D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 12.8801V11.1201C2 10.0801 2.85 9.22006 3.9 9.22006C5.71 9.22006 6.45 7.94006 5.54 6.37006C5.02 5.47006 5.33 4.30006 6.24 3.78006L7.97 2.79006C8.76 2.32006 9.78 2.60006 10.25 3.39006L10.36 3.58006C11.26 5.15006 12.74 5.15006 13.65 3.58006L13.76 3.39006C14.23 2.60006 15.25 2.32006 16.04 2.79006L17.77 3.78006C18.68 4.30006 18.99 5.47006 18.47 6.37006C17.56 7.94006 18.3 9.22006 20.11 9.22006C21.15 9.22006 22.01 10.0701 22.01 11.1201V12.8801C22.01 13.9201 21.16 14.7801 20.11 14.7801C18.3 14.7801 17.56 16.0601 18.47 17.6301C18.99 18.5401 18.68 19.7001 17.77 20.2201L16.04 21.2101C15.25 21.6801 14.23 21.4001 13.76 20.6101L13.65 20.4201C12.75 18.8501 11.27 18.8501 10.36 20.4201L10.25 20.6101C9.78 21.4001 8.76 21.6801 7.97 21.2101L6.24 20.2201C5.33 19.7001 5.02 18.5301 5.54 17.6301C6.45 16.0601 5.71 14.7801 3.9 14.7801C2.85 14.7801 2 13.9201 2 12.8801Z" stroke="#7D7D7D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>                                                                                                                                                       
+                            <span>Настройки b2c</span>
                         </a></li>
                         <li @@if (active_menu === 'add'){class="active"}><a href="lks-add.html" class="lknav__list-item">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

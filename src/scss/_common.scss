@@ -190,6 +190,12 @@
         display: grid;
         grid-template-columns: 1fr 2fr;
         grid-gap: 30px;
+        &--11 {
+            grid-template-columns: 1fr 1fr;
+        }
+        &--15 {
+            grid-template-columns: 1fr 1.45fr;
+        }
     }
     &__wrap {
         display: flex;
@@ -201,6 +207,9 @@
     }
     &__head {
         margin-bottom: 31px;
+        &.mb--sm {
+            margin-bottom: 20px;
+        }
         &--cols {
             display: flex;
             align-items: center;
@@ -214,6 +223,9 @@
         font-weight: 700;
         font-size: 28px;
         line-height: lh(38, 28);
+        &.fs--md {
+            font-size: 36px;
+        }
     }
     &__intro {
         margin-top: 10px;
@@ -246,6 +258,10 @@
         &--lg {
             padding: 125px 0;        
         }
+        &--md {
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
     }
     &__pdt {
         padding-top: 100px;
@@ -268,6 +284,12 @@
         }
     }
     @media (max-width: $md-desktop) {
+        &__title {
+                
+            &.fs--md {
+                font-size: 30px;
+            }
+        }
         &__mg {
             margin: 80px 0;
             &--sm {
@@ -318,6 +340,9 @@
     @media (max-width: $md-tablet-sm) {
         &__head {
             margin-bottom: 20px;
+            &.mb--sm {
+                margin-bottom: 10px;
+            }
             &--cols {
                 flex-direction: column;
                 align-items: stretch;
@@ -329,6 +354,9 @@
         }
         &__title {
             font-size: 22px;
+            &.fs--md {
+                font-size: 24px;
+            }
         }
         &__intro {
             font-size: 16px;
@@ -352,6 +380,10 @@
             padding: 50px 0;
             &--lg {
                 
+            }
+            &--md {
+                padding-top: 30px;
+                padding-bottom: 30px;
             }
         }
         &__pdt {
@@ -381,6 +413,9 @@
 
 }
 
+.text--center {
+    text-align: center;
+}
 .text--yellow {
     color: #FFDF4A;
 }

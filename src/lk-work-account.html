@@ -1,0 +1,98 @@
+@@include('html/head.html', {
+    "title": "Мой профиль"
+})
+
+<section class="wrapper" id="top">
+
+    @@include('html/header.html', {
+        "active_menu": "profile",
+        "auth": "user_auth"
+    })
+    
+    <main class="content__wrapper">
+
+
+        @@include('html/lknav.html', {
+            "active_menu": "my-company",
+            "type": "user"
+        })
+
+        <section class="lk section__mgb">
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Название компании</h2>
+                </div>
+                
+                <div class="lk__nav">
+                    <ul>
+                        <li class="active">Рабочий аккаунт</li>
+                        <li><a href="lk-loyalty.html">Программа лояльности</a></li>
+                    </ul>
+                </div>
+            
+                <div class="waccount">
+                    <div class="waccount__intro">Заполните профиль сотрудника компании</div>
+
+                    <form class="waccount__cols" action="" method="post" enctype="multipart/form-data">
+                        <input name="controll" class="no-display" type="text"> 
+                        
+                        <div class="waccount__col">
+                            <div class="waccount__irow">
+                                <input type="text" name="lastname" class="input" placeholder="Фамилия*">
+                            </div>
+                            <div class="waccount__irow">
+                                <input type="text" name="name" class="input" placeholder="Имя*">
+                            </div>
+                            <div class="waccount__irow">
+                                <input type="text" name="surname" class="input" placeholder="Отчество">
+                            </div>
+                            <div class="waccount__irow">
+                                <input type="text" name="otdel" class="input" placeholder="Отдел">
+                            </div>
+                            <div class="waccount__irow">
+                                <input type="text" name="post" class="input" placeholder="Должность">
+                            </div>
+                            <div class="waccount__irow">
+                                <input type="text" name="role" class="input" placeholder="Роль">
+                            </div>
+                        </div>
+                        <div class="waccount__col">
+                            <div class="waccount__irow">
+                                <input type="text" name="email" class="input" placeholder="Рабочая электронная почта">
+                            </div>
+                            <div class="waccount__irow">
+                                <input type="text" name="phone" class="input phone-mask" placeholder="Мобильный телефон">
+                            </div>
+                            <div class="waccount__irow">
+                                <input type="text" name="viber" class="input" placeholder="Вайбер">
+                            </div>
+                            <div class="waccount__irow">
+                                <input type="text" name="telegram" class="input" placeholder="Телеграм">
+                            </div>
+                            <div class="waccount__irow">
+                                <button class="btn btn--bdpurple w-all">Редактировать</button>
+                            </div>
+                            <div class="waccount__irow">
+                                <button class="btn w-all">Сохранить</button>
+                            </div>
+                        </div>
+                    </form>
+                </div><!--waccount-->
+            </div>
+        </section><!-- lk -->
+
+
+        
+
+	</main><!--content__wrapper-->
+
+    @@include('html/footer.html', {
+        "active_menu": "profile"
+    })
+
+</section>
+
+@@include('html/popup.html', {})
+    
+</body>
+</html>

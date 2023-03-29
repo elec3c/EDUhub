@@ -1,0 +1,132 @@
+@@include('html/head.html', {
+    "title": "Настройки b2c"
+})
+
+<section class="wrapper" id="top">
+
+    @@include('html/header.html', {
+        "active_menu": "profile",
+        "auth": "user_auth"
+    })
+    
+    <main class="content__wrapper">
+
+
+        @@include('html/lknav.html', {
+            "active_menu": "settign-b2c",
+            "type": "scool"
+        })
+
+        <section class="lk section__mgb">
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Настройки b2c</h2>
+                </div>
+
+                <div class="settignb2c">
+                    <div class="settignb2c__form">
+                        <div class="settignb2c__form-intro">Укажите контактные данные сотрудника, с кем компании могут вести коммуникацию по вопросам партнерских программ. Данные будут видны компании в вашем предложении (все поля НЕ обязательные)</div>
+                        <form class="" action="" method="post" enctype="multipart/form-data">
+                            <input name="controll" class="no-display" type="text"> 
+
+                            <div class="settignb2c__form-head input__row settignb2c__form-row">
+                                <div class="mw-i"><span class="show-tablet-sm">И отметьте те поля, которые нужно показывать компаниям.</span></div>
+                                <div class="hide-tablet-sm">Показывать школам</div>
+                            </div>
+                            
+                            <div class="input__row settignb2c__form-row">
+                                <input type="text" name="lastname" class="input mw-i" placeholder="Фамилия*">
+                                <div class="input__row-check"><input type="checkbox" name="check_lastname" class="styler" checked=""></div>
+                            </div>
+                            <div class="input__row settignb2c__form-row">
+                                <input type="text" name="name" class="input mw-i" placeholder="Имя*">
+                                <div class="input__row-check"><input type="checkbox" name="check_name" class="styler" checked=""></div>
+                            </div>
+                            <div class="input__row settignb2c__form-row">
+                                <input type="text" name="surname" class="input mw-i" placeholder="Отчество">
+                                <div class="input__row-check"><input type="checkbox" name="check_surname" class="styler" checked=""></div>
+                            </div>
+                            <div class="input__row settignb2c__form-row">
+                                <input type="text" name="post" class="input mw-i" placeholder="Должность">
+                                <div class="input__row-check"><input type="checkbox" name="check_post" class="styler" checked=""></div>
+                            </div>
+                            <div class="input__row settignb2c__form-row">
+                                <input type="text" name="email" class="input mw-i" placeholder="Электронная почта*">
+                                <div class="input__row-check"><input type="checkbox" name="check_email" class="styler" checked=""></div>
+                            </div>
+                            <div class="input__row settignb2c__form-row">
+                                <input type="text" name="phone" class="input phone-mask mw-i" placeholder="Мобильный телефон*">
+                                <div class="input__row-check"><input type="checkbox" name="check_phone" class="styler" checked=""></div>
+                            </div>
+                            <div class="input__row settignb2c__form-row">
+                                <input type="text" name="viber" class="input mw-i" placeholder="Вайбер">
+                                <div class="input__row-check"><input type="checkbox" name="check_viber" class="styler" checked=""></div>
+                            </div>
+                            <div class="input__row settignb2c__form-row">
+                                <input type="text" name="telegram" class="input mw-i" placeholder="Телеграм">
+                                <div class="input__row-check"><input type="checkbox" name="check_telegram" class="styler" checked=""></div>
+                            </div>
+                            <div class="input__row settignb2c__form-row">
+                                <button class="btn btn--bdpurple w-all mw-i">Редактировать</button>
+                            </div>
+                            <div class="input__row settignb2c__form-row">
+                                <button class="btn w-all mw-i">Сохранить</button>
+                            </div>
+                            
+                        </form>
+                    </div><!--settignb2c__form-->  
+                    
+                    
+                    <div class="settignb2c__form">
+                        <div class="settignb2c__form-intro mb--sm">Укажите направления в которых ваш Учебный центр оказывает услуги в сегменте в2с</div>
+                        <form class="mw-i" action="" method="post" enctype="multipart/form-data">
+                            <input name="controll" class="no-display" type="text"> 
+                            <div class="input__row">
+                                <label class="form__lcheck form__lcheck--btn"><input type="checkbox" class="styler styler--transparent" name="category[]" value="IT" checked><span>IT</span></label>
+                            </div>
+                            <div class="input__row">
+                                <label class="form__lcheck form__lcheck--btn"><input type="checkbox" class="styler styler--transparent" name="category[]" value="Языковые" checked><span>Языковые</span></label>
+                            </div>
+                            <div class="input__row">
+                                <label class="form__lcheck form__lcheck--btn"><input type="checkbox" class="styler styler--transparent" name="category[]" value="Маркетинг" checked><span>Маркетинг</span></label>
+                            </div>
+                            <div class="input__row">
+                                <label class="form__lcheck form__lcheck--btn"><input type="checkbox" class="styler styler--transparent" name="category[]" value="Бизнес" checked><span>Бизнес</span></label>
+                            </div>
+                            <div class="input__row">
+                                <label class="form__lcheck form__lcheck--btn"><input type="checkbox" class="styler styler--transparent" name="category[]" value="Финансы" checked><span>Финансы</span></label>
+                            </div>
+                            <div class="input__row">
+                                <label class="form__lcheck form__lcheck--btn"><input type="checkbox" class="styler styler--transparent" name="category[]" value="Продажи" checked><span>Продажи</span></label>
+                            </div>
+                            <div class="input__row">
+                                <label class="form__lcheck form__lcheck--btn"><input type="checkbox" class="styler styler--transparent" name="category[]" value="Управление персоналом" checked><span>Управление персоналом</span></label>
+                            </div>
+                            <div class="input__row">
+                                <label class="form__lcheck form__lcheck--btn"><input type="checkbox" class="styler styler--transparent" name="category[]" value="Дизайн и графика" checked><span>Дизайн и графика</span></label>
+                            </div>
+                            <div class="input__row">
+                                <button class="btn w-all">Сохранить</button>
+                            </div>
+                        </form>
+                    </div>  <!--settignb2c__form-->
+
+                </div>
+            </div>
+        </section><!-- lk -->
+
+
+        
+
+	</main><!--content__wrapper-->
+
+    @@include('html/footer.html', {
+        "active_menu": "profile"
+    })
+
+</section>
+
+@@include('html/popup.html', {})
+    
+</body>
+</html>

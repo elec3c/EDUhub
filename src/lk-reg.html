@@ -1,0 +1,78 @@
+@@include('html/head.html', {
+    "title": "Мой профиль"
+})
+
+<section class="wrapper" id="top">
+
+    @@include('html/header.html', {
+        "active_menu": "profile",
+        "auth": "user_auth"
+    })
+    
+    <main class="content__wrapper">
+
+
+        @@include('html/lknav.html', {
+            "active_menu": "profile",
+            "type": "user"
+        })
+
+        <section class="lk section__mgb">
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Мой профиль</h2>
+                </div>
+                
+            
+                <div class="lkreg">
+                    <div class="lkreg__cols">
+                        <div class="lkreg__form">
+                            <div class="lkreg__intro">Вы собирайтесь зарегистрироваться на сайте как сотрудник компании МТС. Для этого заполните регистрационные данные.</div>
+                            <form class="" action="" method="post" enctype="multipart/form-data">
+                                <input name="controll" class="no-display" type="text"> 
+                                <div class="lkreg__irow">
+                                    <input type="text" name="lastname" class="input" placeholder="Имя">
+                                    <div class="lkreg__irow-desc">Имя будет отображаться у школ, когда вы будете бронировать место в группе или закажете обратный звонок</div>
+                                </div>
+                                <div class="lkreg__irow">
+                                    <input type="text" name="phone" class="input phone-mask" placeholder="Номер телефона">
+                                </div>
+                                <div class="lkreg__irow">
+                                    <input type="text" name="email" class="input" placeholder="Электронная почта">
+                                </div>
+                                <div class="lkreg__irow">
+                                    <input type="password" name="password" class="input" placeholder="Пароль">
+                                    <div class="lkreg__irow-desc">Должен содержать не менее ХХ латинских букв или цифр</div>
+                                </div>
+                                <div class="lkreg__brow">
+                                    <label class="form__polit">
+                                        <input type="checkbox" name="policy" value="1" class="styler styler--purple" checked>
+                                        <span>С <a href="">политикой конфиденциальности</a> <br> и <a href="">Пользовательскими правилами ознакомлен</a></span>
+                                    </label>
+                                </div>
+                                <div class="lkreg__brow">
+                                    <button class="btn w-all">Зарегистрироваться</button>
+                                </div>  
+                            </form>    
+                        </div>
+                        <div class="lkreg__baner"><img src="assets/images/baner-lk-reg.jpg" alt=""></div>
+                    </div>
+                </div><!--lkreg-->
+            </div>
+        </section><!-- lk -->
+
+
+        
+
+	</main><!--content__wrapper-->
+
+    @@include('html/footer.html', {
+        "active_menu": "profile"
+    })
+
+</section>
+
+@@include('html/popup.html', {})
+    
+</body>
+</html>
