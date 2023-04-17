@@ -145,6 +145,12 @@ textarea.input {
     path {
         transition: all 0.3s ease-in-out;
     }
+    &--pd {
+        height: auto !important;
+        min-height: 56px;
+        padding-top: 15px;
+        padding-bottom: 18px;
+    }
     &--purple {
         background: $bg-purple;
         &:hover {
@@ -201,6 +207,15 @@ textarea.input {
         color: #7D7D7D;
         &:hover {
             background: #7D7D7D;
+            color: #fff;
+        }
+    }
+    &--bdblack {
+        background: none;
+        border: 1px solid $color-body;
+        color: $color-body;
+        &:hover {
+            background: $color-body;
             color: #fff;
         }
     }
