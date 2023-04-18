@@ -8,6 +8,8 @@
                 Групповые
             {case 'individual'}                
                  Индивидуальные
+            {case '01 Январь 2099'}     
+                 Не указана
             {default}
                 {$value}
         {/switch}test

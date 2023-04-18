@@ -10,7 +10,7 @@
         'tvPrefix' => '',
         'includeTVs' => 'course_owner',
         'tpl'=>'@FILE chunks/courses/courses.block.tpl',
-        ]}
+        ]?:'<p class="section__intro">Вы еще не добавляли ни одного курса в избранный список</p>'}
     </div>
     {$_modx->getPlaceholder('page.nav')}
     {*

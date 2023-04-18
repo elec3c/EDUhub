@@ -1,5 +1,6 @@
 {extends 'file:templates/BaseTemplate.tpl'}
 {block 'content'}
+    {set $user_id = $.php.intval($.get.user_id)?:$_modx->user.id}
     <main class="content__wrapper">
 
         {insert 'file:chunks/users/user.menu.tpl'}
@@ -10,17 +11,8 @@
                     <h2 class="section__title">Лиды</h2>
                 </div>
 
-                <div class="lk__nav">
-                    {'!pdoMenu' | snippet: [
-                        'parents' => '37',
-                        'displayStart' => 0,
-                        'level' => 1,
-                        'limit' => 0,
-                        'tplOuter' => '@INLINE <ul>{$wrapper}</ul>',
-                        'tpl' => '@INLINE <li><a href="{$link}" title="{$menutitle}" {$attributes}>{$menutitle}</a></li>',
-                        'tplHere' => '@INLINE <li class="active">{$menutitle}</li>'
-                    ]}                    
-                </div>
+                {include 'file:chunks/users/user.submenu.tpl' pid='37'}
+
                 {'!PromoCode' | snippet}
                 <div id="pdopage">
                     <div class="rows">
@@ -48,7 +40,7 @@
                                 'PromoCodeItem.active'=>1,
                                 'PromoCodeItem.deal IS NULL',
                                 'PromoCodeItem.deleted IS NULL',
-                                'course_owner'=>$_modx->user.id,
+                                'course_owner'=>$user_id,
                             ],
                             'select'=>[
                                 'PromoCodeItem'=>'*',
@@ -59,7 +51,7 @@
                                 'PromoCodeItem.id'=>'DESC',
                             ],
                             'tpl'=>'@FILE chunks/lks/lks.leads.promocode.block.tpl'
-                        ]}
+                        ]?:'<p class="section__intro">Ничего не найдено</p>'}
                     </div>
                     <div class="section__buttons">
                         {'page.nav' | placeholder}

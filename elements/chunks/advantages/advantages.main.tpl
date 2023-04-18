@@ -4,7 +4,7 @@
     <div class="container">	
         <div class="section__cols">
             <div class="section__head">
-                <h2 class="section__title">Наши преимущества</h2>
+                <h2 class="section__title">{if $_modx->resource.advantages_title}{$_modx->resource.advantages_title}{else}Наши преимущества{/if}</h2>
             </div>
             <div class="section__wrap">
                 <div class="advantages__items">

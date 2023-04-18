@@ -1,0 +1,1 @@
+<textarea name="detail" class="input" placeholder="Введите детали курса {if $req==1}*{/if}">[[!+fi.detail]]</textarea>

@@ -62,11 +62,12 @@
                                 'includeTVs'=>'course_group_title,form_of_study,course_city,TVcourse_owner,sale,data_from',
                                 'tpl'=>'@FILE chunks/lkm/lkm.promocode.analitics.block.tpl'
     
-                            ]}
+                            ]?:'<p class="section__intro">Ничего не найдено</p>'}
                         </div>
                     </div><!--analitics__block-->
-                    <p>&nbsp;</p>
-                    {'page.nav' | placeholder}
+                    <div class="section__buttons">
+                        {'page.nav' | placeholder}
+                    </div>
                 </div>
             </div>
         </section><!-- lk -->

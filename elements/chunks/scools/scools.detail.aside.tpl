@@ -1,3 +1,5 @@
+{set $isOK = ($_modx->user.id | ismember : ['Administrator','Users'])}
+{set $confirm_phone = $_modx->user.id | user:'confirm_phone'?:0}            
 <div class="detail__aside">
     <div class="detail__sticky">
         <div class="dcard">
@@ -20,13 +22,14 @@
                     <div class="listinf__str">{$address}</div>
                 </li>
                 {/if}
-                {if $website}
+                {if $website = $_modx->runSnippet('!parseIfValidURL', ['url' => $website])}
                 <li>
                     <a href="{$website}" class="listinf__flex">
                         <div class="listinf__icon">
                             <img src="assets/images/icons/global.svg" alt="">
                         </div>
-                        <div class="listinf__str">{$website}</div>
+                        <div class="listinf__str">{$.php.preg_replace("(^https?://)", "", $website)}</div>
+                        
                     </a>    
                 </li>
                 {/if}
@@ -43,9 +46,23 @@
             </div>
         </div>
         <div class="btns_cfs detail__aside-buttons">
-            <button class="btn w-all">Заказать звонок</button>
-                {include 'file:chunks/favorites/favorites.like.tpl' type_name='scools'}
-                <!--<button class="btn btn--bdpurple" data-popup="sale">Получить скидку</button>-->
+        {*
+        {if ('' | isloggedin : 'web')}
+            {if $isOK && $confirm_phone}
+                {set $checkPromote = '!promoteCheckSchools' | snippet: ['user_id'=>$_modx->resource.scools_owner]}
+                {if $checkPromote} 
+                    <button class="btn w-all" data-open-popup="call_to_school_reg">Заказать звонок</button>
+                {/if}
+            {else}
+                 {if !$confirm_phone}<button class="btn w-all" data-open-popup="confirm_phone_msg">Обратный звонок</button>{/if}
+            {/if}
+        {else}
+            <button class="btn w-all " data-open-popup="call_to_school">Заказать звонок</button>
+        {/if}
+        *}
+        {include 'file:chunks/favorites/favorites.like.tpl' type_name='scools'}
+        
+        {*<button class="btn btn--bdpurple" data-popup="sale">Получить скидку</button>*}
         </div>
     </div>
 </div>

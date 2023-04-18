@@ -16,7 +16,7 @@
 			<input type="text" name="city" class="input" placeholder="Юридический адрес">
 		</div>*}
 		<div class="input__row">
-			<input type="text" name="email" class="input" placeholder="Электронная почта">
+			<input type="email" name="email" class="input" placeholder="Электронная почта">
 		</div>
 		<div class="input__row">
 			<input type="password" name="password" class="input" placeholder="Пароль">
@@ -24,7 +24,7 @@
 		</div>
 		<label class="form__polit">
 			<input type="checkbox" name="polit" class="styler" required>
-			<span>Ознакомлен с <a href="">публичной офертой</a></span>
+			<span>Ознакомлен с <a href="{$_modx->makeUrl(370)}">пользовательским соглашением</a> и <a href="{$_modx->makeUrl(8)}">политикой конфиденциальности</a></span>
 		</label>
 		<input type="hidden" name="urlico" value="1" />
 		<input type="hidden" name="group" value="organization" />

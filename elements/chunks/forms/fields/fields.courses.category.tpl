@@ -3,7 +3,13 @@
 {else}
 {set $styler = 'styler'}
 {/if}
-<select name="course_category" data-placeholder="Категория курса" class="{$styler}" id="category-select" {if $req==1}required{/if}>
-<option value=""></option>
-    [[!getValuesTV?  &tvid = `16` &curr = `[[+fi.course_category]]`]]
-</select>
+<div class="clearfix" style="position: relative;">
+    <select name="course_category" data-placeholder="Категория курса {if $req==1}*{/if}" class="{$styler}" id="category-select" {if $req==1}required{/if} {if $disable==1}disabled{/if}>
+        <option value=""></option>
+        [[!getValuesTV?  &tvid = `16` &curr = `[[+fi.course_category]]`]]
+    </select>
+    {if $_modx->resource.template == 11}
+    <div class="tool-tip slideIn bottom">Категория курса</div>
+    {/if}
+</div>
+        

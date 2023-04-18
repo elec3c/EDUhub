@@ -1,9 +1,6 @@
-{if $_modx->resource.template == 3}
-{set $styler = 'styler styler--white'}
-{else}
-{set $styler = 'styler'}
-{/if}                
-                <select name="num_people_in_group" data-placeholder="Количество человек в группе" class="{$styler}" {if $req==1}required{/if}>
-<option value=""></option>
-                    [[!getValuesTV?  &tvid = `26` &curr = `[[+fi.num_people_in_group]]`]]
-                </select>
+<div class="clearfix" style="position: relative;">
+    <input type="text" class="input" id="num_people_in_group" name="num_people_in_group" placeholder="Максимальное кол-во чел. в группе {if $req==1}*{/if}" value="[[!+fi.num_people_in_group]]" {if $req==1}required{/if}> 
+    {if $_modx->resource.template == 11}
+    <div class="tool-tip slideIn bottom">Максимальное кол-во чел. в группе</div>
+    {/if}
+</div>               

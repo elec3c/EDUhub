@@ -66,17 +66,19 @@
     					</div>
     				</div>
     				<div class="header__navfix-col header__navfix-col--right">
-    					<button class="btn w-all" data-open-popup="call">Заказать звонок</button>
-    					{if !('' | isloggedin : 'web')}
-	    					<a href="" class="btn btn--purple w-all show-tablet-sm" data-open-popup="auth_course">Добавить курс/шаблон</a>
-	    					{*'!getComparison' | snippet: ['list' => 'courses']*}
-    					{/if}
-							{if $_modx->user.urlico && ('' | isloggedin : 'web')}
-								<a href="{$_modx->makeUrl(39)}?type=course" class="btn btn--purple w-all show-tablet-sm">Добавить курс/шаблон</a>
-							{/if}
+    				    {if 'standard' | mobiledetect}		    
+        					{*<button class="btn w-all" data-open-popup="call">Заказать звонок</button>*}
+        					{if !('' | isloggedin : 'web')}
+    	    					<a href="" class="btn btn--purple w-all show-tablet-sm" data-open-popup="auth_course">Добавить курс</a>
+    	    					{*'!getComparison' | snippet: ['list' => 'courses']*}
+        					{/if}
+    						{if $_modx->user.urlico && ('' | isloggedin : 'web')}
+    							<a href="{$_modx->makeUrl(39)}?type=course" class="btn btn--purple w-all show-tablet-sm">Добавить курс</a>
+    						{/if}
+						{/if}
     				</div>
     				<div class="header__navfix-col header__navfix-col--close">
-    					<a href="#" class="header__navfix-close close-menu"></a>
+    					<a class="header__navfix-close close-menu"></a>
     				</div>
     			</div>
     		</div>

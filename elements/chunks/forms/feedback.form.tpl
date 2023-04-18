@@ -10,12 +10,12 @@
         <input type="text" name="email" class="input" placeholder="Электронная почта">
     </div>
     <div class="input__row">
-        <textarea name="message" class="input height-lg" placeholder="Сообщение.."></textarea>
+        <textarea name="message" class="input height-lg" placeholder="Сообщение..."></textarea>
     </div>
 
     <label class="form__polit">
         <input type="checkbox" name="polit" class="styler" required>
-        <span>Ознакомлен с <a href="{$_modx->makeUrl(8)}">публичной офертой</a></span>
+        <span>Ознакомлен с <a href="{$_modx->makeUrl(370)}">пользовательским соглашением</a></span>
     </label>
 
     <div class="form__btn">

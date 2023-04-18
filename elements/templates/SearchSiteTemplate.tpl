@@ -50,9 +50,10 @@
                         </svg><span>Показать еще</span></button></div>' 
                         ])}
                     </div>
-                    {$_modx->getPlaceholder('page.nav')}
+                    <div class="section__buttons">
+                        {$_modx->getPlaceholder('page.nav')}
+                    </div>
                     {else}
-                    
                         <p class="section__intro">Попробуйте поменять запрос!</p>
                     
                     {/if}

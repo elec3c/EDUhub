@@ -3,8 +3,10 @@
 {set $sale  = $page_id | resource: 'sale'}
 {set $format_of_study  = $page_id | resource: 'format_of_study'}
 {set $num_people_in_group  = $page_id | resource: 'num_people_in_group'}
+{set $promote = $_modx->runSnippet('!promoteCheckLead', ['group_id'     => $page_id])}
 <div class="courses__block-dop">
-    <a href="" class="courses__block-ditem">
+    {if $promote['lead'] > 0}        
+    <a class="courses__block-ditem">
         <div class="courses__block-ditem__icon">
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M9.71094 18.0875L17.8859 9.91251" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -13,12 +15,15 @@
                 <path d="M14 26.5C20.9036 26.5 26.5 20.9036 26.5 14C26.5 7.09644 20.9036 1.5 14 1.5C7.09644 1.5 1.5 7.09644 1.5 14C1.5 20.9036 7.09644 26.5 14 26.5Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>                                    
         </div>
-        {if $sale && '!checkBudget' | snippet : ['page_id'=>$page_id]}
-            <div class="courses__block-ditem__t">{$sale} руб. скидка</div>
-        {else}
-            <div class="courses__block-ditem__t">нет скидки</div>
-        {/if}
+        
+            {if $.php.intval($sale)}
+                <div class="courses__block-ditem__t">{$.php.intval($sale)} руб. <br>Промокод от EDUhub</div>
+            {else}
+                <div class="courses__block-ditem__t">нет скидки</div>
+            {/if}
+        
     </a>
+    {/if}    
     <a href="{$_modx->makeUrl($page_id)}" class="courses__block-ditem courses__block-ditem--rate">
         <div class="courses__block-ditem__icon">
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +57,7 @@
                         <path d="M25.7377 27.5C25.7377 22.6625 20.9252 18.75 15.0002 18.75C9.07519 18.75 4.2627 22.6625 4.2627 27.5" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>                                     
                 </div>
-                <div class="courses__block-ditem__t">индивид. <br> занятия</div>
+                <div class="courses__block-ditem__t">индивидуальное <br> обучение</div>
             </a>        
         {case 'group'}
             <a href="{$_modx->makeUrl($page_id)}" class="courses__block-ditem courses__block-ditem--user">
@@ -64,7 +69,7 @@
                         <path d="M22.9248 25C23.8248 24.8125 24.6748 24.45 25.3748 23.9125C27.3248 22.45 27.3248 20.0375 25.3748 18.575C24.6873 18.05 23.8498 17.7 22.9623 17.5" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>                                                                      
                 </div>
-                <div class="courses__block-ditem__t">{$num_people_in_group} человек {*<br> (2 свободно)*}</div>
+                <div class="courses__block-ditem__t">{$num_people_in_group} человек в группе {*<br> (2 свободно)*}</div>
             </a>
 
     {/switch}

@@ -8,7 +8,7 @@
 	<input type="hidden" name="form" value="Заказ обратного звонка пользователем">
 
 	<button class="btn btn--red w-all">Да</button>
-	<button class="btn btn--bdred w-all popup-close">Отмена</button>
+	<p class="btn btn--bdred w-all popup-close" onclick="$('.popup ').css('display', 'none');">Отмена</p>
 	
 </form>
 

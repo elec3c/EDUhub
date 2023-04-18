@@ -13,12 +13,16 @@
 <!--<![endif]-->
 
 <head>
+    {1 | resource : 'header'}
     {block 'head'}
         {include 'file:chunks/head.tpl'}
     {/block}
+    {'!verificationCode'|snippet:[]}
+    {'!verificationCompanyInvite'|snippet:[]}
 </head>
 
 <body>
+    {1 | resource : 'body'}
     <section class="wrapper" id="top">
         {block 'header'}
             {include 'file:chunks/header.tpl'}
@@ -54,11 +58,26 @@
         {include 'file:chunks/modals/sale_thank.tpl'}
         {include 'file:chunks/modals/sale_declain.tpl'}
         {include 'file:chunks/modals/sale_deny.tpl'}
-        {include 'file:chunks/modals/popup-thank.tpl'}
         {include 'file:chunks/modals/sale_remove.tpl'}
+        {include 'file:chunks/modals/popup-thank.tpl'}
         {include 'file:chunks/modals/confirm_phone.tpl'}
         {include 'file:chunks/modals/confirm_phone_thank.tpl'}        
-
+        {include 'file:chunks/modals/confirm_phone_msg.tpl'}
+        {if $_modx->resource.id in [1127,1128]}
+            {include 'file:chunks/modals/partnership_join_offer_thank.tpl'}
+        {/if}
+        {if $_modx->resource.id in [803,802]}
+            {include 'file:chunks/modals/tender_add.tpl'}
+            {include 'file:chunks/modals/tender_dogovor_thank.tpl'}
+            {include 'file:chunks/modals/tender_dogovor_declain.tpl'}
+            {include 'file:chunks/modals/tender_wait_date_stop.tpl'}
+            {include 'file:chunks/modals/tender_thank.tpl'}
+            {include 'file:chunks/modals/tender_declain.tpl'}
+            {include 'file:chunks/modals/tender_deny.tpl'}
+            {include 'file:chunks/modals/tender_remove.tpl'}
+            {include 'file:chunks/modals/tender_money.tpl'}
+            {include 'file:chunks/modals/tender_no_set_direction.tpl'}
+        {/if}
     {/block}
 
     {block 'scripts'}

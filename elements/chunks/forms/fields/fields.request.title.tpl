@@ -1,0 +1,1 @@
+<input name="title" class="input" placeholder="Название тендера {if $req==1}*{/if}" value="[[!+fi.title]]">

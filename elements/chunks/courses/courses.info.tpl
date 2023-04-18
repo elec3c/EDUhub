@@ -3,20 +3,28 @@
 <section class="section__mgb--md">
     <div class="detail__props">
         <div class="detail__props-title">Длительность обучения</div>
-            {if $promote['lead'] > 0}
+            {if ($promote['lead'] > 0) && ($_modx->resource.data_from != '2099-01-01')}
             <div class="detail__props-item">
                 <div class="detail__props-item__label">Старт курса </div>
-                <div>{$_modx->resource.data_from  | date : "d.m.Y"}</div>
+                <div>{$_modx->resource.data_from | date_format:"%d %B %Y"}</div>
             </div>
             {/if}
+            {if $_modx->resource.num_months_of_study}
+            <div class="detail__props-item">
+                <div class="detail__props-item__label">Количество месяцев обучения</div>
+                <div>{$_modx->resource.num_months_of_study} {$_modx->resource.num_months_of_study | declension : 'месяц|месяца|месяцев'}</div>
+            </div>
+            {/if}
+            {if $_modx->resource.course_duration}
             <div class="detail__props-item">
                 <div class="detail__props-item__label">Количество часов </div>
-                <div>{$_modx->resource.course_duration} часов</div>
+                <div>{$_modx->resource.course_duration} {$_modx->resource.course_duration | declension : 'час|часа|часов'}</div>
             </div>
+            {/if}
             {if $_modx->resource.num_lesson_per_week && $_modx->resource.lesson_duration}                                
             <div class="detail__props-item">
                 <div class="detail__props-item__label">Интенсивность</div>
-                <div>{$_modx->resource.num_lesson_per_week} занятие в неделю по {$_modx->resource.lesson_duration} минут</div>
+                <div>{$_modx->resource.num_lesson_per_week} {$_modx->resource.num_lesson_per_week | declension : 'занятие|занятия|занятий'} в неделю по {$_modx->resource.lesson_duration} {$_modx->resource.lesson_duration | declension : 'минуте|минутам|минут'}</div>
             </div>
             {/if}
             {if $_modx->resource.data_from && $_modx->resource.data_to}                                
@@ -31,13 +39,19 @@
             {if $_modx->resource.price_course}                                
             <div class="detail__props-item">
                 <div class="detail__props-item__label">Стоимость за весь курс</div>
-                <div>{$_modx->resource.price_course} руб.</div>
+                <div>{$_modx->runSnippet('!formatMoney', ['number'=>$_modx->resource.price_course])}</div>
             </div>
             {/if}                                
+            {if $_modx->resource.price_course_month}                                
+            <div class="detail__props-item">
+                <div class="detail__props-item__label">Стоимость курса в месяц</div>
+                <div>{$_modx->runSnippet('!formatMoney', ['number'=>$_modx->resource.price_course_month])}</div>
+            </div>
+            {/if}            
             {if $_modx->resource.price_lesson}
             <div class="detail__props-item">
                 <div class="detail__props-item__label">Стоимость за 1 занятие</div>
-                    <div>{$_modx->resource.price_lesson} руб.</div>
+                    <div>{$_modx->runSnippet('!formatMoney', ['number'=>$_modx->resource.price_lesson])}</div>
                 </div>
             {/if}                     
             {if ($_modx->resource.sale) && ($promote['lead'] > 0)}
@@ -52,7 +66,7 @@
                 <div class="detail__props-title">Подробности</div>
                 <div class="detail__props-item">
                     <div class="detail__props-item__label">Количество человек в группе</div>
-                    <div>{$_modx->resource.num_people_in_group}</div>
+                    <div>{$.php.intval($_modx->resource.num_people_in_group)}</div>
                 </div>
                 {/if}
                 {if $_modx->resource.form_of_study}
@@ -64,6 +78,8 @@
                                 Онлайн-обучение
                             {case 'offline'}
                                 Офлайн-обучение
+                            {case 'hybrid'}
+                                Гибридное-обучение
                             {default}
                                 Форма обучения не указана
                         {/switch}
@@ -83,9 +99,11 @@
                 </div>
                 {/if}                
                 {if $_modx->resource.for_levels_from && $_modx->resource.for_levels_to}
+                {set $from = $_modx->runSnippet('!getValueKeyTV', ['name' => 'for_levels', 'curr' => $_modx->resource.for_levels_from])}
+                {set $to = $_modx->runSnippet('!getValueKeyTV', ['name' => 'for_levels', 'curr' => $_modx->resource.for_levels_to])}
                 <div class="detail__props-item">
                     <div class="detail__props-item__label">Уровень</div>
-                    <div>{$_modx->resource.for_levels_from}-{$_modx->resource.for_levels_to}</div>
+                    <div>от {$from?:$_modx->resource.for_levels_from} до {$to?:$_modx->resource.for_levels_to}</div>
                 </div>
                 {/if}
                 {if $_modx->resource.for_ages_from && $_modx->resource.for_ages_to}

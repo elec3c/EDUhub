@@ -10,7 +10,7 @@
 								<input type="tel" name="mobilephone" class="input phone-mask" placeholder="Телефон">
 							</div>
 							<div class="input__row">
-								<input type="text" name="email" class="input" placeholder="Электронная почта">
+								<input type="email" name="email" class="input" placeholder="Электронная почта">
 							</div>   
 							<div class="input__row">
 								<input type="password" name="password" class="input" placeholder="Пароль" required>
@@ -27,7 +27,7 @@
 							
 							<label class="form__polit">
 								<input type="checkbox" name="polit" class="styler" required>
-								<span>Ознакомлен с <a href="">публичной офертой</a></span>
+								<span>Ознакомлен с <a href="{$_modx->makeUrl(370)}">пользовательским соглашением</a> и <a href="{$_modx->makeUrl(8)}">политикой конфиденциальности</a></span>
 							</label>
 						</div>
 					</form>

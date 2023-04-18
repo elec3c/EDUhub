@@ -1,8 +1,21 @@
 {if $user_id > 0}
 {set $photo = $user_id | user:'photo'}
 {/if}
+{set $url = $id | url}
 {if $photo}
-    <a href="{$id | url}"><img src="{$photo | phpthumbon : 'w=460&h=280&zc=1&q=99'}" alt="{$user_id | user : 'username' | htmlent}"></a>
+    {if $url}
+        <a href="{$url}">
+    {/if}
+        <img src="{$photo | phpthumbon : 'w=400&h=400&q=99&bg=ffffff'}" alt="{$user_id | user : 'fullname' | htmlent}">
+    {if $url}        
+        </a>
+    {/if}
 {else}
-    <a href="{$id | url}"><img src="{$_modx->getPlaceholder('+nophoto') | phpthumbon : 'w=460&h=280&zc=1&q=99'}" alt="{$user_id | user : 'username' | htmlent}"></a>
+    {if $url}
+        <a href="{$url}">
+    {/if}
+        <img src="{$_modx->getPlaceholder('+nophoto') | phpthumbon : 'w=400&h=400&zc=1&q=99'}" alt="{$user_id | user : 'username' | htmlent}"></a>
+    {if $url}        
+        </a>
+    {/if}
 {/if}
