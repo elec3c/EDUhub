@@ -8,11 +8,12 @@
             <div class="checkselect__list">
                     <label><input type="checkbox"  class="styler check-param" name="schools_direction[]" {if ((count($direction) + 1)==$.php.count($curr_direction) || (count($curr_direction) >= 8))}checked{/if} value="all"><span>Все направления</span></label>
                     {foreach $direction as $k=>$v}
-                        {if $.php.in_array($k,$curr_direction)}
+                       {* {if $.php.in_array($k,$curr_direction)}
                             <label><input type="checkbox"  class="styler check-param" name="schools_direction[]" checked value="{$k}"><span>{$k | resource : 'pagetitle'}</span></label>
                         {else}
                             <label><input type="checkbox"  class="styler check-param" name="schools_direction[]" value="{$k}"><span>{$k | resource : 'pagetitle'}</span></label>
-                        {/if}
+                        {/if}*}
+                        <label><input type="checkbox"  class="styler check-param" name="schools_direction[]" checked value="{$k}"><span>{$k | resource : 'pagetitle'}</span></label>
                     {/foreach}                                        
                 </div>
         </div>

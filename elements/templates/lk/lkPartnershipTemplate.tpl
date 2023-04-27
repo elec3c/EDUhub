@@ -15,7 +15,9 @@
                 
                 {include 'file:chunks/users/user.submenu.tpl' pid='1122'}
 
-                <div class="pprequest">
+                {set $verified = $user_id | user:'verified'}
+                {if $verified}
+                    <div class="pprequest">
                     <div class="pprequest__head">
                         <div class="pprequest__date">28/02/23 </div>    
                         <div class="pprequest__name">Инглиш папа</div>    
@@ -81,6 +83,9 @@
                         </div>
                     </div>
                 </div>
+                {else}
+                    <p class="section__intro">Чтобы видеть школы, открытые для предложений о партнерстве, необходима верификация Вашей компании.</p>
+                {/if}
             </div>
         </section><!-- lk -->
 

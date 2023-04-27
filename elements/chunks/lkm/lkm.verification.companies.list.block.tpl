@@ -41,9 +41,9 @@
 
                         <div class="vercomp__item-genlink">
                             {if !$verification_code}
-                                <input type="text" class="btn w-all generate-link-company" data-user="{$id}" value="Сгенерировать ссылку">
+                                <input type="text" class="btn w-all generate-link-company" data-user="{$id}" value="Сгенерировать ссылку" readonly>
                             {else}
-                                <input type="text" class="btn btn--red w-all reset-link-company input--confirm" data-user="{$id}" value="Сбросить ссылку">
+                                <input type="text" class="btn btn--red w-all reset-link-company input--confirm" data-user="{$id}" value="Сбросить ссылку" readonly>
                             {/if}
                             <input type="url" class="input input--white" name="verification_link" placeholder="Поле для ссылки" id="verification-code-{$id}" value="{if $verification_code!=''}{'!createVerificationLink'|snippet:['user_id' => $id]}{/if}">
                         </div>
@@ -51,9 +51,9 @@
 
                         <div class="vercomp__item-buttons">
                             {if !$verified}
-                                <input type="button" class="btn btn--purple confirm-company" data-user="{$id}" value="Подтвердить">
+                                <input type="button" class="btn btn--purple confirm-company" data-user="{$id}" value="Подтвердить" readonly>
                             {else}
-                                <input type="button" class="btn btn--bdpurple cancel-company" data-user="{$id}" value="Отменить">
+                                <input type="button" class="btn btn--bdpurple cancel-company" data-user="{$id}" value="Отменить" readonly>
                             {/if}
                         </div>
                     </div><!--vercomp__item-->

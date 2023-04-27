@@ -29,7 +29,7 @@
                             Недостаточно средств на балансе. Чтобы выполнить подписку на сервис <b>&laquo;Аналитика пользовательских запросов&raquo;</b>, необходимо <a href="{$modx->makeUrl(38)}" class="link">пополнить баланс минимум на {$subscribe_payment_service1_30day - $balance} рублей</a> 
                         {else}
                             <br>
-                            {include 'file:chunks/forms/subscribe.form.tpl' title='Подписка на аналитику пользовательских запросов' user_id = $user_id service_id='1' course_id='0' index='0'}
+                            {include 'file:chunks/forms/subscribe.form.tpl' title='Подписка на аналитику пользовательских запросов' user_id = $user_id service_id='1' course_id='0' index='0' label='#analytics'}
                         {/if}
                         <br><br>
                         
@@ -42,7 +42,7 @@
                             Недостаточно средств на балансе. Чтобы выполнить подписку на сервис <b>&laquo;Тендеры на обучение&raquo;</b>, необходимо <a href="{$modx->makeUrl(38)}" class="link">пополнить баланс минимум на {$subscribe_payment_service2_30day - $balance} рублей</a> 
                         {else}
                             <br>
-                            {include 'file:chunks/forms/subscribe.form.tpl' title='Подписка на рассылку запросов на корпоративное обучение' user_id = $user_id service_id='2' course_id='0' index='1'}
+                            {include 'file:chunks/forms/subscribe.form.tpl' title='Подписка на рассылку запросов на корпоративное обучение' user_id = $user_id service_id='2' course_id='0' index='1' label='#tender'}
                         {/if}
                         <br><br>
                         
@@ -56,7 +56,7 @@
                             Недостаточно средств на балансе. Чтобы выполнить подписку на сервис <b>&laquo;Размещение курсов в2с на EDUhub&raquo;</b>, необходимо <a href="{$modx->makeUrl(38)}" class="link">пополнить баланс минимум на {$subscribe_payment_service3_30day - $balance} рублей</a> 
                         {else}
                             <br>
-                            {include 'file:chunks/forms/subscribe.form.tpl' title='Подписка на размещение курсов в2с на EDUhub' user_id = $user_id service_id='3' course_id='0' index='2'}
+                            {include 'file:chunks/forms/subscribe.form.tpl' title='Подписка на размещение курсов в2с на EDUhub' user_id = $user_id service_id='3' course_id='0' index='2' label='#partnership'}
                         {/if}
                         <br><br>                        
                         
@@ -109,9 +109,6 @@
                 </div>    
             </div>
         </section><!-- lk -->
-
-
-        
 
 	</main><!--content__wrapper-->
 {/block}

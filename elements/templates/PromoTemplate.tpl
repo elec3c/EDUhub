@@ -1,12 +1,33 @@
 {extends 'file:templates/BaseTemplate.tpl'}
 {block 'content'}
-
 {include 'file:chunks/crumbs/crumbs.tpl'}		
+{if $_modx->resource.id in [1142]}
+    {include 'file:chunks/promo/promo.description.tpl'}
+    {include 'file:chunks/item/item.promo.tpl'}
+    {include 'file:chunks/alg/alg.promo.tpl'}
+    {include 'file:chunks/advantages/advantages.pconv.promo.tpl'}
+    {include 'file:chunks/item/item.detail.promo.tpl'}
+    {include 'file:chunks/advantages/advantages.f4ways.promo.tpl'}
+    {include 'file:chunks/social/social.promo.tpl'}    
+    {include 'file:chunks/faq/faq.promo.tpl'}
+    {include 'file:chunks/callback/callback.promo.tpl' color='green'}
+{elseif $_modx->resource.id in [1143]}
+    {include 'file:chunks/advantages/advantages.features.promo.tpl'}
+    {include 'file:chunks/item/item.concat.promo.tpl'}
+    {include 'file:chunks/alg/alg.steps.promo.tpl'}
+    {include 'file:chunks/item/item.learn.promo.tpl'}
+    {include 'file:chunks/social/social.promo.tpl'}
+    {include 'file:chunks/faq/faq.promo.tpl'}
+    {include 'file:chunks/callback/callback.promo.tpl' color='red'}
+{else}
     {include 'file:chunks/promo/promo.description.tpl'}
     {include 'file:chunks/advantages/advantages.promo.tpl'}
     {include 'file:chunks/alg/alg.promo.tpl'}
+    {include 'file:chunks/advantages/advantages.detail.promo.tpl'}
     {include 'file:chunks/item/item.promo.tpl'}
+    {include 'file:chunks/item/item.learn.promo.tpl'}
     {include 'file:chunks/social/social.promo.tpl'}
     {include 'file:chunks/faq/faq.promo.tpl'}
     {include 'file:chunks/callback/callback.promo.tpl' color='blue'}
+{/if}
 {/block}

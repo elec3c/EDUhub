@@ -10,13 +10,14 @@
 				</svg>					
 			</a>
 			<div class="popup__body">
-				<div class="popup__title" id="partnershipJoinOfferMsg">Вы успешно присоединились к оферте партнерской программы.
+				<div class="popup__title" id="partnershipJoinOfferMsg">Вы успешно присоединились к оферте партнерской программы.</div>
+				{*<p>&nbsp</p>
 				{if $_modx->resource.template in list [11]}
-				<p>&nbsp</p>
-				Для просмотра компаний, открытых для предложений о партнерстве обновите страницу<br>
-				<a style="color:#6f4faa;" href="{$_modx->makeUrl($_modx->resource.id)}">Обновить</a>
+				Для просмотра компаний, открытых для предложений о партнерстве, обновите страницу<br>
+				{elseif $_modx->resource.template in list [10]}
+				Для просмотра школ, открытых для предложений о партнерстве, обновите страницу<br>
 				{/if}
-				</div>
+				<a class="btn btn--gray w-all" href="{$_modx->makeUrl($_modx->resource.id)}">Обновить</a>*}
 			</div>
 		</div><!--popup__container-->
 	</div>
@@ -34,14 +35,12 @@
 				</svg>					
 			</a>
             <div class="popup__body">
-				<div class="popup__title" id="partnershipJoinOfferMsg">Вы успешно отсоединились от оферты партнерской программы.
-				{if $_modx->resource.template in list [11]}
-				<p>&nbsp</p>
+				<div class="popup__title" id="partnershipJoinOfferMsg">Вы успешно отсоединились от оферты партнерской программы.</div>
+				{*<p>&nbsp</p>
+				{if $_modx->resource.template in list [10,11]}
 				Необходимо обновить страницу<br>
-				<a style="color:#6f4faa;" href="{$_modx->makeUrl($_modx->resource.id)}">Обновить</a>
-					
-				{/if}
-				</div>
+				<a class="btn btn--gray w-all" href="{$_modx->makeUrl($_modx->resource.id)}">Обновить</a>
+				{/if}*}
 			</div>
 		</div><!--popup__container-->
 	</div>

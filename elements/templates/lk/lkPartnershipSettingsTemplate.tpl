@@ -14,44 +14,49 @@
                 </div>
                 
                 {include 'file:chunks/users/user.submenu.tpl' pid='1122'}
-
+                
+                {set $verified = $user_id | user:'verified'}
+                {if $verified}
                 <div class="ppsettings">
                     <div class="ppsettings__cols">
                         <div class="ppsettings__col">
-                            {set $employee_code = $user_id | user:'employee_code'}
-                            
-                            <div class="ppsettings__item">
-                                <div class="input__row">
-                                    <input type="url" name="employee_link" class="input" placeholder="Тут появится ссылка" id="employee-code-{$user_id}" value="{if $employee_code!=''}{'!createEmployeeLink'|snippet:['user_id' => $user_id]}{/if}">
-                                </div>
-                                
-                                {if !$employee_code}
-                                    <input type="text" class="btn w-all generate-link-employee" data-user="{$user_id}" value="Сгенерировать ссылку для сотрудников">
-                                {else}
-                                    <input type="text" class="btn btn--red w-all reset-link-employee" data-user="{$user_id}" value="Сбросить ссылку для сотрудников">
-                                {/if}
-                            </div>
-
-                            {set $partnershipJoinOffer = $_modx->user.partnership_join_offer}
+                            {set $partnershipJoinOffer = $user_id | user:'partnership_join_offer'}
                             {if !$partnershipJoinOffer}
-                            <div class="ppsettings__item">
-                                <div class="input__row">
-                                    <input class="btn {if !$partnershipJoinOffer}btn--purple{else}btn--red{/if} w-all" id="btnJoinOffer" value="{if !$partnershipJoinOffer}Присоединиться к оферте{else}Отсоединиться от оферты{/if}"/>
-                                </div>  
-                                <input type="hidden" id="partnershipJoinOffer" value="{$partnershipJoinOffer}">
+                                <div class="ppsettings__item">
+                                    <div class="input__row">
+                                        <input class="btn {if !$partnershipJoinOffer}btn--purple{else}btn--red{/if} w-all" id="btnJoinOffer" value="{if !$partnershipJoinOffer}Присоединиться к оферте{else}Отсоединиться от оферты{/if}" readonly/>
+                                    </div>  
+                                    <input type="hidden" id="partnershipJoinOffer" value="{$partnershipJoinOffer}">
+                                    
+                                    <label class="form__lcheck">
+                                        <input type="checkbox" name="policy" value="1" class="styler" id="policy" {if $partnershipJoinOffer}checked disabled{/if}>
+                                        <span>С&nbsp;<a href="{1152 | url}" style="text-decoration:underline;" target="_blank;">офертой</a> ознакомлены и согласны</span>
+                                    </label>
+                                </div>                            
+                            
+                                {*<p class="section__intro">Чтобы далее видеть школы, открытые для предложений о партнерстве, необходимо присоединиться к оферте и не забыть обновить текущую страницу.</p>*}
                                 
-                                <label class="form__lcheck">
-                                    <input type="checkbox" name="policy" value="1" class="styler" id="policy" {if $partnershipJoinOffer}checked disabled{/if}>
-                                    <span>С офертой ознакомлены и согласны</span>
-                                </label>
-                            </div>
+                            {else}
+                                {set $employee_code = $user_id | user:'employee_code'}
+                                <div class="ppsettings__item">
+                                    <div class="input__row">
+                                    {if !$employee_code}
+                                    
+                                        <input type="text" class="btn w-all generate-link-employee" data-user="{$user_id}" value="Сгенерировать ссылку для сотрудников" readonly>
+                                    {else}
+                                        <input type="text" class="btn btn--red w-all reset-link-employee" data-user="{$user_id}" value="Сбросить ссылку для сотрудников" readonly>
+                                    {/if}
+                                    </div>
+                                    <div class="input__row">
+                                        <input type="url" name="employee_link" class="input" placeholder="Тут появится ссылка" id="employee-code-{$user_id}" value="{if $employee_code!=''}{'!createEmployeeLink'|snippet:['user_id' => $user_id]}{/if}">
+                                    </div>                                    
+                                </div>
                             {/if}
-                            
-                            
+
                         </div>
 
                         <div class="ppsettings__col">
-                            <div class="ppsettings__item">
+                            <!--<div class="ppsettings__item">
                                 <div class="input__row">
                                     <button class="btn w-all">Сгенерировать промокод</button>
                                 </div>    
@@ -59,12 +64,22 @@
                                     <input type="text" name="promocode" class="input" placeholder="Поле с промокодом">
                                 </div>  
                                 <button class="btn btn--purple w-all">Сохранить</button>
+                            </div>-->
+                            <div class="ppsettings__item">
+                                <div class="input__row">
+                                    {'!AjaxForm'|snippet:[
+                                        'snippet' => 'FormIt',
+                                        'form' => '@FILE chunks/forms/profile.conclusion.agreement.form.tpl',
+                                        'hooks' => 'profileConclusionAgreementSave',
+                                        'validationErrorMessage' => 'В форме содержатся ошибки!',
+                                        'successMessage' => 'Способы заключения договора  сохранены успешно!'
+                                     ]}                                    
+                                </div>    
                             </div>
-                            
                         </div>
                     </div><!--ppsettings__cols-->
 
-
+                    {*if $partnershipJoinOffer*}
                     {'!AjaxForm'|snippet:[
                         'snippet' => 'FormIt',
                         'form' => '@FILE chunks/forms/profile.company.settings.form.tpl',
@@ -72,8 +87,12 @@
                         'validationErrorMessage' => 'В форме содержатся ошибки!',
                         'successMessage' => 'Настройки сохранены успешно!'
                      ]}
+                    {*/if*}
                 
             </div>
+                {else}
+                    <p class="section__intro">Для того, чтобы воспользоваться услугой <b>"Партнерская программа от EDUhub"</b> и получать предложения от школ о скидках для сотрудников, необходимо пройти верификацию Вашей компании. Для этого на официальный e-mail, указанный на Вашем сайте, будет выслана верификационная ссылка, по которой Вам необходимо перейти, чтобы завершить процесс верификации.</p>
+                {/if}
         </section><!-- lk -->
 
 	</main><!--content__wrapper-->

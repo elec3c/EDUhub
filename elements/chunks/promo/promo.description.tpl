@@ -4,8 +4,8 @@
             <h2 class="section__title">{$_modx->resource.longtitle?:$_modx->resource.pagetitle}</h2>
         </div>
         {if $_modx->resource.promo_description}
-        <div class="corptran__wrap">
-            <div class="corptran__wrap-text">{$_modx->resource.promo_description}</div>
+        <div class="corptran__wrap{if $_modx->resource.id in [1148]} section__lr{/if}">
+            <div class="corptran__wrap-text{if $_modx->resource.id in [1148]} w-all{/if}">{$_modx->resource.promo_description}</div>
         </div>
         {/if}
     </div>

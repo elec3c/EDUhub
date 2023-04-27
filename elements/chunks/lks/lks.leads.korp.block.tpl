@@ -2,7 +2,7 @@
 {set $status_id = $_modx->runSnippet('tenderStatus', ['tender_id' => $id, 'school_id' => $_modx->user.id])}
 
 
-{if ($status_id in [2,0]) || ( ($status_id not in [1,3]) && ($date_stop < $.php.time()) )}
+{if ($status_id in [0]) || ( ($status_id in [0,-1]) && ($date_stop < $.php.time()) )}
 {else}
 {switch $status_id}
     {case 1}
@@ -31,14 +31,9 @@
                         <div class="cgtitle">
                             Тендер №&nbsp;{$id}&nbsp;{$cat_id | resource: 'pagetitle'} - создан {$date_create|dateAgo:'{"dateNow":0, "dateFormat":"d F Y"}'}
                         </div>
-
-
-                        <a href="#" class="link__more rollup-toggle">
+                        <a href="#" class="link__more rollup-toggle" style="display:block;">
                             <span class="open_t">Свернуть</span><span class="close_t">Развернуть</span>
                         </a>
-                        
-                        
-                        
                     </div>
                     <div class="rollup-tab">
                         

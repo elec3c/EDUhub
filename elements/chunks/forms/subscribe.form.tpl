@@ -24,7 +24,7 @@
     <input type="hidden" name="page_id"    value="{$page_id?:$_modx->resource.id}"/>
     <input type="hidden" name="sum"     value="{$page_id?:$_modx->resource.id}"/>
     <div class="cadd__block">
-        <div class="cadd__label"><b>{$title?:$subscribeServices['name']}</b></div>
+        <div class="cadd__label" id="{$label?:''}"><b>{$title?:$subscribeServices['name']}</b></div>
         <div class="cadd__inputs cadd__in1">
             <div class="cadd__input">
                 {*<input type="text" class="input" name="payment" placeholder="Стоимость подписки {$price30} {$price30 | declension : 'рубль|рубля|рублей'}" disabled>*}

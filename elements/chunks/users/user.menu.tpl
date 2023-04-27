@@ -4,17 +4,17 @@
       <ul>
         {set $user_id = $.php.intval($.get.user_id)?:$_modx->user.id}  
         {if $_modx->resource.parent in ["23","30","63"]}
-          {set $parentMenu = $_modx->resource.parent}
+            {set $parentMenu = $_modx->resource.parent}
         {else}
-          {set $parentMenu = $_modx->resource.parent | resource : 'parent'}
+            {set $parentMenu = $_modx->resource.parent | resource : 'parent'}
         {/if}
         
         {set $isCorporate = ($user_id | ismember : ['Corporate'])}
         
         {if !$isCorporate}
-            {set $excludeResources = "-803,-804"}
+            {set $excludeResources = "-803,-804,-1122"}
         {else}
-            {set $excludeResources = "-34,-504"}
+            {set $excludeResources = "-34,-504,-1134"}
         {/if}
         
         {'!pdoMenu' | snippet: [

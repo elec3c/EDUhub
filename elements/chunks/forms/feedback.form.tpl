@@ -10,7 +10,7 @@
         <input type="text" name="email" class="input" placeholder="Электронная почта">
     </div>
     <div class="input__row">
-        <textarea name="message" class="input height-lg" placeholder="Сообщение..."></textarea>
+        <textarea name="message" class="input height-lg" placeholder="Сообщение.."></textarea>
     </div>
 
     <label class="form__polit">

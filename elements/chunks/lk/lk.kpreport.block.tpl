@@ -3,7 +3,7 @@
         <div class="cgtitle">
             <a href="{827 | url}?tender_id={$id}">Тендер №&nbsp;{$id}&nbsp;{$query['title']?:'<название>'} / {$cat_id | resource: 'pagetitle'}</a> - создан {$date_create|dateAgo:'{"dateNow":0, "dateFormat":"d F Y"}'}
         </div>
-            <a href="#" class="link__more rollup-toggle">
+        <a href="#" class="link__more rollup-toggle" style="display:block;">
             <span class="open_t">Свернуть</span><span class="close_t">Развернуть</span>
         </a>
     </div>

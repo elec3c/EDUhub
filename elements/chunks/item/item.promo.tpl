@@ -4,12 +4,11 @@
     <div class="container">
         <div class="section__cols corpgrades__cols">
             <div class="section__head mb--sm">
-                {if $_modx->resource.item_title}
                     <h2 class="section__title fs--md">{if $_modx->resource.item_title}{$_modx->resource.item_title}{else}Перечисление{/if}</h2>
-                {/if}
             </div>
-            <div class="section__wrap">
-                <ul class="corpgrades__list">
+            <div class="section__wrap content__text{if $_modx->resource.id in [1131]} list-mg{/if}">
+                {if $_modx->resource.item_text}<p><b>{$_modx->resource.item_text}</b></p>{/if}
+                <ul>
                 {foreach $rows as $idx => $row}                      
                     {if $row.description}
                     <li>{$row.description}</li>

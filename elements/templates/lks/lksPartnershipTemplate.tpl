@@ -18,7 +18,7 @@
                 {set $subscribeCheck = '!subscribeCheckBuy' | snippet: ['user_id' => $user_id, 'service_id' => 3, 'course_id'=>0]}
                 {if  ($subscribeCheck['expire'] > 0) && ($subscribeCheck['expire'] < $.php.time())}
                     
-                    <p class="section__intro">Чтобы далее видеть компании, открытые для предложений о партнерстве, необходимо на услугу: <b>&laquo;Размещение курсов b2c на EDUhub&raquo;</b></p> <br><a href="{596 |url}" class="btn">Продлить подписку</a>}                 
+                    <p class="section__intro">Чтобы далее видеть компании, открытые для предложений о партнерстве, необходимо продлить подписку на услугу: <b>&laquo;Размещение курсов b2c на EDUhub&raquo;</b></p> <br><a href="{596 |url}" class="btn" target="_blank">Перейти на страницу подписки</a>                 
                         
                 {elseif $subscribeCheck['expire'] > 0}
                     
@@ -32,13 +32,13 @@
                         <input type="hidden" id="partnershipJoinOffer" value="{$partnershipJoinOffer}">
                         <label class="form__lcheck">
                             <input type="checkbox" name="policy" value="1" class="styler" id="policy" {if $partnershipJoinOffer}checked disabled{/if}>
-                            <span>С офертой ознакомлены и согласны</span>
+                            <span>С&nbsp;<a href="{1152 | url}" style="text-decoration:underline;" target="_blank;">офертой</a> ознакомлены и согласны</span>
                         </label>
                     </div>
                     {/if}
 
                     {if !$partnershipJoinOffer}
-                    <p class="section__intro">Чтобы далее видеть компании, открытые для предложений о партнерстве, необходимо присоединиться к оферте и забыть</p> <br><a href="{$_modx->resource.id |url}" class="btn">Обновить текущую страницу</a>
+                    <p class="section__intro">Чтобы далее видеть компании, открытые для предложений о партнерстве, необходимо присоединиться к оферте и не забыть обновить текущую страницу.</p>
                     {else}
                     {*<div class="ssrequest__filters">
                         <div class="ssrequest__filters-item">
@@ -115,7 +115,7 @@
                     {/if}
                 </div>
                 {else}                 
-                    <p class="section__intro">Чтобы далее видеть компании, открытые для предложений о партнерстве, необходимо на услугу: <b>&laquo;Размещение курсов b2c на EDUhub&raquo;</b></p> <br><a href="{596 |url}" class="btn">Активировать подписку</a>
+                    <p class="section__intro">Чтобы далее видеть компании, открытые для предложений о партнерстве, необходимо активировать подписку на услугу: <b>&laquo;Размещение курсов b2c на EDUhub&raquo;</b></p> <br><a href="{596 |url}#partnership" class="btn" target="_blank">Перейти  на страницу подписки</a>
                 {/if}   
             </div>
         </section><!-- lk -->

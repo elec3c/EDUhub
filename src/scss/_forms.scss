@@ -788,6 +788,7 @@ textarea.input {
             border: none;
             width: 24px;
             height: 24px;
+            border: 1px solid black;
             &.styler--transparent {
                 background: none;
                 border: 1px solid $color-body;
@@ -896,8 +897,8 @@ textarea.input {
     overflow: hidden;
     cursor: pointer;
     background: #F1F1F1;
-    border: 1px solid #F1F1F1;
-    border-radius: 16px;
+    /*border: 1px solid #F1F1F1;
+    border-radius: 16px;*/
     display: block;
     text-align: center;
     input {

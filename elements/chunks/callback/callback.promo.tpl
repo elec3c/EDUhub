@@ -3,7 +3,7 @@
         <div class="section__head">
             <h2 class="section__title"></h2>
         </div>
-        <div class="ordform__wrap blue section__lr section__pd--md">
+        <div class="ordform__wrap {$color} section__lr section__pd--md">
             <div class="XMLID ordform__XMLID-left"></div>
             <div class="XMLID ordform__XMLID-right"></div>
                 
