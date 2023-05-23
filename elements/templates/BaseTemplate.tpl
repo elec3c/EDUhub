@@ -64,7 +64,7 @@
         {include 'file:chunks/modals/confirm_phone_thank.tpl'}        
         {include 'file:chunks/modals/confirm_phone_msg.tpl'}
         {if $_modx->resource.id in [1127,1128]}
-            {include 'file:chunks/modals/partnership_join_offer_thank.tpl'}
+            {include 'file:chunks/modals/partnership_join_thank.tpl'}
         {/if}
         {if $_modx->resource.id in [803,802]}
             {include 'file:chunks/modals/tender_add.tpl'}
@@ -78,6 +78,19 @@
             {include 'file:chunks/modals/tender_money.tpl'}
             {include 'file:chunks/modals/tender_no_set_direction.tpl'}
         {/if}
+        {if $_modx->resource.parent in [1122,1123]}
+            {include 'file:chunks/modals/partnership_add.tpl'}
+            {include 'file:chunks/modals/partnership_dogovor_thank.tpl'}
+            {include 'file:chunks/modals/partnership_thank.tpl'}
+            {include 'file:chunks/modals/partnership_contact.tpl'}
+            {include 'file:chunks/modals/partnership_declain.tpl'}
+            {include 'file:chunks/modals/partnership_deny.tpl'}
+            {include 'file:chunks/modals/partnership_remove.tpl'}
+            {include 'file:chunks/modals/partnership_delete.tpl'}
+            {include 'file:chunks/modals/partnership_restore.tpl'}
+            {include 'file:chunks/modals/partnership_dogovor_terminate.tpl'}
+            {include 'file:chunks/modals/partnership_dogovor_declain.tpl'}
+        {/if}        
     {/block}
 
     {block 'scripts'}

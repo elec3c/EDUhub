@@ -1,4 +1,4 @@
-<div class="popup " data-popup="tender_remove">
+<div class="popup " data-popup="partnership_contact">
 	<div class="popup__content">
 		<div class="popup__bg popup-close"></div>
 		<div class="popup__container">
@@ -11,15 +11,19 @@
 			</a>
 			<div class="popup__body">
 				<div class="popup__head">
-                    {set $isSchool = ($_modx->user.id | ismember : ['Organization'])}				    
-                    {if $isSchool}
-					    <div class="popup__title"><b style="color:red">Тендер нельзя будет восстановить!</b><br>Вы уверены, что хотите <br> отклонить текущий тендер?</div>
-					{else}
-					    <div class="popup__title">Вы уверены, что хотите <br> отказать текущей школе в тендере?</div>
-					{/if}
+					<div class="popup__title">Контактные данные</div>
+					<div class="popup__intro">
+                        <div id="lastname"></div>
+                        <div id="name"></div>
+                        <div id="surname"></div>
+                        <div id="post"></div>
+                        <div id="email"></div>
+                        <div id="mobilephone"></div>
+                        <div id="viber"></div>
+                        <div id="telegram"></div>
+					</div>
 				</div>
-				<button class="btn btn--red w-all reject_partnership">Отклонить</button>
-				<p class="btn btn--bdred w-all popup-close">Отмена</p>
+				<p class="btn btn--bdred w-all popup-close">Закрыть</p>
 			</div>
 		</div><!--popup__container-->
 	</div>

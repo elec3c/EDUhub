@@ -1,21 +1,21 @@
 {extends 'file:templates/BaseTemplate.tpl'}
 {block 'content'}
-
     {set $user_id = $.php.intval($.get.user_id)?:$_modx->user.id}
-    
+
     <main class="content__wrapper">
-
+        
         {insert 'file:chunks/users/user.menu.tpl'}
-
+        
         <section class="lk section__mgb">
             <div class="container">
                 <div class="section__head">
                     <h2 class="section__title">Партнерские программы</h2>
                 </div>
                 
-                {include 'file:chunks/users/user.submenu.tpl' pid='1123'}
-
+                {include 'file:chunks/users/user.submenu.tpl' pid='1122'}                
+                
                 <div class="ssrequest">
+
                     {*<div class="ssrequest__filters">
                         <div class="ssrequest__filters-item">
                             <div class="ssrequest__filters-label">Фильтр по статусу</div>
@@ -38,8 +38,6 @@
                             </div> 
                         </div>
                     </div>*}
-
-
 
                     {*set $verified = $user_id | user:'verified'*}
                     {*if $verified*}
@@ -64,8 +62,8 @@
                                     'EduPartnershipResponse'=>'EduPartnershipResponse.status_id as status_id',
                                 ],
                                 'where'=>[                              
-                                    'EduPartnership.from_user_id'  => $user_id,
-                                    'EduPartnershipResponse.status_id:IN' => [1]
+                                    'EduPartnership.to_user_id'  => $user_id,
+                                    'EduPartnershipResponse.status_id:IN' => [2,4,6,7,9]
                                 ],
                                 'sortby'=>[
                                     'EduPartnership.id'=>'DESC',
@@ -82,7 +80,7 @@
                     {*/if*}     
 
 
-               
+
 
                 </div>
             </div>

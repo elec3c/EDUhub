@@ -37,7 +37,7 @@
                         {set $curr_days = $v->days}
                         {/if}
                         {if $v->active == 1}
-                            <option value="{$k}" data-days="{$v->days}" data-price="{$v->price}" {if $subscribeCheck['periodid'] == $v->days}selected{/if}>{$v->title}. Стоимость {if $v->price > 0}{$v->price | declension : 'рубль|рубля|рублей'}{else}{$v->price} рублей{/if}.</option>
+                            <option value="{$k}" data-days="{$v->days}" data-price="{$v->price}" {if $subscribeCheck['periodid'] == $v->days}selected{/if}>{$v->title} {if $v->price > 0}Стоимость {$v->price} {$v->price | declension : 'рубль|рубля|рублей'}.{else}{$v->price} рублей.{/if}</option>
                         {/if}
                         {/foreach}
                     </select>

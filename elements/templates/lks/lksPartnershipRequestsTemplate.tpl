@@ -17,7 +17,7 @@
 
                 <div class="ssrequest">
 
-                    <div class="ssrequest__filters">
+                    {*<div class="ssrequest__filters">
                         <div class="ssrequest__filters-item">
                             <div class="ssrequest__filters-label">Фильтр по статусу</div>
                             <div class="checkselect  check-select" data-placeholder="Все направления">
@@ -38,63 +38,48 @@
                                 </div>
                             </div> 
                         </div>
+                    </div>*}
+
+                    {*set $verified = $user_id | user:'verified'*}
+                    {*if $verified*}
+                    <div id="pdopage">
+                        <div class="rows">
+                            {'!pdoPage' | snippet :[
+                                'ajaxMode'=>'default',
+                                'idx'=>5,
+                                'class'=>'EduPartnership',
+                                'tvPrefix'=>'',
+                                'processTVs'=>'1',
+                                'limit'=>'10',                            
+                                'loadModels'=>'partnership',
+                                'innerJoin'=>[
+                                    'EduPartnershipResponse'=>[
+                                        'class'=>'EduPartnershipResponse',
+                                        'on'=>'EduPartnership.id = EduPartnershipResponse.partnership_id',
+                                        ],
+                                ],                                    
+                                'select'=>[
+                                    'EduPartnership'=>'*',
+                                    'EduPartnershipResponse'=>'EduPartnershipResponse.status_id as status_id',
+                                ],
+                                'where'=>[                              
+                                    'EduPartnership.from_user_id'  => $user_id,
+                                    'EduPartnershipResponse.status_id:NOT IN' => [1,2,3,4,5,6,7,8,9]
+                                ],
+                                'sortby'=>[
+                                    'EduPartnership.id'=>'DESC',
+                                ],                            
+                                'tpl'=>'@FILE chunks/lks/lks.partnership.request.block.tpl',
+                            ]?:'<p class="section__intro">Ничего не найдено</p>'}
+                        </div>
+                        <div class="section__buttons">
+                            {$_modx->getPlaceholder('page.nav')}
+                        </div>
                     </div>
-
-
-               
-                    <div class="ssrequest__item lk__wraplr section__lr js-item">
-                        <div class="ssrequest__item-4cols">
-                            <div class="ssrequest__item-4col col--company">
-                                <div class="ssrequest__item-label">Компания</div>
-                                СООО Мобильные телесистемы<br>Сотрудников - 600<br>Сфера - торговля
-                            </div>
-                            <div class="ssrequest__item-4col">
-                                <div class="ssrequest__item-label">Дата</div>
-                                15/02/2023
-                            </div>
-                            <div class="ssrequest__item-4col">
-                                <div class="ssrequest__item-label">Статус</div>
-                                отправлено
-                            </div>
-                        </div>
-
-                        <div class="ssrequest__item-4cols">
-                            <div class="ssrequest__item-4col col--category">
-                                <div class="ssrequest__item-label">Категории</div>
-                                <ul>
-                                    <li>языковые</li>
-                                    <li>айти</li>
-                                    <li>бизнес</li>
-                                    <li>продажи</li>
-                                    <li>маркетинг</li>
-                                    <li>управление персоналом</li>
-                                    <li>финансы</li>
-                                    <li>дизайн</li>
-                                </ul>
-                            </div>
-                            <div class="ssrequest__item-4col">
-                                <div class="ssrequest__item-label">Размер скидки / ед.изм</div>
-                                10%
-                                
-                                <div class="ssrequest__item-label">На что дается скидка</div>
-                                на стоимость курса
-                            </div>
-                            <div class="ssrequest__item-4col">
-                                <div class="ssrequest__item-label">Форма подписания договора</div>
-                                любой способ подписания
-                            </div>
-                            <div class="ssrequest__item-4col col--note">
-                                <div class="ssrequest__item-label">Примечание</div>
-                                <div class="ssrequest__item-note">аваптлвыатмлвтыамдльвжмаваптлвыатмлвтыамдльвжмаваптлвыатмлвтыамдльвжмаваптлвыатмлвтыамдльвжмаваптлвыатмлвтыамдльвжмаваптлвыатмлвтыамдльвжм</div>
-                            </div>
-                        </div>
-
-                        
-                        <div class="ssrequest__item-rcbuttons">
-                            <button class="btn btn--bdrred">Удалить</button>
-                        </div>
-                       
-                    </div><!--ssrequest__item-->
+                    {*else*}
+                        {*<p class="section__intro">Чтобы видеть партнерские предложения, необходима верификация Вашей компании.</p>*}
+                    {*/if*}                 
+                    
                 </div>
             </div>
         </section><!-- lk -->
