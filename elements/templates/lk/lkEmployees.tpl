@@ -25,6 +25,7 @@
                         {'!AjaxForm'|snippet:[
                             'snippet' => 'FormIt',
                             'form' => '@FILE chunks/forms/employees.form.add.tpl',
+                            'index'=> 'lkEmployeesForm',
                             'responsible' => 'partnership',
                             'prefix' => 'школам',
                             'intro' =>'Укажите контактные данные работника, с кем школы смогут вести коммуникацию <b>по вопросам партнерских программ.</b>',
@@ -38,16 +39,17 @@
                         {'!AjaxForm'|snippet:[
                             'snippet' => 'FormIt',
                             'form' => '@FILE chunks/forms/employees.form.add.tpl',
+                            'index'=> 'lkEmployeesForm',
                             'responsible' => 'tender',
                             'prefix' => 'школам',
-                            'intro' =>'Укажите контактные данные работника, с кем школы смогут вести коммуникацию <b>по вопросам коммерческих предложений.</b>',
+                            'intro' =>'Укажите контактные данные работника, с кем школы смогут вести коммуникацию <b>по вопросам участия в тендерах.</b>',
                             'hooks' => 'profileEmployeesSave',
                             'data'=> $employees,
                             'validationErrorMessage' => 'В форме содержатся ошибки!',
-                            'successMessage' => 'Контактные данные сотрудника по вопросам коммерческих предложений сохранены успешно!'
+                            'successMessage' => 'Контактные данные сотрудника по вопросам участия в тендерах сохранены успешно!'
                          ]}                          
                         
-                         {'!AjaxForm'|snippet:[
+                         {*'!AjaxForm'|snippet:[
                             'snippet' => 'FormIt',
                             'form' => '@FILE chunks/forms/employees.form.add.tpl',
                             'responsible' => 'cooperation',
@@ -57,7 +59,7 @@
                             'data'=> $employees,
                             'validationErrorMessage' => 'В форме содержатся ошибки!',
                             'successMessage' => 'Контактные данные сотрудника по вопросам сотрудничества сохранены успешно!'
-                         ]}
+                         ]*}
                         
                         
                         

@@ -13,8 +13,7 @@
                     <h2 class="section__title">Партнерские программы</h2>
                 </div>
                 
-                
-                {include 'file:chunks/users/user.submenu.tpl' pid='1122' count=$count}
+                {include 'file:chunks/users/user.submenu.tpl' pid='1122'}
 
                 {set $verified = $user_id | user:'verified'}
                 {if $verified}

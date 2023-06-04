@@ -11,7 +11,7 @@
 {set $courses = $query['courses'] | fromJSON}
 
 {if $from_user_id}    
-    <form method="post" enctype="multipart/form-data" action="[[~[[*id]]]]" class="ssrequest__item-body js-body" id="partnershipOfferFormAdd">
+    <form method="post" enctype="multipart/form-data" action="[[~[[*id]]]]" class="ssrequest__item-body js-body" id="partnershipOfferFormAdd{$to_user_id}">
         {*<input type="hidden" name="resource_id" value="{$userPageID}" />*}
         <input type="hidden" name="csrf-token" value="{$.session['csrf-token']}">
         <input type="hidden" name="nospam:blank" />
@@ -137,20 +137,26 @@
                     {set $color = 'green'}
                     <br>
                     <p>Изменение запроса недоступно:&nbsp;<b style={"color:"~$color}>{$prefix}</b></p>
+                    <div class="ssrequest__item-buttons">
+                    <button  type="button" data-form="{$to_user_id}" class="btn btn--red partnership-offer-form-reset">Отмена</button>
+                    </div>
                 {else}        
                     <div class="ssrequest__item-buttons">
                     <button class="btn btn--purple" type="submit">Изменить</button>
                     {if $partnershipData['id']}
                     <a href="{1169 | url}?delete={$partnershipData['id']}" class="btn btn--bdrred">Удалить предложение</a>
                     {/if}                    
+                    <button  type="button" data-form="{$to_user_id}" class="btn btn--red partnership-offer-form-reset">Отмена</button>
                     </div>
                 {/if}
             {else}
+            <div class="ssrequest__item-buttons">
                 {if $from_user_id && $to_user_id}
-                <div class="ssrequest__item-buttons">
                     <button class="btn btn--purple" type="submit">Создать</button>
-                </div>
                 {/if}
+                <button  type="button" data-form="{$to_user_id}" class="btn btn--red partnership-offer-form-reset">Отмена</button>
+            </div>                
+                
             {/if}
     </form>
 {else}

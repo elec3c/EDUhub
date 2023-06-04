@@ -36,7 +36,7 @@
             </div>
         <br>
         <div class="input__row">
-            <input type="text" name="fullname" class="input" value="{$fullname}" placeholder="{'office_profile_fullname' | lexicon} *" maxlength="50" required {if $isManagerOK}disabled{/if}>
+            <input type="text" name="fullname" class="input" value="{$fullname}" placeholder="{'office_profile_fullname' | lexicon} *" maxlength="50" required {if $isManagerOK || $_modx->user.urlico2}disabled{/if}>
         </div>
         <div class="input__row">
             <input type="email" name="email" name="email" class="input" value="{$email}" placeholder="{'office_profile_email' | lexicon} *" maxlength="50" required {if $isManagerOK}disabled{/if}>

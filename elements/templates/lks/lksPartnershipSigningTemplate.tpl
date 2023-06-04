@@ -65,7 +65,7 @@
                                 ],
                                 'where'=>[                              
                                     'EduPartnership.from_user_id'  => $user_id,
-                                    'EduPartnershipResponse.status_id:IN' => [1]
+                                    'EduPartnershipResponse.status_id:IN' => [1,3]
                                 ],
                                 'sortby'=>[
                                     'EduPartnership.id'=>'DESC',

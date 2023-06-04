@@ -9,6 +9,6 @@
     {include 'file:chunks/advantages/advantages.main.tpl'}
     {*{include 'file:chunks/blog/blog.main.tpl'}*}
     {*include 'file:chunks/reviews/reviews.main.tpl'*}
-    {*include 'file:chunks/callback/callback.main.tpl'*}
+    {include 'file:chunks/callback/callback.main.tpl'}
     {include 'file:chunks/faq/faq.main.tpl'}
 {/block}

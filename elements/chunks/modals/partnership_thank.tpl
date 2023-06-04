@@ -9,9 +9,15 @@
 					<path d="M13.8319 13.8299L8.17188 8.16992" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 				</svg>					
 			</a>
+			
 			<div class="popup__body">
 				<div class="popup__head">
-					<div class="popup__title">Заявка на участие в партнерской программе успешно принята Вами. <br>Желаем Вам плодотворного сотрудничества!</div>
+                    {set $isSchool = ($_modx->user.id | ismember : ['Organization'])}				    
+                    {if $isSchool}				    
+                        <div class="popup__title">Вы учавствуете в партнерской программе выбранной компании</div>
+					{else}
+					    <div class="popup__title">Чтобы скидка вступила в силу, Вам необходимо подписать соглашение о скидках с учебным центром, после чего подтвердить это на странице &laquo;На подписании&raquo;</div>
+					{/if}
 				</div>
 				<button class="btn btn--bdred w-all popup-close" onClick="window.location.reload();">Закрыть</button>
 			</div>

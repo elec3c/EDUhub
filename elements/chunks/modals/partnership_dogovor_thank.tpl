@@ -10,7 +10,7 @@
 				</svg>					
 			</a>
 			<div class="popup__body">
-				<div class="popup__title">Спасибо, что воспользовались нашими услугами.<br> Договор заключен успешно.</div>				
+				<div class="popup__title">Поздравляем с подписанием партнерского соглашения! <br> Скидки уже вступили в силу :)</div>				
 			</div>
 		</div><!--popup__container-->
 	</div>

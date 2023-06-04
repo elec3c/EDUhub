@@ -68,7 +68,7 @@
                                 'sortby'=>[
                                     'EduPartnership.id'=>'DESC',
                                 ],                            
-                                'tpl'=>'@FILE chunks/lks/lks.partnership.request.block.tpl',
+                                'tpl'=>'@FILE chunks/lk/lk.partnership.request.block.tpl',
                             ]?:'<p class="section__intro">Ничего не найдено</p>'}
                         </div>
                         <div class="section__buttons">

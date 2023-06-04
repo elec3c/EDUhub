@@ -64,13 +64,17 @@
                                 ],
                                 'where'=>[                              
                                     'EduPartnership.from_user_id'  => $user_id,
-                                    'EduPartnershipResponse.status_id:NOT IN' => [1,2,3,4,5,6,7,8,9]
+                                    'EduPartnershipResponse.status_id:IN' => [0]
                                 ],
                                 'sortby'=>[
                                     'EduPartnership.id'=>'DESC',
                                 ],                            
                                 'tpl'=>'@FILE chunks/lks/lks.partnership.request.block.tpl',
                             ]?:'<p class="section__intro">Ничего не найдено</p>'}
+
+
+                    
+
                         </div>
                         <div class="section__buttons">
                             {$_modx->getPlaceholder('page.nav')}

@@ -1,12 +1,13 @@
 {extends 'file:templates/BaseTemplate.tpl'}
 {block 'content'}
     {set $user_id = $.php.intval($.get.user_id)?:$_modx->user.id}
+    {set $isCompany = ($user_id | ismember : ['Corporate'])}
     <main class="content__wrapper">
         {insert 'file:chunks/users/user.menu.tpl'}
         <section class="lk section__mgb">
             <div class="container">
                 <div class="section__head">
-                    <h2 class="section__title">Профиль пользователя</h2>
+                    <h2 class="section__title">{if $isCompany}Профиль компании {$user_id | user:'fullname'}{else}Профиль пользователя{/if}</h2>
                 </div>
                 
                 {if $_modx->user.fizlico || $_modx->user.urlico}

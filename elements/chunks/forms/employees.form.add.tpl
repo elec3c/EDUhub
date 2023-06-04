@@ -4,7 +4,7 @@
     {set $r = []}
 {/if}
 
-<form class="employees__form" action="[[~[[*id]]]]" method="post" enctype="multipart/form-data" id="employeesForm">
+<form class="employees__form" action="[[~[[*id]]]]" method="post" enctype="multipart/form-data" id="{$index}">
 
     <input name="responsible" type="hidden" value="{$responsible}">
     <input type="hidden" name="csrf-token" value="{$.session['csrf-token']}">
@@ -16,24 +16,24 @@
         <div class="hide-tablet-sm">Показывать {$prefix}</div>
     </div>
     <div class="employees__form-row">
-        <input type="text" name="lastname" class="input" placeholder="Фамилия*" value="{$r['lastname']}">
-        <div class="input__row-check"><input type="checkbox" name="show_lastname" value="1" class="styler" {if $r['show_lastname']}checked{/if} required></div>
+        <input type="text" name="lastname" class="input" placeholder="Фамилия*" value="{$r['lastname']}" required>
+        <div class="input__row-check"><input type="checkbox" name="show_lastname" value="1" class="styler" {if $r['show_lastname']}checked{/if}></div>
     </div>
     <div class="employees__form-row">
-        <input type="text" name="name" class="input" placeholder="Имя*" value="{$r['name']}">
-        <div class="input__row-check"><input type="checkbox" name="show_name" value="1" class="styler" {if $r['show_name']}checked{/if} required></div>
+        <input type="text" name="name" class="input" placeholder="Имя*" value="{$r['name']}" required>
+        <div class="input__row-check"><input type="checkbox" name="show_name" value="1" class="styler" {if $r['show_name']}checked{/if}></div>
     </div>
     <div class="employees__form-row">
-        <input type="text" name="surname" class="input" placeholder="Отчество" value="{$r['surname']}">
+        <input type="text" name="surname" class="input" placeholder="Отчество*" value="{$r['surname']}" required>
         <div class="input__row-check"><input type="checkbox" name="show_surname" value="1" class="styler" {if $r['show_surname']}checked{/if}></div>
     </div>
     <div class="employees__form-row">
-        <input type="text" name="post" class="input" placeholder="Должность" value="{$r['post']}">
+        <input type="text" name="post" class="input" placeholder="Должность*" value="{$r['post']}" required>
         <div class="input__row-check"><input type="checkbox" name="show_post" value="1" class="styler" {if $r['show_post']}checked{/if}></div>
     </div>
     <div class="employees__form-row">
-        <input type="email" name="email" class="input" placeholder="Электронная почта*" value="{$r['email']}">
-        <div class="input__row-check"><input type="checkbox" name="show_email" value="1" class="styler" {if $r['show_email']}checked{/if} required></div>
+        <input type="email" name="email" class="input" placeholder="Электронная почта*" value="{$r['email']}" required>
+        <div class="input__row-check"><input type="checkbox" name="show_email" value="1" class="styler" {if $r['show_email']}checked{/if}></div>
     </div>
     <div class="employees__form-row">
         <input type="tel" name="mobilephone" class="input phone-mask" placeholder="Мобильный телефон*" value="{$r['mobilephone']}" minlength="12" maxlength="17" maxlength="50" required>

@@ -50,9 +50,9 @@
             <div class="choose__inputs-item w-210">
                 {include 'file:chunks/forms/fields/fields.courses.continue.tpl' style='styler--white' hide=1}
             </div>
-            {*<div class="choose__inputs-item w-210">
-                include 'file:chunks/forms/fields/fields.courses.data_from.tpl' style='styler--white'
-            </div>*}
+            <div class="choose__inputs-item w-210">
+                {include 'file:chunks/forms/fields/fields.courses.data_from.tpl' style='styler--white'}
+            </div>
         </div>
         
         
@@ -139,9 +139,9 @@
             <div class="choose__inputs-item w-210">
                 {include 'file:chunks/forms/fields/fields.courses.continue.tpl' style='styler--white' hide=1}
             </div>            
-            {*<div class="choose__inputs-item w-210">
-                include 'file:chunks/forms/fields/fields.courses.data_from.tpl' style='styler--white'
-            </div>*}
+            <div class="choose__inputs-item w-210">
+                {include 'file:chunks/forms/fields/fields.courses.data_from.tpl' style='styler--white'}
+            </div>
         </div>
         <div class="choose__block">
             <div class="choose__inputs">

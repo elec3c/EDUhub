@@ -10,8 +10,9 @@
 
 <div class="cgcourse rollup-box">
     <div class="cghead leads__header lk__wraplr section__lr">
-        <div class="cgtitle">
-            <a href="{$schoolsPageID | url}?partnership_id={$id}">Заявка №&nbsp;{$id}&nbsp; / {$from_user_id | user : 'fullname'} / [<b style={"color:"~$color}>{$prefix}</b>]</a>
+        <div class="title">
+            {set $fullname = $from_user_id|user:'fullname'}
+            <a href="{$schoolsPageID | url}?partnership_id={$id}">{if $date_create}{$date_create|date_format:"%d.%m.%Y"}&nbsp;{/if}{if $fullname}{$fullname}{/if}&nbsp;[<b style={"color:"~$color}>{$prefix}</b>]</a>
         </div>
         <a href="#" class="link__more rollup-toggle" style="display:block;">
             <span class="open_t">Свернуть</span><span class="close_t">Развернуть</span>
@@ -24,14 +25,14 @@
                         
 
 <div class="pprequest">
-                    <div class="pprequest__head">
+                    {*<div class="pprequest__head">
                         <div class="pprequest__date">{$date_create|date_format:'%d/%m/%Y'?:'-'}</div>    
                         {if $schoolsPageID}
                         <div class="pprequest__name"><a href="{$schoolsPageID | url}" style="text-decoration:underline;">{$from_user_id | user : 'fullname'}</a></div>
                         {else}
                         <div class="pprequest__name">{$from_user_id | user : 'fullname'}</div>
                         {/if}                        
-                    </div>
+                    </div>*}
                     <div class="pprequest__item lk__wraplr section__lr">
                         <div class="pprequest__item-col">
                             <div class="pprequest__item-prop">
@@ -100,7 +101,9 @@
                                             {'!getValuesTV' | snippet : ['exclude'=>$aExclude, 'tvid'=>'115', 'curr'=>$agreement]}
                                         </select>
                                     </div>
-                                    <input class="btn btn--green w-all accept-partnership" data-id="{$id}" data-user="{$to_user_id}" {if $agreement=='agreement_public_offer'}data-status="3"{else}data-status="1"{/if} id="btnPartnershipAgreement" {if $agreement=='agreement_public_offer'}value="Заключить догоров"{else}value="Принять"{/if}/>
+                                    {if !($status_id in [2,6,7,9])}                                    
+                                    <button class="btn btn--green w-all accept-partnership" data-id="{$id}" data-user="{$to_user_id}" {if $agreement=='agreement_public_offer'}data-status="3"{else}data-status="1"{/if} id="btnPartnershipAgreement">{if $agreement=='agreement_public_offer'}Заключить догоров{else}Принять{/if}</button>
+                                    {/if}
                                 </div>
                             </div>
                         </div>
@@ -108,13 +111,11 @@
                             
                             {include 'file:chunks/partnership/partnership.contact.btn.tpl' user_id=$from_user_id responsible='partnership'}
                             
-                            {if $status_id != 2}
+                            {if !($status_id in [2,6,7,9])}
                             <button class="btn btn--red  reject-partnership" data-id="{$id}" data-user="{$to_user_id}" data-status="2">Отклонить</button>
                             {/if}
-                         </div>
+                        </div>
                     </div>
                 </div>
-                
-    </div>
+        </div>
 </div>
-                

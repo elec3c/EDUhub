@@ -2,7 +2,7 @@
 {if $query}
 <div class="cgcourse rollup-box">
     <div class="cghead">
-        <div class="cgtitle">Запрос от {$user_id | user : 'fullname'} - создан {$date|dateAgo:'{"dateNow":0, "dateFormat":"d F Y H:i"}'}</div>
+        <div class="cgtitle">Запрос от {$date|dateAgo:'{"dateNow":0, "dateFormat":"d F Y H:i"}'}</div>
             <a href="#" class="link__more rollup-toggle">
             <span class="open_t">Свернуть</span><span class="close_t">Развернуть</span>
         </a>

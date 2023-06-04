@@ -80,6 +80,8 @@
         {/if}
         {if $_modx->resource.parent in [1122,1123]}
             {include 'file:chunks/modals/partnership_add.tpl'}
+            {include 'file:chunks/modals/partnership_dogovor_wait.tpl'}
+            {include 'file:chunks/modals/partnership_dogovor_add.tpl'}
             {include 'file:chunks/modals/partnership_dogovor_thank.tpl'}
             {include 'file:chunks/modals/partnership_thank.tpl'}
             {include 'file:chunks/modals/partnership_contact.tpl'}

@@ -4,11 +4,7 @@
     {set $user_id = $.php.intval($.get.user_id)?:$_modx->user.id}
     
     {set $user_id = $.php.intval($.get.user_id)?:$_modx->user.id}
-    {set $count = '!getStatusCountPartnership' | snippet :[
-        'school_id'=>$user_id,
-        'status_ids'=>[3]
-    ]}    
-    
+
     <main class="content__wrapper">
         {insert 'file:chunks/users/user.menu.tpl'}
         <section class="lk section__mgb">
@@ -17,7 +13,7 @@
                     <h2 class="section__title">Партнерские программы</h2>
                 </div>
                 
-                {include 'file:chunks/users/user.submenu.tpl' pid='1122' count=$count}
+                {include 'file:chunks/users/user.submenu.tpl' pid='1122'}
 
                     <div class="ppcontracts">
                         <div class="ppcontracts__head ppcontracts__rcols">
@@ -72,7 +68,7 @@
                                             ],
                                             'where'=>[                              
                                                 'EduPartnership.to_user_id'  => $user_id,
-                                                'EduPartnershipResponse.status_id:IN' => [3,5]
+                                                'EduPartnershipResponse.status_id:IN' => [5]
                                             ],
                                             'sortby'=>[
                                                 'EduPartnership.id'=>'DESC',

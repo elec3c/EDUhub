@@ -15,6 +15,7 @@
                 tv|course_city,
                 tv|course_region,
                 tv|course_metro,
+                tv|data_from,
                 tv|course_continue
 '}
 

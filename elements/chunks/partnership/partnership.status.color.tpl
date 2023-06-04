@@ -9,12 +9,12 @@
         {set $prefix = "отклонена"}
     {case 3}
         {set $date = ''}
-        {set $status = "Заключение договора компанией"}
+        {set $status = "Подтвержждение заключения договора компанией"}
         {set $color = "green"}
         {if $date_start}
         {set $date = $date_start | dateAgo:'{"dateNow":0, "dateFormat":"d F Y"}'}
         {/if}        
-        {set $prefix = "заключен договор "~$date}
+        {set $prefix = "подтвержден договор "~$date}
     {case 4}
         {set $status = "Заявка отклонена школой"}
         {set $color = "black"}

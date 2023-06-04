@@ -35,7 +35,7 @@
     {set $agreement = 1}
 {/if}
 
-{if $fullname}
+{if $fullname && $partnership_join}
 
 
 

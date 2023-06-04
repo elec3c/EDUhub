@@ -23,8 +23,9 @@
 
 <div class="cgcourse rollup-box">
     <div class="cghead leads__header lk__wraplr section__lr">
-        <div class="cgtitle">
-            <a href="{$schoolsPageID | url}?partnership_id={$id}">Заявка №&nbsp;{$id}&nbsp; / {$from_user_id | user : 'fullname'} / [<b style={"color:"~$color}>{$prefix}</b>]</a>
+        <div class="title">
+            {set $fullname = $from_user_id|user:'fullname'}
+            <a href="{$schoolsPageID | url}?partnership_id={$id}">{if $date_create}{$date_create|date_format:"%d.%m.%Y"}&nbsp;{/if}{if $fullname}{$fullname}{/if}&nbsp;[<b style={"color:"~$color}>{$prefix}</b>]</a>
         </div>
         <a href="#" class="link__more rollup-toggle" style="display:block;">
             <span class="open_t">Свернуть</span><span class="close_t">Развернуть</span>
@@ -33,7 +34,7 @@
     <div class="rollup-tab">
         
         <div class="ssrequest__item lk__wraplr section__lr js-item">
-                        <div class="ssrequest__item-4cols">
+                        {*<div class="ssrequest__item-4cols">
                             <div class="ssrequest__item-4col col--company">
                                 <div class="ssrequest__item-label">Компания</div>
                                 {if $schoolsPageID}
@@ -51,7 +52,7 @@
                                 <div class="ssrequest__item-label">Статус</div>
                                 <b style={"color:"~$color}>{$status}</b>
                             </div>
-                        </div>
+                        </div>*}
 
                         <div class="ssrequest__item-4cols">
                             <div class="ssrequest__item-4col col--category">
@@ -95,9 +96,14 @@
                         <div class="pprequest__item-buttons">
                             
                             {include 'file:chunks/partnership/partnership.contact.btn.tpl' user_id=$from_user_id responsible='partnership'}
-                            
                             {if $status_id != 2}
                             <button class="btn btn--red  reject-partnership" data-id="{$id}" data-user="{$to_user_id}" data-status="2">Отклонить</button>
+                            {/if}
+                            
+                            {if ($status_id in [1]) && (trim($query['agreement']) == 'agreement_paper')}
+                                <button class="btn btn--purple f-all accept-partnership" data-id="{$id}" data-user="{$to_user_id}" data-status="3"><span>Подтвердить <span class="nowrap">подписание договора</span></span></button>
+                            {elseif $status_id in [3]}
+                                <button class="btn btn--more"><span>Договор подписан Вами</span></button>
                             {/if}
                          </div>
                        
