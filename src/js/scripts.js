@@ -715,6 +715,22 @@ $(function () {
 		$(this).addClass('disabled').parents('.js-item').find('.js-body').slideToggle();
 	});
 
+	$('.js-type-sale-partner').change(function(e) {
+		e.preventDefault();
+
+		let tab_name = $(this).attr('data-tab'),
+			tabs = $(this).parents('.js-body');
+			
+		$(tabs).find('.js-type-sale-partner-tab').removeClass("active").fadeOut(300).promise().done(function () {
+
+			let ct = $(tabs).find('.js-type-sale-partner-tab[data-tab*=' + tab_name + ']');
+			$(ct).addClass("active").fadeIn(300);
+
+
+		});
+	});
+	$('.js-type-sale-partner[data-tab=1]').click();
+
 	/**************************************************************
 	Переписка
 	**************************************************************/

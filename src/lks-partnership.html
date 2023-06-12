@@ -94,6 +94,158 @@
                         <div class="ssrequest__item-col  ssrequest__item-col--buttons hide-desktop"></div>
                     </div>
 
+                    <div class="ssrequest__item pd0 lk__wraplr section__lr js-item">
+                        <div class="ssrequest__item-head">
+                            <div class="ssrequest__item-col">
+                                <div class="ssrequest__item-label show-tablet">Компании, открытые <br> для предложений <br class="hide-tablet-sm">о партнерстве</div>
+                                Компания `+i+`
+                            </div>
+                            <div class="ssrequest__item-col">
+                                <div class="ssrequest__item-label show-tablet">Сфера дейтельности</div>
+                                Компания `+i+`
+                            </div>
+                            <div class="ssrequest__item-col">
+                                <div class="ssrequest__item-label show-tablet">Количество сотрудников компании</div>
+                                Компания `+i+`
+                            </div>
+                            <div class="ssrequest__item-col ssrequest__item-col--status">
+                                <div class="ssrequest__item-label show-tablet">Статус</div>
+                                предложение не отправлено
+                            </div>
+                            <div class="ssrequest__item-col ssrequest__item-col--buttons">
+                                <button class="btn js-toggle-proposal w-all">Добавить предложение</button>
+                            </div>
+                        </div>
+
+                        <form method="post" action="" class="ssrequest__item-body js-body">
+                            <input name="controll" class="no-display" type="text"> 
+
+                            <div class="ssrequest__item-label">Выберите способ подписания договора</div>
+                            <div class="ssrequest__item-method">
+                                <div class="ssrequest__item-method__sel">
+                                    <select name="" class="styler styler--white">
+                                        <option value="Публичная оферта">Публичная оферта</option>
+                                        <option value="Бумажный носитель">Бумажный носитель</option>
+                                    </select>
+                                </div>
+                                <div class="ssrequest__item-method__date">
+                                    <div class="ssrequest__item-label">Дата</div>
+                                    15/02/2023
+                                </div>
+                                
+                                <div class="ssrequest__item-method__types">
+                                    <label class="form__lcheck">
+                                        <input type="radio" name="types" value="same" checked class="styler styler--check js-type-sale-partner" data-tab="1">
+                                        <span>Одинаковая скидка на все курсы</span>
+                                    </label>
+                                    <label class="form__lcheck">
+                                        <input type="radio" name="types" value="diff" class="styler styler--check js-type-sale-partner" data-tab="2">
+                                        <span>Разные скидки на разные курсы</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="ssrequest__item-types show active js-type-sale-partner-tab" data-tab="1">
+                                <div class="ssrequest__item-types__row">
+                                    <div class="ssrequest__item-types__col">
+                                        <div class="ssrequest__item-label">Описание размера и условий предоставления скидок</div>
+                                        <textarea name="letter" class="input input--white" placeholder="">Указание размера скидки обязательно. Например: Скидка 15% на занятия в группах по направлению "Дизайн". Скидка 10% на IT-курсы. Скидка на индивидуальное обучение по любым напарвлениям - 20%.</textarea>
+                                    </div>
+                                    <div class="ssrequest__item-types__col">
+                                        <div class="ssrequest__item-label hide-tablet-sm">&nbsp;</div>
+                                        <input type="text" class="input input--white" placeholder="Введите значение">
+                                    </div>
+                                    <div class="ssrequest__item-types__col">
+                                        <div class="ssrequest__item-label hide-tablet-sm">Ед. изм.</div>
+                                        <select name="" class="styler styler--white place-mob" data-placeholder="Ед. измерения скидки">
+                                            <option value=""></option>
+                                            <option value="$">$</option>
+                                            <option value="BYN">BYN</option>
+                                        </select>
+                                        
+                                    </div>
+                                    <div class="ssrequest__item-types__col">
+                                        <div class="ssrequest__item-label">На что дается скидка</div>
+                                        <select name="" class="styler styler--white">
+                                            <option value="Стоимость курса">Стоимость курса</option>
+                                            <option value="Стоимость курса">Стоимость курса</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ssrequest__item-types js-type-sale-partner-tab" data-tab="2">
+                                <div class="ssrequest__item-types__row">
+                                    <div class="ssrequest__item-types__col">
+                                        <div class="ssrequest__item-label hide-tablet">&nbsp;</div>
+                                        <div class="ssrequest__item-types__name">Английский язык для IT-специалистов, курс на 10 месяцев</div>                                        
+                                    </div>
+                                    <div class="ssrequest__item-types__col">
+                                        <div class="ssrequest__item-label hide-tablet-sm">&nbsp;</div>
+                                        <input type="text" class="input input--white" placeholder="Введите значение">
+                                    </div>
+                                    <div class="ssrequest__item-types__col">
+                                        <div class="ssrequest__item-label hide-tablet-sm">Ед. изм.</div>
+                                        <select name="" class="styler styler--white place-mob" data-placeholder="Ед. измерения скидки">
+                                            <option value=""></option>
+                                            <option value="$">$</option>
+                                            <option value="BYN">BYN</option>
+                                        </select>
+                                        
+                                    </div>
+                                    <div class="ssrequest__item-types__col">
+                                        <div class="ssrequest__item-label">На что дается скидка</div>
+                                        <select name="" class="styler styler--white">
+                                            <option value="Стоимость курса">Стоимость курса</option>
+                                            <option value="Стоимость курса">Стоимость курса</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                @@for (var i = 1; i <= 3; i++) {
+                                <div class="ssrequest__item-types__row">
+                                    <div class="ssrequest__item-types__col">
+                                        <div class="ssrequest__item-types__name">Английский язык для IT-специалистов, курс на 10 месяцев</div>                                        
+                                    </div>
+                                    <div class="ssrequest__item-types__col">
+                                        <div class="ssrequest__item-label show-desktop hide-tablet-sm">&nbsp;</div>
+                                        <input type="text" class="input input--white" placeholder="Введите значение">
+                                    </div>
+                                    <div class="ssrequest__item-types__col">
+                                        <div class="ssrequest__item-label show-desktop hide-tablet-sm">Ед. изм.</div>
+                                        <select name="" class="styler styler--white place-mob" data-placeholder="Ед. измерения скидки">
+                                            <option value=""></option>
+                                            <option value="$">$</option>
+                                            <option value="BYN">BYN</option>
+                                        </select>
+                                        
+                                    </div>
+                                    <div class="ssrequest__item-types__col">
+                                        <div class="ssrequest__item-label show-desktop">На что дается скидка</div>
+                                        <select name="" class="styler styler--white">
+                                            <option value="Стоимость курса">Стоимость курса</option>
+                                            <option value="Стоимость курса">Стоимость курса</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                }
+
+                                <div class="ssrequest__item-types__bottom">
+                                    <div class="ssrequest__item-label">Описание размера и условий предоставления скидок</div>
+                                        <textarea name="letter" class="input input--white" placeholder="">Указание размера скидки обязательно. Например: Скидка 15% на занятия в группах по направлению "Дизайн". Скидка 10% на IT-курсы. Скидка на индивидуальное обучение по любым напарвлениям - 20%.</textarea>
+                                </div>
+                            </div>
+                          
+                            <div class="ssrequest__item-irow">
+                                <div class="ssrequest__item-label">Сопроводительное письмо для компании-партнера</div>
+                                <textarea name="letter" class="input input--white height-input" placeholder="Например: При возникновении вопросов вы можете связаться с менеджером нашей школы по тел. +375 (ХХ) ХХХ-ХХ-ХХ"></textarea>
+                            </div>
+
+                            <div class="ssrequest__item-buttons">
+                                <button class="btn btn--purple">Отправить</button>
+                                <button class="btn btn--bdrred">Отмена</button>
+                            </div>
+                        </form>
+                    </div><!--ssrequest__item-->
+
                     @@for (var i = 1; i <= 3; i++) {
                     <div class="ssrequest__item pd0 lk__wraplr section__lr js-item">
                         <div class="ssrequest__item-head">
@@ -176,8 +328,8 @@
                                 <div class="ssrequest__item-icol">
                                     <div class="ssrequest__item-label ssrequest__item-label--empty">&nbsp;</div>
                                     <select name="" class="styler styler--white">
-                                        <option value="Публичная оферта">Ед. измерения скидки</option>
-                                        <option value="Бумажный носитель">Ед. измерения скидки</option>
+                                        <option value="$">Ед. измерения скидки</option>
+                                        <option value="BYN">Ед. измерения скидки</option>
                                     </select>
                                 </div>
                                 <div class="ssrequest__item-icol">

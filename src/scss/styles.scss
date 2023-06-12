@@ -6087,6 +6087,61 @@ pagination
             }
         }
 
+        &-method {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            &__sel {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 330px;
+            }
+            &__date {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                > * {
+                    margin: 0;
+                }
+            }
+            &__types {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px 30px;
+                > * {
+                    margin: 0;
+                }
+            }
+        }
+        &-types {
+            display: none;
+            margin-bottom: 20px;
+            &.show {
+                display: block;
+            }
+            &__row {
+                display: grid;
+                grid-template-columns: 1fr 200px 120px 200px;
+                grid-gap: 10px;
+                & + & {
+                    margin-top: 10px;
+                }
+            }
+            &__col:first-child {
+                padding-right: 10px;
+            }
+            &__name {
+                min-height: 56px;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+            &__bottom {
+                margin-top: 40px;
+            }
+        }
     }
 
     @media (max-width: $md-desktop) {
@@ -6135,6 +6190,23 @@ pagination
                 }
                 .f-all {
                     flex: 1 0 0;
+                }
+            }
+            &-types {
+                margin-bottom: 40px;
+                &__row {
+                    grid-template-columns: 1fr 120px 200px;
+                    & + & {
+                        margin-top: 30px;
+                    }
+                }
+                &__col:first-child {
+                    padding-right: 0;
+                    grid-column: span 3;
+                    margin-bottom: 10px;
+                }
+                &__name {
+                    min-height: 1px;
                 }
             }
         }
@@ -6186,6 +6258,7 @@ pagination
                     min-width: calc( (100% - 80px) / 2);
                 }
             }
+            
         }
     }
     @media (max-width: $md-tablet-sm) {
@@ -6258,6 +6331,31 @@ pagination
                     flex: 0 0 auto;
                 }
             }
+            
+            &-method {
+                gap: 20px;
+                margin-bottom: 30px;
+                &__types {
+                    gap: 10px 20px;
+                }
+            }
+            &-types {
+                margin-bottom: 20px;
+                &__row {
+                    grid-template-columns: 1fr;
+                }
+                &__col:first-child {
+                    grid-column: initial;
+                    margin-bottom: 0;
+                }
+                &__col:last-child {
+                    margin-top: 10px;
+                }
+                &__bottom {
+                    margin-top: 30px;
+                }
+            }
+
         }
     }
 }

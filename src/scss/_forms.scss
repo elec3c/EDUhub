@@ -380,6 +380,9 @@ textarea.input {
     & .placeholder {
         color: #7D7D7D;
     }
+    &.place-mob .placeholder {
+        color: transparent;
+    }
     &__trigger {
         position: absolute;
         top: 50%;
@@ -451,6 +454,12 @@ textarea.input {
         color: #FFF;
     }
 
+    @media (max-width: $md-tablet-sm) {
+            
+        & .placeholder {
+            color: #7D7D7D !important;
+        }
+    }
 }
 
 
@@ -622,7 +631,7 @@ textarea.input {
     width: 20px;
     height: 20px;
     position: relative;
-    transition: border 0.3s ease-in-out;
+    transition: border 0.2s ease-in-out;
 	cursor: pointer;
 
     &__div {
@@ -663,7 +672,7 @@ textarea.input {
     height: 20px;
     position: relative;
 	cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
     &__div {
         // position: absolute;
         // left: 0; top: 0;
@@ -692,6 +701,17 @@ textarea.input {
         border-radius: 100px;
     }
 
+    &.styler--check {
+        border-radius: 6px;
+    }
+    &.styler--check.checked {
+        background-image: url(../images/icons/check-small.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    &.styler--check.checked &__div {
+        background: none;
+    }
 }
 
 
