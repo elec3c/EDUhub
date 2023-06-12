@@ -1,0 +1,1 @@
+<input type="text" name="date_deadline" placeholder="Дата дедлайна" class="input input--date datepicker-input" value="[[+fi.date_deadline]]" {if $req==1}required{/if}>

@@ -5,7 +5,8 @@
             <option value=""></option>
             {'!pdoResources' | snippet : [
                 'parents'=>'61',
-                'depth'=> 0,
+                'depth'=>0,
+                'limit'=>0,
                 'includeTVs'=>'course_group_title, course_owner',
                 'tpl'=>'@CODE <option value="{$id}">{$_pls["tv.course_group_title"]?:$pagetitle}</option>{$wrapper}',
                 'where'=>["course_owner"=>$_modx->user.id]

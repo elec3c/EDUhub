@@ -35,7 +35,7 @@
         </div>
       </div>
       <div class="footer__col footer__col--right">
-        <button class="btn w-all" data-open-popup="call">Заказать звонок</button>
+        {*<button class="btn w-all" data-open-popup="call">Заказать звонок</button>*}
       </div>
     </div>
 

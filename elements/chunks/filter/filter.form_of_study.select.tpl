@@ -2,7 +2,11 @@
 <div class="choose__inputs-item"> 
 <select name="form_of_study" data-placeholder="{$caption}" class="styler" {if $req==1}required{/if} id="form_of_study">
 <option value=""></option>
-	[[!getValuesTV? &tvid=`25` &curr=`[[+fi.form_of_study]]` &chained=`offline`]]
+    {if $.get.form_of_study}
+        {'!getValuesTV' | snippet: ['tvid' => '25', 'chained'=>'offline', 'curr'=>'{$.get.form_of_study}']}
+    {else}
+        [[!getValuesTV?  &tvid = `25` &chained=`offline` &curr = `[[+fi.form_of_study]]`]]
+    {/if}
 </select>
 </div>
 

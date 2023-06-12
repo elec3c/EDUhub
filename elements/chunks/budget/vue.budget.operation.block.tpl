@@ -1,2 +1,2 @@
-{title: "[[+unp]]", price: "[[+sum]]", data: "[[+date]]"},
+{username: "[[+username]]", title: "[[+unp]]", price: "[[+sum]]", data: "[[+date]]"},
 

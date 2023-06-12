@@ -1,5 +1,6 @@
 {extends 'file:templates/BaseTemplate.tpl'}
 {block 'content'}
+    {set $user_id = $.php.intval($.get.user_id)?:$_modx->user.id}
     <main class="content__wrapper">
         
         {insert 'file:chunks/users/user.menu.tpl'}
@@ -40,7 +41,7 @@
                             'innerJoin'=>[
                                 'PromoCodeItem'=>[
                                     'class'=>'PromoCodeItem',
-                                    'on'=>'modResource.id = PromoCodeItem.groupId and PromoCodeItem.userId='~$_modx->user.id,
+                                    'on'=>'modResource.id = PromoCodeItem.groupId and PromoCodeItem.userId='~$user_id,
                                 ],
                             ],
                             'leftJoin'=>[
@@ -67,18 +68,43 @@
                                 <div class="sale__item">
                                     <div class="lk__wraplr sale__item-wrap section__lr">
                                         <div class="sale__item-col sale__item-photo">
-                                            {if $photo}<img src="{$photo}" alt="">{/if}
+                                            {set $course_address = $_modx->runSnippet("pdoField", ["field" => "course_address", "id"=>$res_id])}
+                                            {set $course_owner = $_modx->runSnippet("pdoField", ["field" => "course_owner", "id"=>$res_id])}
+                                            {set $addr = $_modx->runSnippet("getListCities", ["name"=>"address", "uid"=>$course_address, "arr"=>1, "index"=>1])}
+                                            {include "file:chunks/courses/courses.block.photo.tpl" user_id=$course_owner}
                                         </div>
                                         <div class="sale__item-col sale__item-info">
-                                            <h3 class="sale__item-title"><a href="{$res_id | url}">{$pagetitle}</a></h3>
+                                            <h3 class="sale__item-title"><a href="{$res_id | url}">{$pagetitle}-{$course_owner}</a></h3>
                                             <ul class="sale__item-list listinf">
                                                 <li class="sale__item-training online">{if $form_of_study==\'offline\'}Офлайн{else}Онлайн{/if}-обучение</li>
-                                                {if $course_city}    
+                                                {if $course_address && $addr[$course_address]}    
                                                 <li class="listinf__flex">
                                                     <div class="listinf__icon"><img src="/assets/images/icons/location.svg" alt=""></div> 
-                                                    <div class="listinf__str">{$course_city}</div>
+                                                    <div class="listinf__str">{$addr[$course_address]}</div>
                                                 </li>
                                                 {/if}
+                                                
+                                                {if $course_address}
+                                                {set $a =  $modx->runSnippet("getListCities", ["name"=>"city,district,metro", "uid"=>$course_address, "arr"=>1, "index"=>1])}
+                                                {set $city_lat = ($res_id | resource: "course_city")}
+                                                {set $region_lat = ($res_id | resource: "course_region")}
+                                                {set $metro_lat = ($res_id | resource: "course_metro")}
+                                                
+                                                {set $city = $_modx->runSnippet("getListCities", ["name" => "city", "arr"=>1])}
+                                                {set $region = $_modx->runSnippet("getListCities", ["name" => "districts", "arr"=>1, "city"=>$city[$city_lat]])}
+                                                {set $metro = $_modx->runSnippet("getListCities", ["name" => "metro", "arr"=>1])}
+                                            
+                                                <li class="listinf__flex">
+                                                    <div class="listinf__icon"><img src="/assets/images/icons/location.svg" alt=""></div> 
+                                                    <div class="listinf__str">{$course_address}{if $.php.is_array($city) && $city[$city_lat]}г. {$city[$city_lat]}{/if}{if $.php.is_array($region) && $region[$region_lat]}, район
+                                                        {$region[$region_lat]}{/if}{if $.php.is_array($metro) && $metro[$metro_lat]}, метро {$metro[$metro_lat]}{/if}
+                                                        {if !$city[$city_lat] && !$region[$region_lat] && $metro[$metro_lat]}
+                                                            {$course_address}
+                                                        {/if}
+                                                    </div>
+                                                </li>                                                
+                                                {/if}                    
+                                                
                                                 {if $website}
                                                 <li>
                                                     <a href="{$website}" class="listinf__flex">
@@ -104,7 +130,9 @@
                                             </div>
                                             <div class="sale__item-col sale__item-date">
                                                 <div class="sale__item-label">Срок действия</div>
-                                                {$created~" +28 days" | strtotime | date : "d.m.Y"}
+                                                {set $created_timestamp = $created | date : "Y-m-d" |strtotime}
+                                                {set $data_to = $.php.strtotime("+28 days", $created_timestamp)}
+                                                до {$data_to | date : "d.m.Y"}
                                             </div>
                                         </div>
                                         {if $active and empty($deal) and empty($deleted)}
@@ -120,10 +148,11 @@
                                     </div>
                                 </div>
                             '
-                        ]}
+                        ]?:'<p class="section__intro">Вы еще не получали ни одной скидки</p>'}
                     </div>
-                    <p>&nbsp;</p>
-                    {'page.nav' | placeholder}
+                    <div class="section__buttons">
+                        {'page.nav' | placeholder}
+                    </div>
                 </div>
 
             </div>

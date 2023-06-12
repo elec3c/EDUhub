@@ -5,7 +5,7 @@
     
     <div class="leads__item lk__wraplr section__lr">
         {if $name}
-        <div class="leads__item-name show-desktop-sm">{$name}</div>
+        <div class="leads__item-name show-desktop-sm">{$user_id | user:'fullname'}</div>
         
 
         <div class="leads__item-col col--first">
@@ -13,11 +13,12 @@
         </div>
         {/if}
 
-        <div class="leads__item-col hide-desktop-sm">
+        <div class="leads__item-col hide-desktop-sm" style="text-align:left;">
             <div class="leads__item-prop">
                 <div class="leads__item-prop__label">Группа</div>
                 {if $group_id > 0}
-                    <a href="{$modx->makeUrl($group_id)}">Смотреть</a>
+                    {set $pagetitle = $group_id | resource : 'pagetitle'}
+                    <a href="{$modx->makeUrl($group_id)}">{$group_id | resource : 'course_group_title'?:$pagetitle}</a>
                 {/if}
             </div>
         </div>
@@ -26,23 +27,32 @@
         <div class="leads__item-col">
             <div class="leads__item-prop">
                 <div class="leads__item-prop__label">Телефон</div>
-                {set $status = $_modx->runSnippet('!callCheckBuy', [
+                {*set $status = $_modx->runSnippet('!callCheckBuy', [
                     'user_id'      => $user_id, 
                     'group_id'     => $group_id,
                     'school_id'    => $school_id
-                ])}
-
-                {if ($status == 1)}
-                    <a href="tel:{$phone | clearphone}">{$phone}</a>
-                {elseif ($status == 2)}                    
-                    <i>Пользователь выбрал другую школу</i>
+                ])*}
+                {set $mobilephone = $user_id | user:'mobilephone'}
+                {set $confirm_phone = $user_id | user:'confirm_phone'}
+                {*if ($status == 1)*}
+                {if $confirm_phone}
+                    <a href="tel:{$confirm_phone | clearphone}">{$confirm_phone}</a>
+                {elseif $mobilephone}
+                    <a href="tel:{$mobilephone | clearphone}">{$mobilephone}</a>}
+                {elseif $phone}
+                    <a href="tel:{$phone | clearphone}">{$phone}</a>}
                 {else}
-                    <span style="color:red">Скрыт</span>
+                    пусто
                 {/if}
+                {*elseif ($status == 2)*}                    
+                    {*<i>Пользователь выбрал другую школу</i>*}
+                {*else*}
+                    {*<span style="color:red">Скрыт</span>*}
+                {*/if*}
             </div>
         </div>
         
-        <div class="leads__item-col leads__item-action">
+        {*<div class="leads__item-col leads__item-action">
                            
             {if $status == null || $status == 0}
              {'!AjaxForm'|snippet:[
@@ -57,7 +67,8 @@
             {/if}
             
             
-        </div>
+        </div>*}
         
     </div>
-</div>
+</div>                    
+

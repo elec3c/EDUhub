@@ -16,7 +16,7 @@
         
                 <div class="cgcourse rollup-box">
                     <div class="cghead">
-                        <div class="cgtitle"><a href="{$id | url}">{$course_title?:$pagetitle} / {$course_sub_category_title}</a></div>
+                        <div class="cgtitle"><a href="{$id | url}">{$course_title?:$pagetitle} / {$course_sub_category_title} №{$id}</a></div>
 
                         <a href="#" class="link__more rollup-toggle">
                             <span class="open_t">Свернуть</span><span class="close_t">Развернуть</span>
@@ -62,6 +62,12 @@
                                         {$course_type}
                                     </div>
                                     {/if}
+                                    {if $_pls['tv.price_course_month']}
+                                    <div class="cgcourse__item">
+                                        <div class="cgcourse__item-label">Стоимость в месяц</div>
+                                        {$_modx->runSnippet('!formatMoney', ['number'=>$_pls['tv.price_course_month']])}  
+                                    </div>
+                                    {/if}         
                                 </div>
                                 <div class="cgcourse__info-col">
                                     {if $format_of_study}
@@ -139,13 +145,13 @@
                                             {if $promote['lead'] > 0}
                                             
                                             <div class="cgcourse__item">
-                                                <div class="cgcourse__item-label">Продвижение</div>
+                                                <div class="cgcourse__item-label">Сейчас продвигается</div>
                                                 <i>{$promote['lead']} лидов с комиссией {$promote['commission']} рублей</i>
                                             </div>                                        
                                             
                                             {else}
                                             <div class="cgcourse__item">
-                                                <div class="cgcourse__item-label">Продвижение</div>
+                                                <div class="cgcourse__item-label">Продвижение отсутствует</div>
                                                 <span style="color:red"><b>Не продвигается</b></span>
                                                 <i>{$promote['lead']} лидов</i>
                                             </div>                                                              
@@ -162,8 +168,8 @@
     
                             <div class="cgcourse__action">
                                 {if $course_owner == $_modx->user.id }
-                                    {set $sale = $id | resource:'sale'}
-                                    {if ($.php.intval($sale) > 0)}
+                                    {*set $sale = $id | resource:'sale'*}
+                                    {*if ($.php.intval($sale) > 0)*}
                                     <div class="cgcourse__action-buttons">
                                          {'!AjaxForm'|snippet:[
                                             'snippet' => 'FormIt',
@@ -175,9 +181,9 @@
                                             'successMessage' => 'Продвижение прошло успешно!'
                                         ]}
                                     </div>
-                                    {else}
-                                        <p>Чтобы продвигать курс, Вы должны указать размер скидки</p>
-                                    {/if}
+                                    {*else*}
+                                        {*<p>Чтобы продвигать курс, Вы должны указать размер скидки</p>*}
+                                    {*/if*}
                                 {/if}
 
                                 <div class="cgcourse__action-links">

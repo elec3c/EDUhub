@@ -1,9 +1,8 @@
 {extends 'file:templates/BaseTemplate.tpl'}
 {block 'content'}
+    {set $user_id = $.php.intval($.get.user_id)?:$_modx->user.id}
     <main class="content__wrapper">
-
         {insert 'file:chunks/users/user.menu.tpl'}
-
         <section class="lk analitics section__mgb">
             <div class="container">
                 <div class="analitics__head">

@@ -1,3 +1,5 @@
+<p class="section__intro">В форме * &mdash; обозначены поля, обязательные для заполнения.</p>
+<br>
 <form action="[[~[[*id]]]]" enctype="multipart/form-data" method="post" id="coursesCourseFormAdd">
 <input type="hidden" name="csrf-token" value="{$.session['csrf-token']}">
     <input type="hidden" name="nospam:blank" />
@@ -34,7 +36,7 @@
     </div>
     <div class="cadd__block">
         <div class="cadd__label">Продолжительность</div>
-        <div class="cadd__inputs cadd__in3">
+        <div class="cadd__inputs cadd__in1">
             <div class="cadd__input">
                 {include 'file:chunks/forms/fields/fields.courses.duration.tpl' req=1}
             </div>
@@ -44,25 +46,28 @@
             <div class="cadd__input">
                 {include 'file:chunks/forms/fields/fields.courses.lesson_duration.tpl' req=1}
             </div>
+            <div class="cadd__input">
+                {include 'file:chunks/forms/fields/fields.courses.num_months_of_study.tpl' req=1}
+            </div>
         </div>
     </div>
     <div class="cadd__block">
         <div class="cadd__label">Детали</div>
-        <div class="cadd__inputs cadd__in3">
+        <div class="cadd__inputs cadd__in1">
             <div class="cadd__input w-1">
-                {include 'file:chunks/forms/fields/fields.courses.format_of_study.tpl' req=1}
+                {include 'file:chunks/forms/fields/fields.courses.format_of_study.tpl' req=0}
             </div>            
             <div class="cadd__input w-320 w-2">
-                {include 'file:chunks/forms/fields/fields.courses.form_of_study.tpl' req=1}
+                {include 'file:chunks/forms/fields/fields.courses.form_of_study.tpl' req=0}
             </div>
             <div class="cadd__input w-320 w-2">
                 {include 'file:chunks/forms/fields/fields.courses.num_people_in_group.tpl' req=1}
             </div>
             <div class="cadd__input w-220 w-2">
-                {include 'file:chunks/forms/fields/fields.courses.schedule.tpl' req=1}
+                {include 'file:chunks/forms/fields/fields.courses.schedule.tpl' req=0}
             </div>
             <div class="cadd__input w-220 w-2">
-                {include 'file:chunks/forms/fields/fields.courses.time.tpl' req=1}
+                {include 'file:chunks/forms/fields/fields.courses.time.tpl' req=0}
             </div>
         </div>
         <div class="cadd__inputs cadd__in3">
@@ -81,11 +86,14 @@
         </div>
     </div>
     <div class="cadd__block">
-        <div class="cadd__label">Стоимость и скидки</div>
-        <div class="cadd__inputs cadd__in4">
+        <div class="cadd__label">Стоимость</div>
+        <div class="cadd__inputs cadd__in1">
             <div class="cadd__input">
                 {include 'file:chunks/forms/fields/fields.courses.price_course.tpl' req=1}
             </div>
+            <div class="cadd__input">
+                {include 'file:chunks/forms/fields/fields.courses.price_course_month.tpl' req=1}
+            </div>            
             <div class="cadd__input">
                 {include 'file:chunks/forms/fields/fields.courses.price_lesson.tpl' req=0}
             </div>

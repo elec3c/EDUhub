@@ -64,7 +64,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&family=Raleway:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet"> 
 
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 <link rel="preload" href="/assets/js/swiper/swiper-bundle.min.css" as="style" onload="this.rel='stylesheet'">
 <link href="/assets/css/styles.min.css" rel="stylesheet">
+<link href="/assets/custom/custom.css" rel="stylesheet">
+
+{if $_modx->resource.id in [802,803]}
+	<link rel="stylesheet" href="/assets/js/mCustomScrollbar/jquery.mCustomScrollbar.css">
+</script>
+{/if}
+
 <base href="{$_modx->config.site_url}">

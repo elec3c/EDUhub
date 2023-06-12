@@ -66,7 +66,7 @@
  
                                     {if $course_duration}
                                     <div class="cgcourse__item">
-                                        <div class="cgcourse__item-label">Длительность занятия в мин.</div>
+                                        <div class="cgcourse__item-label">Длительность курса в часах</div>
                                         {$course_duration}
                                     </div>
                                     {/if}
@@ -103,13 +103,21 @@
                                                     онлайн
                                             {/switch}
                                     </div>
+                                    {/if} 
+
+                                    {if $_pls['tv.num_months_of_study']}
+                                    <div class="cgcourse__item">
+                                        <div class="cgcourse__item-label">Количество месяцев обучения</div>
+                                        {$_pls['tv.num_months_of_study']} 
+                                    </div>
                                     {/if}                                    
+                                    
                                 </div>
                                 <div class="cgcourse__info-col">
                                     {if $_pls['tv.num_people_in_group']}
                                     <div class="cgcourse__item">
-                                        <div class="cgcourse__item-label">Количестве человек в группе</div>
-                                            {$_pls['tv.num_people_in_group']}
+                                        <div class="cgcourse__item-label">Максимальное кол-во человек в группе</div>
+                                            {$.php.intval($_pls['tv.num_people_in_group'])} чел.
                                     </div>
                                     {/if}                                    
                                     {if $schedule}
@@ -134,7 +142,7 @@
                                     {if $for_ages}
                                     <div class="cgcourse__item">
                                         <div class="cgcourse__item-label">Возраст</div>
-                                        {$_pls['tv.for_ages_from']}-{$_pls['tv.for_ages_to']}
+                                        {$_pls['tv.for_ages_from']}-{$_pls['tv.for_ages_to']} лет.
                                     </div>
                                     {/if}
                                     {if $for_levels}
@@ -147,14 +155,21 @@
                                     {if $_pls['tv.price_course']}
                                     <div class="cgcourse__item">
                                         <div class="cgcourse__item-label">Стоимость курса</div>
-                                        {$_pls['tv.price_course']}
+                                        {$_modx->runSnippet('!formatMoney', ['number'=>$_pls['tv.price_course']])}
                                     </div>
                                     {/if}
+                                    
+                                    {if $_pls['tv.price_course_month']}
+                                    <div class="cgcourse__item">
+                                        <div class="cgcourse__item-label">Стоимость в месяц</div>
+                                        {$_modx->runSnippet('!formatMoney', ['number'=>$_pls['tv.price_course_month']])}  
+                                    </div>
+                                    {/if}                                    
                                     
                                     {if $_pls['tv.price_lesson']}
                                     <div class="cgcourse__item">
                                         <div class="cgcourse__item-label">Стоимость занятия</div>
-                                        {$_pls['tv.price_lesson']}
+                                        {$_modx->runSnippet('!formatMoney', ['number'=>$_pls['tv.price_lesson']])}
                                     </div>
                                     {/if}
                                     

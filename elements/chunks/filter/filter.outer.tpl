@@ -13,11 +13,15 @@
             </div>
             {/if}
 
-            <div class="choose__title">Найдено <span id="mse2_total">{$total}</span> курсов</div>
+            {if $.get.disableRefresh==1}
+                <div class="choose__title">Найдено по запросу <span id="mse2_total">{$total}</span> {$total | declension : 'курс|курса|курсов'}</div>
+            {else}
+                <div class="choose__title">Найдено <span id="mse2_total">{$total}</span> {$total | declension : 'курс|курса|курсов'}</div>
+            {/if}
 
             {if 'standard' | mobiledetect}
             
-            	<form action="{$id | url}" method="post" id="mse2_filters" class="hide-tablet-sm">
+            	<form action="{$_modx->resource.id | url}" method="post" id="mse2_filters" class="hide-tablet-sm" {if $.get.disableRefresh==1}style="display:none;"{/if}>
                     <div class="choose__block">
                         <div class="choose__inputs choose__search">
                             {$filters}
@@ -30,19 +34,19 @@
                                 </div>
                                 <div class="choose__inputs">            
                                     <div class="choose__inputs-item choose__inputs-button">
-                                        <button class="btn w-all">Найти</button>
+                                        <button class="btn w-all">{$_modx->config.btnFilterSearch?:"Найти"}</button>
                                     </div>
                                     {if ('' | isloggedin : 'web') && !$_modx->user.urlico && !$_modx->user.manager}
                                         <div class="choose__inputs-item choose__inputs-button">
-                                            <button type="button" class="btn w-all" id="btnSaveFilter" data-userid="{$_modx->user.id}">Уведомить</button>
+                                            <button type="button" class="btn w-all" id="btnSaveFilter" data-userid="{$_modx->user.id}">{$_modx->config.btnFilterSave?:"Уведомить"}</button>
                                         </div>
                                     {else}
                                         <div class="choose__inputs-item choose__inputs-button">
-                                            <button type="button" data-open-popup="call_to_school" class="btn w-all">Уведомить</button>
+                                            <button type="button" data-open-popup="call_to_school" class="btn w-all">{$_modx->config.btnFilterSave?:"Уведомить"}</button>
                                         </div>            
                                     {/if}            
                                     <div class="choose__inputs-item choose__inputs-button">
-                                        <button type="reset" class="btn w-all" id="btnReset">Сбросить</button>
+                                        <button type="reset" class="btn w-all" id="btnReset">{$_modx->config.btnFilterReset?:"Сбросить"}</button>
                                 </div>                        
                             </div>
                     </div>
@@ -51,32 +55,32 @@
             	</form> 
 
             {else}
-                <form action="{$id | url}" method="post" id="mse2_filters" class="show-tablet-sm choose-filters">            	
+                <form action="{$_modx->resource.id | url}" method="post" id="mse2_filters" class="show-tablet-sm choose-filters" {if $.get.disableRefresh==1}style="display:none;"{/if}>            	
                         <div class="choose__block">
                             <div class="choose__inputs choose__search">
                                 {$filters}
                             </div>
                         </div>                            
                         
-                        <div class="choose__block">
+                        <div class="choose__block" style="margin-left:20px;margin-right:20px;">
                                     <div class="choose__inputs">
                                         <div id="msgSubmit" class="form-message"></div>
                                     </div>
                                     <div class="choose__inputs">            
                                         <div class="choose__inputs-item choose__inputs-button">
-                                            <button class="btn w-all">Найти</button>
+                                            <button class="btn w-all">{$_modx->config.btnFilterSearch?:"Найти"}</button>
                                         </div>
                                         {if ('' | isloggedin : 'web') && !$_modx->user.urlico && !$_modx->user.manager}
                                             <div class="choose__inputs-item choose__inputs-button">
-                                                <button type="button" class="btn w-all" id="btnSaveFilter" data-userid="{$_modx->user.id}">Уведомить</button>
+                                                <button type="button" class="btn w-all" id="btnSaveFilter" data-userid="{$_modx->user.id}">{$_modx->config.btnFilterSave?:"Уведомить"}</button>
                                             </div>
                                         {else}
                                             <div class="choose__inputs-item choose__inputs-button">
-                                                <button type="button" class="btn w-all" data-open-popup="call_to_school">Уведомить</button>
+                                                <button type="button" class="btn w-all" data-open-popup="call_to_school">{$_modx->config.btnFilterSave?:"Уведомить"}</button>
                                             </div>            
                                         {/if}            
                                         <div class="choose__inputs-item choose__inputs-button">
-                                            <button type="reset" class="btn w-all" id="btnReset">Сбросить</button>
+                                            <button type="reset" class="btn w-all" id="btnReset">{$_modx->config.btnFilterReset?:"Сбросить"}</button>
                                     </div>                        
                                 </div>
                         </div>
@@ -88,7 +92,9 @@
         </div>
     </section><!-- choose -->
 
-        {'!BannerY' | snippet : [ 'position' => '1', 'tplWrapper'=>'@INLINE {$output}', 'tpl'=>'@FILE chunks/banner/banner.block.tpl']}
+{if !$.get.disableRefresh}
+        {*'!BannerY' | snippet : [ 'position' => '1', 'tplWrapper'=>'@INLINE {$output}', 'tpl'=>'@FILE chunks/banner/banner.block.tpl']*}
+{/if}
         
         <section class="courses section__mg--sm">
         <div class="container" id="mse2_results">

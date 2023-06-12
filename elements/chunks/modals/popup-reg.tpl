@@ -14,20 +14,22 @@
 					<div class="popup__title">Регистрация аккаунта</div>
 					<div class="reg__navt">
 						<ul>
-							<li><a href="#" data-tab="user" class="btn reg-navt-link active">Пользователь</a></li>
+							<li><a href="#" data-tab="user" class="btn reg-navt-link">Пользователь</a></li>
 							<li><a href="#" data-tab="center" class="btn reg-navt-link">Учебный центр</a></li>
+							<li><a href="#" data-tab="urlico" class="btn reg-navt-link active">Компания</a></li>
 						</ul>
 					</div>
 				</div>
-				<div class="reg__tab reg-tab active" data-tab="user">
-                    {include 'file:chunks/forms/modal.user.register.form.tpl'}
-				</div>
-
-				<div class="reg__tab reg-tab" data-tab="center">
-				    {include 'file:chunks/forms/modal.organization.register.form.tpl'}
-				</div>
-				
-			</div>
+		    		<div class="reg__tab reg-tab" data-tab="user">
+                        {include 'file:chunks/forms/modal.user.register.form.tpl'}
+				    </div>
+				    <div class="reg__tab reg-tab" data-tab="center">
+				        {include 'file:chunks/forms/modal.organization.register.form.tpl'}
+				    </div>
+				    <div class="reg__tab reg-tab active" data-tab="urlico">
+                        {include 'file:chunks/forms/modal.urlico.register.form.tpl'}
+				    </div>				
+			    </div>
 		</div><!--popup__container-->
 	</div>
 </div>

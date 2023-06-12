@@ -53,7 +53,6 @@
                             </div>
                         </a>
                         
-                        {include 'file:chunks/favorites/favorites.scools.like.tpl' page_id=$id}
-
-
+                        {include 'file:chunks/favorites/favorites.like.tpl' page_id=$id type_name='scools'}
+                        
                     </div>

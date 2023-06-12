@@ -15,7 +15,7 @@
 
     <label class="form__polit">
         <input type="checkbox" name="polit" class="styler" required>
-        <span>Ознакомлен с <a href="{$_modx->makeUrl(8)}">публичной офертой</a></span>
+        <span>Ознакомлен с <a href="{$_modx->makeUrl(370)}">пользовательским соглашением</a></span>
     </label>
 
     <div class="form__btn">

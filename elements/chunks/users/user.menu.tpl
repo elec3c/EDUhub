@@ -2,32 +2,43 @@
   <div class="container">
     <div class="lknav__list lknav__list--mw">
       <ul>
-        {if $_modx->resource.parent in ["23","30", "63"]}
-          {set $parentMenu = $_modx->resource.parent}
+        {set $user_id = $.php.intval($.get.user_id)?:$_modx->user.id}  
+        {if $_modx->resource.parent in ["23","30","63"]}
+            {set $parentMenu = $_modx->resource.parent}
         {else}
-          {set $parentMenu = $_modx->resource.parent | resource : 'parent'}
+            {set $parentMenu = $_modx->resource.parent | resource : 'parent'}
         {/if}
+        
+        {set $isCorporate = ($user_id | ismember : ['Corporate'])}
+        
+        {if !$isCorporate}
+            {set $excludeResources = "-803,-804,-1122"}
+        {else}
+            {set $excludeResources = "-34,-504,-1134"}
+        {/if}
+        
         {'!pdoMenu' | snippet: [
             'parents' => $parentMenu,
             'prefix' => '',
+            'resources'=>$excludeResources,
             'displayStart' => 0,
             'showUnpublished' => 1,
             'includeTVs' => 'menu_img,menu_img_active',
             'level' => 2,
             'tplOuter' => '@INLINE {$wrapper}',
-            'tpl' => '@INLINE {if $_modx->resource.parent == $id}<li class="active"><a href="{$link}"
+            'tpl' => '@INLINE {if $_modx->resource.parent == $id}<li class="active"><a href="{$.php.intval($link)?$_modx->makeUrl($link):$link}{if $.get.user_id}?user_id={$.get.user_id}{/if}"
                 class="lknav__list-item">
                 {if $menu_img_active}<img src="/assets/images/{$menu_img_active}" alt="{$menutitle}">{/if}
                 <span>{$menutitle}</span>
               </a></li>
             {else}
-            <li><a href="{$link}" class="lknav__list-item">
+            <li><a href="{$.php.intval($link)?$_modx->makeUrl($link):$link}{if $.get.user_id}?user_id={$.get.user_id}{/if}" class="lknav__list-item">
               {if $menu_img}<img src="/assets/images/{$menu_img}" alt="{$menutitle}">{/if}
                 <span>{$menutitle}</span>
               </a></li>
             {/if}',
     
-            'tplHere' => '@INLINE <li class="active"><a href="{$link}" class="lknav__list-item">
+            'tplHere' => '@INLINE <li class="active"><a href="{$.php.intval($link)?$_modx->makeUrl($link):$link}" class="lknav__list-item">
               {if $menu_img_active}<img src="/assets/images/{$menu_img_active}" alt="{$menutitle}">{/if}
                 <span>{$menutitle}</span>
               </a></li>'

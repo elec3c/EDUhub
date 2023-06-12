@@ -39,11 +39,12 @@
                 </div>
                     
                 <div v-for="recipe in filteredRecipes" :key="recipe.title">      
-                [[$replenishment.item]]
+                {include 'replenishment.item'}
                 </div>
         </section><!-- lk -->
 
-        [[$vue.replenishment]]
+                {include 'vue.replenishment'}
+        
         
 
 	</main><!--content__wrapper-->

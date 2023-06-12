@@ -3,8 +3,12 @@
 {else}
     {set $styler = 'styler'}
 {/if}
-<select name="course_metro" data-placeholder="Метро" class="{$styler}" id="course_metro" {if $req==1}required{/if}>
-<option value=""></option>
-    [[!getListCities? &name=`metro` &chained = `minsk` &city=`Минск` &option=`1` &curr = `[[+fi.course_metro]]`]];
-    [[-!getValuesTV? &tvid = `42` &chained = `minsk` &curr = `[[+fi.course_metro]]`]]
-</select>
+<div class="clearfix" style="position: relative;">
+    <select name="course_metro" data-placeholder="Метро {if $req==1}*{/if}" class="{$styler}" id="course_metro" {if $req==1}required{/if}>
+        <option value=""></option>
+        [[!getListCities? &name=`metro` &chained = `minsk` &city=`Минск` &option=`1` &curr = `[[+fi.course_metro]]`]];
+    </select>
+    {if $_modx->resource.template == 11}
+    <div class="tool-tip slideIn bottom">Метро</div>
+    {/if}
+</div>

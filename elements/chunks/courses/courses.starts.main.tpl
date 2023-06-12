@@ -29,12 +29,25 @@
                             'tpl'=>'@FILE chunks/courses/courses.starts.carousel.row.tpl',
                             'sortby'=>'{"data_from":"asc"}',
                             'parents'=>85,
-                            'depth'=>2,
-                            'includeTVs' => 'small_image,course_group_title,data_from,data_to,course_owner,form_of_study',
+                            'depth'=>3,
+                            'class'=>'modResource',
+                            'loadModels'=>'promote',                            
+                            'innerJoin'=>[
+                                'EduPromote'=>[
+                                    'class'=>'EduPromote',
+                                    'on'=>'modResource.id = EduPromote.groupId',
+                                ],
+                            ],                            
+                            'select'=>[
+                                'EduPromote'=>'*',
+                                'modResource'=>'*',
+                            ],                            
+                            'includeTVs' => 'small_image,course_group_title,data_from,data_to,course_owner,form_of_study,course_duration',
                             'processTVs'=>1,
                             'limit'=>12,
-                            'where' => ["template:=" => "8","data_from:>" => $.php.date("Y-m-d H:i:s")],
-                        ]}
+                            'where' => ["template:=" => "8","data_from:<" => "2099-01-01", "data_from:>=" => $.php.date("Y-m-d"), 'EduPromote.commission:>'=>0, 'EduPromote.lead:>'=>0],
+                        ]?:'ничего не найдено'}
+
                     </div>
                 </div>
                 

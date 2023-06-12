@@ -35,8 +35,8 @@
             </div>
         </div>
     </div>
-    
-        <div class="choose__block-title">Место и желаемая дата начала обучения</div>
+        <br>
+        <div class="choose__block-title">Место обучения</div>
         <div class="choose__inputs">
             <div class="choose__inputs-item w-230">
                 {include 'file:chunks/forms/fields/fields.location.city.tpl' style='styler--white'}
@@ -47,31 +47,34 @@
             <div class="choose__inputs-item w-270">
                 {include 'file:chunks/forms/fields/fields.location.metro.tpl' style='styler--white'}
             </div>
-            {*<div class="choose__inputs-item w-210">
-                include 'file:chunks/forms/fields/fields.courses.data_from.tpl' style='styler--white'
-            </div>*}
+            <div class="choose__inputs-item w-210">
+                {include 'file:chunks/forms/fields/fields.courses.continue.tpl' style='styler--white' hide=1}
+            </div>
+            <div class="choose__inputs-item w-210">
+                {include 'file:chunks/forms/fields/fields.courses.data_from.tpl' style='styler--white'}
+            </div>
         </div>
         
         
         <div class="choose__block">
             <div class="choose__inputs">
-                <div id="msgSubmit" class="form-message" style="padding-bottom:20px;"></div>
+                <div id="msgSubmit" class="form-message" style="padding-bottom:20px;padding-top:20px;"></div>
             </div>
             <div class="choose__inputs">            
                 <div class="choose__inputs-item choose__inputs-button">
-                    <button class="btn w-all">Найти</button>
+                    <button class="btn w-all">{$_modx->config.btnFilterSearch?:"Найти"}</button>
                 </div>
                 {if ('' | isloggedin : 'web') && !$_modx->user.urlico && !$_modx->user.manager}
                     <div class="choose__inputs-item choose__inputs-button">
-                        <button type="button" class="btn w-all" id="btnSaveFilter" data-userid="{$_modx->user.id}">Уведомить</button>
+                        <button type="button" class="btn w-all" id="btnSaveFilter" data-userid="{$_modx->user.id}">{$_modx->config.btnFilterSave?:"Уведомить"}</button>
                     </div>
                 {else}
                     <div class="choose__inputs-item choose__inputs-button">
-                        <button type="button" data-open-popup="call_to_school" class="btn w-all">Уведомить</button>
+                        <button type="button" data-open-popup="call_to_school" class="btn w-all">{$_modx->config.btnFilterSave?:"Уведомить"}</button>
                     </div>            
                 {/if}            
                 <div class="choose__inputs-item choose__inputs-button">
-                    <button type="reset" class="btn w-all" id="btnReset">Сбросить</button>
+                    <button type="reset" class="btn w-all" id="btnReset">{$_modx->config.btnFilterReset?:"Сбросить"}</button>
             </div>                        
         </div>
         
@@ -96,8 +99,8 @@
     </div>
                     
     <a href="#" class="choose__inputs-more choose-more-filters">
-        <span class="t-opened">Еще фильтры</span>
-        <span class="t-closed">Свернуть фильтры</span>
+        <span class="t-opened"><b style="color:red;">Еще фильтры</b></span>
+        <span class="t-closed"><b style="color:#000;">Свернуть фильтры</b></span>
         <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0.75 0.75L5 5.25L9.25 0.75" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round"
                 stroke-linejoin="round" />
@@ -123,7 +126,7 @@
             {include 'file:chunks/forms/fields/fields.courses.time.tpl' style='styler--white'}
         </div>
 
-        <div class="choose__block-title">Место и желаемая дата начала обучения</div>
+        <div class="choose__block-title">Место обучения</div>
             <div class="choose__inputs-item w-230">
                 {include 'file:chunks/forms/fields/fields.location.city.tpl' style='styler--white'}
             </div>
@@ -133,9 +136,12 @@
             <div class="choose__inputs-item w-270">
                 {include 'file:chunks/forms/fields/fields.location.metro.tpl' style='styler--white'}
             </div>
-            {*<div class="choose__inputs-item w-210">
-                include 'file:chunks/forms/fields/fields.courses.data_from.tpl' style='styler--white'
-            </div>*}
+            <div class="choose__inputs-item w-210">
+                {include 'file:chunks/forms/fields/fields.courses.continue.tpl' style='styler--white' hide=1}
+            </div>            
+            <div class="choose__inputs-item w-210">
+                {include 'file:chunks/forms/fields/fields.courses.data_from.tpl' style='styler--white'}
+            </div>
         </div>
         <div class="choose__block">
             <div class="choose__inputs">
@@ -143,19 +149,19 @@
             </div>
             <div class="choose__inputs">        
                 <div class="choose__inputs-item choose__inputs-button">
-                    <button class="btn w-all">Найти</button>
+                    <button class="btn w-all">{$_modx->config.btnFilterSearch?:"Найти"}</button>
                 </div> 
                 {if ('' | isloggedin : 'web') && !$_modx->user.urlico && !$_modx->user.manager}
                     <div class="choose__inputs-item choose__inputs-button">
-                        <button type="button" class="btn w-all" id="btnSaveFilter" data-userid="{$_modx->user.id}">Уведомить</button>
+                        <button type="button" class="btn w-all" id="btnSaveFilter" data-userid="{$_modx->user.id}">{$_modx->config.btnFilterSave?:"Уведомить"}</button>
                     </div>
                 {else}
                     <div class="choose__inputs-item choose__inputs-button">
-                        <button type="button" data-open-popup="call_to_school" class="btn w-all">Уведомить</button>
+                        <button type="button" data-open-popup="call_to_school" class="btn w-all">{$_modx->config.btnFilterSave?:"Уведомить"}</button>
                     </div>        
                 {/if}        
                 <div class="choose__inputs-item choose__inputs-button">
-                    <button type="reset" class="btn w-all" id="btnReset">Сбросить</button>
+                    <button type="reset" class="btn w-all" id="btnReset">{$_modx->config.btnFilterReset?:"Сбросить"}</button>
                 </div>
             </div>
         </div>            

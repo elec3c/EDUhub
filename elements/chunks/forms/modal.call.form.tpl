@@ -15,7 +15,7 @@
 	</div>
 	<label class="form__polit">
 		<input type="checkbox" name="polit" class="styler" required>
-		<span>Ознакомлен с <a href="">публичной офертой</a></span>
+		<span>Ознакомлен с <a href="{370 | url}">пользовательским соглашением</a></span>
 	</label>
 	<div class="form__btn">
 	    <button class="btn w-all">Отправить</button>

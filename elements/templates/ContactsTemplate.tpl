@@ -24,7 +24,7 @@
             </div>
 
             <div class="contacts__map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5277.480387154587!2d27.560693452890796!3d53.89886429203466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcfc17cc6e8f9%3A0x18f0cae7bc9170db!2z0YPQuy4g0JrQsNGA0LvQsCDQnNCw0YDQutGB0LAgMzIsINCc0LjQvdGB0Lo!5e0!3m2!1sru!2sby!4v1658075686149!5m2!1sru!2sby" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2347.73710559404!2d27.69115164279344!3d53.95417716531569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbc937833703c5%3A0x2f762aea79dae878!2z0YPQuy4g0KPRgNGD0YfRgdC60LDRjyAxOSwg0JzQuNC90YHQug!5e0!3m2!1sru!2sby!4v1669885171539!5m2!1sru!2sby" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
                     
             {include 'file:chunks/feedback/feedback.tpl'}

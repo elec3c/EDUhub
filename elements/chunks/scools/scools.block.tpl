@@ -5,13 +5,18 @@
 {set $course_count = $_modx->runSnippet('!getCountCourses', ['user_id' => $user_id])}
 {/if}
 
+<style>
+.scools__item-title a:hover, a:active {
+  color: white;
+}
+</style>
 <div class="scools__item">
     <div class="scools__item-link">
         <div class="scools__item-photo">
             <a href="{$id | url}">{include 'file:chunks/courses/courses.block.photo.tpl' user_id=$user_id}</a>
         </div>
         <div class="scools__item-info">
-            <div class="scools__item-title">{$menutitle ?: $pagetitle}</div> 
+            <div class="scools__item-title"><a href="{$id | url}">{$menutitle ?: $pagetitle}</a></div>
             {if $user_id > 0}
             <ul class="scools__item-list listinf">
                 {if $city}
@@ -25,7 +30,7 @@
                     <div class="listinf__str">{$city}</div>
                 </li>
                 {/if}
-                {if $website}
+                {if $website = $_modx->runSnippet('!parseIfValidURL', ['url' => $website])}
                 <li class="listinf__flex">
                     <div class="listinf__icon">
                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -36,7 +41,7 @@
                         <path d="M2 7.99998C7.84 6.04998 14.16 6.04998 20 7.99998" stroke="#7D7D7D" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div> 
-                    <div class="listinf__str">{$website}</div>
+                    <div class="listinf__str">{$.php.preg_replace("(^https?://)", "", $website)}</div>
                 </li>
                 {/if}
                 <li class="listinf__flex">
@@ -58,5 +63,5 @@
             {/if}
         </div>
     </div>
-    {include 'file:chunks/favorites/favorites.scools.like.tpl' page_id=$id}
+    {include 'file:chunks/favorites/favorites.scools.like.tpl' page_id=$id}            
 </div>

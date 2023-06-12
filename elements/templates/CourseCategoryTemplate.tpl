@@ -1,7 +1,7 @@
 {extends 'file:templates/BaseTemplate.tpl'}
 {block 'content'} 
 {'!promocode' | snippet :[]}
-{if $_modx->resource.id == 10 || $_modx->resource.id == 11}
+{if $_modx->resource.id in [10,11,520,521,522,523,524,623]}
 
         
         {set $filter = '
@@ -56,7 +56,6 @@
             'parents'       => $_modx->resource.id,
             'limit'         => '6',
             'filters'       => $filter,
-            'sortby'=>'{"sortWeight":"DESC","data_from":"ASC","sale":"DESC"}',
             'templates' => 8,
             'aliases'=>'tv|course_sub_category==course_sub_category,
                         tv|course_sub_category_type==course_sub_category_type,
@@ -73,30 +72,18 @@
             ',
             'tplOuter'       =>'@FILE chunks/filter/filter.outer.tpl',
             'tpls'           =>'@FILE chunks/courses/courses.block.tpl',
-            'includeTVs' => 'course_owner, data_from, sortWeight, deposit, sale',
             'tplFilter.outer.resource|parent'=>'@FILE chunks/filter/filter.courses.category.select.tpl',
             'tplFilter.outer.course_sub_category'=>'@FILE chunks/filter/filter.courses.sub_category.select.tpl',
             'tplFilter.outer.course_sub_category_type'=>'@FILE chunks/filter/filter.courses.sub_category_type.select.tpl',
             
-            'tplFilter.outer.course_type'=>'@FILE chunks/filter/filter.select.tpl',
-            'tplFilter.row.course_type'=>'@FILE chunks/filter/filter.option.tpl',
-            'tplFilter.outer.for_ages'=>'@FILE chunks/filter/filter.select.tpl',
-            'tplFilter.row.for_ages'=>'@FILE chunks/filter/filter.option.tpl',
-            
-            'tplFilter.outer.course_sub_category_type'=>'@FILE chunks/filter/filter.courses.sub_category_type.select.tpl',
+            'tplFilter.outer.course_type'=>'@FILE chunks/filter/filter.courses.course_type.select.tpl',
+            'tplFilter.outer.for_ages'=>'@FILE chunks/filter/filter.for_ages.select.tpl',
             'tplFilter.outer.for_levels'=>'@FILE chunks/filter/filter.for_levels.select.tpl',
+            'tplFilter.outer.form_of_study'=>'@FILE chunks/filter/filter.form_of_study.select.tpl',
             
-            'tplFilter.outer.course_sub_categoty'=>'@FILE chunks/filter/filter.select.tpl',
-            'tplFilter.row.course_sub_categoty'=>'@FILE chunks/filter/filter.option.tpl',
-            'tplFilter.outer.form_of_study'=>'@FILE chunks/filter/filter.select.tpl',
-            'tplFilter.row.form_of_study'=>'@FILE chunks/filter/filter.option.tpl',
-            'tplFilter.outer.format_of_study'=>'@FILE chunks/filter/filter.select.tpl',
-            'tplFilter.row.format_of_study'=>'@FILE chunks/filter/filter.option.tpl',
-            'tplFilter.outer.schedule'=>'@FILE chunks/filter/filter.select.tpl',
-            'tplFilter.row.schedule'=>'@FILE chunks/filter/filter.option.tpl',
-            'tplFilter.outer.time'=>'@FILE chunks/filter/filter.select.tpl',
-            'tplFilter.row.time'=>'@FILE chunks/filter/filter.option.tpl',
-      
+            'tplFilter.outer.format_of_study'=>'@FILE chunks/filter/filter.format_of_study.select.tpl',
+            'tplFilter.outer.schedule'=>'@FILE chunks/filter/filter.schedule.select.tpl',
+            'tplFilter.outer.time'=>'@FILE chunks/filter/filter.time.select.tpl',
             
             'tplFilter.outer.course_city'=>'@FILE chunks/filter/fields.location.city.tpl',
             'tplFilter.outer.course_region'=>'@FILE chunks/filter/filter.location.region.tpl',
@@ -105,9 +92,11 @@
             'tplFilter.outer.data_from'=>'@FILE chunks/forms/fields/fields.courses.data_from.tpl',
             
             'suggestionsRadio'   =>'resource|parent',
-            'showEmptyFilters'   =>'1',
+            'showEmptyFilters'   =>'true',
             'filterOptions'      =>'{"autoLoad":1}',
-            'where'=> '["data_from >= NOW()"]'
+            'includeTVs' => 'course_owner, data_from, sortWeight, deposit, sale',            
+            'sortby'=>'{"sortWeight":"DESC","data_from":"ASC","sale":"DESC"}',
+            'where' => ["data_from:>=" => $.php.date("Y-m-d")]
 
         ]}
 {/block}

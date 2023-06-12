@@ -3,12 +3,15 @@
 {include 'file:chunks/crumbs/crumbs.tpl'}
 <section class="detail section__mgb">
     <div class="container">
+    {if 'standard' | mobiledetect}    
     <div class="section__head detail__head">
         <h2 class="section__title">{$_modx->resource.course_group_title?:$_modx->resource.pagetitle}</h2>
     </div>
+    {else}
     <div class="section__head detail__head show-tablet-sm">
         <h2 class="section__title">{$_modx->resource.course_group_title?:$_modx->resource.pagetitle}</h2>
     </div>
+    {/if}
     <div class="detail__cols">
         <div class="detail__content">
             {include 'file:chunks/courses/courses.content.tpl' page_id=$_modx->resource.id}

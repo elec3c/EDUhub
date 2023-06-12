@@ -1,7 +1,8 @@
 {extends 'file:templates/BaseTemplate.tpl'}
 {block 'content'}
+    {set $user_id = $.php.intval($.get.user_id)?:$_modx->user.id}
     <main class="content__wrapper">
-
+        
         {insert 'file:chunks/users/user.menu.tpl'}
 
         <section class="lk reports section__mgb">
@@ -9,18 +10,8 @@
                 <div class="section__head">
                     <h2 class="section__title">Отчет</h2>
                 </div>
-                <div class="lk__nav">
-                    {'!pdoMenu' | snippet: [
-                        'parents' => '37',
-                        'displayStart' => 0,
-                        'level' => 1,
-                        'limit' => 0,
-                        'tplOuter' => '@INLINE <ul>{$wrapper}</ul>',
-                        'tpl' => '@INLINE <li><a href="{$link}" title="{$menutitle}" {$attributes}>{$menutitle}</a></li>',
-                        'tplHere' => '@INLINE <li class="active">{$menutitle}</li>'
-                    ]}                    
-                </div>
-                {*include 'file:chunks/lks/lks.report.block.tpl'*}
+                {include 'file:chunks/users/user.submenu.tpl' pid='37'}
+
                 {'!schoolLeadReports' | snippet}
             </div>
         </section><!-- lk -->
@@ -42,7 +33,5 @@
                 </div><!--popup__container-->
             </div>
         </div>
-        
-
 	</main><!--content__wrapper-->
 {/block}

@@ -48,7 +48,7 @@
                                 ],
                                 
                                 'tpl'=>'@FILE chunks/lkm/lkm.call.analitics.block.tpl'
-                            ]}
+                            ]?:'<p class="section__intro">Ничего не найдено</p>'}
                         </div>
                     </div><!--analitics__block-->
                     <div class="section__buttons">
