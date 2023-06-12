@@ -36,7 +36,7 @@
 
         <section class="choose section__mg" id="choose">
             <div class="container">
-                <div class="choose_how section__lr section__mgb">
+                <div class="choose_how section__lr ">
                     <div class="choose_how__wrap">
                         <div class="choose_how__head">
                             <h3 class="choose_how__title">Как подобрать нужный тебе курс</h3>
@@ -64,6 +64,32 @@
                     </div>
                 </div>
                 <!--choose_how-->
+
+                <div class="choose_how choose_howno section__lr section__mgb">
+                    <div class="choose_howno__wrap">
+                        <div class="choose_howno__head">
+                            <h3 class="choose_how__title">Как подобрать нужный тебе курс</h3>
+                            </p>
+                        </div>
+
+                        <div class="choose_howno__items">
+                            <div class="choose_howno__item">
+                                <div class="choose_howno__item-icon"><img src="assets/images/icons/edit-2.svg" alt=""></div>
+                                <p><b>Шаг 1.</b> <br> Заполните параметры курса, который вы ищете</p>
+                            </div>
+                            <div class="choose_howno__item light-yellow">
+                                <div class="choose_howno__item-icon"><img src="assets/images/icons/notification.svg" alt="">
+                                </div>
+                                <p><b>Шаг 2.</b> <br> Жмите СООБЩИТЬ О НОВЫХ КУРСАХ</p>
+                            </div>
+                            <div class="choose_howno__item light-green">
+                                <div class="choose_howno__item-icon"><img src="assets/images/icons/message-notif.svg" alt=""></div>
+                                <p><b>Шаг 3.</b> <br> Мы сообщим о новых курсах по вашему запросу</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--choose_how-->
             </div>
 
             <div class="choose__bg choose__wrap">
@@ -72,7 +98,29 @@
                         <div class="choose__block">
                             <div class="choose__block-title">Я ищу</div>
                             <div class="choose__inputs">
-                                <div class="choose__inputs-item w-300">
+                                <div class="choose__inputs-item first-tablet w-270">
+                                    <select name="category" data-placeholder="Категория курса"
+                                        class="styler styler--white" id="category-select">
+                                        <option value=""></option>
+                                        <option value="Python">Python</option>
+                                        <option value="Java">Java</option>
+                                        <option value="JavaScript">JavaScript</option>
+                                        <option value="C++">C++</option>
+                                    </select>
+                                </div>
+                                <div class="choose__inputs-item first-tablet w-320">
+                                    <select name="sub_category" data-placeholder="Подкатегория курса"
+                                        class="styler styler--white" id="sub_category-select">
+                                        <option value=""></option>
+                                        <option value="Python" data-chained="Python">Python 1</option>
+                                        <option value="Python-2" data-chained="Python">Python 2</option>
+                                        <option value="Java" data-chained="Java">Java</option>
+                                        <option value="JavaScript" data-chained="JavaScript">JavaScript</option>
+                                        <option value="C++" data-chained="C++">C++</option>
+                                        <option value="C++ 2" data-chained="C++ 2">C++ 2</option>
+                                    </select>
+                                </div>
+                                <div class="choose__inputs-item first-tablet w-300">
                                     <select name="direction" data-placeholder="Направление"
                                         class="styler styler--white">
                                         <option value=""></option>
@@ -105,28 +153,66 @@
                                         <option value="Тестировщики">Тестировщики</option>
                                     </select>
                                 </div>
-                                <div class="choose__inputs-item w-270">
-                                    <select name="category" data-placeholder="Категория курса"
-                                        class="styler styler--white" id="category-select">
-                                        <option value=""></option>
-                                        <option value="Python">Python</option>
-                                        <option value="Java">Java</option>
-                                        <option value="JavaScript">JavaScript</option>
-                                        <option value="C++">C++</option>
-                                    </select>
+                                
+                                <div class="choose__inputs-item w-250 w-all-tablet">
+                                    <label class="form__lcheck"><input type="checkbox" class="styler styler--white styler--orange" name="course_continue" >
+                                        <span>Показать действующие <br class="hide-tablet"> группы, к которым можно <br class="hide-tablet"> присоединиться сейчас</span>
+                                    </label>
+                                </div>    
+                                
+                                <div class="choose__inputs-item first-tablet w-250">
+
+                                    <div class="clearfix" style="position: relative;">
+                                        <select name="course_type" data-placeholder="Особенности "
+                                            class="styler styler--white" id="type-select">
+                                            <option value=""></option>
+                                            <option data-chained="11" value="employment">С трудоустройством</option>
+                                            <option data-chained="11" value="not_employment">Без трудоустройства
+                                            </option> <!-- for it -->
+                                            <option data-chained="10" value="nulled">С нуля</option>
+                                            <option data-chained="10" value="level-up">Повышение уровня</option>
+                                            <option data-chained="10" value="level-intensive">Повышение уровня
+                                                (интенсив)</option>
+                                            <option data-chained="10" value="level-maintenance">Поддержание уровня
+                                            </option>
+                                            <option data-chained="10" value="spoken">Разговорный</option>
+                                            <option data-chained="10" value="grammar">Грамматика</option>
+                                            <option data-chained="10" value="for-exams">Подготовка к экзаменам</option>
+                                            <option data-chained="10" value="for-interview">Для подготовки в
+                                                собеседованию</option>
+                                            <option data-chained="10" value="for-travel">Для путешествий и переезда
+                                            </option>
+                                            <option data-chained="10" value="prof-for-it">Профессиональный (IT)</option>
+                                            <option data-chained="10" value="prof-for-business">Профессиональный
+                                                (Бизнес)</option>
+                                            <option data-chained="10" value="prof-for-medicine">Профессиональный
+                                                (Медицина)</option>
+                                            <option data-chained="10" value="prof-for-sport">Профессиональный (Спорт)
+                                            </option>
+                                            <option data-chained="10" value="for-teachers">Повышение квалификации
+                                                преподавателей</option> <!-- for lang -->
+                                            <option data-chained="520" value="employment">С трудоустройством</option>
+                                            <option data-chained="520" value="not_employment">Без трудоустройства
+                                            </option>
+                                            <option data-chained="521" value="employment">С трудоустройством</option>
+                                            <option data-chained="521" value="not_employment">Без трудоустройства
+                                            </option>
+                                            <option data-chained="522" value="employment">С трудоустройством</option>
+                                            <option data-chained="522" value="not_employment">Без трудоустройства
+                                            </option>
+                                            <option data-chained="523" value="employment">С трудоустройством</option>
+                                            <option data-chained="523" value="not_employment">Без трудоустройства
+                                            </option>
+                                            <option data-chained="524" value="employment">С трудоустройством</option>
+                                            <option data-chained="524" value="not_employment">Без трудоустройства
+                                            </option>
+                                            <option data-chained="623" value="employment">С трудоустройством</option>
+                                            <option data-chained="623" value="not_employment">Без трудоустройства
+                                            </option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="choose__inputs-item w-320">
-                                    <select name="sub_category" data-placeholder="Подкатегория курса"
-                                        class="styler styler--white" id="sub_category-select">
-                                        <option value=""></option>
-                                        <option value="Python" data-chained="Python">Python 1</option>
-                                        <option value="Python-2" data-chained="Python">Python 2</option>
-                                        <option value="Java" data-chained="Java">Java</option>
-                                        <option value="JavaScript" data-chained="JavaScript">JavaScript</option>
-                                        <option value="C++" data-chained="C++">C++</option>
-                                        <option value="C++ 2" data-chained="C++ 2">C++ 2</option>
-                                    </select>
-                                </div>
+
                                 <div class="choose__inputs-item w-250">
                                     <select name="level" data-placeholder="Уровень" class="styler styler--white"
                                         id="level-select">
@@ -474,6 +560,71 @@
                 </div>
             </div>
         </section><!-- skillbox -->
+
+
+        
+        <section class="joined section__mg">
+            <div class="container">
+                <div class="joined__wrap section__lr">
+                    <div class="joined__inner">
+                        <div class="section__head text--white">
+                            <h2 class="section__title">Компании, которые уже присоединились к Партнерской программе от EDUhub.</h2>
+                            <div class="section__intro">Если вы являетесь сотрудником компании-партнера EDUhub, значит вы имеете право на скидку в школах, которые являются партнерами вашей компании. Узнайте у вашей HR-службы как зарегистрироваться на сайте в качестве сотрудника компании, чтобы получить доступ к списку школ-партнеров</div>
+                        </div>
+
+                        <div class="joined__items">
+                            @@for (var i=1; i<=6; i++){
+                            <a href="" class="joined__item">
+                                <div class="joined__item-photo"><img src="assets/images/courses/7.jpg" alt=""></div>
+                                <div class="joined__item-info">
+                                    <div class="joined__item-title">Skypro</div> 
+                                </div>
+                            </a>
+                            }
+                        </div>
+
+                        <div class="joined__ihidden js-joined-ihidden">
+                            <div class="joined__items">
+                                @@for (var i=1; i<=6; i++){
+                                <a href="" class="joined__item">
+                                    <div class="joined__item-photo"><img src="assets/images/courses/7.jpg" alt=""></div>
+                                    <div class="joined__item-info">
+                                        <div class="joined__item-title">Skypro</div> 
+                                    </div>
+                                </a>
+                                }
+                            </div>
+                        </div>
+                        <div class="joined__imore">
+                            <a href="#" class="link__more js-toggle-joined">
+                                <span class="open_t">Развернуть</span>
+                                <span class="close_t">Свернуть</span>
+                                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0.75 0.75L5 5.25L9.25 0.75" stroke="#FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>                                        
+                            </a>
+                        </div>
+
+                        <div class="joined__search">
+                            <div class="section__head mb--sm text--white">
+                                <h2 class="section__title">Поиск по компаниям</h2>
+                            </div>
+                            <form action="" class="joined__sform">
+                                <input type="text" class="input" name="s" placeholder="Название компании">
+                                <button class="btn">Найти</button>
+                            </form>
+
+                            <div class="joined__result">
+                                По вашему запросу компания не найде<span>на</span>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--joined__wrap-->
+            </div>
+        </section><!-- joined -->
+
+
+        
 
 
         <section class="courses courses__bg section__mg section__pd--lg">

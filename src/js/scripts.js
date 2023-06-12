@@ -695,6 +695,17 @@ $(function () {
 	});
 
 
+	
+	$('.js-toggle-joined').click(function (e) {
+		e.preventDefault();
+
+		$(this).toggleClass('opened');
+		$('.js-joined-ihidden').slideToggle();
+	});
+
+
+	
+
 	/**************************************************************
 	Партнерские программы
 	**************************************************************/

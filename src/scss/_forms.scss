@@ -648,7 +648,10 @@ textarea.input {
     &.checked &__div {
         
     }
-
+    &.styler--orange.checked {
+        background-color: $bg-orange;
+        border-color: $bg-orange;
+    }
 }
 
 

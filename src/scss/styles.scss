@@ -208,6 +208,9 @@
     &_how {
         background: $bg-gray;
         border-radius: 30px;
+        & + & {
+            margin-top: 40px;
+        }
         &__wrap {
             padding: 50px 0;
             // display: grid;
@@ -270,6 +273,37 @@
             }
         }
     }
+    &_howno {
+        &__wrap {
+            padding: 40px 0;
+        }  
+        &__head {
+            margin-bottom: 20px;
+        }
+        &__items {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 30px;
+        }
+        &__item {
+            padding: 20px;
+            background: #D7C0FF;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            &-icon {
+                flex: 0 0 auto;
+                width: 60px; height: 60px;
+                background: #9D68F8;
+                border-radius: 16px;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
 
     &__bg {
         background: $bg-gray;
@@ -293,6 +327,12 @@
         margin: 0 -5px -10px;
         &-item {
             margin: 0 5px 10px;
+            .form__lcheck {
+                margin: 0; 
+            }
+            .jq-checkbox {
+            border-color: transparent;
+            }
         }
         &-button {
             flex: 1 0 0;
@@ -457,9 +497,31 @@
                 margin-top: 45px;
             }
         }
+        &_howno {
+            &__wrap {
+                padding: 30px 0;
+            }  
+            &__items {
+                grid-gap: 10px;
+            }
+            &__item {
+                flex-direction: column;
+                align-items: flex-start;
+                &-icon {
+                    
+                }
+            }
+        }
         .w-230-tablet {
             width: 228px;
             flex: 0 0 228px;
+        }
+        .w-all-tablet {
+            width: 100%;
+            flex: 0 0 100%;
+        }
+        .first-tablet {
+            order: -1;
         }
 
         &__search {
@@ -532,6 +594,27 @@
                 grid-gap: 14px;
                 &-icon {
                     margin: 0;
+                }
+            }
+        }
+        &_howno {
+            background: none;
+            padding: 0;
+            &__wrap {
+                padding: 0;
+            }  
+            &__items {
+                grid-template-columns: 1fr;
+            }
+            &__item {
+                flex-direction: row;
+                align-items: center;
+                padding: 10px;
+                &-icon {
+                    width: 80px; height: 80px;
+                    img {
+                        width: 60%;
+                    }
                 }
             }
         }
@@ -718,6 +801,146 @@
 }
 
 
+
+/**************************************************************
+Компании, которые уже присоединились к Партнерской программе от EDUhub.
+**************************************************************/
+.joined {
+    &__wrap {
+        background: $bg-purple;
+        border-radius: 30px;
+    }
+    &__inner {
+        padding: 50px 0 70px;
+    }
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 30px;
+    }
+    &__item {
+        position: relative;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-gap: 20px;
+        align-items: center;
+        padding: 20px;
+        background: #D7C0FF;
+        border-radius: 20px;
+        &-photo {
+            width: 140px;
+            height: 100px;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            background: #fff;
+            img {
+                position: absolute;
+                left: 50%; top: 50%;
+                transform: translate(-50%, -50%);
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+        &-title {
+            font-weight: 700;
+            font-size: 20px;
+            transition: all 0.3s ease-in-out;
+        }
+        &:hover &-title {
+            color: #fff;
+        }
+    }
+    &__ihidden {
+        display: none;
+        padding-top: 30px;
+    }
+    &__imore {
+        margin-top: 20px;
+        text-align: right;
+        .link__more {
+            color: #fff;
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    &__search {
+        padding-top: 30px;
+        margin-top: 30px;
+        border-top: 1px solid #fff;
+    }
+    &__sform {
+        max-width: 510px;
+        display: flex;
+        gap: 10px;
+        .btn {
+            width: 200px;
+            flex: 0 0 auto;
+        }
+    }
+    &__result {
+        color: #fff;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    @media (max-width: $md-desktop) {
+        &__items {
+            grid-template-columns:  1fr 1fr;
+        }
+    }
+    @media (max-width: $md-tablet) {
+        &__inner {
+            padding: 30px 0 50px;
+        }
+        &__items {
+            grid-template-columns:  1fr 1fr;
+            grid-gap: 20px;
+        }
+        &__item {
+            grid-gap: 10px;
+            &-photo {
+                width: 100px;
+                height: 60px;
+            }
+        }
+            
+        &__search {
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+        &__sform {
+            max-width: 100%;
+        }
+    }
+    @media (max-width: $md-tablet-sm) {
+        &__wrap {
+            padding: 0 20px;
+        }
+        &__inner {
+            padding: 30px 0;
+        }
+        &__items {
+            grid-gap: 10px;
+        }
+    }
+    @media (max-width: $md-mobile-lg) {
+        
+        &__items {
+            grid-template-columns: 1fr;
+        }
+    }
+    @media (max-width: $md-mobile) {
+        &__sform {
+            flex-direction: column;
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+}
 
 /**************************************************************
 .courses  БЛОК КУРСОВ
