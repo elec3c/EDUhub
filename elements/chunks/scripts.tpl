@@ -10,6 +10,8 @@
 <script type="text/javascript" src="/assets/js/scripts.js"></script>
 <script type="text/javascript" src="/assets/custom/custom.js"></script>
 
+{include 'file:chunks/ajax.form.redirectJS.tpl'} 
+
 {if ($_modx->resource.template == 3) || ($_modx->resource.template == 7) || ($_modx->resource.template == 9)}
 <script type="text/javascript" src="/assets/custom/filter.save.js"></script>
 {/if}

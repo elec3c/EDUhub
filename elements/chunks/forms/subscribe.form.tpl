@@ -1,7 +1,7 @@
 {set $user_id = $.php.intval($user_id)?:$_modx->user.id}
-{set $subscribeCheck = '!subscribeCheckBuy' | snippet: ['user_id' => $user_id, 'service_id' => $service_id, 'course_id' => $course_id]}
 
-{set $subscribeServices = '!subscribeGetServices' | snippet: ['service_id' => $service_id]}
+{set $subscribeCheck = '@FILE snippets/subscribeCheckBuy.php' | snippet: ['user_id' => $user_id, 'service_id' => $service_id, 'course_id' => $course_id]}
+{set $subscribeServices = '@FILE snippets/subscribeGetServices.php' | snippet: ['service_id' => $service_id]}
 
 {set $btnSubscribeService = "btnSubscribeService"~$index}
 {set $selectSubscribeService = "selectSubscribeService"~$index}
@@ -21,7 +21,7 @@
 {if ('' | isloggedin : 'web') && ($_modx->user.urlico || $_modx->user.manager)}    
     <input type="hidden" name="csrf-token" value="{$.session['csrf-token']}">
     <input type="hidden" name="nospam:blank"/>
-    <input type="hidden" name="page_id"    value="{$page_id?:$_modx->resource.id}"/>
+    <input type="hidden" name="page_id" value="{$page_id?:$_modx->resource.id}"/>
     <input type="hidden" name="sum"     value="{$page_id?:$_modx->resource.id}"/>
     <div class="cadd__block">
         <div class="cadd__label" id="{$label?:''}"><b>{$title?:$subscribeServices['name']}</b></div>

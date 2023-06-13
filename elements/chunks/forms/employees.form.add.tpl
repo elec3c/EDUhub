@@ -28,7 +28,7 @@
         <div class="input__row-check"><input type="checkbox" name="show_surname" value="1" class="styler" {if $r['show_surname']}checked{/if}></div>
     </div>
     <div class="employees__form-row">
-        <input type="text" name="post" class="input" placeholder="Должность*" value="{$r['post']}" required>
+        <input type="text" name="post" class="input" placeholder="Должность*" value="{if $responsible == 'tender'}Администратор корпоративного обучения{elseif $responsible == 'partnership'}Администратор партнерских программ{else}{$r['post']}{/if}" required>
         <div class="input__row-check"><input type="checkbox" name="show_post" value="1" class="styler" {if $r['show_post']}checked{/if}></div>
     </div>
     <div class="employees__form-row">

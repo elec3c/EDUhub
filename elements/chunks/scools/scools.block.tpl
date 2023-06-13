@@ -1,4 +1,4 @@
-{set $user_id = $_pls['tv.scools_owner']}
+{set $user_id = $_pls['tv.scools_owner']?:$scools_owner}
 {if $user_id > 0}
 {set $city = $user_id | user:'city'}
 {set $website = $user_id | user:'website'}

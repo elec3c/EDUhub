@@ -2,6 +2,9 @@
 {block 'content'}
     {set $user_id = $.php.intval($.get.user_id)?:$_modx->user.id}
     {set $isCompany = ($user_id | ismember : ['Corporate'])}
+    {set $isUsers = ($user_id | ismember : ['Users'])}
+    {set $isOrganization = ($user_id | ismember : ['Organization'])}
+    
     <main class="content__wrapper">
         {insert 'file:chunks/users/user.menu.tpl'}
         <section class="lk section__mgb">
@@ -10,7 +13,7 @@
                     <h2 class="section__title">{if $isCompany}Профиль компании {$user_id | user:'fullname'}{else}Профиль пользователя{/if}</h2>
                 </div>
                 
-                {if $_modx->user.fizlico || $_modx->user.urlico}
+                {if $isUsers || $isOrganization}
                 <div class="lk__profile">
                     <div class="lk__profile-form lk__profile-form--mw">
                          <div class="form__title lk__profile-title">Редактирование личных данных</div>
@@ -31,7 +34,7 @@
                     </div>
                     {/if}
                 </div>
-                {elseif $_modx->user.urlico2}                
+                {elseif $isCompany}                
                 <div class="lk__profile lk__profile-pcols">
                     <div class="lk__profile-lcol lk__profile-form--mw">
                         <div class="lk__profile-form">
