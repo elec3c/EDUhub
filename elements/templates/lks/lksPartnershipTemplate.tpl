@@ -15,7 +15,7 @@
                 
                 {include 'file:chunks/users/user.submenu.tpl' pid='1123'}
 
-                {set $subscribeCheck = '!subscribeCheckBuy' | snippet: ['user_id' => $user_id, 'service_id' => 3, 'course_id'=>0]}
+                {set $subscribeCheck = '@FILE /snippets/subscribeCheckBuy.php' | snippet: ['user_id' => $user_id, 'service_id' => 3, 'course_id'=>0]}
                 {if  ($subscribeCheck['expire'] > 0) && ($subscribeCheck['expire'] < $.php.time())}
                     
                     <p class="section__intro">Чтобы далее видеть компании, открытые для предложений о партнерстве, необходимо продлить подписку на услугу: <b>&laquo;Размещение курсов b2c на EDUhub&raquo;</b></p> <br><a href="{596 |url}" class="btn" target="_blank">Перейти на страницу подписки</a>                 

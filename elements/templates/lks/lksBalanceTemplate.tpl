@@ -11,8 +11,9 @@
                     <h2 class="section__title">Баланс</h2>
                 </div>
                 <div class="balance__wrap">
-                    {set $budgetReplenishmentAgoMonth = '!budgetReplenishmentAgoMonth' | snippet: ['user_id' => $user_id]}
-                    {set $budgetWriteOffAgoMonth = '!budgetWriteOffAgoMonth' | snippet: ['user_id' => $user_id]}
+                    
+                    {set $budgetReplenishmentAgoMonth = '@FILE /snippets/budgetReplenishmentAgoMonth.php' | snippet : ['user_id' => $user_id]}
+                    {set $budgetWriteOffAgoMonth = '@FILE /snippets/budgetWriteOffAgoMonth.php' | snippet : ['user_id' => $user_id]}
                     <div class="balance__item">
                         <div class="balance__item-label">Остаток депозита на начало месяца</div>
                         <div class="balance__item-val">
@@ -22,12 +23,16 @@
                         </div>
                     </div>
 
-                    {set $budgetReplenishmentCurrMonth = '!budgetReplenishmentCurrMonth' | snippet: ['user_id' => $user_id]}
+
+
+
+
+                    {set $budgetReplenishmentCurrMonth = '@FILE /snippets/budgetReplenishmentCurrMonth.php' | snippet : ['user_id' => $user_id]}
                     <div class="balance__item accord opened">
                         <div class="balance__item-label accord-toggle">
                             Пополнения в текущем месяце
                             {if $budgetReplenishmentCurrMonth > 0}
-                            {set $budgetReplenishmentCurrMonthList = '!budgetReplenishmentCurrMonth' | snippet: ['user_id' => $user_id, 'arr'=>1]}
+                            {set $budgetReplenishmentCurrMonthList = '@FILE /snippets/budgetReplenishmentCurrMonth.php' | snippet : ['user_id' => $user_id, 'arr'=>1]}
                             <ul class="accord-body" style="display: none;">
                                 {set $i = 0}
                                 {foreach $budgetReplenishmentCurrMonthList as $k=>$v}
@@ -73,12 +78,12 @@
                     </div>  
                     
                   
-                    {set $budgetWriteOffCurrMonth = '!budgetWriteOffCurrMonth' | snippet: ['user_id' => $user_id]}
+                    {set $budgetWriteOffCurrMonth = '@FILE /snippets/budgetWriteOffCurrMonth.php' | snippet : ['user_id' => $user_id]}
                     <div class="balance__item accord opened">
                         <div class="balance__item-label accord-toggle">
                             Списано в текущем месяце
                             {if $budgetWriteOffCurrMonth < 0}
-                            {set $budgetWriteOffCurrMonthList = '!budgetWriteOffCurrMonth' | snippet: ['user_id' => $user_id, 'arr'=>1]}
+                            {set $budgetWriteOffCurrMonthList = '@FILE /snippets/budgetWriteOffCurrMonth.php' | snippet : ['user_id' => $user_id, 'arr'=>1]}
                             <ul class="accord-body" style="display: none;">
                                 {set $i = 0}
                                 {foreach $budgetWriteOffCurrMonthList as $k=>$v}
@@ -123,14 +128,12 @@
                     </div>
                     *}
                     
-                    
                     <div class="balance__item">
                         <div class="balance__item-label">Свободный остаток</div>
                         <div class="balance__item-val">
-                            {'!budgetSum' | snippet: ['user_id' => $user_id]} руб.
+                            {'@FILE /snippets/budgetSum.php' | snippet : ['user_id' => $user_id]} руб.
                         </div>
                     </div>
-                  
 
                     {set $r = '!checkUserFields'|snippet:[
                                 'fields' => 'unp,bik,rs,bank,addr_bank', 
@@ -147,7 +150,7 @@
                                 'validate' => 'payment:required',
                                 'validationErrorMessage' => 'В форме содержатся ошибки!',
                                 'successMessage' => 'Счет успешно заказан!'
-                             ]}
+                        ]}
 
                     {else}
 

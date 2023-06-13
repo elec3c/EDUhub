@@ -8,11 +8,11 @@
 
 {set $phone1 = $_modx->user.id | user:'mobilephone'}
 {set $phone2 = $_modx->user.id | user:'phone'}
-{set $confirm_phone = $phone1 == $phone2 ? $phone2 :0}
+{set $confirm_phone = ( ($phone1 == $phone2) ? ($phone2) : (0) )}
 
 {set $isOK = ($_modx->user.id | ismember : ['Administrator','Users'])} 
 {set $sale  = $.php.intval($page_id | resource: 'sale')}        
-{set $promote = $_modx->runSnippet('!promoteCheckLead', ['group_id'     => $page_id])}
+{set $promote = $_modx->runSnippet('!promoteCheckLead', ['group_id' => $page_id])}
 
 <div class="detail__aside">
     <div class="detail__sticky">

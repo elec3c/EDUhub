@@ -20,9 +20,9 @@
                     
                     {if $r == 1}
                     
-                        {set $res = '!subscribeGetPayment'|snippet:['service_id' => 1]}
+                        {set $res = '@FILE snippets/subscribeGetPayment.php' | snippet:['service_id' => 1]}
                         {set $subscribeService1Check = []}
-                        {set $subscribeService1Check = '!subscribeCheckBuy' | snippet: ['user_id' => $user_id, 'service_id' => 1, 'course_id' => 0]}
+                        {set $subscribeService1Check = '@FILE snippets/subscribeCheckBuy.php' | snippet: ['user_id' => $user_id, 'service_id' => 1, 'course_id' => 0]}
                         {*set $subscribe_payment_service1_30day = $res[30]*}
                         {set $subscribe_payment_service1_0day = $res[0]}
                         {if ($balance < $subscribe_payment_service1_0day) && (!$subscribeService1Check['expire'])}
@@ -34,9 +34,9 @@
                         <br><br>
                         
                         
-                        {set $res = '!subscribeGetPayment'|snippet:['service_id' => 2]}
+                        {set $res = '@FILE snippets/subscribeGetPayment.php' | snippet:['service_id' => 2]}
                         {set $subscribeService2Check = []}
-                        {set $subscribeService2Check = '!subscribeCheckBuy' | snippet: ['user_id' => $user_id, 'service_id' => 2, 'course_id' => 0]}
+                        {set $subscribeService2Check = '@FILE snippets/subscribeCheckBuy.php' | snippet: ['user_id' => $user_id, 'service_id' => 2, 'course_id' => 0]}
                         {set $subscribe_payment_service2_0day = $res[0]}
                         {if ($balance < $subscribe_payment_service2_0day) && (!$subscribeService2Check['expire'])}
                             Недостаточно средств на балансе. Чтобы выполнить подписку на сервис <b>&laquo;Тендеры на обучение&raquo;</b>, необходимо <a href="{$modx->makeUrl(38)}" class="link">пополнить баланс минимум на {$subscribe_payment_service2_30day - $balance} рублей</a> 
@@ -48,9 +48,9 @@
                         
                         
                         
-                        {set $res = '!subscribeGetPayment'|snippet:['service_id' => 3]}
+                        {set $res = '@FILE snippets/subscribeGetPayment.php' | snippet:['service_id' => 3]}
                         {set $subscribeService3Check = []}
-                        {set $subscribeService3Check = '!subscribeCheckBuy' | snippet: ['user_id' => $user_id, 'service_id' => 3, 'course_id' => 0]}
+                        {set $subscribeService3Check = '@FILE snippets/subscribeCheckBuy.php' | snippet: ['user_id' => $user_id, 'service_id' => 3, 'course_id' => 0]}
                         {set $subscribe_payment_service3_0day = $res[0]}
                         {if ($balance < $subscribe_payment_service3_0day) && (!$subscribeService3Check['expire'])}
                             Недостаточно средств на балансе. Чтобы выполнить подписку на сервис <b>&laquo;Размещение курсов в2с на EDUhub&raquo;</b>, необходимо <a href="{$modx->makeUrl(38)}" class="link">пополнить баланс минимум на {$subscribe_payment_service3_30day - $balance} рублей</a> 
@@ -87,9 +87,9 @@
                                 </a>
                             </div>
                             <div class="rollup-tab">
-                                {set $res = '!subscribeGetPayment'|snippet:['service_id' => 2]}    
+                                {set $res = '@FILE snippets/subscribeGetPayment.php' | snippet:['service_id' => 2]}    
                                 {set $subscribeService2Check = []}
-                                {set $subscribeService2Check = '!subscribeCheckBuy' | snippet: ['user_id' => $_modx->user.id, 'service_id' => 2, 'course_id' => $k]}
+                                {set $subscribeService2Check = '@FILE snippets/subscribeCheckBuy.php' | snippet: ['user_id' => $_modx->user.id, 'service_id' => 2, 'course_id' => $k]}
                                 {set $subscribe_payment_service2_30day = $res[30]}
                                 {if ($balance < $subscribe_payment_service2_30day) && ($subscribeService2Check['expire'] == 0)}
                                     Недостаточно средств на балансе. Чтобы выполнить подписку на сервис <b>&laquo;Тендеры на обучение в  разделе {$title}&raquo;</b>, необходимо <a href="{$modx->makeUrl(38)}" class="link">пополнить баланс минимум на {$subscribe_payment_service2_30day - $balance} рублей</a> 

@@ -9,7 +9,7 @@
 <!--[if IE 8 ]>    <html lang="ru" class="ie8"> <![endif]-->
 <!--[if IE 9 ]>    <html lang="ru" class="ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
-<html lang="{$lang = $.en ? 'en-US' : 'ru-RU'}" dir="ltr" itemscope itemtype="https://schema.org/WebPage">
+<html lang="{$lang = $.en ? 'en-US' : 'ru'}" dir="ltr" itemscope itemtype="https://schema.org/WebPage">
 <!--<![endif]-->
 
 <head>
@@ -17,8 +17,11 @@
     {block 'head'}
         {include 'file:chunks/head.tpl'}
     {/block}
-    {'!verificationCode'|snippet:[]}
-    {'!verificationCompanyInvite'|snippet:[]}
+    
+    {'@FILE /snippets/verificationCode.php' | snippet : []} {*'!verificationCode' | snippet : []*}
+    {'@FILE /snippets/verificationCompanyInvite.php' | snippet : []} {*'!verificationCompanyInvite' | snippet : []*}
+    <meta name="google-site-verification" content="um1cT5KMa90BaXHbOghk0ropE71fkm88TxFmUnqJiQI" />
+    <meta name="yandex-verification" content="caf13b33eca31984" />
 </head>
 
 <body>

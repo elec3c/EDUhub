@@ -5,9 +5,11 @@
     {set $user_id = $_modx->user.id}
 {/if}
 
+{set $corporateID = '!getCorporatePageID' | snippet : ['corporate_id'=>$user_id]}
 
 <form action="{$_modx->resource.uri}" method="post" id="profileCompany">
     <input type="hidden" name="csrf-token" value="{$.session['csrf-token']}">
+    <input type="hidden" name="resource_id" value="{$corporateID?:0}">
     <input type="hidden" name="form" value="Данные компании">
     <div class="input__row mw-i">
         {set $country = $user_id | user:'country'}
@@ -17,13 +19,19 @@
             {*'!getValuesTV' | snippet : ['tvid'=>'107', 'curr'=>$country]*}
         </select>
     </div>  
+    
     <div class="input__row mw-i">
+        {include 'file:chunks/forms/fields/fields.corporate.resident.cities.tpl' userPageID = $corporateID}
+    </div>
+    <br>
+                                    
+    {*<div class="input__row mw-i">
         {set $city = $user_id | user:'city'}
         <select name="resident_city" id="resident-city" class="styler" data-placeholder="Город *" required>
             <option value=""></option>
             {'!getListCities' | snippet : ['name'=>'city', 'curr'=>$city, 'chained'=>'BY', 'option'=>1]}
         </select>
-    </div>   
+    </div>   *}
     <div class="input__row mw-i">
         {set $scope = $user_id | user:'scope'}
         <select name="scope" class="styler" data-placeholder="Сфера деятельности компании *" required>

@@ -14,9 +14,9 @@
         <div class="checkselect__dropdown check-select-dropdown">
             <div class="checkselect__list">
                     {if count($curr_conclusion_agreement) > 0 && !empty($curr_conclusion_agreement[0])}
-                    <label><input type="radio"  class="styler check-param" name="conclusion_agreement" {if $all == 1}checked{/if} value="1"><span>все варианты</span></label>
+                    <label><input type="radio"  class="styler check-param" name="conclusion_agreement" {if $all == 1}checked{/if} value="1"><span>любая форма договора</span></label>
                     {else}
-                    <label><input type="radio"  class="styler check-param" name="conclusion_agreement"  value="1"><span>все варианты</span></label>
+                    <label><input type="radio"  class="styler check-param" name="conclusion_agreement"  value="1"><span>любая форма договора</span></label>
                     {/if}
                     {foreach $conclusion_agreement as $k=>$v}
                         {if $.php.in_array($k,$curr_conclusion_agreement) && ($all == 0)}

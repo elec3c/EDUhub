@@ -13,7 +13,7 @@
 
                 {include 'file:chunks/users/user.submenu.tpl' pid='37'}
 
-                {set $subscribeCheck = '!subscribeCheckBuy' | snippet: ['user_id' => $user_id, 'service_id' => 2, 'course_id'=>0]}
+                {set $subscribeCheck = '@FILE /snippets/subscribeCheckBuy.php' | snippet: ['user_id' => $user_id, 'service_id' => 2, 'course_id'=>0]}
                 {if  ($subscribeCheck['expire'] > 0) && ($subscribeCheck['expire'] < $.php.time())}
                     
                     <p class="section__intro">Чтобы далее видеть корпоративные предложения, необходимо на услугу: <b>&laquo;Рассылка запросов на корпоративное обучение&raquo;</b></p> <br><a href="{596 |url}" class="btn">Продлить подписку</a>}                 

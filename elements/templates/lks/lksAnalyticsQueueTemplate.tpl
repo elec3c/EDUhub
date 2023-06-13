@@ -11,7 +11,7 @@
                 
                 {include 'file:chunks/users/user.submenu.tpl' pid='37'}
                
-                {set $subscribeCheck = '!subscribeCheckBuy' | snippet: ['user_id' => $user_id, 'service_id' => 1]}
+                {set $subscribeCheck = '@FILE /snippets/subscribeCheckBuy.php' | snippet: ['user_id' => $user_id, 'service_id' => 1]}
                 {if ($subscribeCheck['expire'] > 0) && ($subscribeCheck['expire'] < $.php.time())}
                     <p class="section__intro">Чтобы получить доступ к запросам пользователей, необходимо на услугу: &laquo;Аналитика пользовательских запросов&raquo;</p> <br><a href="{596 |url}{if $.get.user_id}?user_id={$.get.user_id}{/if}" class="btn">Продлить подписку</a>    
                 {elseif $subscribeCheck['expire'] > 0}
