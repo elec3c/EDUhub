@@ -174,6 +174,28 @@ $(function () {
 		}
 	});
 
+	
+	/**************************************************************
+	NAV
+	**************************************************************/
+	$('.js-nav-link').click(function (e) {
+		e.preventDefault();
+		let tab_name = $(this).attr('data-tab'),
+			tabs = $(this).parents('.js-tabs');
+			
+		$(this).parents('.js-nav').find('.js-nav-link').removeClass('active');
+		$(this).addClass('active');
+
+
+		$(tabs).find('.js-tabs-content').removeClass("active").fadeOut(300).promise().done(function () {
+
+			let ct = $(tabs).find('.js-tabs-content[data-tab*=' + tab_name + ']');
+			$(ct).addClass("active").fadeIn(300);
+
+
+		});
+	})
+
 	/**************************************************************
 	Блокировка ввода
 	**************************************************************/
