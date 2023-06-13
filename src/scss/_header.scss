@@ -348,6 +348,7 @@ header
             width: 24px; height: 24px;
         }
         &__search {
+            display: none;
             order: 200;
             flex: 0 0 100%;
             max-width: 100%;

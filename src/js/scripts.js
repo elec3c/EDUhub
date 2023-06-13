@@ -339,6 +339,7 @@ $(function () {
 	})
 
 	$("#sub_category-select").chained("#category-select");
+	$("#sub_category-select-2").chained("#category-select-2");
 	$("#sub_category_type-select").chained("#sub_category-select");
 	$("#type-select").chained("#category-select");
 	$("#level-select").chained("#category-select");

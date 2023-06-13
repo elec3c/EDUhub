@@ -55,6 +55,7 @@
     padding-top: $header-h;
     @media (max-width: $md-tablet-sm) {
         padding-top: $header-h-m;
+        padding-top: 100px;
     }
 }
 
