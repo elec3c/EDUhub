@@ -236,6 +236,9 @@
     &__intro {
         margin-top: 10px;
         font-size: 20px;
+        &.mw {
+            max-width: 770px;
+        }
     }
     &__buttons {
         margin-top: 50px;
