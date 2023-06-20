@@ -25,4 +25,4 @@ if($user_id > 0) {
 }
 
 
-return -11;//($arr == 1) ? ($r):($sum);
+return ($arr == 1) ? ($r):($sum);

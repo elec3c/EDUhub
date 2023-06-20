@@ -92,6 +92,7 @@
             {include 'file:chunks/modals/partnership_deny.tpl'}
             {include 'file:chunks/modals/partnership_remove.tpl'}
             {include 'file:chunks/modals/partnership_delete.tpl'}
+            {include 'file:chunks/modals/partnership_clear.tpl'}
             {include 'file:chunks/modals/partnership_restore.tpl'}
             {include 'file:chunks/modals/partnership_dogovor_terminate.tpl'}
             {include 'file:chunks/modals/partnership_dogovor_declain.tpl'}

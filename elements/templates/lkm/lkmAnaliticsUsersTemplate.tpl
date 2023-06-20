@@ -63,6 +63,7 @@
                             'groups'=>'Users,Corporate,Organization',
                             'sortby'=>'{"id":"DESC"}',
                             'ajaxMode'=>'scroll',
+                            'showInactive'=>1,
                             'tvPrefix'=>'',
                             'tpl'=>'@FILE chunks/lkm/lkm.users.all.list.block.tpl',
                         ]?:'<p class="section__intro">Ничего не найдено</p>'}                        
@@ -72,6 +73,7 @@
                         {'!pdoPage' | snippet :[
                             'showLog'=>0,
                             'ajaxMode'=>'scroll',
+                            'showInactive'=>1,
                             'element'=>'pdoUsers',
                             'groups'=>$.php.ucfirst($.get.group),
                             'sortby'=>'{"id":"DESC"}',

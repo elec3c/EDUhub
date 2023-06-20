@@ -98,7 +98,7 @@
                                 
                 <div class="ppcontracts__item-col ppcontracts__item-col--note">
                     <div class="ppcontracts__item-label">Примечание</div>
-                    <div class="ppcontracts__item-val">{$detail}</div>
+                    <div class="ppcontracts__item-val">{if $type=='diff'}{$query['detail_diff']}{else}{$query['detail']}{/if}</div>
                 </div>
                                 
                 <div class="ppcontracts__item-col ppcontracts__item-col--count">

@@ -12,8 +12,10 @@
                     <h2 class="section__title">Удаление партнерского предложения для {$company}</h2>
                 </div>
                 {if $partnershipData && $_modx->user.id == $partnershipData['from_user_id']}
-                {'!AjaxForm'|snippet:[
+                {'!AjaxFormitLogin'|snippet:[
                     'snippet' => 'FormIt',
+                    'redirectTimeout'=>2000,
+                    'redirectTo'=>1127,
                     'form' => '@FILE chunks/forms/partnership.offer.form.delete.tpl',
                     'hooks' => 'Partnership2Delete',
                     'validate' => 'partnership_id:required',

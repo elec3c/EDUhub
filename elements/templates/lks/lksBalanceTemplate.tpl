@@ -17,8 +17,10 @@
                     <div class="balance__item">
                         <div class="balance__item-label">Остаток депозита на начало месяца</div>
                         <div class="balance__item-val">
-                        {if ($budgetReplenishmentAgoMonth >= 0) && ($budgetWriteOffAgoMonth <= 0)}
+                        {if ($budgetReplenishmentAgoMonth >= 0) && ($budgetWriteOffAgoMonth <= 0) && ($budgetReplenishmentAgoMonth >= abs($budgetWriteOffAgoMonth))}
                             {$budgetReplenishmentAgoMonth + $budgetWriteOffAgoMonth} руб.
+                        {else}
+                            0 руб. 
                         {/if}
                         </div>
                     </div>

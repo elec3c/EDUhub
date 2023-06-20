@@ -59,6 +59,7 @@
                             <input type="checkbox" name="policy" value="1" class="styler" id="policy" {if $partnershipJoin}checked disabled{/if}>
                             <span>С&nbsp;<a href="{1152 | url}" style="text-decoration:underline;" target="_blank;">офертой</a> ознакомлены и согласны</span>
                         </label>
+                        {'FileAttach' | snippet : ['makeURL'=>1, 'tpl'=>'file.attach.tpl']}
                     </div>
                     </form>
                     <p class="section__intro">Чтобы получить доступ к списку компаний, открытых для предложений о партнерстве, необходимо присоединиться к оферте.</p>
@@ -142,12 +143,12 @@
                                     'processTVs'=>'1',
                                     'template'=>'21',
                                     'showUnpublished'=>'1',
-                                    'limit'=>'10',
+                                    'ajaxMode' => 'button',
                                     'ajaxElemMore'=>'#pdopage .btn--more',
                                     'ajaxTplMore'=>'@INLINE <div class="section__buttons"><button class="btn btn--more"><svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M21.5 11C21.5 16.52 17.02 21 11.5 21C5.98 21 2.61 15.44 2.61 15.44M2.61 15.44H7.13M2.61 15.44V20.44M1.5 11C1.5 5.48 5.94 1 11.5 1C18.17 1 21.5 6.56 21.5 6.56M21.5 6.56V1.56M21.5 6.56H17.06" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg><span>Показать еще компании</span></button></div>' 
-                                ])?:'<p class="section__intro">Ничего не найдено</p>'}
+                                </svg><span>Показать еще школы</span></button></div>' 
+                ])?:'<p class="section__intro">Ничего не найдено</p>'}
                             </div>
                             <br>
                             {$_modx->getPlaceholder('page.nav')}

@@ -60,6 +60,9 @@
                                         <input type="checkbox" name="policy" value="1" class="styler" id="policy" {if $partnershipJoin}checked disabled{/if}>
                                         <span>С&nbsp;<a href="{1152 | url}" style="text-decoration:underline;" target="_blank;">офертой</a> ознакомлены и согласны</span>
                                     </label>
+                                    
+                                    {'FileAttach' | snippet : ['makeURL'=>1, 'tpl'=>'file.attach.tpl']}
+                                    
                                 </div> 
                                 </form>
                                 {*<p class="section__intro">Чтобы далее видеть школы, открытые для предложений о партнерстве, необходимо присоединиться к оферте и не забыть обновить текущую страницу.</p>*}

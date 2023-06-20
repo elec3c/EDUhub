@@ -18,6 +18,11 @@
 {if ($_modx->resource.template in [10,11,18]) && ($_modx->resource.id in [1127,1128,1129])}
 <script type="text/javascript" src="/assets/custom/partnership.programs.js"></script>
 {/if}
+{if ($_modx->resource.parent in [1122,1123])}
+<script type="text/javascript" src="/assets/components/partnership/js/default.js"></script>
+{/if}
+
+
 {if ($_modx->resource.template == 11) && ($_modx->resource.parent==596)}
 <script type="text/javascript" src="/assets/custom/subscribe.buy.js"></script>
 {/if}

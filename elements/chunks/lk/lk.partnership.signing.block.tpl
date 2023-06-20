@@ -88,7 +88,7 @@
                             </div>
                             <div class="ssrequest__item-4col col--note">
                                 <div class="ssrequest__item-label">Примечание</div>
-                                <div class="ssrequest__item-note">{$detail}</div>
+                                <div class="ssrequest__item-note">{if $type=='diff'}{$query['detail_diff']}{else}{$query['detail']}{/if}</div>
                             </div>
                         </div>
 

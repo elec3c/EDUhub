@@ -9,7 +9,7 @@
         {set $prefix = "отклонена"}
     {case 3}
         {set $date = ''}
-        {set $status = "Подтвержждение заключения договора компанией"}
+        {set $status = "Подтверждение заключения договора компанией"}
         {set $color = "green"}
         {if $date_start}
         {set $date = $date_start | dateAgo:'{"dateNow":0, "dateFormat":"d F Y"}'}

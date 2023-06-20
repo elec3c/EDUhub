@@ -47,7 +47,7 @@
                  
             {elseif ($.get.edit && ($.get.copy is empty) && ($.get.delete is empty))}
                 <div class="section__head">
-                    <h2 class="section__title">Редактировать {$type}</h2>
+                    <h2 class="section__title">Редактировать {$type} / {$.get.edit | resource:'course_group_title'}</h2>
                 </div>
                 {if $.get.edit | resource:'course_owner' == $_modx->user.id}
                 {'!AjaxForm'|snippet:[

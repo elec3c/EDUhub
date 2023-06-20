@@ -70,7 +70,7 @@
                             </div>
                             <div class="pprequest__item-prop">
                                 <div class="pprequest__item-label">Примечание</div>
-                                <div class="pprequest__item-val">{$detail}</div>
+                                <div class="pprequest__item-val">{if $type=='diff'}{$query['detail_diff']}{else}{$query['detail']}{/if}</div>
                             </div>
                         </div>
                         

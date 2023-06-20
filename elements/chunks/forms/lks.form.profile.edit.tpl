@@ -19,7 +19,7 @@
 {/if}
 
 <div class="lk__profile-form">
-    <div class="form__title lk__profile-title">Личные данные</div>
+    <div class="form__title lk__profile-title">Данные школы</div>
     <form action="" method="post" enctype="multipart/form-data" id="office-profile-form">
         <input name="controll" class="no-display" type="text"> 
         <div class="lk__profile-cols">

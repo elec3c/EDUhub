@@ -8,6 +8,12 @@
 {/if}
 
 {set $query = $partnershipData['query'] | fromJSON}
+{if is_array($query['sales'])}
+    {set $sales = $query['sales']}
+{else}
+    {set $sales = []} 
+{/if}
+
 {set $courses = $query['courses'] | fromJSON}
 
 {if $from_user_id}    
@@ -18,117 +24,126 @@
         <input type="hidden" name="uid" value="{$partnershipData['id']}" />
         <input type="hidden" name="from_user_id" value="{$from_user_id}" />
         <input type="hidden" name="to_user_id" value="{$to_user_id}" />
-        
         <input name="controll" class="no-display" type="text"> 
-        <div class="ssrequest__item-irow ssrequest__item-cols ssrequest__item-cols--3">
-        <div class="ssrequest__item-icol ssrequest__item-icol--date">
-        <div class="ssrequest__item-label">Дата</div>
-           {$date_create|date_format:"%d/%m/%Y"}
-        </div>
-        <div class="ssrequest__item-icol">
-        {*<div class="ssrequest__item-label">Направления</div>
-            <div class="checkselect checkselect--white  check-select" data-placeholder="Все">
-            <input type="hidden" name="course_metro" class="check-select-value">
-                                            <div class="checkselect__select checkselect__select--check placeholder check-select-toggle check-select-text">Все</div>
-                                            <div class="checkselect__dropdown check-select-dropdown">
-                                                <div class="checkselect__list">
-                                                    <label><input type="checkbox"  class="styler check-param" name="city[]" checked value="all"><span>Все</span></label>
-                                                    <label><input type="checkbox"  class="styler check-param" name="city[]" checked value=""><span>IT</span></label>
-                                                    <label><input type="checkbox"  class="styler check-param" name="city[]" checked value=""><span>Языковые</span></label>
-                                                    <label><input type="checkbox"  class="styler check-param" name="city[]" checked value=""><span>Маркетинг</span></label>
-                                                    <label><input type="checkbox"  class="styler check-param" name="city[]" checked value=""><span>Бизнес</span></label>
-                                                    <label><input type="checkbox"  class="styler check-param" name="city[]" checked value=""><span>Финансы</span></label>
-                                                    <label><input type="checkbox"  class="styler check-param" name="city[]" checked value=""><span>Продажи</span></label>
-                                                    <label><input type="checkbox"  class="styler check-param" name="city[]" checked value=""><span>Управление персоналом</span></label>
-                                                    <label><input type="checkbox"  class="styler check-param" name="city[]" checked value=""><span>Дизайн и графика</span></label>
-                                                </div>
-                                            </div>
-                                        </div> *}
+
+            
+                            <div class="ssrequest__item-label">Выберите способ подписания договора</div>
+                            <div class="ssrequest__item-method">
+                                <div class="ssrequest__item-method__sel">
+                                    <select name="agreement" class="styler styler--white">
+                                        {set $agreement = $query['agreement']?:'agreement_public_offer'}
+                                        {set $aExclude = []}
+                                        {set $agreement_paper = $to_user_id | user:'agreement_paper'}
+                                        {set $agreement_public_offer = $to_user_id | user:'agreement_public_offer'}
+                                        {if !$agreement_public_offer}
+                                            {set $r1 = ["agreement_public_offer"]}
+                                        {/if}
+                                        {if !$agreement_paper}
+                                            {set $r2 = ["agreement_paper"]}
+                                        {/if}
+                                        {set $aExclude = array_merge($r1, $r2)}
+                                        
+                                        {'!getValuesTV' | snippet : ['exclude'=>$aExclude, 'tvid'=>'115', 'curr'=>$agreement]}
+                                    </select>
+                                </div>
+                                <div class="ssrequest__item-method__date">
+                                    <div class="ssrequest__item-label">Дата</div>
+                                    {$date_create|date_format:"%d/%m/%Y"}
+                                </div>
+                                
+                                <div class="ssrequest__item-method__types">
+                                    <label class="form__lcheck">
+                                        <input type="radio" name="type" value="same" {if $partnershipData['type']=='same' || !isset($partnershipData['type'])}checked{/if} class="styler styler--check js-type-sale-partner" data-tab="1">
+                                        <span>Одинаковая скидка на все курсы</span>
+                                    </label>
+                                    <label class="form__lcheck">
+                                        <input type="radio" name="type" value="diff" {if $partnershipData['type']=='diff'}checked{/if} class="styler styler--check js-type-sale-partner" data-tab="2">
+                                        <span>Разные скидки на разные курсы</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="ssrequest__item-types {if $partnershipData['type']=='same' || !isset($partnershipData['type'])}show active{/if} js-type-sale-partner-tab" data-tab="1">
+                                <div class="ssrequest__item-types__row">
+                                    <div class="ssrequest__item-types__col">
+                                        <div class="ssrequest__item-label">Описание размера и условий предоставления скидок</div>
+                                        <textarea name="detail" class="input input--white" placeholder="Указание размера скидки обязательно. Например: Скидка 15% на занятия в группах по направлению &laquo;Дизайн&raquo;. Скидка 10% на IT-курсы. Скидка на индивидуальное обучение по любым напарвлениям - 20%.">{$query['detail']}</textarea>
                                     </div>
-                                    <div class="ssrequest__item-icol ssrequest__item-icol--course">
-                                        <div class="ssrequest__item-label">Выбрать курсы</div>
-                                        <div class="checkselect checkselect--white  check-select" data-placeholder="Выбрать все">
-                                            <input type="hidden" name="course_metro" class="check-select-value">
-                                            <div class="checkselect__select checkselect__select--check placeholder check-select-toggle check-select-text">Выбрать все</div>
-                                            <div class="checkselect__dropdown check-select-dropdown">
-                                                <div class="checkselect__list">
-                                                    {if $checkPartnershipUnique}
-                                                    <label><input type="checkbox"  class="styler check-param" name="courses[]" checked value="all"><span>Выбрать все</span></label>
+                                    <div class="ssrequest__item-types__col">
+                                        <div class="ssrequest__item-label hide-tablet-sm">&nbsp;</div>
+                                        <input type="text" name="discount" class="input input--white" placeholder="Введите значение" inputmode="numeric" pattern="\d*" value="{$query['discount']}"/>
+                                    </div>
+                                    <div class="ssrequest__item-types__col">
+                                        <div class="ssrequest__item-label hide-tablet-sm">Ед. изм.</div>
+                                        <select name="discount_unit" class="styler styler--white place-mob" data-placeholder="Ед. измерения скидки">
+                                            {set $discount_unit = $query['discount_unit']?:'percent'}
+                                            {'!getValuesTV' | snippet : ['tvid'=>'118', 'curr'=>$discount_unit]}
+                                        </select>
+                                        
+                                    </div>
+                                    <div class="ssrequest__item-types__col">
+                                        <div class="ssrequest__item-label">На что дается скидка</div>
+                                        <select name="discount_for_what" class="styler styler--white">
+                                            {set $discount_for_what = $query['discount_for_what']?:'course_fee'}
+                                            {'!getValuesTV' | snippet : ['tvid'=>'119', 'curr'=>$discount_for_what]} 
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ssrequest__item-types {if $partnershipData['type']=='diff'}show active{/if} js-type-sale-partner-tab" data-tab="2">
+
+
+                            {'!pdoResources' | snippet : [
+                                'parents'=>'61',
+                                'depth'=>0,
+                                'limit'=>0,
+                                'includeTVs'=>'course_group_title, course_owner',
+                                'sales'=>$sales,
+                                'tpl'=>'@CODE 
+                                            <div class="ssrequest__item-types__row">
+                                                <div class="ssrequest__item-types__col">
+                                                    <div class="ssrequest__item-types__name">{$_pls[\'tv.course_group_title\']?:$pagetitle}</div>                                        
+                                                    <input type="checkbox" name="courses[]" value="{$id}" style="display:hidden;" checked/>
+                                                </div>
+                                                <div class="ssrequest__item-types__col">
+                                                    <div class="ssrequest__item-label show-desktop hide-tablet-sm">&nbsp;</div>
+                                                    <input type="text" name="discount{$id}" class="input input--white" placeholder="Введите значение" inputmode="numeric" pattern="\d*" value="{$sales[$id][\'discount\']}"/>
+                                                </div>
+                                                <div class="ssrequest__item-types__col">
+                                                    <div class="ssrequest__item-label show-desktop hide-tablet-sm">Ед. изм.</div>
+                                                    <select name="discount_unit{$id}" class="styler styler--white place-mob" data-placeholder="Ед. измерения скидки">
+                                                        {set $discount_unit = $sales[$id][\'discount_unit\']?:\'percent\'}
+                                                        {\'!getValuesTV\' | snippet : [\'tvid\'=>\'118\', \'curr\'=>$discount_unit]}
+                                                    </select>                                        
                                                     
-                                                    {'!pdoResources' | snippet : [
-                                                        'parents'=>'61',
-                                                        'depth'=>0,
-                                                        'limit'=>0,
-                                                        'includeTVs'=>'course_group_title, course_owner',
-                                                        'tpl'=>'@CODE <label><input type="checkbox"  class="styler check-param" name="courses[]" checked value="{$id}"><span>{$_pls["tv.course_group_title"]?:$pagetitle}</span></label>',
-                                                        'where'=>["course_owner"=>$from_user_id]
-                                                    ]}
-                                                    {else}
-                                                    {set $couses_list = '!pdoResources' | snippet : [
-                                                        'parents'=>'61',
-                                                        'returnIds'=>'1',
-                                                        'depth'=>0,
-                                                        'limit'=>0,
-                                                        'includeTVs'=>'course_group_title, course_owner',
-                                                        'where'=>["course_owner"=>$from_user_id]
-                                                    ]}
-                                                    {set $courses_all = explode(',', $couses_list)}
-                                                    <label><input type="checkbox"  class="styler check-param" name="courses[]" {if in_array('all', $courses)}checked{/if} value="all"><span>Выбрать все</span></label>
-                                                    {foreach $courses_all as $k=>$v}
-                                                        {set $title = $v | resource : 'pagetitle'}
-                                                        {if intval($v) && $title}
-                                                            <label><input type="checkbox"  class="styler check-param" name="courses[]" {if in_array($v, $courses)}checked{/if} value="{$v}"><span>{$title |truncate:60:" ..."}</span></label>
-                                                        {else}
-                                                            <label><input type="checkbox"  class="styler check-param" name="courses[]" checked value="{$v}"><span>Выбрать все</span></label>
-                                                        {/if}
-                                                    {/foreach}
-                                                    {/if}
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-        </div>
-        <div class="ssrequest__item-irow ssrequest__item-cols">
-            <div class="ssrequest__item-icol">
-                <div class="ssrequest__item-label">Размер скидки / ед. изм</div>
-                <input type="text" name="discount" class="input input--white" placeholder="Введите числовое значение" inputmode="numeric" pattern="\d*" value="{$query['discount']}" required/>
-            </div>
-            <div class="ssrequest__item-icol">
-                <div class="ssrequest__item-label ssrequest__item-label--empty">&nbsp;</div>
-                <select name="discount_unit" class="styler styler--white">
-                    {set $discount_unit = $query['discount_unit']?:'percent'}
-                    {'!getValuesTV' | snippet : ['tvid'=>'117', 'curr'=>$discount_unit]}
-                </select>            
-            </div>
-            <div class="ssrequest__item-icol">
-                <div class="ssrequest__item-label">На что дается скидка</div>
-                <select name="discount_for_what" class="styler styler--white">
-                    {set $discount_for_what = $query['discount_for_what']?:'course_fee'}
-                    {'!getValuesTV' | snippet : ['tvid'=>'116', 'curr'=>$discount_for_what]} 
-                </select>
-            </div>
-            <div class="ssrequest__item-icol">
-                <div class="ssrequest__item-label">Выберите способ подписания договора</div>
-                <select name="agreement" class="styler styler--white">
-                    {set $agreement = $query['agreement']?:'agreement_public_offer'}
-                    {set $aExclude = []}
-                    {set $agreement_paper = $to_user_id | user:'agreement_paper'}
-                    {set $agreement_public_offer = $to_user_id | user:'agreement_public_offer'}
-                    {if !$agreement_public_offer}
-                        {set $r1 = ["agreement_public_offer"]}
-                    {/if}
-                    {if !$agreement_paper}
-                        {set $r2 = ["agreement_paper"]}
-                    {/if}
-                    {set $aExclude = array_merge($r1, $r2)}
-                    
-                    {'!getValuesTV' | snippet : ['exclude'=>$aExclude, 'tvid'=>'115', 'curr'=>$agreement]}
-                </select>
-            </div>
-        </div>
-        <div class="ssrequest__item-irow">
-            <textarea name="detail" class="input input--white height-input" placeholder="Примечание">{$partnershipData['detail']}</textarea>
-        </div>
+                                                <div class="ssrequest__item-types__col">
+                                                    <div class="ssrequest__item-label show-desktop">На что дается скидка</div>
+                                                    <select name="discount_for_what{$id}" class="styler styler--white">
+                                                        {set $discount_for_what = $sales[$id][\'discount_for_what\']?:\'course_fee\'}
+                                                        {\'!getValuesTV\' | snippet : [\'tvid\'=>\'119\', \'curr\'=>$discount_for_what]} 
+                                                    </select>
+                                                </div>
+                                            </div>                                    
+                                ',
+                                'where'=>["course_owner"=>$from_user_id]
+                                
+                            ]?:'<b style="color:red">Нет доступных курсов</b>'}
+
+
+                                <div class="ssrequest__item-types__bottom">
+                                    <div class="ssrequest__item-label">Описание размера и условий предоставления скидок</div>
+                                    <textarea name="detail_diff" class="input input--white" placeholder="Указание размера скидки обязательно. Например: Скидка 15% на занятия в группах по направлению &laquo;Дизайн&raquo;. Скидка 10% на IT-курсы. Скидка на индивидуальное обучение по любым напарвлениям - 20%.">{$query['detail_diff']}</textarea>
+                                </div>
+                            </div>
+                          
+                            <div class="ssrequest__item-irow">
+                                <div class="ssrequest__item-label">Сопроводительное письмо для компании-партнера</div>
+                                <textarea name="letter" class="input input--white height-input" placeholder="Например: При возникновении вопросов вы можете связаться с менеджером нашей школы по тел. +375 (ХХ) ХХХ-ХХ-ХХ">{$query['letter']}</textarea>
+                            </div>
+
+
+
 
             {if $partnershipData['id']}
                 {if $response['status_id'] in [3,5]}
@@ -143,9 +158,6 @@
                 {else}        
                     <div class="ssrequest__item-buttons">
                     <button class="btn btn--purple" type="submit">Изменить</button>
-                    {if $partnershipData['id']}
-                    <a href="{1169 | url}?delete={$partnershipData['id']}" class="btn btn--bdrred">Удалить предложение</a>
-                    {/if}                    
                     <button  type="button" data-form="{$to_user_id}" class="btn btn--red partnership-offer-form-reset">Отмена</button>
                     </div>
                 {/if}
@@ -158,6 +170,13 @@
             </div>                
                 
             {/if}
+      
+            
+            
+            
+            
+            
+            
     </form>
 {else}
     <p>Ошибочка вышла!</p>
