@@ -12,6 +12,15 @@
     <main class="content__wrapper">
         <section class="promo section__mg">
             <div class="container">
+                <div class="promo__nav">
+                    <ul class="promo__nav-list">
+                        <li><a href="" class="text--orange">Ближайшие старты групп</a></li>
+                        <li><a href="">Присоединиться к действующим группам</a></li>
+                        <li><a href="">Ваша персональная скидка</a></li>
+                        <li><a href="">Компаниям</a></li>
+                    </ul>
+                </div>
+
                 <div class="promo__wrap section__lr">
                     <div class="XMLID promo__XMLID-left"></div>
                     <div class="XMLID promo__XMLID-right"></div>
@@ -629,6 +638,64 @@
 
         <section class="courses courses__bg section__mg section__pd--lg">
             <div class="container">
+
+                <div class="courses__flt">
+                    <div class="courses__flt-item w-310">
+                        <select name="category" data-placeholder="Категория курса"
+                            class="styler styler--white" id="category-select-2">
+                            <option value=""></option>
+                            <option value="Python">Python</option>
+                            <option value="Java">Java</option>
+                            <option value="JavaScript">JavaScript</option>
+                            <option value="C++">C++</option>
+                        </select>
+                    </div>
+                    <div class="courses__flt-item w-300">
+                        <select name="sub_category" data-placeholder="Подкатегория курса"
+                            class="styler styler--white" id="sub_category-select-2">
+                            <option value=""></option>
+                            <option value="Python" data-chained="Python">Python 1</option>
+                            <option value="Python-2" data-chained="Python">Python 2</option>
+                            <option value="Java" data-chained="Java">Java</option>
+                            <option value="JavaScript" data-chained="JavaScript">JavaScript</option>
+                            <option value="C++" data-chained="C++">C++</option>
+                            <option value="C++ 2" data-chained="C++ 2">C++ 2</option>
+                        </select>
+                    </div>
+                    <div class="courses__flt-item">
+                        <select name="days" data-placeholder="Дни недели" class="styler styler--white">
+                            <option value=""></option>
+                            <option value="пн-пт">пн-пт</option>
+                            <option value="сб-вс">сб-вс</option>
+                        </select>
+                    </div>
+                    <div class="courses__flt-item item-time">
+                        <select name="time" data-placeholder="Время" class="styler styler--white">
+                            <option value=""></option>
+                            <option value="10-14">10-14</option>
+                            <option value="15-20">15-20</option>
+                        </select>
+                    </div>
+                    
+                    <div class="courses__flt-item">
+                        <select name="format" data-placeholder="Формат обучения"
+                            class="styler styler--white">
+                            <option value=""></option>
+                            <option value="Формат обучения 1">Формат обучения 1</option>
+                            <option value="Формат обучения 2">Формат обучения 2</option>
+                            <option value="Формат обучения 3">Формат обучения 3</option>
+                        </select>
+                    </div>
+                    <div class="courses__flt-item">
+                        <select name="city" data-placeholder="Город" class="styler styler--white">
+                            <option value=""></option>
+                            <option value="Брест">Брест</option>
+                            <option value="Минск">Минск</option>
+                            <option value="Москва">Москва</option>
+                        </select>
+                    </div>
+                </div>
+
                 <div class="section__head section__head--cols">
                     <h2 class="section__title">Ближайшие старты</h2>
 
@@ -674,8 +741,17 @@
                                     <li><span>Длительность:</span> 4 месяца</li>
                                     <li><span>Формат обучения:</span> онлайн</li>
                                 </ul>
-                                <div class="courses__item-date">Начало курса <br> 08.07.2022</div>
+
+                                <div class="courses__item-dmm">
+                                    <div class="courses__item-dmm__col">Начало курса <br class="hide-tablet-sm"> 08.07.2022</div>
+                                    <div class="courses__item-dmm__col">Мест в группе: 8 <br> Свободно: 2</div>
+                                </div>
                                 <div class="courses__item-button">
+                                    <button class="btn btn--favour ">
+                                        <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11.62 18.81C11.28 18.93 10.72 18.93 10.38 18.81C7.48 17.82 1 13.69 1 6.68998C1 3.59998 3.49 1.09998 6.56 1.09998C8.38 1.09998 9.99 1.97998 11 3.33998C12.01 1.97998 13.63 1.09998 15.44 1.09998C18.51 1.09998 21 3.59998 21 6.68998C21 13.69 14.52 17.82 11.62 18.81Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </svg>                                    
+                                    </button>
                                     <a href="course.html" class="btn w-all">Подробнее</a>
                                 </div>
                             </div>
@@ -688,8 +764,16 @@
                                     <li><span>Длительность:</span> 4 месяца</li>
                                     <li><span>Формат обучения:</span> онлайн</li>
                                 </ul>
-                                <div class="courses__item-date">Начало курса <br> 08.07.2022</div>
+                                <div class="courses__item-dmm">
+                                    <div class="courses__item-dmm__col">Начало курса <br class="hide-tablet-sm"> 08.07.2022</div>
+                                    <div class="courses__item-dmm__col">Мест в группе: 8 <br> Свободно: 2</div>
+                                </div>
                                 <div class="courses__item-button">
+                                    <button class="btn btn--favour ">
+                                        <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11.62 18.81C11.28 18.93 10.72 18.93 10.38 18.81C7.48 17.82 1 13.69 1 6.68998C1 3.59998 3.49 1.09998 6.56 1.09998C8.38 1.09998 9.99 1.97998 11 3.33998C12.01 1.97998 13.63 1.09998 15.44 1.09998C18.51 1.09998 21 3.59998 21 6.68998C21 13.69 14.52 17.82 11.62 18.81Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </svg>                                    
+                                    </button>
                                     <a href="course.html" class="btn w-all">Подробнее</a>
                                 </div>
                             </div>
@@ -702,7 +786,10 @@
                                     <li><span>Длительность:</span> 4 месяца</li>
                                     <li><span>Формат обучения:</span> онлайн</li>
                                 </ul>
-                                <div class="courses__item-date">Начало курса <br> 08.07.2022</div>
+                                <div class="courses__item-dmm">
+                                    <div class="courses__item-dmm__col">Начало курса <br class="hide-tablet-sm"> 08.07.2022</div>
+                                    <div class="courses__item-dmm__col">Мест в группе: 8 <br> Свободно: 2</div>
+                                </div>
                                 <div class="courses__item-button">
                                     <a href="course.html" class="btn w-all">Подробнее</a>
                                 </div>
@@ -716,8 +803,16 @@
                                     <li><span>Длительность:</span> 4 месяца</li>
                                     <li><span>Формат обучения:</span> онлайн</li>
                                 </ul>
-                                <div class="courses__item-date">Начало курса <br> 08.07.2022</div>
+                                <div class="courses__item-dmm">
+                                    <div class="courses__item-dmm__col">Начало курса <br class="hide-tablet-sm"> 08.07.2022</div>
+                                    <div class="courses__item-dmm__col">Мест в группе: 8 <br> Свободно: 2</div>
+                                </div>
                                 <div class="courses__item-button">
+                                    <button class="btn btn--favour ">
+                                        <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11.62 18.81C11.28 18.93 10.72 18.93 10.38 18.81C7.48 17.82 1 13.69 1 6.68998C1 3.59998 3.49 1.09998 6.56 1.09998C8.38 1.09998 9.99 1.97998 11 3.33998C12.01 1.97998 13.63 1.09998 15.44 1.09998C18.51 1.09998 21 3.59998 21 6.68998C21 13.69 14.52 17.82 11.62 18.81Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </svg>                                    
+                                    </button>
                                     <a href="course.html" class="btn w-all">Подробнее</a>
                                 </div>
                             </div>
@@ -730,8 +825,16 @@
                                     <li><span>Длительность:</span> 4 месяца</li>
                                     <li><span>Формат обучения:</span> онлайн</li>
                                 </ul>
-                                <div class="courses__item-date">Начало курса <br> 08.07.2022</div>
+                                <div class="courses__item-dmm">
+                                    <div class="courses__item-dmm__col">Начало курса <br class="hide-tablet-sm"> 08.07.2022</div>
+                                    <div class="courses__item-dmm__col">Мест в группе: 8 <br> Свободно: 2</div>
+                                </div>
                                 <div class="courses__item-button">
+                                    <button class="btn btn--favour ">
+                                        <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11.62 18.81C11.28 18.93 10.72 18.93 10.38 18.81C7.48 17.82 1 13.69 1 6.68998C1 3.59998 3.49 1.09998 6.56 1.09998C8.38 1.09998 9.99 1.97998 11 3.33998C12.01 1.97998 13.63 1.09998 15.44 1.09998C18.51 1.09998 21 3.59998 21 6.68998C21 13.69 14.52 17.82 11.62 18.81Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </svg>                                    
+                                    </button>
                                     <a href="course.html" class="btn w-all">Подробнее</a>
                                 </div>
                             </div>
@@ -744,8 +847,16 @@
                                     <li><span>Длительность:</span> 4 месяца</li>
                                     <li><span>Формат обучения:</span> онлайн</li>
                                 </ul>
-                                <div class="courses__item-date">Начало курса <br> 08.07.2022</div>
+                                <div class="courses__item-dmm">
+                                    <div class="courses__item-dmm__col">Начало курса <br class="hide-tablet-sm"> 08.07.2022</div>
+                                    <div class="courses__item-dmm__col">Мест в группе: 8 <br> Свободно: 2</div>
+                                </div>
                                 <div class="courses__item-button">
+                                    <button class="btn btn--favour ">
+                                        <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11.62 18.81C11.28 18.93 10.72 18.93 10.38 18.81C7.48 17.82 1 13.69 1 6.68998C1 3.59998 3.49 1.09998 6.56 1.09998C8.38 1.09998 9.99 1.97998 11 3.33998C12.01 1.97998 13.63 1.09998 15.44 1.09998C18.51 1.09998 21 3.59998 21 6.68998C21 13.69 14.52 17.82 11.62 18.81Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </svg>                                    
+                                    </button>
                                     <a href="course.html" class="btn w-all">Подробнее</a>
                                 </div>
                             </div>

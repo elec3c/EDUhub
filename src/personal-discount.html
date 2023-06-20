@@ -1,0 +1,212 @@
+@@include('html/head.html', {
+    "title": "Ваша персональная скидка"
+})
+
+<section class="wrapper" id="top">
+
+    @@include('html/header.html', {
+        "active_menu": "сompanies",
+        "auth": "user"
+    })
+    
+    <main class="content__wrapper">
+
+		<div class="breadcrumbs">
+			<div class="container">
+				<ul class="breadcrumbs__list">
+					<li class="breadcrumbs__item">
+                        <a href="/" class="breadcrumbs__link">Главная</a>
+                    </li>
+					<li class="breadcrumbs__item">Ваша персональная скидка</li>
+				</ul>
+			</div>
+		</div>	
+
+        
+        <section class="persdisc section__mgb--sm">
+            <div class="container">
+                <div class="section__head mb--sm">
+                    <h2 class="section__title">Ваша персональная скидка</h2>
+                    <div class="section__intro mw">Привет. На этой странице вы найдете информацию о том, как можно быстро и просто найти нужные курсы, найти оптимальное предложение по цене.</div>
+                </div>
+
+                <div class="persdisc__block">
+                    <div class="persdisc__block-title section__title">Перед тем как искать курсы:</div>
+                    <div class="persdisc__items">
+                        <div class="persdisc__item">
+                            <div class="persdisc__item-text">
+                                <p><b>Зарегистрирутесь на сайте.</b></p>
+                                <p>Это займет минуту, но даст возможность сравнивать курсы по цене, оставлять запрос на подбор курсов.</p></div>
+                            <div class="persdisc__item-img">
+                                <picture>
+                                    <source srcset="assets/images/persdisc-img-1-m.svg" media="(max-width: 979px)">
+                                    <img src="assets/images/persdisc-img-1.svg" alt="">
+                                </picture>
+                            </div>
+                        </div>
+                        <div class="persdisc__item">
+                            <div class="persdisc__item-text">
+                                <p><b>Узнайте, является ли ваша компания партнером EDUhub.</b></p>
+                                <p>Возможно, вы имеете право <br> на корпоративную скидку.</p>
+                            </div>
+                            <div class="persdisc__item-img">
+                                <picture>
+                                    <source srcset="assets/images/persdisc-img-2-m.svg" media="(max-width: 979px)">
+                                    <img src="assets/images/persdisc-img-2.svg" alt="">
+                                </picture>
+                            </div>
+                        </div>
+                        <div class="persdisc__item">
+                            <div class="persdisc__item-text"><p><b>Выбирайте удобный способ поиска курсов</b> в зависимости от наличия свободного времени, целей и предпочтений.</p></div>
+                            <div class="persdisc__item-img">
+                                <picture>
+                                    <source srcset="assets/images/persdisc-img-3-m.svg" media="(max-width: 979px)">
+                                    <img src="assets/images/persdisc-img-3.svg" alt="">
+                                </picture>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="persdisc__reg persdisc__block section__lr">
+                    <div class="persdisc__block-inner">
+                        <div class="persdisc__block-title section__title">Что дает регистрация на сайте:</div>
+                        <div class="persdisc__reg-cols">
+                            <div class="persdisc__reg-text persdisc__block-text">
+                                <ul>
+                                    <li>Возможность сравнивать курсы по цене и другим параметрам</li>
+                                    <li>Бонус от EDUhub - промокод на 10 руб.</li>
+                                </ul>
+                                <ul>
+                                    <li>Возможность запросить подбор курсов <br> (Уведомление о появлении курсов под твой запрос)</li>
+                                    <li>Возможность получить корпоративную скидку <br> (если ваша компания является партнером EDUhub)</li>
+                                </ul>
+                            </div>
+                            <div class="persdisc__reg-buttons">
+                                <button class="btn btn--purple w-all" data-open-popup="reg">Зарегистрироваться</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="persdisc__sale persdisc__block section__lr">
+                    <div class="persdisc__sale-inner persdisc__block-inner">
+                        <div class="persdisc__block-title section__title">Какие скидки вы можете получить <span class="nowrap">на сайте EDUHUB:</span></div>
+                        <div class="persdisc__block-text">
+                            <ul>
+                                <li>Промокод от EDUhub на 10 руб. <br> для всех зарегистрированных пользователей</li>
+                                <li>Корпоративная скидка для сотрудников компаний</li>
+                            </ul>
+                        </div>
+                        <div class="persdisc__sale-percent"><img src="assets/images/persdisc-percent.svg" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </section><!--persdisc-->  
+
+          
+        <section class="findcp section__mgb--sm">
+            <div class="container">
+                <div class="section__head mb--sm">
+                    <h2 class="section__title">Узнайте, является ли ваша компания партнером EDUHUB</h2>
+                </div>
+
+                <form action="" method="post" class="findcp__form">
+                    <div class="form__label">Введите название вашей компании или бренда компании</div>
+                    <div class="findcp__form-cols">
+                        <input type="text" class="input" placeholder="МТС">
+                        <button class="btn btn--purple">Найти</button>
+                    </div>
+                </form>
+
+                <div class="findcp__result">
+                    <div class="findcp__result-title">Найдены похожие результаты:</div>
+                    <div class="findcp__result-items">
+                        <div class="findcp__result-item">СООО Мобильные телесистемы <br> ООО МТСнаб</div>
+                    </div>
+                </div>
+
+                <div class="findcp__bottom">Если компания, сотрудником которой вы являетесь, есть в списке партнеров EDUhub, значит вы являетесь частью компании, которая заботится о развитии своих сотрудников. Чтобы узнать с какими школами у вашей компании заключены соглашения о скидках, необходимо зарегистрироваться на сайте как Пользователь</div>
+            </div>
+        </section><!--findcp  -->      
+        
+        
+          
+        <section class="compispartn section__mgb--sm">
+            <div class="container">
+                <div class="section__head mb--sm">
+                    <h2 class="section__title">Если ваша компания является партнером EDUHUB</h2>
+                </div>
+
+                <div class="compispartn__items">
+                    <div class="compispartn__item">
+                        <p><b>Еще не зарегистрировались на сайте?</b></p>
+                        <p>1. Зарегистрируйтесь на сайте по специальной ссылке. Эту ссылку можно получить в HR-отделе (отдел кадров)</p>
+                        <p>2. В разделе "Профиль" вам будет доступно описание возможностей сайта для сотрудников компаний-партнеров</p>
+                        <p>3. В разделе "Партнерская программа" будет доступен список школ партнеров</p>
+                    </div>
+                    <div class="compispartn__item">
+                        <p>Уже зарегистрировались на сайте?</p>
+                        <p>1. Узнайте у своего руководителя или в HR-службе Промокод <span class="nowrap">от EDUHUB</span></p>
+                        <p>2. В личном кабинете в разделе “Профиль” введите промокод</p>
+                        <p>3. В разделе "Партнерская программа" будет доступен список школ партнеров</p>
+                    </div>
+                </div>
+            </div>
+        </section><!--compispartn  -->  
+
+        
+          
+        <section class="multisc section__mgb">
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Мы подготовили несколько вариантов поиска курсов <br class="hide-tablet"> в зависимости от ваших целей и наличия свободного времени</h2>
+                </div>
+
+                <div class="multisc__items">
+                    <div class="multisc__item">
+                        <div class="multisc__item-icon"><img src="assets/images/multisc-icon-1.svg" alt=""></div>
+                        <div class="multisc__item-info">
+                            <p><b>Нет времени на поиск курсов или не нашли на сайте подходящие варианты для обучения?</b></p>
+                            <p>На главной странице укажите в фильтрах желаемые критерии курсов и жмите "Уведомить о появлении". <br> Вы будете получать сообщения со ссылками на страницы новых предложений от школ.</p>
+                            <p>Этот вариант будет особенно полезен, если вы ищете индивидуальное обучение.</p>
+                        </div>
+                    </div>
+                    <div class="multisc__item">
+                        <div class="multisc__item-icon"><img src="assets/images/multisc-icon-2.svg" alt=""></div>
+                        <div class="multisc__item-info">
+                            <p><b>Нет времени ждать пока наберется и стартует группа?</b></p>
+                            <p>Найдите подходящий вариант обучения на главной странцие в разделе "Присоединиться к действующим группам"</p>
+                            <p>Этот вариант особенно подходит для изучения иностранных языков на высоком уровне</p>
+                        </div>
+                    </div>
+                    <div class="multisc__item">
+                        <div class="multisc__item-icon"><img src="assets/images/multisc-icon-3.svg" alt=""></div>
+                        <div class="multisc__item-info">
+                            <p><b>Хотите увидеть все предложения от школ?</b></p>
+                            <p>Заполните критерии поиска главной странице и жмите "Найти".</p>
+                        </div>
+                    </div>
+                    <div class="multisc__item">
+                        <div class="multisc__item-icon"><img src="assets/images/multisc-icon-4.svg" alt=""></div>
+                        <div class="multisc__item-info">
+                            <p><b>Хотите приступить к обучению как можно быстрее?</b></p>
+                            <p>Выбирайте подходящие группы на главной странице в разделе "Ближайшие старты"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!--multisc  -->  
+
+	</main><!--content__wrapper-->
+
+    @@include('html/footer.html', {
+        "active_menu": "scools"
+    })
+
+</section>
+
+@@include('html/popup.html', {})
+    
+</body>
+</html>

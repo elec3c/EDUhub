@@ -1,0 +1,173 @@
+@@include('html/head.html', {
+    "title": "Мои курсы"
+})
+
+<section class="wrapper" id="top">
+
+    @@include('html/header.html', {
+        "active_menu": "profile",
+        "auth": "user_auth"
+    })
+    
+    <main class="content__wrapper">
+
+
+        @@include('html/lknav.html', {
+            "active_menu": "course",
+            "type": "scool"
+        })
+
+        <section class="lk courses section__mgb">
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Мои курсы</h2>
+                </div>
+
+                <div class="lk__nav">
+                    <ul>
+                        <li class="active">Курсы/шаблоны</li>
+                        <li><a href="lks-course-group.html">Группы</a></li>
+                    </ul>
+                </div>
+                
+                <div class="courses__template lk__wraplr section__lr">
+                    <div class="courses__template-head">
+                        <div class="courses__template-title">Профессия Python-разработчик</div>
+                        <div class="courses__template-training offline">Offline-обучение</div>
+                    </div>
+
+                    <div class="courses__template-cols">
+                        <div class="courses__template-info">
+                            <div class="courses__template-props">
+                                <div class="courses__template-props__row">
+                                    <div class="courses__template-props__item">
+                                        <div class="courses__template-props__numb">12</div>
+                                        месяцев
+                                    </div>
+                                    <div class="courses__template-props__item">
+                                        <div class="courses__template-props__numb">750</div>
+                                        стоимость курса
+                                    </div>
+                                </div>
+                                <div class="courses__template-props__row">
+                                    <div class="courses__template-props__item">
+                                        <div class="courses__template-props__numb">3</div>
+                                        занятия <br> в неделю
+                                    </div>
+                                    <div class="courses__template-props__item">
+                                        <div class="courses__template-props__numb">20</div>
+                                        кол-во занятий <br> в курсе
+                                    </div>
+                                </div>
+                                <div class="courses__template-props__row">
+                                    <div class="courses__template-props__item w-all">
+                                        <div class="courses__template-props__numb">8</div>
+                                        человек в группе/индивид.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="courses__template-desc">
+                                Этот специалист мультиинструментален. он умеет создавать любой визуальный контент: от печатной продукции до макета сайта. Фундаментальная программа позволит не просто начать путь в востребованную профессию, а получить все знания и навыки для быстрого развития в ней: от junior до senior-дизайнера. На протяжении всего обучения вы будете оттачивать навыки и повышать свою ценность для индустрии дизайна. Занятия удобно совмещать с работой или учебой в ВУЗе. Если вам потребуется пауза, можно заморозить прогресс.
+                            </div>
+                        </div>
+
+                        <div class="courses__template-create">
+                            <b>Чтобы продвигать весь курс, создайте на его основе группу без даты старта и адреса</b>
+                            <div class="courses__template-create__buttons">
+                                <button class="btn btn--bdpurple w-all"><span>Создать группу<span class="hide-mobile-lg"> на основе шаблона</span></span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="courses__template-links">
+                        <a href="" class="courses__template-edit">
+                            <img src="assets/images/icons/edit-purple.svg" alt="">
+                            Редактировать
+                        </a>
+                        <a href="" class="courses__template-remove">
+                            <img src="assets/images/icons/remove.svg" alt="">
+                            Удалить
+                        </a>
+                    </div>
+                </div>
+
+                <div class="courses__template lk__wraplr section__lr">
+                    <div class="courses__template-head">
+                        <div class="courses__template-title">Айти английский / Английский</div>
+                        <div class="courses__template-training online">Online-обучение</div>
+                    </div>
+
+                    <div class="courses__template-cols">
+                        <div class="courses__template-info">
+                            <div class="courses__template-props">
+                                <div class="courses__template-props__row">
+                                    <div class="courses__template-props__item">
+                                        <div class="courses__template-props__numb">12</div>
+                                        месяцев
+                                    </div>
+                                    <div class="courses__template-props__item">
+                                        <div class="courses__template-props__numb">750</div>
+                                        стоимость курса
+                                    </div>
+                                </div>
+                                <div class="courses__template-props__row">
+                                    <div class="courses__template-props__item">
+                                        <div class="courses__template-props__numb">3</div>
+                                        занятия <br> в неделю
+                                    </div>
+                                    <div class="courses__template-props__item">
+                                        <div class="courses__template-props__numb">20</div>
+                                        кол-во занятий <br> в курсе
+                                    </div>
+                                </div>
+                                <div class="courses__template-props__row">
+                                    <div class="courses__template-props__item w-all">
+                                        <div class="courses__template-props__numb">8</div>
+                                        человек в группе/индивид.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="courses__template-desc">
+                                Этот специалист мультиинструментален. он умеет создавать любой визуальный контент: от печатной продукции до макета сайта. Фундаментальная программа позволит не просто начать путь в востребованную профессию, а получить все знания и навыки для быстрого развития в ней: от junior до senior-дизайнера. На протяжении всего обучения вы будете оттачивать навыки и повышать свою ценность для индустрии дизайна. Занятия удобно совмещать с работой или учебой в ВУЗе. Если вам потребуется пауза, можно заморозить прогресс.
+                            </div>
+                        </div>
+
+                        <div class="courses__template-create">
+                            <b>Чтобы продвигать весь курс, создайте на его основе группу без даты старта и адреса</b>
+                            <div class="courses__template-create__buttons">
+                                <button class="btn btn--bdpurple w-all"><span>Создать группу<span class="hide-mobile-lg"> на основе шаблона</span></span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="courses__template-links">
+                        <a href="" class="courses__template-edit">
+                            <img src="assets/images/icons/edit-purple.svg" alt="">
+                            Редактировать
+                        </a>
+                        <a href="" class="courses__template-remove">
+                            <img src="assets/images/icons/remove.svg" alt="">
+                            Удалить
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section><!-- lk -->
+
+
+        
+
+	</main><!--content__wrapper-->
+
+    @@include('html/footer.html', {
+        "active_menu": "profile"
+    })
+
+</section>
+
+@@include('html/popup.html', {})
+    
+</body>
+</html>

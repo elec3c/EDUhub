@@ -4,7 +4,7 @@ footer
 **************************************************************/
 .footer {
 	background: #19191B;
-    padding: 50px 0;
+    padding: 50px 0 30px;
     color: #fff;
     a {
         color: #fff;
@@ -23,12 +23,16 @@ footer
         padding: 28px 0 0px;
         text-transform: uppercase;
         color: #7D7D7D;
+        font-size: 14px;
         a {
             color: #7D7D7D;
             &:hover {
                 color: #fff;
             }
         }
+    }
+    &__bottom &__wrap {
+        gap: 20px 0;
     }
     &__col {
         padding: 0 15px;
@@ -39,8 +43,15 @@ footer
             width: 50%;
         }
         &--right {
+            text-align: right;
             width: 25%;
         }
+    }
+    &__bottom &__col--center {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 30px;
     }
     &__gmi {
         display: grid;
@@ -67,25 +78,34 @@ footer
             color: #7D7D7D;
         }
     }
+    &__polit {
+    
+    }
     &__copy {
-        text-align: right;
+        // text-align: right;
     }
 
         
 
     @media (max-width: $md-desktop) {
         &__bottom {
-            .footer__col--left {
-                width: 33%;
+            .footer__col {
+                width: auto;
             }
-            .footer__col--center {
-                width: 67%;
-                text-align: right;
-            }
-            .footer__col--right {
-                width: 100%;
-                margin-top: 10px;
-            }
+            // .footer__col--left {
+            //     width: 33%;
+            // }
+            // .footer__col--center {
+            //     width: 67%;
+            //     text-align: right;
+            // }
+            // .footer__col--right {
+            //     width: 100%;
+            //     margin-top: 10px;
+            // }
+        }
+        &__bottom &__wrap {
+            gap: 20px 0;
         }
         &__copy {
             text-align: left;
@@ -93,7 +113,7 @@ footer
         
     }
     @media (max-width: $md-tablet) {
-        padding: 45px 0;
+        padding: 45px 0 25px;
         &__logo {
             max-width: 146px;
         }
@@ -102,6 +122,10 @@ footer
         }
         &__bottom {
             padding-top: 20px;
+        }
+        &__bottom &__wrap {
+            gap: 10px 0;
+            justify-content: flex-start;
         }
         &__col {
             &--left {
@@ -124,23 +148,29 @@ footer
     @media (max-width: $md-tablet-sm) {
         &__col {
             width: 100% !important;
+            text-align: left !important;
             & + & {
                 margin-top: 30px;
             }
         }
         &__bottom {
-            font-size: 14px;
+            font-size: 12px;
             .footer__col + .footer__col {
-                margin-top: 10px;
+                margin-top: 0;
             }
             .footer__col--center {
-                text-align: left;
-                order: 5;
+                // text-align: left;
+                // order: 5;
+                flex-direction: column;
+                gap: 10px;
             }
         }
         &__gmi {
             grid-template-columns: 1fr 1fr;
             grid-gap: 8px;
+        }
+        &__sname {
+            margin-top: 20px;
         }
     }
     @media (max-width: $md-mobile-lg) {

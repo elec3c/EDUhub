@@ -174,6 +174,28 @@ $(function () {
 		}
 	});
 
+	
+	/**************************************************************
+	NAV
+	**************************************************************/
+	$('.js-nav-link').click(function (e) {
+		e.preventDefault();
+		let tab_name = $(this).attr('data-tab'),
+			tabs = $(this).parents('.js-tabs');
+			
+		$(this).parents('.js-nav').find('.js-nav-link').removeClass('active');
+		$(this).addClass('active');
+
+
+		$(tabs).find('.js-tabs-content').removeClass("active").fadeOut(300).promise().done(function () {
+
+			let ct = $(tabs).find('.js-tabs-content[data-tab*=' + tab_name + ']');
+			$(ct).addClass("active").fadeIn(300);
+
+
+		});
+	})
+
 	/**************************************************************
 	Блокировка ввода
 	**************************************************************/
@@ -317,6 +339,7 @@ $(function () {
 	})
 
 	$("#sub_category-select").chained("#category-select");
+	$("#sub_category-select-2").chained("#category-select-2");
 	$("#sub_category_type-select").chained("#sub_category-select");
 	$("#type-select").chained("#category-select");
 	$("#level-select").chained("#category-select");
