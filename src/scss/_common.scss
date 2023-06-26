@@ -647,6 +647,39 @@
              color: #fff;
         }
     }
+    &__label {
+        display: flex;
+        cursor: pointer;
+        overflow: hidden;
+        input {
+            position: absolute;
+            left: -100px; top: -100px;
+            opacity: 0; visibility: hidden;
+        }
+        &-wrap {
+            height: 54px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease-in-out;
+            padding: 0 32px;
+            white-space: nowrap;
+            font-size: 16px; color: $color-gray;
+            font-weight: 700;
+            border-radius: 10px;
+            border: 1px solid $color-gray;
+            &:hover {
+                color: $bg-purple;
+                border-color: $bg-purple;
+            }
+        }
+        :checked + &-wrap {
+            pointer-events: none;
+            background: $bg-purple;
+            border-color: $bg-purple;
+             color: #fff;
+        }
+    }
     @media (max-width: $md-tablet) {
         &__list {
             flex-wrap: nowrap;
