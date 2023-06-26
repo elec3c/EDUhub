@@ -14,7 +14,7 @@
         
 
         
-                <div class="cgcourse rollup-box">
+                {*<div class="cgcourse rollup-box">
                     <div class="cghead">
                         <div class="cgtitle"><a href="{$id | url}">{$course_title?:$pagetitle} / {$course_sub_category_title}</a></div>
 
@@ -22,178 +22,112 @@
                             <span class="open_t">Свернуть</span><span class="close_t">Развернуть</span>
                         </a>
                     </div>
-                    <div class="rollup-tab">
-                        <div class="cgcourse__cols">
-                            <div class="cgcourse__info">
-                                <div class="cgcourse__info-col">
-                                    {if $course_title}
-                                    <div class="cgcourse__item">
-                                        <div class="cgcourse__item-label">Группа</div>
-                                        {$course_title}
-                                    </div>
-                                    {/if}
-                                    {if ($_pls['tv.data_from']) && ($_pls['tv.data_from'] | date_format:"%Y" != "2099")}
-                                    <div class="cgcourse__item">
-                                        <div class="cgcourse__item-label">Дата старта</div>
-                                        {$_pls['tv.data_from'] | date_format:"%e %B %Y"}
-                                    </div>
-                                    {/if}
-                                    {if $course_category}
-                                    <div class="cgcourse__item">
-                                        <div class="cgcourse__item-label">Категория</div>
-                                        {$course_category | resource:'pagetitle'}
-                                    </div>
-                                    {/if}
-                                    {if $course_sub_category}
-                                    <div class="cgcourse__item">
-                                        <div class="cgcourse__item-label">Подкатегория</div>
-                                        {$course_sub_category | resource:'pagetitle'}
-                                    </div>
-                                    {/if}
-                                    {if $parent==44}
-                                    <div class="cgcourse__item">
-                                        <div class="cgcourse__item-label">Направление</div>
-                                        {$course_sub_category_type}
-                                    </div>
-                                    {/if}
-                                    {if $course_type}
-                                    <div class="cgcourse__item">
-                                        <div class="cgcourse__item-label">Особенности</div>
-                                        {$course_type}
-                                    </div>
-                                    {/if}
-                                    
- 
-                                    {if $course_duration}
-                                    <div class="cgcourse__item">
-                                        <div class="cgcourse__item-label">Длительность курса в часах</div>
-                                        {$course_duration}
-                                    </div>
-                                    {/if}
-                                   {if $num_lesson_per_week}
-                                    <div class="cgcourse__item">
-                                        <div class="cgcourse__item-label">Кол-во занятий в неделю</div>
-                                        {$num_lesson_per_week}
-                                    </div>
-                                    {/if}                                    
-                                    {if $lesson_duration}
-                                    <div class="cgcourse__item">
-                                        <div class="cgcourse__item-label">Длительность занятия в мин.</div>
-                                        {$lesson_duration}
-                                    </div>
-                                    {/if}
-                                    {if $_pls['tv.format_of_study']}
-                                    <div class="cgcourse__item">
-                                        <div class="cgcourse__item-label">Формат</div>
-                                            {switch $_pls['tv.format_of_study']}
-                                                {case 'individual'}
-                                                     индивидуальные
-                                                {case 'group'}
-                                                    групповые
-                                            {/switch}
-                                    </div>
-                                    {/if}
-                                    {if $_pls['tv.form_of_study']}
-                                    <div class="cgcourse__item">
-                                        <div class="cgcourse__item-label">Форма</div>
-                                            {switch $_pls['tv.form_of_study']}
-                                                {case 'offline'}
-                                                    офлайн
-                                                {case 'online'}
-                                                    онлайн
-                                            {/switch}
-                                    </div>
-                                    {/if} 
+                    <div class="rollup-tab">*}
+                        
+                            
+<div class="courses__template lk__wraplr section__lr">                                															
+									<div class="courses__template-head">
+									
+										<div class="courses__template-title"><a href="{$id | url}">{$course_title?:$pagetitle}</a></div>																										
+										{if $_pls['tv.form_of_study']}
+											   {switch $_pls['tv.form_of_study']}
+													{case 'offline'}
+														<div class="courses__template-training offline">Offline-обучение</div>
+													{case 'online'}
+														<div class="courses__template-training offline">Online-обучение</div>
+													{case 'online-micro'}
+														<div class="courses__template-training offline">Online-микрокурсы</div>
+													{case 'hybrid'}
+														<div class="courses__template-training offline">Гибридное-обучение</div>
+													{case 'recording'}
+														<div class="courses__template-training offline">В записи-обучение</div>													
+												{/switch}
+										{/if} 																		
+									</div>								
+															
+									<div class="courses__template-cols">
+										<div class="courses__template-info">
+											<div class="courses__template-props">
+												<div class="courses__template-props__row">
+													<div class="courses__template-props__item">
+														<div class="courses__template-props__numb">{if $_pls['tv.num_months_of_study']}{$_pls['tv.num_months_of_study']}{else}-{/if}</div>
+														месяцев
+													</div>
+													<div class="courses__template-props__item">
+														<div class="courses__template-props__numb">{if $_pls['tv.price_course']}{$_modx->runSnippet('!formatMoney', ['number'=>$_pls['tv.price_course']])}{else}-{/if}</div>
+														стоимость курса
+													</div>
+												</div>
+												<div class="courses__template-props__row">											
+													<div class="courses__template-props__item">													
+														<div class="courses__template-props__numb">{if $num_lesson_per_week}{$num_lesson_per_week}{else}-{/if}</div>
+														занятия <br> в неделю
+													</div>
+													<div class="courses__template-props__item">
+														<div class="courses__template-props__numb">{if $course_duration}{$course_duration}{else}-{/if}</div>
+														длительность курса<br> в часах
+													</div>
+												</div>
+												<div class="courses__template-props__row">
+													<div class="courses__template-props__item w-all">
+														<div class="courses__template-props__numb">{if $_pls['tv.num_people_in_group']}{$.php.intval($_pls['tv.num_people_in_group'])}{else}-{/if}</div>
+														человек в группе/индивид.
+													</div>
+												</div>
+											</div>
+											{if $introtext}
+											<div class="courses__template-desc">
+												{$introtext}
+											</div>
+											{/if}
+										</div>
 
-                                    {if $_pls['tv.num_months_of_study']}
-                                    <div class="cgcourse__item">
-                                        <div class="cgcourse__item-label">Количество месяцев обучения</div>
-                                        {$_pls['tv.num_months_of_study']} 
-                                    </div>
-                                    {/if}                                    
-                                    
-                                </div>
-                                <div class="cgcourse__info-col">
-                                    {if $_pls['tv.num_people_in_group']}
-                                    <div class="cgcourse__item">
-                                        <div class="cgcourse__item-label">Максимальное кол-во человек в группе</div>
-                                            {$.php.intval($_pls['tv.num_people_in_group'])} чел.
-                                    </div>
-                                    {/if}                                    
-                                    {if $schedule}
-                                    <div class="cgcourse__item">
-                                        <div class="cgcourse__item-label">Дни</div>
-                                        {$schedule}: 
-                                    </div>
-                                    {/if}
-                                    {if $time}
-                                    <div class="cgcourse__item">
-                                        <div class="cgcourse__item-label">Время</div>
-                                        {$time}: 
-                                    </div>
-                                    {/if}
-                                    {set $addr = $_modx->runSnippet('getListCities', ['name'=>'address', 'uid'=>$_pls['tv.course_address'], 'arr'=>1, 'index'=>1])}
-                                    {if $addr[$_pls['tv.course_address']]}
-                                    <div class="cgcourse__item">
-                                        <div class="cgcourse__item-label">Адрес</div>
-                                            {$addr[$_pls['tv.course_address']]}
-                                    </div>
-                                    {/if}
-                                    {if $for_ages}
-                                    <div class="cgcourse__item">
-                                        <div class="cgcourse__item-label">Возраст</div>
-                                        {$_pls['tv.for_ages_from']}-{$_pls['tv.for_ages_to']} лет.
-                                    </div>
-                                    {/if}
-                                    {if $for_levels}
-                                    <div class="cgcourse__item">
-                                        <div class="cgcourse__item-label">Уровень</div>
-                                        {$for_levels}
-                                    </div>
-                                    {/if}
-                                    
-                                    {if $_pls['tv.price_course']}
-                                    <div class="cgcourse__item">
-                                        <div class="cgcourse__item-label">Стоимость курса</div>
-                                        {$_modx->runSnippet('!formatMoney', ['number'=>$_pls['tv.price_course']])}
-                                    </div>
-                                    {/if}
-                                    
-                                    {if $_pls['tv.price_course_month']}
-                                    <div class="cgcourse__item">
-                                        <div class="cgcourse__item-label">Стоимость в месяц</div>
-                                        {$_modx->runSnippet('!formatMoney', ['number'=>$_pls['tv.price_course_month']])}  
-                                    </div>
-                                    {/if}                                    
-                                    
-                                    {if $_pls['tv.price_lesson']}
-                                    <div class="cgcourse__item">
-                                        <div class="cgcourse__item-label">Стоимость занятия</div>
-                                        {$_modx->runSnippet('!formatMoney', ['number'=>$_pls['tv.price_lesson']])}
-                                    </div>
-                                    {/if}
-                                    
-                                </div>
-                            </div>
+										<div class="courses__template-create">
+											<b>Чтобы продвигать весь курс, создайте на его основе группу без даты старта и адреса</b>
+											<div class="courses__template-create__buttons">
+												<a href="{39 | url}?type=group&copy={$id}" style="color:#FFF;"><button class="btn btn--bdpurple w-all"><span>Создать группу<span class="hide-mobile-lg"> на основе шаблона</span></span></button></a>
+											</div>
+										</div>
+									</div>								
+								
 
-                            <div class="cgcourse__action">
-                                <div class="cgcourse__action-buttons">
-                                    <div class="input__row">
-                                        <button class="btn w-all"><span><a href="{39 | url}?type=group&copy={$id}" style="color:#fff">Создать группу на основе шаблона</span></a></button>
-                                    </div>
-                                </div>
-                                <div class="cgcourse__action-links">
-                                    <a href="{39 | url}?type=course&edit={$id}" class="link__icon">
+                                                    
+             
+								
+                                <div class="courses__template-links">
+                                    <a href="{39 | url}?type=course&edit={$id}" class="courses__template-edit">
                                         <img src="assets/images/icons/edit-purple.svg" alt="Edit">
                                         <span>Редактировать</span>
                                     </a>
-                                    <a href="{39 | url}?type=course&delete={$id}" class="link__icon link__icon--red">
+                                    <a href="{39 | url}?type=course&delete={$id}" class="courses__template-remove">
                                         <img src="assets/images/icons/remove.svg" alt="Remove">
                                         <span>Удалить</span>
                                     </a>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+								
+                              
 
+</div>
+							
+                    {*</div>
+                </div>*}
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+
+
+                    
+                  

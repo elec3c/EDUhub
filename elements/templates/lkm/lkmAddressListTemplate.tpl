@@ -25,7 +25,7 @@
                                 'tvPrefix'=>'',
                                 'loadModels'=>'cities',
                                 'sortby'=>[
-                                    'EduCities.id'=>'DESC',
+                                    'EduCities.id'=>'ASC',
                                 ],
                                 'tpl'=>'@FILE chunks/lkm/lkm.address.block.tpl'
                             ]?:'<p class="section__intro">Ничего не найдено</p>'}

@@ -8,7 +8,7 @@
                 <div class="section__head">
                     <h2 class="section__title">Избранные курсы</h2>
                 </div>
-
+                {include 'file:chunks/users/user.submenu.tpl' pid='1239'}
                 <div class="courses__filter">
                     {*include 'file:chunks/forms/fields/fields.courses.sub_category.tpl'*}
                 </div>

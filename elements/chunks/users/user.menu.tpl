@@ -12,9 +12,9 @@
         {set $isCorporate = ($user_id | ismember : ['Corporate'])}
         
         {if !$isCorporate}
-            {set $excludeResources = "-803,-804,-1122"}
+            {set $excludeResources = "-803,-804,-1122,-1128,-1119,-1182,-1121,-1183,-1184"}
         {else}
-            {set $excludeResources = "-34,-504,-1134"}
+            {set $excludeResources = "-34,-504,-1134,-1134,-1135,-1136"}
         {/if}
         
         {'!pdoMenu' | snippet: [

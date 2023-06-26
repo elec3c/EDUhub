@@ -57,23 +57,27 @@
                         <div class="ssrequest__item-4cols">
                             <div class="ssrequest__item-4col col--category">
                                 <div class="ssrequest__item-label">Список курсов</div>
-                                <ul>
-                                    {set $couses_list = '!pdoResources' | snippet : [
-                                        'parents'=>'61',
-                                        'returnIds'=>'1',
-                                        'depth'=>0,
-                                        'limit'=>0,
-                                        'includeTVs'=>'course_group_title, course_owner',
-                                        'where'=>["course_owner"=>$from_user_id]
-                                    ]}
-                                    {set $courses_all = explode(',', $couses_list)}
-                                    {foreach $courses_all as $k=>$v}
-                                        {set $title = $v | resource : 'pagetitle'}
-                                        {if intval($v) && $title}
-                                            <li>{$title |truncate:60:" ..."}</li>
-                                        {/if}
-                                    {/foreach}                                       
-                                </ul>
+                                {if $type=='diff'}
+                                    <ul>
+                                        {set $couses_list = '!pdoResources' | snippet : [
+                                            'parents'=>'61',
+                                            'returnIds'=>'1',
+                                            'depth'=>0,
+                                            'limit'=>0,
+                                            'includeTVs'=>'course_group_title, course_owner',
+                                            'where'=>["course_owner"=>$from_user_id]
+                                        ]}
+                                        {set $courses_all = explode(',', $couses_list)}
+                                        {foreach $courses_all as $k=>$v}
+                                            {set $title = $v | resource : 'pagetitle'}
+                                            {if intval($v) && $title}
+                                                <li>{$title |truncate:60:" ..."}</li>
+                                            {/if}
+                                        {/foreach}                                       
+                                    </ul>
+                                {else}
+                                    Любой курс школы
+                                {/if}                                
                             </div>
                             <div class="ssrequest__item-4col">
                                 <div class="ssrequest__item-label">Размер скидки / ед.изм</div>
@@ -88,7 +92,7 @@
                             </div>
                             <div class="ssrequest__item-4col col--note">
                                 <div class="ssrequest__item-label">Примечание</div>
-                                <div class="ssrequest__item-note">{$detail}</div>
+                                <div class="ssrequest__item-note">{if $type=='diff'}{$query['detail_diff']}{else}{$query['detail']}{/if}</div>
                             </div>
                         </div>
 
@@ -101,7 +105,7 @@
                             {/if}
                             
                             {if ($status_id in [1]) && (trim($query['agreement']) == 'agreement_paper')}
-                                <button class="btn btn--purple f-all accept-partnership" data-id="{$id}" data-user="{$to_user_id}" data-status="3"><span>Подтвердить <span class="nowrap">подписание договора</span></span></button>
+                                <button class="btn btn--purple f-all accept-partnership" data-id="{$id}" data-user="{$to_user_id}" data-status="3" data-agreement="{$query['agreement']}"><span>Подтвердить <span class="nowrap">подписание договора!!!</span></span></button>
                             {elseif $status_id in [3]}
                                 <button class="btn btn--more"><span>Договор подписан Вами</span></button>
                             {/if}

@@ -7,6 +7,7 @@
 
         {insert 'file:chunks/users/user.menu.tpl'}
 
+
         <section class="lk section__mgb">
             <div class="container">
                 <div class="section__head">
@@ -53,7 +54,7 @@
                             </div>
                         </div>
                 {else}
-                    <p class="section__intro">Чтобы видеть школы, открытые для предложений о партнерстве, необходима верификация Вашей компании.</p>
+                    {insert 'file:chunks/lk/lk.message.partnership.for.verified.tpl'}
                 {/if}
             </div>
         </section><!-- lk -->

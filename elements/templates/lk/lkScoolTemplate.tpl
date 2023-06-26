@@ -8,6 +8,7 @@
                 <div class="section__head">
                     <h2 class="section__title">Избранные школы</h2>
                 </div>
+                {include 'file:chunks/users/user.submenu.tpl' pid='1239'}
                 {include 'file:chunks/favorites/favorites.scools.tpl'}
             </div>
         </section><!-- lk -->

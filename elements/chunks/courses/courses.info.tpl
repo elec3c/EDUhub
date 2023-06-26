@@ -78,8 +78,12 @@
                                 Онлайн-обучение
                             {case 'offline'}
                                 Офлайн-обучение
-                            {case 'hybrid'}
+                            {case 'online-micro'}
+                                Онлайн микрокурсы (15-20 мин в день)
+                            {case 'hybrid'}                    
                                 Гибридное-обучение
+                            {case 'recording'}
+                                Обучение в записи
                             {default}
                                 Форма обучения не указана
                         {/switch}

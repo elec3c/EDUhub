@@ -49,17 +49,20 @@
                                         <label class="form__lcheck">
                                             <input type="radio" name="partnership_join" value="offer" class="styler" {if $partnership_join_paper && !$partnership_join_offer}checked{else}checked{/if}>
                                             <span>Публичная оферта</span>
+                                        </label>          
+                                        <br>
+                                        <label class="form__lcheck" id="file_block">
+                                            {'FileAttach' | snippet : ['makeURL'=>1, 'tpl'=>'file.attach.tpl']}
+                                        </label>                                        
+                                        <label class="form__lcheck" id="policy_block">
+                                            <input type="checkbox" name="policy" value="1" class="styler" id="policy" {if $partnershipJoin}checked disabled{/if}>
+                                            <span>С&nbsp;<a href="{1152 | url}" style="text-decoration:underline;" target="_blank;">офертой</a> ознакомлены и согласны</span>
                                         </label>                                        
                                     </div>                              
                                     <div class="input__row">
                                         <input class="btn {if !$partnershipJoin}btn--purple{else}btn--red{/if} w-all" id="btnPartnershipJoin" value="{if !$partnership_join_paper && $partnership_join_offer}Присоединиться к Партнерской программе{elseif $partnership_join_paper && !$partnership_join_offer}Присоединиться к Партнерской программе{else}Присоединиться к Партнерской программе{/if}" readonly/>
                                     </div>  
                                     <input type="hidden" id="partnershipJoinOffer" value="{$partnershipJoin}">
-                                    
-                                    <label class="form__lcheck" id="policy_block">
-                                        <input type="checkbox" name="policy" value="1" class="styler" id="policy" {if $partnershipJoin}checked disabled{/if}>
-                                        <span>С&nbsp;<a href="{1152 | url}" style="text-decoration:underline;" target="_blank;">офертой</a> ознакомлены и согласны</span>
-                                    </label>
                                 </div> 
                                 </form>
                                 {*<p class="section__intro">Чтобы далее видеть школы, открытые для предложений о партнерстве, необходимо присоединиться к оферте и не забыть обновить текущую страницу.</p>*}
@@ -118,9 +121,9 @@
                     {*/if*}
                 
             </div>
-                {else}
-                    <p class="section__intro">Для того, чтобы воспользоваться услугой <b>"Партнерская программа от EDUhub"</b> и получать предложения от школ о скидках для сотрудников, необходимо пройти верификацию Вашей компании. Для этого на официальный e-mail, указанный на Вашем сайте, будет выслана верификационная ссылка, по которой Вам необходимо перейти, чтобы завершить процесс верификации.</p>
-                {/if}
+            {else}
+                {insert 'file:chunks/lk/lk.message.partnership.for.verified.tpl'}
+            {/if}
         </section><!-- lk -->
 
 	</main><!--content__wrapper-->

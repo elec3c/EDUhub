@@ -20,7 +20,6 @@
                 {if $verified}
                         <div id="pdopage">
                             <div class="rows">
-
                                 {'!pdoPage' | snippet :[
                                     'ajaxMode'=>'default',
                                     'idx'=>5,
@@ -54,10 +53,8 @@
                             </div>
                         </div>
                 {else}
-                    <p class="section__intro">Чтобы видеть школы, открытые для предложений о партнерстве, необходима верификация Вашей компании.</p>
+                    {insert 'file:chunks/lk/lk.message.partnership.for.verified.tpl'}
                 {/if}
-                
-                    
                 </div>
             </div>
         </section><!-- lk -->

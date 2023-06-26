@@ -8,7 +8,7 @@
     <select name="course_sub_category" data-placeholder="Подкатегория курса {if $req==1}*{/if}" class="{$styler}" id="sub_category-select" {if $req==1}required{/if}>
         <option value=""></option>
         [[!getList? &id=`11` &option=`1` &chained=`11` &curr=`[[+fi.course_sub_category]]`]]
-        [[!getList? &id=`10` &option=`1` &chained=`10` &curr=`[[+fi.course_sub_category]]`]]
+        [[!getList? &id=`10` &option=`1` &chained=`10` &curr=`[[+fi.course_sub_category]]` &sortby=`menuindex`]]
         [[!getList? &id=`520` &option=`1` &chained=`520` &curr=`[[+fi.course_sub_category]]`]]
         [[!getList? &id=`521` &option=`1` &chained=`521` &curr=`[[+fi.course_sub_category]]`]]
         [[!getList? &id=`522` &option=`1` &chained=`522` &curr=`[[+fi.course_sub_category]]`]]

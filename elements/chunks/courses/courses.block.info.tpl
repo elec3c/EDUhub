@@ -21,20 +21,28 @@
             {/if}
         </li>
         {/if}
-        {if $form_of_study}
+        
         <li class="courses__block-training online">
+        {if $form_of_study}            
             {switch  $form_of_study}
                 {case 'online'}
                     Онлайн-обучение
                 {case 'offline'}
                     Офлайн-обучение
+                {case 'online-micro'}
+                    Онлайн микрокурсы (15-20 мин в день)
                 {case 'hybrid'}                    
                     Гибридное-обучение
+                {case 'recording'}
+                    Обучение в записи
                 {default}
                     Форма обучения не указана
             {/switch}
-        </li>
+        {else}
+            - 
         {/if}
+        </li>
+        
         
         {if $course_address}
             {set $addr = $_modx->runSnippet('getListCities', ['name'=>'address', 'uid'=>$course_address, 'arr'=>1, 'index'=>1])}
