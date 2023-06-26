@@ -88,6 +88,10 @@ $(document).on('af_complete', function(event, response) {
                 window.location.href = "{$_modx->makeUrl(24, 'web', [], 'full')}";
             break;
             
+            case "profileUserCompany":
+                window.location.href = "{$_modx->makeUrl(1135, 'web', [], 'full')}";
+            break;
+            
             case "lkEmployeesForm":
                 window.location.href = "{$_modx->makeUrl(1185, 'web', [], 'full')}";
             break;

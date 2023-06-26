@@ -26,7 +26,7 @@
             <div class="lk__profile-cols__inputs">
                 <div class="lk__profile-cols__left">
                     <div class="input__row">
-                        <input type="text" name="fullname" value="{$fullname}" class="input" placeholder="Бренд *" maxlength="50" required {if $isManagerOK}disabled{/if}/> 
+                        <input type="text" name="fullname" value="{htmlentities($fullname)}" class="input" placeholder="Бренд *" maxlength="50" required {if $isManagerOK}disabled{/if}/> 
                         <div class="tool-tip slideIn bottom">Бренд *</div>
                     </div>                     
                     <div class="input__row">

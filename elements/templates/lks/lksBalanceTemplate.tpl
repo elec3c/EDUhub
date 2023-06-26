@@ -10,7 +10,10 @@
                 <div class="section__head">
                     <h2 class="section__title">Баланс</h2>
                 </div>
-                <div class="balance__wrap">
+                <div class="balance__cols">
+                    
+                    <div class="balance__col">
+                        <div class="balance__col-title">Баланс</div>
                     
                     {set $budgetReplenishmentAgoMonth = '@FILE /snippets/budgetReplenishmentAgoMonth.php' | snippet : ['user_id' => $user_id]}
                     {set $budgetWriteOffAgoMonth = '@FILE /snippets/budgetWriteOffAgoMonth.php' | snippet : ['user_id' => $user_id]}
@@ -159,7 +162,36 @@
                         Чтобы пополнить счет, необходимо заполнить <a href="{$modx->makeUrl(35)}{if $.get.user_id}?user_id={$.get.user_id}{/if}" class="link">профиль школы</a>
 
                     {/if}
-
+                    </div>
+                    
+                    <div class="balance__col">
+                        <div class="balance__col-title">Бонусные баллы</div>
+                        <div class="balance__item">
+                            <div class="balance__item-label">Остаток на начало месяца</div>
+                            <div class="balance__item-val">0</div>
+                        </div>
+                        <div class="balance__item">
+                            <div class="balance__item-label">Начислено в текущем месяце</div>
+                            <div class="balance__item-val">60</div>
+                        </div>
+                        <div class="balance__item">
+                            <div class="balance__item-label">Зарезервировано</div>
+                            <div class="balance__item-val">0</div>
+                        </div>
+                        <div class="balance__item">
+                            <div class="balance__item-label">Списано</div>
+                            <div class="balance__item-val">0</div>
+                        </div>
+                        <div class="balance__item">
+                            <div class="balance__item-label">Свободный остаток</div>
+                            <div class="balance__item-val">60</div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="balance__bottom">
+                    Все подписки оплачиваются только средствами с Баланса. Бонусными баллами можно оплатить только комиссию за заключенные договоры <br>
+                    Вознаграждение за заключенный договор списывается в первую очередь с баланса, если не хватает средств на балансе - списывается с бонусных баллов
                 </div>
             </div>
         </section><!-- lk -->

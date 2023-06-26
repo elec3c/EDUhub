@@ -4,11 +4,12 @@
 {set $phone = ($user_id | user:'phone')}
 {set $fullname = ($user_id | user:'fullname')}
 {set $site = ($user_id | user:'website')}
-{* {set $confirm_phone = $_modx->user.id | user:'confirm_phone'?:0} *}
+{set $confirm_phone = $_modx->user.id | user:'confirm_phone'?:0}
 
 {set $phone1 = $_modx->user.id | user:'mobilephone'}
 {set $phone2 = $_modx->user.id | user:'phone'}
-{set $confirm_phone = ( ($phone1 == $phone2) ? ($phone2) : (0) )}
+
+{set $confirm_phone = ( ($.php.preg_replace("/[^\+0-9]/", "", $phone1) == $.php.preg_replace("/[^\+0-9]/", "", $phone2)) ? ($phone2) : (0) )}
 
 {set $isOK = ($_modx->user.id | ismember : ['Administrator','Users'])} 
 {set $sale  = $.php.intval($page_id | resource: 'sale')}        
@@ -101,7 +102,7 @@
                     </button>
                 {/if}
             {else}
-                {if (!$confirm_phone) && ($promote['lead'] > 0)}<button class="btn w-all" data-open-popup="confirm_phone_msg">Обратный звонок</button>{/if}
+                {if (!$confirm_phone) && ($promote['lead'] > 0)}<button class="btn w-all" data-open-popup="confirm_phone_msg">Обратный звонок{$confirm_phone}</button>{/if}
             {/if}
         {else}
             <button class="btn w-all " data-open-popup="call_to_school" data-groupid="{$page_id}">Обратный звонок</button>

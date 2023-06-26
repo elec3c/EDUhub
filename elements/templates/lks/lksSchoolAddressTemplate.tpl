@@ -8,10 +8,10 @@
         <section class="lk courses section__mgb">
             <div class="container">
                 <div class="section__head">
-                    <h2 class="section__title">Мои адреса</h2>
+                    <h2 class="section__title">{$_modx->resource.pagetitle}</h2>
                 </div>
                 
-                {include 'file:chunks/users/user.submenu.tpl' pid='315'}                
+                {include 'file:chunks/users/user.submenu.tpl' pid='817'}                
                 
                 {*
                 <div class="courses__filter">

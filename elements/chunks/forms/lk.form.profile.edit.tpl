@@ -36,10 +36,10 @@
             </div>
         <br>
         <div class="input__row">
-            <input type="text" name="fullname" class="input" value="{$fullname}" placeholder="{'office_profile_fullname' | lexicon} *" maxlength="50" required {if $isManagerOK || $_modx->user.urlico2}disabled{/if}>
+            <input type="text" name="fullname" class="input" value="{htmlentities($fullname)}" placeholder="{'office_profile_fullname' | lexicon} *" maxlength="50" required {if $isManagerOK || $_modx->user.urlico2}disabled{/if}>
         </div>
         <div class="input__row">
-            <input type="email" name="email" name="email" class="input" value="{$email}" placeholder="{'office_profile_email' | lexicon} *" maxlength="50" required {if $isManagerOK}disabled{/if}>
+            <input type="email" name="email" name="email" class="input" value="{$email}" placeholder="{'office_profile_email' | lexicon} *" maxlength="50" required {if $isManagerOK || $_modx->user.urlico2 || $_modx->user.urlico}disabled{/if}>
         </div>
         
         <div class="input__row">
@@ -57,9 +57,11 @@
         {if !$isManagerOK}      
         <button type="submit" class="btn w-all" id="btnProfile">Сохранить</button>
         <br/><br/>
-         <div class="input__row input__row--link">
-            <a href="{24 | url}" class="link">Вернуться к профилю</a>
-        </div>
+            {if $_modx->resource.id != 24}
+             <div class="input__row input__row--link">
+                <a href="{24 | url}" class="link">Вернуться к профилю</a>
+            </div>
+            {/if}
         {/if}
     </form>   
     

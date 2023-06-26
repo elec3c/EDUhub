@@ -2,8 +2,8 @@
 
 {set $discount = $query['discount']}
 
-{set $r = '!getValuesTV' | snippet : ['tvid'=>'115', 'arr'=>1]}
-{set $agreement = $r[$query['agreement']]}
+{set $a_agreement = '!getValuesTV' | snippet : ['tvid'=>'115', 'arr'=>1]}
+{set $agreement = $a_agreement[$query['agreement']]}
 
 {set $a_discount_unit = '!getValuesTV' | snippet : ['tvid'=>'118', 'arr'=>1]}
 {set $discount_unit = $a_discount_unit[$query['discount_unit']]}
@@ -107,6 +107,7 @@
             <div class="ssrequest__item-4cols">
                 <div class="ssrequest__item-4col col--category">
                     <div class="ssrequest__item-label">Список курсов</div>
+                    {if $type=='diff'}
                     <ul>
                         {set $couses_list = '!pdoResources' | snippet : [
                             'parents'=>'61',
@@ -124,6 +125,9 @@
                             {/if}
                         {/foreach}
                     </ul>
+                    {else}
+                         Любой курс школы
+                    {/if}
                 </div>
                 <div class="ssrequest__item-4col">
                     <div class="ssrequest__item-label">Размер скидки / ед.изм</div>
@@ -149,9 +153,9 @@
                 {include 'file:chunks/partnership/partnership.contact.btn.tpl' user_id=$to_user_id responsible='partnership' title='Контактное лицо'}
                 
                 {if $status_id in [1]}
-                    <button class="btn btn--purple f-all accept-partnership" data-id="{$id}" data-user="{$to_user_id}" data-status="5"><span>Подтвердить <span class="nowrap">подписание договора</span></span></button>
+                    <button class="btn btn--purple f-all accept-partnership" data-id="{$id}" data-user="{$to_user_id}" data-status="5" data-agreement="{$query['agreement']}"><span>Подтвердить <span class="nowrap">подписание договора</span></span></button>
                 {elseif $status_id in [3]}
-                    <button class="btn btn--purple f-all accept-partnership" data-id="{$id}" data-user="{$to_user_id}" data-status="5"><span>Компания подтвердила <span class="nowrap">подписание договора</span></span></button>                
+                    <button class="btn btn--purple f-all accept-partnership" data-id="{$id}" data-user="{$to_user_id}" data-status="5" data-agreement="{$query['agreement']}"><span>Компания подтвердила <span class="nowrap">подписание договора</span></span></button>                
                 {elseif $status_id in [5]}
                     <button class="btn btn--bdrred reject-partnership" data-id="{$id}" data-user="{$to_user_id}" data-status="7">Расторгнуть</button>
                 {/if}                

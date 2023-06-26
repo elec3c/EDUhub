@@ -70,6 +70,7 @@
                 <div class="ppcontracts__item-col ppcontracts__item-col--category">
                     <div class="ppcontracts__item-label">Курсы шаблоны</div>
                         <div class="ppcontracts__item-val">
+                    {if $type=='diff'}
                     <ul>
                         {set $couses_list = '!pdoResources' | snippet : [
                             'parents'=>'61',
@@ -86,7 +87,10 @@
                                 <li>{$title |truncate:60:" ..."}</li>
                             {/if}
                         {/foreach}
-                    </ul>                            
+                    </ul>
+                    {else}
+                    Любой курс школы
+                    {/if}
                             
                         </div>
                 </div>

@@ -29,3 +29,6 @@
 {if $_modx->resource.id in [802,803]}
 <script type="text/javascript" src="/assets/js/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js">
 {/if}
+{if $_modx->resource.id in [313]}
+<script type="text/javascript" src="/assets/custom/promote.buy.js"></script>
+{/if}

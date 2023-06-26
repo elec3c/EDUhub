@@ -1,10 +1,12 @@
 {set $to_user_id = $_pls['tv.scools_owner']}
 {if $to_user_id > 0}
+    {set $address = $to_user_id | user:'city'}
     {set $fullname = $to_user_id | user:'fullname'}
     {set $show_user = $to_user_id | user:'show_user'}
     {set $r = '!getValuesTV' | snippet : ['tvid'=>'114', 'arr'=>1]}
     {set $scope = $r[$to_user_id|user:'scope']?:'не указано'}
     {set $count_employees = $to_user_id | user:'count_employees'}
+    {set $city = $modx->runSnippet('getListCities', ['name' => 'city', 'arr'=>1])}
 {/if}
 
 
@@ -51,6 +53,10 @@
     {insert 'file:chunks/partnership/partnership.status.color.tpl'}
     <div class="ssrequest__item pd0 lk__wraplr section__lr js-item">
                             <div class="ssrequest__item-head">
+                                <div class="ssrequest__item-col">
+                                    <div class="ssrequest__item-label show-tablet">Город</div>
+                                    {$city[$address]}
+                                </div>                                
                                 <div class="ssrequest__item-col">
                                     <div class="ssrequest__item-label show-tablet">Компании, открытые <br> для предложений <br class="hide-tablet-sm">о партнерстве</div>
                                     {$fullname}

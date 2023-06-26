@@ -14,6 +14,7 @@
                 
                 {include 'file:chunks/users/user.submenu.tpl' pid='1134'}                
 
+
                 <div class="loyalty">
                     <div class="loyalty__steps lk__wraplr section__lr">
                         <div class="loyalty__step">
@@ -24,7 +25,7 @@
                                     <div class="loyalty__step-content__title">НАЙТИ ВСЁ</div>
                                     <p>Перейти на главную страницу к выбору параметров поиска и выбирать между всеми школами на сайте, включая школы, не являющиеся партнерами вашей компании</p>
                                     <div class="loyalty__step-content__buttons">
-                                        <button class="btn w-all">Перейти</button> 
+                                        <a href="{1 | url}"><button class="btn w-all">Перейти</button></a>
                                     </div>
                                 </div>
                                 <div class="loyalty__step-content bg">
@@ -39,9 +40,9 @@
                                 </div>
                                 <div class="loyalty__step-content bg">
                                     <div class="loyalty__step-content__title">ЛЕНЬ ИСКАТЬ</div>
-                                    <p>Не хотите тратить время на поиск курсов - оставьте запрос на подбор курса. Вы получите подборку курсов по запросу и будете получать сообщения о появлении новых предложений</p>
+                                    <p>Не хотите тратить время на поиск курсов - оставьте запрос на подбор курса. Вы получите подборку курсов по запросу и будете получать сообщения о появлении новых предложений. Выберите интересующие параметры и нажмите кнопку <b>Уведомить о новых курсах</b></p>
                                     <div class="loyalty__step-content__buttons">
-                                        <button class="btn btn--green w-all">Отправить запрос</button> 
+                                        <a href={18|url}><button class="btn btn--green w-all">Отправить запрос</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -68,7 +69,7 @@
                     </div>
                 </div><!--loyalty-->
 
-                <div class="loyalty__filters">
+                {*<div class="loyalty__filters">
                     <div class="loyalty__filters-label">Выбрать курс у школ-партнеров со скидкой</div>
                     <div class="loyalty__filters-cols">
                         <select name="categ" class="styler" data-placeholder="Выберите категорию курсов">
@@ -82,7 +83,7 @@
                             <option value="">2</option>
                         </select>  
                     </div>
-                </div>
+                </div>*}
 
                 <div class="loyalty__chead loyalty__ccols">
                     <div class="loyalty__citem-col loyalty__citem-col--info">Школа</div>
@@ -93,62 +94,43 @@
                         <div class="loyalty__chead-t">4 программы <br><a href="" class="link">Подборка курсов</a></div>
                     </div>
                 </div>
-
-                <div class="loyalty__citem lk__wraplr section__lr loyalty__ccols">
-                    <div class="loyalty__citem-col loyalty__citem-col--info">
-                        <div class="loyalty__citem-label">Школа</div>
-                        <div class="loyalty__citem-val">Стримлайн, <br> ООО ",,,,"</div>
-                    </div>
-                    
-                    <div class="loyalty__citem-col loyalty__citem-col--category">
-                        <div class="loyalty__citem-label">Категории</div>
-                        <div class="loyalty__citem-val">Языковые <br> английский - 5 программ <br> немецкий - 1 программа</div>
-                    </div>
-                    
-                    <div class="loyalty__citem-col loyalty__citem-col--sale">
-                        <div class="loyalty__citem-label">Размер скидки <br> и на что</div>
-                        <div class="loyalty__citem-val">10% <br> на стоимость курса</div>
-                    </div>
-                    
-                    <div class="loyalty__citem-col loyalty__citem-col--note">
-                        <div class="loyalty__citem-label">Примечание</div>
-                        <div class="loyalty__citem-val">здесь какое-то текстовое описание скидки, например, условие получения - промокод от компании</div>
-                    </div>
-                    
-                    <div class="loyalty__citem-col loyalty__citem-col--count">
-                        <div class="loyalty__citem-label">Идет набор на курсы</div>
-                        <div class="loyalty__citem-val">4 программы</div>
-                        <div class="loyalty__citem-val"><a href="" class="link">Подборка курсов</a></div>
-                    </div>
-                </div>
                 
-                <div class="loyalty__citem lk__wraplr section__lr loyalty__ccols">
-                    <div class="loyalty__citem-col loyalty__citem-col--info">
-                        <div class="loyalty__citem-label">Школа</div>
-                        <div class="loyalty__citem-val">2English,  <br> ООО "АЙВИЛИГА"</div>
-                    </div>
-                    
-                    <div class="loyalty__citem-col loyalty__citem-col--category">
-                        <div class="loyalty__citem-label">Категории</div>
-                        <div class="loyalty__citem-val">Языковые <br> английский - 5 программ <br> немецкий - 1 программа</div>
-                    </div>
-                    
-                    <div class="loyalty__citem-col loyalty__citem-col--sale">
-                        <div class="loyalty__citem-label">Размер скидки <span class="nowrap">и на что</span></div>
-                        <div class="loyalty__citem-val">100 руб. <br> фиксированная скидка</div>
-                    </div>
-                    
-                    <div class="loyalty__citem-col loyalty__citem-col--note">
-                        <div class="loyalty__citem-label">Примечание</div>
-                        <div class="loyalty__citem-val">предоставляется для айти курсов</div>
-                    </div>
-                    
-                    <div class="loyalty__citem-col loyalty__citem-col--count">
-                        <div class="loyalty__citem-label">Идет набор на курсы</div>
-                        <div class="loyalty__citem-val">2 программы</div>
-                        <div class="loyalty__citem-val"><a href="" class="link">Подборка курсов</a></div>
-                    </div>
-                </div>
+                
+                
+                    <div id="pdopage">
+                        <div class="rows">
+                            {'!pdoPage' | snippet :[
+                                'ajaxMode'=>'default',
+                                'idx'=>5,
+                                'class'=>'EduPartnership',
+                                'tvPrefix'=>'',
+                                'processTVs'=>'1',
+                                'limit'=>'10',                            
+                                'loadModels'=>'partnership',
+                                'innerJoin'=>[
+                                    'EduPartnershipResponse'=>[
+                                        'class'=>'EduPartnershipResponse',
+                                        'on'=>'EduPartnership.id = EduPartnershipResponse.partnership_id',
+                                        ]
+                                ],                                    
+                                'select'=>[
+                                    'EduPartnership'=>'*',
+                                    'EduPartnershipResponse'=>'EduPartnershipResponse.status_id as status_id',
+                                ],
+                                'where'=>[                              
+                                    'EduPartnershipResponse.status_id:IN' => [0,1,2,3,4,5,6,7]
+                                ],
+                                'sortby'=>[
+                                    'EduPartnership.id'=>'DESC'
+                                ],                            
+                                'tpl'=>'@FILE chunks/lk/lk.loyalty.partnership.block.tpl',
+                            ]?:'<p class="section__intro">Ничего не найдено</p>'}
+                        </div>
+                        <div class="section__buttons">
+                            {$_modx->getPlaceholder('page.nav')}
+                        </div>
+                    </div>                
+
             </div>
         </section><!-- lk -->
 	</main><!--content__wrapper-->

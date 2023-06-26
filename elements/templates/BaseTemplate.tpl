@@ -96,7 +96,11 @@
             {include 'file:chunks/modals/partnership_restore.tpl'}
             {include 'file:chunks/modals/partnership_dogovor_terminate.tpl'}
             {include 'file:chunks/modals/partnership_dogovor_declain.tpl'}
+            
         {/if}        
+        {if $_modx->resource.id in [313]}
+            {include 'file:chunks/modals/promote_buy.tpl'}
+        {/if}
     {/block}
 
     {block 'scripts'}

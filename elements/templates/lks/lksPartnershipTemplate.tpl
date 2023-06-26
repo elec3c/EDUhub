@@ -111,6 +111,7 @@
                     </div>*}
 
                     <div class="ssrequest__header">
+                        <div class="ssrequest__item-col">Город</div>
                         <div class="ssrequest__item-col">Компании, открытые <br> для предложений <br> о партнерстве</div>
                         <div class="ssrequest__item-col">Сфера деятельности</div>
                         <div class="ssrequest__item-col">Количество сотрудников компании</div>

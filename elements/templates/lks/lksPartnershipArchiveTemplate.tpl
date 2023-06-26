@@ -16,7 +16,7 @@
                 
                 <div class="ssrequest">
 
-                    <div class="ssrequest__filters">
+                    {*<div class="ssrequest__filters">
                         <div class="ssrequest__filters-item">
                             <div class="ssrequest__filters-label">Фильтр по статусу</div>
                             <div class="checkselect  check-select" data-placeholder="Все направления">
@@ -37,7 +37,7 @@
                                 </div>
                             </div> 
                         </div>
-                    </div>
+                    </div>*}
 
                     {*set $verified = $user_id | user:'verified'*}
                     {*if $verified*}

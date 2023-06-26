@@ -39,8 +39,8 @@
                         </div>
                     </div>*}
 
-                    {*set $verified = $user_id | user:'verified'*}
-                    {*if $verified*}
+                    {set $verified = $user_id | user:'verified'}
+                    {if $verified}
                     <div id="pdopage">
                         <div class="rows">
                             {'!pdoPage' | snippet :[
@@ -75,13 +75,9 @@
                             {$_modx->getPlaceholder('page.nav')}
                         </div>
                     </div>
-                    {*else*}
-                        {*<p class="section__intro">Чтобы видеть партнерские предложения, необходима верификация Вашей компании.</p>*}
-                    {*/if*}     
-
-
-
-
+                    {else}
+                        {insert 'file:chunks/lk/lk.message.partnership.for.verified.tpl'}
+                    {/if}     
                 </div>
             </div>
         </section><!-- lk -->

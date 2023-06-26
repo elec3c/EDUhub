@@ -38,6 +38,7 @@
                             <div class="pprequest__item-prop">
                                 <div class="pprequest__item-label">Список курсов</div>
                                 <div class="pprequest__item-val">
+                                    {if $type=='diff'}
                                     <ul class="pprequest__item-list">
                                     {set $couses_list = '!pdoResources' | snippet : [
                                         'parents'=>'61',
@@ -55,6 +56,9 @@
                                         {/if}
                                     {/foreach}                                        
                                     </ul>
+                                {else}
+                                    Любой курс школы
+                                {/if}                                    
                                 </div>
                             </div>
                         </div>
@@ -91,18 +95,17 @@
                                             {set $agreement_paper = $to_user_id | user:'agreement_paper'}
                                             {set $agreement_public_offer = $to_user_id | user:'agreement_public_offer'}
                                             {if !$agreement_public_offer}
-                                                {set $r1 = ["agreement_public_offer"]}
+                                                {set $aExclude[] = ["agreement_public_offer"]}
                                             {/if}
                                             {if !$agreement_paper}
-                                                {set $r2 = ["agreement_paper"]}
+                                                {set $aExclude[] = ["agreement_paper"]}
                                             {/if}
-                                            {set $aExclude = array_merge($r1, $r2)}
                                             
                                             {'!getValuesTV' | snippet : ['exclude'=>$aExclude, 'tvid'=>'115', 'curr'=>$agreement]}
                                         </select>
                                     </div>
                                     {if !($status_id in [2,6,7,9])}                                    
-                                    <button class="btn btn--green w-all accept-partnership" data-id="{$id}" data-user="{$to_user_id}" {if $agreement=='agreement_public_offer'}data-status="3"{else}data-status="1"{/if} id="btnPartnershipAgreement">{if $agreement=='agreement_public_offer'}Заключить догоров{else}Принять{/if}</button>
+                                    <button class="btn btn--green w-all accept-partnership" data-id="{$id}" data-user="{$to_user_id}" data-agreement="{$query['agreement']}" {if $agreement=='agreement_public_offer'}data-status="3"{else}data-status="1"{/if} id="btnPartnershipAgreement">{if $agreement=='agreement_public_offer'}Заключить догоров{else}Принять{/if}</button>
                                     {/if}
                                 </div>
                             </div>
