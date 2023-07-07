@@ -727,6 +727,11 @@ $(function () {
 	});
 
 
+	$('body').on('click', '.js-loyalty-citem-more', function (e) {
+		e.preventDefault();
+
+		$(this).toggleClass('opened').prev().slideToggle();
+	});
 	
 
 	/**************************************************************

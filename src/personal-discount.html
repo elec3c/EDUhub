@@ -96,6 +96,7 @@
                             <ul>
                                 <li>Промокод от EDUhub на 10 руб. <br> для всех зарегистрированных пользователей</li>
                                 <li>Корпоративная скидка для сотрудников компаний</li>
+                                <li>Бонус за отзыв и оценку школе</li>
                             </ul>
                         </div>
                         <div class="persdisc__sale-percent"><img src="assets/images/persdisc-percent.svg" alt=""></div>
@@ -112,6 +113,7 @@
                 </div>
 
                 <form action="" method="post" class="findcp__form">
+                    <input name="controll" class="no-display" type="text">
                     <div class="form__label">Введите название вашей компании или бренда компании</div>
                     <div class="findcp__form-cols">
                         <input type="text" class="input" placeholder="МТС">
@@ -119,11 +121,25 @@
                     </div>
                 </form>
 
-                <div class="findcp__result">
+                <div class="findcp__result findcp__bd">
                     <div class="findcp__result-title">Найдены похожие результаты:</div>
                     <div class="findcp__result-items">
                         <div class="findcp__result-item">СООО Мобильные телесистемы <br> ООО МТСнаб</div>
                     </div>
+                </div>
+
+                <div class="findcp__added findcp__bd">
+                    <div class="findcp__added-intro">Нет вашей компании в списке? Оставьте свой мэйл и как только ваша компания присоединится к партнерской программе, мы отправим вам сообщение об этом.</div>
+                    <form action="" method="post" class="findcp__added-form">
+                        <input name="controll" class="no-display" type="text">
+                        <div class="findcp__added-cols">
+                            <div class="findcp__added-inputs">
+                                <input type="text" class="input" name="name" placeholder="Введите название компании">
+                                <input type="text" class="input" name="email" placeholder="Укажите ваш email">
+                            </div>
+                            <button class="btn">Отправить</button>
+                        </div>
+                    </form>
                 </div>
 
                 <div class="findcp__bottom">Если компания, сотрудником которой вы являетесь, есть в списке партнеров EDUhub, значит вы являетесь частью компании, которая заботится о развитии своих сотрудников. Чтобы узнать с какими школами у вашей компании заключены соглашения о скидках, необходимо зарегистрироваться на сайте как Пользователь</div>
