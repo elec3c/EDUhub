@@ -5,6 +5,19 @@ function isMobile() {
 	}
 	return false;
 }
+function getUrlVars()
+{
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for (var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
+
 function openModal(popup_n) {
 	$('.popup').fadeOut(800);
 
@@ -18,8 +31,26 @@ function closeModal() {
 }
 
 $(function () {
-
-
+	const getParam = getUrlVars();
+	if ($('#choose').length > 0) {
+		$('[name=course_category] option[value='+getParam['course_category']+']').prop('selected', true);
+		$('[name=course_sub_category] option[value='+getParam['course_sub_category']+']').prop('selected', true);
+		$('[name=course_sub_category_type] option[value='+getParam['course_sub_category_type']+']').prop('selected', true);
+		$('[name=course_type] option[value='+getParam['course_type']+']').prop('selected', true);
+		$('[name=for_ages] option[value='+getParam['for_ages']+']').prop('selected', true);
+		$('[name=for_levels] option[value='+getParam['for_levels']+']').prop('selected', true);
+		$('[name=form_of_study] option[value='+getParam['form_of_study']+']').prop('selected', true);
+		$('[name=format_of_study] option[value='+getParam['format_of_study']+']').prop('selected', true);
+		$('[name=schedule] option[value='+getParam['schedule']+']').prop('selected', true);
+		$('[name=form_of_study] option[value='+getParam['form_of_study']+']').prop('selected', true);
+		$('[name=time] option[value='+getParam['time']+']').prop('selected', true);
+		$('[name=course_city] option[value='+getParam['course_city']+']').prop('selected', true);
+		$('[name=course_region] option[value='+getParam['course_region']+']').prop('selected', true);
+		$('[name=course_metro] option[value='+getParam['course_metro']+']').prop('selected', true);
+		$('[name=data_from]').val(getParam['data_from']);
+	}
+	
+	
 	$(".phone-mask").mask("+375(99)999-99-99");
 	$(".time-mask").mask("99:99");
 
@@ -44,10 +75,11 @@ $(function () {
 	};
 	$.datepicker.setDefaults($.datepicker.regional['ru']);
 	$('.datepicker-input').datepicker({
-		minDate: 0,
+		// minDate: 0,
 		format: 'dd/mm/yyyy',
 		changeMonth: true,
-		changeYear: true
+		changeYear: true,
+		yearRange: (new Date().getFullYear() - 1) + ':' + (new Date().getFullYear() + 2)
 	});
 
 
@@ -346,8 +378,9 @@ $(function () {
 	$("#level-from-select").chained("#category-select");
 	$("#level-to-select").chained("#category-select");
 	$("#for_ages_to").chained("#for_ages_from");
-	//$("#course_metro").chained("#course_city");
-	//$("#course_region").chained("#course_city");
+	
+	$("#course_metro").chained("#course_city");
+	$("#course_region").chained("#course_city");
 
 
 	$('body').on('change', 'select.styler', function (e) {
