@@ -447,12 +447,8 @@ $(function () {
 			},
 			breakpoints: {
 				0: {
-					slidesPerView: 1.2,
-					spaceBetween: 10
-				},
-				480: {
 					slidesPerView: "auto",
-					spaceBetween: 8
+					spaceBetween: 10
 				},
 				768: {
 					slidesPerView: 2.3,
