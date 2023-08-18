@@ -6429,6 +6429,17 @@ pagination
             &--company {
                 grid-column: span 2;
             }
+            &--cw2 {
+                grid-column: span 2;
+            }
+        }
+        &-rowc2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 30px;
+            &:not(:first-child) + & {
+                margin-top: 5px;
+            }
         }
         &-note {
             background: #FFFFFF;
@@ -6619,6 +6630,10 @@ pagination
                     }
                 }
             }
+            
+            &-rowc2 {
+                grid-gap: 30px 80px;
+            }
             &-rcbuttons {
                 .btn {
                     min-width: calc( (100% - 80px) / 2);
@@ -6688,6 +6703,13 @@ pagination
                     &--category {
                         grid-row: initial;
                     }
+                }
+            }
+            &-rowc2 {
+                grid-template-columns: 1fr;
+                grid-gap: 0;
+                &:not(:first-child) + & {
+                    margin-top: 10px;
                 }
             }
             &-rcbuttons {
