@@ -6432,6 +6432,9 @@ pagination
             &--cw2 {
                 grid-column: span 2;
             }
+            &--cw3 {
+                grid-column: span 3;
+            }
         }
         &-rowc2 {
             display: grid;
@@ -6439,6 +6442,14 @@ pagination
             grid-gap: 30px;
             &:not(:first-child) + & {
                 margin-top: 5px;
+            }
+        }
+        &-rowc3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 30px;
+            &:not(:first-child) + & {
+                margin-top: 8px;
             }
         }
         &-note {
@@ -6634,6 +6645,9 @@ pagination
             &-rowc2 {
                 grid-gap: 30px 80px;
             }
+            &-rowc3 {
+                grid-gap: 30px;
+            }
             &-rcbuttons {
                 .btn {
                     min-width: calc( (100% - 80px) / 2);
@@ -6705,7 +6719,7 @@ pagination
                     }
                 }
             }
-            &-rowc2 {
+            &-rowc2, &-rowc3 {
                 grid-template-columns: 1fr;
                 grid-gap: 0;
                 &:not(:first-child) + & {
