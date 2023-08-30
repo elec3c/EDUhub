@@ -391,7 +391,7 @@ $(function () {
 		}, 1)
 	})
 
-	$('.choose-clear').on('click', function (e) {
+	$('.js-choose-clear').on('click', function (e) {
 		e.preventDefault();
 		console.log('clear');
 
@@ -809,6 +809,57 @@ $(function () {
 	});
 	chatScrollBottom();
 
+	
+	/**************************************************************
+	ФИльтр в школах
+	**************************************************************/
+	$(document).on('change', '.js-filter-scool input', function(e) {
+		const val = $(this).val();
+		
+		if (val === '' ||  $('.js-filter-scool-more input[data-choose='+val+']').length==0) {
+			$('.js-filter-scool-more').addClass('hide');
+			return;
+		}
+
+		$('.js-filter-scool-more').removeClass('hide');
+		$('.js-filter-scool-more li').addClass('hide');
+		$('.js-filter-scool-more input[value=""]').prop('checked', true);
+		$('.js-filter-scool-more input[value=""]').parents('li').removeClass('hide');
+		$('.js-filter-scool-more input[data-choose='+val+']').parents('li').removeClass('hide');
+	})
+
+	
+	/**************************************************************
+	cookie
+	**************************************************************/
+	function getCookie(name) {
+
+		var matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+	
+		return matches ? decodeURIComponent(matches[1]) : undefined;
+	
+	}
+
+
+	if (getCookie('cookie_inf') === '1') {
+		document.querySelector('.js-cookie').remove();					
+	}  else {
+		setTimeout(() => {
+			document.querySelector('.js-cookie').classList.add('opened');
+		}, 200);
+	}
+
+	document.addEventListener('click', function(e){
+
+		if(e.target.classList.contains('js-cookie-save')) {
+			document.querySelector('.js-cookie').classList.remove('opened');
+			document.cookie = "cookie_inf=1; path=/; max-age="+60*60*24*30;
+		}
+		
+		if(e.target.classList.contains('js-cookie-close')) {
+			document.querySelector('.js-cookie').classList.remove('opened');
+		}
+	});
 });
 
 

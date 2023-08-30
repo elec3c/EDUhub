@@ -623,6 +623,15 @@
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
+        &.hide {
+            display: none;
+        }
+        & + & {
+            margin-top: 25px;
+        }
+        li.hide {
+            display: none;
+        }
     }
     &__link {
         height: 54px;

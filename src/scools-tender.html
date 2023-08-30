@@ -36,18 +36,31 @@
                 </div>
 
                 <div class="snav">
-                    <ul class="snav__list">
-                        <li><label class="snav__label"><input type="checkbox" name="nav-filter" value=""><div class="snav__label-wrap">Все направления</div></li>
-                        <li><label class="snav__label"><input type="checkbox" name="nav-filter" value=""><div class="snav__label-wrap">Программирование</div></li>
-                        <li><label class="snav__label"><input type="checkbox" name="nav-filter" value="" checked><div class="snav__label-wrap">Дизайн</div></li>
-                        <li><label class="snav__label"><input type="checkbox" name="nav-filter" value=""><div class="snav__label-wrap">Маркетинг</div></li>
-                        <li><label class="snav__label"><input type="checkbox" name="nav-filter" value=""><div class="snav__label-wrap">Управление</div></li>
-                        <li><label class="snav__label"><input type="checkbox" name="nav-filter" value=""><div class="snav__label-wrap">Игры</div></li>
-                        <li><label class="snav__label"><input type="checkbox" name="nav-filter" value=""><div class="snav__label-wrap">Кино и музыка</div></li>
-                        <li><label class="snav__label"><input type="checkbox" name="nav-filter" value=""><div class="snav__label-wrap">Психология</div></li>
-                        <li><label class="snav__label"><input type="checkbox" name="nav-filter" value=""><div class="snav__label-wrap">Общее разваитие</div></li>
-                        <li><label class="snav__label"><input type="checkbox" name="nav-filter" value=""><div class="snav__label-wrap">Инженерия</div></li>
-                        <li><label class="snav__label"><input type="checkbox" name="nav-filter" value=""><div class="snav__label-wrap">Другое</div></li>
+                    <ul class="snav__list js-filter-scool">
+                        <li><label class="snav__label"><input type="radio" name="nav-filter" value="" checked><div class="snav__label-wrap">Все направления</div></li>
+                        <li><label class="snav__label"><input type="radio" name="nav-filter" value="1"><div class="snav__label-wrap">IT курсы</div></li>
+                        <li><label class="snav__label"><input type="radio" name="nav-filter" value="2" ><div class="snav__label-wrap">Дизайн и графика</div></li>
+                        <li><label class="snav__label"><input type="radio" name="nav-filter" value="3"><div class="snav__label-wrap">Маркетинг</div></li>
+                        <li><label class="snav__label"><input type="radio" name="nav-filter" value="4"><div class="snav__label-wrap">Управление</div></li>
+                        <li><label class="snav__label"><input type="radio" name="nav-filter" value="5"><div class="snav__label-wrap">Игры</div></li>
+                        <li><label class="snav__label"><input type="radio" name="nav-filter" value="6"><div class="snav__label-wrap">Кино и музыка</div></li>
+                        <li><label class="snav__label"><input type="radio" name="nav-filter" value="7"><div class="snav__label-wrap">Психология</div></li>
+                        <li><label class="snav__label"><input type="radio" name="nav-filter" value="8"><div class="snav__label-wrap">Общее разваитие</div></li>
+                        <li><label class="snav__label"><input type="radio" name="nav-filter" value="9"><div class="snav__label-wrap">Инженерия</div></li>
+                        <li><label class="snav__label"><input type="radio" name="nav-filter" value="10"><div class="snav__label-wrap">Другое</div></li>
+                    </ul>
+
+                    <ul class="snav__list hide js-filter-scool-more">
+                        <li><label class="snav__label"><input type="radio" name="nav-filter-sub" value="" checked><div class="snav__label-wrap">Все</div></li>
+                        <li><label class="snav__label"><input type="radio" name="nav-filter-sub" value="1" data-choose="1"><div class="snav__label-wrap">Java</div></li>
+                        <li><label class="snav__label"><input type="radio" name="nav-filter-sub" value="2"  data-choose="1"><div class="snav__label-wrap">Python</div></li>
+                        <li><label class="snav__label"><input type="radio" name="nav-filter-sub" value="3" data-choose="1"><div class="snav__label-wrap">разработки ПО</div></li>
+
+                        <li><label class="snav__label"><input type="radio" name="nav-filter-sub" value="1" data-choose="2"><div class="snav__label-wrap">Game Design</div></li>
+                        <li><label class="snav__label"><input type="radio" name="nav-filter-sub" value="2"  data-choose="2"><div class="snav__label-wrap">Архитектурный дизайн</div></li>
+                        <li><label class="snav__label"><input type="radio" name="nav-filter-sub" value="3" data-choose="2"><div class="snav__label-wrap">College ART</div></li>
+                            
+                        <li><label class="snav__label"><input type="radio" name="nav-filter-sub" value="1" data-choose="3"><div class="snav__label-wrap">Маркетинг для руководителей</div></li>
                     </ul>
                 </div>
 
