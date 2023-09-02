@@ -11,7 +11,17 @@
 <title>{$title} | {'site_name' | config}</title>
 <meta name="description" content="{$description}">
 {'ss_meta.keywords' | placeholder}
-{'ss_meta.robots' | placeholder}
+
+{if $.get.page}
+    <meta name="robots" content="noindex, follow" /> 
+{else}
+    {if $_modx->resource.parent | resource : 'parent' == 11}
+        <meta name="robots" content="noindex, follow" /> 
+    {else}
+        {'ss_meta.robots' | placeholder}
+    {/if}
+{/if}
+
 <meta name="csrf-token" content="{$.session['csrf-token']}">
 <link href="/assets/images/favicon/favicon.ico" type="image/x-icon" rel="icon">
 <link href="/assets/images/favicon/favicon.ico" type="image/x-icon" rel="shortcut icon">
@@ -72,6 +82,11 @@
 {if $_modx->resource.id in [802,803]}
 	<link rel="stylesheet" href="/assets/js/mCustomScrollbar/jquery.mCustomScrollbar.css">
 </script>
+{/if}
+
+
+{if $_modx->resource.id in [35,39]}
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
 {/if}
 
 <base href="{$_modx->config.site_url}">

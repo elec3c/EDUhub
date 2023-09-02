@@ -27,12 +27,13 @@
                 {var $form     = '@FILE chunks/forms/modal.call.user.form.tpl'}
                 {var $emailTpl  = $emailTpl      ?: '@FILE chunks/emails/email.tpl'}				
 				
+				
                 {'!AjaxForm'|snippet:[
                     'snippet' => 'FormIt',
                     'form' => $form,
                     'groupid' => $groupid,
                     'schoolid' => $schoolid,
-                    'hooks' => 'csrf,callRequest,EmailQueue',
+                    'hooks' => 'csrf,callRequest',
                     'emailSubject' => $subject,
                     'emailTo' => $emailto,
                     'emailFrom' => $_modx->config.emailsender,

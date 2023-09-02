@@ -4,6 +4,7 @@
 {$_modx->runSnippet('!mFilter2', [
     'filters'=>'tv|schools_direction_b2c',
     'aliases'=>'tv|schools_direction_b2c==schools_direction_b2c',
+    'tplFilter.outer.default'=>'@INLINE [[+rows]]',
     'tplFilter.row.default'=>'@FILE chunks/filter/filter.schools.direction.tpl',                    
     'filterOptions'      => '{"autoLoad":1}',
     'showEmptyFilters'   =>'true',
@@ -27,7 +28,7 @@
     ], 
     'where'=>'{"template:=":16}',
     'parents'=>$_modx->config['site_parent_schools'],
-    'limit'=>'6',
+    'limit'=>'33',
     'showLog'=>'1',
     'ajaxMode' => 'button',
     'ajaxElemMore'=>'#pdopage .btn--more',

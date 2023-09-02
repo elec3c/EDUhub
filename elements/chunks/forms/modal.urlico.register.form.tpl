@@ -1,4 +1,4 @@
-<form action="" method="post" id="office-auth-register-urlico">
+<form  method="post" id="office-auth-register-urlico">
 	<div class="reg__cols">
 		<input name="controll" class="no-display" type="text">   
 		<div class="input__row">
@@ -17,7 +17,7 @@
 		</div>  
 		<label class="form__polit">
 			<input type="checkbox" id="company-polit" name="polit" class="styler" required>
-			<span>Ознакомлен с <a href="{$_modx->makeUrl(370)}">пользовательским соглашением</a> и <a href="{$_modx->makeUrl(8)}">политикой конфиденциальности</a></span>
+			<span>Ознакомлен и согласен с <a href="{$_modx->makeUrl(370)}">пользовательским соглашением</a> и <a href="{$_modx->makeUrl(8)}">политикой конфиденциальности</a></span>
 		</label>
 		<input type="hidden" name="urlico2" value="1"/>
 		<input type="hidden" name="group" value="corporate"/>

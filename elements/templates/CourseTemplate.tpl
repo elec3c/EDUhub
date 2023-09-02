@@ -5,11 +5,11 @@
     <div class="container">
     {if 'standard' | mobiledetect}    
     <div class="section__head detail__head">
-        <h2 class="section__title">{$_modx->resource.course_group_title?:$_modx->resource.pagetitle}</h2>
+        <h1 class="section__title">{$_modx->resource.course_group_title?:$_modx->resource.pagetitle}</h1>
     </div>
     {else}
     <div class="section__head detail__head show-tablet-sm">
-        <h2 class="section__title">{$_modx->resource.course_group_title?:$_modx->resource.pagetitle}</h2>
+        <h1 class="section__title">{$_modx->resource.course_group_title?:$_modx->resource.pagetitle}</h1>
     </div>
     {/if}
     <div class="detail__cols">

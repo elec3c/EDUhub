@@ -13,7 +13,9 @@
 
                 <div class="content__text section__mgb--sm">
                     <h3>Как воспользоваться скидкой</h3>
-                    <p>Все скидки хранятся в личном кабинете. Чтобы воспользоваться скидкой, необходимо назвать ее менеджеру при записи на курс.</p>
+                        <p>Все скидки хранятся в личном кабинете. Чтобы воспользоваться скидкой, необходимо назвать ее менеджеру при записи на курс.</p>
+                        <p>Вы можете забронировать не более трех мест единовременно. Если вы хотите забронировать еще одно место, удалите какой-либо промокод.</p>
+                    <p>
                 </div>
 
                 <div class="sale__item sale__item-head">
@@ -33,7 +35,7 @@
                     <div class="rows">
                         {'!pdoPage' | snippet :[
                             'showLog'=>0,
-                            'parents'=>85,
+                            'parents'=>$_modx->config['site_parent_courses'],
                             'class'=>'modResource',
                             'limit'=>5,
                             'tvPrefix'=>'',
@@ -74,7 +76,7 @@
                                             {include "file:chunks/courses/courses.block.photo.tpl" user_id=$course_owner}
                                         </div>
                                         <div class="sale__item-col sale__item-info">
-                                            <h3 class="sale__item-title"><a href="{$res_id | url}">{$pagetitle}-{$course_owner}</a></h3>
+                                            <h3 class="sale__item-title"><a href="{$res_id | url}">{$pagetitle}</a></h3>
                                             <ul class="sale__item-list listinf">
                                                 <li class="sale__item-training online">{if $form_of_study==\'offline\'}Офлайн{else}Онлайн{/if}-обучение</li>
                                                 {if $course_address && $addr[$course_address]}    
@@ -135,7 +137,7 @@
                                                 до {$data_to | date : "d.m.Y"}
                                             </div>
                                         </div>
-                                        {if $active and empty($deal) and empty($deleted)}
+                                        {if $active and empty($deleted)} {* empty($deal) *}
                                             <div class="sale__item-col sale__item-remove">
                                                 <a href="" class="a-promocode-remove" data-id="{$id}">
                                                     <img src="/assets/images/icons/remove.svg" alt="">

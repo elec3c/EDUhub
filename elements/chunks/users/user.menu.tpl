@@ -3,19 +3,25 @@
     <div class="lknav__list lknav__list--mw">
       <ul>
         {set $user_id = $.php.intval($.get.user_id)?:$_modx->user.id}  
+        
         {if $_modx->resource.parent in ["23","30","63"]}
             {set $parentMenu = $_modx->resource.parent}
         {else}
             {set $parentMenu = $_modx->resource.parent | resource : 'parent'}
         {/if}
         
+
+        {if $_modx->resource.parent == 315}
+            {set $parentMenu = 30}
+        {/if}
         {set $isCorporate = ($user_id | ismember : ['Corporate'])}
         
         {if !$isCorporate}
-            {set $excludeResources = "-803,-804,-1122,-1128,-1119,-1182,-1121,-1183,-1184"}
+            {set $excludeResources = $_modx->config['user_menu_exclude_users']}
         {else}
-            {set $excludeResources = "-34,-504,-1134,-1134,-1135,-1136"}
+            {set $excludeResources = $_modx->config['user_menu_exclude_company']}
         {/if}
+        
         
         {'!pdoMenu' | snippet: [
             'parents' => $parentMenu,

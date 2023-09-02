@@ -3,11 +3,13 @@ $(document).on('af_complete', function(event, response) {
     var form = response.form;
     if (response.success) {
         switch (form.attr('id')) {
+        
+            case "compisregForm":
+                openModal('compisreg_thank');
+            break;
+        
             case "queueFormDelete":
                 window.location.href = "{$_modx->makeUrl(504, 'web', [], 'full')}";
-            break;
-            case "call_to_school_reg":
-                window.location.reload();
             break;
             case "promoteForm":
                 window.location.href = "{$_modx->makeUrl(313, 'web', [], 'full')}";

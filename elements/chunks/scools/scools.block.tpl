@@ -13,10 +13,14 @@
 <div class="scools__item">
     <div class="scools__item-link al-center">
         <div class="scools__item-photo">
-            <a href="{$id | url}">{include 'file:chunks/courses/courses.block.photo.tpl' user_id=$user_id}</a>
+            <a href="{$id | url}">
+                {include 'file:chunks/courses/courses.block.photo.tpl' user_id=$user_id}
+            </a>
         </div>
         <div class="scools__item-info">
-            <div class="scools__item-title"><a href="{$id | url}">{$menutitle ?: $pagetitle}</a></div>
+            <div class="scools__item-title">
+                <a href="{$id | url}">{$menutitle ?: $pagetitle}</a>
+            </div>
             {if ($_modx->resource.template != 23)}
                 {if ($user_id > 0)}
                 <ul class="scools__item-list listinf">

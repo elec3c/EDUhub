@@ -12,11 +12,12 @@
 {/if}
 
 <div class="clearfix" style="position: relative;">
-    <label class="form__lcheck"><input type="checkbox" class="{$styler}" name="course_continue" {if $course_continue == 1}checked{/if}>
+    <label class="form__lcheck">
+        <input type="checkbox" class="{$styler}" name="course_continue" {if $course_continue == 1}checked{/if} value="1"/>
     {if $hide!=1}
-        <span>Продолжить набор в группу после старта группы</span>
+        <span>Продолжить набор после старта группы</span>
     {else}
-        <span>Показать действующие группы с набором</span>
+        <span>Показать действующие группы</span>
     {/if}
     </label>
 {if $hide!=1}

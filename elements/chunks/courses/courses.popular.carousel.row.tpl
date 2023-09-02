@@ -32,12 +32,18 @@
             <li>
                 <span>Форма обучения:</span>
                 {switch  $_pls['tv.form_of_study']}
-                    {case 'online'}
-                        Онлайн-обучение
-                    {case 'offline'}
-                        Офлайн-обучение
-                    {default}
-                        {$_pls['tv.form_of_study']}-обучение
+                        {case 'online'}
+                            Онлайн-обучение
+                        {case 'offline'}
+                            Офлайн-обучение
+                        {case 'online-micro'}
+                            Онлайн микрокурсы (15-20 мин в день)
+                        {case 'hybrid'}                    
+                            Гибридное-обучение
+                        {case 'recording'}
+                            Обучение в записи
+                        {default}
+                            Форма обучения не указана
                 {/switch}
             </li>            
             {/if}                                        

@@ -22,9 +22,15 @@
         {$_modx->runSnippet('getValuesTV', ['tvid'=>'27', 'chained'=>'523', 'curr'=>$for_levels_from])}
         {$_modx->runSnippet('getValuesTV', ['tvid'=>'27', 'chained'=>'524', 'curr'=>$for_levels_from])}
         {$_modx->runSnippet('getValuesTV', ['tvid'=>'27', 'chained'=>'623', 'curr'=>$for_levels_from])}
+        {$_modx->runSnippet('getValuesTV', ['tvid'=>'129', 'chained'=>'1347', 'curr'=>$for_levels_from])}        
+        {$_modx->runSnippet('getValuesTV', ['tvid'=>'129', 'chained'=>'1357', 'curr'=>$for_levels_from])}
+        {$_modx->runSnippet('getValuesTV', ['tvid'=>'129', 'chained'=>'1358', 'curr'=>$for_levels_from])}
+        {$_modx->runSnippet('getValuesTV', ['tvid'=>'129', 'chained'=>'1360', 'curr'=>$for_levels_from])}
+        {$_modx->runSnippet('getValuesTV', ['tvid'=>'129', 'chained'=>'1362', 'curr'=>$for_levels_from])}
+        
     </select>
     {if $_modx->resource.template == 11}
-    <div class="tool-tip slideIn bottom">Для уровня от</div>
+    <div class="tool-tip slideIn top">Для уровня от</div>
     {/if}
 </div>    
 

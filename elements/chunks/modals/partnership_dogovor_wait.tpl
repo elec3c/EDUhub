@@ -13,7 +13,7 @@
 				<div class="popup__head">
                     {set $isSchool = ($_modx->user.id | ismember : ['Organization'])}				    
                     {if $isSchool}
-					    <div class="popup__title">Отлично! Осталось дождаться, когда компания подтвердит подписание соглашения</div>
+					    <div class="popup__title">Отлично! Осталось дождаться когда компания примет ваше предложение</div>
 					{else}
                         <div class="popup__title">Отлично! Осталось дождаться, когда учебный центр подтвердит подписание соглашения</div>
 					{/if}

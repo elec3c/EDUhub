@@ -8,7 +8,7 @@
         <section class="lk section__mgb">
             <div class="container">
                 <div class="section__head">
-                    <h2 class="section__title">Название компании {if $company_id}{$company_id | user:'fullname'}{else}<не определена>{/if}</h2>
+                    <h2 class="section__title">{if $company_id}{$company_id | user:'fullname'}{else}Компания не определена{/if}</h2>
                 </div>
                 
                 {include 'file:chunks/users/user.submenu.tpl' pid='1134'}

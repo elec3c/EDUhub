@@ -12,17 +12,32 @@
                 {set $format_of_study  = ($res_id | resource: 'format_of_study')}
                 {set $form_of_study  = ($res_id | resource: 'form_of_study')}
                 {set $data_from  = ($res_id | resource: 'data_from')}
+                
+                {if intval($userId)}
+                    {set $my_company_id = ($userId | user:'my_company_id')}
+                {else}
+                    {set $my_company_id = 0}
+                {/if}
+                
 
                 <div class="leads__block">
                     <div class="leads__header lk__wraplr section__lr"><a href="{$res_id | url}">{$course_title?:$pagetitle} / {$course_sub_category_title}</a></div>
                     
                     <div class="leads__item lk__wraplr section__lr">
-                        {*<div class="leads__item-name show-desktop-sm">{$fullname}</div>*}
-
                         <div class="leads__item-col col--first">
                             <div class="leads__item-name hide-desktop-sm">{$fullname}</div>
+                            
+                            {if $my_company_id > 0}
+                            <div class="leads__item-prop">
+                                {set $company_name = ($my_company_id | user:'fullname')}
+                                {set $cid  = $_modx->runSnippet('!getCompanyPageID', ['company_id' => $my_company_id])}
+                                {set $company_url = ($cid | url)}
+                                <div class="leads__item-prop__label">Компания</div>
+                                {*<a href="{$company_url}">*}{$company_name}{*</a>*}
+                            </div>
+                            {/if}
 
-                        <div class="leads__item-prop">
+                            <div class="leads__item-prop">
                                 <div class="leads__item-prop__label">Телефон</div>
                                 {if $mobilephone}<a href="tel:{$mobilephone}">{$mobilephone}</a>{else}не указан{/if}
                             </div>
@@ -31,8 +46,6 @@
                                 {if $telegram}<a href="https://t.me/{$telegram}">{$telegram}</a>{else}не указан{/if}
                             </div>
                             {*<div class="leads__item-prop"><a href="#" class="link">Показать контакты</a></div>*}                            
-
-
                         </div>
                         <div class="leads__item-col hide-desktop-sm">
 
@@ -78,6 +91,12 @@
                                         офлайн
                                     {case 'online'}
                                         онлайн
+                                    {case 'online-micro'}
+                                         онлайн<br>микрокурсы  
+                                    {case 'hybrid'}
+                                        гибридная
+                                    {case 'recording'}                                        
+                                        в записи
                                     {default}
                                         {$form_of_study}
                                 {/switch}
