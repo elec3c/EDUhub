@@ -457,6 +457,9 @@ textarea.input {
         background-color: $bg-gray;
         color: $bg-purple;
     }
+    li.option-hide {
+        display: none !important;
+    }
     li:hover {
         background-color: $bg-purple;
         color: #FFF;
