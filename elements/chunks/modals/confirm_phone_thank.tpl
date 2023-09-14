@@ -35,7 +35,7 @@
 				</svg>					
 			</a>
 			<div class="popup__body">
-				<div class="popup__title" id="confirmPhoneMsg">При подтверждении<br> номера телефона <br>произошла ошибка.</div>				
+				<div class="popup__title" id="confirmPhoneErrorMsg">При подтверждении<br> номера телефона <br>произошла ошибка.</div>				
 			</div>
 		</div><!--popup__container-->
 	</div>

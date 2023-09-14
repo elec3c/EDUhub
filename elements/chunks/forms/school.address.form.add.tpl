@@ -32,7 +32,7 @@
         <div class="cadd__label">Время работы c</div>
         <div class="cadd__inputs cadd__in4">
             <div class="cadd__input">
-                <input type="time" class="input" name="time_from" placeholder="Время работы c" value="">
+                <input type="time" class="input" name="time_from" placeholder="Время работы c" value="[[!+fi.time_from]]">
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@
         <div class="cadd__label">Время работы по</div>
         <div class="cadd__inputs cadd__in4">
             <div class="cadd__input">
-                <input type="time" class="input" name="time_until" placeholder="Время работы по" value="">
+                <input type="time" class="input" name="time_until" placeholder="Время работы по" value="[[!+fi.time_until]]">
             </div>
         </div>
     </div>

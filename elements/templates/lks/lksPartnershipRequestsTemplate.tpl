@@ -55,7 +55,7 @@
                                 'innerJoin'=>[
                                     'EduPartnershipResponse'=>[
                                         'class'=>'EduPartnershipResponse',
-                                        'on'=>'EduPartnership.id = EduPartnershipResponse.partnership_id',
+                                        'on'=>'EduPartnership.id = EduPartnershipResponse.partnership_id AND EduPartnership.to_user_id = EduPartnershipResponse.school_id',
                                         ],
                                 ],                                    
                                 'select'=>[

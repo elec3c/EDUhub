@@ -15,8 +15,8 @@
       
             <div class="lk__profile-cols__logo">
                 <label class="lk__profile-cols__uploading uploading">
-                    <input type="hidden" name="photo" value="{$photo}" {if $isManagerOK}disabled{/if}/>
-                    <input type="file" name="newphoto" id="profile-photo" class="hidden" accept="image/jpg,image/jpeg,image/png" {if $isManagerOK}disabled{/if}/>
+                    <input type="hidden" name="photo" value="{$photo}" {if $isManagerOK}readonly{/if}/>
+                    <input type="file" name="newphoto" id="profile-photo" class="hidden" accept="image/jpg,image/jpeg,image/png" {if $isManagerOK}readonly{/if}/>
                     <img src="{if $photo}{$photo}{else}/assets/images/load.jpg{/if}" id="profile-user-photo" data-gravatar="/assets/images/load.jpg"/>
                     <span class="uploading__open">Загрузить аватарку</span>
                     <div class="uploading__change">Изменить аватарку</div>
@@ -36,14 +36,15 @@
             </div>
         <br>
         <div class="input__row">
-            <input type="text" name="fullname" class="input" value="{htmlentities($fullname)}" placeholder="{'office_profile_fullname' | lexicon} *" maxlength="50" required {if $isManagerOK || $_modx->user.urlico2}disabled{/if}>
+            <input type="text" name="fullname" class="input" value="{htmlentities($fullname)}" placeholder="{'office_profile_fullname' | lexicon} *" maxlength="50" required {if $_modx->user.urlico2}readonly{/if}>
         </div>
         <div class="input__row">
-            <input type="email" name="email" name="email" class="input" value="{$email}" placeholder="{'office_profile_email' | lexicon} *" maxlength="50" required {if $isManagerOK || $_modx->user.urlico2 || $_modx->user.urlico}disabled{/if}>
+            <input type="email" name="email" name="email" class="input" value="{$email}" placeholder="{'office_profile_email' | lexicon} *" maxlength="50" required {if $_modx->user.urlico2 || $_modx->user.urlico}readonly{/if}>
         </div>
         
         <div class="input__row">
-            <input type="tel" itemid="mobilephone" name="mobilephone" class="input phone-mask {if $.php.preg_replace("/[^\+0-9]/", "", $mobilephone) == $.php.preg_replace("/[^\+0-9]/", "", $phone)}input--confirm {/if}" id="mobilephone" placeholder="Телефон" value="{$.php.preg_replace("/[^\+0-9]/", "", $mobilephone)}"  minlength="12" maxlength="17" required {if $isManagerOK}disabled{/if}>
+            <input type="hidden" id="last_mobilephone" name="last_mobilephone" value="{$.php.preg_replace("/[^\+0-9]/", "", $mobilephone)}">
+            <input type="tel" itemid="mobilephone" name="mobilephone" class="input phone-mask {if $.php.preg_replace("/[^\+0-9]/", "", $mobilephone) == $.php.preg_replace("/[^\+0-9]/", "", $phone)}input--confirm {/if}" id="mobilephone" placeholder="Телефон" value="{$.php.preg_replace("/[^\+0-9]/", "", $mobilephone)}"  minlength="12" maxlength="17" required {if $isManagerOK}readonly{/if}>
             {if !$isManagerOK}
             <button class="btn btn--purple w-all" style="margin-top:10px; {if $.php.preg_replace("/[^\+0-9]/", "", $mobilephone) == $.php.preg_replace("/[^\+0-9]/", "", $phone)} display:none; {/if}" data-userid="{$_modx->user.id}" id="btnConfirmPhone">Подтвердить телефон</button>
             {/if}

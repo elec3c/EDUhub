@@ -32,3 +32,27 @@
 {if $_modx->resource.id in [313]}
 <script type="text/javascript" src="/assets/custom/promote.buy.js"></script>
 {/if}
+{if ($_modx->resource.template in [10]) && ($_modx->resource.id in [24])}
+<script type="text/javascript" src="/assets/custom/corporate.employee.js"></script>
+{/if}
+
+
+
+{if ($_modx->resource.id in [35,39])}
+<script>
+ClassicEditor
+    .create( document.querySelector( '#editor' ), {
+        toolbar: [ 'heading', '|', 'bold', 'italic', 'bulletedList', 'numberedList', 'blockQuote' ],
+        heading: {
+            options: [
+                { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
+            ]
+        }
+    } )
+    .catch( error => {
+        console.log( error );
+    } );
+</script>
+{/if}

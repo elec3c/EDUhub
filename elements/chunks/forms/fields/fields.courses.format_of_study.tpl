@@ -5,7 +5,7 @@
 {/if}                            
 <div class="clearfix" style="position: relative;">
     <select name="format_of_study" id="format_of_study" data-placeholder="Формат обучения {if $req==1}*{/if}" class="{$styler}" {if $req==1}required{/if}>
-        <option value=""></option>
+        <option value="">&nbsp;</option>
         [[!getValuesTV?  &tvid = `36` &curr = `[[!+fi.format_of_study]]`]]
     </select>
     {if $_modx->resource.template == 11}

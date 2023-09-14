@@ -10,8 +10,15 @@
     {set $btn='Продлить'}
     {set $action='extend'}
 {elseif $subscribeCheck['expire'] > 0}
-    {set $btn='Обновить'}
-    {set $action='update'}
+
+    {if $subscribeCheck['periodid'] == 0 && $subscribeCheck['serviceid']==3}
+        {set $btn='Активировать'}
+        {set $action='repeat'}
+    {else}
+        {set $btn='Обновить'}
+        {set $action='update'}
+    {/if}
+    
 {else}                 
     {set $btn='Активировать'}
     {set $action='add'}
@@ -29,7 +36,8 @@
             <div class="cadd__input">
                 {*<input type="text" class="input" name="payment" placeholder="Стоимость подписки {$price30} {$price30 | declension : 'рубль|рубля|рублей'}" disabled>*}
                 <div class="clearfix" style="position: relative;">
-                    <select id="{$selectSubscribeService}" name="payment" data-placeholder="Стоимость подписки *" class="styler" required {if $btn!="Активировать"}disabled{/if}>
+
+                    <select id="{$selectSubscribeService}" name="payment" data-placeholder="Стоимость подписки *" class="styler" required {if ($btn!="Активировать") && ($btn!="Повторить")}disabled{/if}>
                         <option value=""></option>
                         {foreach $subscribeServices['params'] as $k=>$v}
                         {if $subscribeCheck['periodid'] == $v->days}
@@ -37,7 +45,7 @@
                         {set $curr_days = $v->days}
                         {/if}
                         {if $v->active == 1}
-                            <option value="{$k}" data-days="{$v->days}" data-price="{$v->price}" {if $subscribeCheck['periodid'] == $v->days}selected{/if}>{$v->title} {if $v->price > 0}Стоимость {$v->price} {$v->price | declension : 'рубль|рубля|рублей'}.{else}{$v->price} рублей.{/if}</option>
+                            <option value="{$k}" data-days="{$v->days}" data-price="{$v->price}" {if ($action=='add' && $k=='1') || (($k==1) && ($subscribeCheck['periodid']==0))}selected{elseif $subscribeCheck['periodid'] == $v->days}selected{/if}>{$v->title} {if $v->price > 0}Стоимость {$v->price} {$v->price | declension : 'рубль|рубля|рублей'}.{else}{$v->price} рублей.{/if}</option>
                         {/if}
                         {/foreach}
                     </select>
@@ -67,7 +75,7 @@
     </div>
     {if !$_modx->user.manager}
     <div class="cadd__button">
-        <button class="btn w-all" type="button" id="{$btnSubscribeService}" data-userid="{$user_id}" data-serviceid="{$service_id?:0}" data-courseid="{$course_id?:0}" data-action="{$action?:'add'}" data-periodid="{$curr_days}" data-payment="{$curr_price}">{$btn?:'Выполнить'}</button>
+        <button class="btn w-all" type="button" id="{$btnSubscribeService}" data-userid="{$user_id}" data-serviceid="{$service_id?:0}" data-courseid="{$course_id?:0}" data-action="{$action?:'add'}" data-periodid="{if $service_id==3 && $curr_days==0}30{else}{$curr_days}{/if}" data-payment="{if $service_id==3 && $curr_price==0}60{else}{$curr_price}{/if}">{$btn?:'Выполнить'}</button>
     </div>
     {else}
     <div class="cadd__button">

@@ -15,7 +15,7 @@ if(($user_id > 0) && ($service_id > 0)) {
     
     $c = $modx->newQuery('EduSubscribe');
     
-    $c->select('expire, auto, periodid');
+    $c->select('expire, auto, periodid, serviceid');
     $c->where(['userid' => $user_id, 'serviceid' => $service_id, 'courseid' => $course_id]);
     $c->limit(1);
     $c->prepare();
@@ -28,6 +28,7 @@ if(($user_id > 0) && ($service_id > 0)) {
         $r['auto'] = 0;
         $r['periodid'] = 0;
         $r['courseid'] = 0;
+        $r['serviceid'] = 0;
             
     } else {
         
@@ -35,6 +36,7 @@ if(($user_id > 0) && ($service_id > 0)) {
       $r['auto'] = $rows[0]['auto'];
       $r['periodid'] = $rows[0]['periodid'];
       $r['courseid'] = $rows[0]['courseid'];
+      $r['serviceid'] = $rows[0]['serviceid'];;
       
     } 
 }

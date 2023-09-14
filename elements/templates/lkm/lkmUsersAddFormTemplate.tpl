@@ -10,7 +10,7 @@
                             {if $.get.delete | ismember : 'Users'}                            
                                 <h2 class="section__title">Удаление пользователя:<br> Имя {$.get.delete | user:'fullname'?:'пусто'},<br> Email: {$.get.delete | user:'email'?:'пусто'} </h2>
                             {elseif $.get.delete | ismember : ['Corporate', 'Organization']}
-                                <h2 class="section__title">Удаление организации: <br><br>Наименованование {$.get.delete | user:'fullname'?:'пусто'},  <br>УНП {$.get.delete | user:'unp'?:'пусто'}, Email: {$.get.delete | user:'email'?:'пусто'} </h2>
+                                <h2 class="section__title">Удаление организации: <br><br>Наименование: {$.get.delete | user:'fullname'?:'пусто'},  <br>УНП {$.get.delete | user:'unp'?:'пусто'}, Email: {$.get.delete | user:'email'?:'пусто'} </h2>
                             {else}    
                             {/if}
                         </div>  

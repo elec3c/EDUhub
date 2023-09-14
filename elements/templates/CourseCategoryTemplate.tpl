@@ -1,10 +1,13 @@
 {extends 'file:templates/BaseTemplate.tpl'}
 {block 'content'} 
 {'!promocode' | snippet :[]}
-{if $_modx->resource.id in [10,11,520,521,522,523,524,623]}
+{set $ids = '!pdoResources' | snippet : ['parents' => $_modx->config['site_parent_courses'], 'depth'=>'0', 'returnIds' => '1', 'limit'=>0]}
+{set $arr = $ids | split}
+
+{if $_modx->resource.id in $arr}
 
         
-        {set $filter = '
+        {set $filter = 'tv|course_continue,
                         tv|course_sub_category,
                         tv|course_sub_category_type,
                         tv|course_type,
@@ -21,6 +24,7 @@
 {else}
     {if $_modx->resource.id == 44}
     {set $filter = '
+                tv|course_continue,
                 tv|course_sub_category_type,
                 tv|course_type,
                 tv|for_ages,
@@ -36,6 +40,7 @@
     {else}
 
     {set $filter = '
+        tv|course_continue,
         tv|course_type,
         tv|for_ages,
         tv|for_levels,
@@ -51,13 +56,24 @@
     {/if}
     
 {/if}
+        {set $filterOptions = '{"autoLoad":1,"selected_wrapper_tpl":"","selected_filters_delimeter":"|","selected_values_delimeter":"","selected_tpl": "<a href=\'#\' data-id=\'_id_\' class=\'mse2_selected_link\'><span>_title_</span>&nbsp;<svg width=\'11\' height=\'11\' viewBox=\'0 0 11 11\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M1 1L5.25 5.5L9.5 1\' stroke=\'#19191B\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/><path d=\'M9.5 9.75L5.25 5.25L1 9.75\' stroke=\'#19191B\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/></svg></a>"}'}
+
+        {set $where1['data_from:>='] = $.php.date("Y-m-d")}
+        {set $where1['data_continue:>='] = $.php.date("Y-m-d")}
+        {set $where1['OR:course_continue:='] = 1}
+        {set $where1['AND:data_continue:>='] = $.php.date("Y-m-d")}
+        
+        
+        {set $where = [$where1]}
     
         {'!mFilter2' | snippet : [
             'parents'       => $_modx->resource.id,
-            'limit'         => '6',
+            'limit'         => 6,
             'filters'       => $filter,
+            'ajaxMode' => 'scroll',
             'templates' => 8,
-            'aliases'=>'tv|course_sub_category==course_sub_category,
+            'aliases'=>'tv|course_continue==course_continue,
+                        tv|course_sub_category==course_sub_category,
                         tv|course_sub_category_type==course_sub_category_type,
                         tv|course_type==course_type,
                         tv|for_ages==for_ages,
@@ -90,13 +106,22 @@
             'tplFilter.outer.course_metro'=>'@FILE chunks/filter/fields.location.metro.tpl',
             
             'tplFilter.outer.data_from'=>'@FILE chunks/forms/fields/fields.courses.data_from.tpl',
+            'tplFilter.outer.course_continue' => '@FILE chunks/filter/filter.courses.continue.checkbox.tpl',
             
             'suggestionsRadio'   =>'resource|parent',
             'showEmptyFilters'   =>'true',
-            'filterOptions'      =>'{"autoLoad":1}',
-            'includeTVs' => 'course_owner, data_from, sortWeight, deposit, sale',            
+            'filterOptions'      =>$filterOptions,
+            'includeTVs' => 'course_owner, data_from, data_continue, sortWeight, deposit, sale, course_continue',            
             'sortby'=>'{"sortWeight":"DESC","data_from":"ASC","sale":"DESC"}',
-            'where' => ["data_from:>=" => $.php.date("Y-m-d")]
+            
+            'where' => $where
 
         ]}
+        <section class="article section__mgb">
+            <div class="container">
+                <div class="article__content">
+                    {$_modx->resource.content}	
+                </div>
+            </div>
+        </section>
 {/block}

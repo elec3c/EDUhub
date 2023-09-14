@@ -5,7 +5,7 @@
 {/if}
 <div class="clearfix" style="position: relative;">
     <select name="for_ages" data-placeholder="Возраст {if $req==1}*{/if}" class="{$styler}" {if $req==1}required{/if}>
-        <option value=""></option>
+        <option value="">&nbsp;</option>
         [[!getValuesTV?  &tvid = `59` &curr = `[[+fi.for_ages]]`]]
     </select>
     {if $_modx->resource.template == 11}

@@ -22,8 +22,9 @@
                 <div class="employees">
                     <div class="employees__adds">
 
-                        {'!AjaxForm'|snippet:[
+                        {'!AjaxFormItLogin'|snippet:[
                             'snippet' => 'FormIt',
+                            'clearFieldsOnSuccess'=>0,
                             'form' => '@FILE chunks/forms/employees.form.add.tpl',
                             'index'=> 'lksEmployeesForm',
                             'responsible' => 'partnership',
@@ -36,8 +37,9 @@
                          ]} 
                          
                          
-                        {'!AjaxForm'|snippet:[
+                        {'!AjaxFormItLogin'|snippet:[
                             'snippet' => 'FormIt',
+                            'clearFieldsOnSuccess'=>0,
                             'form' => '@FILE chunks/forms/employees.form.add.tpl',
                             'index'=>'lksEmployeesForm',
                             'responsible' => 'tender',

@@ -26,6 +26,12 @@
                             В офисе школы
                         {case 'office'}
                             В нашем офисе с выездом преподавателя
+                        {case 'online-micro'}
+                            Онлайн микрокурсы
+                        {case 'hybrid'}                    
+                            Гибридное-обучение
+                        {case 'recording'}
+                            Обучение в записи
                         {default}
                             -
                     {/switch}                    

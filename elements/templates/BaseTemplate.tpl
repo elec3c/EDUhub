@@ -26,7 +26,7 @@
 
 <body>
     {1 | resource : 'body'}
-    <section class="wrapper" id="top">
+    <div class="wrapper" id="top">
         {block 'header'}
             {include 'file:chunks/header.tpl'}
         {/block}
@@ -38,10 +38,12 @@
             {include 'file:chunks/footer.tpl'}
         {/block}
         <a href="#" class="scroll_top scroll-top" data-scroll="top"></a>
-    </section>
+    </div>
 
     {block 'modals'}
 
+        {include 'file:chunks/modals/verification_code_thank.tpl'}
+        
         <div id="office-auth-form">
             {include 'file:chunks/modals/auth_course.tpl'}
             {include 'file:chunks/modals/auth_favour.tpl'}
@@ -83,6 +85,7 @@
         {/if}
         {if $_modx->resource.parent in [1122,1123]}
             {include 'file:chunks/modals/partnership_add.tpl'}
+            {include 'file:chunks/modals/partnership_dogovor_wait_add.tpl'}
             {include 'file:chunks/modals/partnership_dogovor_wait.tpl'}
             {include 'file:chunks/modals/partnership_dogovor_add.tpl'}
             {include 'file:chunks/modals/partnership_dogovor_thank.tpl'}
@@ -101,6 +104,13 @@
         {if $_modx->resource.id in [313]}
             {include 'file:chunks/modals/promote_buy.tpl'}
         {/if}
+        
+        {if $_modx->resource.id in [24]}
+            {include 'file:chunks/modals/compisreg_check.tpl'}
+            {include 'file:chunks/modals/compisreg_thank.tpl'}
+            {include 'file:chunks/modals/employee_connect_thank.tpl'}
+        {/if}
+        
     {/block}
 
     {block 'scripts'}

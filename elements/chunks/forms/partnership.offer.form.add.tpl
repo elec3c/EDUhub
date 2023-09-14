@@ -17,7 +17,7 @@
 {set $courses = $query['courses'] | fromJSON}
 
 {if $from_user_id}    
-    <form method="post" enctype="multipart/form-data" action="[[~[[*id]]]]" class="ssrequest__item-body js-body" id="partnershipOfferFormAdd{$to_user_id}">
+    <form method="post" enctype="multipart/form-data" action="[[~[[*id]]]]" class="ssrequest__item-body js-body" id="partnershipOfferFormAdd{$to_user_id}" {if $.get.edit}style="display:block;"{/if}>
         {*<input type="hidden" name="resource_id" value="{$userPageID}" />*}
         <input type="hidden" name="csrf-token" value="{$.session['csrf-token']}">
         <input type="hidden" name="nospam:blank" />
@@ -26,8 +26,6 @@
         <input type="hidden" name="to_user_id" value="{$to_user_id}" />
         <input name="controll" class="no-display" type="text"> 
 
-            
-            
                             <div class="ssrequest__item-label">Выберите способ подписания договора</div>
                             <div class="ssrequest__item-method">
                                 <div class="ssrequest__item-method__sel">
@@ -66,7 +64,7 @@
                                 <div class="ssrequest__item-types__row">
                                     <div class="ssrequest__item-types__col">
                                         <div class="ssrequest__item-label">Описание размера и условий предоставления скидок</div>
-                                        <textarea name="detail" class="input input--white" placeholder="Указание размера скидки обязательно. Например: Скидка 15% на занятия в группах по направлению &laquo;Дизайн&raquo;. Скидка 10% на IT-курсы. Скидка на индивидуальное обучение по любым напарвлениям - 20%.">{$query['detail']}</textarea>
+                                        <textarea name="detail" class="input input--white" placeholder="Указание размера скидки обязательно. Например: Скидка 15% на занятия в группах по направлению &laquo;Дизайн&raquo;. Скидка 10% на IT-курсы. Скидка на индивидуальное обучение по любым направлениям - 20%.">{$query['detail']}</textarea>
                                     </div>
                                     <div class="ssrequest__item-types__col">
                                         <div class="ssrequest__item-label hide-tablet-sm">Размер скидки</div>
@@ -112,50 +110,51 @@
 
                                 <div class="ssrequest__item-types__bottom">
                                     <div class="ssrequest__item-label">Описание размера и условий предоставления скидок</div>
-                                    <textarea name="detail_diff" class="input input--white" placeholder="Указание размера скидки обязательно. Например: Скидка 15% на занятия в группах по направлению &laquo;Дизайн&raquo;. Скидка 10% на IT-курсы. Скидка на индивидуальное обучение по любым напарвлениям - 20%.">{$query['detail_diff']}</textarea>
+                                    <textarea name="detail_diff" class="input input--white" placeholder="Указание размера скидки обязательно. Например: Скидка 15% на занятия в группах по направлению &laquo;Дизайн&raquo;. Скидка 10% на IT-курсы. Скидка на индивидуальное обучение по любым направлениям - 20%.">{$query['detail_diff']}</textarea>
                                 </div>
                             </div>
                           
-                            <div class="ssrequest__item-irow">
+                            {*<div class="ssrequest__item-irow">
                                 <div class="ssrequest__item-label">Сопроводительное письмо для компании-партнера</div>
                                 <textarea name="letter" class="input input--white height-input" placeholder="Например: При возникновении вопросов вы можете связаться с менеджером нашей школы по тел. +375 (ХХ) ХХХ-ХХ-ХХ">{$query['letter']}</textarea>
-                            </div>
+                            </div>*}
 
 
 
 
             {if $partnershipData['id']}
-                {if $response['status_id'] in [3,5]}
+                {if $response['status_id'] != 0}
                     {set $date = $partnershipData['date_start'] | dateAgo:'{"dateNow":0, "dateFormat":"d F Y"}'}
-                    {set $prefix = "заключен договор "~$date}
+                    {set $prefix = "принято в работу "~$date}
                     {set $color = 'green'}
                     <br>
                     <p>Изменение запроса недоступно:&nbsp;<b style={"color:"~$color}>{$prefix}</b></p>
                     <div class="ssrequest__item-buttons">
-                    <button  type="button" data-form="{$to_user_id}" class="btn btn--red partnership-offer-form-reset">Отмена</button>
+                        {if $.get.edit}
+                            <a href="{1124 | url}" class="btn btn--red">Вернуться к запросам</a>
+                        {else}            
+                            <button  type="button" data-form="{$to_user_id}" class="btn btn--red form-reset">Отмена</button>
+                        {/if}
                     </div>
                 {else}        
                     <div class="ssrequest__item-buttons">
                     <button class="btn btn--purple" type="submit">Изменить</button>
-                    <button  type="button" data-form="{$to_user_id}" class="btn btn--red partnership-offer-form-reset">Отмена</button>
+                    {if $.get.edit}
+                        <a href="{1124 | url}" class="btn btn--red">Вернуться к запросам</a>
+                    {else}            
+                        <button  type="button" data-form="{$to_user_id}" class="btn btn--red form-reset">Отмена</button>
+                    {/if}
                     </div>
                 {/if}
             {else}
-            <div class="ssrequest__item-buttons">
-                {if $from_user_id && $to_user_id}
-                    <button class="btn btn--purple" type="submit">Создать</button>
-                {/if}
-                <button  type="button" data-form="{$to_user_id}" class="btn btn--red partnership-offer-form-reset">Отмена</button>
-            </div>                
-                
+                <div class="ssrequest__item-buttons">
+                    {if $from_user_id && $to_user_id}
+                        <button class="btn btn--purple" type="submit">{$btn?:"Создать"}</button>
+                    {/if}
+                    <button  type="button" data-form="{$to_user_id}" class="btn btn--red form-reset">Отмена</button>
+                </div>                
             {/if}
-      
-            
-            
-            
-            
-            
-            
+
     </form>
 {else}
     <p>Ошибочка вышла!</p>

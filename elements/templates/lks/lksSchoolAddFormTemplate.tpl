@@ -24,7 +24,7 @@
                             {case "address"}
                                 {set $type="адрес"}
                                 {set $fields="address"}
-                                {set $load_fields="address,course_city,course_region,course_metro"}
+                                {set $load_fields="address,course_city,course_region,course_metro,time_from,time_until"}
                             {case "rooms"}
                                 {set $type="комнаты"}
                                 {set $fields="addres_id"}

@@ -19,9 +19,9 @@
                 <div id="pdopage">
                     <div class="rows">
                         {$_modx->runSnippet('!pdoPage', [
-                            'parents'=>85,
+                            'parents'=>$_modx->config['site_parent_courses'],
                             'tpl'=>'@FILE chunks/lks/lks.courses.group.item.tpl',
-                            'includeTVs' => 'small_image, course_owner, course_address, course_city, course_region, course_metro, data_from, data_continue, res_type, time, schedule,price_course_month,num_months_of_study',
+                            'includeTVs' => 'small_image, course_owner, course_address, course_city, format_of_study, course_region, course_metro, data_from, data_continue, res_type, time, schedule,price_course_month,num_months_of_study',
                             'templates' => '8',
                             'processTVs'=>'1',
                             'limit'=>'10',

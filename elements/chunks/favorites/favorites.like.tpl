@@ -2,7 +2,7 @@
 {set $isOK = ($_modx->user.id | ismember : ['Administrator','Users','Corporate'])}
 {if $isOK}
     {'!msFavorites.initialize' | snippet}
-    <button class="btn btn--favour">
+    <button class="btn btn--favour ">
         <a class="msfavorites" data-click data-data-list="default" data-data-type="{$type_name}" data-data-key="{$key}">
             <span class="msfavorites-text-add">
                 <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">

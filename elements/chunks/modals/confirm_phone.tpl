@@ -14,19 +14,19 @@
 					<div class="popup__title">Подтверждение телефона</div>
 					<div class="popup__intro">На ваш номер было отправлено смс с кодом. <br> Введите его в поле ниже, для подтверждения телефона</div>
 				</div>
-				<form action="" method="post" id="confirm-code-form" enctype="multipart/form-data">
+				<form  method="post" id="confirm-code-form" enctype="multipart/form-data">
 					<input name="controll" class="no-display" type="text">
 					<input type="hidden" name="action" value="checkCode">
 					<input type="hidden" name="hash" value="0" id="confirmPhoneHash">
 					<input type="hidden" name="form" value="Подтверждение телефона">
 					<div class="input__row">
-						<input type="text" name="code" class="input" id="confirmCode" placeholder="Код из смс">
+						<input type="text" name="code" class="input" id="confirmCode" placeholder="Код из смс" value="">
 					</div>  
 					<div class="">
 						<button class="btn w-all" id="btnConfirmCode" data-userid="{$_modx->user.id}">Отправить</button>
 					</div>
 					<div class="form__linkbtn">
-						<a href="#" id="moreCode" class="">Отправить код еще раз</a>
+						<a href="javascript:void" id="moreCode" class="">Отправить код еще раз</a>
 					</div>
 				</form>
 			</div>

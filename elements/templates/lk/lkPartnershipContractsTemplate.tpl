@@ -2,7 +2,7 @@
 {block 'content'}
 
     {set $user_id = $.php.intval($.get.user_id)?:$_modx->user.id}
-
+    {set $verified = $user_id | user:'verified'}
     <main class="content__wrapper">
         {insert 'file:chunks/users/user.menu.tpl'}
         <section class="lk section__mgb">
@@ -10,14 +10,14 @@
                 <div class="section__head">
                     <h2 class="section__title">Партнерские программы</h2>
                 </div>
-                
+                {if $verified}
                 {include 'file:chunks/users/user.submenu.tpl' pid='1122'}
-
+                {/if}
                     <div class="ppcontracts">
-                        <div class="ppcontracts__head ppcontracts__rcols">
-                            <div class="ppcontracts__item-col ppcontracts__item-col--info">Дата/ Школа <br> Юр. и конт. лицо</div>
-                            <div class="ppcontracts__item-col ppcontracts__item-col--category">
-                                <div class="ppcontracts__item-label">Фильтр по категориям</div>
+                        {*<div class="ppcontracts__head ppcontracts__rcols">
+                            <div class="ppcontracts__item-col ppcontracts__item-col--info">Курсы</div>
+                             <div class="ppcontracts__item-col ppcontracts__item-col--category">
+                               <div class="ppcontracts__item-label">Фильтр по категориям</div>
                                 <div class="checkselect  check-select" data-placeholder="Все направления">
                                     <input type="hidden" name="course_metro" class="check-select-value">
                                     <div class="checkselect__select checkselect__select--check placeholder check-select-toggle check-select-text">Все направления</div>
@@ -38,10 +38,11 @@
                             </div>
                             <div class="ppcontracts__item-col ppcontracts__item-col--sale">Размер скидки</div>
                             <div class="ppcontracts__item-col ppcontracts__item-col--note">Примечание</div>
-                            <div class="ppcontracts__item-col ppcontracts__item-col--count">Количество курсов <br> на сайте</div>
-                        </div>
+                            <div class="ppcontracts__item-col ppcontracts__item-col--count">Перейти на страницу школы</div>
+                        </div>*}
     
-                        {set $verified = $user_id | user:'verified'}
+
+
                         {if $verified}
                                 <div id="pdopage">
                                     <div class="rows">
@@ -57,16 +58,17 @@
                                             'innerJoin'=>[
                                                 'EduPartnershipResponse'=>[
                                                     'class'=>'EduPartnershipResponse',
-                                                    'on'=>'EduPartnership.id = EduPartnershipResponse.partnership_id',
+                                                    'on'=>'EduPartnership.id = EduPartnershipResponse.partnership_id AND EduPartnership.to_user_id = EduPartnershipResponse.school_id',
                                                 ],
-                                            ],                                    
-                                            'select'=>[
-                                                'EduPartnership'=>'*',
-                                                'EduPartnershipResponse'=>'EduPartnershipResponse.status_id as status_id',
                                             ],
                                             'where'=>[                              
                                                 'EduPartnership.to_user_id'  => $user_id,
-                                                'EduPartnershipResponse.status_id:IN' => [5]
+                                                'EduPartnershipResponse.status_id:IN' => [5,51]
+                                            ],
+                                             
+                                            'select'=>[
+                                                'EduPartnership'=>'*',
+                                                'EduPartnershipResponse'=>'EduPartnershipResponse.status_id as status_id',
                                             ],
                                             'sortby'=>[
                                                 'EduPartnership.id'=>'DESC',

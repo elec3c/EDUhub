@@ -18,7 +18,6 @@
                             <div class="persdisc__item-img">
                                 {set $fpath = '/assets/images/'~$row.image}
                                 {set $finfo = pathinfo($fpath)}
-                                {print_r()}
                                 <picture>
                                     <source srcset="{$finfo['dirname']}/{$finfo['filename']}-m.{$finfo['extension']}" media="(max-width: 979px)">
                                     <img src="{$fpath}" alt="{$finfo['filename']}">

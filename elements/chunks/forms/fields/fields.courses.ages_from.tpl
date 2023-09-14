@@ -7,12 +7,12 @@
 {set $curr = $res_id | resource : 'for_ages_from'}
 <div class="clearfix" style="position: relative;">
     <select name="for_ages_from" data-placeholder="Для возраста от {if $req==1}*{/if}" class="{$styler}" id="for_ages_from" {if $req==1}required{/if}> 
-        <option value="">Показать все</option>
+        <option value="">пусто</option>
         {foreach 2..100 as $value}
         <option value="{$value}" {if $value==$curr}selected{/if}>{$value}</option>
         {/foreach}
     </select>
     {if $_modx->resource.template == 11}
-    <div class="tool-tip slideIn bottom">Для возраста от</div>
+    <div class="tool-tip slideIn top">Для возраста от</div>
     {/if}
 </div>

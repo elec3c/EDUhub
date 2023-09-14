@@ -16,7 +16,7 @@
         {else}
             [[!getValuesTV? &tvid = `54` &chained=`10` &curr=`[[+fi.course_type]]`]] <!-- for lang -->
         {/if}
-    {else}
+    {else }
         {if $.get.course_type}
             {'!getValuesTV' | snippet: ['tvid'=>'53', 'chained'=>'11', 'curr'=>'{$.get.course_type}']}
             {'!getValuesTV' | snippet: ['tvid'=>'54', 'chained'=>'10', 'curr'=>'{$.get.course_type}']}

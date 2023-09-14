@@ -26,7 +26,7 @@
             <div class="lk__profile-cols__inputs">
                 <div class="lk__profile-cols__left">
                     <div class="input__row">
-                        <input type="text" name="fullname" value="{htmlentities($fullname)}" class="input" placeholder="Бренд *" maxlength="50" required {if $isManagerOK}disabled{/if}/> 
+                        <input type="text" name="fullname" value="{htmlentities($fullname)}" class="input" placeholder="Бренд *" maxlength="50" required {if !$isManagerOK}readonly{/if}/> 
                         <div class="tool-tip slideIn bottom">Бренд *</div>
                     </div>                     
                     <div class="input__row">
@@ -34,11 +34,12 @@
                         <div class="tool-tip slideIn bottom">Адрес сайта</div>
                     </div>  
                     <div class="input__row">
-                        <input type="email" name="email" value="{$email}" class="input" placeholder="Электронная почта *" maxlength="50" required {if $isManagerOK}disabled{/if}/>
+                        <input type="email" name="email" value="{$email}" class="input" placeholder="Электронная почта *" maxlength="50" required {if !$isManagerOK}readonly{/if}/>
                         <div class="tool-tip slideIn bottom">Электронная почта *</div>
                     </div>    
                     <div class="input__row">
-                        <input type="tel" name="mobilephone" class="input phone-mask" id="mobilephone" placeholder="Телефон *" value="{$mobilephone}"  minlength="12" maxlength="17" required {if $isManagerOK}disabled{/if}/>
+                        <input type="hidden" name="last_mobilephone" id="last_mobilephone" value="" />
+                        <input type="tel" name="mobilephone" class="input phone-mask" id="mobilephone" placeholder="Телефон *" value="{$mobilephone}"  minlength="12" maxlength="17" required/>
                         <div class="tool-tip slideIn bottom">Телефон *</div>
                     </div>
                     <div class="input__row">
@@ -49,35 +50,35 @@
                 
                 <div class="lk__profile-cols__right">
                     <div class="input__row">
-                        <input type="text" name="ooo" value="{$ooo}" class="input" placeholder="Наименование организации *" maxlength="70" required {if $isManagerOK}disabled{/if}/> 
+                        <input type="text" name="ooo" value="{$ooo}" class="input" placeholder="Наименование организации *" maxlength="70" required {if $isManagerOK}readonly{/if}/> 
                         <div class="tool-tip slideIn bottom">Наименование организации *</div>
                     </div>                                      
                     <div class="input__row">
-                        <input type="text" name="unp" value="{$unp}" id="unp" class="input" placeholder="УНП" {if $isManagerOK}disabled{/if}/>
+                        <input type="text" name="unp" value="{$unp}" id="unp" class="input" placeholder="УНП" {if $isManagerOK}readonly{/if}/>
                         <div class="tool-tip slideIn bottom">УНП</div>
                     </div>  
                     <div class="input__row">
-                        <input type="text" name="bik" value="{$bik}" class="input" placeholder="БИК" {if $isManagerOK}disabled{/if}/>
+                        <input type="text" name="bik" value="{$bik}" class="input" placeholder="БИК" {if $isManagerOK}readonly{/if}/>
                         <div class="tool-tip slideIn bottom">БИК</div>
                     </div>  
                     <div class="input__row">
-                        <input type="text" name="rs" value="{$rs}" class="input" placeholder="Р/с" {if $isManagerOK}disabled{/if}/>
+                        <input type="text" name="rs" value="{$rs}" class="input" placeholder="Р/с" {if $isManagerOK}readonly{/if}/>
                         <div class="tool-tip slideIn bottom">Р/с</div>
                     </div>  
                     <div class="input__row">
-                        <input type="text" name="bank" value="{$bank}" class="input" placeholder="Наименование банка" {if $isManagerOK}disabled{/if}/>
+                        <input type="text" name="bank" value="{$bank}" class="input" placeholder="Наименование банка" {if $isManagerOK}readonly{/if}/>
                         <div class="tool-tip slideIn bottom">Наименование банка</div>
                     </div>  
                     <div class="input__row">
-                        <input type="text" name="addr_bank" value="{$addr_bank}" class="input" placeholder="Адрес банка" {if $isManagerOK}disabled{/if}/>
+                        <input type="text" name="addr_bank" value="{$addr_bank}" class="input" placeholder="Адрес банка" {if $isManagerOK}readonly{/if}/>
                         <div class="tool-tip slideIn bottom">Адрес банка</div>
                     </div>  
                 </div>
             </div>
             <div class="lk__profile-cols__logo">
                 <label class="lk__profile-cols__uploading uploading">
-                    <input type="hidden" name="photo" value="{$photo}" {if $isManagerOK}disabled{/if}/>
-                    <input type="file" name="newphoto" id="profile-photo" class="hidden" accept="image/jpg,image/jpeg,image/png" {if $isManagerOK}disabled{/if}/>
+                    <input type="hidden" name="photo" value="{$photo}" {if $isManagerOK}readonly{/if}/>
+                    <input type="file" name="newphoto" id="profile-photo" class="hidden" accept="image/jpg,image/jpeg,image/png" {if $isManagerOK}readonly{/if}/>
                     <img src="{if $photo}{$photo}{else}/assets/images/load.jpg{/if}" id="profile-user-photo" data-gravatar="/assets/images/load.jpg"/>
                     <span class="uploading__open">Загрузить аватарку</span>
                     <div class="uploading__change">Изменить аватарку</div>
@@ -97,7 +98,7 @@
             </div>
 
             <div class="lk__profile-cols__desc">
-                <textarea name="desc" placeholder="Описание компании" class="input" {if $isManagerOK}disabled{/if}>{$desc}</textarea>
+                <textarea name="desc" id="editor" placeholder="Описание компании" class="input" {if $isManagerOK}disabled{/if}>{$desc}</textarea>
             </div>
             {if !$isManagerOK}
             <div class="lk__profile-cols__btn">

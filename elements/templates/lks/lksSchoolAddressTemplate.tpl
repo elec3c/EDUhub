@@ -26,6 +26,11 @@
                     </select>
                 </div>
                 *}
+                {ignore}
+                <style>
+                    .analitics__item-bl {justify-content:left;}
+                </style>
+                {/ignore}
                 {if !$_modx->user.manager}
                 <a class="btn" href="{$_modx->makeUrl(319)}?type=address">Создать адрес школы</a>
                 <p>&nbsp;</p>
@@ -37,6 +42,7 @@
                             'idx'=>5,
                             'class'=>'EduAddress',
                             'tvPrefix'=>'',
+                            'includepTVs'=>'1',
                             'processTVs'=>'1',
                             'limit'=>'10',                            
                             'loadModels'=>'school',

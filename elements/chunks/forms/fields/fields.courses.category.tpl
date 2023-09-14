@@ -4,8 +4,8 @@
 {set $styler = 'styler'}
 {/if}
 <div class="clearfix" style="position: relative;">
-    <select name="course_category" data-placeholder="Категория курса {if $req==1}*{/if}" class="{$styler}" id="category-select" {if $req==1}required{/if} {if $disable==1}disabled{/if}>
-        <option value=""></option>
+    <select name="course_category" data-placeholder="Категория курса {if $req==1}*{/if}" class="{$styler}" id="category-select" {if $req==1}required{/if} {if $disable==1}readonly{/if}>
+        <option value="">&nbsp;</option>
         [[!getValuesTV?  &tvid = `16` &curr = `[[+fi.course_category]]`]]
     </select>
     {if $_modx->resource.template == 11}

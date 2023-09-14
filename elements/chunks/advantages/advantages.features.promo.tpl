@@ -8,7 +8,7 @@
         <div class="features__items">
         {foreach $rows as $idx => $row}                              
             {if $row.description}
-                <div class="features__item"><a href="{if intval($row.link)}{$row.link | url}{else}#{/if}" style="text-decoration:none;"><p>{$row.description}</p></a></div>
+                <a class="features__item" href="{if intval($row.link)}{$row.link | url}{else}#{/if}" style="text-decoration:none;"><p>{$row.description}</p></a>
             {/if}        
         {/foreach}
         </div>

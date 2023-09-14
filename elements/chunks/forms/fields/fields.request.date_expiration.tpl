@@ -1,1 +1,1 @@
-<input type="text" name="date_expiration" placeholder="Дата окончания" class="input input--date datepicker-input" value="[[+fi.date_expiration]]" {if $req==1}required{/if}>
+<input type="text" name="date_expiration" id="date_expiration"  placeholder="Дата окончания" class="input input--date datepicker-input" value="[[+fi.date_expiration]]" {if $req==1}required{/if}>

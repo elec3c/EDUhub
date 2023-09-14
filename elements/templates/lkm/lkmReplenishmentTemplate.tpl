@@ -11,7 +11,7 @@
                         {insert 'file:chunks/menu/lkm.menu.tpl'}
                     </div>
                 
-                {'!AjaxForm'|snippet:[
+                {'!AjaxFormitLogin'|snippet:[
                     'snippet'      => 'FormIt',
                     'form'         => '@FILE chunks/forms/budget.operation.form.tpl',
                     'hooks'        => 'FormSave,budgetTransactions',
@@ -24,7 +24,7 @@
                     <div class="replen__search">
                         <form action="{$id | url}" class="search__form">
                             <input type="text" v-model="searchValue" name="unp" class="input search__input" placeholder="Поиск по УНП" method="GET">
-                            <input type="submit" value="" class="search__btn">
+                            <input type="submit" value="&nbsp;" class="search__btn"/>
                         </form>
                     </div>
                             
