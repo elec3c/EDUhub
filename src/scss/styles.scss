@@ -2069,6 +2069,24 @@
 .article  Статья  
 **************************************************************/
 .article {
+    &__content{
+        p {
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-weight: 700;
+            font-size: 28px;
+            line-height: 1.3571428571;
+        }
+        ul {
+            list-style: disc;
+            padding-left: 18px;
+        }
+        ol {
+            padding-left: 18px;
+        }
+
+    }
     &__cols {
         display: grid;
         grid-template-columns: minmax(auto, 670px) auto;
