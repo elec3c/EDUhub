@@ -31,6 +31,10 @@ function closeModal() {
 }
 
 $(function () {
+	if (!$('.header').hasClass('cmp_header')) {
+		$('.wrapper').css('padding-top', $('.header').outerHeight());
+	}
+
 	const getParam = getUrlVars();
 	if ($('#choose').length > 0) {
 		$('[name=course_category] option[value='+getParam['course_category']+']').prop('selected', true);
@@ -163,6 +167,31 @@ $(function () {
 	})
 
 
+	let openCatAppend = '';
+
+	function replaceHeader() { 
+		const windowWidth = $(window).width();
+		
+		let targetSelector;
+		
+		if (windowWidth >= 1024) {
+			targetSelector = '.js-open-category-position';
+		} else {
+			targetSelector = '.js-cmp_header-menu ul';
+		}
+		if (targetSelector !== openCatAppend) {
+			if (windowWidth >= 1024) $(targetSelector).append($('.open-category'));
+			else {
+				$(targetSelector).prepend( '<li></li>');
+				$(targetSelector).find('li').eq(0).prepend( $('.open-category') );
+			}
+			openCatAppend = targetSelector;
+		}
+	}
+
+	$(window).on('resize', replaceHeader);
+
+	replaceHeader();
 
 	$(document).mouseup(function (e) {
 
@@ -860,6 +889,27 @@ $(function () {
 			document.querySelector('.js-cookie').classList.remove('opened');
 		}
 	});
+
+
+
+
+	/**************************************************************
+	CAMP
+	**************************************************************/
+	$(".js-accord-toggle").on("click", function (e) {
+		e.preventDefault();
+
+		$(this).parents('.js-accord-item').toggleClass('opened');
+		$(this).parents('.js-accord-item').find('.js-accord-body').slideToggle();
+	});
+	$('.js-accord-toggle-all').on("click", function(e) {
+		e.preventDefault();
+
+		$(this).parents('.js-accord-all')
+				.find('.js-accord-item').toggleClass('opened')
+				.find('.js-accord-body').slideToggle();
+		$(this).toggleClass('active');		
+	})
 });
 
 

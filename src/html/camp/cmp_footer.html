@@ -1,0 +1,67 @@
+<footer class="footer cmp_footer">
+    <div class="container">
+        <div class="footer__wrap footer__top">
+            <div class="footer__col footer__col--left">
+                @@if (active_menu === 'main'){
+                    <div class="footer__logo"><img src="assets/images/logo-white.svg" alt=""></div>
+                }
+                @@if (active_menu !== 'main'){
+                    <a href="/" class="footer__logo"><img src="assets/images/logo-white.svg" alt=""></a>
+                }
+
+                
+                <div class="cmp_footer__social social">
+                    <div class="social__title">Мы в социальных сетях</div>
+                    <div class="social__items">
+                        <a href="" class="social__item" target="_blank"><svg class="icon icon--fill"><use xlink:href="assets/images/icons/sprite.svg#vk"></use></svg></a>
+                        <a href="" class="social__item" target="_blank"><svg class="icon icon--fill"><use xlink:href="assets/images/icons/sprite.svg#insta"></use></svg></a>
+                        <a href="" class="social__item" target="_blank"><svg class="icon icon--fill"><use xlink:href="assets/images/icons/sprite.svg#linked"></use></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__col footer__col--center">
+                <div class="footer__gmi">
+                    <ul class="footer__menu cmp_footer__menu">
+                        <li><a href="">Поиск курсов</a></li>
+                        <li><a href="">Все школы</a></li>
+                        <li><a href="">Онлайн-тесты</a></li>
+                        <li><a href="">Блог</a></li>
+                        <li><a href="">Контакты</a></li>
+                    </ul>
+
+                    <ul class="footer__menu cmp_footer__menu">
+                        <li><a href="">Партнерская программа</a></li>
+                        <li><a href="">Тарифы (для ученбых центров)</a></li>
+                        <li><a href="">Политика конфидециальности</a></li>
+                        <li><a href="">Публичная оферта</a></li>
+                        <li><a href="">Пользовательское соглашение</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__col footer__col--right">
+                <div class="cmp_footer__contacts">
+                    <div class="cmp_footer__contacts-item">
+                        <div class="cmp_footer__contacts-icon"><img src="assets/images/icons/call.svg" alt=""></div>
+                        <a href="tel:+375445635930">+375 44 563 - 59 - 30</a>
+                    </div>
+                    <div class="cmp_footer__contacts-item">
+                        <div class="cmp_footer__contacts-icon"><img src="assets/images/icons/sms.svg" alt=""></div>
+                        <a href="mailto:eduhub@gmail.com">eduhub@gmail.com</a>
+                    </div>
+                    <div class="cmp_footer__contacts-item">
+                        <div class="cmp_footer__contacts-icon"><img src="assets/images/icons/location-white.svg" alt=""></div>
+
+                        <span>220125, г. Минск, ул. Уручская, д. 19-6, каб. 24.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cmp_footer__bottom">
+            <div class="footer__copy cmp_footer__copy">© Copyright 2023, EDUHUB</div>
+        </div>
+    </div>
+</footer>
+
+<!-- 
+<a href="#" class="scroll_top scroll-top" data-scroll="top"></a> -->
