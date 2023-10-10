@@ -173,6 +173,7 @@ textarea.input--camp {
         box-shadow: none;
     }
     &.checkselect--camp &__list {
+        max-height: 200px;
         label {
             min-height: 32px;
             padding: 5px 14px 5px;
