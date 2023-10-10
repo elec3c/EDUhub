@@ -8570,7 +8570,7 @@ popup
         }
         &:hover {
             path {
-                stroke: $bg-purple;
+                stroke: $bg-purple !important;
             }
         }
     }

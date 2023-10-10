@@ -1,3 +1,7 @@
+.form--camp {
+
+}
+
 .input--camp {
     height: 42px;
     padding: 0 14px;
@@ -16,6 +20,9 @@
         background-position: right 10px center;
         cursor: initial;
         padding-right: 30px;
+    }
+    &.error {
+        border-color: #FE5233;
     }
 }
 textarea.input--camp {
@@ -54,7 +61,7 @@ textarea.input--camp {
         padding: 0 !important;
         
     }
-    .styler--camp &__select {
+    &.styler--camp &__select {
         height: 42px;
         line-height: 42px;
         padding-left: 14px;
@@ -66,6 +73,10 @@ textarea.input--camp {
         font-weight: 600;
         color: $color-body-camp;
         box-shadow: none !important;
+    }
+    
+    &.styler--camp.error &__select {
+        border-color: #FE5233;
     }
     &.styler--camp.opened &__select {
         border-radius: 8px 8px 0 0;
@@ -110,4 +121,72 @@ textarea.input--camp {
     &.styler--camp li:hover {
         color: #fff;
     }
+}
+
+
+.checkselect {
+    &.checkselect--camp {
+        box-shadow: none !important;
+        padding: 0 !important;
+        
+    }
+    .checkselect--camp &__select {
+        height: 42px;
+        line-height: 42px;
+        padding-left: 14px;
+        padding-right: 40px;
+        border-radius: 8px;
+        border: 1px solid #F3EDFD;
+        background:  #FFF;
+        font-size: 16px;
+        font-weight: 600;
+        color: $color-body-camp;
+        box-shadow: none !important;
+        &.placeholder {
+            color: rgba(200, 200, 228, 1);
+        }
+        &:after {
+            right: 14px;
+            width: 22px;
+            height: 22px;
+            margin-top: -10px;
+            background: url(../images/icons/drop-select-camp.svg) no-repeat center center;
+        }
+    }
+    &.checkselect--camp.error &__select {
+        border-color: #FE5233;
+    }
+    &.checkselect--camp.opened &__select {
+        border-radius: 8px 8px 0 0;
+        border-bottom: none;
+    }
+    &.checkselect--camp.opened &__select:after  {
+        transform: rotate(-180deg);
+    }
+    &.checkselect--camp &__dropdown {
+        border: 1px solid #F3EDFD;
+        border-radius: 0 0 8px 8px;
+        background: #FFF;
+        box-shadow: none;
+    }
+    &.checkselect--camp.opened &__dropdown{
+        box-shadow: none;
+    }
+    &.checkselect--camp &__list {
+        label {
+            min-height: 32px;
+            padding: 5px 14px 5px;
+            color: $color-body-camp;
+        }
+        &-link {
+            min-height: 32px;
+            padding: 5px 14px 5px;
+            color: $color-body-camp;
+            &:hover {
+                background-color: $bg-purple;
+                color: #FFF;
+            }
+        }
+    }
+   
 }

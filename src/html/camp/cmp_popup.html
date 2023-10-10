@@ -1,0 +1,307 @@
+
+<div class="popup popup--camp popup--kviz" data-popup="kviz">
+	<div class="popup__content">
+		<div class="popup__bg popup-close"></div>
+		<div class="popup__container">
+			<a href="#" class="popup__close popup-close">
+				<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M11 21C16.5 21 21 16.5 21 11C21 5.5 16.5 1 11 1C5.5 1 1 5.5 1 11C1 16.5 5.5 21 11 21Z" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M8.17188 13.8299L13.8319 8.16992" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M13.8319 13.8299L8.17188 8.16992" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>					
+			</a>
+			<div class="popup__body">
+				
+				<form action="" method="post" class="kviz js-kviz form--camp">
+					<input name="controll" class="no-display" type="text">
+					<input type="hidden" name="form" value="">
+
+                    <div class="kviz__step js-step-form js-step-radio active" data-step="1">
+						<div class="kviz__step-head">
+                            <div class="kviz__step-subtitle">Вы можете оставить до 12 запросов с различными вариантами обучения</div>
+							<div class="kviz__step-title">Что вы хотите изучать?</div>
+						</div>
+                        <div class="kviz__progress">
+                            <div class="kviz__progress-item current">1</div>
+                            <div class="kviz__progress-item">2</div>
+                            <div class="kviz__progress-item">3</div>
+                            <div class="kviz__progress-item">4</div>
+                        </div>
+
+                        <div class="kviz__body">
+                            <div class="form__row">
+                                <div class="form__label">Категория<span class="req">*</span></div>
+                                <select class="styler styler--camp" name="category" data-placeholder="Категория">
+                                    <option value=""></option>
+                                    <option value="Категория 1">Категория 1</option>
+                                    <option value="Категория 2">Категория 2</option>
+                                    <option value="Категория 3">Категория 3</option>
+                                </select>
+                            </div>
+                            <div class="form__row">
+                                <div class="form__label">Подкатегория<span class="req">*</span></div>
+                                <select class="styler styler--camp" name="subcategory" data-placeholder="Подкатегория">
+                                    <option value=""></option>
+                                    <option value="Подкатегория 1">Подкатегория 1</option>
+                                    <option value="Подкатегория 2">Подкатегория 2</option>
+                                    <option value="Подкатегория 3">Подкатегория 3</option>
+                                </select>
+                            </div>
+                            <div class="form__row">
+                                <div class="form__label">Направления</div>
+                                <div class="checkselect  checkselect--camp check-select" data-placeholder="Направления">
+                                    <input type="hidden" name="directions" class="check-select-value">
+                                    <div class="checkselect__select  placeholder check-select-toggle check-select-text">Направления</div>
+                                    <div class="checkselect__dropdown check-select-dropdown">
+                                        <div class="checkselect__list">
+                                            <label><input type="checkbox"  class="styler styler--camp check-param" name="directions[]" value="all"><span>Все направления</span></label>
+                                            <label><input type="checkbox"  class="styler styler--camp check-param" name="directions[]" value=""><span>IT</span></label>
+                                            <label><input type="checkbox"  class="styler styler--camp check-param" name="directions[]" value=""><span>Языковые</span></label>
+                                            <label><input type="checkbox"  class="styler styler--camp check-param" name="directions[]" value=""><span>Маркетинг</span></label>
+                                            <label><input type="checkbox"  class="styler styler--camp check-param" name="directions[]" value=""><span>Бизнес</span></label>
+                                            <label><input type="checkbox"  class="styler styler--camp check-param" name="directions[]" value=""><span>Финансы</span></label>
+                                            <label><input type="checkbox"  class="styler styler--camp check-param" name="directions[]" value=""><span>Продажи</span></label>
+                                            <label><input type="checkbox"  class="styler styler--camp check-param" name="directions[]" value=""><span>Управление персоналом</span></label>
+                                            <label><input type="checkbox"  class="styler styler--camp check-param" name="directions[]" value=""><span>Дизайн и графика</span></label>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="form__row">
+                                <div class="form__label">Особенности</div>
+                                <select class="styler styler--camp" name="peculiarities" data-placeholder="Особенности">
+                                    <option value=""></option>
+                                    <option value="Особенности 1">Особенности 1</option>
+                                    <option value="Особенности 2">Особенности 2</option>
+                                    <option value="Особенности 3">Особенности 3</option>
+                                </select>
+                            </div>
+                        </div>
+                    
+                        <div class="kviz__buttons">
+                            <button class="btn btn--purple btn--sm kviz__buttons-next js-kviz-next" type="button">Далее</button>
+                        </div>
+                    </div>  
+                    
+                    <div class="kviz__step js-step-form js-step-radio " data-step="2">
+						<div class="kviz__step-head">
+							<div class="kviz__step-title">Выберите формат и удобное время для занятий</div>
+						</div>
+                        <div class="kviz__progress">
+                            <div class="kviz__progress-item active">1</div>
+                            <div class="kviz__progress-item current">2</div>
+                            <div class="kviz__progress-item">3</div>
+                            <div class="kviz__progress-item">4</div>
+                        </div>
+                    
+                        <div class="kviz__colscheck">
+                            <div class="kviz__colscheck-col">
+                                <div class="kviz__colscheck-label">Форма обучения</div>
+                                <label class="form__lcheck"><input type="radio" class="styler styler--camp" name="f_training"><span>Онлайн микро-курсы</span></label>
+                                <label class="form__lcheck"><input type="radio" class="styler styler--camp" name="f_training"><span>Онлайн</span></label>
+                                <label class="form__lcheck"><input type="radio" class="styler styler--camp" name="f_training"><span>Офлайн</span></label>
+                                <label class="form__lcheck"><input type="radio" class="styler styler--camp" name="f_training"><span>Гибридный</span></label>
+                                <label class="form__lcheck"><input type="radio" class="styler styler--camp" name="f_training"><span>В записи</span></label>
+                            </div>
+                            <div class="kviz__colscheck-col">
+                                <div class="kviz__colscheck-label">Формат обучения</div>
+                                <label class="form__lcheck"><input type="radio" class="styler styler--camp" name="format"><span>В группах</span></label>
+                                <label class="form__lcheck"><input type="radio" class="styler styler--camp" name="format"><span>Индивидуально</span></label>
+                            </div>
+                            <div class="kviz__colscheck-col">
+                                <div class="kviz__colscheck-label">День</div>
+                                <div class="input__row">
+                                    <label class="form__lcheck"><input type="radio" class="styler styler--camp" name="day"><span>Будние</span></label>
+                                    <label class="form__lcheck"><input type="radio" class="styler styler--camp" name="day"><span>Выходные</span></label>
+                                </div>
+                                <div class="kviz__rchm">
+                                    <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name=""><span>пн</span></label>
+                                    <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name=""><span>вт</span></label>
+                                    <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name=""><span>ср</span></label>
+                                    <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name=""><span>чт</span></label>
+                                    <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name=""><span>пт</span></label>
+                                </div>
+                            </div>
+                            <div class="kviz__colscheck-col">
+                                <div class="kviz__colscheck-label">Время</div>
+                                <div class="input__row">
+                                    <label class="form__lcheck"><input type="radio" class="styler styler--camp" name="time"><span>Утро</span></label>
+                                    <label class="form__lcheck"><input type="radio" class="styler styler--camp" name="time"><span>День</span></label>
+                                    <label class="form__lcheck"><input type="radio" class="styler styler--camp" name="time"><span>Вечер</span></label>
+                                </div>    
+
+                                <div class="kviz__times">
+                                    <div class="input__row kviz__ci">
+                                        <div class="kviz__colscheck-label">От</div>
+                                        <select class="styler styler--camp kviz__inpwsm" name="time_from" data-placeholder="выбрать">
+                                            <option value=""></option>
+                                            <option value="9:00">9:00</option>
+                                            <option value="10:00">10:00</option>
+                                            <option value="11:00">11:00</option>
+                                            <option value="12:00">12:00</option>
+                                            <option value="13:00">13:00</option>
+                                            <option value="14:00">14:00</option>
+                                            <option value="15:00">15:00</option>
+                                            <option value="16:00">16:00</option>
+                                            <option value="17:00">17:00</option>
+                                            <option value="18:00">18:00</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="input__row kviz__ci">
+                                        <div class="kviz__colscheck-label">До</div>
+                                        <select class="styler styler--camp kviz__inpwsm" name="time_to" data-placeholder="выбрать">
+                                            <option value=""></option>
+                                            <option value="9:00">9:00</option>
+                                            <option value="10:00">10:00</option>
+                                            <option value="11:00">11:00</option>
+                                            <option value="12:00">12:00</option>
+                                            <option value="13:00">13:00</option>
+                                            <option value="14:00">14:00</option>
+                                            <option value="15:00">15:00</option>
+                                            <option value="16:00">16:00</option>
+                                            <option value="17:00">17:00</option>
+                                            <option value="18:00">18:00</option>
+                                        </select>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="kviz__buttons">
+                            <button class="btn btn--bdpurple btn--bd btn--sm kviz__buttons-prev js-kviz-prev" type="button">Назад</button>
+    
+                            <button class="btn btn--purple btn--sm kviz__buttons-next js-kviz-next" type="button">Далее</button>
+                        </div>
+                    </div>   
+                    
+                    
+                    <div class="kviz__step js-step-form js-step-radio " data-step="3">
+						<div class="kviz__step-head">
+							<div class="kviz__step-title">Для какого возраста и в каком городе искать курсы?</div>
+						</div>
+                        <div class="kviz__progress">
+                            <div class="kviz__progress-item active">1</div>
+                            <div class="kviz__progress-item active">2</div>
+                            <div class="kviz__progress-item current">3</div>
+                            <div class="kviz__progress-item ">4</div>
+                        </div>
+                    
+                        <div class="kviz__body">
+                            <div class="form__row">
+                                <div class="form__label">Ваш возраст<span class="req">*</span></div>
+                                <select class="styler styler--camp" name="age" data-placeholder="Возраст">
+                                    <option value=""></option>
+                                    <option value="Категория 1">Категория 1</option>
+                                    <option value="Категория 2">Категория 2</option>
+                                    <option value="Категория 3">Категория 3</option>
+                                </select>
+                            </div>
+                            <div class="form__row">
+                                <div class="form__label">Ваш уровень</div>
+                                <select class="styler styler--camp" name="level" data-placeholder="Возраст">
+                                    <option value=""></option>
+                                    <option value="Категория 1">Категория 1</option>
+                                    <option value="Категория 2">Категория 2</option>
+                                    <option value="Категория 3">Категория 3</option>
+                                </select>
+                            </div>
+                            <div class="form__row">
+                                <div class="form__label">Город<span class="req">*</span></div>
+                                <select class="styler styler--camp" name="city" data-placeholder="Город">
+                                    <option value=""></option>
+                                    <option value="Категория 1">Категория 1</option>
+                                    <option value="Категория 2">Категория 2</option>
+                                    <option value="Категория 3">Категория 3</option>
+                                </select>
+                            </div>
+                            <div class="form__row">
+                                <div class="form__label">Район</div>
+                                <select class="styler styler--camp" name="area" data-placeholder="Район">
+                                    <option value=""></option>
+                                    <option value="Категория 1">Категория 1</option>
+                                    <option value="Категория 2">Категория 2</option>
+                                    <option value="Категория 3">Категория 3</option>
+                                </select>
+                            </div>
+                            <div class="form__row">
+                                <div class="form__label">Метро</div>
+                                <select class="styler styler--camp" name="metro" data-placeholder="Метро">
+                                    <option value=""></option>
+                                    <option value="Категория 1">Категория 1</option>
+                                    <option value="Категория 2">Категория 2</option>
+                                    <option value="Категория 3">Категория 3</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="kviz__buttons">
+                            <button class="btn btn--bdpurple btn--bd btn--sm kviz__buttons-prev js-kviz-prev" type="button">Назад</button>
+    
+                            <button class="btn btn--purple btn--sm kviz__buttons-next js-kviz-next" type="button">Далее</button>
+                        </div>
+                    </div>   
+
+                    
+                    <div class="kviz__step js-step-form js-step-radio" data-step="4">
+						<div class="kviz__step-head">
+							<div class="kviz__step-title">Куда отправить информацию?</div>
+						</div>
+                        <div class="kviz__progress">
+                            <div class="kviz__progress-item active">1</div>
+                            <div class="kviz__progress-item active">2</div>
+                            <div class="kviz__progress-item active">3</div>
+                            <div class="kviz__progress-item current">4</div>
+                        </div>
+                    
+                        <div class="kviz__body">
+                            <div class="form__row">
+                                <div class="form__label">СМС на номер</div>
+                                <input name="phone" class="input input--camp" placeholder="Номер">
+                            </div>
+                            <div class="form__row">
+                                <div class="form__label">Сообщение на E-mail</div>
+                                <input name="email" class="input input--camp" placeholder="E-mail">
+                            </div>
+                        </div>
+
+                        <div class="kviz__buttons">
+                            <button class="btn btn--bdpurple btn--bd btn--sm kviz__buttons-prev js-kviz-prev" type="button">Назад</button>
+    
+                            <button class="btn btn--purple btn--sm kviz__buttons-next js-kviz-next" >Отправить</button>
+                        </div>
+                    </div>  
+				</form>
+			</div>
+		</div><!--popup__container-->
+	</div>
+</div>
+
+<div class="popup popup--camp popup-thank" data-popup="thank">
+	<div class="popup__content">
+		<div class="popup__bg popup-close"></div>
+		<div class="popup__container">
+			<a href="#" class="popup__close popup-close">
+				<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M11 21C16.5 21 21 16.5 21 11C21 5.5 16.5 1 11 1C5.5 1 1 5.5 1 11C1 16.5 5.5 21 11 21Z" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M8.17188 13.8299L13.8319 8.16992" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M13.8319 13.8299L8.17188 8.16992" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>					
+			</a>
+			<div class="popup__body">
+                <div class="popup__iconthank">
+                    <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" width="40" height="40" rx="20" fill="#D1FADF"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M28.9947 12.3168L17.0613 23.8334L13.8947 20.4501C13.3113 19.9001 12.3947 19.8668 11.728 20.3334C11.078 20.8168 10.8947 21.6668 11.2947 22.3501L15.0447 28.4501C15.4113 29.0168 16.0447 29.3668 16.7613 29.3668C17.4447 29.3668 18.0947 29.0168 18.4613 28.4501C19.0613 27.6668 30.5113 14.0168 30.5113 14.0168C32.0113 12.4834 30.1947 11.1334 28.9947 12.3001V12.3168Z" fill="#29AA6F"/>
+                        </svg>                        
+                </div>
+				<div class="popup__title">Спасибо!</div>
+				<div class="popup__intro">Мы вышлем Вам все подходящие предложения.</div>
+			
+                <div class="popup__buttons">
+                    <button class="btn btn--purple btn--sm popup-close">Ок</button>
+                </div>
+			</div>
+		</div><!--popup__container-->
+	</div>
+</div>
