@@ -1,9 +1,9 @@
 @import "inc/core";
 
-@import "fonts";
-@import "reset";
-@import "common";
-@import "libs";
+@import "common/fonts";
+@import "common/reset";
+@import "common/common";
+@import "common/libs";
 @import "forms";
 @import "header";
 @import "footer";
@@ -8570,7 +8570,7 @@ popup
         }
         &:hover {
             path {
-                stroke: $bg-purple;
+                stroke: $bg-purple !important;
             }
         }
     }
@@ -8746,3 +8746,7 @@ popup
         }
     }
 }
+
+@import "pages/cmp_header";
+@import "pages/cmp_footer";
+@import "pages/camp";

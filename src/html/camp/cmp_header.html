@@ -1,0 +1,117 @@
+<header class="header cmp_header">
+	<div class="container">	
+		<div class="header__wrap cmp_header__wrap">
+			<a href="#" class="cmp_header__burger" id="menu_toggler">
+				<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M4 9.8335H28" stroke="#9D68F8" stroke-width="1.5" stroke-linecap="round"/>
+					<path d="M4 16.5H28" stroke="#9D68F8" stroke-width="1.5" stroke-linecap="round"/>
+					<path d="M4 23.1665H28" stroke="#9D68F8" stroke-width="1.5" stroke-linecap="round"/>
+				</svg>									
+			</a>
+
+
+			@@if (active_menu === 'main'){
+				<div class="header__logo"><img src="assets/images/logo.svg" alt=""></div>
+			}
+			@@if (active_menu !== 'main'){
+				<a href="/" class="header__logo"><img src="assets/images/logo.svg" alt=""></a>
+			}
+
+			<div class="js-open-category-position hide-tablet">
+				<a href="#" class="header__linkcat cmp_header__linkcat open-category">
+					<span class="">Категории курсов</span>
+					<svg class="icon-open" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0.75 0.75L5 5.25L9.25 0.75" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>			
+					
+					<svg class="icon-close" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M1 1L5.25 5.5L9.5 1" stroke="#9D68F8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M9.5 9.75L5.25 5.25L1 9.75" stroke="#9D68F8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>					
+				</a>
+			</div>
+
+
+			<div class="cmp_header__search search  header-search hide-tablet-sm">
+				<form action="" class="search__form header-search-form">
+					<input type="text" class="input search__input" placeholder="Поиск">
+					<input type="submit" value="" class="search__btn">
+				</form>
+			</div>
+
+			@@if (auth === 'user'){
+				<a href="#" class="cmp_header__profile btn btn--sm btn--purple" data-open-popup="auth">
+					<svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M9 9.5C11.0711 9.5 12.75 7.82107 12.75 5.75C12.75 3.67893 11.0711 2 9 2C6.92893 2 5.25 3.67893 5.25 5.75C5.25 7.82107 6.92893 9.5 9 9.5Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M15.4425 17C15.4425 14.0975 12.555 11.75 8.99999 11.75C5.44499 11.75 2.5575 14.0975 2.5575 17" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>								
+					<span>Войти</span>			
+				</a>
+			}
+			@@if (auth === 'user_auth'){
+				<a href="lk-profile.html" class="cmp_header__profile btn btn--sm btn--purple">
+					<svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M9 9.5C11.0711 9.5 12.75 7.82107 12.75 5.75C12.75 3.67893 11.0711 2 9 2C6.92893 2 5.25 3.67893 5.25 5.75C5.25 7.82107 6.92893 9.5 9 9.5Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M15.4425 17C15.4425 14.0975 12.555 11.75 8.99999 11.75C5.44499 11.75 2.5575 14.0975 2.5575 17" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+								
+					<span>Мой аккаунт</span>			
+				</a>
+			}
+
+			
+		</div>
+
+		<div class="cmp_header__nav header-navfix">
+			<a href="#" class="cmp_header__nav-close header__navfix-close close-menu show-tablet-sm"></a>
+
+			<div class="cmp_header__menu js-cmp_header-menu">
+				<ul>
+					<li><a href="">Ваша скидка</a></li>
+					<li><a href="">Школы</a></li>
+					<li><a href="">Ближайшие страрты</a></li>
+					<li><a href="">Действующие группы</a></li>
+					<li><a href="">Детям на каникулах</a></li>
+					<li><a href="">Индивидуальные занятия</a></li>
+					<li><a href="">Популярные курсы</a></li>
+					<li><a href="">Рейтинг ТОП - школ</a></li>
+				</ul>
+			</div>
+		</div>	
+	</div>	
+
+	<div class="header__category header-category">
+		<div class="container">
+			<div class="header__category-wrap">
+				<div class="header__category-col">
+					<div class="header__category-col__name">Языковые курсы</div>
+					<ul class="header__menu header__category-menu">
+						<li><a href="">Английский</a></li>
+						<li><a href="">Немецкий</a></li>
+						<li><a href="">Китайский</a></li>
+						<li><a href="">Итальянский</a></li>
+						<li><a href="">Французский</a></li>
+					</ul>
+				</div>
+				<div class="header__category-col w-2">
+					<div class="header__category-col__name">IT курсы</div>
+					<ul class="header__menu header__category-menu">
+						<li><a href="">Программирование</a></li>
+						<li><a href="">Python</a></li>
+						<li><a href="">Java</a></li>
+						<li><a href="">JavaScript</a></li>
+						<li><a href="">C++</a></li>
+						<li><a href="">Разработка для iOS</a></li>
+						<li><a href="">Разработка для Android</a></li>
+						<li><a href="">Рекрутинг в IT</a></li>
+						<li><a href="">Бизнес-анализ</a></li>
+						<li><a href="">Project Manager</a></li>
+						<li><a href="">Тестировщики</a></li>
+					</ul>
+				</div>
+
+			</div>
+		</div>	
+	</div>	
+
+</header>
