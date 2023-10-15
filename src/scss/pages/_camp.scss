@@ -1240,6 +1240,60 @@ CAMP WRAP
 
 
 /**************************************************************
+.lknav
+**************************************************************/
+.lknav {
+    &--camp &__list {
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        li {
+            padding: 0 !important;
+        }
+        &-item {
+            min-height: 29px;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            padding: 5px 15px;
+            background: #FFF;
+            border-radius: 100px;
+            border: 1px solid #C8C8E4;
+            color: #C8C8E4; font-size: 14px;
+            font-weight: 600;
+            svg, img {
+                transform: translateY(-1px);
+            }
+            &:hover {
+              color: $bg-purple;
+              border-color: $bg-purple;
+            }
+        }
+    }
+    &--camp li.active &__list-item {
+        border-color: $bg-purple;
+        color: #fff;
+    }
+
+    @media (max-width: $md-tablet) {
+        
+        
+    }
+    @media (max-width: $md-tablet-sm) {
+        &--camp &__list {
+            ul {
+               gap: 10px;
+            }
+        }
+        
+    }
+}
+
+/**************************************************************
 
 **************************************************************/
 .cmp_create {
@@ -1266,6 +1320,10 @@ CAMP WRAP
             
         }
     }
+    
+    .hide {
+        display: none;
+    }
 
     &__blocks {
         &-head {
@@ -1291,12 +1349,15 @@ CAMP WRAP
             font-size: 24px; color: $color-title-camp;
         }
         &-body {
-            display: none;
+            // display: none;
             padding: 20px 20px 40px;
         }
     }
     &__imw {
         max-width: 505px;
+        &--sm {
+            max-width: 320px;
+        } 
     }
     &__ibox {
         & + & {
@@ -1306,6 +1367,16 @@ CAMP WRAP
             color: $bg-purple;
             font-weight: 600;
             margin-bottom: 20px;
+            display: inline-block;
+            a {
+                color: inherit;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            &:is(a):hover {
+                text-decoration: underline;
+            }
         }
         &-lintro {
             margin-top: 10px;
@@ -1315,6 +1386,9 @@ CAMP WRAP
     }
     &__irow {
         margin-bottom: 20px;
+        &:last-child {
+            margin-bottom: 0;
+        }
         &-label {
             color: $color-body-camp; font-size: 16px;
             font-weight: 600;
@@ -1447,6 +1521,94 @@ CAMP WRAP
         font-size: 16px;
         font-weight: 600;
     }
+
+    @media (max-width: $md-tablet) {
+        &__blocks {
+            &-head {
+                
+                padding-right: 20px;
+            }
+            &-title {
+                font-size: 21px;
+            }
+            &-body {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+        &__inform {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        &__address {
+            gap: 15px;
+            &-inputs {
+                width: 300px;
+            }
+        }
+    }
+    @media (max-width: $md-tablet-sm) {
+        &__blocks {
+            &-head {
+                gap: 15px;
+                padding: 7px 20px;
+            }
+            &-title {
+                font-size: 18px;
+            }
+            &-body {
+                padding: 20px 0;
+            }
+        }
+        &__inform {
+            flex-direction: column;
+            align-items: flex-start;
+            &-icols {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+        &__address {
+            gap: 20px;
+            flex-direction: column;
+            &-inputs {
+                width: 100%;
+            }
+            &-map {
+                height: 220px;
+                flex: 0 0 auto;
+                width: 100%;
+            }
+        }
+        &__addprice {
+            padding-right: 0;
+        }
+        &__addprice-inputs,
+        &__addprogr,
+        &__rowsale,
+        &__addfood,
+        &__addshift {
+            gap: 20px;
+            flex-direction: column;
+        }
+        &__buttons {
+            gap: 20px;
+        }
+    }
+    @media (max-width: $md-mobile) {
+        &__buttons {
+            flex-direction: column;
+            .btn {
+                width: 100%;
+            }
+        }
+        &__imw {
+            &--sm {
+                max-width: 505px;
+            } 
+        }
+    }
+
 }
 
 

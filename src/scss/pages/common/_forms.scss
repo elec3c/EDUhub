@@ -78,7 +78,7 @@ textarea.input--camp {
     &.styler--camp.error &__select {
         border-color: #FE5233;
     }
-    &.styler--camp.opened &__select {
+    &.styler--camp.dropdown &__select {
         border-radius: 8px 8px 0 0;
         border-bottom: none;
     }
@@ -102,10 +102,13 @@ textarea.input--camp {
         background: #FFF;
         box-shadow: none;
     }
-    &.styler--camp .dropup &__dropdown {
+    &.styler--camp.dropdown &__dropdown {
+        border-radius: 0 0 8px 8px;
+    }
+    &.styler--camp.dropup &__dropdown {
         border-radius: 8px 8px 0 0;
     }
-    &.styler--camp .opened &__dropdown{
+    &.styler--camp.opened &__dropdown{
         box-shadow: none;
     }
     &.styler--camp ul {

@@ -174,15 +174,20 @@ $(function () {
 		
 		let targetSelector;
 		
-		if (windowWidth >= 1024) {
+		if (windowWidth >= 980) {
 			targetSelector = '.js-open-category-position';
 		} else {
 			targetSelector = '.js-cmp_header-menu ul';
 		}
 		if (targetSelector !== openCatAppend) {
-			if (windowWidth >= 1024) $(targetSelector).append($('.open-category'));
+			if (windowWidth >= 980) {
+				console.log('1000');
+				$(targetSelector).append($('.open-category'));
+				$('.js-cmp_header-menu ul').find('.l-c').remove();
+			}
 			else {
-				$(targetSelector).prepend( '<li></li>');
+				console.log('1');
+				$(targetSelector).prepend( '<li class="l-c"></li>');
 				$(targetSelector).find('li').eq(0).prepend( $('.open-category') );
 			}
 			openCatAppend = targetSelector;
@@ -911,7 +916,58 @@ $(function () {
 		$(this).toggleClass('active');		
 	})
 
+	
+	$('.js-camp-inputs-add').on("click", function(e) {
+		e.preventDefault();
 
+		const parent = $(this).closest('.js-camp-inputs');
+		const row_new = $(parent).find('.js-camp-inputs-row').first().clone(true);
+
+		$(row_new).find('.js-camp-inputs-remove').first().removeClass('hide');
+		$(row_new).find('.js-camp-inputs-add').first().addClass('hide');
+		$(row_new).find('input, textarea').val(null).attr('id', '').removeClass('hasDatepicker');
+
+		$(row_new).find('.uploading').removeClass('no-empty').find('img').remove();
+
+		$(row_new).find('input.styler').each(function() {
+			const input = $(this).clone();
+			$(input).attr('name', $(this).attr('name') + $(parent).find('.js-camp-inputs-row').length);
+			$(input).val( $(this).attr('data-value') );
+			$(this).parent().after(input);
+			$(this).parent().remove();
+		})
+		$(row_new).find('select.styler').each(function() {
+			const select = $(this).clone();
+			// $(select).attr('name', $(this).attr('name') + $(parent).find('.js-camp-inputs-row').length);
+			// $(select).val( $(this).attr('data-value') );
+			$(this).parent().after(select);
+			$(this).parent().remove();
+		})
+		
+
+		$(parent).find('.js-camp-inputs-row').eq(0).after(row_new);
+		$(row_new).find('.styler').styler();
+		$(row_new).find('.datepicker-input').datepicker({
+			// minDate: 0,
+			format: 'dd/mm/yyyy',
+			changeMonth: true,
+			changeYear: true,
+			yearRange: (new Date().getFullYear() - 1) + ':' + (new Date().getFullYear() + 2)
+		});
+		setTimeout(function () {
+			$('.js-camp-inputs-row .styler').trigger('refresh');
+			$(".js-camp-inputs-row  .datepicker-input").datepicker("refresh");
+		}, 1)
+	})
+	$('.js-camp-inputs-remove').on("click", function(e) {
+		e.preventDefault();
+
+		$(this).closest('.js-camp-inputs-row').remove();
+	})
+
+	/**************************************************************
+	CAMP KVIZ
+	**************************************************************/
 	$('.js-kviz-next').click(function(){
 		let step_form = $(this).parents('.js-step-form');
 
