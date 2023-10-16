@@ -1,0 +1,95 @@
+@@include('html/head.html', {
+"title": "Лагерь - Программы"
+})
+
+<section class="wrapper capm-wrap" id="top">
+
+    @@include('html/camp/cmp_header.html', {
+        "active_menu": "",
+        "auth": "user"
+    })
+
+    <main class="content__wrapper">
+
+        
+        @@include('html/camp/camp_lknav.html', {
+            "active_menu": "camp",
+            "type": ""
+        })
+
+        
+
+        <section class="cmp_create section__mg--sm">
+            <div class="container">
+                <div class="section__head section__head--cols cols--tabcol mb--md">
+                    <h2 class="section__title">Лагерь</h2>
+                    <div class="section__head-action">
+                        <a href="" class="btn btn--sm btn--purple"><img src="assets/images/icons/add-circle.svg" alt=""><span>Создать программу (городской)</span></a>
+                        <a href="" class="btn btn--sm btn--purple"><img src="assets/images/icons/add-circle.svg" alt=""><span>Создать программу (выездной)</span></a>
+                    </div>
+                </div>
+                
+                
+                <div class="lk__nav lk__nav--camp">
+                    <ul>
+                        <li class="active">Программы</li>
+                        <li><a href="">Группы</a></li>
+                    </ul>
+                </div>
+
+                <div class="cmp_progrlk">
+                    <div class="cmp_progrlk__photo"><img src="assets/images/camp/img-city.jpg" alt=""></div>
+                    <div class="cmp_progrlk__info">
+                        <div class="cmp_progrlk__title">ЛЕТНИЙ IT-CAMP в Стемлаб</div>
+                        <div class="cmp_progrlk__action">
+                            <a href="#" class="cmp_progrlk__action-link">
+                                <img src="assets/images/icons/edit-purple.svg" alt="">
+                                Редактировать
+                            </a>
+                            <a href="#" class="cmp_progrlk__action-link">
+                                <img src="assets/images/icons/remove-purple.svg" alt="">
+                                Удалить
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cmp_progrlk__buttons">
+                        <a href="" class="btn btn--sm btn--purple"><img src="assets/images/icons/add-circle.svg" alt=""><span>Добавить группу</span></a>
+                    </div>
+                </div>  
+                <div class="cmp_progrlk">
+                    <div class="cmp_progrlk__photo"><img src="assets/images/camp/img-city.jpg" alt=""></div>
+                    <div class="cmp_progrlk__info">
+                        <div class="cmp_progrlk__title">ЛЕТНИЙ IT-CAMP в Стемлаб</div>
+                        <div class="cmp_progrlk__action">
+                            <a href="#" class="cmp_progrlk__action-link">
+                                <img src="assets/images/icons/edit-purple.svg" alt="">
+                                Редактировать
+                            </a>
+                            <a href="#" class="cmp_progrlk__action-link">
+                                <img src="assets/images/icons/remove-purple.svg" alt="">
+                                Удалить
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cmp_progrlk__buttons">
+                        <a href="" class="btn btn--sm btn--purple"><img src="assets/images/icons/add-circle.svg" alt=""><span>Добавить группу</span></a>
+                    </div>
+                </div>  
+            </div>
+        </section><!--  -->
+
+
+    </main>
+    <!--content__wrapper-->
+   
+    @@include('html/camp/cmp_footer.html', {
+        "active_menu": ""
+    })
+
+</section>
+
+@@include('html/popup.html', {})
+
+</body>
+
+</html>
