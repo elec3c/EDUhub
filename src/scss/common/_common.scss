@@ -14,6 +14,9 @@
     max-width: $width-container; 
     margin-left: auto; margin-right: auto;
     position: relative;
+    &.container--lg {
+        max-width: 1280px;
+    }
     @media screen and (max-width: $md-desktop-md) {
         //  max-width: 960px;
     }	
@@ -276,6 +279,9 @@
             margin-bottom: 50px;
         }
     }
+    &__first {
+        margin-top: 40px !important;
+    }
     &__pd {
         padding: 100px 0;
         &--lg {
@@ -423,6 +429,9 @@
             &--md {
                 margin-bottom: 50px;
             }
+        }
+        &__first {
+            margin-top: 20px !important;
         }
         &__pd {
             padding: 50px 0;

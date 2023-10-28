@@ -206,7 +206,7 @@ $(function () {
 			&& !$('.close-menu').is(e.target)) {
 			$('#menu_toggler').removeClass('active');
 			$('.header-navfix').removeClass('active');
-			$('body').removeClass('noscroll');
+			//$('body').removeClass('noscroll');
 		}
 
 		var div = $(".header-category");
@@ -965,9 +965,36 @@ $(function () {
 		$(this).closest('.js-camp-inputs-row').remove();
 	})
 
+	$('.js-filters-open').click(function(e) {
+		e.preventDefault();
+
+		$(this).toggleClass('opened');
+		$('.js-filters').toggleClass('opened');
+		//$('body').css('overflow', 'hidden');
+	})
+	$('.js-filters-close').click(function(e) {
+		e.preventDefault();
+
+		$('.js-filters-open').removeClass('opened');
+		$('.js-filters').removeClass('opened');
+		//$('body').css('overflow', '');
+	})
+
 	/**************************************************************
 	CAMP KVIZ
 	**************************************************************/
+	$('body').on('change', '.kviz select[data-required]', function () {
+		$(this).removeClass('error');
+		setTimeout(function () {
+			$(this).trigger('refresh');
+		}, 1)
+	})
+	$('body').on('input', '.kviz input[data-required]', function () {
+		if ($(this).val().trim() !== '') {
+			$(this).removeClass('error');
+		}
+	});
+
 	$('.js-kviz-next').click(function(){
 		let step_form = $(this).parents('.js-step-form');
 
@@ -979,7 +1006,23 @@ $(function () {
 		// 		$(step_form).find('.js-kviz-error span').hide();
 		// 	}
 			
-
+		let error = false;
+		//$(step_form).find('[data-required]').removeClass('error')
+		$(step_form).find('[data-required]').each(function() {
+			if ($(this).val().trim() === '') {
+				error = true;
+				$(this).addClass('error');
+			}
+		})
+		
+		if (error) {
+				
+			setTimeout(function () {
+				$(step_form).find('.styler').trigger('refresh');
+			}, 1)
+			
+			return;
+		}
 
 		$(step_form).removeClass('active').next('.js-step-form').addClass('active');
 		

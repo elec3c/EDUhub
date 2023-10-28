@@ -31,7 +31,7 @@
                         <div class="kviz__body">
                             <div class="form__row">
                                 <div class="form__label">Категория<span class="req">*</span></div>
-                                <select class="styler styler--camp" name="category" data-placeholder="Категория">
+                                <select class="styler styler--camp" name="category" data-placeholder="Категория" data-required>
                                     <option value=""></option>
                                     <option value="Категория 1">Категория 1</option>
                                     <option value="Категория 2">Категория 2</option>
@@ -40,7 +40,7 @@
                             </div>
                             <div class="form__row">
                                 <div class="form__label">Подкатегория<span class="req">*</span></div>
-                                <select class="styler styler--camp" name="subcategory" data-placeholder="Подкатегория">
+                                <select class="styler styler--camp" name="subcategory" data-placeholder="Подкатегория" data-required>
                                     <option value=""></option>
                                     <option value="Подкатегория 1">Подкатегория 1</option>
                                     <option value="Подкатегория 2">Подкатегория 2</option>
@@ -190,12 +190,14 @@
                         <div class="kviz__body">
                             <div class="form__row">
                                 <div class="form__label">Ваш возраст<span class="req">*</span></div>
-                                <select class="styler styler--camp" name="age" data-placeholder="Возраст">
+                                <!-- <select class="styler styler--camp" name="age" data-placeholder="Возраст">
                                     <option value=""></option>
                                     <option value="Категория 1">Категория 1</option>
                                     <option value="Категория 2">Категория 2</option>
                                     <option value="Категория 3">Категория 3</option>
-                                </select>
+                                </select> -->
+                                <input name="age2" class="input input--camp" placeholder="Возраст" data-required>
+                                
                             </div>
                             <div class="form__row">
                                 <div class="form__label">Ваш уровень</div>

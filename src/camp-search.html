@@ -1,0 +1,89 @@
+@@include('html/head.html', {
+"title": "Лагерь - Программы - Фильтр"
+})
+
+<section class="wrapper capm-wrap" id="top">
+
+    @@include('html/camp/cmp_header.html', {
+        "active_menu": "",
+        "auth": "user"
+    })
+
+    <main class="content__wrapper">
+        <section class="cmp_search section__mg section__first">
+            <div class="container">
+                <div class="cmp_search__head section__head  mb--md">
+                    <h2 class="cmp_search__title section__title">Программы</h2>
+
+                       <div class="cmp_search__nav">
+                            <ul>
+                                <li><a href="camp-search-ex.html">Выездной</a></li>
+                                <li class="current"><a href="camp-search.html">Городской</a></li>
+                            </ul>
+                       </div>
+                       <button class="cmp_filters__open js-filters-open"><span>Фильтры</span></button>
+                   
+
+                    <div class="cmp_search__tcount">Найдено 19 вариантов</div>
+                </div>
+                
+                <div class="cmp_search__cols">
+                    @@include('html/camp/cmp_filters.html', {
+                        "type": "city"
+                    })
+                    
+                    <div class="cmp_search__content">
+                        <div class="cmp_card">
+                            <div class="cmp_card__info">
+                                <div class="cmp_card__logo"><img src="assets/images/camp/logo-1.png" alt=""></div>
+                                <div class="cmp_card__photo show-mobile-lg"><img src="assets/images/camp/img-city.jpg" alt=""></div>
+                                <h3 class="cmp_card__title">ЛЕТНИЙ IT-CAMP в Стемлаб</h3>
+                                <div class="cmp_card__desc">Хотите, чтобы ребенок отлично отдохнул на летних каникулах и при этом узнал много нового и интересного? <br>
+                                    Тогда записывайте его в наш летний IT-CAMP!</div>
+                                <div class="cmp_card__address">
+                                    <div class="cmp_card__address-item">г. Минск, ул. Уручская 19</div>
+                                    <div class="cmp_card__address-item">г. Брест, ул. Пушкина 9</div>
+                                </div>
+                                <div class="cmp_card__buttons hide-mobile-lg">
+                                    <button class="btn btn--purple btn--sm">Получить доп. скидку</button>
+                                    <a href="" class="btn btn--bdpurple btn--sm">Подробнее</a>
+                                </div>   
+                            </div>
+
+                            <div class="cmp_card__right">
+                                <div class="cmp_card__photo hide-mobile-lg"><img src="assets/images/camp/img-city.jpg" alt=""></div>
+                                <div class="cmp_card__props">
+                                    <div class="cmp_card__prop"><span><span class="cmp_card__prop-oldprice">600 руб</span> &nbsp; <span class="cmp_card__prop-price">350 руб</span> до 15.09.2023</span></div>
+                                    <div class="cmp_card__prop"><span>7 - 11 лет</span></div>
+                                    <div class="cmp_card__prop"><span>доп. скидка 20 руб.</span></div>
+                                    <div class="cmp_card__prop"><span>можно 1/2 дня</span></div>
+                                    <div class="cmp_card__prop"><span>30.11.23 - 03.11.23  <br>
+                                        пн - пт  09.00 - 18.00</span></div>
+                                </div>
+                            </div>
+                            
+                            <div class="cmp_card__buttons show-mobile-lg">
+                                <button class="btn btn--purple btn--sm">Получить доп. скидку</button>
+                                <a href="" class="btn btn--bdpurple btn--sm">Подробнее</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </section><!--  -->
+
+
+    </main>
+    <!--content__wrapper-->
+   
+    @@include('html/camp/cmp_footer.html', {
+        "active_menu": ""
+    })
+
+</section>
+
+@@include('html/popup.html', {})
+
+</body>
+
+</html>
