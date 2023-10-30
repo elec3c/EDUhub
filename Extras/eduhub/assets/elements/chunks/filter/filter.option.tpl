@@ -1,0 +1,1 @@
+<option value="{$value}" {$selected}>{if $title == 'смешанные'}показать все{else}{$title}{/if}</option>
