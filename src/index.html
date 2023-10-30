@@ -103,10 +103,30 @@
 
             <div class="choose__bg choose__wrap">
                 <div class="container">
+
+                    <div class="buttons--3col">
+                        <a href="" class="btn btn--purple">Поиск по всем школам</a>
+                        <a href="" class="btn btn--purple">Только курсы с партнерскими скидками</a>
+                    </div>
+
                     <form action="" class="hide-tablet-sm choose-filters">
                         <div class="choose__block">
                             <div class="choose__block-title">Я ищу</div>
                             <div class="choose__inputs">
+                                <div class="choose__inputs-item first-tablet w-270">
+                                    <div class="checkselect checkselect--white check-select">
+                                        <div class="checkselect__select placeholder check-select-toggle check-select-text">Селект ссылки</div>
+                                        <div class="checkselect__dropdown check-select-dropdown">
+                                            <div class="checkselect__list">
+                                                <a href="" class="checkselect__list-link">Python</a>
+                                                <a href="" class="checkselect__list-link">Java</a>
+                                                <a href="" class="checkselect__list-link">JavaScript</a>
+                                                <a href="" class="checkselect__list-link">C++</a>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>    
+
                                 <div class="choose__inputs-item first-tablet w-270">
                                     <select name="category" data-placeholder="Категория курса"
                                         class="styler styler--white" id="category-select">
@@ -252,7 +272,7 @@
                                 <div class="choose__inputs-item w-270 w-230-tablet">
                                     <select name="format" data-placeholder="Формат обучения"
                                         class="styler styler--white">
-                                        <option value=""></option>
+                                        <option value="" class="option-hide"> </option>
                                         <option value="Формат обучения 1">Формат обучения 1</option>
                                         <option value="Формат обучения 2">Формат обучения 2</option>
                                         <option value="Формат обучения 3">Формат обучения 3</option>
@@ -372,7 +392,7 @@
                                 <span>Сохранить фильтр <br class="show-tablet"> (доступно только для авторизованных пользователей)</span>
                             </label>
 
-                            <a href="" class="choose__clear choose-clear">Очистить фильтр</a>
+                            <a href="" class="choose__clear js-choose-clear">Очистить фильтр</a>
                         </div>
                     </form>
 
@@ -531,7 +551,7 @@
                         <div class="choose__inputs-item choose__inputs-button">
                             <button class="btn w-all">ПОИСК</button>
                             
-                            <a href="" class="choose__clear choose-clear">Очистить фильтр</a>
+                            <a href="" class="choose__clear js-choose-clear">Очистить фильтр</a>
                         </div>
                         
 
@@ -1121,6 +1141,337 @@
             </div>
         </section><!--  -->
 
+        
+        <section class="courses section__mg">
+            <div class="container">
+                <div class="section__head section__head--cols">
+                    <h2 class="section__title">Популярные курсы</h2>
+
+                </div>
+
+                    <div class="courses__items items--cols">
+                                <div class="courses__item">
+                                    <div class="courses__item-photo"><img src="assets/images/courses/5.jpg"></div>
+                                    <h3 class="courses__item-title">Профессия <br> Python-разработчик</h3>
+                                    <ul class="courses__item-list">
+                                        <li class="courses__item-list__flex">
+                                            <div class="courses__item-list__icon"><img
+                                                    src="assets/images/icons/location.svg" alt=""></div> Москва
+                                        </li>
+                                        <li>
+                                            <a href="skillbox.ru" class="courses__item-list__flex">
+                                                <div class="courses__item-list__icon"><img
+                                                        src="assets/images/icons/global.svg" alt=""></div>
+                                                skillbox.ru
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="courses__item-list">
+                                        <li><span>Длительность:</span> 3 месяца</li>
+                                        <li><span>Формат обучения:</span> онлайн</li>
+                                    </ul>
+                                    <div class="courses__item-price">25 руб./занятие</div>
+
+                                    <div class="courses__item-rev">
+                                        <div class="rating courses__item-rating">
+                                            <span class="active"></span>
+                                            <span class="active"></span>
+                                            <span class="active"></span>
+                                            <span class="active"></span>
+                                            <span class=""></span>
+                                        </div>
+
+                                        <span class="nowrap">12 отзывов</span>
+                                    </div>
+
+                                    <div class="courses__item-button">
+                                        <a href="course.html" class="btn w-all">Подробнее</a>
+                                    </div>
+                                </div>
+                                <!--courses__item-->
+
+                                <div class="courses__item">
+                                    <div class="courses__item-photo"><img src="assets/images/courses/6.jpg"></div>
+                                    <h3 class="courses__item-title">Профессия <br> Python-разработчик</h3>
+                                    <ul class="courses__item-list">
+                                        <li class="courses__item-list__flex">
+                                            <div class="courses__item-list__icon"><img
+                                                    src="assets/images/icons/location.svg" alt=""></div> Москва
+                                        </li>
+                                        <li>
+                                            <a href="geekbrains.by" class="courses__item-list__flex">
+                                                <div class="courses__item-list__icon"><img
+                                                        src="assets/images/icons/global.svg" alt=""></div>
+                                                geekbrains.by
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="courses__item-list">
+                                        <li><span>Длительность:</span> 3 месяца</li>
+                                        <li><span>Формат обучения:</span> онлайн</li>
+                                    </ul>
+                                    <div class="courses__item-price">28 руб./занятие</div>
+
+                                    <div class="courses__item-rev">
+                                        <div class="rating courses__item-rating">
+                                            <span class="active"></span>
+                                            <span class="active"></span>
+                                            <span class="active"></span>
+                                            <span class="active"></span>
+                                            <span class=""></span>
+                                        </div>
+
+                                        <span class="nowrap">5 отзывов</span>
+                                    </div>
+
+                                    <div class="courses__item-button">
+                                        <a href="course.html" class="btn w-all">Подробнее</a>
+                                    </div>
+                                </div>
+                                <!--courses__item-->
+
+                                <div class="courses__item">
+                                    <div class="courses__item-photo"><img src="assets/images/courses/1.jpg"></div>
+                                    <h3 class="courses__item-title">Профессия <br> Data Scientist</h3>
+                                    <ul class="courses__item-list">
+                                        <li class="courses__item-list__flex">
+                                            <div class="courses__item-list__icon"><img
+                                                    src="assets/images/icons/location.svg" alt=""></div> Москва
+                                        </li>
+                                        <li>
+                                            <a href="skillfactory.team" class="courses__item-list__flex">
+                                                <div class="courses__item-list__icon"><img
+                                                        src="assets/images/icons/global.svg" alt=""></div>
+                                                skillfactory.team
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="courses__item-list">
+                                        <li><span>Длительность:</span> 8 месяцев</li>
+                                        <li><span>Формат обучения:</span> онлайн</li>
+                                    </ul>
+                                    <div class="courses__item-price">30 руб./занятие</div>
+
+                                    <div class="courses__item-rev">
+                                        <div class="rating courses__item-rating">
+                                            <span class="active"></span>
+                                            <span class="active"></span>
+                                            <span class="active"></span>
+                                            <span class="active"></span>
+                                            <span class=""></span>
+                                        </div>
+
+                                        <span class="nowrap">12 отзывов</span>
+                                    </div>
+
+                                    <div class="courses__item-button">
+                                        <a href="course.html" class="btn w-all">Подробнее</a>
+                                    </div>
+                                </div>
+                                <!--courses__item-->
+
+                                <div class="courses__item">
+                                    <div class="courses__item-photo"><img src="assets/images/courses/7.jpg"></div>
+                                    <h3 class="courses__item-title">Профессия <br> Разработчик на Python</h3>
+                                    <ul class="courses__item-list">
+                                        <li class="courses__item-list__flex">
+                                            <div class="courses__item-list__icon"><img
+                                                    src="assets/images/icons/location.svg" alt=""></div> Москва
+                                        </li>
+                                        <li>
+                                            <a href="sky.pro" class="courses__item-list__flex">
+                                                <div class="courses__item-list__icon"><img
+                                                        src="assets/images/icons/global.svg" alt=""></div>
+                                                sky.pro
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="courses__item-list">
+                                        <li><span>Длительность:</span> 3 месяца</li>
+                                        <li><span>Формат обучения:</span> онлайн</li>
+                                    </ul>
+                                    <div class="courses__item-price">25 руб./занятие</div>
+
+                                    <div class="courses__item-rev">
+                                        <div class="rating courses__item-rating">
+                                            <span class="active"></span>
+                                            <span class="active"></span>
+                                            <span class="active"></span>
+                                            <span class="active"></span>
+                                            <span class=""></span>
+                                        </div>
+
+                                        <span class="nowrap">12 отзывов</span>
+                                    </div>
+
+                                    <div class="courses__item-button">
+                                        <a href="course.html" class="btn w-all">Подробнее</a>
+                                    </div>
+                                </div>
+                                <!--courses__item-->
+ 
+                                <div class="courses__item">
+                                    <div class="courses__item-photo"><img src="assets/images/courses/6.jpg"></div>
+                                    <h3 class="courses__item-title">Профессия <br> Python-разработчик</h3>
+                                    <ul class="courses__item-list">
+                                        <li class="courses__item-list__flex">
+                                            <div class="courses__item-list__icon"><img
+                                                    src="assets/images/icons/location.svg" alt=""></div> Москва
+                                        </li>
+                                        <li>
+                                            <a href="geekbrains.by" class="courses__item-list__flex">
+                                                <div class="courses__item-list__icon"><img
+                                                        src="assets/images/icons/global.svg" alt=""></div>
+                                                geekbrains.by
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="courses__item-list">
+                                        <li><span>Длительность:</span> 3 месяца</li>
+                                        <li><span>Формат обучения:</span> онлайн</li>
+                                    </ul>
+                                    <div class="courses__item-price">28 руб./занятие</div>
+
+                                    <div class="courses__item-rev">
+                                        <div class="rating courses__item-rating">
+                                            <span class="active"></span>
+                                            <span class="active"></span>
+                                            <span class="active"></span>
+                                            <span class="active"></span>
+                                            <span class=""></span>
+                                        </div>
+
+                                        <span class="nowrap">5 отзывов</span>
+                                    </div>
+
+                                    <div class="courses__item-button">
+                                        <a href="course.html" class="btn w-all">Подробнее</a>
+                                    </div>
+                                </div>
+                                <!--courses__item-->
+                       
+                                <div class="courses__item">
+                                    <div class="courses__item-photo"><img src="assets/images/courses/6.jpg"></div>
+                                    <h3 class="courses__item-title">Профессия <br> Python-разработчик</h3>
+                                    <ul class="courses__item-list">
+                                        <li class="courses__item-list__flex">
+                                            <div class="courses__item-list__icon"><img
+                                                    src="assets/images/icons/location.svg" alt=""></div> Москва
+                                        </li>
+                                        <li>
+                                            <a href="geekbrains.by" class="courses__item-list__flex">
+                                                <div class="courses__item-list__icon"><img
+                                                        src="assets/images/icons/global.svg" alt=""></div>
+                                                geekbrains.by
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="courses__item-list">
+                                        <li><span>Длительность:</span> 3 месяца</li>
+                                        <li><span>Формат обучения:</span> онлайн</li>
+                                    </ul>
+                                    <div class="courses__item-price">28 руб./занятие</div>
+
+                                    <div class="courses__item-rev">
+                                        <div class="rating courses__item-rating">
+                                            <span class="active"></span>
+                                            <span class="active"></span>
+                                            <span class="active"></span>
+                                            <span class="active"></span>
+                                            <span class=""></span>
+                                        </div>
+
+                                        <span class="nowrap">5 отзывов</span>
+                                    </div>
+
+                                    <div class="courses__item-button">
+                                        <a href="course.html" class="btn w-all">Подробнее</a>
+                                    </div>
+                                </div>
+                                <!--courses__item-->
+
+                                <div class="courses__item">
+                                    <div class="courses__item-photo"><img src="assets/images/courses/1.jpg"></div>
+                                    <h3 class="courses__item-title">Профессия <br> Data Scientist</h3>
+                                    <ul class="courses__item-list">
+                                        <li class="courses__item-list__flex">
+                                            <div class="courses__item-list__icon"><img
+                                                    src="assets/images/icons/location.svg" alt=""></div> Москва
+                                        </li>
+                                        <li>
+                                            <a href="skillfactory.team" class="courses__item-list__flex">
+                                                <div class="courses__item-list__icon"><img
+                                                        src="assets/images/icons/global.svg" alt=""></div>
+                                                skillfactory.team
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="courses__item-list">
+                                        <li><span>Длительность:</span> 8 месяцев</li>
+                                        <li><span>Формат обучения:</span> онлайн</li>
+                                    </ul>
+                                    <div class="courses__item-price">30 руб./занятие</div>
+
+                                    <div class="courses__item-rev">
+                                        <div class="rating courses__item-rating">
+                                            <span class="active"></span>
+                                            <span class="active"></span>
+                                            <span class="active"></span>
+                                            <span class="active"></span>
+                                            <span class=""></span>
+                                        </div>
+
+                                        <span class="nowrap">12 отзывов</span>
+                                    </div>
+
+                                    <div class="courses__item-button">
+                                        <a href="course.html" class="btn w-all">Подробнее</a>
+                                    </div>
+                                </div>
+                                <!--courses__item-->
+
+                                <div class="courses__item">
+                                    <div class="courses__item-photo"><img src="assets/images/courses/7.jpg"></div>
+                                    <h3 class="courses__item-title">Профессия <br> Разработчик на Python</h3>
+                                    <ul class="courses__item-list">
+                                        <li class="courses__item-list__flex">
+                                            <div class="courses__item-list__icon"><img
+                                                    src="assets/images/icons/location.svg" alt=""></div> Москва
+                                        </li>
+                                        <li>
+                                            <a href="sky.pro" class="courses__item-list__flex">
+                                                <div class="courses__item-list__icon"><img
+                                                        src="assets/images/icons/global.svg" alt=""></div>
+                                                sky.pro
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="courses__item-list">
+                                        <li><span>Длительность:</span> 3 месяца</li>
+                                        <li><span>Формат обучения:</span> онлайн</li>
+                                    </ul>
+                                    <div class="courses__item-price">25 руб./занятие</div>
+
+                                    <div class="courses__item-rev">
+                                        <div class="rating courses__item-rating">
+                                            <span class="active"></span>
+                                            <span class="active"></span>
+                                            <span class="active"></span>
+                                            <span class="active"></span>
+                                            <span class=""></span>
+                                        </div>
+
+                                        <span class="nowrap">12 отзывов</span>
+                                    </div>
+
+                                    <div class="courses__item-button">
+                                        <a href="course.html" class="btn w-all">Подробнее</a>
+                                    </div>
+                                </div>
+                                <!--courses__item-->
+                    </div>
+            </div>
+        </section><!--  -->
 
         <section class="advantages section__mg">
             <div class="container">

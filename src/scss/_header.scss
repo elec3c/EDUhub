@@ -49,7 +49,13 @@ header
             }
         }
         &.active {
-            color: $bg-purple;
+            color: $bg-purple !important;
+            path {
+                stroke: $bg-purple !important;
+            }
+            .icon {
+                color: $bg-purple !important;
+            }
             .icon-open {
                 opacity: 0; visibility: hidden;
             }

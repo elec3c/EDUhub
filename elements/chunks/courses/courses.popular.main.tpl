@@ -1,5 +1,6 @@
         <section class="courses section__mg">
-            <div class="container">	
+            <div class="container filtering">
+                {include 'file:chunks/forms/filter/filter.course.tpl' index=3}
                 <div class="section__head section__head--cols">
                     <h2 class="section__title">Популярные курсы</h2>
 

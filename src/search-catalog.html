@@ -1,119 +1,730 @@
 @@include('html/head.html', {
-    "title": "Главная"
+"title": "Главная"
 })
 
 <section class="wrapper" id="top">
 
     @@include('html/header.html', {
-        "active_menu": "search",
-        "auth": "user"
+    "active_menu": "search",
+    "auth": "user"
     })
-    
+
     <main class="content__wrapper">
 
         <section class="choose section__mg-sm" id="choose">
             <div class="container">
-                <div class="choose__title">Результат поиска: <span class="text--orange">найдено 20 курсов по запросу <br> «IT-курсов программирование»</span></div>
-                <form action="" class="hide-tablet-sm"">
-                    <div class="choose__inputs choose__search">
-                        <div class="choose__inputs-item">
-                            <select name="category" data-placeholder="Категория курса" class="styler">
-                                <option value=""></option>
-                                <option value="Python">Python</option>
-                                <option value="Java">Java</option>
-                                <option value="JavaScript">JavaScript</option>
-                                <option value="C++">C++</option>
-                            </select>
+                <div class="choose__title">Результат поиска: <span class="text--orange">найдено 20 курсов по запросу
+                        <br> «IT-курсов программирование»</span></div>
+                <form action="search-catalog/" method="post" id="mse2_filters" class="hide-tablet-sm">
+                    <div class="choose__block">
+                        <div class="choose__inputs choose__search">
+                            <div class="choose__inputs-item">
+                                <select name="course_category" class="styler" data-placeholder="Категория курса"
+                                    id="category-select">
+                                    <option value=""></option>
+                                    <option value="11">IT курсы</option>
+                                    <option value="10">Языковые курсы</option>
+                                    <option value="520">Маркетинг</option>
+                                    <option value="521">Бизнес</option>
+                                    <option value="522">Финансы</option>
+                                    <option value="523">Управление персоналом</option>
+                                    <option value="524">Продажи</option>
+                                    <option value="623">Дизайн и графика</option>
+                                    <option value="1347">Танцы</option>
+                                    <option value="1357">Фото, видео, аудио</option>
+                                    <option value="1358">Спорт</option>
+                                    <option value="1360">Искусство. Творчество</option>
+                                    <option value="1362">Развитие личности, психология</option>
+                                </select>
+                            </div>
+
+                            <div class="choose__inputs-item">
+                                <select name="course_sub_category" data-placeholder="Подкатегория курса" class="styler"
+                                    id="sub_category-select">
+                                    <option value=""></option>
+
+                                    <option data-chained="11" value="44">Программирование</option>
+                                    <option data-chained="11" value="51">Рекрутер в IT</option>
+                                    <option data-chained="11" value="52">Бизнес-аналитик</option>
+                                    <option data-chained="11" value="53">Project Manager</option>
+                                    <option data-chained="11" value="54">Тестирование</option>
+                                    <option data-chained="11" value="464">DevOps</option>
+                                    <option data-chained="11" value="465">TeamLead</option>
+                                    <option data-chained="11" value="466">Data Science</option>
+                                    <option data-chained="11" value="467">HR в IT</option>
+                                    <option data-chained="11" value="468">PR в IT</option>
+                                    <option data-chained="11" value="498">Профориентация в IT</option>
+                                    <option data-chained="11" value="618">Sales</option>
+                                    <option data-chained="11" value="807">Управление проектами</option>
+                                    <option data-chained="10" value="55">Английский</option>
+                                    <option data-chained="10" value="56">Немецкий</option>
+                                    <option data-chained="10" value="57">Китайский</option>
+                                    <option data-chained="10" value="58">Итальянский</option>
+                                    <option data-chained="10" value="59">Французский</option>
+                                    <option data-chained="10" value="452">Испанский</option>
+                                    <option data-chained="10" value="453">Польский</option>
+                                    <option data-chained="10" value="454">Чешский</option>
+                                    <option data-chained="10" value="455">Литовский</option>
+                                    <option data-chained="10" value="456">Турецкий</option>
+                                    <option data-chained="10" value="457">Японский</option>
+                                    <option data-chained="10" value="458">Португальский</option>
+                                    <option data-chained="10" value="459">Финский</option>
+                                    <option data-chained="10" value="460">Шведский</option>
+                                    <option data-chained="10" value="461">Голландский</option>
+                                    <option data-chained="10" value="462">Арабский</option>
+                                    <option data-chained="10" value="463">Иврит</option>
+                                    <option data-chained="10" value="1220">Датский</option>
+                                    <option data-chained="10" value="1221">Корейский</option>
+                                    <option data-chained="10" value="1222">Персидский</option>
+                                    <option data-chained="10" value="1223">Русский как иностранный</option>
+                                    <option data-chained="520" value="525">Таргетированная реклама</option>
+                                    <option data-chained="520" value="526">Продвижение в TikTok</option>
+                                    <option data-chained="520" value="527">Продвижение в Instagram</option>
+                                    <option data-chained="520" value="528">Контекстная реклама</option>
+                                    <option data-chained="520" value="529">Реклама в Google Ads</option>
+                                    <option data-chained="520" value="530">Реклама в Яндекс.Директ</option>
+                                    <option data-chained="520" value="531">Digital Маркетинг</option>
+                                    <option data-chained="520" value="532">Интернет-маркетинг</option>
+                                    <option data-chained="520" value="533">SEO-продвижение</option>
+                                    <option data-chained="520" value="534">SMM</option>
+                                    <option data-chained="520" value="535">Бренд-менеджмент</option>
+                                    <option data-chained="520" value="536">PR</option>
+                                    <option data-chained="520" value="537">Руководство маркетингом</option>
+                                    <option data-chained="520" value="538">Копирайтинг</option>
+                                    <option data-chained="520" value="539">Маркетинговая аналитика</option>
+                                    <option data-chained="520" value="540">Web-аналитика</option>
+                                    <option data-chained="520" value="541">Контент-маркетинг</option>
+                                    <option data-chained="520" value="542">Email-маркетинг</option>
+                                    <option data-chained="520" value="543">SERM и репутация</option>
+                                    <option data-chained="520" value="544">Маркетинг мобильных приложений</option>
+                                    <option data-chained="520" value="545">Мессенджер-маркетинг и чат-боты</option>
+                                    <option data-chained="520" value="546">Реклама у блогеров</option>
+                                    <option data-chained="520" value="547">Развитие креативного мышления</option>
+                                    <option data-chained="520" value="548">Стриминг</option>
+                                    <option data-chained="520" value="549">Маркетплейсы и e-commerce</option>
+                                    <option data-chained="520" value="550">Яндекс Дзен</option>
+                                    <option data-chained="520" value="551">Выход на внешние рынки</option>
+                                    <option data-chained="521" value="552">MBA</option>
+                                    <option data-chained="521" value="553">Программы для собственников</option>
+                                    <option data-chained="521" value="554">Менеджмент и управление</option>
+                                    <option data-chained="521" value="556">Переговоры</option>
+                                    <option data-chained="521" value="562">Soft skills</option>
+                                    <option data-chained="521" value="565">Excel для бизнеса</option>
+                                    <option data-chained="522" value="569">Финансовый директор</option>
+                                    <option data-chained="522" value="570">Управленческий учет и контроллинг</option>
+                                    <option data-chained="522" value="571">Бюджетирование</option>
+                                    <option data-chained="522" value="572">Финансовый анализ и контроль</option>
+                                    <option data-chained="522" value="573">Финансовая грамотность</option>
+                                    <option data-chained="522" value="574">Excel</option>
+                                    <option data-chained="522" value="575">KPI</option>
+                                    <option data-chained="522" value="576">Lean-менеджмент</option>
+                                    <option data-chained="522" value="577">МСФО</option>
+                                    <option data-chained="522" value="578">Бизнес-планирование</option>
+                                    <option data-chained="522" value="1296">Бухгалтерский учет</option>
+                                    <option data-chained="523" value="591">Управление персоналом (HR)</option>
+                                    <option data-chained="523" value="592">Подбор персонала (recruiting)</option>
+                                    <option data-chained="523" value="593">Кадровое производство</option>
+                                    <option data-chained="524" value="579">В2B продажи</option>
+                                    <option data-chained="524" value="580">Менеджер по продажам</option>
+                                    <option data-chained="524" value="581">Управление продажами</option>
+                                    <option data-chained="524" value="582">Техника переговоров</option>
+                                    <option data-chained="524" value="583">Аналитика и управление показателями</option>
+                                    <option data-chained="524" value="584">Мотивация в продажах</option>
+                                    <option data-chained="524" value="585">Работа с возражениями</option>
+                                    <option data-chained="524" value="586">Специализированные (розница)</option>
+                                    <option data-chained="524" value="587">Подготовка офера</option>
+                                    <option data-chained="623" value="624">Web, UX/UI, графический дизайн</option>
+                                    <option data-chained="623" value="625">Компьютерная графика (программы)</option>
+                                    <option data-chained="623" value="626">Инженерная графика (программы)</option>
+                                    <option data-chained="623" value="627">Фотография</option>
+                                    <option data-chained="623" value="628">Создание и монтаж видео</option>
+                                    <option data-chained="623" value="629">Ландшафтный дизайн</option>
+                                    <option data-chained="623" value="630">Дизайн одежды</option>
+                                    <option data-chained="623" value="631">Дизайн интерьера и мебели</option>
+                                    <option data-chained="623" value="632">Искусство</option>
+
+                                    <option data-chained="1347" value="1348">Современные</option>
+                                    <option data-chained="1347" value="1349">Клубные</option>
+                                    <option data-chained="1347" value="1351">Латиноамериканские</option>
+                                    <option data-chained="1347" value="1352">Восточные</option>
+                                    <option data-chained="1347" value="1353">Народные</option>
+                                    <option data-chained="1347" value="1354">Уличные</option>
+                                    <option data-chained="1347" value="1355">Женская пластика</option>
+                                    <option data-chained="1347" value="1356">Классическая хореография</option>
+                                    <option data-chained="1357" value="1364">Искусство фотографии и обработка фото
+                                    </option>
+                                    <option data-chained="1357" value="1365">Съемка и монтаж видео</option>
+                                    <option data-chained="1357" value="1366">SOUND-дизайн и звукорежиссура</option>
+                                    <option data-chained="1358" value="1367">Обучение плаванию</option>
+                                    <option data-chained="1358" value="1368">Игровые виды спорта</option>
+                                    <option data-chained="1358" value="1369">Единоборства</option>
+                                    <option data-chained="1358" value="1370">Гимнастика</option>
+                                    <option data-chained="1358" value="1371">Йога</option>
+                                    <option data-chained="1358" value="1372">Интеллектуальные</option>
+                                    <option data-chained="1360" value="1379">Музыка</option>
+                                    <option data-chained="1360" value="1380">Рисунок и живопись</option>
+                                    <option data-chained="1360" value="1381">Актерское мастерство</option>
+                                    <option data-chained="1360" value="1382">Вокал</option>
+                                    <option data-chained="1362" value="1373">Личностное развитие</option>
+                                    <option data-chained="1362" value="1374">Психология</option>
+                                    <option data-chained="1362" value="1375">НЛП</option>
+                                    <option data-chained="1362" value="1376">Ораторское искусство</option>
+                                    <option data-chained="1362" value="1377">Семья и развитие детей</option>
+                                    <option data-chained="1362" value="1378">Медиация</option>
+
+
+
+
+                                </select>
+                            </div>
+                            <div class="choose__inputs-item">
+                                <select name="course_sub_category_type" data-placeholder="Направление" class="styler"
+                                    id="sub_category_type-select">
+                                    <option value=""></option>
+                                    <option data-chained="44" value="python">Python</option>
+                                    <option data-chained="44" value="java">Java</option>
+                                    <option data-chained="44" value="javascript">JavaScript</option>
+                                    <option data-chained="44" value="cpp">C++</option>
+                                    <option data-chained="44" value="ios">iOS</option>
+                                    <option data-chained="44" value="android">Android</option>
+                                    <option data-chained="44" value="php">PHP</option>
+                                    <option data-chained="44" value="typescript">TypeScript</option>
+                                    <option data-chained="44" value="frontend">Frontend</option>
+                                    <option data-chained="44" value="web-dev">Веб-разработка</option>
+                                    <option data-chained="44" value="java-spring">Java-фреймворк</option>
+                                    <option data-chained="44" value="flutter">Flutter</option>
+                                    <option data-chained="44" value="nodejs">Node.js</option>
+                                    <option data-chained="44" value="1c">1С</option>
+                                    <option data-chained="44" value="sql">SQL</option>
+                                    <option data-chained="44" value="python-framework">Python-фреймворк</option>
+                                    <option data-chained="44" value="phyton-djangoAngular">Django</option>
+                                    <option data-chained="44" value="go">Go</option>
+                                    <option data-chained="44" value="vuejs">Фреймворк Vue.js</option>
+                                    <option data-chained="44" value="mobile-dev">Мобильная разработка</option>
+                                    <option data-chained="44" value="javascript-reactjs">JavaScript-фреймворк React.js
+                                    </option>
+                                    <option data-chained="44" value="php-symfony">PHP-фреймворк Symfony</option>
+                                    <option data-chained="44" value="csharp">C#</option>
+                                    <option data-chained="44" value="unity">Unity</option>
+                                    <option data-chained="44" value="ruby-on-rails">Ruby on Rails</option>
+                                    <option data-chained="44" value="asp-net">ASP.NET</option>
+                                    <option data-chained="1348" value="body-ballet">Боди-балет</option>
+                                    <option data-chained="1348" value="contemporary">Contemporary</option>
+                                    <option data-chained="1348" value="jazz-modern">Джаз-модерн</option>
+                                    <option data-chained="1348" value="zumba">Зумба</option>
+                                    <option data-chained="1348" value="cheerleading">Чирлидинг</option>
+                                    <option data-chained="1348" value="dancing-on-the-air-ring">Танцы на воздушном
+                                        кольце</option>
+                                    <option data-chained="1348" value="american-step">Американский степ</option>
+                                    <option data-chained="1348" value="lindy-hop">Линди-хоп</option>
+                                    <option data-chained="1349" value="twerk-booty-dance">Тверк Booty Dance</option>
+                                    <option data-chained="1349" value="go-go">Go-go</option>
+                                    <option data-chained="1349" value="high-heels">High-Heels</option>
+                                    <option data-chained="1349" value="house">House</option>
+                                    <option data-chained="1349" value="vogue">Vogue</option>
+                                    <option data-chained="1349" value="waacking">Waacking</option>
+                                    <option data-chained="1349" value="industrial-dance">Industrial Dance</option>
+                                    <option data-chained="1349" value="shuffle">Шаффл</option>
+                                    <option data-chained="1349" value="jumpstyle">Джампстайл</option>
+                                    <option data-chained="1351" value="bachata">Бачата</option>
+                                    <option data-chained="1351" value="salsa">Сальса</option>
+                                    <option data-chained="1351" value="tango">Танго</option>
+                                    <option data-chained="1351" value="pachanga">Пачанга</option>
+                                    <option data-chained="1351" value="reggaeton">Реггетон</option>
+                                    <option data-chained="1351" value="hustle">Хастл</option>
+                                    <option data-chained="1351" value="flamenco">Фламенко</option>
+                                    <option data-chained="1352" value="arabic-dances">Арабские танцы</option>
+                                    <option data-chained="1352" value="belly-dance">Танец живота</option>
+                                    <option data-chained="1352" value="dance-mandala">Танец мандала</option>
+                                    <option data-chained="1353" value="lezginka">Лезгинка</option>
+                                    <option data-chained="1353" value="gypsy-dance">Цыганский танец</option>
+                                    <option data-chained="1353" value="tahiti-dances">Танцы Таити</option>
+                                    <option data-chained="1353" value="irish-dances">Ирландские танцы</option>
+                                    <option data-chained="1354" value="kizomba">Кизомба</option>
+                                    <option data-chained="1354" value="brakedance">Брейк-данс</option>
+                                    <option data-chained="1354" value="jazz-funk">Jazz funk</option>
+                                    <option data-chained="1354" value="flexing">Флексинг</option>
+                                    <option data-chained="1354" value="popping">Поппинг</option>
+                                    <option data-chained="1354" value="tribal">Трайбл</option>
+                                    <option data-chained="1354" value="hip-hop">Hip Hop</option>
+                                    <option data-chained="1355" value="pole-dancing">Танцы на пилоне</option>
+                                    <option data-chained="1355" value="strip-of-plastic">Стрип-пластика</option>
+                                    <option data-chained="1355" value="stretching">Стретчинг</option>
+                                    <option data-chained="1355" value="private-dance">Приватный танец</option>
+                                    <option data-chained="1356" value="ballet">Балет</option>
+                                    <option data-chained="1364" value="photography-basics">Основы фотографии</option>
+                                    <option data-chained="1364" value="photo-processing">Обработка фото</option>
+                                    <option data-chained="1364" value="interior">Интерьерная</option>
+                                    <option data-chained="1364" value="mobile">Мобильная</option>
+                                    <option data-chained="1364" value="studio">Студийная</option>
+                                    <option data-chained="1364" value="commercial">Коммерческая</option>
+                                    <option data-chained="1364" value="portrait">Портретная</option>
+                                    <option data-chained="1364" value="wedding">Свадебная</option>
+                                    <option data-chained="1364" value="children-and-family-photography">Детская и
+                                        семейная фотография</option>
+                                    <option data-chained="1364" value="food-theme">Food-тематика</option>
+                                    <option data-chained="1364" value="fashion-theme">Fashion-тематика</option>
+                                    <option data-chained="1364" value="retouch">Ретушь</option>
+                                    <option data-chained="1368" value="football">Футбол</option>
+                                    <option data-chained="1368" value="hockey">Хоккей</option>
+                                    <option data-chained="1368" value="tennis">Теннис</option>
+                                    <option data-chained="1368" value="basketball">Баскетбол</option>
+                                    <option data-chained="1369" value="kickboxing">Кикбоксинг</option>
+                                    <option data-chained="1369" value="aikido">Айкидо</option>
+                                    <option data-chained="1369" value="kung-fu">Кунг-фу</option>
+                                    <option data-chained="1369" value="sambo">Самбо</option>
+                                    <option data-chained="1369" value="judo">Дзюдо</option>
+                                    <option data-chained="1369" value="karate">Карате</option>
+                                    <option data-chained="1369" value="thai-boxing">Тайский бокс</option>
+                                    <option data-chained="1369" value="boxing">Бокс</option>
+                                    <option data-chained="1369" value="freestyle-wrestling">Вольная борьба</option>
+                                    <option data-chained="1369" value="self-defense">Самооборона</option>
+                                    <option data-chained="1369" value="wushu">Ушу</option>
+                                    <option data-chained="1372" value="chess-and-checkers">Шахматы и шашки</option>
+                                    <option data-chained="1372" value="speedcubing-rubiks-cube)">Спидкубинг (Кубик
+                                        Рубика)</option>
+
+                                </select>
+                            </div>
+                            <div class="choose__inputs-item">
+                                <select name="course_type" data-placeholder="Особенности" class="styler"
+                                    id="type-select">
+                                    <option value=""></option>
+                                    <option data-chained="11" value="employment">С трудоустройством</option>
+                                    <option data-chained="11" value="not_employment">Без трудоустройства</option>
+                                    <!-- for it -->
+                                    <option data-chained="10" value="nulled">С нуля</option>
+                                    <option data-chained="10" value="level-up">Повышение уровня</option>
+                                    <option data-chained="10" value="level-intensive">Повышение уровня (интенсив)
+                                    </option>
+                                    <option data-chained="10" value="level-maintenance">Поддержание уровня</option>
+                                    <option data-chained="10" value="spoken">Разговорный</option>
+                                    <option data-chained="10" value="grammar">Грамматика</option>
+                                    <option data-chained="10" value="for-exams">Подготовка к экзаменам</option>
+                                    <option data-chained="10" value="for-interview">Для подготовки в собеседованию
+                                    </option>
+                                    <option data-chained="10" value="for-travel">Для путешествий и переезда</option>
+                                    <option data-chained="10" value="prof-for-it">Профессиональный (IT)</option>
+                                    <option data-chained="10" value="prof-for-business">Профессиональный (Бизнес)
+                                    </option>
+                                    <option data-chained="10" value="prof-for-medicine">Профессиональный (Медицина)
+                                    </option>
+                                    <option data-chained="10" value="prof-for-sport">Профессиональный (Спорт)</option>
+                                    <option data-chained="10" value="for-teachers">Повышение квалификации преподавателей
+                                    </option> <!-- for lang -->
+
+
+                                </select>
+                            </div>
+                            <div class="choose__inputs-item">
+                                <select name="for_ages" data-placeholder="Для возраста" class="styler">
+                                    <option value=""></option>
+                                    <option value="2">2 года</option>
+                                    <option value="3">3 года</option>
+                                    <option value="4">4 года</option>
+                                    <option value="5">5 лет</option>
+                                    <option value="6">6 лет</option>
+                                    <option value="7">7 лет</option>
+                                    <option value="8">8 лет</option>
+                                    <option value="9">9 лет</option>
+                                    <option value="10">10 лет</option>
+                                    <option value="11">11 лет</option>
+                                    <option value="12">12 лет</option>
+                                    <option value="13">13 лет</option>
+                                    <option value="14">14 лет</option>
+                                    <option value="15">15 лет</option>
+                                    <option value="16">16 лет</option>
+                                    <option value="17">17 лет</option>
+                                    <option value="18">18 лет</option>
+                                    <option value="19">19 лет</option>
+                                    <option value="20">20 лет</option>
+                                    <option value="21">21 лет</option>
+                                    <option value="22">22 лет</option>
+                                    <option value="23">23 лет</option>
+                                    <option value="24">24 лет</option>
+                                    <option value="25">25 лет</option>
+                                    <option value="26">26 лет</option>
+                                    <option value="27">27 лет</option>
+                                    <option value="28">28 лет</option>
+                                    <option value="29">29 лет</option>
+                                    <option value="30">30 лет</option>
+                                    <option value="31">31 лет</option>
+                                    <option value="32">32 лет</option>
+                                    <option value="33">33 лет</option>
+                                    <option value="34">34 лет</option>
+                                    <option value="35">35 лет</option>
+                                    <option value="36">36 лет</option>
+                                    <option value="37">37 лет</option>
+                                    <option value="38">38 лет</option>
+                                    <option value="39">39 лет</option>
+                                    <option value="40">40 лет</option>
+                                    <option value="41">41 лет</option>
+                                    <option value="42">42 лет</option>
+                                    <option value="43">43 лет</option>
+                                    <option value="44">44 лет</option>
+                                    <option value="45">45 лет</option>
+                                    <option value="46">46 лет</option>
+                                    <option value="47">47 лет</option>
+                                    <option value="48">48 лет</option>
+                                    <option value="49">49 лет</option>
+                                    <option value="50">50 лет</option>
+                                    <option value="51">51 лет</option>
+                                    <option value="52">52 лет</option>
+                                    <option value="53">53 лет</option>
+                                    <option value="54">54 лет</option>
+                                    <option value="55">55 лет</option>
+                                    <option value="56">56 лет</option>
+                                    <option value="57">57 лет</option>
+                                    <option value="58">58 лет</option>
+                                    <option value="59">59 лет</option>
+                                    <option value="60">60 лет</option>
+                                    <option value="61">61 лет</option>
+                                    <option value="62">62 лет</option>
+                                    <option value="63">63 лет</option>
+                                    <option value="64">64 лет</option>
+                                    <option value="65">65 лет</option>
+                                    <option value="66">66 лет</option>
+                                    <option value="67">67 лет</option>
+                                    <option value="68">68 лет</option>
+                                    <option value="69">69 лет</option>
+                                    <option value="70">70 лет</option>
+                                    <option value="71">71 лет</option>
+                                    <option value="72">72 лет</option>
+                                    <option value="73">73 лет</option>
+                                    <option value="74">74 лет</option>
+                                    <option value="75">75 лет</option>
+                                    <option value="76">76 лет</option>
+                                    <option value="77">77 лет</option>
+                                    <option value="78">78 лет</option>
+                                    <option value="79">79 лет</option>
+                                    <option value="80">80 лет</option>
+                                    <option value="81">81 лет</option>
+                                    <option value="82">82 лет</option>
+                                    <option value="83">83 лет</option>
+                                    <option value="84">84 лет</option>
+                                    <option value="85">85 лет</option>
+                                    <option value="86">86 лет</option>
+                                    <option value="87">87 лет</option>
+                                    <option value="88">88 лет</option>
+                                    <option value="89">89 лет</option>
+                                    <option value="90">90 лет</option>
+                                    <option value="91">91 лет</option>
+                                    <option value="92">92 лет</option>
+                                    <option value="93">93 лет</option>
+                                    <option value="94">94 лет</option>
+                                    <option value="95">95 лет</option>
+                                    <option value="96">96 лет</option>
+                                    <option value="97">97 лет</option>
+                                    <option value="98">98 лет</option>
+                                    <option value="99">99 лет</option>
+                                </select>
+                            </div>
+                            <div class="choose__inputs-item">
+                                <select name="for_levels" data-placeholder="Для уровня" class="styler"
+                                    id="level-select">
+                                    <option value=""></option>
+                                    <option data-chained="11" value="zero">Начальный</option>
+                                    <option data-chained="11" value="training">Повышение квалификации</option>
+                                    <option data-chained="10" value="a0">A0</option>
+                                    <option data-chained="10" value="a1">A1</option>
+                                    <option data-chained="10" value="a2">A2</option>
+                                    <option data-chained="10" value="b1">B1</option>
+                                    <option data-chained="10" value="b2">B2</option>
+                                    <option data-chained="10" value="c1">C1</option>
+                                    <option data-chained="10" value="c2">C2</option>
+                                    <option data-chained="520" value="zero">Начальный</option>
+                                    <option data-chained="520" value="training">Повышение квалификации</option>
+                                    <option data-chained="521" value="zero">Начальный</option>
+                                    <option data-chained="521" value="training">Повышение квалификации</option>
+                                    <option data-chained="522" value="zero">Начальный</option>
+                                    <option data-chained="522" value="training">Повышение квалификации</option>
+                                    <option data-chained="523" value="zero">Начальный</option>
+                                    <option data-chained="523" value="training">Повышение квалификации</option>
+                                    <option data-chained="524" value="zero">Начальный</option>
+                                    <option data-chained="524" value="training">Повышение квалификации</option>
+                                    <option data-chained="623" value="zero">Начальный</option>
+                                    <option data-chained="623" value="training">Повышение квалификации</option>
+
+                                    <option data-chained="1347" value="beginning">Начинающий</option>
+                                    <option data-chained="1347" value="continuing">Продолжающий</option>
+                                    <option data-chained="1347" value="professional">Профессиональный</option>
+                                    <option data-chained="1357" value="beginning">Начинающий</option>
+                                    <option data-chained="1357" value="continuing">Продолжающий</option>
+                                    <option data-chained="1357" value="professional">Профессиональный</option>
+                                    <option data-chained="1358" value="beginning">Начинающий</option>
+                                    <option data-chained="1358" value="continuing">Продолжающий</option>
+                                    <option data-chained="1358" value="professional">Профессиональный</option>
+                                    <option data-chained="1360" value="beginning">Начинающий</option>
+                                    <option data-chained="1360" value="continuing">Продолжающий</option>
+                                    <option data-chained="1360" value="professional">Профессиональный</option>
+                                    <option data-chained="1362" value="beginning">Начинающий</option>
+                                    <option data-chained="1362" value="continuing">Продолжающий</option>
+                                    <option data-chained="1362" value="professional">Профессиональный</option>
+                                </select>
+                            </div>
+                            <div class="choose__inputs-item">
+                                <select name="form_of_study" data-placeholder="Форма обучения" class="styler"
+                                    id="form_of_study">
+                                    <option value=""></option>
+                                    <option data-chained="offline" value="offline">Офлайн</option>
+                                    <option data-chained="offline" value="online">Онлайн</option>
+                                    <option data-chained="offline" value="online-micro">Онлайн микрокурсы (15-20 мин в
+                                        день)</option>
+                                    <option data-chained="offline" value="hybrid">Гибридная</option>
+                                    <option data-chained="offline" value="recording">В записи</option>
+                                </select>
+                            </div>
+                            <div class="choose__inputs-item">
+                                <select name="format_of_study" data-placeholder="Формат обучения" class="styler">
+                                    <option value=""></option>
+                                    <option value="group">Групповые</option>
+                                    <option value="individual">Индивидуальные</option>
+                                </select>
+                            </div>
+                            <div class="choose__inputs-item">
+                                <select name="schedule" data-placeholder="Расписание" class="styler">
+                                    <option value=""></option>
+                                    <option value="weekdays">будние</option>
+                                    <option value="weekend">выходные</option>
+                                    <option value="hybrid">смешанные</option>
+                                    <option value="mixed">по графику 2 через 2</option>
+                                </select>
+                            </div>
+                            <div class="choose__inputs-item">
+                                <select name="time" data-placeholder="Время" class="styler">
+                                    <option value=""></option>
+                                    <option value="morning">утро</option>
+                                    <option value="daytime">день</option>
+                                    <option value="evening">вечер</option>
+                                </select>
+                            </div>
+                            <div class="choose__inputs-item">
+                                <select name="course_city" data-placeholder="Город" class="styler" id="course_city">
+                                    <option value=""></option>
+                                    <option data-chained="offline" value="minsk">Минск</option>
+                                    <option data-chained="offline" value="brest">Брест</option>
+                                    <option data-chained="offline" value="grodno">Гродно</option>
+                                    <option data-chained="offline" value="gomel">Гомель</option>
+                                    <option data-chained="offline" value="vitebsk">Витебск</option>
+                                    <option data-chained="offline" value="mogilev">Могилев</option>
+                                    <option data-chained="offline" value="baranovichi">Барановичи</option>
+                                    <option data-chained="offline" value="baran">Барань</option>
+                                    <option data-chained="offline" value="beloozersk">Белоозерск</option>
+                                    <option data-chained="offline" value="belynichi">Белыничи</option>
+                                    <option data-chained="offline" value="beryoza">Берёза</option>
+                                    <option data-chained="offline" value="berezino">Березино</option>
+                                    <option data-chained="offline" value="berezovka">Березовка</option>
+                                    <option data-chained="offline" value="bobrujsk">Бобруйск</option>
+                                    <option data-chained="offline" value="borisov">Борисов</option>
+                                    <option data-chained="offline" value="borovlyany">Боровляны</option>
+                                    <option data-chained="offline" value="braslav">Браслав</option>
+                                    <option data-chained="offline" value="buda-koshelevo">Буда-Кошелево</option>
+                                    <option data-chained="offline" value="bykhov">Быхов</option>
+                                    <option data-chained="offline" value="vasilevichi">Василевичи</option>
+                                    <option data-chained="offline" value="verkhnedvinsk">Верхнедвинск</option>
+                                    <option data-chained="offline" value="vetka">Ветка</option>
+                                    <option data-chained="offline" value="vilejka">Вилейка</option>
+                                    <option data-chained="offline" value="volkovysk">Волковыск</option>
+                                    <option data-chained="offline" value="volozhin">Воложин</option>
+                                    <option data-chained="offline" value="vysokoe">Высокое</option>
+                                    <option data-chained="offline" value="gantsevichi">Ганцевичи</option>
+                                    <option data-chained="offline" value="glubokoe">Глубокое</option>
+                                    <option data-chained="offline" value="gorki">Горки</option>
+                                    <option data-chained="offline" value="gorodok">Городок</option>
+                                    <option data-chained="offline" value="david-gorodok">Давид-Городок</option>
+                                    <option data-chained="offline" value="dzerzhinsk">Дзержинск</option>
+                                    <option data-chained="offline" value="disna">Дисна</option>
+                                    <option data-chained="offline" value="dobrush">Добруш</option>
+                                    <option data-chained="offline" value="dokshitsy">Докшицы</option>
+                                    <option data-chained="offline" value="drogichin">Дрогичин</option>
+                                    <option data-chained="offline" value="dubrovno">Дубровно</option>
+                                    <option data-chained="offline" value="dyatlovo">Дятлово</option>
+                                    <option data-chained="offline" value="elsk">Ельск</option>
+                                    <option data-chained="offline" value="zhabinka">Жабинка</option>
+                                    <option data-chained="offline" value="zhitkovichi">Житковичи</option>
+                                    <option data-chained="offline" value="zhlobin">Жлобин</option>
+                                    <option data-chained="offline" value="zhodino">Жодино</option>
+                                    <option data-chained="offline" value="zaslavl">Заславль</option>
+                                    <option data-chained="offline" value="ivanovo">Иваново</option>
+                                    <option data-chained="offline" value="ivatsevichi">Ивацевичи</option>
+                                    <option data-chained="offline" value="ive">Ивье</option>
+                                    <option data-chained="offline" value="kalinkovichi">Калинковичи</option>
+                                    <option data-chained="offline" value="kamenets">Каменец</option>
+                                    <option data-chained="offline" value="kirovsk">Кировск</option>
+                                    <option data-chained="offline" value="kletsk">Клецк</option>
+                                    <option data-chained="offline" value="klimovichi">Климовичи</option>
+                                    <option data-chained="offline" value="klichev">Кличев</option>
+                                    <option data-chained="offline" value="kobrin">Кобрин</option>
+                                    <option data-chained="offline" value="kopyl">Копыль</option>
+                                    <option data-chained="offline" value="korelichi">Кореличи</option>
+                                    <option data-chained="offline" value="kossovo">Коссово</option>
+                                    <option data-chained="offline" value="kostyukovichi">Костюковичи</option>
+                                    <option data-chained="offline" value="krichev">Кричев</option>
+                                    <option data-chained="offline" value="krugloe">Круглое</option>
+                                    <option data-chained="offline" value="krupki">Крупки</option>
+                                    <option data-chained="offline" value="lepel">Лепель</option>
+                                    <option data-chained="offline" value="lida">Лида</option>
+                                    <option data-chained="offline" value="logojsk">Логойск</option>
+                                    <option data-chained="offline" value="luninets">Лунинец</option>
+                                    <option data-chained="offline" value="lyuban">Любань</option>
+                                    <option data-chained="offline" value="lyakhovichi">Ляховичи</option>
+                                    <option data-chained="offline" value="malorita">Малорита</option>
+                                    <option data-chained="offline" value="marina-gorka">Марьина Горка</option>
+                                    <option data-chained="offline" value="mikashevichi">Микашевичи</option>
+                                    <option data-chained="offline" value="mozyr">Мозырь</option>
+                                    <option data-chained="offline" value="molodechno">Молодечно</option>
+                                    <option data-chained="offline" value="mstislavl">Мстиславль</option>
+                                    <option data-chained="offline" value="myadel">Мядель</option>
+                                    <option data-chained="offline" value="narovlya">Наровля</option>
+                                    <option data-chained="offline" value="nesvizh">Несвиж</option>
+                                    <option data-chained="offline" value="novogrudok">Новогрудок</option>
+                                    <option data-chained="offline" value="novolukoml">Новолукомль</option>
+                                    <option data-chained="offline" value="novopolotsk">Новополоцк</option>
+                                    <option data-chained="offline" value="orsha">Орша</option>
+                                    <option data-chained="offline" value="osipovichi">Осиповичи</option>
+                                    <option data-chained="offline" value="oshmyany">Ошмяны</option>
+                                    <option data-chained="offline" value="petrikov">Петриков</option>
+                                    <option data-chained="offline" value="pinsk">Пинск</option>
+                                    <option data-chained="offline" value="polotsk">Полоцк</option>
+                                    <option data-chained="offline" value="postavy">Поставы</option>
+                                    <option data-chained="offline" value="pruzhany">Пружаны</option>
+                                    <option data-chained="offline" value="rechitsa">Речица</option>
+                                    <option data-chained="offline" value="rogachyov">Рогачёв</option>
+                                    <option data-chained="offline" value="svetlogorsk">Светлогорск</option>
+                                    <option data-chained="offline" value="svisloch">Свислочь</option>
+                                    <option data-chained="offline" value="senno">Сенно</option>
+                                    <option data-chained="offline" value="skidel">Скидель</option>
+                                    <option data-chained="offline" value="slavgorod">Славгород</option>
+                                    <option data-chained="offline" value="slonim">Слоним</option>
+                                    <option data-chained="offline" value="slutsk">Слуцк</option>
+                                    <option data-chained="offline" value="smolevichi">Смолевичи</option>
+                                    <option data-chained="offline" value="smorgon">Сморгонь</option>
+                                    <option data-chained="offline" value="soligorsk">Солигорск</option>
+                                    <option data-chained="offline" value="starye-dorogi">Старые Дороги</option>
+                                    <option data-chained="offline" value="stolbtsy">Столбцы</option>
+                                    <option data-chained="offline" value="tereshkovichi">Терешковичи</option>
+                                    <option data-chained="offline" value="tolochin">Толочин</option>
+                                    <option data-chained="offline" value="turov">Туров</option>
+                                    <option data-chained="offline" value="uzda">Узда</option>
+                                    <option data-chained="offline" value="fanipol">Фаниполь</option>
+                                    <option data-chained="offline" value="khojniki">Хойники</option>
+                                    <option data-chained="offline" value="chausy">Чаусы</option>
+                                    <option data-chained="offline" value="chashniki">Чашники</option>
+                                    <option data-chained="offline" value="cherven">Червень</option>
+                                    <option data-chained="offline" value="cherikov">Чериков</option>
+                                    <option data-chained="offline" value="chechersk">Чечерск</option>
+                                    <option data-chained="offline" value="shklov">Шклов</option>
+                                    <option data-chained="offline" value="schuchin">Щучин</option>;
+
+                                </select>
+                            </div>
+                            <div class="choose__inputs-item">
+                                <select name="course_region" data-placeholder="Район" class="styler" id="course_region">
+                                    <option value=""></option>
+                                    <option data-chained="minsk" value="tsentralnyj">Центральный</option>
+                                    <option data-chained="minsk" value="sovetskij">Советский</option>
+                                    <option data-chained="minsk" value="pervomajskij">Первомайский</option>
+                                    <option data-chained="minsk" value="partizanskij">Партизанский</option>
+                                    <option data-chained="minsk" value="zavodskoj">Заводской</option>
+                                    <option data-chained="minsk" value="leninskij">Ленинский</option>
+                                    <option data-chained="minsk" value="-oktyabrskij"> Октябрьский</option>
+                                    <option data-chained="minsk" value="moskovskij">Московский</option>
+                                    <option data-chained="minsk" value="-frunzenskij"> Фрунзенский</option>;
+                                    <option data-chained="brest" value="leninskij">Ленинский</option>
+                                    <option data-chained="brest" value="moskovskij">Московский</option>;
+                                    <option data-chained="grodno" value="leninskij">Ленинский</option>
+                                    <option data-chained="grodno" value="oktyabrskij">Октябрьский</option>;
+
+                                </select>
+                            </div>
+                            <div class="choose__inputs-item">
+                                <select name="course_metro" data-placeholder="Метро" class="styler" id="course_metro">
+                                    <option value=""></option>
+                                    <option data-chained="minsk" value="petrovschina">Петровщина</option>
+                                    <option data-chained="minsk" value="mikhalovo">Михалово</option>
+                                    <option data-chained="minsk" value="grushevka">Грушевка</option>
+                                    <option data-chained="minsk" value="institut-kultury">Институт культуры</option>
+                                    <option data-chained="minsk" value="ploschad-lenina">Площадь Ленина</option>
+                                    <option data-chained="minsk" value="oktyabrskaya">Октябрьская</option>
+                                    <option data-chained="minsk" value="ploschad-pobedy">Площадь Победы</option>
+                                    <option data-chained="minsk" value="ploschad-yakuba-kolasa">Площадь Якуба Коласа
+                                    </option>
+                                    <option data-chained="minsk" value="akademiya-nauk">Академия Наук</option>
+                                    <option data-chained="minsk" value="park-chelyuskintsev">Парк Челюскинцев</option>
+                                    <option data-chained="minsk" value="moskovskaya">Московская</option>
+                                    <option data-chained="minsk" value="vostok">Восток</option>
+                                    <option data-chained="minsk" value="borisovskij-trakt">Борисовский тракт</option>
+                                    <option data-chained="minsk" value="uruche">Уручье</option>
+                                    <option data-chained="minsk" value="kamennaya-gorka">Каменная горка</option>
+                                    <option data-chained="minsk" value="kuntsevschina">Кунцевщина</option>
+                                    <option data-chained="minsk" value="sportivnaya">Спортивная</option>
+                                    <option data-chained="minsk" value="pushkinskaya">Пушкинская</option>
+                                    <option data-chained="minsk" value="molodezhnaya">Молодежная</option>
+                                    <option data-chained="minsk" value="frunzenskaya">Фрунзенская</option>
+                                    <option data-chained="minsk" value="nemiga">Немига</option>
+                                    <option data-chained="minsk" value="kupalovskaya">Купаловская</option>
+                                    <option data-chained="minsk" value="pervomajskaya">Первомайская</option>
+                                    <option data-chained="minsk" value="proletarskaya">Пролетарская</option>
+                                    <option data-chained="minsk" value="traktornyj-zavod">Тракторный завод</option>
+                                    <option data-chained="minsk" value="partizanskaya">Партизанская</option>
+                                    <option data-chained="minsk" value="avtozavodskaya">Автозаводская</option>
+                                    <option data-chained="minsk" value="mogilevskaya">Могилевская</option>
+                                    <option data-chained="minsk" value="kovalskaya-sloboda">Ковальская слобода</option>
+                                    <option data-chained="minsk" value="vokzalnaya">Вокзальная</option>
+                                    <option data-chained="minsk" value="ploschad-frantishka-bogushevicha">Площадь
+                                        Франтишка Богушевича</option>
+                                    <option data-chained="minsk" value="yubilejnaya-ploschad">Юбилейная площадь</option>
+                                    <option data-chained="minsk" value="malinovka">Малиновка</option>;
+
+                                </select>
+                            </div>
+
+                            <div class="choose__inputs-item">
+                                <div class="clearfix" style="position: relative;">
+                                    <input type="text" name="data_from" placeholder="Дата с "
+                                        class="input input--date datepicker-input" value="">
+                                </div>
+                            </div>
+
+
+
+                            <div class="choose__inputs-item">
+                                <label for="mse2_tv|course_continue_0" class="form__polit">
+                                    <input type="checkbox"
+                                        style="border: 1px solid #f00; background: #666; border-radius:5;"
+                                        name="course_continue" id="mse2_tv|course_continue_0" value="1"
+                                        class="styler"><span>Показать действующие группы</span>
+                                </label>
+                            </div>
                         </div>
-                        <div class="choose__inputs-item">
-                            <select name="sub_category" data-placeholder="Подкатегория курса" class="styler">
-                                <option value=""></option>
-                                <option value="Python">Python</option>
-                                <option value="Java">Java</option>
-                                <option value="JavaScript">JavaScript</option>
-                                <option value="C++">C++</option>
-                            </select>
+                    </div>
+
+                    <div class="choose__block">
+                        <div class="choose__inputs">
+                            <div id="msgSubmit" class="form-message" style="padding-bottom:20px;"></div>
                         </div>
-                        <div class="choose__inputs-item">
-                            <select name="level" data-placeholder="Уровень" class="styler">
-                                <option value=""></option>
-                                <option value="Python">Python</option>
-                                <option value="Java">Java</option>
-                                <option value="JavaScript">JavaScript</option>
-                                <option value="C++">C++</option>
-                            </select>
+                        <div class="choose__inputs">
+                            <div class="choose__inputs-item choose__inputs-button">
+                                <button class="btn w-all">Найти</button>
+                            </div>
+                            <div class="choose__inputs-item choose__inputs-button">
+                                <button type="button" data-open-popup="call_to_school" class="btn w-all">Сообщить о
+                                    новых курсах</button>
+                            </div>
+
+                            <div class="choose__inputs-item choose__inputs-button">
+                                <button type="reset" class="btn w-all" id="btnReset">Сбросить</button>
+                            </div>
                         </div>
-                        <div class="choose__inputs-item">
-                            <select name="age" data-placeholder="Возраст" class="styler">
-                                <option value=""></option>
-                                <option value="14-17">14-17</option>
-                                <option value="18-25">18-25</option>
-                                <option value="25-35">25-35</option>
-                            </select>
-                        </div>
-                        <div class="choose__inputs-item">
-                            <select name="form" data-placeholder="Форма обучения" class="styler">
-                                <option value=""></option>
-                                <option value="очное">очное</option>
-                                <option value="онлайн">онлайн</option>
-                            </select>
-                        </div>
-                        <div class="choose__inputs-item">
-                            <select name="time" data-placeholder="Время обучения" class="styler">
-                                <option value=""></option>
-                                <option value="10-14">10-14</option>
-                                <option value="15-20">15-20</option>
-                            </select>
-                        </div>
-                        <div class="choose__inputs-item">
-                            <select name="days" data-placeholder="Дни занятий" class="styler">
-                                <option value=""></option>
-                                <option value="пн-пт">пн-пт</option>
-                                <option value="сб-вс">сб-вс</option>
-                            </select>
-                        </div>
-                        <div class="choose__inputs-item">
-                            <select name="format" data-placeholder="Формат обучения" class="styler">
-                                <option value=""></option>
-                                <option value="Формат обучения 1">Формат обучения 1</option>
-                                <option value="Формат обучения 2">Формат обучения 2</option>
-                                <option value="Формат обучения 3">Формат обучения 3</option>
-                            </select>
-                        </div>
-                    
-                        <div class="choose__inputs-item">
-                            <select name="city" data-placeholder="Город" class="styler">
-                                <option value=""></option>
-                                <option value="Брест">Брест</option>
-                                <option value="Минск">Минск</option>
-                                <option value="Москва">Москва</option>
-                            </select>
-                        </div>
-                        <div class="choose__inputs-item">
-                            <select name="region" data-placeholder="Район" class="styler">
-                                <option value=""></option>
-                                <option value="Район 1">Район 1</option>
-                                <option value="Район 2">Район 2</option>
-                                <option value="Район 3">Район 3</option>
-                            </select>
-                        </div>
-                        <div class="choose__inputs-item">
-                            <select name="metro" data-placeholder="Метро" class="styler">
-                                <option value=""></option>
-                                <option value="Молодёжная">Молодёжная</option>
-                                <option value="Немига">Немига</option>
-                                <option value="Пушкинская">Пушкинская</option>
-                            </select>
-                        </div>
-                        <div class="choose__inputs-item">
-                            <input type="text" placeholder="Дата с" class="input  input--date datepicker-input">
-                        </div>
-                    </div>    
-                </form>  
-                
-                                
+                    </div>
+                    <br>
+                    <div id="mse2_selected" style="background:#FFFFFF" class="choose__clit"></div>
+
+                </form>
+
+
                 <form action="" class="show-tablet-sm choose-filters">
-                    
+
                     <div class="choose__inputs-item">
                         <select name="category" data-placeholder="Категория курса" class="styler">
                             <option value=""></option>
@@ -141,13 +752,14 @@
                             <option value="C++">C++</option>
                         </select>
                     </div>
-                            
+
                     <a href="#" class="choose__inputs-more choose-more-filters">
                         <span class="t-opened">Еще фильтры</span>
                         <span class="t-closed">Свернуть фильтры</span>
                         <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0.75 0.75L5 5.25L9.25 0.75" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>                                        
+                            <path d="M0.75 0.75L5 5.25L9.25 0.75" stroke="#7D7D7D" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
                     </a>
                     <div class="choose__inputs-dopf choose-dopf-filters">
                         <div class="choose__inputs-item">
@@ -187,7 +799,7 @@
                                 <option value="Формат обучения 3">Формат обучения 3</option>
                             </select>
                         </div>
-                    
+
                         <div class="choose__inputs-item">
                             <select name="city" data-placeholder="Город" class="styler">
                                 <option value=""></option>
@@ -215,14 +827,14 @@
                         <div class="choose__inputs-item">
                             <input type="text" placeholder="Дата с" class="input  input--date datepicker-input">
                         </div>
-                    </div>    
-                </form>  
+                    </div>
+                </form>
             </div>
         </section><!-- choose -->
 
-        
+
         <section class="skillbox section__mg--sm">
-            <div class="container">	
+            <div class="container">
                 <div class="skillbox__wrap section__lr">
                     <div class="skillbox__inner">
                         <img src="assets/images/skillbox-img.jpg" alt="" class="skillbox__photo">
@@ -230,8 +842,9 @@
                         <div class="skillbox__info">
                             <div class="skillbox__logo"><img src="assets/images/skillbox-logo.svg" alt=""></div>
                             <div class="skillbox__title">Востребованные IT‑профессии</div>
-                            <div class="skillbox__desc">Топовые курсы для старта в IT. <br> Вы сможете стать специалистом с нуля, собрать портфолио и начать карьеру через несколько месяцев.</div>
-                            
+                            <div class="skillbox__desc">Топовые курсы для старта в IT. <br> Вы сможете стать
+                                специалистом с нуля, собрать портфолио и начать карьеру через несколько месяцев.</div>
+
                             <div class="skillbox__buttons">
                                 <button class="btn skillbox__btn" data-scroll="">Подобрать курс</button>
                             </div>
@@ -239,37 +852,46 @@
                     </div>
 
                 </div>
-            </div>	
+            </div>
         </section><!-- skillbox -->
-        
+
 
 
         <section class="courses section__mg--sm">
-            <div class="container">	
+            <div class="container">
                 <div class="courses__block">
                     <div class="courses__block-content">
                         <div class="courses__block-head">
                             <div class="courses__block-photo">
-                                <div class="courses__block-photo__wrap"><img src="assets/images/courses/3.jpg" alt=""></div> 
+                                <div class="courses__block-photo__wrap"><img src="assets/images/courses/3.jpg" alt="">
+                                </div>
                             </div>
                             <div class="courses__block-info">
                                 <h3 class="courses__block-title"><a href="">Профессия Python-разработчик</a></h3>
                                 <ul class="courses__block-list listinf">
                                     <li class="courses__block-training online">Online-обучение</li>
                                     <li class="listinf__flex">
-                                        <div class="listinf__icon"><img src="assets/images/icons/location.svg" alt=""></div> 
+                                        <div class="listinf__icon"><img src="assets/images/icons/location.svg" alt="">
+                                        </div>
                                         <div class="listinf__str">Москва</div>
                                     </li>
                                     <li>
                                         <a href="skillbox.ru" class="listinf__flex">
-                                            <div class="listinf__icon"><img src="assets/images/icons/global.svg" alt=""></div>
+                                            <div class="listinf__icon"><img src="assets/images/icons/global.svg" alt="">
+                                            </div>
                                             <div class="listinf__str">skillbox.ru</div>
-                                        </a>    
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="courses__block-text">Этот специалист мультиинструментален. он умеет создавать любой визуальный контент: от печатной продукции до макета сайта. Фундаментальная программа позволит не просто начать путь в востребованную профессию, а получить все знания и навыки для быстрого развития в ней: от junior до senior-дизайнера. На протяжении всего обучения вы будете оттачивать навыки и повышать свою ценность для индустрии дизайна. Занятия удобно совмещать с работой или учебой в ВУЗе. Если вам потребуется пауза, можно заморозить прогресс.</div>
+                        <div class="courses__block-text">Этот специалист мультиинструментален. он умеет создавать любой
+                            визуальный контент: от печатной продукции до макета сайта. Фундаментальная программа
+                            позволит не просто начать путь в востребованную профессию, а получить все знания и навыки
+                            для быстрого развития в ней: от junior до senior-дизайнера. На протяжении всего обучения вы
+                            будете оттачивать навыки и повышать свою ценность для индустрии дизайна. Занятия удобно
+                            совмещать с работой или учебой в ВУЗе. Если вам потребуется пауза, можно заморозить
+                            прогресс.</div>
                     </div>
 
                     <div class="courses__block-aside">
@@ -309,9 +931,13 @@
                             <button class="btn w-all" data-open-popup="call">Заказать звонок</button>
 
                             <button class="btn btn--favour">
-                                <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M11.62 18.81C11.28 18.93 10.72 18.93 10.38 18.81C7.48 17.82 1 13.69 1 6.68998C1 3.59998 3.49 1.09998 6.56 1.09998C8.38 1.09998 9.99 1.97998 11 3.33998C12.01 1.97998 13.63 1.09998 15.44 1.09998C18.51 1.09998 21 3.59998 21 6.68998C21 13.69 14.52 17.82 11.62 18.81Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>                                    
+                                <svg width="22" height="20" viewBox="0 0 22 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11.62 18.81C11.28 18.93 10.72 18.93 10.38 18.81C7.48 17.82 1 13.69 1 6.68998C1 3.59998 3.49 1.09998 6.56 1.09998C8.38 1.09998 9.99 1.97998 11 3.33998C12.01 1.97998 13.63 1.09998 15.44 1.09998C18.51 1.09998 21 3.59998 21 6.68998C21 13.69 14.52 17.82 11.62 18.81Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
                             </button>
 
                             <button class="btn btn--bdpurple" data-open-popup="auth_sale">Получить скидку</button>
@@ -321,71 +947,109 @@
                     <div class="courses__block-dop courses__block-dop--individ">
                         <a href="" class="courses__block-ditem">
                             <div class="courses__block-ditem__icon">
-                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9.71094 18.0875L17.8859 9.91251" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M10.225 11.9625C11.0742 11.9625 11.7625 11.2742 11.7625 10.425C11.7625 9.57589 11.0742 8.88751 10.225 8.88751C9.37588 8.88751 8.6875 9.57589 8.6875 10.425C8.6875 11.2742 9.37588 11.9625 10.225 11.9625Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M18.4008 19.1125C19.2499 19.1125 19.9383 18.4241 19.9383 17.575C19.9383 16.7258 19.2499 16.0375 18.4008 16.0375C17.5516 16.0375 16.8633 16.7258 16.8633 17.575C16.8633 18.4241 17.5516 19.1125 18.4008 19.1125Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M14 26.5C20.9036 26.5 26.5 20.9036 26.5 14C26.5 7.09644 20.9036 1.5 14 1.5C7.09644 1.5 1.5 7.09644 1.5 14C1.5 20.9036 7.09644 26.5 14 26.5Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>                                    
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.71094 18.0875L17.8859 9.91251" stroke="#19191B" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path
+                                        d="M10.225 11.9625C11.0742 11.9625 11.7625 11.2742 11.7625 10.425C11.7625 9.57589 11.0742 8.88751 10.225 8.88751C9.37588 8.88751 8.6875 9.57589 8.6875 10.425C8.6875 11.2742 9.37588 11.9625 10.225 11.9625Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M18.4008 19.1125C19.2499 19.1125 19.9383 18.4241 19.9383 17.575C19.9383 16.7258 19.2499 16.0375 18.4008 16.0375C17.5516 16.0375 16.8633 16.7258 16.8633 17.575C16.8633 18.4241 17.5516 19.1125 18.4008 19.1125Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M14 26.5C20.9036 26.5 26.5 20.9036 26.5 14C26.5 7.09644 20.9036 1.5 14 1.5C7.09644 1.5 1.5 7.09644 1.5 14C1.5 20.9036 7.09644 26.5 14 26.5Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
                             </div>
                             <div class="courses__block-ditem__t">15 % скидка</div>
                         </a>
                         <a href="" class="courses__block-ditem courses__block-ditem--rate">
                             <div class="courses__block-ditem__icon">
-                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M16.1612 3.38749L18.3612 7.78749C18.6612 8.39999 19.4612 8.98749 20.1362 9.09999L24.1237 9.76249C26.6737 10.1875 27.2737 12.0375 25.4362 13.8625L22.3362 16.9625C21.8112 17.4875 21.5237 18.5 21.6862 19.225L22.5737 23.0625C23.2737 26.1 21.6612 27.275 18.9737 25.6875L15.2362 23.475C14.5612 23.075 13.4487 23.075 12.7612 23.475L9.02367 25.6875C6.34867 27.275 4.72367 26.0875 5.42367 23.0625L6.31117 19.225C6.47367 18.5 6.18617 17.4875 5.66117 16.9625L2.56117 13.8625C0.736166 12.0375 1.32367 10.1875 3.87367 9.76249L7.86117 9.09999C8.52367 8.98749 9.32367 8.39999 9.62367 7.78749L11.8237 3.38749C13.0237 0.999988 14.9737 0.999988 16.1612 3.38749Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>                                    
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M16.1612 3.38749L18.3612 7.78749C18.6612 8.39999 19.4612 8.98749 20.1362 9.09999L24.1237 9.76249C26.6737 10.1875 27.2737 12.0375 25.4362 13.8625L22.3362 16.9625C21.8112 17.4875 21.5237 18.5 21.6862 19.225L22.5737 23.0625C23.2737 26.1 21.6612 27.275 18.9737 25.6875L15.2362 23.475C14.5612 23.075 13.4487 23.075 12.7612 23.475L9.02367 25.6875C6.34867 27.275 4.72367 26.0875 5.42367 23.0625L6.31117 19.225C6.47367 18.5 6.18617 17.4875 5.66117 16.9625L2.56117 13.8625C0.736166 12.0375 1.32367 10.1875 3.87367 9.76249L7.86117 9.09999C8.52367 8.98749 9.32367 8.39999 9.62367 7.78749L11.8237 3.38749C13.0237 0.999988 14.9737 0.999988 16.1612 3.38749Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
                             </div>
                             <div class="courses__block-ditem__t">26 оценок</div>
                         </a>
                         <a href="" class="courses__block-ditem courses__block-ditem--rev">
                             <div class="courses__block-ditem__icon">
-                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9.625 22.75H9C4 22.75 1.5 21.5 1.5 15.25V9C1.5 4 4 1.5 9 1.5H19C24 1.5 26.5 4 26.5 9V15.25C26.5 20.25 24 22.75 19 22.75H18.375C17.9875 22.75 17.6125 22.9375 17.375 23.25L15.5 25.75C14.675 26.85 13.325 26.85 12.5 25.75L10.625 23.25C10.425 22.975 9.9625 22.75 9.625 22.75Z" stroke="#19191B" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M18.997 12.75H19.0083" stroke="#19191B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M13.9931 12.75H14.0044" stroke="#19191B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M8.99313 12.75H9.00436" stroke="#19191B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>                                    
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M9.625 22.75H9C4 22.75 1.5 21.5 1.5 15.25V9C1.5 4 4 1.5 9 1.5H19C24 1.5 26.5 4 26.5 9V15.25C26.5 20.25 24 22.75 19 22.75H18.375C17.9875 22.75 17.6125 22.9375 17.375 23.25L15.5 25.75C14.675 26.85 13.325 26.85 12.5 25.75L10.625 23.25C10.425 22.975 9.9625 22.75 9.625 22.75Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-miterlimit="10"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M18.997 12.75H19.0083" stroke="#19191B" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M13.9931 12.75H14.0044" stroke="#19191B" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M8.99313 12.75H9.00436" stroke="#19191B" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
                             </div>
                             <div class="courses__block-ditem__t">7 отзывов</div>
                         </a>
                         <a href="" class="courses__block-ditem courses__block-ditem--user">
                             <div class="courses__block-ditem__icon">
-                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 15C18.4518 15 21.25 12.2018 21.25 8.75C21.25 5.29822 18.4518 2.5 15 2.5C11.5482 2.5 8.75 5.29822 8.75 8.75C8.75 12.2018 11.5482 15 15 15Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M25.7377 27.5C25.7377 22.6625 20.9252 18.75 15.0002 18.75C9.07519 18.75 4.2627 22.6625 4.2627 27.5" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>                                     
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M15 15C18.4518 15 21.25 12.2018 21.25 8.75C21.25 5.29822 18.4518 2.5 15 2.5C11.5482 2.5 8.75 5.29822 8.75 8.75C8.75 12.2018 11.5482 15 15 15Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M25.7377 27.5C25.7377 22.6625 20.9252 18.75 15.0002 18.75C9.07519 18.75 4.2627 22.6625 4.2627 27.5"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
                             </div>
                             <div class="courses__block-ditem__t">индивид. <br> занятия</div>
                         </a>
                     </div>
                 </div>
 
-                
+
                 <div class="courses__block">
                     <div class="courses__block-content">
                         <div class="courses__block-head">
                             <div class="courses__block-photo">
-                                <div class="courses__block-photo__wrap"><img src="assets/images/courses/3.jpg" alt=""></div> 
+                                <div class="courses__block-photo__wrap"><img src="assets/images/courses/3.jpg" alt="">
+                                </div>
                             </div>
                             <div class="courses__block-info">
                                 <h3 class="courses__block-title"><a href="">Профессия Python-разработчик</a></h3>
                                 <ul class="courses__block-list listinf">
                                     <li class="courses__block-training online">Online-обучение</li>
                                     <li class="listinf__flex">
-                                        <div class="listinf__icon"><img src="assets/images/icons/location.svg" alt=""></div> 
+                                        <div class="listinf__icon"><img src="assets/images/icons/location.svg" alt="">
+                                        </div>
                                         <div class="listinf__str">Москва</div>
                                     </li>
                                     <li>
                                         <a href="skillbox.ru" class="listinf__flex">
-                                            <div class="listinf__icon"><img src="assets/images/icons/global.svg" alt=""></div>
+                                            <div class="listinf__icon"><img src="assets/images/icons/global.svg" alt="">
+                                            </div>
                                             <div class="listinf__str">skillbox.ru</div>
-                                        </a>    
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="courses__block-text">Этот специалист мультиинструментален. он умеет создавать любой визуальный контент: от печатной продукции до макета сайта. Фундаментальная программа позволит не просто начать путь в востребованную профессию, а получить все знания и навыки для быстрого развития в ней: от junior до senior-дизайнера. На протяжении всего обучения вы будете оттачивать навыки и повышать свою ценность для индустрии дизайна. Занятия удобно совмещать с работой или учебой в ВУЗе. Если вам потребуется пауза, можно заморозить прогресс.</div>
+                        <div class="courses__block-text">Этот специалист мультиинструментален. он умеет создавать любой
+                            визуальный контент: от печатной продукции до макета сайта. Фундаментальная программа
+                            позволит не просто начать путь в востребованную профессию, а получить все знания и навыки
+                            для быстрого развития в ней: от junior до senior-дизайнера. На протяжении всего обучения вы
+                            будете оттачивать навыки и повышать свою ценность для индустрии дизайна. Занятия удобно
+                            совмещать с работой или учебой в ВУЗе. Если вам потребуется пауза, можно заморозить
+                            прогресс.</div>
                     </div>
 
                     <div class="courses__block-aside">
@@ -424,80 +1088,118 @@
                         <div class="courses__block-buttons btns_cfs">
 
                             <button class="btn btn--favour">
-                                <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M11.62 18.81C11.28 18.93 10.72 18.93 10.38 18.81C7.48 17.82 1 13.69 1 6.68998C1 3.59998 3.49 1.09998 6.56 1.09998C8.38 1.09998 9.99 1.97998 11 3.33998C12.01 1.97998 13.63 1.09998 15.44 1.09998C18.51 1.09998 21 3.59998 21 6.68998C21 13.69 14.52 17.82 11.62 18.81Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>                                    
+                                <svg width="22" height="20" viewBox="0 0 22 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11.62 18.81C11.28 18.93 10.72 18.93 10.38 18.81C7.48 17.82 1 13.69 1 6.68998C1 3.59998 3.49 1.09998 6.56 1.09998C8.38 1.09998 9.99 1.97998 11 3.33998C12.01 1.97998 13.63 1.09998 15.44 1.09998C18.51 1.09998 21 3.59998 21 6.68998C21 13.69 14.52 17.82 11.62 18.81Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
                             </button>
 
                             <button class="btn btn--bdpurple" data-open-popup="auth_sale">Получить скидку</button>
 
-                            
-                            <button class="btn w-all btn--pd" data-open-popup="call">Получить скидку <br> и забронировать место</button>
+
+                            <button class="btn w-all btn--pd" data-open-popup="call">Получить скидку <br> и
+                                забронировать место</button>
                         </div>
                     </div>
 
                     <div class="courses__block-dop courses__block-dop--5">
                         <div class="courses__block-ditem courses__block-ditem--center courses__block-ditem--yellow">
                             <div class="courses__block-ditem__icon">
-                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9.71094 18.0875L17.8859 9.91251" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M10.225 11.9625C11.0742 11.9625 11.7625 11.2742 11.7625 10.425C11.7625 9.57589 11.0742 8.88751 10.225 8.88751C9.37588 8.88751 8.6875 9.57589 8.6875 10.425C8.6875 11.2742 9.37588 11.9625 10.225 11.9625Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M18.4008 19.1125C19.2499 19.1125 19.9383 18.4241 19.9383 17.575C19.9383 16.7258 19.2499 16.0375 18.4008 16.0375C17.5516 16.0375 16.8633 16.7258 16.8633 17.575C16.8633 18.4241 17.5516 19.1125 18.4008 19.1125Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M14 26.5C20.9036 26.5 26.5 20.9036 26.5 14C26.5 7.09644 20.9036 1.5 14 1.5C7.09644 1.5 1.5 7.09644 1.5 14C1.5 20.9036 7.09644 26.5 14 26.5Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>                                    
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.71094 18.0875L17.8859 9.91251" stroke="#19191B" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path
+                                        d="M10.225 11.9625C11.0742 11.9625 11.7625 11.2742 11.7625 10.425C11.7625 9.57589 11.0742 8.88751 10.225 8.88751C9.37588 8.88751 8.6875 9.57589 8.6875 10.425C8.6875 11.2742 9.37588 11.9625 10.225 11.9625Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M18.4008 19.1125C19.2499 19.1125 19.9383 18.4241 19.9383 17.575C19.9383 16.7258 19.2499 16.0375 18.4008 16.0375C17.5516 16.0375 16.8633 16.7258 16.8633 17.575C16.8633 18.4241 17.5516 19.1125 18.4008 19.1125Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M14 26.5C20.9036 26.5 26.5 20.9036 26.5 14C26.5 7.09644 20.9036 1.5 14 1.5C7.09644 1.5 1.5 7.09644 1.5 14C1.5 20.9036 7.09644 26.5 14 26.5Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
                             </div>
                             <div class="courses__block-ditem__t">15 % скидка</div>
                         </div>
-                        <div class="courses__block-ditem courses__block-ditem--center courses__block-ditem--green no-icon">
+                        <div
+                            class="courses__block-ditem courses__block-ditem--center courses__block-ditem--green no-icon">
                             <div class="courses__block-ditem__t">Партнерская <br> скидка</div>
                         </div>
                         <div class="courses__block-ditem courses__block-ditem--center">
                             <div class="courses__block-ditem__icon">
-                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 15C18.4518 15 21.25 12.2018 21.25 8.75C21.25 5.29822 18.4518 2.5 15 2.5C11.5482 2.5 8.75 5.29822 8.75 8.75C8.75 12.2018 11.5482 15 15 15Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M25.7377 27.5C25.7377 22.6625 20.9252 18.75 15.0002 18.75C9.07519 18.75 4.2627 22.6625 4.2627 27.5" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>                                     
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M15 15C18.4518 15 21.25 12.2018 21.25 8.75C21.25 5.29822 18.4518 2.5 15 2.5C11.5482 2.5 8.75 5.29822 8.75 8.75C8.75 12.2018 11.5482 15 15 15Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M25.7377 27.5C25.7377 22.6625 20.9252 18.75 15.0002 18.75C9.07519 18.75 4.2627 22.6625 4.2627 27.5"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
                             </div>
                             <div class="courses__block-ditem__t">6 человек <br> в группе</div>
                         </div>
-                        <div class="courses__block-ditem courses__block-ditem--center courses__block-ditem--purple no-icon">
+                        <div
+                            class="courses__block-ditem courses__block-ditem--center courses__block-ditem--purple no-icon">
                             <div class="courses__block-ditem__t">Осталось мест <br> в группе -2</div>
                         </div>
                         <div class="courses__block-ditem courses__block-ditem--center courses__block-ditem--yellow">
                             <div class="courses__block-ditem__icon">
-                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M16.1612 3.38749L18.3612 7.78749C18.6612 8.39999 19.4612 8.98749 20.1362 9.09999L24.1237 9.76249C26.6737 10.1875 27.2737 12.0375 25.4362 13.8625L22.3362 16.9625C21.8112 17.4875 21.5237 18.5 21.6862 19.225L22.5737 23.0625C23.2737 26.1 21.6612 27.275 18.9737 25.6875L15.2362 23.475C14.5612 23.075 13.4487 23.075 12.7612 23.475L9.02367 25.6875C6.34867 27.275 4.72367 26.0875 5.42367 23.0625L6.31117 19.225C6.47367 18.5 6.18617 17.4875 5.66117 16.9625L2.56117 13.8625C0.736166 12.0375 1.32367 10.1875 3.87367 9.76249L7.86117 9.09999C8.52367 8.98749 9.32367 8.39999 9.62367 7.78749L11.8237 3.38749C13.0237 0.999988 14.9737 0.999988 16.1612 3.38749Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>                                    
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M16.1612 3.38749L18.3612 7.78749C18.6612 8.39999 19.4612 8.98749 20.1362 9.09999L24.1237 9.76249C26.6737 10.1875 27.2737 12.0375 25.4362 13.8625L22.3362 16.9625C21.8112 17.4875 21.5237 18.5 21.6862 19.225L22.5737 23.0625C23.2737 26.1 21.6612 27.275 18.9737 25.6875L15.2362 23.475C14.5612 23.075 13.4487 23.075 12.7612 23.475L9.02367 25.6875C6.34867 27.275 4.72367 26.0875 5.42367 23.0625L6.31117 19.225C6.47367 18.5 6.18617 17.4875 5.66117 16.9625L2.56117 13.8625C0.736166 12.0375 1.32367 10.1875 3.87367 9.76249L7.86117 9.09999C8.52367 8.98749 9.32367 8.39999 9.62367 7.78749L11.8237 3.38749C13.0237 0.999988 14.9737 0.999988 16.1612 3.38749Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
                             </div>
                             <div class="courses__block-ditem__t">26 оценок</div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="courses__block">
                     <div class="courses__block-content">
                         <div class="courses__block-head">
                             <div class="courses__block-photo">
-                                <div class="courses__block-photo__wrap"><img src="assets/images/courses/3.jpg" alt=""></div> 
+                                <div class="courses__block-photo__wrap"><img src="assets/images/courses/3.jpg" alt="">
+                                </div>
                             </div>
                             <div class="courses__block-info">
                                 <h3 class="courses__block-title"><a href="">Факультет Продакт-менеджмента</a></h3>
                                 <ul class="courses__block-list listinf">
                                     <li class="courses__block-training offline">Offline-обучение</li>
                                     <li class="listinf__flex">
-                                        <div class="listinf__icon"><img src="assets/images/icons/location.svg" alt=""></div> 
+                                        <div class="listinf__icon"><img src="assets/images/icons/location.svg" alt="">
+                                        </div>
                                         <div class="listinf__str">Минск, ул. Толбухина, 2, пом. 19</div>
                                     </li>
                                     <li>
                                         <a href="skillbox.ru" class="listinf__flex">
-                                            <div class="listinf__icon"><img src="assets/images/icons/global.svg" alt=""></div>
+                                            <div class="listinf__icon"><img src="assets/images/icons/global.svg" alt="">
+                                            </div>
                                             <div class="listinf__str">skillbox.ru</div>
-                                        </a>    
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="courses__block-text">Этот специалист мультиинструментален. он умеет создавать любой визуальный контент: от печатной продукции до макета сайта. Фундаментальная программа позволит не просто начать путь в востребованную профессию, а получить все знания и навыки для быстрого развития в ней: от junior до senior-дизайнера. На протяжении всего обучения вы будете оттачивать навыки и повышать свою ценность для индустрии дизайна. Занятия удобно совмещать с работой или учебой в ВУЗе. Если вам потребуется пауза, можно заморозить прогресс.</div>
+                        <div class="courses__block-text">Этот специалист мультиинструментален. он умеет создавать любой
+                            визуальный контент: от печатной продукции до макета сайта. Фундаментальная программа
+                            позволит не просто начать путь в востребованную профессию, а получить все знания и навыки
+                            для быстрого развития в ней: от junior до senior-дизайнера. На протяжении всего обучения вы
+                            будете оттачивать навыки и повышать свою ценность для индустрии дизайна. Занятия удобно
+                            совмещать с работой или учебой в ВУЗе. Если вам потребуется пауза, можно заморозить
+                            прогресс.</div>
                     </div>
 
                     <div class="courses__block-aside">
@@ -537,9 +1239,13 @@
                             <button class="btn w-all" data-open-popup="call">Заказать звонок</button>
 
                             <button class="btn btn--favour active">
-                                <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M11.62 18.81C11.28 18.93 10.72 18.93 10.38 18.81C7.48 17.82 1 13.69 1 6.68998C1 3.59998 3.49 1.09998 6.56 1.09998C8.38 1.09998 9.99 1.97998 11 3.33998C12.01 1.97998 13.63 1.09998 15.44 1.09998C18.51 1.09998 21 3.59998 21 6.68998C21 13.69 14.52 17.82 11.62 18.81Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>                                    
+                                <svg width="22" height="20" viewBox="0 0 22 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11.62 18.81C11.28 18.93 10.72 18.93 10.38 18.81C7.48 17.82 1 13.69 1 6.68998C1 3.59998 3.49 1.09998 6.56 1.09998C8.38 1.09998 9.99 1.97998 11 3.33998C12.01 1.97998 13.63 1.09998 15.44 1.09998C18.51 1.09998 21 3.59998 21 6.68998C21 13.69 14.52 17.82 11.62 18.81Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
                             </button>
 
                             <button class="btn btn--bdpurple" data-open-popup="auth_sale">Получить скидку</button>
@@ -549,42 +1255,77 @@
                     <div class="courses__block-dop courses__block-dop--group">
                         <a href="" class="courses__block-ditem">
                             <div class="courses__block-ditem__icon">
-                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9.71094 18.0875L17.8859 9.91251" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M10.225 11.9625C11.0742 11.9625 11.7625 11.2742 11.7625 10.425C11.7625 9.57589 11.0742 8.88751 10.225 8.88751C9.37588 8.88751 8.6875 9.57589 8.6875 10.425C8.6875 11.2742 9.37588 11.9625 10.225 11.9625Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M18.4008 19.1125C19.2499 19.1125 19.9383 18.4241 19.9383 17.575C19.9383 16.7258 19.2499 16.0375 18.4008 16.0375C17.5516 16.0375 16.8633 16.7258 16.8633 17.575C16.8633 18.4241 17.5516 19.1125 18.4008 19.1125Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M14 26.5C20.9036 26.5 26.5 20.9036 26.5 14C26.5 7.09644 20.9036 1.5 14 1.5C7.09644 1.5 1.5 7.09644 1.5 14C1.5 20.9036 7.09644 26.5 14 26.5Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>                                    
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.71094 18.0875L17.8859 9.91251" stroke="#19191B" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path
+                                        d="M10.225 11.9625C11.0742 11.9625 11.7625 11.2742 11.7625 10.425C11.7625 9.57589 11.0742 8.88751 10.225 8.88751C9.37588 8.88751 8.6875 9.57589 8.6875 10.425C8.6875 11.2742 9.37588 11.9625 10.225 11.9625Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M18.4008 19.1125C19.2499 19.1125 19.9383 18.4241 19.9383 17.575C19.9383 16.7258 19.2499 16.0375 18.4008 16.0375C17.5516 16.0375 16.8633 16.7258 16.8633 17.575C16.8633 18.4241 17.5516 19.1125 18.4008 19.1125Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M14 26.5C20.9036 26.5 26.5 20.9036 26.5 14C26.5 7.09644 20.9036 1.5 14 1.5C7.09644 1.5 1.5 7.09644 1.5 14C1.5 20.9036 7.09644 26.5 14 26.5Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
                             </div>
                             <div class="courses__block-ditem__t">15 % скидка</div>
                         </a>
                         <a href="" class="courses__block-ditem courses__block-ditem--rate">
                             <div class="courses__block-ditem__icon">
-                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M16.1612 3.38749L18.3612 7.78749C18.6612 8.39999 19.4612 8.98749 20.1362 9.09999L24.1237 9.76249C26.6737 10.1875 27.2737 12.0375 25.4362 13.8625L22.3362 16.9625C21.8112 17.4875 21.5237 18.5 21.6862 19.225L22.5737 23.0625C23.2737 26.1 21.6612 27.275 18.9737 25.6875L15.2362 23.475C14.5612 23.075 13.4487 23.075 12.7612 23.475L9.02367 25.6875C6.34867 27.275 4.72367 26.0875 5.42367 23.0625L6.31117 19.225C6.47367 18.5 6.18617 17.4875 5.66117 16.9625L2.56117 13.8625C0.736166 12.0375 1.32367 10.1875 3.87367 9.76249L7.86117 9.09999C8.52367 8.98749 9.32367 8.39999 9.62367 7.78749L11.8237 3.38749C13.0237 0.999988 14.9737 0.999988 16.1612 3.38749Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>                                    
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M16.1612 3.38749L18.3612 7.78749C18.6612 8.39999 19.4612 8.98749 20.1362 9.09999L24.1237 9.76249C26.6737 10.1875 27.2737 12.0375 25.4362 13.8625L22.3362 16.9625C21.8112 17.4875 21.5237 18.5 21.6862 19.225L22.5737 23.0625C23.2737 26.1 21.6612 27.275 18.9737 25.6875L15.2362 23.475C14.5612 23.075 13.4487 23.075 12.7612 23.475L9.02367 25.6875C6.34867 27.275 4.72367 26.0875 5.42367 23.0625L6.31117 19.225C6.47367 18.5 6.18617 17.4875 5.66117 16.9625L2.56117 13.8625C0.736166 12.0375 1.32367 10.1875 3.87367 9.76249L7.86117 9.09999C8.52367 8.98749 9.32367 8.39999 9.62367 7.78749L11.8237 3.38749C13.0237 0.999988 14.9737 0.999988 16.1612 3.38749Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
                             </div>
                             <div class="courses__block-ditem__t">26 оценок</div>
                         </a>
                         <a href="" class="courses__block-ditem courses__block-ditem--rev">
                             <div class="courses__block-ditem__icon">
-                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9.625 22.75H9C4 22.75 1.5 21.5 1.5 15.25V9C1.5 4 4 1.5 9 1.5H19C24 1.5 26.5 4 26.5 9V15.25C26.5 20.25 24 22.75 19 22.75H18.375C17.9875 22.75 17.6125 22.9375 17.375 23.25L15.5 25.75C14.675 26.85 13.325 26.85 12.5 25.75L10.625 23.25C10.425 22.975 9.9625 22.75 9.625 22.75Z" stroke="#19191B" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M18.997 12.75H19.0083" stroke="#19191B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M13.9931 12.75H14.0044" stroke="#19191B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M8.99313 12.75H9.00436" stroke="#19191B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>                                    
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M9.625 22.75H9C4 22.75 1.5 21.5 1.5 15.25V9C1.5 4 4 1.5 9 1.5H19C24 1.5 26.5 4 26.5 9V15.25C26.5 20.25 24 22.75 19 22.75H18.375C17.9875 22.75 17.6125 22.9375 17.375 23.25L15.5 25.75C14.675 26.85 13.325 26.85 12.5 25.75L10.625 23.25C10.425 22.975 9.9625 22.75 9.625 22.75Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-miterlimit="10"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M18.997 12.75H19.0083" stroke="#19191B" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M13.9931 12.75H14.0044" stroke="#19191B" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M8.99313 12.75H9.00436" stroke="#19191B" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
                             </div>
                             <div class="courses__block-ditem__t">7 отзывов</div>
                         </a>
                         <a href="" class="courses__block-ditem courses__block-ditem--user">
                             <div class="courses__block-ditem__icon">
-                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M11.4502 13.5875C11.3252 13.575 11.1752 13.575 11.0377 13.5875C8.0627 13.4875 5.7002 11.05 5.7002 8.05C5.7002 4.9875 8.1752 2.5 11.2502 2.5C14.3127 2.5 16.8002 4.9875 16.8002 8.05C16.7877 11.05 14.4252 13.4875 11.4502 13.5875Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M20.5121 5C22.9371 5 24.8871 6.9625 24.8871 9.375C24.8871 11.7375 23.0121 13.6625 20.6746 13.75C20.5746 13.7375 20.4621 13.7375 20.3496 13.75" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M5.20039 18.2C2.17539 20.225 2.17539 23.525 5.20039 25.5375C8.63789 27.8375 14.2754 27.8375 17.7129 25.5375C20.7379 23.5125 20.7379 20.2125 17.7129 18.2C14.2879 15.9125 8.65039 15.9125 5.20039 18.2Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M22.9248 25C23.8248 24.8125 24.6748 24.45 25.3748 23.9125C27.3248 22.45 27.3248 20.0375 25.3748 18.575C24.6873 18.05 23.8498 17.7 22.9623 17.5" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>                                                                      
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11.4502 13.5875C11.3252 13.575 11.1752 13.575 11.0377 13.5875C8.0627 13.4875 5.7002 11.05 5.7002 8.05C5.7002 4.9875 8.1752 2.5 11.2502 2.5C14.3127 2.5 16.8002 4.9875 16.8002 8.05C16.7877 11.05 14.4252 13.4875 11.4502 13.5875Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M20.5121 5C22.9371 5 24.8871 6.9625 24.8871 9.375C24.8871 11.7375 23.0121 13.6625 20.6746 13.75C20.5746 13.7375 20.4621 13.7375 20.3496 13.75"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M5.20039 18.2C2.17539 20.225 2.17539 23.525 5.20039 25.5375C8.63789 27.8375 14.2754 27.8375 17.7129 25.5375C20.7379 23.5125 20.7379 20.2125 17.7129 18.2C14.2879 15.9125 8.65039 15.9125 5.20039 18.2Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M22.9248 25C23.8248 24.8125 24.6748 24.45 25.3748 23.9125C27.3248 22.45 27.3248 20.0375 25.3748 18.575C24.6873 18.05 23.8498 17.7 22.9623 17.5"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
                             </div>
                             <div class="courses__block-ditem__t">8 человек <br> (2 свободно)</div>
                         </a>
@@ -603,25 +1344,222 @@
                     </div>
                 </div>
 
-            </div>	
+                <div class="courses__block">
+                    <div class="courses__block-content">
+                        <div class="courses__block-head">
+                            <div class="courses__block-photo">
+                                <div class="courses__block-photo__wrap"><img src="assets/images/courses/3.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="courses__block-info">
+                                <h3 class="courses__block-title"><a href="">Факультет Продакт-менеджмента</a></h3>
+                                <ul class="courses__block-list listinf">
+                                    <li class="courses__block-training offline">Offline-обучение</li>
+                                    <li class="listinf__flex">
+                                        <div class="listinf__icon"><img src="assets/images/icons/location.svg" alt="">
+                                        </div>
+                                        <div class="listinf__str">Минск, ул. Толбухина, 2, пом. 19</div>
+                                    </li>
+                                    <li>
+                                        <a href="skillbox.ru" class="listinf__flex">
+                                            <div class="listinf__icon"><img src="assets/images/icons/global.svg" alt="">
+                                            </div>
+                                            <div class="listinf__str">skillbox.ru</div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="courses__block-text">Этот специалист мультиинструментален. он умеет создавать любой
+                            визуальный контент: от печатной продукции до макета сайта. Фундаментальная программа
+                            позволит не просто начать путь в востребованную профессию, а получить все знания и навыки
+                            для быстрого развития в ней: от junior до senior-дизайнера. На протяжении всего обучения вы
+                            будете оттачивать навыки и повышать свою ценность для индустрии дизайна. Занятия удобно
+                            совмещать с работой или учебой в ВУЗе. Если вам потребуется пауза, можно заморозить
+                            прогресс.</div>
+                    </div>
+
+                    <div class="courses__block-aside">
+                        <div class="courses__block-props">
+                            <div class="courses__block-props__row">
+                                <div class="courses__block-props__item">
+                                    <div class="courses__block-props__numb">3</div>
+                                    месяца
+                                </div>
+                                <div class="courses__block-props__item">
+                                    <div class="courses__block-props__numb">750</div>
+                                    стоимость курса
+                                </div>
+                            </div>
+                            <div class="courses__block-props__row">
+                                <div class="courses__block-props__item">
+                                    <div class="courses__block-props__numb">3</div>
+                                    занятия <br> в неделю
+                                </div>
+                                <div class="courses__block-props__item">
+                                    <div class="courses__block-props__numb">31,25</div>
+                                    стоимость занятия
+                                </div>
+                            </div>
+                            <div class="courses__block-props__row">
+                                <div class="courses__block-props__item">
+                                    <div class="courses__block-props__numb">8</div>
+                                    человек <br> в группе
+                                </div>
+                                <div class="courses__block-props__item">
+                                    <div class="courses__block-props__numb">80 мин</div>
+                                    длительность занятия
+                                </div>
+                            </div>
+                        </div>
+                        <div class="courses__block-buttons btns_cfs">
+                            <button class="btn w-all" data-open-popup="call">Заказать звонок</button>
+
+                            <button class="btn btn--favour active">
+                                <svg width="22" height="20" viewBox="0 0 22 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11.62 18.81C11.28 18.93 10.72 18.93 10.38 18.81C7.48 17.82 1 13.69 1 6.68998C1 3.59998 3.49 1.09998 6.56 1.09998C8.38 1.09998 9.99 1.97998 11 3.33998C12.01 1.97998 13.63 1.09998 15.44 1.09998C18.51 1.09998 21 3.59998 21 6.68998C21 13.69 14.52 17.82 11.62 18.81Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </button>
+
+                            <button class="btn btn--bdpurple" data-open-popup="auth_sale">Получить скидку</button>
+                        </div>
+                    </div>
+                    <div class="courses__block-dop courses__block-dop--group">
+                        <div class="courses__block-ditem courses__block-times courses__block-times--empty">
+                            <div class="courses__block-ditem__icon">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10 2.5V6.25" stroke="#19191B" stroke-width="1.5" stroke-miterlimit="10"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M20 2.5V6.25" stroke="#19191B" stroke-width="1.5" stroke-miterlimit="10"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M4.375 11.3625H25.625" stroke="#19191B" stroke-width="1.5"
+                                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path
+                                        d="M26.25 10.625V21.25C26.25 25 24.375 27.5 20 27.5H10C5.625 27.5 3.75 25 3.75 21.25V10.625C3.75 6.875 5.625 4.375 10 4.375H20C24.375 4.375 26.25 6.875 26.25 10.625Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-miterlimit="10"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M19.6184 17.125H19.6296" stroke="#19191B" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M19.6184 20.875H19.6296" stroke="#19191B" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M14.9944 17.125H15.0056" stroke="#19191B" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M14.9944 20.875H15.0056" stroke="#19191B" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M10.3679 17.125H10.3791" stroke="#19191B" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M10.3679 20.875H10.3791" stroke="#19191B" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+
+                            </div>
+                            <div class="courses__block-ditem__t">2 раза в неделю <br> по 180 минут</div>
+                        </div>
+                        <a href="" class="courses__block-ditem">
+                            <div class="courses__block-ditem__icon">
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.71094 18.0875L17.8859 9.91251" stroke="#19191B" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path
+                                        d="M10.225 11.9625C11.0742 11.9625 11.7625 11.2742 11.7625 10.425C11.7625 9.57589 11.0742 8.88751 10.225 8.88751C9.37588 8.88751 8.6875 9.57589 8.6875 10.425C8.6875 11.2742 9.37588 11.9625 10.225 11.9625Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M18.4008 19.1125C19.2499 19.1125 19.9383 18.4241 19.9383 17.575C19.9383 16.7258 19.2499 16.0375 18.4008 16.0375C17.5516 16.0375 16.8633 16.7258 16.8633 17.575C16.8633 18.4241 17.5516 19.1125 18.4008 19.1125Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M14 26.5C20.9036 26.5 26.5 20.9036 26.5 14C26.5 7.09644 20.9036 1.5 14 1.5C7.09644 1.5 1.5 7.09644 1.5 14C1.5 20.9036 7.09644 26.5 14 26.5Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="courses__block-ditem__t">Промокод <br> на 10 руб.</div>
+                        </a>
+                        <a href="" class="courses__block-ditem courses__block-ditem--rate">
+                            <div class="courses__block-ditem__icon">
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M16.1612 3.38749L18.3612 7.78749C18.6612 8.39999 19.4612 8.98749 20.1362 9.09999L24.1237 9.76249C26.6737 10.1875 27.2737 12.0375 25.4362 13.8625L22.3362 16.9625C21.8112 17.4875 21.5237 18.5 21.6862 19.225L22.5737 23.0625C23.2737 26.1 21.6612 27.275 18.9737 25.6875L15.2362 23.475C14.5612 23.075 13.4487 23.075 12.7612 23.475L9.02367 25.6875C6.34867 27.275 4.72367 26.0875 5.42367 23.0625L6.31117 19.225C6.47367 18.5 6.18617 17.4875 5.66117 16.9625L2.56117 13.8625C0.736166 12.0375 1.32367 10.1875 3.87367 9.76249L7.86117 9.09999C8.52367 8.98749 9.32367 8.39999 9.62367 7.78749L11.8237 3.38749C13.0237 0.999988 14.9737 0.999988 16.1612 3.38749Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="courses__block-ditem__t">4,5 <br> 5 отзывов</div>
+                        </a>
+                        <a href="" class="courses__block-ditem courses__block-ditem--rev">
+                            <div class="courses__block-ditem__icon">
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M9.625 22.75H9C4 22.75 1.5 21.5 1.5 15.25V9C1.5 4 4 1.5 9 1.5H19C24 1.5 26.5 4 26.5 9V15.25C26.5 20.25 24 22.75 19 22.75H18.375C17.9875 22.75 17.6125 22.9375 17.375 23.25L15.5 25.75C14.675 26.85 13.325 26.85 12.5 25.75L10.625 23.25C10.425 22.975 9.9625 22.75 9.625 22.75Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-miterlimit="10"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M18.997 12.75H19.0083" stroke="#19191B" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M13.9931 12.75H14.0044" stroke="#19191B" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M8.99313 12.75H9.00436" stroke="#19191B" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="courses__block-ditem__t">7 отзывов</div>
+                        </a>
+                        <a href="" class="courses__block-ditem courses__block-ditem--user">
+                            <div class="courses__block-ditem__icon">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11.4502 13.5875C11.3252 13.575 11.1752 13.575 11.0377 13.5875C8.0627 13.4875 5.7002 11.05 5.7002 8.05C5.7002 4.9875 8.1752 2.5 11.2502 2.5C14.3127 2.5 16.8002 4.9875 16.8002 8.05C16.7877 11.05 14.4252 13.4875 11.4502 13.5875Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M20.5121 5C22.9371 5 24.8871 6.9625 24.8871 9.375C24.8871 11.7375 23.0121 13.6625 20.6746 13.75C20.5746 13.7375 20.4621 13.7375 20.3496 13.75"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M5.20039 18.2C2.17539 20.225 2.17539 23.525 5.20039 25.5375C8.63789 27.8375 14.2754 27.8375 17.7129 25.5375C20.7379 23.5125 20.7379 20.2125 17.7129 18.2C14.2879 15.9125 8.65039 15.9125 5.20039 18.2Z"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M22.9248 25C23.8248 24.8125 24.6748 24.45 25.3748 23.9125C27.3248 22.45 27.3248 20.0375 25.3748 18.575C24.6873 18.05 23.8498 17.7 22.9623 17.5"
+                                        stroke="#19191B" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="courses__block-ditem__t">8 человек <br> (2 свободно)</div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
         </section><!-- courses -->
 
-        
+
         @@include('html/ordform.html', {
-            "bg_class": "orange"
+        "bg_class": "orange"
         })
 
-        
 
-	</main><!--content__wrapper-->
+
+    </main>
+    <!--content__wrapper-->
 
     @@include('html/footer.html', {
-        "active_menu": "search"
+    "active_menu": "search"
     })
 
 </section>
 
 @@include('html/popup.html', {})
-    
+
 </body>
+
 </html>

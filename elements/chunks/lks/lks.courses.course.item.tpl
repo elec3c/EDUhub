@@ -1,19 +1,3 @@
-        {set $parent       = ($id | resource:'course_sub_category')}
-        {set $course_category = ($id | resource:'course_category')}
-        {set $course_sub_category = ($id | resource:'course_sub_category')}
-        {set $course_sub_category_type  = $_modx->runSnippet('!outputMultipleTV', ['tvName' => 'course_sub_category_type', 'resourceId' => $id])}
-        {set $for_ages  = $_modx->runSnippet('!outputMultipleTV', ['tvName' => 'for_ages', 'resourceId' => $id])}        
-        {set $for_levels  = $_modx->runSnippet('!outputMultipleTV', ['tvName' => 'for_levels', 'resourceId' => $id])}
-        {set $time  = $_modx->runSnippet('!outputMultipleTV', ['tvName' => 'time', 'resourceId' => $id])}
-        {set $schedule  = $_modx->runSnippet('!outputMultipleTV', ['tvName' => 'schedule', 'resourceId' => $id])}
-        {set $course_type  = $_modx->runSnippet('!outputMultipleTV', ['tvName' => 'course_type', 'resourceId' => $id])}
-        {set $course_sub_category_title = ($parent | resource:'pagetitle')}
-        {set $course_title = ($id | resource:'course_group_title')}
-        {set $course_owner = ($id | resource:'course_owner')}
-        {set $format_of_study  = $id | resource: 'format_of_study'}
-        
-
-        
                 {*<div class="cgcourse rollup-box">
                     <div class="cghead">
                         <div class="cgtitle"><a href="{$id | url}">{$course_title?:$pagetitle} / {$course_sub_category_title}</a></div>
@@ -34,13 +18,15 @@
 													{case 'offline'}
 														<div class="courses__template-training offline">Offline-обучение</div>
 													{case 'online'}
-														<div class="courses__template-training offline">Online-обучение</div>
+														<div class="courses__template-training online">Online-обучение</div>
 													{case 'online-micro'}
-														<div class="courses__template-training offline">Online-микрокурсы</div>
+														<div class="courses__template-training online">Online-микрокурсы</div>
 													{case 'hybrid'}
-														<div class="courses__template-training offline">Гибридное-обучение</div>
+														<div class="courses__template-training">Гибридное-обучение</div>
 													{case 'recording'}
-														<div class="courses__template-training offline">В записи-обучение</div>													
+														<div class="courses__template-training">В записи-обучение</div>													
+													{case 'default'}
+													    <div class="courses__template-training">В записи-обучение</div>													
 												{/switch}
 										{/if} 																		
 									</div>								
@@ -51,7 +37,7 @@
 												<div class="courses__template-props__row">
 													<div class="courses__template-props__item">
 														<div class="courses__template-props__numb">{if $_pls['tv.num_months_of_study']}{$_pls['tv.num_months_of_study']}{else}-{/if}</div>
-														месяцев
+														{$_pls['tv.num_months_of_study'] | declension : 'месяц|месяцев|месяцев'}
 													</div>
 													<div class="courses__template-props__item">
 														<div class="courses__template-props__numb">{if $_pls['tv.price_course']}{$_modx->runSnippet('!formatMoney', ['number'=>$_pls['tv.price_course']])}{else}-{/if}</div>
@@ -60,18 +46,18 @@
 												</div>
 												<div class="courses__template-props__row">											
 													<div class="courses__template-props__item">													
-														<div class="courses__template-props__numb">{if $num_lesson_per_week}{$num_lesson_per_week}{else}-{/if}</div>
-														занятия <br> в неделю
+														<div class="courses__template-props__numb">{if $_pls['tv.num_lesson_per_week']}{$_pls['tv.num_lesson_per_week']}{else}-{/if}</div>
+														{$_pls['tv.num_lesson_per_week'] | declension : 'занятие|занятий|занятий'} <br> в неделю
 													</div>
 													<div class="courses__template-props__item">
-														<div class="courses__template-props__numb">{if $course_duration}{$course_duration}{else}-{/if}</div>
+														<div class="courses__template-props__numb">{if $_pls['tv.course_duration']}{$_pls['tv.course_duration']}{else}-{/if}</div>
 														длительность курса<br> в часах
 													</div>
 												</div>
 												<div class="courses__template-props__row">
 													<div class="courses__template-props__item w-all">
 														<div class="courses__template-props__numb">{if $_pls['tv.num_people_in_group']}{$.php.intval($_pls['tv.num_people_in_group'])}{else}-{/if}</div>
-														человек в группе/индивид.
+														{$_pls['tv.num_people_in_group'] | declension : 'человек|человека|человек'} в группе{if $_pls['tv.format_of_study']=='individual'}/индивид.{/if}
 													</div>
 												</div>
 											</div>
@@ -111,23 +97,3 @@
 							
                     {*</div>
                 </div>*}
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-
-
-
-
-
-                    
-                  

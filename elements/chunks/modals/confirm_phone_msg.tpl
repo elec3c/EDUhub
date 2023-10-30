@@ -16,7 +16,7 @@
                 {*<button class="btn btn--purple w-all" data-open-popup="auth">Войти</button>*}
 				
 				<div class="auth__bottom">
-					Не подтверждали телефон?<br> <a href="{23 | url}" class="btn w-all btn--more">Перейти в кабинет для подтверждения</a>
+					Не подтверждали телефон?<br> <a href="{$_modx->config['site_profile_user'] | url}" class="btn w-all btn--more">Перейти в кабинет для подтверждения</a>
 				</div>
 			</div>
 		</div><!--popup__container-->

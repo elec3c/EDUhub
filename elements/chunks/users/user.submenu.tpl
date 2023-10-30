@@ -32,11 +32,11 @@
     ]}
     {set $index3 = '!getStatusCountPartnership' | snippet :[
         'from_user_id'=>$user_id,
-        'status_ids'=>[1,3]
+        'status_ids'=>[1,3,8]
     ]}    
     {set $index4 = '!getStatusCountPartnership' | snippet :[
         'from_user_id'=>$user_id,
-        'status_ids'=>[5]
+        'status_ids'=>[5,51]
     ]}        
     {set $index5 = '!getStatusCountPartnership' | snippet :[
         'from_user_id'=>$user_id,
@@ -72,11 +72,11 @@
     ]}
     {set $index3 = '!getStatusCountPartnership' | snippet :[
         'to_user_id'=>$user_id,
-        'status_ids'=>[1,3]
+        'status_ids'=>[1,3,8]
     ]}    
     {set $index4 = '!getStatusCountPartnership' | snippet :[
         'to_user_id'=>$user_id,
-        'status_ids'=>[5]
+        'status_ids'=>[5,51]
     ]}        
     {set $index5 = '!getStatusCountPartnership' | snippet :[
         'to_user_id'=>$user_id,

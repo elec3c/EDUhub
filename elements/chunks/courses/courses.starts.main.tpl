@@ -1,5 +1,8 @@
         <section class="courses courses__bg section__mg section__pd--lg">
-            <div class="container">	
+            <div class="container filtering">
+                
+                {include 'file:chunks/forms/filter/filter.course.tpl' index=2}
+            
                 <div class="section__head section__head--cols">
                     <h2 class="section__title">Ближайшие старты</h2>
 
@@ -22,13 +25,12 @@
                         </div>    
                     </div>
                 </div>
-
                 <div class="courses__items courses-carousel swiper">
-                    <div class="swiper-wrapper">
                         {'!pdoResources' | snippet : [
+                            'tplWrapper'=>'@INLINE <div class="swiper-wrapper filter-cat-results">{$output}</div>',
                             'tpl'=>'@FILE chunks/courses/courses.starts.carousel.row.tpl',
                             'sortby'=>'{"data_from":"asc"}',
-                            'parents'=>85,
+                            'parents'=>$_modx->config['site_parent_courses'],
                             'depth'=>3,
                             'class'=>'modResource',
                             'loadModels'=>'promote',                            
@@ -42,16 +44,12 @@
                                 'EduPromote'=>'*',
                                 'modResource'=>'*',
                             ],                            
-                            'includeTVs' => 'small_image,course_group_title,data_from,data_to,course_owner,form_of_study,course_duration',
+                            'includeTVs' => 'num_months_of_study,course_category, course_sub_category, schedule, time, form_of_study, course_city, small_image,course_group_title,data_from,data_to,course_owner,form_of_study,course_duration,num_people_in_group,sale,price_course,price_course_month',
                             'processTVs'=>1,
                             'limit'=>12,
                             'where' => ["template:=" => "8","data_from:<" => "2099-01-01", "data_from:>=" => $.php.date("Y-m-d"), 'EduPromote.commission:>'=>0, 'EduPromote.lead:>'=>0],
                         ]?:'ничего не найдено'}
-
                     </div>
-                </div>
-                
-                
-                
+                </div>   
             </div>	
         </section><!-- courses -->

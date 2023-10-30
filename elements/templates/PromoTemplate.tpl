@@ -8,6 +8,7 @@
     {include 'file:chunks/advantages/advantages.pconv.promo.tpl'}
     {include 'file:chunks/item/item.detail.promo.tpl'}
     {include 'file:chunks/advantages/advantages.f4ways.promo.tpl'}
+    {include 'file:chunks/item/item.learn.promo.tpl'}
     {include 'file:chunks/social/social.promo.tpl'}    
     {include 'file:chunks/faq/faq.promo.tpl'}
     {include 'file:chunks/callback/callback.promo.tpl' color='green'}
@@ -19,7 +20,7 @@
     {include 'file:chunks/social/social.promo.tpl'}
     {include 'file:chunks/faq/faq.promo.tpl'}
     {include 'file:chunks/callback/callback.promo.tpl' color='red'}
-{elseif $_modx->resource.id in [1236]}    
+{elseif $_modx->resource.id in [1397]}    
     <section class="persdisc section__mgb--sm">
         <div class="container">
             <div class="section__head mb--sm">
@@ -28,15 +29,18 @@
                     {$_modx->resource.introtext}						
                 </div>
             </div>
+            
+            {include 'file:chunks/search/search.company.block.promo.tpl'}                                
             {include 'file:chunks/alg/alg.persdisc.promo.tpl'}
             {include 'file:chunks/advantages/advantages.persdisc.promo.tpl'}
             
         </div>
     </section><!--persdisc-->  
     
-    {include 'file:chunks/search/search.company.block.promo.tpl'}        
+    
     {include 'file:chunks/item/item.compispartn.promo.tpl'}    
     {include 'file:chunks/advantages/advantages.multisc.promo.tpl'}    
+    {include 'file:chunks/item/item.learn.promo.tpl'}
 {else}
     {include 'file:chunks/promo/promo.description.tpl'}
     {include 'file:chunks/advantages/advantages.promo.tpl'}

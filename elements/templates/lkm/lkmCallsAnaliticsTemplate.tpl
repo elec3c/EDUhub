@@ -25,7 +25,7 @@
                     <div class="analitics__block lk__wraplr section__lr">
                         <div class="rows">
                             {'!pdoPage' | snippet :[
-                                'parents'=>85,
+                                'parents'=>$_modx->config['site_parent_courses'],
                                 'ajaxMode'=>'default',
                                 'limit'=>20,
                                 'idx'=>5,

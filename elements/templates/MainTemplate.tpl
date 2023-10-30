@@ -3,6 +3,7 @@
     {include 'file:chunks/promo/promo.main.tpl'}
     {include 'file:chunks/choose/choose.main.tpl'}
     {include 'file:chunks/skillbox/skillbox.main.tpl'}
+    {*include 'file:chunks/partnership/partnership.joined.company.main.tpl'*}
     {include 'file:chunks/courses/courses.starts.main.tpl'}
     {include 'file:chunks/courses/courses.continue.main.tpl'}
     {*include 'file:chunks/courses/courses.popular.main.tpl'*}

@@ -5,11 +5,7 @@
         {insert 'file:chunks/users/user.menu.tpl'}
         <section class="lk analitics section__mgb">
             <div class="container">
-                <div class="analitics__head">
-                    <div class="lk__nav">
-                        {insert 'file:chunks/menu/lkm.menu.tpl'}
-                    </div>
-                </div>
+
                 <div class="analitics__block  section__lr">
                     {if ($.get.edit && ($.get.delete is empty))}
                         <div class="section__head">
@@ -27,7 +23,7 @@
                          ]*}
                     {elseif ($.get.delete && ($.get.edit is empty))}                 
                         <div class="section__head">
-                            <h2 class="section__title">Удаление запроса {$.get.edit}</h2>
+                            <h2 class="section__title">Удаление запроса № {$.get.delete}</h2>
                         </div>  
                           {'!AjaxForm'|snippet:[
                             'snippet' => 'FormIt',

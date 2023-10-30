@@ -14,7 +14,7 @@
     </div>
     <label class="form__polit">
         <input type="checkbox" name="polit" class="styler styler--white" required>
-        <span>Ознакомлен с <a href="{$_modx->makeUrl(8)}">публичной офертой</a></span>
+        <span>Ознакомлен и согласен с <a href="{$_modx->makeUrl(8)}">публичной офертой</a></span>
     </label>
     <div class="form__btn">
         <button class="btn w-all">Отправить</button>

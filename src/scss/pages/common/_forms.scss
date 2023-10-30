@@ -1,0 +1,200 @@
+.form--camp {
+
+}
+
+.input--camp {
+    height: 42px;
+    padding: 0 14px;
+    border-radius: 8px;
+    border: 1px solid #F3EDFD;
+    background:  #FFF;
+    font-size: 16px;
+    font-weight: 600;
+    color: $color-body-camp;
+    @include input-placeholder('&', rgba(200, 200, 228, 1), 1);
+    
+    &.input--date {
+        border: 1px solid #F3EDFD !important;
+        background-image: url(../images/icons/calendar-2.svg);
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        cursor: initial;
+        padding-right: 30px;
+    }
+    &.error {
+        border-color: #FE5233;
+        @include input-placeholder('&', rgba(200, 200, 228, 1), 1);
+    }
+}
+textarea.input--camp {
+    height: 92px;
+}
+
+.jq-checkbox.styler--camp {
+    border-radius: 2px;
+    border-color: #C8C8E4;
+    border-width: 1px;
+    width: 16px;
+    height: 16px;
+
+    &.checked {
+        background-image: url(../images/icons/check-small-camp.svg);
+        border: none;
+    }
+}
+
+.jq-radio.styler--camp {
+    background: none !important;
+    border: 1px solid #C8C8E4;
+    width: 16px;
+    height: 16px;
+
+    &.checked .jq-radio__div {
+        background: $bg-purple;
+    }
+
+}
+
+
+.jq-selectbox {
+    &.styler--camp {
+        box-shadow: none !important;
+        padding: 0 !important;
+        
+    }
+    &.styler--camp &__select {
+        height: 42px;
+        line-height: 42px;
+        padding-left: 14px;
+        padding-right: 40px;
+        border-radius: 8px;
+        border: 1px solid #F3EDFD;
+        background:  #FFF;
+        font-size: 16px;
+        font-weight: 600;
+        color: $color-body-camp;
+        box-shadow: none !important;
+    }
+    
+    &.styler--camp.error &__select {
+        border-color: #FE5233;
+    }
+    &.styler--camp.dropdown &__select {
+        border-radius: 8px 8px 0 0;
+        border-bottom: none;
+    }
+    &.styler--camp.dropup &__select {
+        border-radius: 0 0 8px 8px;
+        border-top: none;
+    }
+    &.styler--camp  .placeholder {
+        color: rgba(200, 200, 228, 1);
+    }
+    &.styler--camp &__trigger {
+        right: 14px;
+        width: 22px;
+        height: 22px;
+        margin-top: -10px;
+        background: url(../images/icons/drop-select-camp.svg) no-repeat center center;
+    }
+    &.styler--camp &__dropdown {
+        border: 1px solid #F3EDFD;
+        border-radius: 0 0 8px 8px;
+        background: #FFF;
+        box-shadow: none;
+    }
+    &.styler--camp.error &__dropdown {
+        border-color: #FE5233;
+    }
+    &.styler--camp.dropdown &__dropdown {
+        border-radius: 0 0 8px 8px;
+    }
+    &.styler--camp.dropup &__dropdown {
+        border-radius: 8px 8px 0 0;
+    }
+    &.styler--camp.opened &__dropdown{
+        box-shadow: none;
+    }
+    &.styler--camp ul {
+        margin: 0;
+        padding: 0;
+        max-height: 200px !important;
+    }
+    &.styler--camp li {
+        min-height: 32px;
+        padding: 5px 14px 5px;
+        color: $color-body-camp;
+    }
+    &.styler--camp li:hover {
+        color: #fff;
+    }
+}
+
+
+.checkselect {
+    &.checkselect--camp {
+        box-shadow: none !important;
+        padding: 0 !important;
+        
+    }
+    .checkselect--camp &__select {
+        height: 42px;
+        line-height: 42px;
+        padding-left: 14px;
+        padding-right: 40px;
+        border-radius: 8px;
+        border: 1px solid #F3EDFD;
+        background:  #FFF;
+        font-size: 16px;
+        font-weight: 600;
+        color: $color-body-camp;
+        box-shadow: none !important;
+        &.placeholder {
+            color: rgba(200, 200, 228, 1);
+        }
+        &:after {
+            right: 14px;
+            width: 22px;
+            height: 22px;
+            margin-top: -10px;
+            background: url(../images/icons/drop-select-camp.svg) no-repeat center center;
+        }
+    }
+    &.checkselect--camp.error &__select {
+        border-color: #FE5233;
+    }
+    &.checkselect--camp.opened &__select {
+        border-radius: 8px 8px 0 0;
+        border-bottom: none;
+    }
+    &.checkselect--camp.opened &__select:after  {
+        transform: rotate(-180deg);
+    }
+    &.checkselect--camp &__dropdown {
+        border: 1px solid #F3EDFD;
+        border-radius: 0 0 8px 8px;
+        background: #FFF;
+        box-shadow: none;
+    }
+    &.checkselect--camp.opened &__dropdown{
+        box-shadow: none;
+    }
+    &.checkselect--camp &__list {
+        max-height: 200px;
+        label {
+            min-height: 32px;
+            padding: 5px 14px 5px;
+            color: $color-body-camp;
+        }
+        &-link {
+            min-height: 32px;
+            padding: 5px 14px 5px;
+            color: $color-body-camp;
+            &:hover {
+                background-color: $bg-purple;
+                color: #FFF;
+            }
+        }
+    }
+   
+}

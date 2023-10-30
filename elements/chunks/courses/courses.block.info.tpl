@@ -15,9 +15,9 @@
         {if ($promote['lead'] > 0) && ($data_from!='2099-01-01') && ($format_of_study!='individual')}
         <li class="listinf__flex">
             {if $.php.strtotime($data_from) > $.php.strtotime("now")}
-                Группа стартует:&nbsp;{$data_from|dateago:'{"dateNow":0, "dateFormat":"d F Y"}'}
+                Группа стартует:&nbsp;{$data_from| date : "d.m.Y"}
             {else}
-                Действующая группа:&nbsp;с {$data_from|dateago:'{"dateNow":0, "dateFormat":"d F Y"}'}
+                Действующая группа:&nbsp;с {$data_from| date : "d.m.Y"}
             {/if}
         </li>
         {/if}

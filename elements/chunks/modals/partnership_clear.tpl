@@ -13,9 +13,15 @@
 				<div class="popup__head">
                     {set $isSchool = ($_modx->user.id | ismember : ['Organization'])}				    
                     {if $isSchool}
-                        <div class="popup__title">Вы уверены, что хотите <br> удалить безвозвратно?!</div>
+                         <div class="popup__title">
+                             <b style="color:red">Партнерское предложение будет удалено безвозвратно!</b>
+                             <br>Вы уверены, что хотите <br> удалить текущее партнерское предложение?
+                        </div>
 					{else}
-					    <div class="popup__title"><b style="color:red">Удаление запрещено!</b><br>Вы не являетесь владельцом данного партнерского предложения!</div>
+					    <div class="popup__title">
+					            <b style="color:red">Удаление запрещено!</b>
+					            <br>Вы не являетесь владельцом данного партнерского предложения!
+					    </div>
 					{/if}
 				</div>
 				<button class="btn btn--red w-all clear_partnership">Удалить</button>

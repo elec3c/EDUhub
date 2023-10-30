@@ -1,0 +1,186 @@
+/**************************************************************
+header
+**************************************************************/
+.cmp_header {
+	position: relative;
+    border-bottom-color: #F3EDFD;
+    padding: 20px 0;
+    &__wrap {
+        min-height: 80px;
+        padding: 0;
+    }
+    &__linkcat {
+        color: $color-body-camp;
+        font-weight: 600;
+        path {
+            stroke: $color-body-camp;
+        }
+        .icon {
+            color: $color-body-camp;
+        }
+        &:hover {
+            color: $color-title-camp;
+            path {
+                stroke: $color-title-camp;
+            }
+            .icon {
+                color: $color-title-camp;
+            }
+        }
+    }
+    &__search {
+        margin-left: auto;
+        max-width: 370px;
+        width: 100%;
+        .search__input {
+            height: 38px;
+            border-color: #F3EDFD;
+            border-radius: 100px;
+            padding: 0 20px 0 48px;
+            font-weight: 600;
+            color: $color-body-camp;
+            @include input-placeholder('&', rgba(200, 200, 228, 1), 1);
+        }
+        .search__btn {
+            right: auto;
+            left: 20px;
+            width: 18px; height: 18px;
+            background-image: url(../images/icons/search2.svg);
+        }
+    }
+
+    &__profile {
+        margin-left: 20px;
+        gap: 10px;
+        path {
+            stroke: currentColor;
+        }
+    }
+
+    &__burger {
+        display: none;
+    }
+    
+    &__nav {
+        margin-top: 10px;
+    }
+    &__menu {
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 0 -8px;
+        }
+        li {
+            -webkit-column-break-inside: avoid;
+            page-break-inside: avoid;
+            break-inside: avoid;
+            break-inside: avoid-column;
+        }
+        a {
+            padding: 8px;
+            display: inline-flex;
+            font-weight: 600;
+            font-size: 18px;
+            color: $color-body-camp;
+            transition: all .3s ease-in-out;
+            &:hover {
+                color: $color-title-camp
+            }
+        }
+        &.active a {
+            color: $bg-purple;
+        }
+    }
+
+        
+    @media (max-width: $md-desktop) {
+    }
+    @media (max-width: $md-tablet) {
+        padding-top: 0;
+        &__linkcat {
+            margin: 0;
+            padding-right: 30px !important;
+            img, svg {
+                right: 8px;
+            }
+        }
+        &__search {
+            max-width: 240px;
+        }
+        &__menu {
+            ul {
+                gap: 0;
+            }
+            a {
+                font-size: 16px;
+            }
+        }
+       
+    }
+    @media (max-width: $md-tablet-sm) {
+        padding: 0;
+        &__wrap {
+            padding: 10px 0;
+            min-height: 63px;
+        }
+        &__burger {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px; height: 32px;
+        }
+        &__profile {
+            background: none !important;
+            color: $bg-purple;
+            width: 24px; height: 24px;
+            padding: 0;
+            svg, img {
+                width: 100%; height: auto;
+            }
+            span {
+                display: none;
+            }
+        }
+
+        &__nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%; height: 100vh;
+            background: #fff;
+            margin: 0;
+            padding: 20px $pd-container;
+            opacity: 0; visibility: hidden;
+            transition: all 0.3s ease-in-out;
+            &.active {
+                opacity: 1; visibility: visible;
+            }
+            &-close {
+                float: none;
+                position: static;
+                margin-bottom: 20px;
+            }
+        }
+        &__menu {
+            display: inline-flex;
+            ul {
+                display: block;
+            }
+            li {
+                border-bottom: 1px solid #F3EDFD;
+            }
+        }
+    }
+    @media (max-width: $md-mobile-lg) {
+
+    }
+    @media (max-width: $md-mobile) {
+
+    }
+    @media (max-width: 340px) {
+       
+    }
+    
+
+}

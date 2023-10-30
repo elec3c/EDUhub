@@ -4,7 +4,7 @@
 <section class="scools section__mgb">
     <div class="container">
         <div class="section__head">
-            <h2 class="section__title">{$_modx->resource.longtitle?:$_modx->resource.pagetitle}</h2>
+            <h1 class="section__title">{$_modx->resource.longtitle?:$_modx->resource.pagetitle}</h1>
         </div>
         <div id="pdopage">
             <div class="scools__items rows">

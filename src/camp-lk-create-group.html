@@ -1,0 +1,202 @@
+@@include('html/head.html', {
+"title": "Лагерь - Создание группы"
+})
+
+<section class="wrapper capm-wrap" id="top">
+
+    @@include('html/camp/cmp_header.html', {
+        "active_menu": "",
+        "auth": "user"
+    })
+
+    <main class="content__wrapper">
+
+        
+        @@include('html/camp/camp_lknav.html', {
+            "active_menu": "camp",
+            "type": ""
+        })
+
+        <section class="cmp_create section__mg section__first">
+            <div class="container container--lg">
+                <div class="section__head section__head--cols mb--md">
+                    <h2 class="section__title">Создание группы</h2>
+                </div>
+                
+                <div class="cmp_lkthead">
+                    <div class="cmp_lkthead__title">ЛЕТНИЙ IT-CAMP в Стемлаб</div>
+                    <div class="cmp_lkthead__act">
+                        <div class="cmp_lkthead__label">Группа</div>
+                        <div class="cmp_lkthead__buttons ml--auto">
+                            <button class="btn btn--sm btn--purple">Добавить группу</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="cmp_lktables">
+                    <table>
+                        <tr>
+                            <th>№</th>
+                            <th class="text--left w-all">Название группы</th>
+                            <th class="text--left w-all">Адрес</th>
+                            <th>Кабинет</th>
+                            <th>Смена</th>
+                            <th>Количество <br>  детей</th>
+                            <th>Период</th>
+                            <th>Возраст детей</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td class="nowrap">№ 1</td>
+                            <td><input type="text" name="name[]" class="input input--camp" placeholder="Введите название"></td>
+                            <td>
+                                <select class="styler styler--camp input--city" name="address[]" data-placeholder="Выбрать адрес">
+                                    <option value=""></option>
+                                    <option value="Минск">Минск</option>
+                                    <option value="Брест">Брест</option>
+                                    <option value="Витебск">Витебск</option>
+                                    <option value="Гродно">Гродно</option>
+                                    <option value="Гомель">Гомель</option>
+                                    <option value="Могилёв">Могилёв</option>
+                                </select>
+                            </td>
+                            <td><input type="text" name="cabinet[]" class="input input--camp input--w-sm" placeholder="№"></td>
+                            <td><input type="text" name="shift[]" class="input input--camp input--w-sm" placeholder="Смена"></td>
+                            <td><input type="text" name="count[]" class="input input--camp input--w-sm" placeholder="Кол-во"></td>
+                            <td class="nowrap">
+                                <input type="text" name="date_from[]" class="input input--camp input--date datepicker-input" placeholder="Дата с">
+                                <input type="text" name="date_to[]" class="input input--camp input--date datepicker-input" placeholder="Дата по">
+                            </td>
+                            <td class="nowrap"><input type="text" name="age_form[]" class="input input--camp input--w-sm" placeholder="От">
+                                <input type="text" name="age_to[]" class="input input--camp input--w-sm" placeholder="До">
+                            </td>
+                            <td>
+                                <div class="cmp_lktables__act">
+                                    <button class="cmp_lktables__act-open">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12Z" fill="#C8C8E4"/>
+                                            <path d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z" fill="#C8C8E4"/>
+                                            <path d="M21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12Z" fill="#C8C8E4"/>
+                                            </svg>
+                                    </button>
+                                    <div class="cmp_lktables__act-menu">
+                                        <ul>
+                                            <li><a href="">Редактировать</a></li>
+                                            <li><a href="">Создать копию</a></li>
+                                            <li><a href="">Удалить</a></li>
+                                        </ul>
+                                    </div>   
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="nowrap">№ 2</td>
+                            <td><input type="text" name="name[]" class="input input--camp" placeholder="Введите название"></td>
+                            <td>
+                                <select class="styler styler--camp input--city" name="address[]" data-placeholder="Выбрать адрес">
+                                    <option value=""></option>
+                                    <option value="Минск">Минск</option>
+                                    <option value="Брест">Брест</option>
+                                    <option value="Витебск">Витебск</option>
+                                    <option value="Гродно">Гродно</option>
+                                    <option value="Гомель">Гомель</option>
+                                    <option value="Могилёв">Могилёв</option>
+                                </select>
+                            </td>
+                            <td><input type="text" name="cabinet[]" class="input input--camp input--w-sm" placeholder="№"></td>
+                            <td><input type="text" name="shift[]" class="input input--camp input--w-sm" placeholder="Смена"></td>
+                            <td><input type="text" name="count[]" class="input input--camp input--w-sm" placeholder="Кол-во"></td>
+                            <td class="nowrap">
+                                <input type="text" name="date_from[]" class="input input--camp input--date datepicker-input" placeholder="Дата с">
+                                <input type="text" name="date_to[]" class="input input--camp input--date datepicker-input" placeholder="Дата по">
+                            </td>
+                            <td class="nowrap"><input type="text" name="age_form[]" class="input input--camp input--w-sm" placeholder="От">
+                                <input type="text" name="age_to[]" class="input input--camp input--w-sm" placeholder="До">
+                            </td>
+                            <td>
+                                <div class="cmp_lktables__act">
+                                    <button class="cmp_lktables__act-open">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12Z" fill="#C8C8E4"/>
+                                            <path d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z" fill="#C8C8E4"/>
+                                            <path d="M21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12Z" fill="#C8C8E4"/>
+                                            </svg>
+                                    </button>
+                                    <div class="cmp_lktables__act-menu">
+                                        <ul>
+                                            <li><a href="">Редактировать</a></li>
+                                            <li><a href="">Создать копию</a></li>
+                                            <li><a href="">Удалить</a></li>
+                                        </ul>
+                                    </div>   
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="nowrap">№ 3</td>
+                            <td><input type="text" name="name[]" class="input input--camp" placeholder="Введите название"></td>
+                            <td>
+                                <select class="styler styler--camp input--city" name="address[]" data-placeholder="Выбрать адрес">
+                                    <option value=""></option>
+                                    <option value="Минск">Минск</option>
+                                    <option value="Брест">Брест</option>
+                                    <option value="Витебск">Витебск</option>
+                                    <option value="Гродно">Гродно</option>
+                                    <option value="Гомель">Гомель</option>
+                                    <option value="Могилёв">Могилёв</option>
+                                </select>
+                            </td>
+                            <td><input type="text" name="cabinet[]" class="input input--camp input--w-sm" placeholder="№"></td>
+                            <td><input type="text" name="shift[]" class="input input--camp input--w-sm" placeholder="Смена"></td>
+                            <td><input type="text" name="count[]" class="input input--camp input--w-sm" placeholder="Кол-во"></td>
+                            <td class="nowrap">
+                                <input type="text" name="date_from[]" class="input input--camp input--date datepicker-input" placeholder="Дата с">
+                                <input type="text" name="date_to[]" class="input input--camp input--date datepicker-input" placeholder="Дата по">
+                            </td>
+                            <td class="nowrap"><input type="text" name="age_form[]" class="input input--camp input--w-sm" placeholder="От">
+                                <input type="text" name="age_to[]" class="input input--camp input--w-sm" placeholder="До">
+                            </td>
+                            <td>
+                                <div class="cmp_lktables__act">
+                                    <button class="cmp_lktables__act-open">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12Z" fill="#C8C8E4"/>
+                                            <path d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z" fill="#C8C8E4"/>
+                                            <path d="M21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12Z" fill="#C8C8E4"/>
+                                            </svg>
+                                    </button>
+                                    <div class="cmp_lktables__act-menu">
+                                        <ul>
+                                            <li><a href="">Редактировать</a></li>
+                                            <li><a href="">Создать копию</a></li>
+                                            <li><a href="">Удалить</a></li>
+                                        </ul>
+                                    </div>   
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>  
+                
+                
+                <div class="cmp_create__buttons gap--sm">
+                    <button class="btn btn--purple btn--sm" type="submit">Сохранить</button>
+                    <button class="btn btn--bdpurple btn--sm" type="button">Отмена</button>
+                </div>
+            </div>
+        </section><!--  -->
+
+
+    </main>
+    <!--content__wrapper-->
+   
+    @@include('html/camp/cmp_footer.html', {
+        "active_menu": ""
+    })
+
+</section>
+
+@@include('html/popup.html', {})
+
+</body>
+
+</html>

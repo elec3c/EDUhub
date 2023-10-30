@@ -25,16 +25,15 @@
     						stroke-linejoin="round" />
     				</svg>
     			</a>
-
-
+                {include 'file:chunks/menu/header.menu.tpl'}
     			{include 'file:chunks/search/search.bar.tpl'}
     			{'!officeAuth' | snippet : ['HybridAuth'=>0,'tplLogin'=>'my.tpl.Office.auth.login','tplLogout'=>'my.tpl.Office.auth.logout']}
-    			{if !('' | isloggedin : 'web')}
+    			{*if !('' | isloggedin : 'web')}
 	    			<a href="#" class="btn btn--purple header__btn hide-tablet-sm" data-open-popup="auth_course">Добавить курс</a>
-    			{/if}
-					{if $_modx->user.urlico && ('' | isloggedin : 'web')}
+    			{/if*}
+					{*if $_modx->user.urlico && ('' | isloggedin : 'web')}
 						<a href="{$_modx->makeUrl(39)}?type=course" class="btn btn--purple header__btn hide-tablet-sm">Добавить курс</a>
-					{/if}
+					{/if*}
     			<a href="#" class="header__burger" id="menu_toggler">
     				<svg width="26" height="18" viewBox="0 0 26 18" fill="none" xmlns="http://www.w3.org/2000/svg">
     					<path d="M1 1H25" stroke="#19191B" stroke-width="2" stroke-linecap="round" />
@@ -61,7 +60,7 @@
 
     				<div class="header__navfix-col header__navfix-col--center">
     					<div class="header__navfix-gmi">
-    						{include 'file:chunks/menu/header.menu.tpl'}
+                            {include 'file:chunks/menu/header.menu.tpl'}    					    
     						{include 'file:chunks/header.contact.tpl'}
     					</div>
     				</div>

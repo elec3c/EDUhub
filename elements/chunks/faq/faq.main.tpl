@@ -4,7 +4,7 @@
     <div class="container">	
         <div class="section__cols">
             <div class="section__head">
-                <h2 class="section__title">Часто задаваемые вопросы</h2>
+                <h2 class="section__title">Часто задаваемые вопросы [[++setting_site_parent_it']]</h2>
                 <p class="section__intro">Мы попытались ответить<br> на часто задаваемые вопросы</p>
             </div>
             <div class="section__wrap">

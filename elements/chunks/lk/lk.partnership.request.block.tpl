@@ -6,119 +6,34 @@
 {/if}
 
 {'!Partnership' | snippet :[]}
+{insert 'file:chunks/partnership/partnership.data.prepare.tpl'}
 {insert 'file:chunks/partnership/partnership.status.color.tpl'}
 
 <div class="cgcourse rollup-box">
     <div class="cghead leads__header lk__wraplr section__lr">
         <div class="title">
             {set $fullname = $from_user_id|user:'fullname'}
-            <a href="{$schoolsPageID | url}?partnership_id={$id}">{if $date_create}{$date_create|date_format:"%d.%m.%Y"}&nbsp;{/if}{if $fullname}{$fullname}{/if}&nbsp;[<b style={"color:"~$color}>{$prefix}</b>]</a>
+            <a href="{$schoolsPageID | url}?partnership_id={$id}">{if $date_create}{$date_create|date_format:"%d.%m.%Y"}&nbsp;{/if}{if $fullname}{$fullname}{/if}&nbsp;<b style={"color:"~$color}>[{$prefix}]</b>{if $agreement}&nbsp;({$agreement}){/if}
+</a>
         </div>
         <a href="#" class="link__more rollup-toggle" style="display:block;">
             <span class="open_t">Свернуть</span><span class="close_t">Развернуть</span>
         </a>
     </div>
     <div class="rollup-tab">
-
-
-
-                        
-
-<div class="pprequest">
-                    {*<div class="pprequest__head">
-                        <div class="pprequest__date">{$date_create|date_format:'%d/%m/%Y'?:'-'}</div>    
-                        {if $schoolsPageID}
-                        <div class="pprequest__name"><a href="{$schoolsPageID | url}" style="text-decoration:underline;">{$from_user_id | user : 'fullname'}</a></div>
-                        {else}
-                        <div class="pprequest__name">{$from_user_id | user : 'fullname'}</div>
-                        {/if}                        
-                    </div>*}
-                    <div class="pprequest__item lk__wraplr section__lr">
-                        <div class="pprequest__item-col">
-                            <div class="pprequest__item-prop">
-                                <div class="pprequest__item-label">Список курсов</div>
-                                <div class="pprequest__item-val">
-                                    {if $type=='diff'}
-                                    <ul class="pprequest__item-list">
-                                    {set $couses_list = '!pdoResources' | snippet : [
-                                        'parents'=>'61',
-                                        'returnIds'=>'1',
-                                        'depth'=>0,
-                                        'limit'=>0,
-                                        'includeTVs'=>'course_group_title, course_owner',
-                                        'where'=>["course_owner"=>$from_user_id]
-                                    ]}
-                                    {set $courses_all = explode(',', $couses_list)}
-                                    {foreach $courses_all as $k=>$v}
-                                        {set $title = $v | resource : 'pagetitle'}
-                                        {if intval($v) && $title}
-                                            <li>{$title |truncate:60:" ..."}</li>
-                                        {/if}
-                                    {/foreach}                                        
-                                    </ul>
-                                {else}
-                                    Любой курс школы
-                                {/if}                                    
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="pprequest__item-col">
-                            <div class="pprequest__item-prop">
-                                <div class="pprequest__item-label">Размер скидки</div>
-                                <div class="pprequest__item-val">{$query['discount']}{switch  trim($query['discount_unit'])}{case 'percent'}%{case 'rub'}&nbsp;руб.{default}-{/switch}</div>
-                            </div>
-                            <div class="pprequest__item-prop">
-                                <div class="pprequest__item-label">На что дается скидка</div>
-                                <div class="pprequest__item-val">{switch  trim($query['discount_for_what'])}{case 'course_fee'}cтоимость курса{case 'first_month'}первый месяц{case 'fixed_discount'}фиксированная скидка{default}-{/switch}</div>
-                            </div>
-                            <div class="pprequest__item-prop">
-                                <div class="pprequest__item-label">Примечание</div>
-                                <div class="pprequest__item-val">{if $type=='diff'}{$query['detail_diff']}{else}{$query['detail']}{/if}</div>
-                            </div>
-                        </div>
-                        
-                        <div class="pprequest__item-col col-last">
-                            <div class="pprequest__item-prop">
-                                <div class="pprequest__item-label">Форма подписания договора школой</div>
-                                <div class="pprequest__item-val">Любая форма</div>
-                            </div>
-                            <div class="pprequest__item-prop">
-                                <div class="pprequest__item-label">Выберите способ подписания договора</div>
-                                <div class="pprequest__item-val">Оферта: приняв предложение договора будет подписан. <br> Бумажный носитель: приняв предложение договор не будет подписан, он переместится на страницу"На подписании"</div>
-                                
-                                <div class="pprequest__item-pf">
-                                    <div class="input__row">
-                                        <select name="agreement" class="styler styler--white" id="partnershipAgreement" disabled>
-                                            {set $agreement = $query['agreement']?:'agreement_public_offer'}
-                                            {set $aExclude = []}
-                                            {set $agreement_paper = $to_user_id | user:'agreement_paper'}
-                                            {set $agreement_public_offer = $to_user_id | user:'agreement_public_offer'}
-                                            {if !$agreement_public_offer}
-                                                {set $aExclude[] = ["agreement_public_offer"]}
-                                            {/if}
-                                            {if !$agreement_paper}
-                                                {set $aExclude[] = ["agreement_paper"]}
-                                            {/if}
-                                            
-                                            {'!getValuesTV' | snippet : ['exclude'=>$aExclude, 'tvid'=>'115', 'curr'=>$agreement]}
-                                        </select>
-                                    </div>
-                                    {if !($status_id in [2,6,7,9])}                                    
-                                    <button class="btn btn--green w-all accept-partnership" data-id="{$id}" data-user="{$to_user_id}" data-agreement="{$query['agreement']}" {if $agreement=='agreement_public_offer'}data-status="3"{else}data-status="1"{/if} id="btnPartnershipAgreement">{if $agreement=='agreement_public_offer'}Заключить догоров{else}Принять{/if}</button>
-                                    {/if}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pprequest__item-buttons">
+            <div class="ssrequest__item lk__wraplr section__lr js-item">
+            {insert 'file:chunks/partnership/partnership.info.tpl'}
+            <div class="ssrequest__item-rcbuttons">
+                {if !($status_id in [2,4,6,7,9])}                                    
+                    <button style="margin-bottom:5px;" class="btn btn--green w-all accept-partnership" data-id="{$id}" data-user="{$to_user_id}" data-agreement="{$query['agreement']}" {if $agreement_key=='agreement_public_offer'}data-status="51"{else}data-status="1"{/if} id="btnPartnershipAgreement">{if $agreement_key=='agreement_public_offer'}Заключить договор{else}Принять{/if}</button>
+                {/if}
                             
-                            {include 'file:chunks/partnership/partnership.contact.btn.tpl' user_id=$from_user_id responsible='partnership'}
-                            
-                            {if !($status_id in [2,6,7,9])}
-                            <button class="btn btn--red  reject-partnership" data-id="{$id}" data-user="{$to_user_id}" data-status="2">Отклонить</button>
-                            {/if}
-                        </div>
-                    </div>
-                </div>
+                {include 'file:chunks/partnership/partnership.contact.btn.tpl' user_id=$from_user_id responsible='partnership' w=1}
+                                        
+                {if !($status_id in [2,4,6,7,9])}
+                    <button style="margin-top:5px;" class="btn btn--red  reject-partnership w-all" data-id="{$id}" data-user="{$to_user_id}" data-status="2">Отклонить</button>
+                {/if}                        
+            </div>      
         </div>
+    </div>
 </div>

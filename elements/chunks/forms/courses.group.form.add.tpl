@@ -11,6 +11,9 @@
     <input type="hidden" name="action" value="[[+fi.action]]" id="action"/>
     <input type="hidden" name="resource_id" value="[[+fi.id]]" />
     <input type="hidden" name="course_owner" value="{$_modx->user.id}" />
+    {if $.get.copy}
+    <input type="hidden" name="course_template" value="{$.get.copy}" />
+    {/if}
     <input type="hidden" name="pagetitle" value="[[+fi.pagetitle]]" id="pagetitle"/>
     <input type="hidden" name="type" value="{$.get.type}" />
 
@@ -40,7 +43,7 @@
             
             
             <div class="cadd__input cadd__input--date">
-                {include 'file:chunks/forms/fields/fields.courses.data_from.tpl' req=1}
+                {include 'file:chunks/forms/fields/fields.courses.data_from.tpl' req=0}
             </div>
             <div class="cadd__input">
                 {include 'file:chunks/forms/fields/fields.courses.lesson_duration.tpl' req=1}
@@ -111,7 +114,7 @@
                 {include 'file:chunks/forms/fields/fields.courses.price_lesson.tpl' req=0}
             </div>
             <div class="cadd__input w-210">
-                {include 'file:chunks/forms/fields/fields.courses.sale.tpl' req=0}
+                {include 'file:chunks/forms/fields/fields.courses.sale.tpl' req=0 border=1}
             </div>
         </div>
     </div>
@@ -123,7 +126,7 @@
         <div class="cadd__inputs cadd__in1">
             <div class="cadd__input">
                 {if $form_of_study != "online"}
-                    {include 'file:chunks/forms/fields/fields.location.address.tpl' req=1}
+                    {include 'file:chunks/forms/fields/fields.location.address.tpl' req=0}
                 {else}
                     {include 'file:chunks/forms/fields/fields.location.address.tpl' req=0}
                 {/if}

@@ -18,7 +18,7 @@
                 {set $subscribeCheck = '@FILE /snippets/subscribeCheckBuy.php' | snippet: ['user_id' => $user_id, 'service_id' => 3, 'course_id'=>0]}
                 {if  ($subscribeCheck['expire'] > 0) && ($subscribeCheck['expire'] < $.php.time())}
                     
-                    <p class="section__intro">Чтобы далее видеть компании, открытые для предложений о партнерстве, необходимо продлить подписку на услугу: <b>&laquo;Размещение курсов b2c на EDUhub&raquo;</b></p> <br><a href="{596 |url}" class="btn" target="_blank">Перейти на страницу подписки</a>                 
+                    <p class="section__intro">Чтобы далее видеть компании, открытые для предложений о партнерстве, необходимо {if ($subscribeCheck['periodid']==0)}повторить{else}продлить{/if} подписку на услугу: <b>&laquo;Размещение курсов b2c на EDUhub&raquo;</b></p> <br><a href="{596 |url}" class="btn" target="_blank">Перейти на страницу подписки</a>                 
                         
                 {elseif $subscribeCheck['expire'] > 0}
                     
@@ -59,7 +59,7 @@
                             <input type="checkbox" name="policy" value="1" class="styler" id="policy" {if $partnershipJoin}checked disabled{/if}>
                             <span>С&nbsp;<a href="{1152 | url}" style="text-decoration:underline;" target="_blank;">офертой</a> ознакомлены и согласны</span>
                         </label>
-                        {'FileAttach' | snippet : ['makeURL'=>1, 'tpl'=>'file.attach.tpl']}
+                        {*'FileAttach' | snippet : ['makeURL'=>1, 'tpl'=>'file.attach.tpl']*}
                     </div>
                     </form>
                     <p class="section__intro">Чтобы получить доступ к списку компаний, открытых для предложений о партнерстве, необходимо присоединиться к оферте.</p>
@@ -111,8 +111,8 @@
                     </div>*}
 
                     <div class="ssrequest__header">
-                        <div class="ssrequest__item-col">Город</div>
                         <div class="ssrequest__item-col">Компании, открытые <br> для предложений <br> о партнерстве</div>
+                        <div class="ssrequest__item-col">Город</div>
                         <div class="ssrequest__item-col">Сфера деятельности</div>
                         <div class="ssrequest__item-col">Количество сотрудников компании</div>
                         <div class="ssrequest__item-col ssrequest__item-col--status">Статус</div>
@@ -124,27 +124,29 @@
                         
                         {set $filter = 'resource|pagetitle'}                        
                         {set $filterOptions = '{"autoLoad":0}'}
-                        
-                        
+                        <style>
+                        .ssrequest__item-col{
+                            width:17%;
+                        }
+                        </style>
+                                                
                         <div id="pdopage">
                             <div class="rows">
                                 {$_modx->runSnippet('!pdoPage', [
-                                    'showEmptyFilters'   =>'true',
-                                    'filterOptions'      => $filterOptions,                                
-                                    'filters'            => $filter,
-                                    'showEmptyFilters'   =>'true',
-                                    'tplFilter.outer.resource|pagetitle'=>'tpl.mFilter2.filter.partnership.select',
-                                    'tplFilter.row.resource|pagetitle'=>'tpl.mFilter2.filter.partnership.option',
                                     'tplOuter'=>'tpl.mFilter2.partnership.outer',
                                     'tpl'=>'@FILE chunks/partnership/partnership.company.block.tpl',
                                     'sortby' => 'id',
                                     'sortdir' => 'DESC',
-                                    'parents'=>'1132',
-                                    'includeTVs' => 'small_image, scools_owner,conclusion_agreement',
+                                    'parents' => $_modx->config['site_parent_company'],
+                                    'includeTVs' => 'small_image, scools_owner,conclusion_agreement,partnership_join_offer',
                                     'processTVs'=>'1',
                                     'template'=>'21',
+                                    'limit'=>'10',
                                     'showUnpublished'=>'1',
-                                    'ajaxMode' => 'button',
+                                    'where'=>[                              
+                                        'partnership_join_offer:='  => 1
+                                    ],
+                                    'ajaxMode' => 'scroll',
                                     'ajaxElemMore'=>'#pdopage .btn--more',
                                     'ajaxTplMore'=>'@INLINE <div class="section__buttons"><button class="btn btn--more"><svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M21.5 11C21.5 16.52 17.02 21 11.5 21C5.98 21 2.61 15.44 2.61 15.44M2.61 15.44H7.13M2.61 15.44V20.44M1.5 11C1.5 5.48 5.94 1 11.5 1C18.17 1 21.5 6.56 21.5 6.56M21.5 6.56V1.56M21.5 6.56H17.06" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

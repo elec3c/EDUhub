@@ -1,5 +1,5 @@
         <section class="courses courses__bg section__mg section__pd--lg" style="background:#CBE5C7;">
-            <div class="container">	
+            <div class="container filtering">
                 <div class="section__head section__head--cols">
                     <h2 class="section__title">Присоединиться к действующим группам</h2>
 
@@ -24,37 +24,30 @@
                 </div>
 
                 <div class="courses__items courses-carousel swiper">
-                    <div class="swiper-wrapper">
-                        {'!pdoResources' | snippet : [
-                            'tpl'=>'@FILE chunks/courses/courses.continue.carousel.row.tpl',
-                            'sortby'=>'{"data_from":"asc"}',
-                            'parents'=>85,
-                            'depth'=>3,
-                            'class'=>'modResource',
-                            'loadModels'=>'promote',                            
-                            'innerJoin'=>[
-                                'EduPromote'=>[
-                                    'class'=>'EduPromote',
-                                    'on'=>'modResource.id = EduPromote.groupId',
-                                ],
-                            ],                            
-                            'select'=>[
-                                'EduPromote'=>'*',
-                                'modResource'=>'*',
-                            ],                            
-                            'includeTVs' => 'small_image,course_group_title,data_from,data_to,course_owner,form_of_study,course_duration,course_continue,data_continue',
-                            'processTVs'=>1,
-                            'limit'=>12,
-                            'where' => ["template:=" => "8","data_from:<" => "2099-01-01", "data_from:<" => $.php.date("Y-m-d"), "data_continue:>" => $.php.date("Y-m-d"), 'course_continue'=>1, 'EduPromote.commission:>'=>0, 'EduPromote.lead:>'=>0],
+                    {'!pdoResources' | snippet : [
+                        'tplWrapper'=>'@INLINE <div class="swiper-wrapper filter-cat-results">{$output}</div>',
+                        'tpl'=>'@FILE chunks/courses/courses.continue.carousel.row.tpl',
+                        'sortby'=>'{"data_from":"desc"}',
+                        'parents'=>$_modx->config['site_parent_courses'],
+                        'depth'=>3,
+                        'class'=>'modResource',
+                        'loadModels'=>'promote',                            
+                        'innerJoin'=>[
+                            'EduPromote'=>[
+                                'class'=>'EduPromote',
+                                'on'=>'modResource.id = EduPromote.groupId',
+                            ],
+                        ],                            
+                        'select'=>[
+                            'EduPromote'=>'*',
+                            'modResource'=>'*',
+                        ],                            
+                        'includeTVs' => 'num_months_of_study,small_image,course_group_title,data_from,data_to,course_owner,form_of_study,course_duration,course_continue,data_continue,num_people_in_group, time, course_city,schedule,course_category,course_sub_category,sale,price_course,price_course_month',
+                        'processTVs'=>1,
+                        'limit'=>12,
+                        'where' => ["template:=" => "8","data_from:<" => "2099-01-01", "data_from:<" => $.php.date("Y-m-d"), "data_continue:>" => $.php.date("Y-m-d"), 'course_continue'=>1, 'EduPromote.commission:>'=>0, 'EduPromote.lead:>'=>0]
                             
-                            
-                            
-                            
-                            
-                            
-                        ]?:'ничего не найдено'}
-
-                    </div>
+                    ]?:'ничего не найдено'}
                 </div>
                 
                 

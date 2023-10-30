@@ -1,0 +1,517 @@
+@@include('html/head.html', {
+"title": "Лагерь - Создание лагеря - Выездной"
+})
+
+<section class="wrapper capm-wrap" id="top">
+
+    @@include('html/camp/cmp_header.html', {
+        "active_menu": "",
+        "auth": "user"
+    })
+
+    <main class="content__wrapper">
+
+        
+        @@include('html/camp/camp_lknav.html', {
+            "active_menu": "camp",
+            "type": ""
+        })
+
+        <section class="cmp_create section__mg--sm js-accord-all">
+            <div class="container">
+                <div class="section__head section__head--cols mb--md">
+                    <h2 class="section__title">Создание лагеря</h2>
+                    <div class="section__head-right"><a href="#" class="link link--nound cmp_create__toggle js-accord-toggle-all"><span class="t_opened">Развернуть все</span><span class="t_closed">Свернуть все</span></a></div>
+                </div>
+                
+                    
+                <form action="" method="post" class="cmp_create__form" enctype="multipart/form-data">
+                    <input name="controll" class="no-display" type="text">
+
+                    <div class="cmp_create__blocks js-accord-item">
+                        <div class="cmp_create__blocks-head js-accord-toggle">
+                            <div class="cmp_create__blocks-title">Общая информация</div>
+                        </div>
+                        <div class="cmp_create__blocks-body js-accord-body">
+                            <div class="cmp_create__inform">
+                                <div class="cmp_create__inform-info">
+                                    <div class="cmp_create__irow cmp_create__imw">
+                                        <div class="cmp_create__irow-label">Название лагеря</div>
+                                        <input name="city" class="input input--camp" placeholder="Введите название">
+                                    </div>
+                                    <div class="cmp_create__irow">
+                                        <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name="Языковой"><span>Языковой</span></label>
+                                        <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name="IT"><span>IT</span></label>
+                                        <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name="Дизайн"><span>Дизайн</span></label>
+                                        <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name="Танцы"><span>Танцы</span></label>
+                                        <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name="Спорт"><span>Спорт</span></label>
+                                        <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name="Блогерство"><span>Блогерство</span></label>
+                                    </div>
+
+                                    <div class="cmp_create__irow cmp_create__inform-icols">
+                                        <div>
+                                            <div class="cmp_create__irow-label">Возраст</div>
+                                            <div class="cmp_create__ci">
+                                                <div class="cmp_create__ci-col">
+                                                    <div class="cmp_create__irow-label">От</div>
+                                                    <select class="styler styler--camp cmp_create__inpwsm" name="age_from" data-placeholder="выбрать">
+                                                        <option value=""></option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                        <option value="11">11</option>
+                                                        <option value="12">12</option>
+                                                    </select>
+                                                </div>
+                                                <div class="cmp_create__ci-col">
+                                                    <div class="cmp_create__irow-label">До</div>
+                                                    <select class="styler styler--camp cmp_create__inpwsm" name="age_to" data-placeholder="выбрать">
+                                                        <option value=""></option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                        <option value="11">11</option>
+                                                        <option value="12">12</option>
+                                                        <option value="13">13</option>
+                                                    </select>
+                                                </div>    
+                                            </div>
+                                        </div>  
+                                        <div>
+                                            <div class="cmp_create__irow-label">Количество детей в группе</div>
+                                            <input type="text" name="count" class="input input--camp cmp_create__inpwsm" placeholder="10">
+                                        </div>  
+                                    </div>
+                                    
+                                    <div class="cmp_create__irow cmp_create__imw">
+                                        <div class="cmp_create__irow-label">Слоган</div>
+                                        <input name="slogan" class="input input--camp" placeholder="Введите слоган">
+                                    </div>
+                                    <div class="cmp_create__irow cmp_create__imw">
+                                        <div class="cmp_create__irow-label">Описание программы</div>
+                                        <textarea name="descr" class="input input--camp" placeholder="Введите описание"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="cmp_create__inform-photo">
+                                    <div class="cmp_create__irow-label">Добавить афишу</div>
+                                    <label class="cmp_create__inform-photo__upload uploading">
+                                        <input type="file" name="sc_photo1" accept="image/jpg,image/jpeg,image/png">
+                                        <span class="uploading__open"></span>
+                                        <!-- <div class="uploading__change">Изменить фото</div> -->
+                                    </label>
+                                    <div class="cmp_create__inform-photo__t">Изображение</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cmp_create__blocks js-accord-item">
+                        <div class="cmp_create__blocks-head js-accord-toggle">
+                            <div class="cmp_create__blocks-title">Подробная программа</div>
+                        </div>
+                        <div class="cmp_create__blocks-body js-accord-body js-camp-inputs">
+                            <div class="cmp_create__ibox cmp_create__imw">
+                                <div class="cmp_create__ibox-label"><a href="#" class="js-camp-inputs-add">Добавить пункт программы</a> 
+                                    <div class="cmp_create__ibox-lintro">Если не указать даты, то пункт программы будет отображаться без дат. Если указать только "Дата с", то пункт программы будет содержать только указанную дату</div>
+                                </div>
+                                <div class="cmp_create__ibox js-camp-inputs-row">
+                                    <a href="#" class="cmp_create__ibox-label hide js-camp-inputs-remove">Удалить пункт программы</a> 
+                                    <div class="cmp_create__irow">
+                                        <div class="cmp_create__irow-label">Описание</div>
+                                        <textarea name="progr_descr" class="input input--camp" placeholder="Введите описание"></textarea>
+                                    </div>
+                                    <div class="cmp_create__irow cmp_create__addprogr">
+                                        <label class="cmp_create__upload uploading">
+                                            <input type="file" name="progr_photo" accept="image/*">
+                                            <span class="uploading__open">Фото</span>
+                                            <!-- <div class="uploading__change">Изменить фото</div> -->
+                                        </label>
+                                        <div class="cmp_create__addprogr-times">
+                                            <div class="cmp_create__irow-label">Длительность</div>
+                                            <div class="cmp_create__ci">
+                                                <input type="text" name="progr_dato_from" class="input input--camp input--date cmp_create__inpwsm datepicker-input" placeholder="Дата с">
+                                                <input type="text" name="progr_dato_from" class="input input--camp input--date cmp_create__inpwsm datepicker-input" placeholder="Дата по">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cmp_create__iaction">
+                                        <a href="#" class="link link--nound">Сохранить</a>
+                                        <a href="#" class="link link--nound">Удалить</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cmp_create__blocks js-accord-item">
+                        <div class="cmp_create__blocks-head js-accord-toggle">
+                            <div class="cmp_create__blocks-title">Стоимость</div>
+                        </div>
+                        <div class="cmp_create__blocks-body js-accord-body js-camp-inputs">
+                            <a href="#" class="cmp_create__ibox-label  js-camp-inputs-add">Добавить цену</a>
+                            <div class="cmp_create__ibox js-camp-inputs-row">
+                                <a href="#" class="cmp_create__ibox-label hide js-camp-inputs-remove">Удалить цену</a>
+                                <div class="cmp_create__irow cmp_create__addprice ">    
+                                    <div class="cmp_create__addprice-inputs cmp_create__ci">
+                                        <div>
+                                            <div class="cmp_create__irow-label">Цена</div>
+                                            <input type="text" name="var_price_from_1[]" class="input input--camp cmp_create__inpwsm" placeholder="о руб">
+                                        </div>
+                                        <div>
+                                            <div class="cmp_create__irow-label">Действует до</div>
+                                            <input type="text" name="var_date_from_1[]" class="input input--camp input--date cmp_create__inpwsm datepicker-input" placeholder="Дата до">
+                                        </div>
+                                    </div>
+    
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cmp_create__blocks js-accord-item">
+                        <div class="cmp_create__blocks-head js-accord-toggle">
+                            <div class="cmp_create__blocks-title">Скидки</div>
+                        </div>
+                        <div class="cmp_create__blocks-body js-accord-body">
+                            <div class="cmp_create__ibox cmp_create__imw js-camp-inputs">
+                                <a href="#" class="cmp_create__ibox-label  js-camp-inputs-add">Добавить скидку</a>
+                                
+                                <div class="cmp_create__irow">
+                                    <div class="cmp_create__ci cmp_create__rowsale">
+                                        <div class="cmp_create__ci-wall">
+                                            <div class="cmp_create__irow-label">Кому</div>
+                                            <input type="text" name="sale_whom_from[]" class="input input--camp" placeholder="">
+                                        </div>
+                                        <div>
+                                            <div class="cmp_create__irow-label">Размер (руб)</div>
+                                            <input type="text" name="sale_val_from[]" class="input input--camp cmp_create__inpwsm" placeholder="0 руб">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cmp_create__irow  js-camp-inputs-row">
+                                    <a href="#" class="cmp_create__ibox-label hide js-camp-inputs-remove">Удалить скидку</a>
+                                    <div class="cmp_create__ci cmp_create__rowsale">
+                                        <div class="cmp_create__ci-wall">
+                                            <div class="cmp_create__irow-label">Кому</div>
+                                            <input type="text" name="sale_whom_from[]" class="input input--camp" placeholder="">
+                                        </div>
+                                        <div>
+                                            <div class="cmp_create__irow-label">Размер (руб)</div>
+                                            <input type="text" name="sale_val_from[]" class="input input--camp cmp_create__inpwsm" placeholder="0 руб">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cmp_create__irow">
+                                    <div class="cmp_create__irow-label">Описание скидок</div>
+                                    <textarea name="sale_descr" class="input input--camp" placeholder="Введите описание"></textarea>
+                                </div>
+                            </div>    
+                        </div>
+                    </div>
+                    
+                    <div class="cmp_create__blocks js-accord-item">
+                        <div class="cmp_create__blocks-head js-accord-toggle">
+                            <div class="cmp_create__blocks-title">Смена</div>
+                        </div>
+                        <div class="cmp_create__blocks-body js-accord-body  js-camp-inputs">
+                            <a href="#" class="cmp_create__ibox-label  js-camp-inputs-add">Добавить смену</a>
+                            <div class="cmp_create__ibox js-camp-inputs-row">
+                                <a href="#" class="cmp_create__ibox-label hide js-camp-inputs-remove">Удалить смену</a>
+                                <div class="cmp_create__irow cmp_create__imw cmp_create__addshift ">
+                                    <div>
+                                        <div class="cmp_create__irow-label">Номер</div>
+                                        <input type="text" name="shift_numb[]" class="input input--camp cmp_create__inpwsm" placeholder="№">
+                                    </div>
+                                    <div class="cmp_create__times">
+                                        <div class="cmp_create__irow-label">Длительность</div>
+                                        <div class="cmp_create__ci">
+                                            <input type="text" name="shift_date_from[]" class="input input--camp input--date cmp_create__inpwsm datepicker-input" placeholder="Дата с">
+                                            <input type="text" name="shift_date_to[]" class="input input--camp input--date cmp_create__inpwsm datepicker-input" placeholder="Дата по">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>    
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="cmp_create__blocks js-accord-item">
+                        <div class="cmp_create__blocks-head js-accord-toggle">
+                            <div class="cmp_create__blocks-title">Преимущества</div>
+                        </div>
+                        <div class="cmp_create__blocks-body js-accord-body  js-camp-inputs">
+                            <a href="#" class="cmp_create__ibox-label  js-camp-inputs-add">Добавить преимущество</a>
+                            
+                            <div class="cmp_create__ibox cmp_create__imw  js-camp-inputs-row">
+                                <a href="#" class="cmp_create__ibox-label hide js-camp-inputs-remove">Удалить преимущество</a>
+                                <div class="cmp_create__irow">
+                                    <div class="cmp_create__irow-label">Заголовок</div>
+                                    <input name="advant_title[]" class="input input--camp" placeholder="Введите заголовок">
+                                </div>
+                                <div class="cmp_create__irow">
+                                    <div class="cmp_create__irow-label">Заголовок</div>
+                                    <textarea name="advant_descr[]" class="input input--camp" placeholder="Введите описание"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="cmp_create__blocks js-accord-item">
+                        <div class="cmp_create__blocks-head js-accord-toggle">
+                            <div class="cmp_create__blocks-title">Распорядок дня</div>
+                        </div>
+                        <div class="cmp_create__blocks-body js-accord-body  js-camp-inputs">
+                            <a href="#" class="cmp_create__ibox-label  js-camp-inputs-add">Добавить пункт распорядка</a>
+
+                            <div class="cmp_create__ibox cmp_create__imw  js-camp-inputs-row">
+                                <a href="#" class="cmp_create__ibox-label hide js-camp-inputs-remove">Удалить пункт распорядка</a>
+                                <div class="cmp_create__irow">
+                                    <div class="cmp_create__irow-label">Заголовок</div>
+                                    <input name="schedule_title[]" class="input input--camp" placeholder="Введите заголовок">
+                                </div>
+                                <div class="cmp_create__irow">
+                                    <div class="cmp_create__irow-label">Описание</div>
+                                    <textarea name="schedule_descr[]" class="input input--camp" placeholder="Введите описание"></textarea>
+                                </div>
+                                <div class="cmp_create__irow">
+                                    <div class="cmp_create__irow-label">Время</div>
+                                    <div class="cmp_create__ci">
+                                        <div class="cmp_create__ci-col">
+                                            <div class="cmp_create__irow-label">От</div>
+                                            <select class="styler styler--camp cmp_create__inpwsm" name="schedule_time_from[]" data-placeholder="выбрать">
+                                                <option value=""></option>
+                                                <option value="9:00">9:00</option>
+                                                <option value="10:00">10:00</option>
+                                                <option value="11:00">11:00</option>
+                                                <option value="12:00">12:00</option>
+                                                <option value="13:00">13:00</option>
+                                                <option value="14:00">14:00</option>
+                                                <option value="15:00">15:00</option>
+                                                <option value="16:00">16:00</option>
+                                                <option value="17:00">17:00</option>
+                                                <option value="18:00">18:00</option>
+                                            </select>
+                                        </div>
+                                        <div class="cmp_create__ci-col">
+                                            <div class="cmp_create__irow-label">До</div>
+                                            <select class="styler styler--camp cmp_create__inpwsm" name=schedule_time_to[]" data-placeholder="выбрать">
+                                                <option value=""></option>
+                                                <option value="9:00">9:00</option>
+                                                <option value="10:00">10:00</option>
+                                                <option value="11:00">11:00</option>
+                                                <option value="12:00">12:00</option>
+                                                <option value="13:00">13:00</option>
+                                                <option value="14:00">14:00</option>
+                                                <option value="15:00">15:00</option>
+                                                <option value="16:00">16:00</option>
+                                                <option value="17:00">17:00</option>
+                                                <option value="18:00">18:00</option>
+                                            </select>
+                                        </div>    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="cmp_create__blocks js-accord-item">
+                        <div class="cmp_create__blocks-head js-accord-toggle">
+                            <div class="cmp_create__blocks-title">Фотогалерея</div>
+                        </div>
+                        <div class="cmp_create__blocks-body js-accord-body js-camp-inputs">
+                            <a href="#" class="cmp_create__ibox-label js-camp-inputs-add">Добавить фото</a>
+                            
+                            <div class="cmp_create__ibox cmp_create__imw js-camp-inputs-row">
+                                <a href="#" class="cmp_create__ibox-label hide js-camp-inputs-remove">Удалить фото</a>
+                                <div class="cmp_create__irow-label">Загрузить 2 - 4 фото</div>
+                                <label class="cmp_create__upload uploading">
+                                    <input type="file" name="gallery_photo[]" accept="image/*">
+                                    <span class="uploading__open">Фото</span>
+                                    <!-- <div class="uploading__change">Изменить фото</div> -->
+                                </label>
+                                <div class="cmp_create__iaction gap--md">
+                                    <label class="form__lcheck"><input type="radio" class="styler styler--camp" name="gallery_action" value="save" data-value="save" checked><span>Сохранить</span></label>
+                                    <label class="form__lcheck"><input type="radio" class="styler styler--camp" name="gallery_action" value="delete" data-value="delete"><span>Удалить</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cmp_create__blocks js-accord-item">
+                        <div class="cmp_create__blocks-head js-accord-toggle">
+                            <div class="cmp_create__blocks-title">Отзывы</div>
+                        </div>
+                        <div class="cmp_create__blocks-body js-accord-body js-camp-inputs">
+                            <a href="#" class="cmp_create__ibox-label js-camp-inputs-add">Добавить отзыв</a>
+                            
+                            <div class="cmp_create__ibox cmp_create__imw js-camp-inputs-row">
+                                <a href="#" class="cmp_create__ibox-label hide js-camp-inputs-remove">Удалить отзыв</a>
+                                <div class="cmp_create__irow">
+                                    <div class="cmp_create__irow-label">Имя пользователя</div>
+                                    <input name="review_title[]" class="input input--camp" placeholder="Введите имя">
+                                </div>
+                                <div class="cmp_create__irow">
+                                    <div class="cmp_create__irow-label">Отзыв</div>
+                                    <textarea name="review_descr[]" class="input input--camp" placeholder="Введите отзыв"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cmp_create__blocks js-accord-item">
+                        <div class="cmp_create__blocks-head js-accord-toggle">
+                            <div class="cmp_create__blocks-title">Часто задаваемые вопросы</div>
+                        </div>
+                        <div class="cmp_create__blocks-body js-accord-body js-camp-inputs">
+                            <a href="#" class="cmp_create__ibox-label js-camp-inputs-add">Добавить вопрос</a>
+                            
+                            <div class="cmp_create__ibox cmp_create__imw js-camp-inputs-row">
+                                <a href="#" class="cmp_create__ibox-label hide js-camp-inputs-remove">Удалить вопрос</a>
+                                <div class="cmp_create__irow">
+                                    <div class="cmp_create__irow-label">Вопрос</div>
+                                    <input name="quest_title[]" class="input input--camp" placeholder="Введите вопрос">
+                                </div>
+                                <div class="cmp_create__irow">
+                                    <div class="cmp_create__irow-label">Ответ</div>
+                                    <textarea name="quest_descr[]" class="input input--camp" placeholder="Введите ответ"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="cmp_create__blocks js-accord-item">
+                        <div class="cmp_create__blocks-head js-accord-toggle">
+                            <div class="cmp_create__blocks-title">Условия размещения</div>
+                        </div>
+                        <div class="cmp_create__blocks-body js-accord-body js-camp-inputs">
+                            <div class="cmp_create__ibox cmp_create__imw js-camp-inputs-row">
+                                <div class="cmp_create__irow">
+                                    <div class="cmp_create__irow-label">Название объекта</div>
+                                    <input name="name_obj" class="input input--camp" placeholder="Введите название">
+                                </div>
+                                <div class="cmp_create__irow">
+                                    <div class="cmp_create__irow-label">Описание места раземещения детей</div>
+                                    <textarea name="desc_place" class="input input--camp" placeholder="Введите описание "></textarea>
+                                </div>
+                                <div class="cmp_create__irow">
+                                    <div class="cmp_create__irow-label">Область</div>
+                                    <input name="region" class="input input--camp" placeholder="">
+                                </div>
+                                <div class="cmp_create__irow cmp_create__imw--sm">
+                                    <div class="cmp_create__irow-label">Адрес от областного центра</div>
+                                    <input name="address" class="input input--camp" placeholder="">
+                                </div>
+                                <div class="cmp_create__irow cmp_create__imw--sm">
+                                    <div class="cmp_create__irow-label">Расстояние</div>
+                                    <input name="distance" class="input input--camp" placeholder="">
+                                </div>
+                                <div class="cmp_create__irow cmp_create__imw--sm">
+                                    <div class="cmp_create__irow-label">Координаты</div>
+                                    <input name="coord" class="input input--camp" placeholder="">
+                                </div>
+                                <div class="cmp_create__irow cmp_create__imw--sm">
+                                    <div class="cmp_create__irow-label">Сайт</div>
+                                    <input name="site" class="input input--camp" placeholder="">
+                                </div>
+                                <div class="cmp_create__ci cmp_create__irow">
+                                    <div class="cmp_create__ci-wall">
+                                        <div class="cmp_create__irow-label">Трансфер от</div>
+                                        <input type="text" name="address_transfer" class="input input--camp" placeholder="Адрес">
+                                    </div>
+                                    <div>
+                                        <div class="cmp_create__irow-label">Время</div>
+                                        <select class="styler styler--camp cmp_create__inpwsm" name="time_transfer" data-placeholder="выбрать">
+                                            <option value=""></option>
+                                            <option value="9:00">9:00</option>
+                                            <option value="10:00">10:00</option>
+                                            <option value="11:00">11:00</option>
+                                            <option value="12:00">12:00</option>
+                                            <option value="13:00">13:00</option>
+                                            <option value="14:00">14:00</option>
+                                            <option value="15:00">15:00</option>
+                                            <option value="16:00">16:00</option>
+                                            <option value="17:00">17:00</option>
+                                            <option value="18:00">18:00</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                        
+                                <div class="cmp_create__irow">
+                                    <div class="cmp_create__irow-label">Питание</div>
+                                    <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name="1 раз"><span>1 раз</span></label>
+                                    <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name="2х разовое"><span>2х разовое</span></label>
+                                    <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name="3х разовое"><span>3х разовое</span></label>
+                                    <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name="4х разовое"><span>4х разовое</span></label>
+                                    <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name="5 разовое"><span>5 разовое</span></label>
+                                    <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name="6 разовое"><span>6 разовое</span></label>
+                                </div>
+                                <div class="cmp_create__irow">
+                                    <textarea name="desc_nutr" class="input input--camp" placeholder="Введите описание "></textarea>
+                                </div>
+                                
+                                        
+                                <div class="cmp_create__irow">
+                                    <div class="cmp_create__irow-label">Размещение в номерах</div>
+                                    <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name="rooms" value="2х местные"><span>2х местные</span></label>
+                                    <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name="rooms" value="3х местные"><span>3х местные</span></label>
+                                    <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name="rooms" value="4х местные"><span>4х местные</span></label>
+                                </div>
+                                <div class="cmp_create__irow">
+                                    <textarea name="desc_rooms" class="input input--camp" placeholder="Введите описание "></textarea>
+                                </div>
+
+
+                                <div class="cmp_create__irow">
+                                    <div class="cmp_create__irow-label">Санузел, душ</div>
+                                    <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name="" value="В номере"><span>В номере</span></label>
+                                    <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name="" value="В блоке"><span>В блоке</span></label>
+                                    <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name="" value="На этаже"><span>На этаже</span></label>
+                                </div>
+                                
+                                <div class="cmp_create__irow">
+                                    <div class="cmp_create__irow-label">Бассейн</div>
+                                    <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name="" value="Нет"><span>Нет</span></label>
+                                    <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name="" value="Включен в стоимость"><span>Включен в стоимость</span></label>
+                                    <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name="" value="За дополнительную оплату"><span>За дополнительную оплату</span></label>
+                                </div>
+                                
+                                <div class="cmp_create__irow">
+                                    <div class="cmp_create__irow-label">Wi - fi</div>
+                                    <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name="wifi" value="Нет"><span>Нет</span></label>
+                                    <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name="wifi" value="Есть"><span>Есть</span></label>
+                                </div>
+                            </div>
+                             
+                        </div>
+                    </div>
+                    
+
+                    <div class="cmp_create__buttons">
+                        <button class="btn btn--purple btn--sm" type="submit">Опубликовать</button>
+                        <button class="cmp_create__sdraft btn btn--bdpurple btn--sm" type="button">Сохранить черновик</button>
+                    </div>
+                </form>
+            </div>
+        </section><!--  -->
+
+
+    </main>
+    <!--content__wrapper-->
+   
+    @@include('html/camp/cmp_footer.html', {
+        "active_menu": ""
+    })
+
+</section>
+
+@@include('html/popup.html', {})
+
+</body>
+
+</html>

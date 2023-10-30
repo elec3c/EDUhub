@@ -29,9 +29,6 @@
                     </div>
 
 
-
-
-
                     {set $budgetReplenishmentCurrMonth = '@FILE /snippets/budgetReplenishmentCurrMonth.php' | snippet : ['user_id' => $user_id]}
                     <div class="balance__item accord opened">
                         <div class="balance__item-label accord-toggle">
@@ -41,12 +38,15 @@
                             <ul class="accord-body" style="display: none;">
                                 {set $i = 0}
                                 {foreach $budgetReplenishmentCurrMonthList as $k=>$v}
-                                {set $i = $i + 1}
+                                    {set $i = $i + 1}
+                                    {set $budgetOperation = '!getBudgetOperation' | snippet: ['date' => $k]} 
+                                    <div class="clearfix" style="position: relative;">
                                     <li>{$i}) {$.php.date('d.m.Y H:i', $k)} &mdash; {$v} р.</li>
+                                    {if $budgetOperation['name']}<div class="tool-tip slideIn top">{$budgetOperation['name']}</div>{/if}
+                                    </div>
                                 {/foreach}
                             </ul>
                             {/if}
-                            
                         </div>
                         <div class="balance__item-val">
                             {$budgetReplenishmentCurrMonth} руб.
@@ -140,12 +140,12 @@
                         </div>
                     </div>
 
-                    {set $r = '!checkUserFields'|snippet:[
+                    {*set $r = '!checkUserFields'|snippet:[
                                 'fields' => 'unp,bik,rs,bank,addr_bank', 
                                 'user_id' => $user_id, 
-                                'check' => 1]}
+                                'check' => 1]*}
 
-                    {if $r == 1}
+                    {*if $r == 1}
 
                         {'!AjaxForm'|snippet:[
                                 'snippet' => 'FormIt',
@@ -161,7 +161,7 @@
 
                         Чтобы пополнить счет, необходимо заполнить <a href="{$modx->makeUrl(35)}{if $.get.user_id}?user_id={$.get.user_id}{/if}" class="link">профиль школы</a>
 
-                    {/if}
+                    {/if*}
                     </div>
                     
                     <div class="balance__col">
@@ -170,21 +170,62 @@
                             <div class="balance__item-label">Остаток на начало месяца</div>
                             <div class="balance__item-val">0</div>
                         </div>
-                        <div class="balance__item">
-                            <div class="balance__item-label">Начислено в текущем месяце</div>
-                            <div class="balance__item-val">60</div>
+                        {set $budgetBonusReplenishmentCurrMonth = '@FILE /snippets/budgetBonusReplenishmentCurrMonth.php' | snippet : ['user_id' => $user_id]}
+                        <div class="balance__item accord opened">
+                            <div class="balance__item-label accord-toggle">
+                                Пополнения в текущем месяце
+                                {if $budgetBonusReplenishmentCurrMonth > 0}
+                                {set $budgetBonusReplenishmentCurrMonthList = '@FILE /snippets/budgetBonusReplenishmentCurrMonth.php' | snippet : ['user_id' => $user_id, 'arr'=>1]}
+                                <ul class="accord-body" style="display: none;">
+                                    {set $i = 0}
+                                    {foreach $budgetBonusReplenishmentCurrMonthList as $k=>$v}
+                                        {set $i = $i + 1}
+                                        {set $budgetBonusOperation = '!getBudgetBonusOperation' | snippet: ['date' => $k]} 
+                                        <div class="clearfix" style="position: relative;">
+                                        <li>{$i}) {$.php.date('d.m.Y H:i', $k)} &mdash; {$v} р.</li>
+                                        {if $budgetBonusOperation['name']}<div class="tool-tip slideIn top">{$budgetBonusOperation['name']}</div>{/if}
+                                        </div>
+                                    {/foreach}
+                                </ul>
+                                {/if}
+                            </div>
+                            
+                            
+                            <div class="balance__item-val">
+                                {$budgetBonusReplenishmentCurrMonth} руб.
+                            </div>
                         </div>
                         <div class="balance__item">
                             <div class="balance__item-label">Зарезервировано</div>
                             <div class="balance__item-val">0</div>
                         </div>
-                        <div class="balance__item">
-                            <div class="balance__item-label">Списано</div>
-                            <div class="balance__item-val">0</div>
+
+                        {set $budgetBonusWriteOffCurrMonth = '@FILE /snippets/budgetBonusWriteOffCurrMonth.php' | snippet : ['user_id' => $user_id]}
+                        <div class="balance__item accord opened">
+                            <div class="balance__item-label accord-toggle">
+                                Списано в текущем месяце
+                                {if $budgetBonusWriteOffCurrMonth < 0}
+                                {set $budgetBonusWriteOffCurrMonthList = '@FILE /snippets/budgetBonusWriteOffCurrMonth.php' | snippet : ['user_id' => $user_id, 'arr'=>1]}
+                                <ul class="accord-body" style="display: none;">
+                                    {set $i = 0}
+                                    {foreach $budgetBonusWriteOffCurrMonthList as $k=>$v}
+                                    {set $i = $i + 1}
+                                        <li>{$i}) {$.php.date('d.m.Y H:i', $k)} &mdash; {$v} р.</li>
+                                    {/foreach}
+                                </ul>
+                                {/if}
+                            </div>
+                            <div class="balance__item-val">
+                                {$budgetBonusWriteOffCurrMonth} руб.
+                            </div>
                         </div>
+
+
                         <div class="balance__item">
                             <div class="balance__item-label">Свободный остаток</div>
-                            <div class="balance__item-val">60</div>
+                            <div class="balance__item-val">
+                                {'@FILE /snippets/budgetBonusSum.php' | snippet : ['user_id' => $user_id]} руб.
+                            </div>
                         </div>
                     </div>
                     

@@ -2,6 +2,9 @@
     <input type="hidden" name="action" value="auth/formLogin">
     <input type="hidden" name="return" value="" />
     <input type="hidden" name="redirect" value="">
+	{if $.get.invite}
+	    <input type="hidden" name="invite" value="{$.get.invite}"/>
+	{/if}    
     <input name="controll" class="no-display" type="text">
     <div class="input__row">
         <input type="text" name="username" class="input" id="office-auth-login-username" placeholder="Электронный адрес" required>

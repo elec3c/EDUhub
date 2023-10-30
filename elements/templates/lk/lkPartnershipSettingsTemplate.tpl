@@ -2,20 +2,17 @@
 {block 'content'}
 
     {set $user_id = $.php.intval($.get.user_id)?:$_modx->user.id}
-    
+    {set $verified = $user_id | user:'verified'}
     <main class="content__wrapper">
-
         {insert 'file:chunks/users/user.menu.tpl'}
-
         <section class="lk section__mgb">
             <div class="container">
                 <div class="section__head">
                     <h2 class="section__title">Партнерские программы</h2>
                 </div>
-                
+                {if $verified}
                 {include 'file:chunks/users/user.submenu.tpl' pid='1122'}
-                
-                {set $verified = $user_id | user:'verified'}
+                {/if}
                 {if $verified}
                 <div class="ppsettings">
                     <div class="ppsettings__cols">
@@ -72,30 +69,39 @@
                                 <div class="ppsettings__item">
                                     <div class="input__row">
                                     {if !$employee_code}
-                                    
                                         <input type="text" class="btn w-all generate-link-employee" data-user="{$user_id}" value="Сгенерировать ссылку для сотрудников" readonly>
                                     {else}
                                         <input type="text" class="btn btn--red w-all reset-link-employee" data-user="{$user_id}" value="Сбросить ссылку для сотрудников" readonly>
                                     {/if}
                                     </div>
                                     <div class="input__row">
-                                        <input type="url" name="employee_link" class="input" placeholder="Тут появится ссылка" id="employee-code-{$user_id}" value="{if $employee_code!=''}{'!createEmployeeLink'|snippet:['user_id' => $user_id]}{/if}">
+                                        <input type="url" name="employee_link" class="input" placeholder="Тут появится ссылка" id="employee-code-{$user_id}" value="{if $employee_code!=''}{'@FILE /snippets/createEmployeeLink.php' | snippet : ['user_id' => $user_id]}{/if}">
                                     </div>                                    
                                 </div>
                             {/if}
-
                         </div>
 
+
+
+
+
                         <div class="ppsettings__col">
-                            <!--<div class="ppsettings__item">
+                            {if $partnershipJoin}
+                            {set $employee_promocode = $user_id | user:'employee_promocode'}
+                            <div class="ppsettings__item">
                                 <div class="input__row">
-                                    <button class="btn w-all">Сгенерировать промокод</button>
+                                    {if !$employee_promocode}
+                                        <input type="text" class="btn w-all generate-promocode-employee" data-user="{$user_id}" value="Сгенерировать промокод" readonly>
+                                    {else}
+                                        <input type="text" class="btn btn--red w-all reset-promocode-employee" data-user="{$user_id}" value="Сбросить промокод" readonly>
+                                    {/if}
                                 </div>    
                                 <div class="input__row">
-                                    <input type="text" name="promocode" class="input" placeholder="Поле с промокодом">
+                                    <input type="text" name="employee_promocode" class="input" placeholder="Поле с промокодом" id="employee-promocode-{$user_id}" value="{if $employee_promocode!=''}{'@FILE /snippets/createEmployeePromocode.php' | snippet : ['user_id' => $user_id]}{/if}">
                                 </div>  
-                                <button class="btn btn--purple w-all">Сохранить</button>
-                            </div>-->
+                            </div>
+                            {/if}
+                            
                             <div class="ppsettings__item">
                                 <div class="input__row">
                                     {'!AjaxForm'|snippet:[

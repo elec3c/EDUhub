@@ -56,7 +56,7 @@
                                 'innerJoin'=>[
                                     'EduPartnershipResponse'=>[
                                         'class'=>'EduPartnershipResponse',
-                                        'on'=>'EduPartnership.id = EduPartnershipResponse.partnership_id',
+                                        'on'=>'EduPartnership.id = EduPartnershipResponse.partnership_id AND EduPartnership.to_user_id = EduPartnershipResponse.school_id',
                                         ],
                                 ],                                    
                                 'select'=>[
@@ -65,7 +65,7 @@
                                 ],
                                 'where'=>[                              
                                     'EduPartnership.from_user_id'  => $user_id,
-                                    'EduPartnershipResponse.status_id:IN' => [1,3]
+                                    'EduPartnershipResponse.status_id:IN' => [1,3,8]
                                 ],
                                 'sortby'=>[
                                     'EduPartnership.id'=>'DESC',
