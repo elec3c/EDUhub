@@ -13,11 +13,11 @@
     
 {/if}
 
-{if $_modx->resource.template == 8}
-    {set $url = $pageID | url}
-{else}
+{*if $_modx->resource.template == 8*}
+    {*set $url = $pageID | url*}
+{*else*}
     {set $url = $id | url}
-{/if}
+{*/if*}
 
 {if $photo}
     {if $url && $href != 'hide'}

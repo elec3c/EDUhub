@@ -34,6 +34,20 @@
             </div>
         </div>
     </div>
+
+    <div class="cadd__block">
+        <div class="cadd__label">Форма и формат обучения</div>
+        <div class="cadd__inputs cadd__in1">
+            <div class="cadd__input w-1">
+                {include 'file:chunks/forms/fields/fields.courses.form_of_study.tpl' req=0}
+            </div>            
+            <div class="cadd__input w-320 w-2">
+                {include 'file:chunks/forms/fields/fields.courses.format_of_study.tpl' req=0}
+            </div>
+        </div>
+    </div>
+    
+    
     <div class="cadd__block">
         <div class="cadd__label">Продолжительность</div>
         <div class="cadd__inputs cadd__in1">
@@ -54,20 +68,15 @@
     <div class="cadd__block">
         <div class="cadd__label">Детали</div>
         <div class="cadd__inputs cadd__in1">
-            <div class="cadd__input w-1">
-                {include 'file:chunks/forms/fields/fields.courses.format_of_study.tpl' req=0}
-            </div>            
             <div class="cadd__input w-320 w-2">
-                {include 'file:chunks/forms/fields/fields.courses.form_of_study.tpl' req=0}
-            </div>
-            <div class="cadd__input w-320 w-2">
-                {include 'file:chunks/forms/fields/fields.courses.num_people_in_group.tpl' req=1}
+                {include 'file:chunks/forms/fields/fields.courses.time.tpl' req=0}
             </div>
             <div class="cadd__input w-220 w-2">
                 {include 'file:chunks/forms/fields/fields.courses.schedule.tpl' req=0}
             </div>
             <div class="cadd__input w-220 w-2">
-                {include 'file:chunks/forms/fields/fields.courses.time.tpl' req=0}
+                {include 'file:chunks/forms/fields/fields.courses.num_people_in_group.tpl' req=1}
+                
             </div>
         </div>
         <div class="cadd__inputs cadd__in3">

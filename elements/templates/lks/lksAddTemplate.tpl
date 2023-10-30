@@ -24,7 +24,7 @@
                 {/switch}
             {/if}
                     
-            {if (($.get.type=="group") && ($.get.copy) && ($.get.edit is empty) && ($.get.delete is empty))}
+            {if ((($.get.type=="course") || ($.get.type=="group")) && ($.get.copy) && ($.get.edit is empty) && ($.get.delete is empty))}
                 <div class="section__head">
                     <h2 class="section__title">Добавить {$type}<br/> на основе {$.get.copy | resource:'course_group_title'}</h2>
                 </div>  
@@ -95,7 +95,7 @@
                     'snippet' => 'FormIt',
                     'form' => '@FILE chunks/forms/courses.'~$.get.type~'.form.add.tpl',
                     'hooks' => 'FormIt2Resource',
-                    'validate' => 'course_group_title:required,course_category:required,course_sub_category:required,course_duration:required,num_lesson_per_week:required, price_course:required,num_people_in_group:required,for_levels_from:required,for_levels_to:required,for_ages_from:required,for_ages_to:required,price_course:required,num_months_of_study:required,price_course_month:required',
+                    'validate' => 'course_group_title:required,course_category:required,course_sub_category:required,course_duration,num_lesson_per_week:required, price_course,num_people_in_group:required,for_levels_from:required,for_levels_to:required,for_ages_from:required,for_ages_to:required,num_months_of_study,price_course_month',
                     'template' => 8,
                     'validationErrorMessage' => 'В форме содержатся ошибки!',
                     'successMessage' => 'Успешное создание '~$ok_type,

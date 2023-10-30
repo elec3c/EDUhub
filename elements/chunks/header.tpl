@@ -1,4 +1,4 @@
-    <header class="header">
+    <header class="header cmp_header">
     	<div class="container">
     		<div class="header__wrap">
     			<div class="header__logo">
@@ -8,7 +8,9 @@
 	    				<a href="/"><img src="/assets/images/logo.svg" alt="{$_modx->config.site_name}"></a>
     				{/if}
     			</div>
-    			<a href="#" class="header__linkcat open-category">
+    			<a href="{1615 | url}" class="header__linkcat">Все курсы</a>
+    			
+    			{*<a href="{1615 | url}" class="header__linkcat open-category">
     				<span class="hide-tablet-sm">Категории курсов</span>
     				<span class="show-tablet-sm">Курсы</span>
     				<svg class="icon-open" width="10" height="6" viewBox="0 0 10 6" fill="none"
@@ -24,7 +26,7 @@
     					<path d="M9.5 9.75L5.25 5.25L1 9.75" stroke="#9D68F8" stroke-width="1.5" stroke-linecap="round"
     						stroke-linejoin="round" />
     				</svg>
-    			</a>
+    			</a>*}
                 {include 'file:chunks/menu/header.menu.tpl'}
     			{include 'file:chunks/search/search.bar.tpl'}
     			{'!officeAuth' | snippet : ['HybridAuth'=>0,'tplLogin'=>'my.tpl.Office.auth.login','tplLogout'=>'my.tpl.Office.auth.logout']}
@@ -60,12 +62,12 @@
 
     				<div class="header__navfix-col header__navfix-col--center">
     					<div class="header__navfix-gmi">
-                            {include 'file:chunks/menu/header.menu.tpl'}    					    
+                            {include 'file:chunks/menu/header.menu.right.tpl'}    					    
     						{include 'file:chunks/header.contact.tpl'}
     					</div>
     				</div>
     				<div class="header__navfix-col header__navfix-col--right">
-    				    {if 'standard' | mobiledetect}		    
+    				    {if 'standard' | mobiledetect}	
         					{*<button class="btn w-all" data-open-popup="call">Заказать звонок</button>*}
         					{if !('' | isloggedin : 'web')}
     	    					<a href="" class="btn btn--purple w-all show-tablet-sm" data-open-popup="auth_course">Добавить курс</a>

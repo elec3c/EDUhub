@@ -13,7 +13,7 @@
 
 <div class="clearfix" style="position: relative;">
     <select name="for_levels_from" id="level-from-select" data-placeholder="Для уровня от {if $req==1}*{/if}" class="{$styler}" {if $req==1}required{/if}>
-        <option value=""></option>
+        <option class="option-hide" value=""></option>
         {$_modx->runSnippet('getValuesTV', ['tvid'=>'27', 'chained'=>'11', 'curr'=>$for_levels_from])}
         {$_modx->runSnippet('getValuesTV', ['tvid'=>'46', 'chained'=>'10', 'curr'=>$for_levels_from])}
         {$_modx->runSnippet('getValuesTV', ['tvid'=>'27', 'chained'=>'520', 'curr'=>$for_levels_from])}

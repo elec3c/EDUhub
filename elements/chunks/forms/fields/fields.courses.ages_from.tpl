@@ -7,7 +7,7 @@
 {set $curr = $res_id | resource : 'for_ages_from'}
 <div class="clearfix" style="position: relative;">
     <select name="for_ages_from" data-placeholder="Для возраста от {if $req==1}*{/if}" class="{$styler}" id="for_ages_from" {if $req==1}required{/if}> 
-        <option value="">пусто</option>
+        <option class="option-hide" value="">пусто</option>
         {foreach 2..100 as $value}
         <option value="{$value}" {if $value==$curr}selected{/if}>{$value}</option>
         {/foreach}

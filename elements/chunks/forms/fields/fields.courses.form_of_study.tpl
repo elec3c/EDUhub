@@ -6,7 +6,7 @@
 
 <div class="clearfix" style="position: relative;">
     <select name="form_of_study" data-placeholder="Форма обучения {if $req==1}*{/if}" class="{$styler}" id="form_of_study" {if $req==1}required{/if}>
-        <option value="">&nbsp;</option>
+        <option class="option-hide" value="">&nbsp;</option>
         [[!getValuesTV?  &tvid = `25` &curr = `[[!+fi.form_of_study]]`]]
     </select>
     {if $_modx->resource.template == 11}

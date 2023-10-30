@@ -9,7 +9,7 @@
 <section class="rkp section__mg">
     <div class="container">
     {if $userPageID}        
-        <form action="[[~[[*id]]]]" class="rkp__form" method="post" enctype="multipart/form-data">
+        <form action="[[~[[*id]]]]" class="rkp__form" method="post" enctype="multipart/form-data" id="profileSettingsForm">
             <input type="hidden" name="resource_id" value="{$userPageID}" />
             <input type="hidden" name="csrf-token" value="{$.session['csrf-token']}">
             <input type="hidden" name="type" value="{$type}">
@@ -27,6 +27,9 @@
     {/if}        
     </div>
 </section><!-- rkp -->
+
+
+
         
         
         

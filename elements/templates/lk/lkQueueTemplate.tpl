@@ -33,15 +33,54 @@
                                 <div class="cglistener__col cglistener__col--number"><div class="cglistener__label show-tablet-sm">Номер</div>{$idx}</div>
                                 <div class="cglistener__col"><div class="cglistener__label show-tablet">Дата внесения</div>{$date | date : "d.m.Y"}</div>
                                 <div class="cglistener__col"><div class="cglistener__label show-tablet">Запрос</div>
+
                                     {set $query = $.php.base64_decode($queue)}
-                                    <a href="{$_modx->makeUrl(18)}?{$query}&disableRefresh=1">
+                                    <a href="{$_modx->makeUrl(18)}?{$query}">
                                         {set $parseQuery = \'!parseGetQuery\' | snippet :[\'getQuery\'=>$query]}
+                                        
+                                        {set $A = \'!Unserialize\' | snippet :[\'str\'=>$query]}
+                                        
                                         {set $i = 0}
+                                        
+                                        {set $city_lat = $A["course_city"]}
+                                        {set $region_lat = $A["course_region"]}
+                                        {set $metro_lat = $A["course_metro"]}
+                                        
+                                        {set $city = $_modx->runSnippet("getListCities", ["name" => "city", "arr"=>1])}
+                                        {set $region = $_modx->runSnippet("getListCities", ["name" => "districts", "arr"=>1, "city"=>$city[$city_lat]])}
+                                        {set $metro = $_modx->runSnippet("getListCities", ["name" => "metro", "arr"=>1])}                                        
+
+                                        
                                         {foreach $parseQuery as $k=>$v}
                                            {set $i = $i + 1}
+                                           
                                            <b>{$k}:</b> {$v}{if count($parseQuery) != $i},{else}.{/if}
+                                           
                                         {/foreach}
+                                        
+                                
+                                        {if $city[$city_lat]}
+                                            , <b>Город:</b> {$city[$city_lat]}
+                                        {/if}
+                                        {if $region[$region_lat]}
+                                            , <b>Регион:</b> {$region[$region_lat]}
+                                            
+                                        {/if}
+                                        {if $metro[$metro_lat]}
+                                            , <b>Метро:</b> {$metro[$metro_lat]}
+                                        {/if}   
+                                        
+                                        
+
+                                        
                                     </a>
+                                    <br>
+                                        {set $detail = json_decode(base64_decode($detail))}
+                                        {set $time_from = $detail["time_from"]}
+                                        {set $time_to = $detail["time_to"]}
+                                        {set $days = $detail["days"]}
+                                        {implode(", ",$days)}<br>{if $time_from} с {$time_from}{/if}{if $time_to} до {$time_to}{/if}                                    
+                                    
                                 </div>
                                 <div class="cglistener__col cglistener__col--action">
                                     {*<a href="" class="cglistener-edit">

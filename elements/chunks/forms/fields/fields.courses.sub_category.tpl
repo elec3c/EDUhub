@@ -6,7 +6,7 @@
 
 <div class="clearfix" style="position: relative;">
     <select name="course_sub_category" data-placeholder="Подкатегория курса {if $req==1}*{/if}" class="{$styler}" id="sub_category-select" {if $req==1}required{/if}>
-        <option value="">&nbsp;</option>
+        <option class="option-hide" value="">&nbsp;</option>
 
         {*set $ids = '!pdoResources' | snippet : ['parents' => $_modx->config['site_parent_courses'], 'returnIds' => '1','depth'=>'0','limit'=>0]*}    
         {*set $arr = $ids|split*}

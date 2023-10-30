@@ -5,7 +5,7 @@
 {/if}
 <div class="clearfix" style="position: relative;">
     <select name="course_sub_category_type" data-placeholder="Направление {if $req==1}*{/if}" class="{$styler}" id="sub_category_type-select" {if $req==1}required{/if}>
-        <option value="">&nbsp;</option>
+        <option class="option-hide" value="">&nbsp;</option>
         [[!getValuesTV?  &tvid = `61` &chained=`44` &curr = `[[+fi.course_sub_category_type]]`]] <!-- for programming -->
         
         [[!getValuesTV?  &tvid = `121` &chained=`1348` &curr = `[[+fi.course_sub_category_type]]`]] <!-- for dancing -->

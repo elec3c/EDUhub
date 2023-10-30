@@ -12,7 +12,7 @@
 			</a>
 			<div class="popup__body">
 				<div class="popup__head">
-					<div class="popup__title">{$_modx->config.notificSaleDeclain?:"У вас уже есть активированная скидка этого типа<br> Для активации новой скидки вам необходимо отменить предыдущую."}</div>
+					<div class="popup__title" id="sale_declain_text">{$_modx->config.notificSaleDeclain?:"У вас уже есть активированная скидка этого типа<br> Для активации новой скидки вам необходимо отменить предыдущую."}</div>
 				</div>
 
 

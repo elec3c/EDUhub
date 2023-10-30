@@ -7,12 +7,18 @@
 <script type="text/javascript" src="/assets/js/jquery.formstyler.js"></script>
 <script type="text/javascript" src="/assets/js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="/assets/js/jquery.chained.min.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+
 <script type="text/javascript" src="/assets/js/scripts.js"></script>
+
+
 <script type="text/javascript" src="/assets/custom/custom.js"></script>
 
 {include 'file:chunks/ajax.form.redirectJS.tpl'} 
 
-{if ($_modx->resource.template == 3) || ($_modx->resource.template == 7) || ($_modx->resource.template == 9)}
+{if $_modx->resource.template in [3,7,9,24,25]}
 <script type="text/javascript" src="/assets/custom/filter.save.js"></script>
 {/if}
 {if ($_modx->resource.template in [10,11,18]) && ($_modx->resource.id in [1127,1128,1129])}
@@ -26,9 +32,7 @@
 {if ($_modx->resource.template == 11) && ($_modx->resource.parent==596)}
 <script type="text/javascript" src="/assets/custom/subscribe.buy.js"></script>
 {/if}
-{if $_modx->resource.id in [802,803]}
-<script type="text/javascript" src="/assets/js/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js">
-{/if}
+
 {if $_modx->resource.id in [313]}
 <script type="text/javascript" src="/assets/custom/promote.buy.js"></script>
 {/if}

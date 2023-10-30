@@ -1,3 +1,5 @@
+
+
             <div class="ssrequest__item-4cols">
                 <div class="ssrequest__item-4col col--category">
                     <div class="ssrequest__item-label">Категории</div>
@@ -10,7 +12,16 @@
                     </div>
                     {if $type != 'diff'}
                     <div class="ssrequest__item-rowc2">
-                        <div>Любой курс</div>
+                        {if $curr_direction[0]!=''}
+                            {set $category_ids = '&course_category_id='~implode(',',$curr_direction)}
+                        {else}
+                            {set $category_ids = ''}
+                        {/if}
+                        {if  $_modx->resource.id in [1121,1126]}
+                            <div><a href="{1386 | url}?from_user={$from_user_id}{if trim($category_ids)!=''}{$category_ids}{/if}">Любой курс</a></div>
+                        {else}
+                            <div>Любой курс</div>
+                        {/if}
                         <div>{$discount}{$discount_unit} ({$discount_for_what})</div>
                     </div>
                     {else}

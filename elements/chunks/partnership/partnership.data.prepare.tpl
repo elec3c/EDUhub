@@ -24,6 +24,7 @@
 
                                 
 
+
 {set $sales_list = '!pdoResources' | snippet : [
     'parents'=>'61',
     'depth'=>0,
@@ -32,6 +33,8 @@
     'sales'=>$sales,
     'a_discount_for_what'=>$a_discount_for_what,
     'a_discount_unit'=>$a_discount_unit,
+    'curr_page_id'=>$_modx->resource.id,
+    
         
     'tpl'=>'@CODE 
         
@@ -42,7 +45,12 @@
                 {if intval($discount) && !empty($discount_unit) && !empty($discount_for_what)}
                     {set $title = $_pls[\'tv.course_group_title\']?:$pagetitle}
                     {set $title = ucfirst(trim(str_replace(\'Шаблон\',\'\',$title)))}
-                    <div class="ssrequest__item-rowc2"><div>{$title|truncate:60:" ..."}</div><div>{$discount}&nbsp;{$discount_unit}&nbsp;({$discount_for_what})</div></div>                                        
+                    
+                    {if  $curr_page_id in [1397,1121,1126,1136]}
+                        <div class="ssrequest__item-rowc2"><div><a href="{$id | url}" style="text-decoration: underline;">{$title|truncate:60:" ..."}</a></div><div>{$discount}&nbsp;{$discount_unit}&nbsp;({$discount_for_what})</div></div>                                        
+                    {else}                    
+                        <div class="ssrequest__item-rowc2"><div>{$title|truncate:60:" ..."}</div><div>{$discount}&nbsp;{$discount_unit}&nbsp;({$discount_for_what})</div></div>                                        
+                    {/if}
                 {/if}
                                 
                 ',

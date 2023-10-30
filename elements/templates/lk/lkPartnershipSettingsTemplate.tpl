@@ -3,6 +3,18 @@
 
     {set $user_id = $.php.intval($.get.user_id)?:$_modx->user.id}
     {set $verified = $user_id | user:'verified'}
+    
+    
+    {set $agreement_paper = $user_id | user:'agreement_paper'}
+    {set $agreement_public_offer = $user_id | user:'agreement_public_offer'}
+    
+
+    {if !$agreement_paper && !$agreement_public_offer}
+        {set $show = false}
+    {else}
+        {set $show = true}
+    {/if}
+    
     <main class="content__wrapper">
         {insert 'file:chunks/users/user.menu.tpl'}
         <section class="lk section__mgb">
@@ -66,6 +78,7 @@
                                 
                             {else}
                                 {set $employee_code = $user_id | user:'employee_code'}
+                                {if $show}
                                 <div class="ppsettings__item">
                                     <div class="input__row">
                                     {if !$employee_code}
@@ -78,6 +91,19 @@
                                         <input type="url" name="employee_link" class="input" placeholder="Тут появится ссылка" id="employee-code-{$user_id}" value="{if $employee_code!=''}{'@FILE /snippets/createEmployeeLink.php' | snippet : ['user_id' => $user_id]}{/if}">
                                     </div>                                    
                                 </div>
+                                {else}
+                                <div class="ppsettings__item">
+                                    <div class="input__row">
+                                        {'!AjaxForm'|snippet:[
+                                            'snippet' => 'FormIt',
+                                            'form' => '@FILE chunks/forms/profile.conclusion.agreement.form.tpl',
+                                            'hooks' => 'profileConclusionAgreementSave',
+                                            'validationErrorMessage' => 'В форме содержатся ошибки!',
+                                            'successMessage' => 'Способы заключения договора  сохранены успешно!'
+                                         ]}                                    
+                                    </div>    
+                                </div>
+                                {/if}
                             {/if}
                         </div>
 
@@ -86,7 +112,7 @@
 
 
                         <div class="ppsettings__col">
-                            {if $partnershipJoin}
+                            {if $partnershipJoin && $show}
                             {set $employee_promocode = $user_id | user:'employee_promocode'}
                             <div class="ppsettings__item">
                                 <div class="input__row">
@@ -102,6 +128,7 @@
                             </div>
                             {/if}
                             
+                            {if $show}
                             <div class="ppsettings__item">
                                 <div class="input__row">
                                     {'!AjaxForm'|snippet:[
@@ -113,6 +140,7 @@
                                      ]}                                    
                                 </div>    
                             </div>
+                            {/if}
                         </div>
                     </div><!--ppsettings__cols-->
 

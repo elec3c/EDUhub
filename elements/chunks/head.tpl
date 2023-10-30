@@ -8,7 +8,7 @@
 <![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,shrink-to-fit=no">
 
-<title>{$title} | {'site_name' | config}</title>
+<title>{str_replace("Шаблон",'',$title)}</title>
 <meta name="description" content="{$description}">
 {'ss_meta.keywords' | placeholder}
 

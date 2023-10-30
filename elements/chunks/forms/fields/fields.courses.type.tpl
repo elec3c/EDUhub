@@ -4,8 +4,8 @@
     {set $styler = 'styler'}
 {/if}                
 <div class="clearfix" style="position: relative;">
-    <select name="course_type" data-placeholder="Особенности {if $req==1}*{/if}" class="{$styler}" id="type-select" {if $req==1}{/if}> 
-        <option value="">&nbsp;</option>
+    <select name="course_type" data-placeholder="Особенности {if $req==1}*{/if}" class="{$styler}" id="type-select"  {if $req==1}required{/if}> 
+        <option class="option-hide" value="">&nbsp;</option>
         [[!getValuesTV? &tvid = `53` &chained=`11` &curr = `[[+fi.course_type]]`]] <!-- for it -->
         [[!getValuesTV? &tvid = `54` &chained=`10` &curr = `[[+fi.course_type]]`]] <!-- for lang -->
         [[!getValuesTV? &tvid = `53` &chained=`520` &curr = `[[+fi.course_type]]`]]

@@ -6,7 +6,7 @@
 
 <div class="clearfix" style="position: relative;">
     <select name="course_address" placeholder="Местоположение проведения  курсов {if $req==1}*{/if}" class="{$styler}" id="course_address" {if $req==1}required{/if}>
-        <option value=""></option>
+        <option class="option-hide" value=""></option>
         {if $_modx->resource.template == 11}
             [[!getListCities? &name=`address` &option=`1` &index=`1` &curr = `[[+fi.course_address]]` &school=`[[+modx.user.id]]`]];
         {else}

@@ -4,14 +4,17 @@
     <input type="hidden" name="form" value="Поможем тебе выбрать курс">
     <div class="ordform__form-inputs">
     <div class="input__row">
-        <input type="text" name="name" class="input input--white" placeholder="Имя">
+        <input type="text" name="name" class="input input--white" placeholder="Имя *" required>
     </div>    
     <div class="input__row">
-        <input type="tel" name="phone" class="input input--white phone-mask" placeholder="Телефон">
+        <input type="tel" name="phone" class="input input--white phone-mask" placeholder="Телефон *" required>
     </div>
     <div class="input__row">
         <input type="text" name="email" class="input input--white" placeholder="Электронная почта">
     </div>
+    <div class="input__row">
+        <input type="textarea" name="message" class="input input--white" placeholder="Сообщение">
+    </div>    
     <label class="form__polit">
         <input type="checkbox" name="polit" class="styler styler--white" required>
         <span>Ознакомлен и согласен с <a href="{$_modx->makeUrl(8)}">публичной офертой</a></span>

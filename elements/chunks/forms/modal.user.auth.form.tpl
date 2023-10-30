@@ -13,5 +13,6 @@
         <input type="password" name="password" class="input" id="office-login-form-password" placeholder="Пароль">
         <button class="btn__eye pass-view"></button>
     </div>
+    
     <button class="btn w-all" type="submit" id="btnAuthFormLogin">Войти</button>
 </form>

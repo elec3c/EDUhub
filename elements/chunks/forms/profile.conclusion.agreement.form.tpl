@@ -1,7 +1,7 @@
 {set $user_id = $.get.user_id? : $_modx->user.id}
 {set $userPageID = '!getCorporatePageID' | snippet : ['corporate_id' => $user_id]}
 
-<form action="[[~[[*id]]]]" class="rkp__form" method="post" enctype="multipart/form-data">
+<form action="[[~[[*id]]]]" class="rkp__form" method="post" enctype="multipart/form-data" id="profileConclusionAgreement">
     <input type="hidden" name="resource_id" value="{$userPageID}" />
     <input type="hidden" name="csrf-token" value="{$.session['csrf-token']}">
     <input type="hidden" name="nospam:blank" />                        

@@ -7,82 +7,49 @@
 
 {set $sale  = $page_id | resource: 'sale'}
 
-{set $format_of_study  = $page_id | resource: 'format_of_study'}
+{set $format_of_study  = $.php.intval($page_id | resource: 'format_of_study')}
 {set $num_people_in_group  = $.php.intval($page_id | resource: 'num_people_in_group')}
 {set $num_lesson_per_week =  $.php.intval($page_id | resource: 'num_lesson_per_week')}
 {set $lesson_duration  = $.php.intval($page_id | resource: 'lesson_duration')}
 {set $promote = $_modx->runSnippet('promoteCheckLead', ['group_id'=>$page_id])}
-{set $days = $_modx->runSnippet('outputMultipleTV', ['tvName' => 'days', 'resourceId'=>$page_id, 'arr'=>1])}
+{*set $days = $_modx->runSnippet('outputMultipleTV', ['tvName' => 'days', 'resourceId'=>$page_id, 'arr'=>1])*}
 
 
 {set $price_course = $page_id | resource:'price_course'}
-{set $course_template = $page_id | resource:'course_template'}
 {set $course_owner = $page_id | resource:'course_owner'}
 {set $my_company_id = $_modx->user.id | user:'my_company_id'}
 {set $isCorporate = ($my_company_id | ismember : ['Corporate'])}
+{set $isEmployees = (($my_company_id > 0) && ($isCorporate))?1:0}
+
+{set $parent  = $page_id | resource: 'parent'}
+{if $parent != 61}
+    {set $isCourseTemplate = 0}
+    {set $course_template =  $page_id | resource: 'course_template'}
+{else}
+    {set $isCourseTemplate = 1}
+    {set $course_template =  $page_id}
+{/if}
 
 
+{if ($my_company_id > 0) && ($isCorporate) && ($course_template > 0)}
+    {set $partnershipDiscount = '!getPartnershipDiscount' | snippet : ['from_user_id' => $course_owner, 'to_user_id' => $my_company_id, 'course_template_id'=>$course_template]}
+{/if}
 
-<div class="courses__block-dop">
-            
-    <a class="courses__block-ditem">
-        <div class="courses__block-ditem__icon">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9.71094 18.0875L17.8859 9.91251" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M10.225 11.9625C11.0742 11.9625 11.7625 11.2742 11.7625 10.425C11.7625 9.57589 11.0742 8.88751 10.225 8.88751C9.37588 8.88751 8.6875 9.57589 8.6875 10.425C8.6875 11.2742 9.37588 11.9625 10.225 11.9625Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M18.4008 19.1125C19.2499 19.1125 19.9383 18.4241 19.9383 17.575C19.9383 16.7258 19.2499 16.0375 18.4008 16.0375C17.5516 16.0375 16.8633 16.7258 16.8633 17.575C16.8633 18.4241 17.5516 19.1125 18.4008 19.1125Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M14 26.5C20.9036 26.5 26.5 20.9036 26.5 14C26.5 7.09644 20.9036 1.5 14 1.5C7.09644 1.5 1.5 7.09644 1.5 14C1.5 20.9036 7.09644 26.5 14 26.5Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>                                    
-        </div>
-
-        {if ($my_company_id > 0) && ($isCorporate)}
-            {set $partnershipDiscount = '!getPartnershipDiscount' | snippet : ['from_user_id' => $course_owner, 'to_user_id' => $my_company_id, 'course_template_id'=>$course_template]}
-        {/if}
 
         {if $partnershipDiscount['discount'] > 0}
+        
             
-            {set $discount          = $partnershipDiscount['discount']}
-            {set $discount_unit     = $partnershipDiscount['discount_unit']}
-            {set $discount_for_what = $partnershipDiscount['discount_for_what']}
-            {set $unit              = $partnershipDiscount['unit']}
-            {set $for_what          = $partnershipDiscount['for_what']}
-                                
-                         
-             {switch $for_what}
-                 {case 'course_fee'}
-                    {if $.php.intval($discount) && ($unit == 'percent') && (($discount > 0) && ($discount <= 100))}
-                      {set $calc_discount = (($discount * $price_course)/100.0)}
-                      {set $price_course_partnership_sale = $price_course - $calc_discount}
-                      {set $isSale = 1}
-                    {/if}                             
-                 {case 'first_month'}
-                    {if $.php.intval($discount) && ($unit == 'percent') && (($discount > 0) && ($discount <= 100))}
-                         {set $calc_discount = (($discount * $price_course)/100.0)}
-                         {set $price_course_partnership_sale = $price_course - $calc_discount}
-                         {if $num_months_of_study == 1}
-                             {set $isSaleFirstMonth = 1}
-                             {set $isSale = 1}
-                         {else}
-                             {set $isSale = 1}
-                         {/if}
-                    {/if}
-                 {case 'fixed_discount'}
-                     {if intval($discount) && ($unit == 'rub') && ($price_course > $discount) }
-                         {set $calc_discount = $discount} 
-                         {set $price_course_partnership_sale = $price_course - $calc_discount}
-                         {set $isSale = 1}
-                     {/if}
-            {/switch}            
+            {set $discount          = trim($partnershipDiscount['discount'])}
+            {set $discount_unit     = trim($partnershipDiscount['discount_unit'])}
+            {set $discount_for_what = trim($partnershipDiscount['discount_for_what'])}
+            {set $unit              = trim($partnershipDiscount['unit'])}
+            {set $for_what          = trim($partnershipDiscount['for_what'])}
             
+            {set $title_sale        = 'Скидка '~$discount~' '~$discount_unit~' '~$discount_for_what~' '}
+
+            {insert 'file:chunks/courses/courses.calc.discount.tpl'}
+
             
-            {set $title_sale = 'Скидка партнерская '~$discount~' '~$discount_unit~' ('~$discount_for_what~')'}   
-            {set $isPartnership = 1}
-            
-            {if $calc_discount > 0}
-                {set $discount = $calc_discount}
-            {else}
-                {set $discount = "Нет скидки"}
-            {/if}
         {elseif ($sale > 0)}
             {set $title_sale = 'Скидка EDUhub '~$discount~' '~$discount_unit~' ('~$discount_for_what~')'}   
             {set $isSale = 1}
@@ -93,14 +60,29 @@
             {set $discount = "Нет скидки"}
         {/if}
         
+
+<div class="courses__block-dop">
+            
+{if ($isSale!= 0) && ($discount != "Нет скидки")}            
+    <a class="courses__block-ditem">
+        <div class="courses__block-ditem__icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.71094 18.0875L17.8859 9.91251" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10.225 11.9625C11.0742 11.9625 11.7625 11.2742 11.7625 10.425C11.7625 9.57589 11.0742 8.88751 10.225 8.88751C9.37588 8.88751 8.6875 9.57589 8.6875 10.425C8.6875 11.2742 9.37588 11.9625 10.225 11.9625Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M18.4008 19.1125C19.2499 19.1125 19.9383 18.4241 19.9383 17.575C19.9383 16.7258 19.2499 16.0375 18.4008 16.0375C17.5516 16.0375 16.8633 16.7258 16.8633 17.575C16.8633 18.4241 17.5516 19.1125 18.4008 19.1125Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14 26.5C20.9036 26.5 26.5 20.9036 26.5 14C26.5 7.09644 20.9036 1.5 14 1.5C7.09644 1.5 1.5 7.09644 1.5 14C1.5 20.9036 7.09644 26.5 14 26.5Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>                                    
+        </div>
+
+        
         {if $discount > 0}
-            <div class="courses__block-ditem__t">{"Промокод <br>"~floor($discount)~" руб."}</div>
+            <div class="courses__block-ditem__t" data-for_what="{$for_what}" data-unit="{$unit}" data-discount="{$calc_discount}">{"Промокод <br>"~floor($discount)~" руб."}</div>
         {else}
-            <div class="courses__block-ditem__t">{$discount}</div>
+            <div class="courses__block-ditem__t" data-for_what="{$for_what}" data-unit="{$unit}" data-discount="{$calc_discount}">{$discount}</div>
         {/if}
         
     </a>
-
+{/if}
 
 
     {var $point = '!ecThreadRating'|snippet: ['thread' => $thread, 'tpl'=>'@INLINE {$.php.round($rating_wilson, 1)}']}
@@ -131,42 +113,65 @@
     </a>*}
 
 
-
-    {switch $format_of_study}
-        {case 'individual'}
-            <a href="{$_modx->makeUrl($page_id)}" class="courses__block-ditem courses__block-ditem--user">
-                <div class="courses__block-ditem__icon">
-                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15 15C18.4518 15 21.25 12.2018 21.25 8.75C21.25 5.29822 18.4518 2.5 15 2.5C11.5482 2.5 8.75 5.29822 8.75 8.75C8.75 12.2018 11.5482 15 15 15Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M25.7377 27.5C25.7377 22.6625 20.9252 18.75 15.0002 18.75C9.07519 18.75 4.2627 22.6625 4.2627 27.5" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>                                     
-                </div>
-                <div class="courses__block-ditem__t">индивидуальное <br> обучение</div>
-            </a>        
-        {case 'group'}
-            <a href="{$_modx->makeUrl($page_id)}" class="courses__block-ditem courses__block-ditem--user">
-                <div class="courses__block-ditem__icon">
-                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M11.4502 13.5875C11.3252 13.575 11.1752 13.575 11.0377 13.5875C8.0627 13.4875 5.7002 11.05 5.7002 8.05C5.7002 4.9875 8.1752 2.5 11.2502 2.5C14.3127 2.5 16.8002 4.9875 16.8002 8.05C16.7877 11.05 14.4252 13.4875 11.4502 13.5875Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M20.5121 5C22.9371 5 24.8871 6.9625 24.8871 9.375C24.8871 11.7375 23.0121 13.6625 20.6746 13.75C20.5746 13.7375 20.4621 13.7375 20.3496 13.75" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M5.20039 18.2C2.17539 20.225 2.17539 23.525 5.20039 25.5375C8.63789 27.8375 14.2754 27.8375 17.7129 25.5375C20.7379 23.5125 20.7379 20.2125 17.7129 18.2C14.2879 15.9125 8.65039 15.9125 5.20039 18.2Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M22.9248 25C23.8248 24.8125 24.6748 24.45 25.3748 23.9125C27.3248 22.45 27.3248 20.0375 25.3748 18.575C24.6873 18.05 23.8498 17.7 22.9623 17.5" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>                                                                      
-                </div>
-                <div class="courses__block-ditem__t">
-                    {$num_people_in_group} человек в группе {*<br> (2 свободно)*}
-                </div>
-            </a>
-
-    {/switch}
+    {if (!$isCourseTemplate) && ($promote['lead'] >= 0)}
+    <a href="{$_modx->makeUrl($page_id)}" class="courses__block-ditem courses__block-ditem--user">
+        <div class="courses__block-ditem__icon">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.4502 13.5875C11.3252 13.575 11.1752 13.575 11.0377 13.5875C8.0627 13.4875 5.7002 11.05 5.7002 8.05C5.7002 4.9875 8.1752 2.5 11.2502 2.5C14.3127 2.5 16.8002 4.9875 16.8002 8.05C16.7877 11.05 14.4252 13.4875 11.4502 13.5875Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M20.5121 5C22.9371 5 24.8871 6.9625 24.8871 9.375C24.8871 11.7375 23.0121 13.6625 20.6746 13.75C20.5746 13.7375 20.4621 13.7375 20.3496 13.75" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5.20039 18.2C2.17539 20.225 2.17539 23.525 5.20039 25.5375C8.63789 27.8375 14.2754 27.8375 17.7129 25.5375C20.7379 23.5125 20.7379 20.2125 17.7129 18.2C14.2879 15.9125 8.65039 15.9125 5.20039 18.2Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22.9248 25C23.8248 24.8125 24.6748 24.45 25.3748 23.9125C27.3248 22.45 27.3248 20.0375 25.3748 18.575C24.6873 18.05 23.8498 17.7 22.9623 17.5" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>                                                                      
+        </div>
+        {if $promote['lead'] == 0}
+            <div class="courses__block-ditem__t">Свободных мест <br> нет</div>
+        {else}
+            <div class="courses__block-ditem__t">Свободных мест <br> {if $num_people_in_group < $promote['lead']}{$num_people_in_group}{else}{$promote['lead']}{/if}</div>
+        {/if} 
+    </a>
+    {elseif $isCourseTemplate}
     
-    {if $promote['lead'] > 0}
-    <div class="courses__block-ditem courses__block-ditem--center courses__block-ditem--purple no-icon">
-        <div class="courses__block-ditem__t">Осталось мест <br> в группе {if $num_people_in_group < $promote['lead']}{$num_people_in_group}{else}{$promote['lead']}{/if}</div>
-    </div>
+    <a href="{$_modx->makeUrl($page_id)}" class="courses__block-ditem courses__block-ditem--user">
+        <div class="courses__block-ditem__icon">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.4502 13.5875C11.3252 13.575 11.1752 13.575 11.0377 13.5875C8.0627 13.4875 5.7002 11.05 5.7002 8.05C5.7002 4.9875 8.1752 2.5 11.2502 2.5C14.3127 2.5 16.8002 4.9875 16.8002 8.05C16.7877 11.05 14.4252 13.4875 11.4502 13.5875Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M20.5121 5C22.9371 5 24.8871 6.9625 24.8871 9.375C24.8871 11.7375 23.0121 13.6625 20.6746 13.75C20.5746 13.7375 20.4621 13.7375 20.3496 13.75" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5.20039 18.2C2.17539 20.225 2.17539 23.525 5.20039 25.5375C8.63789 27.8375 14.2754 27.8375 17.7129 25.5375C20.7379 23.5125 20.7379 20.2125 17.7129 18.2C14.2879 15.9125 8.65039 15.9125 5.20039 18.2Z" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22.9248 25C23.8248 24.8125 24.6748 24.45 25.3748 23.9125C27.3248 22.45 27.3248 20.0375 25.3748 18.575C24.6873 18.05 23.8498 17.7 22.9623 17.5" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>                                                                      
+        </div>
+        {if $num_people_in_group == 1}
+            <div class="courses__block-ditem__t">Индивидуальные занятия</div>
+        {else}
+            <div class="courses__block-ditem__t">Мест в группе <br> {$num_people_in_group}</div>
+        {/if} 
+    </a>    
     {/if}
     
-
+    {if $isCourseTemplate || !$isCourseTemplate}
+        {set $for_ages_from  = $page_id | resource: 'for_ages_from'}
+        {set $for_ages_to  = $page_id | resource: 'for_ages_to'}
+        {if $for_ages_from && $for_ages_to}
+        <div class="courses__block-ditem courses__block-ditem--center courses__block-ditem--purple no-icon">
+            <div class="courses__block-ditem__t">
+                Возраст<br>
+                {if $for_ages_from <=17 && $for_ages_to <=18}
+                    {if $for_ages_from}от {$for_ages_from}{/if} {if $for_ages_to}до {$for_ages_to}{/if} {if $for_ages_from && $for_ages_to}{/if}
+                    
+                {elseif $for_ages_from <=17 && $for_ages_to >=19}
+                    {if $for_ages_from}от {$for_ages_from}{/if}
+                {elseif $for_ages_from >=18}
+                    {if $for_ages_from}18+{/if}
+                {else}
+                    не указан
+                {/if}
+                </div>
+            </div>
+        {/if}
+    {/if}
+    
+    
+{*
 
     {if $promote['lead'] > 0}
         {if $.php.is_array($days) && $.php.count($days) > 0}
@@ -198,7 +203,7 @@
         </div>        
         {else}
         
-        {*<div class="courses__block-ditem courses__block-times duration">
+        <div class="courses__block-ditem courses__block-times duration">
             <div class="courses__block-ditem__icon">
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10 2.5V6.25" stroke="#19191B" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -220,10 +225,14 @@
                     {$num_lesson_per_week} {$num_lesson_per_week | declension : 'занятие|занятия|занятий'} в неделю <br> по {$lesson_duration} мин.
                 </div>
             {/if}
-        </div>*}        
+        </div>        
         
         {/if}
     {/if}
+    
+    
+*}    
+    
     {*else}
     <div class="courses__block-ditem courses__block-times duration">
         <div class="courses__block-ditem__icon">

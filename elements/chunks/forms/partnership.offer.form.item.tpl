@@ -11,17 +11,17 @@
                                                 </div>
                                                 <div class="ssrequest__item-types__col">
                                                     <div class="ssrequest__item-label show-desktop hide-tablet-sm">Ед. изм.</div>
-                                                    <select name="discount_unit{$id}" class="styler styler--white place-mob" data-placeholder="Ед. измерения скидки">
+                                                    <select data-id="{$id}" name="discount_unit{$id}" class="styler styler--white place-mob" data-placeholder="Ед. измерения скидки" onchange="changeDiscount($(this).data('id'));">
                                                         {set $discount_unit = $sales[$id]['discount_unit']?:'percent'}
-                                                        {'!getValuesTV' | snippet : ['tvid'=>'118', 'curr'=>$discount_unit]}
+                                                        {'!getValuesTV' | snippet : ['tvid'=>'118', 'curr'=>$discount_unit, 'index'=>$id]}
                                                     </select>                                        
                                                     
                                                 </div>
                                                 <div class="ssrequest__item-types__col">
                                                     <div class="ssrequest__item-label show-desktop hide-tablet-sm">На что дается скидка</div>
-                                                    <select name="discount_for_what{$id}" class="styler styler--white">
+                                                    <select data-id="{$id}" name="discount_for_what{$id}" class="styler styler--white" onchange="changeDiscount($(this).data('id'));">
                                                         {set $discount_for_what = $sales[$id]['discount_for_what']?:'course_fee'}
-                                                        {'!getValuesTV' | snippet : ['tvid'=>'119', 'curr'=>$discount_for_what]} 
+                                                        {'!getValuesTV' | snippet : ['tvid'=>'119', 'curr'=>$discount_for_what, 'index'=>$id]} 
                                                     </select>
                                                 </div>
                                             </div>                                    

@@ -5,7 +5,7 @@
 {/if}
 <div class="clearfix" style="position: relative;">
     <select name="for_levels" data-placeholder="Уровень {if $req==1}*{/if}" class="{$styler}" id="level-select" {if $req==1}required{/if}>
-        <option value="">&nbsp;</option>
+        <option class="option-hide" value="">&nbsp;</option>
         
         [[!getValuesTV? &tvid = `27` &chained=`11`]] <!-- for it -->
         [[!getValuesTV? &tvid = `46` &chained=`10`]] <!-- for lang -->

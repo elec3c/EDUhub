@@ -7,7 +7,7 @@
 	<input name="controll" class="no-display" type="text">
 	<input type="hidden" name="form" value="Заказ обратного звонка пользователем">
 
-	<button class="btn btn--red w-all">Да</button>
+	<button class="btn btn--red w-all">Ок</button>
 	<p class="btn btn--bdred w-all popup-close" onclick="$('.popup ').css('display', 'none');">Отмена</p>
 	
 </form>

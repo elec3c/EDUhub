@@ -1,7 +1,7 @@
 {set $caption = '!getCaptionTV' | snippet: ['name' => $filter]}
 <div class="choose__inputs-item"> 
 <select name="course_type" data-placeholder="{$caption}" class="styler" id="type-select" {if $req==1}required{/if}>
-<option value=""></option>
+<option class="option-hide" value=""></option>
     {if $_modx->resource.id == 11 || $_modx->resource.parent == 11}
         {if $.get.course_type}
             {'!getValuesTV' | snippet: ['tvid'=>'53', 'chained'=>'11', 'curr'=>'{$.get.course_type}']}
@@ -16,13 +16,15 @@
         {else}
             [[!getValuesTV? &tvid = `54` &chained=`10` &curr=`[[+fi.course_type]]`]] <!-- for lang -->
         {/if}
-    {else }
+    {else}
         {if $.get.course_type}
             {'!getValuesTV' | snippet: ['tvid'=>'53', 'chained'=>'11', 'curr'=>'{$.get.course_type}']}
             {'!getValuesTV' | snippet: ['tvid'=>'54', 'chained'=>'10', 'curr'=>'{$.get.course_type}']}
         {else}
-            [[!getValuesTV? &tvid = `53` &chained=`11` &curr=`[[+fi.course_type]]`]] <!-- for it -->
-            [[!getValuesTV? &tvid = `54` &chained=`10` &curr=`[[+fi.course_type]]`]] <!-- for lang -->
+            {if $_modx->resource.template != 7}
+                [[!getValuesTV? &tvid = `53` &chained=`11` &curr=`[[+fi.course_type]]`]] <!-- for it -->
+                [[!getValuesTV? &tvid = `54` &chained=`10` &curr=`[[+fi.course_type]]`]] <!-- for lang -->
+            {/if}
         {/if}    
 
     {/if}

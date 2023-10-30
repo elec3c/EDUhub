@@ -11,9 +11,8 @@
 			</a>
 			<div class="popup__body">
 				<div class="popup__head">
-					<div class="popup__title">{$_modx->config.notificSaleAdd?:"Вы уверены, что хотите <br> получить эту скидку?"}</div>
+					<div class="popup__title" id="sale_add_text">{$_modx->config.notificSaleAdd?:"Вы уверены, что хотите <br> получить эту скидку?"}</div>
 				</div>
-
 				<button class="btn btn--red w-all get_promocode">Получить</button>
 				<p class="btn btn--bdred w-all popup-close">Отмена</p>
 			</div>

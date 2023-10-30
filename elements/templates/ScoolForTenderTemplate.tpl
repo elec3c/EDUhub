@@ -1,11 +1,17 @@
 {extends 'file:templates/BaseTemplate.tpl'}
 {block 'content'}  
 {include 'file:chunks/crumbs/crumbs.tpl'}
+<div class="nav">
 {$_modx->runSnippet('!mFilter2', [
-    'filters'=>'tv|schools_direction_b2b',
-    'aliases'=>'tv|schools_direction_b2b==schools_direction_b2b',
-    'tplFilter.outer.default'=>'@INLINE [[+rows]]',
-    'tplFilter.row.default'=>'@FILE chunks/filter/filter.schools.direction.tpl',                    
+    'filters'=>'tv|schools_direction_b2b,tv|schools_sub_direction_b2b',
+    'aliases'=>'tv|schools_direction_b2b==schools_direction_b2b,tv|schools_sub_direction_b2b==schools_sub_direction_b2b',
+    'tplFilter.outer.schools_direction_b2b'=>'@INLINE <ul class="snav__list js-filter-scool" style="background:#F1F1F1;padding:30px;border-radius: 15px; margin: 0 0px;">
+                                                            <li><a href="{1197 | url}" ><label class="snav__label"><div id="schools_sub_direction_all" class="snav__label-wrap {if !$.get.schools_direction_b2b}active{/if}">Все направления</div></label></a></li>
+                                                            {$rows}
+                                                        </ul>',
+    'tplFilter.row.schools_direction_b2b'=>'@FILE chunks/filter/filter.schools.direction.tpl',                    
+    'tplFilter.outer.schools_sub_direction_b2b'=>'@INLINE <ul class="snav__list js-filter-scool-more">{$rows}</ul>',
+    'tplFilter.row.schools_sub_direction_b2b'=>'@FILE chunks/filter/filter.schools.sub.direction.tpl',
     'filterOptions'      => '{"autoLoad":1}',
     'showEmptyFilters'   =>'true',
     'suggestionsRadio'   =>'resource|parent',
@@ -13,11 +19,9 @@
     'tpls'=>'@FILE chunks/scools/scools.tender.block.tpl',
     'url'=>'disabled',
     'sortby'=>'createdon',
-    'includeTVs' => 'small_image, scools_owner,schools_direction_b2b',
     'processTVs'=>'1',
     'class'=>'modResource',
-    'includeTVs'=>'scools_owner',                    
-    'loadModels'=>'subscribe',
+    'includeTVs' => 'small_image, scools_owner,schools_direction_b2b,schools_sub_direction_b2b',
     'select'=>[
         'modResource'=>'*'
     ],                    
@@ -38,6 +42,5 @@
     </svg><span>Показать еще</span></button></div>' 
     ])?:'<p class="section__intro">Ничего не найдено</p>'
 }
+</div>
 {/block}
-
-

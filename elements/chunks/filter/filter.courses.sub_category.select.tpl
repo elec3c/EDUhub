@@ -7,7 +7,7 @@
 
 <div class="choose__inputs-item">
 <select name="course_sub_category" data-placeholder="{$caption}" class="{$styler}" id="sub_category-select">
-<option value=""></option>
+<option class="option-hide" value=""></option>
 {*set $ids = '!pdoResources' | snippet : ['parents' => $_modx->config['site_parent_courses'], 'returnIds' => '1','depth'=>'0','limit'=>0]*}    
 {*set $arr = $ids|split*}
    

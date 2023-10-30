@@ -15,7 +15,7 @@
 			</a>
 			<div class="popup__body">
 				<div class="popup__head">
-					<div class="popup__title">Вы уверены, что хотите <br> передать ваши данные школе {($schoolid?:$_modx->resource.course_owner) | user:'fullname'} для обратного звонка?</div>
+					<div class="popup__title">Школа {($schoolid?:$_modx->resource.course_owner) | user:'fullname'} перезвонит вам на номер, который указан в вашем личном кабинете</div>
 				</div>
 
                 {var $email = ('contact.Email' | config) ?: 'emailsender' | config}

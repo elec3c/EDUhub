@@ -26,7 +26,7 @@
 
 <body>
     {1 | resource : 'body'}
-    <div class="wrapper" id="top">
+    <div class="wrapper" id="top" data='test'>
         {block 'header'}
             {include 'file:chunks/header.tpl'}
         {/block}
@@ -43,7 +43,6 @@
     {block 'modals'}
 
         {include 'file:chunks/modals/verification_code_thank.tpl'}
-        
         <div id="office-auth-form">
             {include 'file:chunks/modals/auth_course.tpl'}
             {include 'file:chunks/modals/auth_favour.tpl'}
@@ -110,6 +109,14 @@
             {include 'file:chunks/modals/compisreg_thank.tpl'}
             {include 'file:chunks/modals/employee_connect_thank.tpl'}
         {/if}
+        {include 'file:chunks/modals/policy_popup.tpl'}
+        {if $_modx->resource.id in [1,1397]}
+            {include 'file:chunks/modals/queue_add_step_by_step.tpl'}
+            {include 'file:chunks/modals/queue_thank.tpl'}
+        {/if}
+        
+        
+        
         
     {/block}
 
