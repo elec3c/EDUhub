@@ -1,5 +1,5 @@
 @@include('html/head.html', {
-"title": "Лагерь - ЛК - Бронь"
+"title": "Лагерь - ЛК - Лиды"
 })
 
 <section class="wrapper capm-wrap" id="top">
@@ -20,19 +20,28 @@
         <section class="cmp_create section__mg section__first">
             <div class="container">
                 <div class="section__head section__head--cols mb--md">
-                    <h2 class="section__title">Бронь</h2>
+                    <h2 class="section__title">Лиды</h2>
                 </div>
                 
                 
                 <div class="lk__nav lk__nav--camp">
                     <ul>
-                        <li><a href="camp-lk-leads.html">Лиды</a></li>
-                        <li class="active">Бронь</li>
+                        <li class="active">Лиды</li>
+                        <li><a href="camp-lk-book.html">Бронь</a></li>
                         <li><a href="camp-lk-contracts.html">Договоры</a></li>
                     </ul>
                 </div>
-            </div>    
 
+                <div class="cmp_lkthead mb--sm">
+                    <div class="cmp_lkthead__act">
+                        <div class="cmp_lkthead__label">Лиды (4)</div>
+                        <div class="cmp_lkthead__buttons">
+                            <button class="btn btn--sm btn--purple">Добавить лид</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div class="container container--lg">
                 <div class="cmp_lktables fs--sm">
                     <table>
@@ -141,12 +150,92 @@
                         </tr>
                     </table>
                 </div>  
+                <form method="post" action="" class="cmp_lktablesform">
+                    <div class="cmp_lktablesform__inner">
+                        <div class="cmp_lktablesform__icol icol--first">
+                            <div class="form__label">ФИО родителя</div>
+                            <input type="text" name="name" class="input input--camp  w--md" placeholder="ФИО родителя">
+                        </div>
+                        <div class="cmp_lktablesform__icol icol--first">
+                            <div class="form__label">Телефон</div>
+                            <input type="tel" name="phone" class="input input--camp  w--md phone-mask" placeholder="Телефон">
+                        </div>
+                        <div class="cmp_lktablesform__icol icol--first">
+                            <div class="form__label">E-mail</div>
+                            <input type="text" name="email" class="input input--camp  w--md" placeholder="E-mail">
+                        </div>
+                        <div class="cmp_lktablesform__icol icol--first">
+                            <div class="form__label">Telegram</div>
+                            <input type="text" name="tg" class="input input--camp  w--md" placeholder="Telegram">
+                        </div>
+                        <div class="cmp_lktablesform__icol icol--first">
+                            <div class="form__label">ФИО ребенка</div>
+                            <input type="text" name="name_child" class="input input--camp  w--md" placeholder="ФИО ребенка">
+                        </div>
+                        <div class="cmp_lktablesform__icol icol--first">
+                            <div class="form__label">Возраст</div>
+                            <input type="text" name="age" class="input input--camp  w--sm" placeholder="0">
+                        </div>
+                        <div class="cmp_lktablesform__icol icol--first">
+                            <label class="form__lcheck"><input type="radio" class="styler styler--camp" name="gender" value="m" checked><span>муж.</span></label>
+                            <label class="form__lcheck"><input type="radio" class="styler styler--camp" name="gender" value="w"><span>жен.</span></label>
+                        </div>
+                        <div class="cmp_lktablesform__icol icol--mr">
+                            <div class="form__label">Адрес</div>
+                            <select class="styler styler--camp w--md" name="address" data-placeholder="Адрес">
+                                <option value=""></option>
+                                <option value="Адрес 1">Адрес 1</option>
+                                <option value="Адрес 2">Адрес 2</option>
+                                <option value="Адрес 3">Адрес 3</option>
+                            </select>
+                        </div>
+                        <div class="cmp_lktablesform__icol icol--mr">
+                            <div class="form__label">Кабинет</div>
+                            <input type="text" name="cabinet" class="input input--camp w--sm" placeholder="1">
+                        </div>
+                        <div class="cmp_lktablesform__icol icol--mr">
+                            <div class="form__label">Смена</div>
+                            <input type="text" name="shift" class="input input--camp w--sm" placeholder="1">
+                        </div>
+                        <div class="cmp_lktablesform__icol icol--mr">
+                            <div class="form__label">Группа</div>
+                            <select class="styler styler--camp w--md" name="group" data-placeholder="Группа">
+                                <option value=""></option>
+                                <option value="Группа 1">Группа 1</option>
+                                <option value="Группа 2">Группа 2</option>
+                                <option value="Группа 3">Группа 3</option>
+                            </select>
+                        </div>
+                        <div class="cmp_lktablesform__icol icol--mr">
+                            <div class="form__label">Время занятий</div>
+                            <div class="cmp_lktablesform__icol-inputs">
+                                <input type="text" name="time_from" class="input input--camp w--sm" placeholder="9">
+                                <input type="text" name="time_to" class="input input--camp w--sm" placeholder="12">
+                            </div>
+                        </div>
+                        <div class="cmp_lktablesform__icol icol--mr">
+                            <div class="form__label">Сумма <br>договора</div>
+                            <input type="text" name="sum" class="input input--camp w--sm" placeholder="0">
+                        </div>
+                        <div class="cmp_lktablesform__icol icol--mr">
+                            <div class="form__label">Скидка</div>
+                            <input type="text" name="sale" class="input input--camp w--sm" placeholder="0">
+                        </div>
+                        <div class="cmp_lktablesform__icol icol--mr">
+                            <div class="form__label">К оплате</div>
+                            <input type="text" name="to_pay" class="input input--camp w--sm" placeholder="0">
+                        </div>
+                        <div class="cmp_lktablesform__icol icol--note">
+                            <div class="form__label">Примечание</div>
+                            <input type="text" name="note" class="input input--camp w--md" placeholder="Примечание">
+                        </div>
+
+                    </div>
+                    <div class="cmp_lktablesform__buttons">
+                        <button class="btn btn--purple btn--sm" type="submit">Сохранить</button>
+                    </div>
+                </form>
                 
-                
-                <div class="cmp_create__buttons gap--sm">
-                    <button class="btn btn--purple btn--sm" type="submit">Сохранить</button>
-                    <button class="btn btn--bdpurple btn--sm" type="button">Отмена</button>
-                </div>
             </div>
         </section><!--  -->
 

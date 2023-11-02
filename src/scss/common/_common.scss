@@ -305,6 +305,12 @@
         padding-left: 100px;
         padding-right: 100px;
     }
+    &__tab {
+        display:none;
+        &.show {
+            display:block;
+        }
+    }
 
         
 

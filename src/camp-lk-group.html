@@ -1,0 +1,507 @@
+@@include('html/head.html', {
+"title": "Лагерь - ЛК - Группы"
+})
+
+<section class="wrapper capm-wrap" id="top">
+
+    @@include('html/camp/cmp_header.html', {
+        "active_menu": "",
+        "auth": "user"
+    })
+
+    <main class="content__wrapper">
+
+        
+        @@include('html/camp/camp_lknav.html', {
+            "active_menu": "camp",
+            "type": ""
+        })
+
+        <section class="cmp_create section__mg section__first">
+            <div class="container">
+                <div class="section__head section__head--cols mb--md">
+                    <h2 class="section__title">Группы</h2>
+                </div>
+                
+                
+                <div class="lk__nav lk__nav--camp">
+                    <ul>
+                        <li><a href="">Летний</a></li>
+                        <li class="active">Зимний</li>
+                        <li><a href="">Весенний</a></li>
+                        <li><a href="">Осенний</a></li>
+                    </ul>
+                </div>
+
+                
+                <div class="cmp_lknav">
+                    <a href="#" class="cmp_lknav__item active">г. Минск, ул. Острова 19</a>
+                    <a href="#" class="cmp_lknav__item">г. Минск, ул. Острова 19</a>
+                    <a href="#" class="cmp_lknav__item">Выбрать все</a>
+                </div>
+
+                <div class="cmp_lkfilter">
+                    <div class="cmp_lkfilter__col">
+                        <div class="form__label">Группа</div>
+                        <select class="styler styler--camp" name="group" data-placeholder="">
+                            <option value="Группа 1">Группа 1</option>
+                            <option value="Группа 2">Группа 2</option>
+                            <option value="Группа 3">Группа 3</option>
+                        </select>
+                    </div>
+                    <div class="cmp_lkfilter__col col--sm">
+                        <div class="form__label">Смена</div>
+                        <select class="styler styler--camp" name="group" data-placeholder="">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container container--lg">
+                <a href="" class="link link--nound cmp_lktoggle js-cpm-grouplk-toggle-all">Свернуть все</a>
+
+                @@for (var i=1; i<=4; i++) {
+                <div class="cpm_grouplk js-cpm-grouplk">
+                    <div class="cpm_grouplk__inner">
+                        <div class="cpm_grouplk__info">
+                            <div class="cpm_grouplk__name">Группа № `+i+`</div>
+                            <div class="cpm_grouplk__val cpm_grouplk__addr">г. Минск, ул. Уручская 19</div>
+                            <div class="cpm_grouplk__val">Кабинет: 5</div>
+                            <div class="cpm_grouplk__val">Смена: 1</div>
+                            <div class="cpm_grouplk__val">01.06.2024  -  12.06.2024</div>
+                            <div class="cpm_grouplk__val">7 - 14 лет</div>
+                            <div class="cpm_grouplk__val">350 руб</div>
+                        </div>
+
+                        <div class="cpm_grouplk__props">
+                            <div class="cpm_grouplk__props-icol">
+                                <div class="form__label">Договоров</div>
+                                <input type="text" name="contracts" class="input input--camp" value="10" placeholder="0">
+                            </div>
+                            <div class="cpm_grouplk__props-icol">
+                                <div class="form__label">Бронь</div>
+                                <input type="text" name="book" class="input input--camp" value="0" placeholder="0">
+                            </div>
+                            <div class="cpm_grouplk__props-icol">
+                                <div class="form__label">Лидов</div>
+                                <input type="text" name="leads" class="input input--camp" value="10" placeholder="0">
+                            </div>
+                            <div class="cpm_grouplk__props-icol">
+                                <div class="form__label">Свободно</div>
+                                <input type="text" name="freely" class="input input--camp" value="7" placeholder="0">
+                            </div>
+                        </div>
+
+                        <div class="cpm_grouplk__toggle">
+                            <button class="cpm_grouplk__btntoggl js-cpm-grouplk-toggle"></button>
+                        </div>
+                    </div>
+
+                    <div class="cpm_grouplk__body js-cpm-grouplk-body">
+                        <div class="cpm_grouplk__btables">
+                            <div class="cmp_lkthead mb--sm">
+                                <div class="cmp_lkthead__act">
+                                    <div class="cmp_lkthead__label">Договоры (10)</div>
+                                    <div class="cmp_lkthead__buttons">
+                                        <button class="btn btn--sm btn--purple">Добавить договор</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cmp_lktables fs--md">
+                                <table>
+                                    <tr>
+                                        <th class="text--left w-all">ФИО родителя</th>
+                                        <th class="text--left w-all">Контакты</th>
+                                        <th class="text--left w-all">ФИО ребенка</th>
+                                        <th>Пол <br>  Возраст</th>
+                                        <th>Стоимость</th>
+                                        <th>Скидка</th>
+                                        <th>Оплачено</th>
+                                        <th>К оплате</th>
+                                        <th>Время <br> занятий</th>
+                                        <th>Примечание</th>
+                                        <th></th>
+                                    </tr>
+                                    <tr>
+                                        <td class="">Александровская Александра Александровна</td>
+                                        <td>
+                                            <span class="nowrap">+ 375 (29) 219 - 84 - 00</span> <br>
+                                            @ghkjiuail.ru <br>
+                                            Telegram
+                                        </td>
+                                        <td>
+                                            Адександровская Александра Александровна
+                                        </td>
+                                        <td class="text--center">
+                                            жен <br>
+                                            10 лет
+                                        </td>
+                                        
+                                        <td><input type="text" name="price[]" class="input input--camp input--w-smd" value="500" placeholder="0"></td>
+                                        <td><input type="text" name="sale[]" class="input input--camp input--w-smd" value="30" placeholder="0"></td>
+                                        <td><input type="text" name="paid[]" class="input input--camp input--w-smd" value="470" placeholder="0"></td>
+                                        <td><input type="text" name="to_pay[]" class="input input--camp input--w-smd" value="0" placeholder="0"></td>
+                                        <td><input type="text" name="tipe[]" class="input input--camp input--w-smd" value="9-12" placeholder="9-12"></td>
+                                        <td><input type="text" name="comment[]" class="input input--camp input--comment" value="аллергия на апельсины" placeholder="Примечание"></td>
+                                        <td>
+                                            <div class="cmp_lktables__act">
+                                                <button class="cmp_lktables__act-open">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12Z" fill="#C8C8E4"/>
+                                                        <path d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z" fill="#C8C8E4"/>
+                                                        <path d="M21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12Z" fill="#C8C8E4"/>
+                                                        </svg>
+                                                </button>
+                                                <div class="cmp_lktables__act-menu">
+                                                    <ul>
+                                                        <li><a href="">Удалить</a></li>
+                                                        <li><a href="">Переместить</a></li>
+                                                    </ul>
+                                                </div>   
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="">Александровская Александра Александровна</td>
+                                        <td>
+                                            <span class="nowrap">+ 375 (29) 219 - 84 - 00</span> <br>
+                                            @ghkjiuail.ru <br>
+                                            Telegram
+                                        </td>
+                                        <td>
+                                            Адександровская Александра Александровна
+                                        </td>
+                                        <td class="text--center">
+                                            жен <br>
+                                            10 лет
+                                        </td>
+                                        
+                                        <td><input type="text" name="price[]" class="input input--camp input--w-smd" value="500" placeholder="0"></td>
+                                        <td><input type="text" name="sale[]" class="input input--camp input--w-smd" value="30" placeholder="0"></td>
+                                        <td><input type="text" name="paid[]" class="input input--camp input--w-smd" value="470" placeholder="0"></td>
+                                        <td><input type="text" name="to_pay[]" class="input input--camp input--w-smd" value="0" placeholder="0"></td>
+                                        <td><input type="text" name="tipe[]" class="input input--camp input--w-smd" value="9-12" placeholder="9-12"></td>
+                                        <td><input type="text" name="comment[]" class="input input--camp input--comment" value="аллергия на апельсины" placeholder="Примечание"></td>
+                                        <td>
+                                            <div class="cmp_lktables__act">
+                                                <button class="cmp_lktables__act-open">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12Z" fill="#C8C8E4"/>
+                                                        <path d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z" fill="#C8C8E4"/>
+                                                        <path d="M21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12Z" fill="#C8C8E4"/>
+                                                        </svg>
+                                                </button>
+                                                <div class="cmp_lktables__act-menu">
+                                                    <ul>
+                                                        <li><a href="">Удалить</a></li>
+                                                        <li><a href="">Переместить</a></li>
+                                                    </ul>
+                                                </div>   
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>  
+                            <form method="post" action="" class="cmp_lktablesform">
+                                <div class="cmp_lktablesform__inner">
+                                    <div class="cmp_lktablesform__icol icol--first">
+                                        <div class="form__label">ФИО родителя</div>
+                                        <input type="text" name="name" class="input input--camp  w--md" placeholder="ФИО родителя">
+                                    </div>
+                                    <div class="cmp_lktablesform__icol icol--first">
+                                        <div class="form__label">Телефон</div>
+                                        <input type="tel" name="phone" class="input input--camp  w--md phone-mask" placeholder="Телефон">
+                                    </div>
+                                    <div class="cmp_lktablesform__icol icol--first">
+                                        <div class="form__label">E-mail</div>
+                                        <input type="text" name="email" class="input input--camp  w--md" placeholder="E-mail">
+                                    </div>
+                                    <div class="cmp_lktablesform__icol icol--first">
+                                        <div class="form__label">Telegram</div>
+                                        <input type="text" name="tg" class="input input--camp  w--md" placeholder="Telegram">
+                                    </div>
+                                    <div class="cmp_lktablesform__icol icol--first">
+                                        <div class="form__label">ФИО ребенка</div>
+                                        <input type="text" name="name_child" class="input input--camp  w--md" placeholder="ФИО ребенка">
+                                    </div>
+                                    <div class="cmp_lktablesform__icol icol--first">
+                                        <div class="form__label">Возраст</div>
+                                        <input type="text" name="age" class="input input--camp  w--sml" placeholder="0">
+                                    </div>
+                                    <div class="cmp_lktablesform__icol icol--first">
+                                        <label class="form__lcheck"><input type="radio" class="styler styler--camp" name="gender" value="m" checked><span>муж.</span></label>
+                                        <label class="form__lcheck"><input type="radio" class="styler styler--camp" name="gender" value="w"><span>жен.</span></label>
+                                    </div>
+                                    <div class="cmp_lktablesform__icol icol--mr">
+                                        <div class="form__label">Стоимость</div>
+                                        <input type="text" name="price" class="input input--camp w--sml" placeholder="0">
+                                    </div>
+                                    <div class="cmp_lktablesform__icol icol--mr">
+                                        <div class="form__label">Скидка</div>
+                                        <input type="text" name="sale" class="input input--camp w--sml" placeholder="0">
+                                    </div>
+                                    <div class="cmp_lktablesform__icol icol--mr">
+                                        <div class="form__label">Оплачено</div>
+                                        <input type="text" name="paid" class="input input--camp w--sml" placeholder="0">
+                                    </div>
+                                    <div class="cmp_lktablesform__icol icol--mr">
+                                        <div class="form__label">К оплате</div>
+                                        <input type="text" name="to_pay" class="input input--camp w--sml" placeholder="0">
+                                    </div>
+                                    <div class="cmp_lktablesform__icol icol--mr">
+                                        <div class="form__label">Время занятий</div>
+                                        <div class="cmp_lktablesform__icol-inputs">
+                                            <input type="text" name="time_from" class="input input--camp w--sml" placeholder="9">
+                                            <input type="text" name="time_to" class="input input--camp w--sml" placeholder="12">
+                                        </div>
+                                    </div>
+                                    <div class="cmp_lktablesform__icol icol--note">
+                                        <div class="form__label">Примечание</div>
+                                        <input type="text" name="note" class="input input--camp w--lg" placeholder="Примечание">
+                                    </div>
+            
+                                </div>
+                                <div class="cmp_lktablesform__buttons">
+                                    <button class="btn btn--purple btn--sm" type="submit">Сохранить</button>
+                                </div>
+                            </form>
+                        </div>  
+
+                        
+                        <div class="cpm_grouplk__btables">
+                            <div class="cmp_lkthead mb--sm">
+                                <div class="cmp_lkthead__act">
+                                    <div class="cmp_lkthead__label">Бронь через EDUHUB (2)</div>
+                                </div>
+                            </div>
+                            <div class="cmp_lktables fs--md">
+                                <table>
+                                    <tr>
+                                        <th class="text--left w-all">ФИО родителя</th>
+                                        <th class="text--left w-all">Контакты</th>
+                                        <th class="text--left w-all">ФИО ребенка</th>
+                                        <th>Пол <br>  Возраст</th>
+                                        <th>Стоимость</th>
+                                        <th>Скидка</th>
+                                        <th>Оплачено</th>
+                                        <th>К оплате</th>
+                                        <th>Время <br> занятий</th>
+                                        <th>Примечание</th>
+                                        <th></th>
+                                    </tr>
+                                    <tr>
+                                        <td class="">Александровская Александра Александровна</td>
+                                        <td>
+                                            <span class="nowrap">+ 375 (29) 219 - 84 - 00</span> <br>
+                                            @ghkjiuail.ru <br>
+                                            Telegram
+                                        </td>
+                                        <td>
+                                            Адександровская Александра Александровна
+                                        </td>
+                                        <td class="text--center">
+                                            жен <br>
+                                            10 лет
+                                        </td>
+                                        
+                                        <td><input type="text" name="price[]" class="input input--camp input--w-smd" value="500" placeholder="0"></td>
+                                        <td><input type="text" name="sale[]" class="input input--camp input--w-smd" value="30" placeholder="0"></td>
+                                        <td><input type="text" name="paid[]" class="input input--camp input--w-smd" value="470" placeholder="0"></td>
+                                        <td><input type="text" name="to_pay[]" class="input input--camp input--w-smd" value="0" placeholder="0"></td>
+                                        <td><input type="text" name="tipe[]" class="input input--camp input--w-smd" value="9-12" placeholder="9-12"></td>
+                                        <td><input type="text" name="comment[]" class="input input--camp input--comment" value="аллергия на апельсины" placeholder="Примечание"></td>
+                                        <td>
+                                            <div class="cmp_lktables__act">
+                                                <button class="cmp_lktables__act-open">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12Z" fill="#C8C8E4"/>
+                                                        <path d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z" fill="#C8C8E4"/>
+                                                        <path d="M21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12Z" fill="#C8C8E4"/>
+                                                        </svg>
+                                                </button>
+                                                <div class="cmp_lktables__act-menu">
+                                                    <ul>
+                                                        <li class="active">Договор заключен</li>
+                                                        <li><a href="">Редактировать</a></li>
+                                                        <li><a href="">Создать копию</a></li>
+                                                        <li><a href="">Удалить</a></li>
+                                                    </ul>
+                                                </div>   
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="">Александровская Александра Александровна</td>
+                                        <td>
+                                            <span class="nowrap">+ 375 (29) 219 - 84 - 00</span> <br>
+                                            @ghkjiuail.ru <br>
+                                            Telegram
+                                        </td>
+                                        <td>
+                                            Адександровская Александра Александровна
+                                        </td>
+                                        <td class="text--center">
+                                            жен <br>
+                                            10 лет
+                                        </td>
+                                        
+                                        <td><input type="text" name="price[]" class="input input--camp input--w-smd" value="500" placeholder="0"></td>
+                                        <td><input type="text" name="sale[]" class="input input--camp input--w-smd" value="30" placeholder="0"></td>
+                                        <td><input type="text" name="paid[]" class="input input--camp input--w-smd" value="470" placeholder="0"></td>
+                                        <td><input type="text" name="to_pay[]" class="input input--camp input--w-smd" value="0" placeholder="0"></td>
+                                        <td><input type="text" name="tipe[]" class="input input--camp input--w-smd" value="9-12" placeholder="9-12"></td>
+                                        <td><input type="text" name="comment[]" class="input input--camp input--comment" value="аллергия на апельсины" placeholder="Примечание"></td>
+                                        <td>
+                                            <div class="cmp_lktables__act">
+                                                <button class="cmp_lktables__act-open">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12Z" fill="#C8C8E4"/>
+                                                        <path d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z" fill="#C8C8E4"/>
+                                                        <path d="M21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12Z" fill="#C8C8E4"/>
+                                                        </svg>
+                                                </button>
+                                                <div class="cmp_lktables__act-menu">
+                                                    <ul>
+                                                        <li class="active">Договор заключен</li>
+                                                        <li><a href="">Редактировать</a></li>
+                                                        <li><a href="">Создать копию</a></li>
+                                                        <li><a href="">Удалить</a></li>
+                                                    </ul>
+                                                </div>   
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>  
+                        </div>  
+
+                        <div class="cpm_grouplk__btables">
+                            <div class="cmp_lkthead mb--sm">
+                                <div class="cmp_lkthead__act">
+                                    <div class="cmp_lkthead__label">Лиды (2)</div>
+                                    <div class="cmp_lkthead__buttons">
+                                        <button class="btn btn--sm btn--purple">Добавить лид</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cmp_lktables fs--md">
+                                <table>
+                                    <tr>
+                                        <th class="text--left w-all">ФИО родителя</th>
+                                        <th class="text--left w-all">Контакты</th>
+                                        <th class="text--left w-all">ФИО ребенка</th>
+                                        <th>Пол <br>  Возраст</th>
+                                        <th>Стоимость</th>
+                                        <th>Скидка</th>
+                                        <th>Оплачено</th>
+                                        <th>К оплате</th>
+                                        <th>Время <br> занятий</th>
+                                        <th>Примечание</th>
+                                        <th></th>
+                                    </tr>
+                                    <tr>
+                                        <td class="">Александровская Александра Александровна</td>
+                                        <td>
+                                            <span class="nowrap">+ 375 (29) 219 - 84 - 00</span> <br>
+                                            @ghkjiuail.ru <br>
+                                            Telegram
+                                        </td>
+                                        <td>
+                                            Адександровская Александра Александровна
+                                        </td>
+                                        <td class="text--center">
+                                            жен <br>
+                                            10 лет
+                                        </td>
+                                        
+                                        <td><input type="text" name="price[]" class="input input--camp input--w-smd" value="500" placeholder="0"></td>
+                                        <td><input type="text" name="sale[]" class="input input--camp input--w-smd" value="30" placeholder="0"></td>
+                                        <td><input type="text" name="paid[]" class="input input--camp input--w-smd" value="470" placeholder="0"></td>
+                                        <td><input type="text" name="to_pay[]" class="input input--camp input--w-smd" value="0" placeholder="0"></td>
+                                        <td><input type="text" name="tipe[]" class="input input--camp input--w-smd" value="9-12" placeholder="9-12"></td>
+                                        <td><input type="text" name="comment[]" class="input input--camp input--comment" value="аллергия на апельсины" placeholder="Примечание"></td>
+                                        <td>
+                                            <div class="cmp_lktables__act">
+                                                <button class="cmp_lktables__act-open">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12Z" fill="#C8C8E4"/>
+                                                        <path d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z" fill="#C8C8E4"/>
+                                                        <path d="M21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12Z" fill="#C8C8E4"/>
+                                                        </svg>
+                                                </button>
+                                                <div class="cmp_lktables__act-menu">
+                                                    <ul>
+                                                        <li><a href="">Удалить</a></li>
+                                                        <li><a href="">Переместить</a></li>
+                                                    </ul>
+                                                </div>   
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="">Александровская Александра Александровна</td>
+                                        <td>
+                                            <span class="nowrap">+ 375 (29) 219 - 84 - 00</span> <br>
+                                            @ghkjiuail.ru <br>
+                                            Telegram
+                                        </td>
+                                        <td>
+                                            Адександровская Александра Александровна
+                                        </td>
+                                        <td class="text--center">
+                                            жен <br>
+                                            10 лет
+                                        </td>
+                                        
+                                        <td><input type="text" name="price[]" class="input input--camp input--w-smd" value="500" placeholder="0"></td>
+                                        <td><input type="text" name="sale[]" class="input input--camp input--w-smd" value="30" placeholder="0"></td>
+                                        <td><input type="text" name="paid[]" class="input input--camp input--w-smd" value="470" placeholder="0"></td>
+                                        <td><input type="text" name="to_pay[]" class="input input--camp input--w-smd" value="0" placeholder="0"></td>
+                                        <td><input type="text" name="tipe[]" class="input input--camp input--w-smd" value="9-12" placeholder="9-12"></td>
+                                        <td><input type="text" name="comment[]" class="input input--camp input--comment" value="аллергия на апельсины" placeholder="Примечание"></td>
+                                        <td>
+                                            <div class="cmp_lktables__act">
+                                                <button class="cmp_lktables__act-open">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12Z" fill="#C8C8E4"/>
+                                                        <path d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z" fill="#C8C8E4"/>
+                                                        <path d="M21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12Z" fill="#C8C8E4"/>
+                                                        </svg>
+                                                </button>
+                                                <div class="cmp_lktables__act-menu">
+                                                    <ul>
+                                                        <li><a href="">Удалить</a></li>
+                                                        <li><a href="">Переместить</a></li>
+                                                    </ul>
+                                                </div>   
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>  
+                        </div>     
+                    </div>
+                </div>
+                }
+               
+            </div>
+        </section><!--  -->
+
+
+    </main>
+    <!--content__wrapper-->
+   
+    @@include('html/camp/cmp_footer.html', {
+        "active_menu": ""
+    })
+
+</section>
+
+@@include('html/popup.html', {})
+
+</body>
+
+</html>

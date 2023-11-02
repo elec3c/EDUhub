@@ -57,6 +57,7 @@ $(function () {
 	
 	$(".phone-mask").mask("+375(99)999-99-99");
 	$(".time-mask").mask("99:99");
+	$(".date-mask").mask("99.99.9999");
 
 	$.datepicker.regional['ru'] = {
 		closeText: 'Закрыть',
@@ -84,6 +85,12 @@ $(function () {
 		changeMonth: true,
 		changeYear: true,
 		yearRange: (new Date().getFullYear() - 1) + ':' + (new Date().getFullYear() + 2)
+	});
+	$('.datepicker-input-min').datepicker({
+		minDate: 0,
+		format: 'dd/mm/yyyy',
+		changeMonth: true,
+		changeYear: true
 	});
 
 
@@ -181,7 +188,6 @@ $(function () {
 		}
 		if (targetSelector !== openCatAppend) {
 			if (windowWidth >= 980) {
-				console.log('1000');
 				$(targetSelector).append($('.open-category'));
 				$('.js-cmp_header-menu ul').find('.l-c').remove();
 			}
@@ -247,15 +253,19 @@ $(function () {
 	$('.js-nav-link').click(function (e) {
 		e.preventDefault();
 		let tab_name = $(this).attr('data-tab'),
-			tabs = $(this).parents('.js-tabs');
-			
-		$(this).parents('.js-nav').find('.js-nav-link').removeClass('active');
+			tabs = $(this).closest('.js-tabs'),
+			level = $(tabs).attr('data-level');
+		
+		if (level !== undefined) level = '[data-tab-level="'+level+'"]';
+		else level = '';
+
+		$(this).closest('.js-nav').find('.js-nav-link').removeClass('active');
 		$(this).addClass('active');
 
 
-		$(tabs).find('.js-tabs-content').removeClass("active").fadeOut(300).promise().done(function () {
+		$(tabs).find('.js-tabs-content'+level).removeClass("active").fadeOut(300).promise().done(function () {
 
-			let ct = $(tabs).find('.js-tabs-content[data-tab*=' + tab_name + ']');
+			let ct = $(tabs).find('.js-tabs-content[data-tab=' + tab_name + ']');
 			$(ct).addClass("active").fadeIn(300);
 
 
@@ -403,9 +413,12 @@ $(function () {
 
 		$(this).toggleClass('opened').next().slideToggle();
 	})
+	$("#sub_category-select-2").chained("#category-select-2");
+    $("#sub_category_type-select-2").chained("#sub_category-select-2");
+    $("#type-select-2").chained("#category-select-2");
+    $("#level-select-2").chained("#category-select-2");
 
 	$("#sub_category-select").chained("#category-select");
-	$("#sub_category-select-2").chained("#category-select-2");
 	$("#sub_category_type-select").chained("#sub_category-select");
 	$("#type-select").chained("#category-select");
 	$("#level-select").chained("#category-select");
@@ -910,10 +923,16 @@ $(function () {
 	$('.js-accord-toggle-all').on("click", function(e) {
 		e.preventDefault();
 
-		$(this).parents('.js-accord-all')
-				.find('.js-accord-item').toggleClass('opened')
-				.find('.js-accord-body').slideToggle();
 		$(this).toggleClass('active');		
+		if ($(this).hasClass('active')) {
+			$(this).parents('.js-accord-all')
+				.find('.js-accord-item').addClass('opened')
+				.find('.js-accord-body').slideDown();
+		} else {
+			$(this).parents('.js-accord-all')
+				.find('.js-accord-item').removeClass('opened')
+				.find('.js-accord-body').slideUp();
+		}
 	})
 
 	
@@ -945,7 +964,7 @@ $(function () {
 		})
 		
 
-		$(parent).find('.js-camp-inputs-row').eq(0).after(row_new);
+		$(parent).find('.js-camp-inputs-row').last().after(row_new);
 		$(row_new).find('.styler').styler();
 		$(row_new).find('.datepicker-input').datepicker({
 			// minDate: 0,
@@ -954,6 +973,7 @@ $(function () {
 			changeYear: true,
 			yearRange: (new Date().getFullYear() - 1) + ':' + (new Date().getFullYear() + 2)
 		});
+		$(row_new).find(".date-mask").mask("99.99.9999");
 		setTimeout(function () {
 			$('.js-camp-inputs-row .styler').trigger('refresh');
 			$(".js-camp-inputs-row  .datepicker-input").datepicker("refresh");
@@ -978,6 +998,19 @@ $(function () {
 		$('.js-filters-open').removeClass('opened');
 		$('.js-filters').removeClass('opened');
 		//$('body').css('overflow', '');
+	})
+
+
+	$('.js-cpm-grouplk-toggle').click(function(e) {
+		e.preventDefault();
+
+		$(this).parents('.js-cpm-grouplk').toggleClass('opened').find('.js-cpm-grouplk-body').slideToggle();
+	})
+	$('.js-cpm-grouplk-toggle-all').click(function(e) {
+		e.preventDefault();
+
+		$('.js-cpm-grouplk').removeClass('opened')
+		$('.js-cpm-grouplk-body').slideUp();
 	})
 
 	/**************************************************************

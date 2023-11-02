@@ -198,3 +198,100 @@ textarea.input--camp {
     }
    
 }
+
+
+.capm-wrap ~ .ui-datepicker {
+    box-shadow: none;
+    border: 1px solid rgba(243, 237, 253, 1);
+    padding: 24px 18px;
+    width: 308px;
+    .ui-datepicker-header {
+        margin-bottom: 3px;
+    }
+    .ui-datepicker-title {
+        flex: 1 0 0;
+        padding: 0 10px;
+        font-size: 14px; color: $bg-purple;
+        font-weight: 600;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+    }
+    .ui-datepicker-title select {
+      width: 45%;
+      background: none;
+      border: none;
+      width: 88px;
+      padding: 8px 16px;
+      color: $color-title-camp;
+    }
+    select.ui-datepicker-month {
+        background: url(../images/icons/drop-select-camp-sm.svg) no-repeat right 16px center;
+      background-color: #FFF;
+      width: 80px;
+    }
+    select.ui-datepicker-year {
+      background: url(../images/icons/drop-select-camp-sm.svg) no-repeat right 16px center;
+      width: 80px;
+    }
+    th {
+        color: $color-body-camp;
+        padding: 13px 0;
+        height: 24px;
+        line-height: 24px;
+    }
+    td {
+        text-align: center;
+        padding: 3px 6px;
+        // &:first-child {
+        //     padding-left: 30px;
+        // }
+        // &:last-child {
+        //     padding-right: 30px;
+        // }
+        .ui-state-default {
+            width: 24px;
+            height: 24px; line-height: 24px;
+            color: $color-body-camp;
+            font-size: 14px;
+            font-weight: 600;
+
+        }
+        &.ui-state-disabled .ui-state-default {
+          color: #7D7D7D;
+        }
+        &.ui-datepicker-today a {
+          background: #F1F1F1;
+          color: $bg-purple;
+        }
+        .ui-state-active {
+          background: $bg-purple;
+          color: #fff;
+        }
+        // &.selected a {
+        //     background-color: rgba(251, 234, 209, 0.5);
+        //     color: #A9D3AB;
+        // }
+        // &.selected-start a,
+        // &:first-child.selected a {
+        //     border-top-left-radius: 100px;
+        //     border-bottom-left-radius: 100px;
+        // }
+        // &.selected-end a,
+        // &:last-child.selected a {
+        //     border-top-right-radius: 100px;
+        //     border-bottom-right-radius: 100px;
+        // }
+        // &.selected-start a:after,
+        // &.selected-end a:after {
+        //     position: absolute;
+        //     left: 3px; top: 3px;
+        //     width: 32px; height: 32px;
+        //     background: #061030;
+        //     border-radius: 100px;
+        //     content: '';
+        //     z-index: -1;
+        // }
+         
+    }
+}

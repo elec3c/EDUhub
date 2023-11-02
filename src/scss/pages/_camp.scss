@@ -2342,12 +2342,66 @@ CAMP WRAP
 
 
 
+/**************************************************************
+
+**************************************************************/
+.cmp_lknav {
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    &__item {
+        height: 29px;
+        padding: 0 15px;
+        display: flex;
+        align-items: center;
+        font-size: 14px; color: #C8C8E4;
+        font-weight: 600;
+        border: 1px solid #C8C8E4;
+        border-radius: 100px;
+        position: relative;
+        transition: all 0.3s ease-in-out;
+       
+        &:hover {
+            color: $bg-purple;
+        }
+        &.active {
+            color: $bg-purple;
+            border-color: $bg-purple;
+        }
+    }
+
+    @media (max-width: $md-tablet-sm) {
+        margin-bottom: 20px;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+
+.cmp_lkfilter {
+    margin-bottom: 50px;
+    display: flex;
+    gap: 20px;
+    &__col {
+        flex: 0 0 auto;
+        width: 320px;
+        &.col--sm {
+            width: 130px;
+        }
+    }
+    .form__label {
+        font-weight: 600;
+    }
+}
 
 /**************************************************************
 
 **************************************************************/
 .cmp_lkthead {
     margin-bottom: 40px;
+    &.mb--sm {
+        margin-bottom: 10px;
+    }
     &__title {
         font-size: 24px;
         color: $color-title-camp;
@@ -2363,6 +2417,9 @@ CAMP WRAP
         font-weight: 600;
         color: $color-title-camp;
     }
+    &.mb--sm &__label {
+        padding-left: 20px;
+    }
     &__buttons {
         &.ml--auto {
             margin-left: auto;
@@ -2370,9 +2427,15 @@ CAMP WRAP
     }
 }
 
+.cmp_lktoggle {
+    padding: 10px 20px;
+}
 
 .cmp_lktables {
     font-weight: 600;
+    &.fs--md {
+        font-size: 14px;
+    }
     &.fs--sm {
         font-size: 12px;
     }
@@ -2397,7 +2460,8 @@ CAMP WRAP
         }
     }
     &.fs--sm  th {
-        font-size: 12px; 
+        font-size: 14px;
+        color: $color-title-camp; 
         padding-left: 3px;
         padding-right: 3px;
         &:first-child {
@@ -2435,6 +2499,9 @@ CAMP WRAP
         &--w-sm {
             width: 82px;
         }
+        &--w-smd {
+            width: 75px;
+        }
         &--w-smx {
             width: 60px;
         }
@@ -2447,6 +2514,13 @@ CAMP WRAP
         &--comment {
             width: 120px;
         }
+    }
+    .jq-selectbox__select {
+        font-size: 14px !important;
+    }
+    .jq-selectbox li {
+        font-size: 14px !important;
+        min-height: 26px !important;
     }
     &__act {
         position: relative;
@@ -2476,13 +2550,16 @@ CAMP WRAP
             opacity: 0; visibility: hidden;
             transition: all 0.3s ease-in-out;
             li {
+                font-size: 14px; 
+                font-weight: 600;
+                white-space: nowrap;
                 & + li {
                     margin-top: 10px;
                 }
+                &.active {
+                    color: $bg-purple;
+                }
                 a {
-                    font-size: 14px; 
-                    font-weight: 600;
-                    white-space: nowrap;
                     transition: all 0.3s ease-in-out;
                     &:hover {
                         color: $bg-purple;
@@ -2496,11 +2573,126 @@ CAMP WRAP
     }
 }
 
+.cmp_lktablesform {
+    &__inner {
+        padding: 10px 30px;
+        background: #F9F9F9;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        gap: 10px;
+    }
+    &__icol {
+        flex: 0 0 auto;
+        &.icol--mr {
+            margin-right: 10px;
+        }
+        &-inputs {
+            display: flex;
+            gap: 4px;
+        }
+        .form__label {
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .w--lg {
+            width: 320px;
+        }
+        .w--md {
+            width: 200px;
+        }
+        .w--sml {
+            width: 82px;
+        }
+        .w--sm {
+            width: 60px;
+        }
+        .form__lcheck {
+            margin-bottom: 4px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    &__buttons {
+        padding: 20px 20px 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
 
 /**************************************************************
 
 **************************************************************/
-
+.cpm_grouplk {
+    &__inner {
+        padding: 10px 20px 20px 36px;
+        border-bottom: 1px solid #F3EDFD;
+        display: flex;
+        align-items: flex-end;
+        gap: 20px;
+    }
+    &__info {
+        flex: 1 0 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px 30px;
+    }
+    &__name {
+        width: 100%;
+        font-size: 20px;
+        color: $color-title-camp;
+    }
+    &__val {
+        font-weight: 600;
+        white-space: nowrap;
+    }
+    &__addr {
+        color: $color-title-camp;
+        white-space: initial;
+    }
+    &__props {
+        flex-wrap: 0 0 auto;
+        display: flex;
+        gap: 6px;
+        .input {
+            width: 82px;
+        }
+        .form__label {
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 6;
+        }
+    }
+    &__toggle {
+        flex: 0 0 auto;
+    }
+    &__btntoggl {
+        width: 20px; height: 20px;
+        background: url(../images/icons/arrow-down-2.svg) no-repeat center center;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+    &.opened &__btntoggl {
+        transform: scale(1, -1);
+    }
+    &__body {
+        padding: 20px 34px 20px 0;
+        display: none;
+    }
+    &__btables {
+        & + & {
+            margin-top: 20px;
+        }
+        .cmp_lktablesform__inner {
+            padding: 10px;
+        }
+    }
+}
 
 
 

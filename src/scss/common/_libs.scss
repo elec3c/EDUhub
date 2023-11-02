@@ -115,7 +115,7 @@ ui-datepicker
 
             &:hover {
                 background: $bg-purple;
-                color: #fff;
+                color: #fff !important;
             }
         }
         &.ui-state-disabled .ui-state-default {
