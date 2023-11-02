@@ -1,15 +1,16 @@
 {extends 'file:templates/BaseTemplate.tpl'}
 {block 'content'}  
+{set $ptitle = $_modx->resource.longtitle?: $_modx->resource.pagetitle}
         {include 'file:chunks/crumbs/crumbs.tpl'}
         <section class="detail section__mgb">
             <div class="container">
                 <div class="section__head detail__head show-tablet-sm">
-                    <h1 class="section__title">{$_modx->resource.pagetitle?: $_modx->resource.longtitle}</h1>
+                    <h2 class="section__title">{$_modx->resource.h1?: $ptitle}</h2>
                 </div>
                 <div class="detail__cols">
                     <div class="detail__content">
                         <div class="section__head detail__head hide-tablet-sm">
-                            <h2 class="section__title">{$_modx->resource.longtitle ?: $_modx->resource.pagetitle}</h2>
+                            <h1 class="section__title">{$_modx->resource.h1?: $ptitle}</h1>
                         </div>
                         {set $desc = $_modx->resource.scools_owner | user : 'desc'}
                         {if $_modx->resource.scools_owner && $desc}
@@ -17,24 +18,31 @@
                             {$desc}
                         </div>
                         {/if}
-                        {$_modx->runSnippet('!pdoPage', [
                         
-                                    'tplWrapper'=>'@INLINE
+                        {set $count = $_modx->runSnippet('getCountCourses', ['user_id'=>$_modx->resource.scools_owner,'parent'=>61])}
+
+                        <section class="section__mgb--md">
+                        <h2 class="section__title detail__btitle">Образовательные программы ({$count})</h2>                        
+                        {$_modx->runSnippet('!mFilter2', [
+                        
                                 
-                                    <section class="section__mgb--md">
-                                    <h2 class="section__title detail__btitle">Образовательные программы</h2>
+            
+                                    'tplOuter'=>'@INLINE
+                                
+
                                         <div id="pdopage">
                                             <div class="rows">
-                                                {$output}
+                                                {$results}
                                             </div>
                                             <div class="section__buttons">
-                                                {$_modx->getPlaceholder("page.nav")}
-                                            </div>        
+                                               <a class="btn w-all" href="{1756 | url}?schools_id={$_modx->resource.scools_owner}">Просмотреть все программы</a>                                        
+                                                {*$_modx->getPlaceholder("page.nav")*}
+                                            </div>
                                         </div>
-                                    </section>',
-                        
-                                    'tpl'=>'@FILE chunks/scools/scools.program.row.tpl',
-                                    'parents'=>85,
+                                    ',
+                                    
+                                    'tpls'=>'@FILE chunks/scools/scools.program.row.tpl',
+                                    'parents'=>61,
                                     'sortby'=>'createdon',
                                     'where' => ["template" => 8, 'course_owner'=>$_modx->resource.scools_owner],
                                     'includeTVs' => 'small_image, course_owner',
@@ -46,6 +54,7 @@
                                     <path d="M21.5 11C21.5 16.52 17.02 21 11.5 21C5.98 21 2.61 15.44 2.61 15.44M2.61 15.44H7.13M2.61 15.44V20.44M1.5 11C1.5 5.48 5.94 1 11.5 1C18.17 1 21.5 6.56 21.5 6.56M21.5 6.56V1.56M21.5 6.56H17.06" stroke="#19191B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg><span>Показать еще курсы</span></button></div>' 
                                 ])?:""}
+                        </section>                                
 
                         {*
                         {include 'file:chunks/reviews/reviews.list.tpl'    page_id=$_modx->resource.id}
@@ -57,4 +66,7 @@
                 </div>
             </div>
         </section><!-- detail -->
+        
+        {include 'file:chunks/courses/courses.starts.main.tpl' schools_id=$_modx->resource.scools_owner}
+        {include 'file:chunks/courses/courses.continue.main.tpl' schools_id=$_modx->resource.scools_owner}
 {/block}

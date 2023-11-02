@@ -72,7 +72,7 @@
                                     </div>
                                     <div class="ssrequest__item-types__col">
                                         <div class="ssrequest__item-label hide-tablet-sm">Ед. изм.</div>
-                                        <select name="discount_unit" class="styler styler--white place-mob" data-placeholder="Ед. измерения скидки">
+                                        <select name="discount_unit" class="styler styler--white place-mob" data-placeholder="Ед. измерения скидки" onchange="changeDiscount('');">
                                             {set $discount_unit = $query['discount_unit']?:'percent'}
                                             {'!getValuesTV' | snippet : ['tvid'=>'118', 'curr'=>$discount_unit]}
                                         </select>
@@ -80,7 +80,7 @@
                                     </div>
                                     <div class="ssrequest__item-types__col">
                                         <div class="ssrequest__item-label">На что дается скидка</div>
-                                        <select name="discount_for_what" class="styler styler--white">
+                                        <select name="discount_for_what" class="styler styler--white" onchange="changeDiscount('');">
                                             {set $discount_for_what = $query['discount_for_what']?:'course_fee'}
                                             {'!getValuesTV' | snippet : ['tvid'=>'119', 'curr'=>$discount_for_what]} 
                                         </select>

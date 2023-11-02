@@ -46,23 +46,47 @@
             </div>
         </div>
         <div class="btns_cfs detail__aside-buttons">
-        {*
+
+        {include 'file:chunks/favorites/favorites.like.tpl' type_name='scools'}
+
         {if ('' | isloggedin : 'web')}
             {if $isOK && $confirm_phone}
                 {set $checkPromote = '!promoteCheckSchools' | snippet: ['user_id'=>$_modx->resource.scools_owner]}
                 {if $checkPromote} 
-                    <button class="btn w-all" data-open-popup="call_to_school_reg">Заказать звонок</button>
+                    <button class="btn" data-open-popup="call_to_school_reg">Заказать звонок</button>
                 {/if}
             {else}
-                 {if !$confirm_phone}<button class="btn w-all" data-open-popup="confirm_phone_msg">Обратный звонок</button>{/if}
+                 {if !$confirm_phone}<button class="btn" data-open-popup="confirm_phone_msg">Обратный звонок</button>{/if}
             {/if}
         {else}
-            <button class="btn w-all " data-open-popup="call_to_school">Заказать звонок</button>
+            <button class="btn" data-open-popup="call_to_school">Заказать звонок</button>
         {/if}
-        *}
-        {include 'file:chunks/favorites/favorites.like.tpl' type_name='scools'}
+        
+        
         
         {*<button class="btn btn--bdpurple" data-popup="sale">Получить скидку</button>*}
+        {set $scoolsList = '!getAddressSchools' | snippet: ['school_id'=>$_modx->resource.scools_owner]}
+        {if is_array($scoolsList)}
+        
+        <br><br>
+        <br><br>
+        <ul>
+            <br><br>
+            <b>Адреса филиалов</b>
+            <br><br>
+        {set $i = 0}
+        {foreach $scoolsList as $address}
+            {set $i += 1}
+            <li>{$address}</li><br>
+        {/foreach}
+        </ul>
+        {/if}
+        
+        
+        
+        
+        
+        
         </div>
     </div>
 </div>

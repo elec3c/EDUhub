@@ -1,101 +1,169 @@
+{set $my_company_id = $_modx->user.id | user:'my_company_id'}
+{set $isCorporate = ($my_company_id | ismember : ['Corporate'])}
+
+{if $_modx->resource.template == 7}      
+<script>
+$(document).ready(function(){
+   $('#sub_category-select-styler').css("visibility", "hidden");
+});
+</script>
+{/if}
+ 
 <div class="row msearch2" id="mse2_mfilter">
     <section class="choose section__mg-sm" id="choose">
         <div class="container">
             {if $_modx->resource.template == 7}        
             {include 'file:chunks/crumbs/crumbs.tpl'}
-                {/if}
+            {/if}
             <div class="section__head">
                 <h1 class="section__title">
-                    {if $_modx->resource.h1}{$_modx->resource.h1}{else}{$_modx->resource.longtitle?:$_modx->resource.pagetitle}{/if}
+                    {if intval($.get.schools_id) && ($.get.schools_id | ismember : ['Organization'])}
+                        {set $schoolsPageID = $_modx->runSnippet('!getSchoolsPageID', ['schools_id' => $.get.schools_id])}
+                        {set $fullname   =  $schoolsPageID | resource: 'pagetitle'}
+                    {/if}
+                    {if $_modx->resource.h1}{$_modx->resource.h1}{else}{$_modx->resource.longtitle?:$_modx->resource.pagetitle}{/if} {$fullname}
                 </h1>
             </div>
 
-
-            {if $.get.disableRefresh==1}
-                <div class="choose__title">Найдено по запросу <span id="mse2_total">{$total}</span> {$total | declension : 'курс|курса|курсов'}</div>
+            {*if (($_modx->resource.template != 25) && ($_modx->resource.template != 24)) || ($_modx->resource.template == 9)*}
+                {*set $total_text = 'программа|программы|программ'*}
+                {*set $_modx->config.btnFilterSave = "Сообщить о новых программах"*}
+            {*else*}
+                {*set $total_text = 'курс|курса|курсов'*}
+                {*set $_modx->config.btnFilterSave = "Сообщить о новых курсах"*}
+            {*/if*}
+            
+            {if $_modx->resource.parent == 85 || $_modx->runSnippet('!pdoField', ['field'=>'parent','id' => $_modx->resource.id,'top'=>1]) == 85}
+                {set $prefix = ", на которые идет набор слушателей"}
             {else}
-                <div class="choose__title">Найдено <span id="mse2_total">{$total}</span> {$total | declension : 'курс|курса|курсов'}</div>
+                {set $prefix = ""}
             {/if}
+            
+            {if $.get.disableRefresh==1}
+                <div class="choose__title">Найдено по запросу <span id="mse2_total">{$total}</span> {$total | declension : $total_text}</div>
+            {else}
+                <div class="choose__title">Найдено <span id="mse2_total">{$total}</span> {$total | declension : $total_text} {$prefix}</div>
+            {/if}
+            
+            {if ($my_company_id > 0) && ($isCorporate)}
+                <div class="buttons--3col">
+                    {if $_modx->resource.id == 1386}
+                        <a href="{18 | url}" class="btn btn--purple">Перейти в поиск по всем школам</a>
+                    {/if}
+                    {if $_modx->resource.id != 1386}
+                    <a href="{1386 | url}" class="btn btn--purple">Просмотреть курсы с партнерскими скидками</a>
+                    {/if}
+                </div>                        
+            {/if}            
+
+            
 
             {if 'standard' | mobiledetect}
-            
-            
-            	<form action="{$_modx->resource.id | url}" method="post" id="mse2_filters" class="hide-tablet-sm" {if $.get.disableRefresh==1}style="display:none;"{/if}>
+            	<form action="{$_modx->resource.id | url}" method="post" id="mse2_filters" class="hide-tablet-sm choose-filters" {if $.get.disableRefresh==1}style="display:none;"{/if}>
+            	    
+                    {insert 'file:chunks/filter/filter.param.selected.tpl'}
+            	    
                     <div class="choose__block">
                         <div class="choose__inputs choose__search">
                             {if $filters=='Нечего фильтровать'}
-                                Вы можете оставить запрос на подбор нужного курса. 
-                                <br> После чего мы займемся поиском подходящих курсов и как только появится курс с указанными параметрами - вам на email придет сообщение со ссылкой на этот курс.
-                                Чтобы оставить запрос, укажите на главной странице в форме ПОИСКА какие параметры курса вас интересуют и нажмите кнопу "Сообщить о новых курсах".  
-                                <br><a class="btn" href="{1 | url}">Оставить запрос</a>
+                                {insert 'file:chunks/filter/filter.courses.empty.text.tpl'}
                             {else}
                                 {$filters}
+                                {if $_modx->resource.template == 7} 
+                                    {insert 'file:chunks/filter/filter.courses.sub_category.select.hidden.tpl'}
+                                {/if}
                             {/if}
                         </div>
                     </div>                                 	    
 
                     {if $filters!='Нечего фильтровать'}
                     <div class="choose__block">
-                                <div class="choose__inputs">
+                                {*<div class="choose__inputs">
                                     <div id="msgSubmit" class="form-message" style="padding-bottom:20px;"></div>
-                                </div>
+                                </div>*}
+                                {if !($_modx->resource.id in [1756])}
                                 <div class="choose__inputs">            
                                     <div class="choose__inputs-item choose__inputs-button">
                                         <button class="btn w-all">{$_modx->config.btnFilterSearch?:"Найти"}</button>
                                     </div>
-                                    {if ('' | isloggedin : 'web') && !$_modx->user.urlico && !$_modx->user.manager}
-                                        <div class="choose__inputs-item choose__inputs-button">
-                                            <button type="button" class="btn w-all" id="btnSaveFilter" style="background:#82DC74;" data-userid="{$_modx->user.id}">{$_modx->config.btnFilterSave?:"Сообщить"}</button>
-                                        </div>
-                                    {else}
-                                        <div class="choose__inputs-item choose__inputs-button">
-                                            <button type="button" data-open-popup="call_to_school" class="btn w-all">{$_modx->config.btnFilterSave?:"Сообщить"}</button>
-                                        </div>            
-                                    {/if}            
+                                        {*if ('' | isloggedin : 'web') && !$_modx->user.urlico && !$_modx->user.manager*}
+                                            {*<div class="choose__inputs-item choose__inputs-button">
+                                                <button type="button" class="btn w-all" id="btnSaveFilter" style="background:#82DC74;" data-userid="{$_modx->user.id}">{$_modx->config.btnFilterSave?:"Сообщить"}</button>
+                                            </div>*}
+                                        {*else*}
+                                            {*<div class="choose__inputs-item choose__inputs-button">
+                                                {*<button type="button" data-open-popup="call_to_school" class="btn w-all">{$_modx->config.btnFilterSave?:"Сообщить"}</button>*}
+                                            {*</div> *}           
+                                        {*/if*}            
                                     <div class="choose__inputs-item choose__inputs-button">
-                                        <button type="reset" class="btn w-all" id="btnReset">{$_modx->config.btnFilterReset?:"Сбросить"}</button>
-                                </div>                        
+                                        <a href="" style="color: white;text-decoration: none;" class="btn w-all choose__clear js-choose-clear">{$_modx->config.btnFilterReset?:"Сбросить"}</a>
+                                    </div>                        
+                                {else}
+                                <div class="choose__inputs">
+                                    <div class="choose__inputs-item choose__inputs-button">
+                                        <a class="btn w-all" href="{1756 | url}?schools_id={$.get.schools_id}">{$_modx->config.btnFilterReset?:"Сбросить"}</a>
+                                    </div>
+                                </div>
+                                {/if}
                             </div>
                     </div>
                     {/if}
-                    <br>
-                    <div id="mse2_selected" style="background:#FFFFFF" class="choose__clit"></div>
+                    
             	
             	</form> 
 
             {else}
                 <form action="{$_modx->resource.id | url}" method="post" id="mse2_filters" class="show-tablet-sm choose-filters" {if $.get.disableRefresh==1}style="display:none;"{/if}>            	
+                
+                        
+                        {insert 'file:chunks/filter/filter.param.selected.tpl'}
+                        
+                
                         <div class="choose__block">
                             <div class="choose__inputs choose__search">
-                                {$filters}
+                                {if $filters=='Нечего фильтровать'}
+                                    {insert 'file:chunks/filter/filter.courses.empty.text.tpl'}
+                                {else}
+                                    {$filters}
+                                    {if $_modx->resource.template == 7} 
+                                        {insert 'file:chunks/filter/filter.courses.sub_category.select.hidden.tpl'}
+                                    {/if}
+                                {/if}                                
                             </div>
                         </div>                            
                         
                         <div class="choose__block" style="margin-left:20px;margin-right:20px;">
-                                    <div class="choose__inputs">
+                                    {*<div class="choose__inputs">
                                         <div id="msgSubmit" class="form-message"></div>
-                                    </div>
+                                    </div>*}
+                                    {if !($_modx->resource.id in [1756])}
                                     <div class="choose__inputs">            
                                         <div class="choose__inputs-item choose__inputs-button">
                                             <button class="btn w-all">{$_modx->config.btnFilterSearch?:"Найти"}</button>
                                         </div>
-                                        {if ('' | isloggedin : 'web') && !$_modx->user.urlico && !$_modx->user.manager}
+                                        
+                                            {*if ('' | isloggedin : 'web') && !$_modx->user.urlico && !$_modx->user.manager*}
+                                                {*<div class="choose__inputs-item choose__inputs-button">
+                                                    <button type="button" class="btn w-all" id="btnSaveFilter" style="background:#82DC74;" data-userid="{$_modx->user.id}">{$_modx->config.btnFilterSave?:"Сообщить"}</button>
+                                                </div>*}
+                                            {*else*}
+                                                {*<div class="choose__inputs-item choose__inputs-button">
+                                                    <button type="button" class="btn w-all" data-open-popup="call_to_school">{$_modx->config.btnFilterSave?"":"Сообщить"}</button>
+                                                </div>            *}
+                                            {*/if*}            
                                             <div class="choose__inputs-item choose__inputs-button">
-                                                <button type="button" class="btn w-all" id="btnSaveFilter" style="background:#82DC74;" data-userid="{$_modx->user.id}">{$_modx->config.btnFilterSave?:"Сообщить"}</button>
+                                                <button type="reset" class="btn w-all" id="btnReset">{$_modx->config.btnFilterReset?:"Сбросить"}</button>
                                             </div>
-                                        {else}
-                                            <div class="choose__inputs-item choose__inputs-button">
-                                                <button type="button" class="btn w-all" data-open-popup="call_to_school">{$_modx->config.btnFilterSave?:"Сообщить"}</button>
-                                            </div>            
-                                        {/if}            
+                                        
+                                    </div>
+                                    {else}
+                                    <div class="choose__inputs">
                                         <div class="choose__inputs-item choose__inputs-button">
-                                            <button type="reset" class="btn w-all" id="btnReset">{$_modx->config.btnFilterReset?:"Сбросить"}</button>
-                                    </div>                        
-                                </div>
+                                        <a class="btn w-all" href="{1756 | url}?schools_id={$.get.schools_id}">{$_modx->config.btnFilterReset?:"Сбросить"}</a>
+                                        </div>
+                                    </div>
+                                    {/if}
                         </div>
-                        <br>
-                        <div id="mse2_selected" style="background:#FFFFFF" class="choose__clit"></div>
-                        
                 </form>
             {/if}
 

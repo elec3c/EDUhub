@@ -30,19 +30,47 @@
 {/if}
 
 
-{set $where1 = ['data_from:>'=>$.php.date('Y-m-d'), 'data_continue:>'=>$.php.date('Y-m-d'),'OR:course_continue:='=>1, 'AND:data_continue:>'=>$.php.date('Y-m-d')]}
-{set $where = [$where1]}
-
 
         
+    
+    
+
+
+
+{set $where1['data_from:>='] = $.php.date("Y-m-d")}
+        
+{set $where1['OR:course_continue:='] = 1}
+{set $where1['AND:data_continue:>='] = $.php.date("Y-m-d")}
+{set $where = [$where1]}
+        
+
+{insert 'file:chunks/courses/course.hide.if.tpl'}
+
+{set $where['EduPromote.commission:>'] = 0}
+{set $where['EduPromote.lead:>'] = 0}
+
+    
 {'!mFilter2' | snippet : [
+
+    'class'=>'modResource',
+    'tvPrefix'=>'',
+    'loadModels'=>'Promote',
+    'select'=>[
+        'modResource'=>'*'
+    ],
+    'innerJoin'=>[
+        'EduPromote'=>[
+            'class'=>'EduPromote',
+            'on'=>'modResource.id = EduPromote.groupId'
+        ],
+    ],
 
     'parents'=>$_modx->config['site_parent_courses'],
     'limit'=>$limit,
     'ajaxMode' => 'scroll',
     'templates' => 8,
     'filters'=>$filter,
-    'aliases'=>'tv|course_continue==course_continue,
+    'aliases'=>'
                 tv|course_category==course_category,
                 tv|course_sub_category==course_sub_category,
                 tv|course_sub_category_type==course_sub_category_type,
@@ -77,12 +105,11 @@
     'tplFilter.outer.course_region'=>'@FILE chunks/filter/filter.location.region.tpl',
     'tplFilter.outer.course_metro'=>'@FILE chunks/filter/fields.location.metro.tpl',
     'tplFilter.outer.data_from'=>'@FILE chunks/forms/fields/fields.courses.data_from.tpl',
-    'tplFilter.outer.course_continue' => '@FILE chunks/filter/filter.courses.continue.checkbox.tpl',
             
     'suggestionsRadio'   =>'resource|parent',
     'showEmptyFilters'   =>'true',
     'filterOptions'      => $filterOptions,
-    'includeTVs' => 'course_owner, data_from, data_continue, course_continue, sortWeight, deposit, sale',            
+    'includeTVs' => 'num_people_in_group, course_owner, data_from, data_continue, course_continue, sortWeight, deposit, sale',            
     'sortby'=>'{"sortWeight":"DESC","data_from":"ASC","sale":"DESC"}',
     'where' => $where
 ]}

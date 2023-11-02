@@ -66,6 +66,7 @@
         <div class="auth__bottom">
           Нет аккаунта? <a href="" class="link" data-open-popup="reg_user">Зарегистрироваться</a>
         </div>
+        
       </div>
     </div>
     <!--popup__container-->

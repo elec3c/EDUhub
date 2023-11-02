@@ -15,4 +15,5 @@
 	<div class="header__navfix-info__row header__navfix-info__label">Главный офис</div>
     <div class="header__navfix-info__row">{$address}</div>
 {/if}
+
 </div>

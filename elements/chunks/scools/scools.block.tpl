@@ -1,17 +1,21 @@
 {set $user_id = $_pls['tv.scools_owner']?:$scools_owner}
 {if $user_id > 0}
-{set $city = $user_id | user:'city'}
-{set $website = $user_id | user:'website'}
-{set $course_count = $_modx->runSnippet('!getCountCourses', ['user_id' => $user_id])}
+    {set $city = $user_id | user:'city'}
+    {set $website = $user_id | user:'website'}
+    {set $course_count = $_modx->runSnippet('!getCountCourses', ['user_id' => $user_id])}
 {/if}
 
-<style>
-.scools__item-title a:hover, a:active {
-  color: white;
-}
-</style>
+
+{set $my_company_id = $_modx->user.id | user:'my_company_id'}
+{set $isCorporate = ($my_company_id | ismember : ['Corporate'])}
+{set $isEmployees = (($my_company_id > 0) && ($isCorporate))?1:0}
+
+{if $isEmployees}
+    {set $partnershipFromUserIds = $_modx->runSnippet('!getPartnershipFromUserIds', ['user_id' => $my_company_id, 'arr'=>1])}
+{/if}
+
 <div class="scools__item">
-    <div class="scools__item-link al-center">
+    <div class="scools__item-link {if is_array($partnershipFromUserIds) && in_array($user_id, $partnershipFromUserIds)}scools__item-discount{/if}">
         <div class="scools__item-photo">
             <a href="{$id | url}">
                 {include 'file:chunks/courses/courses.block.photo.tpl' user_id=$user_id}

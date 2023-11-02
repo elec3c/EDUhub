@@ -22,7 +22,8 @@
         <div class="auth__remember">
           <a href="" class="link" data-open-popup="password">Не помню пароль</a>
         </div>
-
+        <p>&nbsp;</p>
+           {* [[!HybridAuth? &providers=`Google` &groups=`Users`]]*}
         <div class="auth__bottom">
           Нет аккаунта? <a href="" class="link" data-open-popup="reg">Зарегистрироваться</a>
         </div>

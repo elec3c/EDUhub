@@ -9,16 +9,21 @@
                 tv|course_sub_category,
                 tv|course_sub_category_type,
                 tv|course_type,
-                tv|for_ages,
-                tv|for_levels,
                 tv|form_of_study,
                 tv|format_of_study,
-                tv|schedule,
-                tv|time,                
-                tv|course_city,
-                tv|course_region,
-                tv|course_metro
+                tv|for_ages,
+                tv|for_levels
         '}
+        
+{*tv|form_of_study,
+                tv|format_of_study,
+                tv|schedule,
+                tv|time,
+                
+tv|course_city,
+                tv|course_region,
+                tv|course_metro                
+                *}                   
 
 
         {set $filterOptions = '{"autoLoad":1,"selected_wrapper_tpl":"","selected_filters_delimeter":"|","selected_values_delimeter":"","selected_tpl": "<a href=\'#\' data-id=\'_id_\' class=\'mse2_selected_link\'><span>_title_</span>&nbsp;<svg width=\'11\' height=\'11\' viewBox=\'0 0 11 11\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M1 1L5.25 5.5L9.5 1\' stroke=\'#19191B\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/><path d=\'M9.5 9.75L5.25 5.25L1 9.75\' stroke=\'#19191B\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/></svg></a>"}'}
@@ -74,8 +79,8 @@
             'suggestionsRadio'   =>'resource|parent',
             'showEmptyFilters'   =>'true',
             'filterOptions'      =>$filterOptions,
-            'includeTVs' => 'course_sub_category, course_owner, data_from, data_continue, sortWeight, deposit, sale, course_continue',            
-            'sortby'=>'{"sortWeight":"DESC","data_from":"ASC","sale":"DESC"}',
+            'includeTVs' => 'course_group_state, course_sub_category, course_owner, data_from, data_continue, sortWeight, deposit, sale, course_continue',            
+            'sortby'=>'{"course_group_state":"DESC","sortWeight":"DESC"}',
             
         ]}
         

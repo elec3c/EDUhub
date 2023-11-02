@@ -5,7 +5,7 @@
 {/if}
 <div class="clearfix" style="position: relative;">
     <select name="course_metro" data-placeholder="Метро {if $req==1}*{/if}" class="{$styler}" id="course_metro" {if $req==1}required{/if}>
-        <option value="">&nbsp;</option>
+        <option class="option-hide" value="">&nbsp;</option>
         [[!getListCities? &name=`metro` &chained = `minsk` &city=`Минск` &option=`1` &curr = `[[+fi.course_metro]]`]]
     </select>
     {if $_modx->resource.template == 11}

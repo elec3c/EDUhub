@@ -18,7 +18,7 @@
                     <div class="rows">
                         {'!pdoPage' | snippet :[
                             'showLog'=>1,
-                            'parents'=>85,
+                            'parents'=>'61,'~$_modx->config['site_parent_courses'],
                             'ajaxMode'=>'default'
                             'class'=>'modResource',
                             'includeTVs'=>'course_owner',

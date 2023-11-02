@@ -1,7 +1,7 @@
 {set $caption = '!getCaptionTV' | snippet: ['name' => $filter]}
 <div class="choose__inputs-item">
 <select name="for_levels" data-placeholder="{$caption}" class="styler" id="level-select" {if $req==1}required{/if}>
-<option value=""></option>
+<option class="option-hide" value=""></option>
     {if $_modx->resource.id == 11 || $_modx->resource.parent == 11}
         {if $.get.for_levels}
             {'!getValuesTV' | snippet: ['tvid' => '27', 'chained'=>'11', 'curr'=>'{$.get.for_levels}']}

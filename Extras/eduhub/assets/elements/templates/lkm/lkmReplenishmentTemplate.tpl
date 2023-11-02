@@ -1,0 +1,52 @@
+{extends 'file:templates/BaseTemplate.tpl'}
+{block 'content'}
+    <main class="content__wrapper">
+        
+        {insert 'file:chunks/users/user.menu.tpl'}
+        
+        <section class="lk replen section__mgb" id="app">
+            <div class="container">
+
+                <div class="lk__nav">
+                        {insert 'file:chunks/menu/lkm.menu.tpl'}
+                    </div>
+                
+                {'!AjaxForm'|snippet:[
+                    'snippet'      => 'FormIt',
+                    'form'         => '@FILE chunks/forms/budget.operation.form.tpl',
+                    'hooks'        => 'FormSave,budgetTransactions',
+                    'validate'     => 'unp:required,sum:required',
+                    'validationErrorMessage' => 'В форме содержатся ошибки!',
+                    'successMessage'         => 'Счет учебного центра успешно пополнен!'
+                ]}                
+                
+                <div class="replen__filter">
+                    <div class="replen__search">
+                        <form action="{$id | url}" class="search__form">
+                            <input type="text" v-model="searchValue" name="unp" class="input search__input" placeholder="Поиск по УНП" method="GET">
+                            <input type="submit" value="" class="search__btn">
+                        </form>
+                    </div>
+                            
+                    <div class="replen__dates">
+                        <div class="replen__dates-item">
+                            <input type="date" placeholder="Дата с" name="data_from" class="input input--date" v-model="startDate" value="">
+                        </div>
+                        <div class="replen__dates-item">
+                            <input type="date" placeholder="Дата по" name="data_to" class="input input--date" v-model="endDate" value="">
+                        </div>
+                    </div>
+                </div>
+                    
+                <div v-for="recipe in filteredRecipes" :key="recipe.title">      
+                {include 'replenishment.item'}
+                </div>
+        </section><!-- lk -->
+
+                {include 'vue.replenishment'}
+        
+        
+
+	</main><!--content__wrapper-->
+	
+{/block}

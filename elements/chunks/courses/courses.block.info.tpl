@@ -7,21 +7,31 @@
 {set $course_group_title = $page_id | resource:'course_group_title'}
 
 {set $promote = $_modx->runSnippet('promoteCheckLead', ['group_id'=>$page_id])}
-
+{set $fullname = '!getSchoolsName' | snippet: ['user_id' => $course_owner]?:''}
+{if $_modx->resource.template in [24,25]}
+    {set $isCourseTemplate = 1}
+{else}
+    {set $isCourseTemplate = 0}
+{/if}
 
 <div class="courses__block-info">
-    <h3 class="courses__block-title"><a href="{$uri}">{$course_group_title ?: $pagetitle}</a></h3>
+    <small>{$fullname}</small>
+    <h3 class="courses__block-title">
+        <a href="{$uri}">{$course_group_title ?: $pagetitle}</a>
+    </h3>
+    
     <ul class="courses__block-list listinf">
-        {if ($promote['lead'] > 0) && ($data_from!='2099-01-01') && ($format_of_study!='individual')}
+        {if (!$isCourseTemplate) && ($promote['lead'] > 0) && ($data_from!='2099-01-01') && ($format_of_study!='individual')}
         <li class="listinf__flex">
-            {if $.php.strtotime($data_from) > $.php.strtotime("now")}
-                Группа стартует:&nbsp;{$data_from| date : "d.m.Y"}
-            {else}
-                Действующая группа:&nbsp;с {$data_from| date : "d.m.Y"}
-            {/if}
+                {if $.php.strtotime($data_from) > $.php.strtotime("now")}
+                    Группа стартует:&nbsp;{$data_from| date : "d.m.Y"}
+                {else}
+                    Действующая группа:&nbsp;с {$data_from| date : "d.m.Y"}
+                {/if}
         </li>
         {/if}
         
+        {if !$isCourseTemplate} 
         <li class="courses__block-training online">
         {if $form_of_study}            
             {switch  $form_of_study}
@@ -42,7 +52,7 @@
             - 
         {/if}
         </li>
-        
+        {/if}
         
         {if $course_address}
             {set $addr = $_modx->runSnippet('getListCities', ['name'=>'address', 'uid'=>$course_address, 'arr'=>1, 'index'=>1])}

@@ -8,7 +8,7 @@
 {set $curr = $res_id | resource : 'for_ages_to'}
 <div class="clearfix" style="position: relative;">
     <select name="for_ages_to" data-placeholder="Для возраста до {if $req==1}*{/if}" class="{$styler}" id="for_ages_to" {if $req==1}required{/if}>
-        <option value="">пусто</option>
+        <option class="option-hide" value="">пусто</option>
         {foreach 2..100 as $value}
         {set $chained = ''}
         {foreach 2..$value as $count}

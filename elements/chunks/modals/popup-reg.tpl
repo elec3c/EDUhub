@@ -14,19 +14,19 @@
 					<div class="popup__title">Регистрация аккаунта</div>
 					<div class="reg__navt">
 						<ul>
-							<li><a href="#" data-tab="user" class="btn reg-navt-link">Пользователь</a></li>
+							<li><a href="#" data-tab="user" class="btn reg-navt-link active">Пользователь</a></li>
 							<li><a href="#" data-tab="center" class="btn reg-navt-link">Учебный центр</a></li>
-							<li><a href="#" data-tab="urlico" class="btn reg-navt-link active">Компания</a></li>
+							<li><a href="#" data-tab="urlico" class="btn reg-navt-link ">Компания</a></li>
 						</ul>
 					</div>
 				</div>
-		    		<div class="reg__tab reg-tab" data-tab="user">
+		    		<div class="reg__tab reg-tab active" data-tab="user">
                         {include 'file:chunks/forms/modal.user.register.form.tpl'}
 				    </div>
 				    <div class="reg__tab reg-tab" data-tab="center">
 				        {include 'file:chunks/forms/modal.organization.register.form.tpl'}
 				    </div>
-				    <div class="reg__tab reg-tab active" data-tab="urlico">
+				    <div class="reg__tab reg-tab " data-tab="urlico">
                         {include 'file:chunks/forms/modal.urlico.register.form.tpl'}
 				    </div>				
 			    </div>
@@ -47,14 +47,21 @@
 					<path d="M13.8319 13.8299L8.17188 8.16992" stroke="#7D7D7D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 				</svg>					
 			</a>
-			<div class="popup__body reg">
-				<div class="reg__head reg__cols">
-					<div class="popup__title">Регистрация нового пользователя</div>
-				</div>
-		    		<div class="reg__tab reg-tab active" data-tab="user">
-                        {include 'file:chunks/forms/modal.user.register.form.tpl'}
-				    </div>
+    		<div class="popup__body reg">
+			<div class="reg__head reg__cols">
+				<div class="popup__title">Регистрация нового пользователя</div>
+			</div>
+	    		<div class="reg__tab reg-tab active" data-tab="user">
+                    {include 'file:chunks/forms/modal.user.register.form.tpl'}
 			    </div>
+		    </div>
+                <div class="auth__remember">
+              Есть аккаунт? <a href="" class="link" data-open-popup="verification_code_auth">Авторизироваться</a>
+            </div>
+            
+		    <div class="auth__bottom">
+              <a href="" class="link" data-open-popup="password">Не помню пароль</a>
+            </div>
 		</div><!--popup__container-->
 	</div>
 </div>

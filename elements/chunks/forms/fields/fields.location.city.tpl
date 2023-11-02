@@ -5,7 +5,7 @@
 {/if}
 <div class="clearfix" style="position: relative;">
     <select name="course_city" data-placeholder="Город {if $req==1}*{/if}" class="{$styler}" id="course_city" {if $req==1}required{/if}>
-        <option value="">&nbsp;</option>
+        <option class="option-hide" value="">&nbsp;</option>
         {if $_modx->resource.id != 319}
             [[!getListCities? &name=`city` &option=`1` &curr = `[[+fi.course_city]]` &chained=`offline`]]
         {else}

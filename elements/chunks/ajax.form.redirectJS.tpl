@@ -102,7 +102,15 @@ $(document).on('af_complete', function(event, response) {
                 window.location.href = "{$_modx->makeUrl(1186, 'web', [], 'full')}";
             break;
             
-                        
+            case "profileConclusionAgreement":
+                window.location.href = "{$_modx->makeUrl(1128, 'web', [], 'full')}";
+            break;
+            
+            case "profileSettingsForm":
+                window.location.reload();
+            break;
+            
+        
             default:
                 console.log("Форма не найдена");
         }

@@ -1,7 +1,7 @@
 {set $caption = '!getCaptionTV' | snippet: ['name' => $filter]}
 <div class="choose__inputs-item"> 
-<select name="format_of_study" data-placeholder="{$caption}" class="styler" {if $req==1}required{/if}>
-<option value=""></option>
+<select name="format_of_study" id="format_of_study" data-placeholder="{$caption}" class="styler" {if $req==1}required{/if}>
+<option class="option-hide" value=""></option>
     {if $.get.format_of_study}
         {'!getValuesTV' | snippet: ['tvid' => '36', 'curr'=>'{$.get.format_of_study}']}
     {else}

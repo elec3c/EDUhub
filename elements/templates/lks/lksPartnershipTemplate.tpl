@@ -141,7 +141,7 @@
                                     'includeTVs' => 'small_image, scools_owner,conclusion_agreement,partnership_join_offer',
                                     'processTVs'=>'1',
                                     'template'=>'21',
-                                    'limit'=>'10',
+                                    'limit'=>'0',
                                     'showUnpublished'=>'1',
                                     'where'=>[                              
                                         'partnership_join_offer:='  => 1

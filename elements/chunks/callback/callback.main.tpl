@@ -9,7 +9,7 @@
             <div class="ordform__inner">
                     <div class="section__head">
                     <h2 class="section__title">Поможем тебе выбрать курс</h2>
-                    <p class="section__intro">Если у тебя есть вопросы или ты не знаешь, что выбрать, оставь свой номер — мы позвоним и ответим на все твои вопросы</p>
+                    <p class="section__intro">Если у вас есть вопросы или вы не знаете, что выбрать, оставьте ваш номер — мы позвоним и ответим на все вопросы.</p>
                 </div>
                 <div class="ordform__form">
                     {include 'file:chunks/callback/callback.tpl'}

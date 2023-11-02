@@ -12,7 +12,7 @@
 			</a>
 			<div class="popup__body">
 				<div class="popup__head">
-					<div class="popup__title">{$_modx->config.notificSaleRemove?:"Вы уверены, что хотите <br> удалить эту скидку?"}</div>
+					<div class="popup__title" id="sale_remove_text">{$_modx->config.notificSaleRemove?:"Вы уверены, что хотите <br> удалить эту скидку?"}</div>
 				</div>
 
 				<button class="btn btn--red w-all button-promocode-remove">Удалить</button>

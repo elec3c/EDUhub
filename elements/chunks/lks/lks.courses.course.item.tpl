@@ -81,6 +81,10 @@
              
 								
                                 <div class="courses__template-links">
+                                    <a href="{39 | url}?type=course&copy={$id}" class="courses__template-edit">
+                                        <img src="assets/images/icons/lks-add.svg" alt="Create copy">
+                                        <span>Создать копию</span>
+                                    </a>                                    
                                     <a href="{39 | url}?type=course&edit={$id}" class="courses__template-edit">
                                         <img src="assets/images/icons/edit-purple.svg" alt="Edit">
                                         <span>Редактировать</span>

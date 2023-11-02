@@ -12,7 +12,7 @@
 			</a>
 			<div class="popup__body">
 				<div class="popup__head">
-					<div class="popup__title">{$_modx->config.notificSaleDeny?:"К сожалению у школы только, что закончилисть промокоды."}</div>
+					<div class="popup__title" id="sale_deny_text">{$_modx->config.notificSaleDeny?:"К сожалению у школы только что закончилисть промокоды."}</div>
 				</div>
 
 

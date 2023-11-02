@@ -1,14 +1,29 @@
 {set $page_id = $page_id ?: $id}
 
 {set $sale  = $.php.intval($_pls['tv.sale'])}  
-{set $price_course  = $.php.intval($_pls['tv.price_course'])}  
 {set $price_course_month  = $.php.intval($_pls['tv.price_course_month'])}  
-{set $price_course  = $page_id | resource: 'price_course'}
-{set $course_owner  = $page_id | resource: 'course_owner'}
-{set $course_template =  $page_id | resource: 'course_template'}
-{set $my_company_id = $_modx->user.id | user:'my_company_id'}
-{set $isCorporate = ($my_company_id | ismember : ['Corporate'])}
 {set $num_months_of_study  = str_replace(',','.',$_pls['tv.num_months_of_study'])}
+
+
+{set $price_course  = $page_id | resource: 'price_course'}
+{set $days = $_modx->runSnippet('outputMultipleTV', ['tvName' => 'days', 'resourceId'=>$page_id, 'arr'=>1])}
+{set $course_owner  = $page_id | resource: 'course_owner'}
+{set $my_company_id = $_modx->user.id | user:'my_company_id'}
+{set $isPromote = (($promote['lead'] > 0) || ($my_company_id > 0))?1:0}
+{set $isCorporate = ($my_company_id | ismember : ['Corporate'])}
+
+
+{set $parent  = $page_id | resource: 'parent'}
+
+
+{if $parent != 61}
+    {set $isCourseTemplate = 0}
+    {set $course_template =  $page_id | resource: 'course_template'}
+{else}
+    {set $isCourseTemplate = 1}
+    {set $course_template =  $page_id}
+{/if}
+
 
 {if ($my_company_id > 0) && ($isCorporate)}
     {set $partnershipDiscount = '!getPartnershipDiscount' | snippet : ['from_user_id' => $course_owner, 'to_user_id' => $my_company_id, 'course_template_id'=>$course_template]}
@@ -16,42 +31,17 @@
 
 {if $partnershipDiscount['discount'] > 0}
 
-    {set $discount          = $partnershipDiscount['discount']}
-    {set $discount_unit     = $partnershipDiscount['discount_unit']}
-    {set $discount_for_what = $partnershipDiscount['discount_for_what']}
-    {set $unit              = $partnershipDiscount['unit']}
-    {set $for_what          = $partnershipDiscount['for_what']}
-                        
-                        
-     {switch $for_what}
-         {case 'course_fee'}
-            {if $.php.intval($discount) && ($unit == 'percent') && (($discount > 0) && ($discount <= 100))}
-              {set $calc_discount = (($discount * $_modx->resource.price_course)/100.0)}
-              {set $price_course_partnership_sale = $_modx->resource.price_course - $calc_discount}
-              {set $isSale = 1}
-            {/if}                             
-         {case 'first_month'}
-            {if $.php.intval($discount) && ($unit == 'percent') && (($discount > 0) && ($discount <= 100))}
-                 {set $calc_discount = (($discount * $_modx->resource.price_course)/100.0)}
-                 {set $price_course_partnership_sale = $_modx->resource.price_course - $calc_discount}
-                 {if $num_months_of_study == 1}
-                     {set $isSaleFirstMonth = 1}
-                     {set $isSale = 1}
-                 {else}
-                     {set $isSale = 1}
-                 {/if}
-            {/if}
-         {case 'fixed_discount'}
-             {if intval($discount) && ($unit == 'rub') && ($_modx->resource.price_course > $discount) }
-                 {set $calc_discount = $discount} 
-                 {set $price_course_partnership_sale = $_modx->resource.price_course - $calc_discount}
-                 {set $isSale = 1}
-             {/if}
-    {/switch}
-            
-    {set $price_course_sale_format = $_modx->runSnippet('!formatMoney', ['number'=>$price_course_partnership_sale])}
+    {set $discount          = trim($partnershipDiscount['discount'])}
+    {set $discount_unit     = trim($partnershipDiscount['discount_unit'])}
+    {set $discount_for_what = trim($partnershipDiscount['discount_for_what'])}
+    {set $unit              = trim($partnershipDiscount['unit'])}
+    {set $for_what          = trim($partnershipDiscount['for_what'])}
+    
     {set $title_sale = 'Скидка партнерская '~$discount~' '~$discount_unit~' ('~$discount_for_what~')'}   
-    {set $isPartnership = 1}
+
+    {insert 'file:chunks/courses/courses.calc.discount.tpl'}
+    
+    {set $sale = $calc_discount}             
     
 {elseif (($sale > 0) && ($price_course > $sale))}
     {set $isSale = 1}
@@ -60,7 +50,6 @@
 {else}
     {set $isSale = 0}
 {/if}
-
 
 {set $price_course_format = $_modx->runSnippet('!formatMoney', ['number'=>$price_course])}
 {set $price_course_month_format = $_modx->runSnippet('!formatMoney', ['number'=>$price_course_month])}
@@ -106,12 +95,30 @@
                 </li>
             {/if}
             
-            {if $_pls['tv.form_of_study']}
+            {if $.php.is_array($days) && $.php.count($days) > 0}
+            <li><span>Интенсивность:</span>                    
+                                {set $days_arr = $_modx->runSnippet('getValuesTV', ['tvid' => 69, 'arr' => 1])}
+                                <div>
+                                {foreach $days_arr as $k=>$v}                
+                                    {set $prefix = $_modx->runSnippet('RU2LAT', ['str' => $k])}
+                                    {if $days[$k] == $v}
+                                        {set $days_period = $_modx->runSnippet('pdoField', ['field' => 'days_period_'~$prefix, 'id'=>$page_id])}
+                                        {set $a = $.php.explode('||',$days_period)}
+                                        {set $days_period_from = ($.php.strlen($a[0])==4)?('0'~$a[0]):($a[0])}
+                                        {set $days_period_to = ($.php.strlen($a[1])==4)?('0'~$a[1]):($a[1])}
+                                        {if $days_period_from && $days_period_to}
+                                            {$k}: {$days_period_from}-{$days_period_to}<br>
+                                        {/if}
+                                    {/if}
+                                {/foreach}
+                                </div>
+            
+            {else}
             <li><span>Интенсивность:</span>
                 {if $num_lesson_per_week && $lesson_duration}
                     <br>{$num_lesson_per_week} р/неделя по {$lesson_duration} мин.
                 {else}-{/if}
-            </li>            
+            </li>
             {/if}
         </ul>
         
@@ -134,7 +141,7 @@
             {if ('' | isloggedin : 'web')}
                 {if ($isOK) && ($promote['lead'] > 0) && $confirm_phone} {*('!checkBudget' | snippet : ['page_id'=>$page_id]) &&*}
                     {'!promocode' | snippet :[]}
-                    <button class="btn w-all add-promocode" data-id="{$page_id}">{$btnSale}</button>
+                    <button class="btn w-all add-promocode" data-pageid="{$page_id}" data-type="{$isCourseTemplate?'template':'group'}" data-sale="{$isSale?1:0}">{$btnSale}</button>
                 {else}
                     {if (!$confirm_phone) && ($promote['lead'] > 0)}<button class="btn w-all" data-open-popup="confirm_phone_msg">{$btnSale}</button>{/if}
                 {/if}
