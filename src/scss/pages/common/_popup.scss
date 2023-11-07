@@ -19,13 +19,32 @@
             stroke: #C8C8E4;
         }
     }
+    .popup__head {
+        margin-bottom: 40px;
+    }
     .popup__title {
         font-size: 22px;
     }
     .popup__intro {
-        font-weight: 18px;
+        font-size: 18px; color: $color-body-camp;
         font-weight: 600;
         margin-top: 6px;
+    }
+    .popup__form {
+        text-align: left;
+        display: inline-block;
+        width: 100%;
+        &.mw--sm {
+            max-width: 280px;
+        }
+    }
+    .form__label {
+        font-weight: 600;
+        color: $color-body-camp;
+    }
+    .form__btn {
+        text-align: center;
+        margin-top: 40px;
     }
     .popup__iconthank {
         margin-bottom: 6px;

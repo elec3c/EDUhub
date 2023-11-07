@@ -198,7 +198,17 @@ swiper
 .swiper-scrollbar {
   background: none ;
 }
-
+.swiper-pagination {
+  &-bullet {
+    max-width: 0 8px;
+    width: 12px; height: 12px;
+    background: #fff;
+    opacity: 1;
+  }
+  &-bullet-active {
+    background: $bg-purple;
+  }
+}
 
 
 

@@ -1,0 +1,312 @@
+@@include('html/head.html', {
+"title": "Лагерь - Скидки"
+})
+
+<section class="wrapper capm-wrap" id="top">
+
+    @@include('html/camp/cmp_header.html', {
+        "active_menu": "",
+        "auth": "user"
+    })
+
+    <main class="content__wrapper">
+
+        
+        @@include('html/camp/camp_lknav.html', {
+            "active_menu": "camp",
+            "type": ""
+        })
+
+        <section class="cmp_sale">
+            <div class="container">
+                <div class="cmp_sale__wrap">
+                    <div class="cmp_sale__hint">Здесь вы найдете информацию о поиске курсов по оптимальной цене.</div>
+
+                    <div class="cmp_sale__carousel swiper js-cmp-sale-carousel">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide cmp_sale__card">
+                                <div class="cmp_sale__card-head">
+                                    <div class="cmp_sale__card-icon"><img src="assets/images/icons/sale/brifecase-cross.svg" alt=""></div>
+                                    <h3 class="cmp_sale__card-title">Все предложения <br>
+                                        от школ - партнеров</h3>
+                                </div>
+                                <div class="cmp_sale__card-desc">Подборка курсов от школ-партнеров.</div>
+                                <div class="cmp_sale__card-buttons">
+                                    <a href="" class="btn btn--purple btn--sm w-all">Перейти</a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide cmp_sale__card">
+                                <div class="cmp_sale__card-head">
+                                    <div class="cmp_sale__card-icon"><img src="assets/images/icons/sale/message-question.svg" alt=""></div>
+                                    <h3 class="cmp_sale__card-title">Не нашли подходящий курс?</h3>
+                                </div>
+                                <div class="cmp_sale__card-desc">Оставьте запрос на подбор курса и получите уведомление о новых курсах, соответствующих вашим параметрам.
+                                </div>
+                                <div class="cmp_sale__card-buttons">
+                                    <a href="" class="btn btn--purple btn--sm w-all">Оставить запрос</a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide cmp_sale__card">
+                                <div class="cmp_sale__card-head">
+                                    <div class="cmp_sale__card-icon"><img src="assets/images/icons/sale/timer.svg" alt=""></div>
+                                    <h3 class="cmp_sale__card-title">Нет времени ждать старт группы?</h3>
+                                </div>
+                                <div class="cmp_sale__card-desc">Не ждите, начните учиться сегодня - выберите действующую группу 
+                                    и забронируйте место.</div>
+                                <div class="cmp_sale__card-buttons">
+                                    <a href="" class="btn btn--purple btn--sm w-all">Перейти</a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide cmp_sale__card">
+                                <div class="cmp_sale__card-head">
+                                    <div class="cmp_sale__card-icon"><img src="assets/images/icons/sale/calendar-2.svg" alt=""></div>
+                                    <h3 class="cmp_sale__card-title">Ближайшие страрты</h3>
+                                </div>
+                                <div class="cmp_sale__card-desc">Сравните старты групп 
+                                    во всех учебных центрах, включая предложения 
+                                    школ-партнеров.
+                                    </div>
+                                <div class="cmp_sale__card-buttons">
+                                    <a href="" class="btn btn--purple btn--sm w-all">Перейти</a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide cmp_sale__card">
+                                <div class="cmp_sale__card-head">
+                                    <div class="cmp_sale__card-icon"><img src="assets/images/icons/sale/search-normal.svg" alt=""></div>
+                                    <h3 class="cmp_sale__card-title">Найти всё</h3>
+                                </div>
+                                <div class="cmp_sale__card-desc">Посмотреть курсы от всех школ.</div>
+                                <div class="cmp_sale__card-buttons">
+                                    <a href="" class="btn btn--purple btn--sm w-all">Перейти</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+
+                <div class="cmp_sale__item">
+                    <div class="cmp_sale__item-head">
+                        <div class="cmp_sale__item-photo"><img src="assets/images/camp/camp-sale.jpg" alt=""></div>
+                        <h3 class="cmp_sale__item-title">Школа инностранных языков
+                            Undeground Lounguage Club</h3>
+                        <a href="#" class="cmp_sale__item-call hide-tablet" data-open-popup="call-camp">
+                            <span class="cmp_sale__item-call__icon"><img src="assets/images/icons/call-calling.svg" alt=""></span>
+                            <span>Заказать звонок</span>
+                        </a>    
+                    </div>
+                    <div class="cmp_sale__item-desc show-tablet">Скидка 7% на любой курс обучения в группах.</div>
+                    <div class="cmp_sale__item-info js-cmp-sale-item-info">
+                        <div class="cmp_sale__item-rprices">
+                            <div class="cmp_sale__item-rprices__name">Английский язык с нуля</div>
+                            <div class="cmp_sale__item-rprices__price">
+                                <div class="cmp_sale__item-rprices__val">10%</div>
+                                <div class="cmp_sale__item-rprices__label">(за 1-ый месяц)</div>
+                            </div>
+                        </div>
+                        <div class="cmp_sale__item-rprices">
+                            <div class="cmp_sale__item-rprices__name">Испанский  для взрослых
+                                с нуля и для продвинут...</div>
+                            <div class="cmp_sale__item-rprices__price">
+                                <div class="cmp_sale__item-rprices__val">70 руб. </div>
+                                <div class="cmp_sale__item-rprices__label">(фиксированная)</div>
+                            </div>
+                        </div>
+                        <div class="cmp_sale__item-rprices">
+                            <div class="cmp_sale__item-rprices__name">Спорт для всех и каждого</div>
+                            <div class="cmp_sale__item-rprices__price">
+                                <div class="cmp_sale__item-rprices__val">45 руб. </div>
+                                <div class="cmp_sale__item-rprices__label">(на курс)</div>
+                            </div>
+                        </div>
+                        <div class="cmp_sale__item-rprices">
+                            <div class="cmp_sale__item-rprices__name">Испанский для взрослых</div>
+                            <div class="cmp_sale__item-rprices__price">
+                                <div class="cmp_sale__item-rprices__val">45 руб. </div>
+                                <div class="cmp_sale__item-rprices__label">(на курс)</div>
+                            </div>
+                        </div>
+                        <div class="cmp_sale__item-rprices">
+                            <div class="cmp_sale__item-rprices__name">Дизайн</div>
+                            <div class="cmp_sale__item-rprices__price">
+                                <div class="cmp_sale__item-rprices__val">45 руб. </div>
+                                <div class="cmp_sale__item-rprices__label">(на курс)</div>
+                            </div>
+                        </div>
+                        <div class="cmp_sale__item-rprices">
+                            <div class="cmp_sale__item-rprices__name">Английский язык с нуля</div>
+                            <div class="cmp_sale__item-rprices__price">
+                                <div class="cmp_sale__item-rprices__val">45 руб. </div>
+                                <div class="cmp_sale__item-rprices__label">(на курс)</div>
+                            </div>
+                        </div>
+                        <a href="#" class="cmp_sale__item-lmore  link__more link__more--v2 link--rollreverse js-cmp-sale-item-lmore">
+                            <span class="open_t">Развернуть</span><span class="close_t">Свернуть</span>
+                        </a>
+                    </div>
+                    <div class="cmp_sale__item-action">
+                        <div class="cmp_sale__item-desc hide-tablet">Скидка 7% на любой курс обучения в группах.</div>
+                        <div class="cmp_sale__item-buttons">
+                            <a href="#" class="cmp_sale__item-call show-tablet" data-open-popup="call-camp">
+                                <span class="cmp_sale__item-call__icon"><img src="assets/images/icons/call-calling.svg" alt=""></span>
+                                <span>Заказать звонок</span>
+                            </a>    
+                            <button class="btn btn--purple btn--sm" data-open-popup="promocode-camp">Получить промокод</button>
+                            <button class="btn btn--bdpurple btn--sm">Показать курсы</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cmp_sale__item">
+                    <div class="cmp_sale__item-head">
+                        <div class="cmp_sale__item-photo"><img src="assets/images/camp/camp-sale.jpg" alt=""></div>
+                        <h3 class="cmp_sale__item-title">Школа инностранных языков
+                            Undeground Lounguage Club</h3>
+                        <a href="#" class="cmp_sale__item-call hide-tablet" data-open-popup="call-camp">
+                            <span class="cmp_sale__item-call__icon"><img src="assets/images/icons/call-calling.svg" alt=""></span>
+                            <span>Заказать звонок</span>
+                        </a>    
+                    </div>
+                    <div class="cmp_sale__item-desc show-tablet">Скидка 7% на любой курс обучения в группах.</div>
+                    <div class="cmp_sale__item-info js-cmp-sale-item-info">
+                        <div class="cmp_sale__item-rprices">
+                            <div class="cmp_sale__item-rprices__name">Английский язык с нуля</div>
+                            <div class="cmp_sale__item-rprices__price">
+                                <div class="cmp_sale__item-rprices__pall">
+                                    <div class="cmp_sale__item-rprices__val">7%</div>
+                                    <div class="cmp_sale__item-rprices__label">на любой курс</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cmp_sale__item-rprices">
+                            <div class="cmp_sale__item-rprices__name">Испанский  для взрослых
+                                с нуля и для продвинут...</div>
+                        </div>
+                        <div class="cmp_sale__item-rprices">
+                            <div class="cmp_sale__item-rprices__name">Спорт для всех и каждого</div>
+                        </div>
+                        <div class="cmp_sale__item-rprices">
+                            <div class="cmp_sale__item-rprices__name">Испанский для взрослых</div>
+                        </div>
+                        <div class="cmp_sale__item-rprices">
+                            <div class="cmp_sale__item-rprices__name">Дизайн</div>
+                        </div>
+                        <div class="cmp_sale__item-rprices">
+                            <div class="cmp_sale__item-rprices__name">Английский язык с нуля</div>
+                        </div>
+                        <a href="#" class="cmp_sale__item-lmore  link__more link__more--v2 link--rollreverse js-cmp-sale-item-lmore">
+                            <span class="open_t">Развернуть</span><span class="close_t">Свернуть</span>
+                        </a>
+                    </div>
+                    <div class="cmp_sale__item-action">
+                        <div class="cmp_sale__item-desc hide-tablet">Скидка 7% на любой курс обучения в группах.</div>
+                        <div class="cmp_sale__item-buttons">
+                            <a href="#" class="cmp_sale__item-call show-tablet" data-open-popup="call-camp">
+                                <span class="cmp_sale__item-call__icon"><img src="assets/images/icons/call-calling.svg" alt=""></span>
+                                <span>Заказать звонок</span>
+                            </a>    
+                            <button class="btn btn--purple btn--sm" data-open-popup="promocode-camp">Получить промокод</button>
+                            <button class="btn btn--bdpurple btn--sm">Показать курсы</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cmp_sale__item">
+                    <div class="cmp_sale__item-head">
+                        <div class="cmp_sale__item-photo"><img src="assets/images/camp/camp-sale.jpg" alt=""></div>
+                        <h3 class="cmp_sale__item-title">Школа инностранных языков
+                            Undeground Lounguage Club</h3>
+                        <a href="#" class="cmp_sale__item-call hide-tablet" data-open-popup="call-camp">
+                            <span class="cmp_sale__item-call__icon"><img src="assets/images/icons/call-calling.svg" alt=""></span>
+                            <span>Заказать звонок</span>
+                        </a>    
+                    </div>
+                    <div class="cmp_sale__item-desc show-tablet">
+                        Наши преподаватели сертифицированы по международным it-стандартам: ITIL, CMMI, ISO, PMI, HRCI, SABPP. Программы наших курсов соответствуют международным сертификатам, но максимально насыщены примерами из практики отечественных и мировых IT-компаний.
+                        <br><br>
+                        Скидки предоставляются на все курсы нашей академии и суммируются с любыми акциями.
+
+                    </div>
+                    <div class="cmp_sale__item-info js-cmp-sale-item-info">
+                        <div class="cmp_sale__item-rprices">
+                            <div class="cmp_sale__item-rprices__name">Английский язык с нуля</div>
+                            <div class="cmp_sale__item-rprices__price">
+                                <div class="cmp_sale__item-rprices__val">10%</div>
+                                <div class="cmp_sale__item-rprices__label">(за 1-ый месяц)</div>
+                            </div>
+                        </div>
+                        <div class="cmp_sale__item-rprices">
+                            <div class="cmp_sale__item-rprices__name">Испанский  для взрослых
+                                с нуля и для продвинут...</div>
+                            <div class="cmp_sale__item-rprices__price">
+                                <div class="cmp_sale__item-rprices__val">70 руб. </div>
+                                <div class="cmp_sale__item-rprices__label">(фиксированная)</div>
+                            </div>
+                        </div>
+                        <div class="cmp_sale__item-rprices">
+                            <div class="cmp_sale__item-rprices__name">Спорт для всех и каждого</div>
+                            <div class="cmp_sale__item-rprices__price">
+                                <div class="cmp_sale__item-rprices__val">45 руб. </div>
+                                <div class="cmp_sale__item-rprices__label">(на курс)</div>
+                            </div>
+                        </div>
+                        <div class="cmp_sale__item-rprices">
+                            <div class="cmp_sale__item-rprices__name">Испанский для взрослых</div>
+                            <div class="cmp_sale__item-rprices__price">
+                                <div class="cmp_sale__item-rprices__val">45 руб. </div>
+                                <div class="cmp_sale__item-rprices__label">(на курс)</div>
+                            </div>
+                        </div>
+                        <div class="cmp_sale__item-rprices">
+                            <div class="cmp_sale__item-rprices__name">Дизайн</div>
+                            <div class="cmp_sale__item-rprices__price">
+                                <div class="cmp_sale__item-rprices__val">45 руб. </div>
+                                <div class="cmp_sale__item-rprices__label">(на курс)</div>
+                            </div>
+                        </div>
+                        <div class="cmp_sale__item-rprices">
+                            <div class="cmp_sale__item-rprices__name">Английский язык с нуля</div>
+                            <div class="cmp_sale__item-rprices__price">
+                                <div class="cmp_sale__item-rprices__val">45 руб. </div>
+                                <div class="cmp_sale__item-rprices__label">(на курс)</div>
+                            </div>
+                        </div>
+                        <a href="#" class="cmp_sale__item-lmore  link__more link__more--v2 link--rollreverse js-cmp-sale-item-lmore">
+                            <span class="open_t">Развернуть</span><span class="close_t">Свернуть</span>
+                        </a>
+                    </div>
+                    <div class="cmp_sale__item-action">
+                        <div class="cmp_sale__item-desc hide-tablet">
+                            Наши преподаватели сертифицированы по международным it-стандартам: ITIL, CMMI, ISO, PMI, HRCI, SABPP. Программы наших курсов соответствуют международным сертификатам, но максимально насыщены примерами из практики отечественных и мировых IT-компаний.
+                            <br><br>
+                            Скидки предоставляются на все курсы нашей академии и суммируются с любыми акциями.
+
+                        </div>
+                        <div class="cmp_sale__item-buttons">
+                            <a href="#" class="cmp_sale__item-call show-tablet" data-open-popup="call-camp">
+                                <span class="cmp_sale__item-call__icon"><img src="assets/images/icons/call-calling.svg" alt=""></span>
+                                <span>Заказать звонок</span>
+                            </a>    
+                            <button class="btn btn--purple btn--sm" data-open-popup="promocode-camp">Получить промокод</button>
+                            <button class="btn btn--bdpurple btn--sm">Показать курсы</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!--  -->
+
+
+    </main>
+    <!--content__wrapper-->
+   
+    @@include('html/camp/cmp_footer.html', {
+        "active_menu": ""
+    })
+
+</section>
+
+@@include('html/camp/cmp_popup.html', {})
+
+</body>
+
+</html>

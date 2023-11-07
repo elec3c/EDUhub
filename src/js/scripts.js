@@ -1013,6 +1013,49 @@ $(function () {
 		$('.js-cpm-grouplk-body').slideUp();
 	})
 
+
+	/**************************************************************
+	CAMP  Скидки
+	**************************************************************/
+	var cmp_sale_carousel = new Swiper(".js-cmp-sale-carousel", {
+		slidesPerView: "auto",
+		spaceBetween: 30,
+		loop: true,
+		speed: 600,
+		pagination: {
+			el: ".swiper-pagination",
+			clickable: true,
+		},
+		breakpoints: {
+			0: {
+				initialSlide: 1,
+				loop: false,
+				centeredSlides: false,
+				slidesPerView: "auto",
+				spaceBetween: 16
+			},
+			609: {
+				initialSlide: 1,
+				centeredSlides: false,
+				slidesPerView: 2,
+				spaceBetween: 20
+			},
+			980: {
+				initialSlide: 2,
+				centeredSlides: true,
+				slidesPerView: 3,
+				spaceBetween: 20
+			},
+		}
+	});
+
+	$('.js-cmp-sale-item-lmore').click(function(e) {
+		e.preventDefault();
+
+		$(this).toggleClass('opened').parents('.js-cmp-sale-item-info').toggleClass('opened');
+	})
+
+
 	/**************************************************************
 	CAMP KVIZ
 	**************************************************************/

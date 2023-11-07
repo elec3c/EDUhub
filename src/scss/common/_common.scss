@@ -644,6 +644,12 @@
         transform: rotate(180deg);
         content: '';
     }
+    &--v2::after {
+        background-image: url(../images/icons/rollup-2.svg);
+    }
+    &.link--rollreverse::after {
+        transform: rotate(0);
+    }
     .close_t {
         display: none;
     }
@@ -665,6 +671,9 @@
     &.opened {
         &:after {
             transform: rotate(0deg);
+        }
+        &.link--rollreverse::after {
+            transform: rotate(180deg);
         }
         svg {
             transform: rotate(180deg);
