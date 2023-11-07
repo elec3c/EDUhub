@@ -40,6 +40,9 @@
 <script type="text/javascript" src="/assets/custom/corporate.employee.js"></script>
 {/if}
 
+{if ($_modx->resource.id in [2023]) || $_modx->parent.id === 2021} {* Для функционала "Лагеря" *}
+	<script src="/app/assets/js/camp.js"></script>
+{/if}
 
 
 {if ($_modx->resource.id in [35,39])}

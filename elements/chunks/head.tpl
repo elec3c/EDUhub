@@ -79,11 +79,15 @@
 <link href="/assets/css/styles.min.css" rel="stylesheet">
 <link href="/assets/custom/custom.css" rel="stylesheet">
 
+{if ($_modx->resource.id in [2023]) || $_modx->parent.id === 2021} {* Для функционала "Лагеря" *}
+	<link rel="stylesheet" href="/app/assets/css/styles.min.css">
+	<link rel="stylesheet" href="/app/assets/css/camp.css">
+{/if}
+
 {if $_modx->resource.id in [802,803]}
 	<link rel="stylesheet" href="/assets/js/mCustomScrollbar/jquery.mCustomScrollbar.css">
 </script>
 {/if}
-
 
 {if $_modx->resource.id in [35,39]}
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>

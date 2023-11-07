@@ -69,7 +69,7 @@
                 {if ('' | isloggedin : 'web')}
                     {if $isEmployees && $confirm_phone} 
                         {'!promocode' | snippet :[]}
-                        <a class="btn add-promocode" style="margin-top:10px;height:32px;" data-pageid="{$to_user_id~0~$from_user_id}" data-type="all-template" data-sale="1">{$btnSale}</a>
+                        <a class="btn add-promocode" style="margin-top:10px;height:32px;" data-pageid="0" data-type="all-template" data-sale="1" data-from="{$from_user_id}" data-to="{$to_user_id}">{$btnSale}</a>
                     {else}
                         {if $isEmployees || !$confirm_phone}<a class="btn" style="margin-top:10px;height:32px;" data-open-popup="confirm_phone_msg">{$btnSale}</a>{/if}
                     {/if}
