@@ -1078,20 +1078,7 @@ $(function () {
 			row_new = $(form).parents('.js-cmp-lktables-row-form').prev('.js-cmp-lktables-row');
 		}
 
-		$(row_new).find('.js-cmp-lktables-fio').html( data.get('name') );
-		$(row_new).find('.js-cmp-lktables-contacts').html( `<div class="nowrap">${data.get('phone')}</div><div class="">${data.get('email')}</div><div class="">${data.get('tg')}</div>` );
-		const age = (data.get('age') !== '') ? data.get('age') + ' ' + declOfNum(data.get('age'), ['год', 'года', 'лет']) : '';
-		const gender = (data.get('gender') === 'm') ? 'муж' : 'жен';
-		$(row_new).find('.js-cmp-lktables-age').html( `<div class="nowrap">${gender}</div><div class="">${age}</div>` );
-		$(row_new).find('.js-cmp-lktables-child').html( data.get('name_child') );
-		$(row_new).find('.js-cmp-lktables-address').text( data.get('address') );
-		$(row_new).find('.js-cmp-lktables-note').text( data.get('note') );
-		$(row_new).find('input').each(function() {
-			const n_i = $(this).attr('name');
-			let val = data.get(n_i);
-			if (n_i == 'time') val = data.get('time_from') + ' - ' + data.get('time_to');
-			$(this).val( val );
-		})
+
 
 
 		$.ajax({
@@ -1104,6 +1091,23 @@ $(function () {
 			success: function(res) {
 				if (res !== '200') return;
 
+
+				$(row_new).find('.js-cmp-lktables-fio').html( data.get('name') );
+				$(row_new).find('.js-cmp-lktables-contacts').html( `<div class="nowrap">${data.get('phone')}</div><div class="">${data.get('email')}</div><div class="">${data.get('tg')}</div>` );
+				const age = (data.get('age') !== '') ? data.get('age') + ' ' + declOfNum(data.get('age'), ['год', 'года', 'лет']) : '';
+				const gender = (data.get('gender') === 'm') ? 'муж' : 'жен';
+				$(row_new).find('.js-cmp-lktables-age').html( `<div class="nowrap">${gender}</div><div class="">${age}</div>` );
+				$(row_new).find('.js-cmp-lktables-child').html( data.get('name_child') );
+				$(row_new).find('.js-cmp-lktables-address').text( data.get('address') );
+				$(row_new).find('.js-cmp-lktables-note').text( data.get('note') );
+				$(row_new).find('input').each(function() {
+					const n_i = $(this).attr('name');
+					let val = data.get(n_i);
+					if (n_i == 'time') val = data.get('time_from') + ' - ' + data.get('time_to');
+					$(this).val( val );
+				})
+
+				
 				if (action == 'new') {
 					$(lktables).append(row_new);
 					$(form).trigger('reset');			
@@ -1185,6 +1189,62 @@ $(function () {
 
 	});
 
+
+	$('body').on('click', '.js-cmp-lktables-row-clone', function (e) {
+		e.preventDefault();
+
+		const row = $(this).parents('.js-cmp-lktables-row');
+		const data = new FormData();
+		data.append('action', 'clone');
+		data.append('id', $(row).attr('data-id'));
+
+		const row_new = $(row).clone(true);
+		$(row_new).attr('data-id', '');
+
+
+		$.ajax({
+			type: 'POST',
+			url: 'ajax.php',
+			data: data,
+			processData: false,
+			contentType: false,
+			//dataType: 'JSON',
+			success: function(res) {
+				if (res !== '200') return;
+
+				
+				const row_form = $(row).next();
+				const row_form_new = $(row_form).clone(true);
+				
+				$(row_form_new).find('input.styler').each(function() {
+
+					const input = $(this).clone();
+					$(input).prop('checked', $(this).is(':checked'));
+					$(this).parent().after(input);
+					$(this).parent().remove();
+				})
+				$(row_form_new).find('select.styler').each(function() {
+					const select = $(this).clone();
+					$(select).find('option[value="'+data.get($(this).attr('name'))+'"]').prop('selected', true);
+					$(this).parent().after(select);
+					$(this).parent().remove();
+				})
+				
+				$(row_form_new).find('.styler').styler();
+				$(row_form_new).find(".phone-mask").mask("+375(99)999-99-99");
+				setTimeout(function () {
+					$(row_form_new).find('.styler').trigger('refresh');
+				}, 1)
+
+				$(row_form).after(row_new);
+				$(row_new).after(row_form_new);
+			},
+			error: function(error) {
+			 
+			}
+		});
+
+	});
 
 
 	/**************************************************************
