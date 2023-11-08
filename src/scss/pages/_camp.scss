@@ -2443,6 +2443,9 @@ CAMP WRAP
         width: 100%;
         border-collapse: collapse;
     }
+    tr.row--hide {
+        display: none;
+    }
     th {
         background: #F9F9F9;
         padding: 10px 5px;
@@ -2481,6 +2484,9 @@ CAMP WRAP
             padding-right: 15px;
         }
     }
+    &__rowform td {
+        padding: 0 0 15px !important;
+    }
     &.fs--sm  td{
         padding: 10px 3px;
         &:first-child {
@@ -2493,7 +2499,7 @@ CAMP WRAP
     .w-all{
         // width: 100%;
     }
-    .input {
+    tr:not(.cmp_lktables__rowform) .input {
         padding: 0 12px;
         font-size: 14px;
         &--w-sm {
@@ -2515,10 +2521,10 @@ CAMP WRAP
             width: 120px;
         }
     }
-    .jq-selectbox__select {
+    tr:not(.cmp_lktables__rowform) .jq-selectbox__select {
         font-size: 14px !important;
     }
-    .jq-selectbox li {
+    tr:not(.cmp_lktables__rowform) .jq-selectbox li {
         font-size: 14px !important;
         min-height: 26px !important;
     }
@@ -2574,6 +2580,7 @@ CAMP WRAP
 }
 
 .cmp_lktablesform {
+    // display: none;
     &__inner {
         padding: 10px 30px;
         background: #F9F9F9;
