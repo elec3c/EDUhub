@@ -1089,7 +1089,8 @@ $(function () {
 			contentType: false,
 			//dataType: 'JSON',
 			success: function(res) {
-				if (res !== '200') return;
+				res = JSON.parse(res);
+				if (res.code !== 200) return;
 
 
 				$(row_new).find('.js-cmp-lktables-fio').html( data.get('name') );
@@ -1107,8 +1108,9 @@ $(function () {
 					$(this).val( val );
 				})
 
-				
+
 				if (action == 'new') {
+					$(row_new).attr('data-id', res.id);
 					$(lktables).append(row_new);
 					$(form).trigger('reset');			
 					setTimeout(function () {
@@ -1117,7 +1119,7 @@ $(function () {
 
 
 					const row_form = $(form).clone(true);
-					$(row_form).attr({'data-type': '', 'data-form': 'change'});
+					$(row_form).attr({'data-type': '', 'data-form': 'change', 'data-id': res.id});
 					
 					$(row_form).find('input.styler').each(function() {
 		
@@ -1177,7 +1179,9 @@ $(function () {
 			contentType: false,
 			//dataType: 'JSON',
 			success: function(res) {
-				if (res !== '200') return;
+				
+				res = JSON.parse(res);
+				if (res.code !== 200) return;
 
 				$(row).next().remove();
 				$(row).remove();
@@ -1210,11 +1214,15 @@ $(function () {
 			contentType: false,
 			//dataType: 'JSON',
 			success: function(res) {
-				if (res !== '200') return;
+				res = JSON.parse(res);
+				if (res.code !== 200) return;
 
+				
+				$(row_new).attr('data-id', res.id);
 				
 				const row_form = $(row).next();
 				const row_form_new = $(row_form).clone(true);
+				$(row_form_new).attr('data-id', res.id);
 				
 				$(row_form_new).find('input.styler').each(function() {
 
