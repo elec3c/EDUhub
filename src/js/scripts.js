@@ -17,6 +17,14 @@ function getUrlVars()
     }
     return vars;
 }
+function declOfNum(n, text_forms) {  
+    n = Math.abs(n) % 100; 
+    var n1 = n % 10;
+    if (n > 10 && n < 20) { return text_forms[2]; }
+    if (n1 > 1 && n1 < 5) { return text_forms[1]; }
+    if (n1 == 1) { return text_forms[0]; }
+    return text_forms[2];
+}
 
 function openModal(popup_n) {
 	$('.popup').fadeOut(800);
@@ -1013,6 +1021,171 @@ $(function () {
 		$('.js-cpm-grouplk-body').slideUp();
 	})
 
+	/**************************************************************
+	CAMP  таблицы
+	**************************************************************/
+	$('.js-cmp-lktablesform-show').click(function(e) {
+		e.preventDefault();
+
+		$('.js-cmp-lktablesform[data-form="new"]').slideDown();
+	})
+
+	$('body').on('change', 'select[data-required]', function () {
+		$(this).removeClass('error');
+		setTimeout(function () {
+			$(this).trigger('refresh');
+		}, 1)
+	})
+	$('body').on('keyup', 'input[data-required]', function () {
+		if ($(this).val().trim() !== '') {
+			$(this).removeClass('error');
+		}
+	});
+
+	$('.js-cmp-lktablesform').submit(function(e){
+		e.preventDefault();
+
+		const form = $(this);
+		let error = false;
+	
+		$(form).find('[data-required]').each(function() {
+			if ($(this).val().trim() === '') {
+				error = true;
+				$(this).addClass('error');
+			}
+		})
+		
+		if (error) {				
+			setTimeout(function () {
+				$(form).find('.styler').trigger('refresh');
+			}, 1)
+			
+			return;
+		}
+
+		const data = new FormData($(form)[0]);
+		const action = $(form).attr('data-form');
+		data.append('action', action);
+
+		const type = $(form).attr('data-type');
+		const lktables = $('.js-lktables[data-type='+type+']');
+		
+		let row_new = '';
+		if (action == 'new') {
+			row_new = $('.js-cmp-lktables-row[data-type='+type+']').clone(true);
+			$(row_new).removeClass('row--hide').attr('data-type', '');
+		} else {
+			row_new = $(form).parents('.js-cmp-lktables-row-form').prev('.js-cmp-lktables-row');
+		}
+
+		$(row_new).find('.js-cmp-lktables-fio').html( data.get('name') );
+		$(row_new).find('.js-cmp-lktables-contacts').html( `<div class="nowrap">${data.get('phone')}</div><div class="">${data.get('email')}</div><div class="">${data.get('tg')}</div>` );
+		const age = (data.get('age') !== '') ? data.get('age') + ' ' + declOfNum(data.get('age'), ['год', 'года', 'лет']) : '';
+		const gender = (data.get('gender') === 'm') ? 'муж' : 'жен';
+		$(row_new).find('.js-cmp-lktables-age').html( `<div class="nowrap">${gender}</div><div class="">${age}</div>` );
+		$(row_new).find('.js-cmp-lktables-child').html( data.get('name_child') );
+		$(row_new).find('.js-cmp-lktables-address').text( data.get('address') );
+		$(row_new).find('.js-cmp-lktables-note').text( data.get('note') );
+		$(row_new).find('input').each(function() {
+			const n_i = $(this).attr('name');
+			let val = data.get(n_i);
+			if (n_i == 'time') val = data.get('time_from') + ' - ' + data.get('time_to');
+			$(this).val( val );
+		})
+
+
+		$.ajax({
+			type: 'POST',
+			url: 'ajax.php',
+			data: data,
+			processData: false,
+			contentType: false,
+			//dataType: 'JSON',
+			success: function(res) {
+				if (res !== '200') return;
+
+				if (action == 'new') {
+					$(lktables).append(row_new);
+					$(form).trigger('reset');			
+					setTimeout(function () {
+						$(form).find('.styler').trigger('refresh');
+					}, 1)
+
+
+					const row_form = $(form).clone(true);
+					$(row_form).attr({'data-type': '', 'data-form': 'change'});
+					
+					$(row_form).find('input.styler').each(function() {
+		
+						const input = $(this).clone();
+						$(input).prop('checked', $(this).is(':checked'));
+						$(this).parent().after(input);
+						$(this).parent().remove();
+					})
+					$(row_form).find('select.styler').each(function() {
+						const select = $(this).clone();
+						$(select).find('option[value="'+data.get($(this).attr('name'))+'"]').prop('selected', true);
+						$(this).parent().after(select);
+						$(this).parent().remove();
+					})
+					
+			
+					$(lktables).append(`<tr class="cmp_lktables__rowform row--hide js-cmp-lktables-row-form"><td colspan="${$(row_new).find('td').length}"></td></tr>`);
+					$(lktables).find('.js-cmp-lktables-row-form').last().find('td').append(row_form);
+					
+					$(row_form).find('.styler').styler();
+					$(row_form).find(".phone-mask").mask("+375(99)999-99-99");
+					setTimeout(function () {
+						$(row_form).find('.styler').trigger('refresh');
+					}, 1)
+				}
+				if (action == 'change') {
+					$(form).parents('.js-cmp-lktables-row-form').addClass('row--hide');
+				}
+			},
+			error: function(error) {
+			 
+			}
+		});
+
+	});
+	
+	$('body').on('click', '.js-cmp-lktables-row-change', function (e) {
+		e.preventDefault();
+		
+		const row = $(this).parents('.js-cmp-lktables-row');
+		$(row).next().removeClass('row--hide');
+
+	});
+	$('body').on('click', '.js-cmp-lktables-row-delete', function (e) {
+		e.preventDefault();
+
+		const row = $(this).parents('.js-cmp-lktables-row');
+		const data = new FormData();
+		data.append('action', 'delete');
+		data.append('id', $(row).attr('data-id'));
+
+		$.ajax({
+			type: 'POST',
+			url: 'ajax.php',
+			data: data,
+			processData: false,
+			contentType: false,
+			//dataType: 'JSON',
+			success: function(res) {
+				if (res !== '200') return;
+
+				$(row).next().remove();
+				$(row).remove();
+			},
+			error: function(error) {
+			 
+			}
+		});
+
+	});
+
+
 
 	/**************************************************************
 	CAMP  Скидки
@@ -1059,17 +1232,7 @@ $(function () {
 	/**************************************************************
 	CAMP KVIZ
 	**************************************************************/
-	$('body').on('change', '.kviz select[data-required]', function () {
-		$(this).removeClass('error');
-		setTimeout(function () {
-			$(this).trigger('refresh');
-		}, 1)
-	})
-	$('body').on('input', '.kviz input[data-required]', function () {
-		if ($(this).val().trim() !== '') {
-			$(this).removeClass('error');
-		}
-	});
+
 
 	$('.js-kviz-next').click(function(){
 		let step_form = $(this).parents('.js-step-form');

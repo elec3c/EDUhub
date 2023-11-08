@@ -36,7 +36,7 @@
                     <div class="cmp_lkthead__act">
                         <div class="cmp_lkthead__label">Лиды (4)</div>
                         <div class="cmp_lkthead__buttons">
-                            <button class="btn btn--sm btn--purple">Добавить лид</button>
+                            <button class="btn btn--sm btn--purple js-cmp-lktablesform-show">Добавить лид</button>
                         </div>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
             
             <div class="container container--lg">
                 <div class="cmp_lktables fs--sm">
-                    <table>
+                    <table class="js-lktables" data-type="leads">
                         <tr>
                             <th class="text--left w-all">ФИО родителя</th>
                             <th class="text--left w-all">Контакты</th>
@@ -60,72 +60,22 @@
                             <th>Примечание</th>
                             <th></th>
                         </tr>
-                        <tr>
-                            <td class="">Александровская Александра Александровна</td>
-                            <td>
-                                <span class="nowrap">+ 375 (29) 219 - 84 - 00</span> <br>
-                                @ghkjiuail.ru <br>
-                                Telegram
-                            </td>
-                            <td>
-                                Адександровская Александра Александровна
-                            </td>
-                            <td>
-                                жен <br>
-                                10 лет
-                            </td>
-                            <td>г.Минск ул. Уручская,19</td>
-                            <td><input type="text" name="cabinet[]" class="input input--camp input--w-smx" value="12" placeholder="№"></td>
-                            <td><input type="text" name="shift[]" class="input input--camp input--w-smx" value="1" placeholder="Смена"></td>
-                            <td><input type="text" name="group[]" class="input input--camp input--w-smx" value="15" placeholder="№"></td>
-                            <td><input type="text" name="time[]" class="input input--camp input--w-smx" value="9-12" placeholder="№"></td>
-                            <td><input type="text" name="sum[]" class="input input--camp input--w-smx" value="350" placeholder="№"></td>
-                            <td><input type="text" name="sale[]" class="input input--camp input--w-smx" value="20" placeholder="№"></td>
-                            <td><input type="text" name="comment[]" class="input input--camp input--comment" value="аллергия на апельсины" placeholder="Примечание"></td>
-                            <td>
-                                <div class="cmp_lktables__act">
-                                    <button class="cmp_lktables__act-open">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12Z" fill="#C8C8E4"/>
-                                            <path d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z" fill="#C8C8E4"/>
-                                            <path d="M21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12Z" fill="#C8C8E4"/>
-                                            </svg>
-                                    </button>
-                                    <div class="cmp_lktables__act-menu">
-                                        <ul>
-                                            <li class="active">Договор заключен</li>
-                                            <li><a href="">Редактировать</a></li>
-                                            <li><a href="">Создать копию</a></li>
-                                            <li><a href="">Удалить</a></li>
-                                        </ul>
-                                    </div>   
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="">Александровская Александра Александровна</td>
-                            <td>
-                                <span class="nowrap">+ 375 (29) 219 - 84 - 00</span> <br>
-                                @ghkjiuail.ru <br>
-                                Telegram
-                            </td>
-                            <td>
-                                Адександровская Александра Александровна
-                            </td>
-                            <td>
-                                жен <br>
-                                10 лет
-                            </td>
-                            <td>г.Минск ул. Уручская,19</td>
-                            <td><input type="text" name="cabinet[]" class="input input--camp input--w-smx" value="12" placeholder="№"></td>
-                            <td><input type="text" name="shift[]" class="input input--camp input--w-smx" value="1" placeholder="Смена"></td>
-                            <td><input type="text" name="group[]" class="input input--camp input--w-smx" value="15" placeholder="№"></td>
-                            <td><input type="text" name="time[]" class="input input--camp input--w-smx" value="9-12" placeholder="№"></td>
-                            <td><input type="text" name="sum[]" class="input input--camp input--w-smx" value="350" placeholder="№"></td>
-                            <td><input type="text" name="sale[]" class="input input--camp input--w-smx" value="20" placeholder="№"></td>
+
+                        <tr class="js-cmp-lktables-row row--hide"  data-type="leads">
+                            <td class="js-cmp-lktables-fio"></td>
+                            <td class="js-cmp-lktables-contacts"></td>
+                            <td class="js-cmp-lktables-child"></td>
+                            <td class="js-cmp-lktables-age"></td>
+                            <td class="js-cmp-lktables-address"></td>
+                            <td><input type="text" name="cabinet" readonly class="input input--camp input--w-smx" value="" placeholder=""></td>
+                            <td><input type="text" name="shift" readonly class="input input--camp input--w-smx" value="" placeholder=""></td>
+                            <td><input type="text" name="group" readonly class="input input--camp input--w-smx" value="" placeholder=""></td>
+                            <td><input type="text" name="time" readonly class="input input--camp input--w-smx" value="" placeholder=""></td>
+                            <td><input type="text" name="sum" readonly class="input input--camp input--w-smx" value="" placeholder=""></td>
+                            <td><input type="text" name="sale" readonly class="input input--camp input--w-smx" value="" placeholder=""></td>
                             <td><div class="input__hhint">
-                                    <input type="text" name="comment[]" class="input input--camp input--comment" value="аллергия на апельсины" placeholder="аллергия на апельсин,на кошек">
-                                    <div class="input__hhint-hint p-right"><div class="input__hhint-wrap">аллергия на апельсин,на кошек</div></div>
+                                    <input type="text" name="note" readonly class="input input--camp input--comment" value="" placeholder="">
+                                    <div class="input__hhint-hint p-right"><div class="input__hhint-wrap js-cmp-lktables-note"></div></div>
                                 </div>
                             </td>
                             <td>
@@ -140,25 +90,163 @@
                                     <div class="cmp_lktables__act-menu">
                                         <ul>
                                             <li class="active">Договор заключен</li>
-                                            <li><a href="">Редактировать</a></li>
-                                            <li><a href="">Создать копию</a></li>
-                                            <li><a href="">Удалить</a></li>
+                                            <li><a href="" class="js-cmp-lktables-row-change">Редактировать</a></li>
+                                            <li><a href="" class="js-cmp-lktables-row-clone">Создать копию</a></li>
+                                            <li><a href="" class="js-cmp-lktables-row-delete">Удалить</a></li>
                                         </ul>
                                     </div>   
                                 </div>
                             </td>
                         </tr>
+
+                        @@for (var i=1; i<=3; i++){
+                        <tr class="js-cmp-lktables-row" data-id="`+i+`">
+                            <td class="js-cmp-lktables-fio">Александровская Александра Александровна</td>
+                            <td class="js-cmp-lktables-contacts">
+                                <span class="nowrap">+ 375 (29) 219 - 84 - 00</span> <br>
+                                @ghkjiuail.ru <br>
+                                Telegram
+                            </td>
+                            <td class="js-cmp-lktables-child">
+                                Адександровская Александра Александровна
+                            </td>
+                            <td class="js-cmp-lktables-age">
+                                жен <br>
+                                10 лет
+                            </td>
+                            <td class="js-cmp-lktables-address">г.Минск ул. Уручская,19</td>
+                            <td><input type="text" name="cabinet" readonly class="input input--camp input--w-smx" value="12" placeholder=""></td>
+                            <td><input type="text" name="shift" readonly class="input input--camp input--w-smx" value="`+i+`" placeholder=""></td>
+                            <td><input type="text" name="group" readonly class="input input--camp input--w-smx" value="15" placeholder=""></td>
+                            <td><input type="text" name="time" readonly class="input input--camp input--w-smx" value="9-12" placeholder=""></td>
+                            <td><input type="text" name="sum" readonly class="input input--camp input--w-smx" value="350" placeholder=""></td>
+                            <td><input type="text" name="sale" readonly class="input input--camp input--w-smx" value="20" placeholder=""></td>
+                            <td><div class="input__hhint">
+                                    <input type="text" name="note" readonly class="input input--camp input--comment" value="аллергия на апельсин, на кошек" placeholder="">
+                                    <div class="input__hhint-hint p-right"><div class="input__hhint-wrap js-cmp-lktables-note">аллергия на апельсин, на кошек</div></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cmp_lktables__act">
+                                    <button class="cmp_lktables__act-open">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12Z" fill="#C8C8E4"/>
+                                            <path d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z" fill="#C8C8E4"/>
+                                            <path d="M21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12Z" fill="#C8C8E4"/>
+                                            </svg>
+                                    </button>
+                                    <div class="cmp_lktables__act-menu">
+                                        <ul>
+                                            <li class="active">Договор заключен</li>
+                                            <li><a href="#" class="js-cmp-lktables-row-change">Редактировать</a></li>
+                                            <li><a href="#" class="js-cmp-lktables-row-clone">Создать копию</a></li>
+                                            <li><a href="#" class="js-cmp-lktables-row-delete">Удалить</a></li>
+                                        </ul>
+                                    </div>   
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="cmp_lktables__rowform js-cmp-lktables-row-form row--hide"  data-type="leads">
+                            <td colspan="13">
+                                <form method="post" action="" class="cmp_lktablesform js-cmp-lktablesform" data-form="change" data-type="leads" data-id="`+i+`">
+                                    <div class="cmp_lktablesform__inner">
+                                        <div class="cmp_lktablesform__icol icol--first">
+                                            <div class="form__label">ФИО родителя</div>
+                                            <input type="text" name="name" class="input input--camp  w--md" value="Александровская Александра Александровна" placeholder="ФИО родителя" data-required>
+                                        </div>
+                                        <div class="cmp_lktablesform__icol icol--first">
+                                            <div class="form__label">Телефон</div>
+                                            <input type="tel" name="phone" class="input input--camp  w--md phone-mask" value="+375292198400" placeholder="Телефон" data-required>
+                                        </div>
+                                        <div class="cmp_lktablesform__icol icol--first">
+                                            <div class="form__label">E-mail</div>
+                                            <input type="text" name="email" class="input input--camp  w--md" value="@ghkjiuail.ru" placeholder="E-mail">
+                                        </div>
+                                        <div class="cmp_lktablesform__icol icol--first">
+                                            <div class="form__label">Telegram</div>
+                                            <input type="text" name="tg" class="input input--camp  w--md" value="Telegram" placeholder="Telegram">
+                                        </div>
+                                        <div class="cmp_lktablesform__icol icol--first">
+                                            <div class="form__label">ФИО ребенка</div>
+                                            <input type="text" name="name_child" class="input input--camp  w--md" value="Александровская Александра Александровна" placeholder="ФИО ребенка">
+                                        </div>
+                                        <div class="cmp_lktablesform__icol icol--first">
+                                            <div class="form__label">Возраст</div>
+                                            <input type="text" name="age" class="input input--camp  w--sm" value="10" placeholder="0">
+                                        </div>
+                                        <div class="cmp_lktablesform__icol icol--first">
+                                            <label class="form__lcheck"><input type="radio" class="styler styler--camp" name="gender" value="m"><span>муж.</span></label>
+                                            <label class="form__lcheck"><input type="radio" class="styler styler--camp" name="gender" value="w" checked><span>жен.</span></label>
+                                        </div>
+                                        <div class="cmp_lktablesform__icol icol--mr">
+                                            <div class="form__label">Адрес</div>
+                                            <select class="styler styler--camp w--md" name="address" data-placeholder="Адрес" data-required>
+                                                <option value=""></option>
+                                                <option value="г.Минск ул. Уручская,19" selected>г.Минск ул. Уручская,19</option>
+                                                <option value="Адрес 2">Адрес 2</option>
+                                                <option value="Адрес 3">Адрес 3</option>
+                                            </select>
+                                        </div>
+                                        <div class="cmp_lktablesform__icol icol--mr">
+                                            <div class="form__label">Кабинет</div>
+                                            <input type="text" name="cabinet" class="input input--camp w--sm" value="12" placeholder="1">
+                                        </div>
+                                        <div class="cmp_lktablesform__icol icol--mr">
+                                            <div class="form__label">Смена</div>
+                                            <input type="text" name="shift" class="input input--camp w--sm" value="`+i+`" placeholder="1">
+                                        </div>
+                                        <div class="cmp_lktablesform__icol icol--mr">
+                                            <div class="form__label">Группа</div>
+                                            <select class="styler styler--camp w--md" name="group" data-placeholder="Группа">
+                                                <option value=""></option>
+                                                <option value="15" selected>Группа 15</option>
+                                                <option value="2">Группа 2</option>
+                                                <option value="3">Группа 3</option>
+                                            </select>
+                                        </div>
+                                        <div class="cmp_lktablesform__icol icol--mr">
+                                            <div class="form__label">Время занятий</div>
+                                            <div class="cmp_lktablesform__icol-inputs">
+                                                <input type="text" name="time_from" class="input input--camp w--sm" value="9" placeholder="9">
+                                                <input type="text" name="time_to" class="input input--camp w--sm" value="12" placeholder="12">
+                                            </div>
+                                        </div>
+                                        <div class="cmp_lktablesform__icol icol--mr">
+                                            <div class="form__label">Сумма <br>договора</div>
+                                            <input type="text" name="sum" class="input input--camp w--sm" value="350" placeholder="0">
+                                        </div>
+                                        <div class="cmp_lktablesform__icol icol--mr">
+                                            <div class="form__label">Скидка</div>
+                                            <input type="text" name="sale" class="input input--camp w--sm" value="20" placeholder="0">
+                                        </div>
+                                        <div class="cmp_lktablesform__icol icol--mr">
+                                            <div class="form__label">К оплате</div>
+                                            <input type="text" name="to_pay" class="input input--camp w--sm" value="330" placeholder="0">
+                                        </div>
+                                        <div class="cmp_lktablesform__icol icol--note">
+                                            <div class="form__label">Примечание</div>
+                                            <input type="text" name="note" class="input input--camp w--md" value="аллергия на апельсин, на кошек" placeholder="Примечание">
+                                        </div>
+
+                                    </div>
+                                    <div class="cmp_lktablesform__buttons">
+                                        <button class="btn btn--purple btn--sm" type="submit">Сохранить</button>
+                                    </div>
+                                </form>
+                            </td>
+                        </tr>
+                        }
                     </table>
                 </div>  
-                <form method="post" action="" class="cmp_lktablesform">
+                <form method="post" action="" class="cmp_lktablesform js-cmp-lktablesform" data-form="new" data-type="leads" style="display: none;">
                     <div class="cmp_lktablesform__inner">
                         <div class="cmp_lktablesform__icol icol--first">
                             <div class="form__label">ФИО родителя</div>
-                            <input type="text" name="name" class="input input--camp  w--md" placeholder="ФИО родителя">
+                            <input type="text" name="name" class="input input--camp  w--md" placeholder="ФИО родителя" data-required>
                         </div>
                         <div class="cmp_lktablesform__icol icol--first">
                             <div class="form__label">Телефон</div>
-                            <input type="tel" name="phone" class="input input--camp  w--md phone-mask" placeholder="Телефон">
+                            <input type="tel" name="phone" class="input input--camp  w--md phone-mask" placeholder="Телефон" data-required>
                         </div>
                         <div class="cmp_lktablesform__icol icol--first">
                             <div class="form__label">E-mail</div>
@@ -182,7 +270,7 @@
                         </div>
                         <div class="cmp_lktablesform__icol icol--mr">
                             <div class="form__label">Адрес</div>
-                            <select class="styler styler--camp w--md" name="address" data-placeholder="Адрес">
+                            <select class="styler styler--camp w--md" name="address" data-placeholder="Адрес" data-required>
                                 <option value=""></option>
                                 <option value="Адрес 1">Адрес 1</option>
                                 <option value="Адрес 2">Адрес 2</option>
@@ -201,9 +289,9 @@
                             <div class="form__label">Группа</div>
                             <select class="styler styler--camp w--md" name="group" data-placeholder="Группа">
                                 <option value=""></option>
-                                <option value="Группа 1">Группа 1</option>
-                                <option value="Группа 2">Группа 2</option>
-                                <option value="Группа 3">Группа 3</option>
+                                <option value="1">Группа 1</option>
+                                <option value="2">Группа 2</option>
+                                <option value="3">Группа 3</option>
                             </select>
                         </div>
                         <div class="cmp_lktablesform__icol icol--mr">
