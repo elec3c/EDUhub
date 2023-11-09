@@ -433,6 +433,48 @@ CAMP WRAP
             &:hover {
                 color: $bg-purple-hover;
             }
+            .t_closed {
+                display: none;
+            }
+            &.active {
+                .t_opened {
+                    display: none;
+                }
+                .t_closed {
+                    display: block;
+                }
+                
+            }
+        }
+        &-ages {
+            display: none;
+            padding-top: 16px;
+            text-align: center;
+            font-weight: 600;
+            &__col {
+                float: left;
+                & + & {
+                    margin-left: 16px;
+                }
+            }
+            &__label {
+                height: 30px;
+                width: 105px;
+                padding: 0 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 100px;
+                background: #C0E1FF;
+                &.l-w {
+                    background: #FEC0FF;
+                }
+            }
+            &__list {
+                li {
+                    margin-top: 16px;
+                }
+            }
         }
         &-prices {
             margin-top: 20px;

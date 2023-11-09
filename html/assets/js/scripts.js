@@ -67,6 +67,13 @@ $(function () {
 	$(".time-mask").mask("99:99");
 	$(".date-mask").mask("99.99.9999");
 
+	Fancybox.bind('[data-fancybox]', {
+        Thumbs : {
+			type: "classic",
+			showOnStart: false
+		  }
+    });  
+
 	$.datepicker.regional['ru'] = {
 		closeText: 'Закрыть',
 		prevText: 'M',
@@ -1021,6 +1028,13 @@ $(function () {
 		$('.js-cpm-grouplk-body').slideUp();
 	})
 
+
+	
+	$('.js-cmp-address-item-ageshow').click(function(e) {
+		e.preventDefault();
+
+		$(this).toggleClass('active').next('.js-cmp-address-item-age').slideToggle();
+	})
 	/**************************************************************
 	CAMP  таблицы
 	**************************************************************/
@@ -1083,7 +1097,7 @@ $(function () {
 
 		$.ajax({
 			type: 'POST',
-			url: 'ajax.php',
+			url: '/assets/connectors/camp-leads.php',
 			data: data,
 			processData: false,
 			contentType: false,
@@ -1173,7 +1187,7 @@ $(function () {
 
 		$.ajax({
 			type: 'POST',
-			url: 'ajax.php',
+			url: '/assets/connectors/camp-leads.php',
 			data: data,
 			processData: false,
 			contentType: false,
@@ -1208,7 +1222,7 @@ $(function () {
 
 		$.ajax({
 			type: 'POST',
-			url: 'ajax.php',
+			url: '/assets/connectors/camp-leads.php',
 			data: data,
 			processData: false,
 			contentType: false,
