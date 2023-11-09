@@ -2425,6 +2425,13 @@ CAMP WRAP
             margin-left: auto;
         }
     }
+
+    @media (max-width: $md-desktop) {
+            
+        &.mb--sm &__label {
+            padding-left: 0;
+        }
+    }
 }
 
 .cmp_lktoggle {
@@ -2496,12 +2503,19 @@ CAMP WRAP
             padding-right: 10px;
         }
     }
+    .td-label {
+        margin-bottom: 6px;
+        display: none;
+        color: $color-title-camp;
+    }
     .w-all{
         // width: 100%;
     }
     tr:not(.cmp_lktables__rowform) .input {
         padding: 0 12px;
         font-size: 14px;
+    }
+    .input {
         &--w-sm {
             width: 82px;
         }
@@ -2577,6 +2591,118 @@ CAMP WRAP
             opacity: 1; visibility: visible;
         }
     }
+
+    @media (max-width: $md-desktop) {
+        &.fs--sm {
+            font-size: 14px;
+        }
+        tr {
+            display: flex;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #F3EDFD;
+            padding: 5px;
+            & + tr {
+                margin-top: 10px;
+            }
+        }
+        &__rowform {
+            padding: 0 !important;
+            margin-top: 0 !important;
+        }
+        td {
+            border-bottom: none;
+            padding: 5px !important;
+        }
+        &__rowform td {
+            padding: 0 0 5px !important;
+        }
+        .td-fio, .td-child {
+            width: 30%;
+        }
+        .td-contacts {
+            width: 180px;
+        }
+        .td-address {
+            width: 100%;
+        }
+        .td-input .td-label {
+            display: block;
+            color: $color-body-camp;
+        }
+        .td-action {
+            width: 100%;
+        }
+        .td-emptyall {
+            padding: 0 !important;
+            width: 100%;
+        }
+        .input--comment {
+            width: 200px;
+        }
+        &__act {
+            width: 100%;
+            &-open {
+                display: none;
+            }
+            &-menu {
+                position: static;
+                opacity: 1; visibility: visible;
+                transform: initial;
+                padding: 0;
+                border: none;
+                box-shadow: none;
+                ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                }
+                li {
+                    margin: 0 !important;
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                    a {
+                        color: $bg-purple;
+                        display: flex;
+                        align-items: center;
+                        white-space: nowrap;
+                        gap: 4px;
+                    }
+                    img {
+                        width: 16px;
+                    }
+                }
+            }
+        }
+        @media (max-width: $md-tablet-sm) {
+            &.fs--sm {
+                font-size: 12px;
+            }
+            tr {
+                padding: 0 calc($pd-container - 5px);   
+                margin: 0 -1*$pd-container;
+                & + tr {
+                    margin-top: 20px;
+                }
+            }
+            .td-label {
+                display: block;
+                margin-bottom: 2px;
+            }
+            .td-fio, .td-child {
+                width: 56%;
+            }
+            .td-contacts, .td-age {
+                width: 44%;
+            }
+            .td-note {
+                width: 100%;
+            }
+            .input--comment {
+                width: 100%;
+            }
+        }
+    }
 }
 
 .cmp_lktablesform {
@@ -2627,6 +2753,47 @@ CAMP WRAP
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
+    }
+
+    @media (max-width: $md-tablet) {
+        &__inner {
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+    }
+    @media (max-width: $md-tablet-sm) {
+        &__inner {
+            padding: 10px $pd-container;
+            margin: 0 -1*$pd-container;
+            .cmp_lktables__rowform & {
+                margin: 0;
+            }
+        }
+        
+        &__icol {
+            &.icol--wall-m {
+                width: 100%;
+                .w--md {
+                    width: 100%;
+                }
+            }
+            .form__label {
+                font-size: 14px;
+            }
+            &.icol--mr {
+                margin-right: 0;
+            }
+        }
+        &__buttons {
+            padding: 20px 0 0;
+            .cmp_lktables__rowform & {
+                padding-left: $pd-container;
+                padding-right: $pd-container;
+            }
+            .btn {
+                width: 100%;
+            }
+        }
     }
 }
 
