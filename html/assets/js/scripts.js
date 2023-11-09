@@ -757,12 +757,15 @@ $(function () {
 							const ctx = canvas.getContext("2d");
 							ctx.drawImage(img, 0, 0, width, height);
 							let compressedData = canvas.toDataURL("image/jpeg", 0.7);
-							console.log(compressedData);
 
 
 							$(input).parent('.uploading').find('img').remove()
 							$(input).parent('.uploading').addClass('no-empty').append('<img class="" src="' + compressedData + '" />');
 
+							if ($(input).hasClass('js-cmp-create-addprogr-uploading')) {
+								console.log('upd');
+								$(input).parents('.js-cmp-create-addprogr').find('.js-cmp-create-addprogr-action').removeClass('hide');
+							}
 						}),
 							(img.onerror = function (err) {
 								reject(err);
@@ -781,6 +784,7 @@ $(function () {
 		}
 
 	});
+
 
 	/**************************************************************
 	Формы
@@ -950,6 +954,16 @@ $(function () {
 		}
 	})
 
+	
+	
+	$('.js-cmp-create-addprogr-remove').click(function (e) {
+		e.preventDefault();
+
+		const parent = $(this).parents('.js-cmp-create-addprogr');
+		$(parent).find('.js-cmp-create-addprogr-uploading').val(null);
+		$(parent).find('.uploading').removeClass('no-empty').find('img').remove();
+		$(this).parents('.js-cmp-create-addprogr-action').addClass('hide');
+	});
 	
 	$('.js-camp-inputs-add').on("click", function(e) {
 		e.preventDefault();

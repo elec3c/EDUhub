@@ -122,12 +122,16 @@
                                         <div class="cmp_create__irow-label">Описание</div>
                                         <textarea name="progr_descr" class="input input--camp" placeholder="Введите описание"></textarea>
                                     </div>
-                                    <div class="cmp_create__irow cmp_create__addprogr">
+                                    <div class="cmp_create__irow cmp_create__addprogr js-cmp-create-addprogr">
                                         <label class="cmp_create__upload uploading">
-                                            <input type="file" name="progr_photo" accept="image/*">
+                                            <input type="file" name="progr_photo" accept="image/*" class="js-cmp-create-addprogr-uploading">
                                             <span class="uploading__open">Фото</span>
                                             <!-- <div class="uploading__change">Изменить фото</div> -->
                                         </label>
+                                        <div class="cmp_create__iaction cmp_create__addprogr-action hide js-cmp-create-addprogr-action">
+                                            <!-- <a href="#" class="link link--nound">Сохранить</a> -->
+                                            <a href="#" class="link link--nound js-cmp-create-addprogr-remove">Удалить</a>
+                                        </div>
                                         <div class="cmp_create__addprogr-times">
                                             <div class="cmp_create__irow-label">Длительность</div>
                                             <div class="cmp_create__ci">
@@ -135,10 +139,6 @@
                                                 <input type="text" name="progr_dato_from" class="input input--camp input--date cmp_create__inpwsm datepicker-input date-mask" placeholder="Дата по">
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="cmp_create__iaction">
-                                        <a href="#" class="link link--nound">Сохранить</a>
-                                        <a href="#" class="link link--nound">Удалить</a>
                                     </div>
                                 </div>
                             </div>

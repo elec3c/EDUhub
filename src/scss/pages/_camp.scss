@@ -1528,7 +1528,15 @@ CAMP WRAP
     }
     &__addprogr {
         display: flex;
-        gap: 40px;
+        flex-wrap: wrap;
+        gap: 0 40px;
+        &-action {
+            order: 2;
+            width: 100%;
+            &.hide {
+                display: none;
+            }
+        }
     }
     &__addprice {
         display: flex;
@@ -1652,12 +1660,18 @@ CAMP WRAP
             padding-right: 0;
         }
         &__addprice-inputs,
-        &__addprogr,
         &__rowsale,
         &__addfood,
         &__addshift {
             gap: 20px;
             flex-direction: column;
+        }
+        &__addprogr {
+            gap: 20px;
+            &-action {
+                order: initial;
+                margin-top: 0;
+            }
         }
         &__buttons {
             gap: 20px;
