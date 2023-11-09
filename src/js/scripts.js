@@ -1104,6 +1104,7 @@ $(function () {
 			$(row_new).removeClass('row--hide').attr('data-type', '');
 		} else {
 			row_new = $(form).parents('.js-cmp-lktables-row-form').prev('.js-cmp-lktables-row');
+			data.append('id', $(row_new).attr('data-id'));
 		}
 
 
