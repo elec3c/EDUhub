@@ -1221,6 +1221,46 @@ $(function () {
 		});
 
 	});
+	
+	$('body').on('click', '.js-cmp-lktables-row-change_status', function (e) {
+		e.preventDefault();
+
+		const row = $(this).parents('.js-cmp-lktables-row');
+		const data = new FormData();
+		data.append('action', 'change_status');
+		data.append('status', $(this).attr('data-status'));
+		data.append('id', $(row).attr('data-id'));
+
+		const res = changeStatusContract(data);
+		if (res.code !== 200) return;
+		
+		$(row).next('.js-cmp-lktables-row-form').remove();
+		$(row).remove();
+
+	});
+
+	function changeStatusContract(data) {
+		
+		$.ajax({
+			type: 'POST',
+			url: '/assets/connectors/camp-leads.php',
+			data: data,
+			processData: false,
+			contentType: false,
+			//dataType: 'JSON',
+			success: function(res) {
+				
+				res = JSON.parse(res);
+				//if (res.code !== 200) 
+				
+				return res;
+
+			},
+			error: function(error) {
+			 
+			}
+		});
+	}
 
 
 	$('body').on('click', '.js-cmp-lktables-row-clone', function (e) {
