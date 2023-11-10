@@ -1083,7 +1083,7 @@ $(function () {
 
 		$.ajax({
 			type: 'POST',
-			url: 'ajax.php',
+			url: '/assets/connectors/camp-leads.php',
 			data: data,
 			processData: false,
 			contentType: false,
@@ -1173,7 +1173,7 @@ $(function () {
 
 		$.ajax({
 			type: 'POST',
-			url: 'ajax.php',
+			url: '/assets/connectors/camp-leads.php',
 			data: data,
 			processData: false,
 			contentType: false,
@@ -1208,7 +1208,7 @@ $(function () {
 
 		$.ajax({
 			type: 'POST',
-			url: 'ajax.php',
+			url: '/assets/connectors/camp-leads.php',
 			data: data,
 			processData: false,
 			contentType: false,
