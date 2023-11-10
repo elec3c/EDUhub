@@ -67,6 +67,13 @@ $(function () {
 	$(".time-mask").mask("99:99");
 	$(".date-mask").mask("99.99.9999");
 
+	Fancybox.bind('[data-fancybox]', {
+        Thumbs : {
+			type: "classic",
+			showOnStart: false
+		  }
+    });  
+
 	$.datepicker.regional['ru'] = {
 		closeText: 'Закрыть',
 		prevText: 'M',
@@ -750,12 +757,15 @@ $(function () {
 							const ctx = canvas.getContext("2d");
 							ctx.drawImage(img, 0, 0, width, height);
 							let compressedData = canvas.toDataURL("image/jpeg", 0.7);
-							console.log(compressedData);
 
 
 							$(input).parent('.uploading').find('img').remove()
 							$(input).parent('.uploading').addClass('no-empty').append('<img class="" src="' + compressedData + '" />');
 
+							if ($(input).hasClass('js-cmp-create-addprogr-uploading')) {
+								console.log('upd');
+								$(input).parents('.js-cmp-create-addprogr').find('.js-cmp-create-addprogr-action').removeClass('hide');
+							}
 						}),
 							(img.onerror = function (err) {
 								reject(err);
@@ -774,6 +784,7 @@ $(function () {
 		}
 
 	});
+
 
 	/**************************************************************
 	Формы
@@ -944,6 +955,16 @@ $(function () {
 	})
 
 	
+	
+	$('.js-cmp-create-addprogr-remove').click(function (e) {
+		e.preventDefault();
+
+		const parent = $(this).parents('.js-cmp-create-addprogr');
+		$(parent).find('.js-cmp-create-addprogr-uploading').val(null);
+		$(parent).find('.uploading').removeClass('no-empty').find('img').remove();
+		$(this).parents('.js-cmp-create-addprogr-action').addClass('hide');
+	});
+	
 	$('.js-camp-inputs-add').on("click", function(e) {
 		e.preventDefault();
 
@@ -1021,6 +1042,13 @@ $(function () {
 		$('.js-cpm-grouplk-body').slideUp();
 	})
 
+
+	
+	$('.js-cmp-address-item-ageshow').click(function(e) {
+		e.preventDefault();
+
+		$(this).toggleClass('active').next('.js-cmp-address-item-age').slideToggle();
+	})
 	/**************************************************************
 	CAMP  таблицы
 	**************************************************************/
@@ -1076,6 +1104,7 @@ $(function () {
 			$(row_new).removeClass('row--hide').attr('data-type', '');
 		} else {
 			row_new = $(form).parents('.js-cmp-lktables-row-form').prev('.js-cmp-lktables-row');
+			data.append('id', $(row_new).attr('data-id'));
 		}
 
 
@@ -1192,6 +1221,46 @@ $(function () {
 		});
 
 	});
+	
+	$('body').on('click', '.js-cmp-lktables-row-change_status', function (e) {
+		e.preventDefault();
+
+		const row = $(this).parents('.js-cmp-lktables-row');
+		const data = new FormData();
+		data.append('action', 'change_status');
+		data.append('status', $(this).attr('data-status'));
+		data.append('id', $(row).attr('data-id'));
+
+		const res = changeStatusContract(data);
+		if (res.code !== 200) return;
+		
+		$(row).next('.js-cmp-lktables-row-form').remove();
+		$(row).remove();
+
+	});
+
+	function changeStatusContract(data) {
+		
+		$.ajax({
+			type: 'POST',
+			url: '/assets/connectors/camp-leads.php',
+			data: data,
+			processData: false,
+			contentType: false,
+			//dataType: 'JSON',
+			success: function(res) {
+				
+				res = JSON.parse(res);
+				//if (res.code !== 200) 
+				
+				return res;
+
+			},
+			error: function(error) {
+			 
+			}
+		});
+	}
 
 
 	$('body').on('click', '.js-cmp-lktables-row-clone', function (e) {
