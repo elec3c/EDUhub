@@ -1049,6 +1049,15 @@ $(function () {
 
 		$(this).toggleClass('active').next('.js-cmp-address-item-age').slideToggle();
 	})
+
+	$('.js-cmp-create-visit-show').change(function(e) {
+		const item = $('.js-cmp-create-visit-item[data-type='+$(this).attr('data-type')+']');
+		if ($(this).is(':checked')) {
+			$(item).slideDown();
+		} else {
+			$(item).slideUp();
+		}
+	})
 	/**************************************************************
 	CAMP  таблицы
 	**************************************************************/
