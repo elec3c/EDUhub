@@ -1079,6 +1079,110 @@ $(function () {
 		}
 	});
 
+
+	$('.js-cmp-tbform-group-add-row').click(function(e) {
+		e.preventDefault();
+
+		const row_new = $('.js-cmp-tbform-group-row[ data-type="group"]').clone(true);
+		$(row_new).attr('data-type', '');
+		
+		$(row_new).find('select.styler').each(function() {
+			const select = $(this).clone();
+			$(this).parent().after(select);
+			$(this).parent().remove();
+		})
+		
+		$('.js-cmp-tbform-group .js-cmp-tbform-group-row').last().after(row_new);
+
+		$(row_new).find('.datepicker-input-min').attr('id', '').removeClass('hasDatepicker');
+		$(row_new).find('.datepicker-input-min').datepicker({
+			minDate: 0,
+			format: 'dd/mm/yyyy',
+			changeMonth: true,
+			changeYear: true
+		});
+		$(row_new).find('.styler').styler();
+		setTimeout(function () {
+			$(row_new).find('.styler').trigger('refresh');
+			$(row_new).find('.datepicker-input-min').datepicker("refresh");
+		}, 1)
+
+	})
+	$('.js-cmp-tbform-group').submit(function(e) {
+		e.preventDefault();
+
+		const form = $(this);
+		const data = new FormData($(form)[0]);
+
+		
+
+		$.ajax({
+			type: 'POST',
+			url: '/assets/connectors/camp-leads.php',
+			data: data,
+			processData: false,
+			contentType: false,
+			//dataType: 'JSON',
+			success: function(res) {
+				res = JSON.parse(res);
+				if (res.code !== 200) return;
+
+				location.reload();
+			},
+			error: function(error) {
+			 
+			}
+		});
+	});
+	$('body').on('click', '.js-cmp-tbform-group-row-delete', function (e) {
+		e.preventDefault();
+
+		const row = $(this).parents('.js-cmp-tbform-group-row');
+		
+		if ($(row).find('[name="action[]"]').val() === '') {
+			$(row).find('[name="action[]"]').val('delete');
+			$(row).hide();
+		} else {
+			$(row).remove();
+		}
+	});
+	
+	$('body').on('click', '.js-cmp-tbform-group-row-clone', function (e) {
+		e.preventDefault();
+
+		const row = $(this).parents('.js-cmp-tbform-group-row');
+		
+		const row_new = $(row).clone(true);
+		$(row_new).find('.js-cmp-tbform-group-name').remove();
+		$(row_new).find('[name="name[]"]').removeClass('no-display');
+		$(row_new).find('[name="action[]"]').val('new');
+		$(row_new).find('[name="id[]"]').remove();
+		
+		$(row_new).find('select.styler').each(function() {
+			const select = $(this).clone();
+			$(select).find('option[value="'+$(row).find('select[name="'+$(this).attr('name')+'"]').val()+'"]').prop('selected', true);
+			$(this).parent().after(select);
+			$(this).parent().remove();
+		})
+		
+		$(row).after(row_new);
+
+		$(row_new).find('.datepicker-input-min').attr('id', '').removeClass('hasDatepicker');
+		$(row_new).find('.datepicker-input-min').datepicker({
+			minDate: 0,
+			format: 'dd/mm/yyyy',
+			changeMonth: true,
+			changeYear: true
+		});
+		$(row_new).find('.styler').styler();
+		setTimeout(function () {
+			$(row_new).find('.styler').trigger('refresh');
+			$(row_new).find('.datepicker-input-min').datepicker("refresh");
+		}, 1)
+
+
+	});
+
 	$('.js-cmp-lktablesform').submit(function(e){
 		e.preventDefault();
 

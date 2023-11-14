@@ -1543,6 +1543,9 @@ CAMP WRAP
         gap: 30px;
         justify-content: space-between;
         padding-right: 20px;
+        &-action .link {
+            white-space: nowrap;
+        }
     }
     &__addfood {
         display: flex;
@@ -2739,6 +2742,12 @@ CAMP WRAP
                 margin: 0 -1*$pd-container;
                 & + tr {
                     margin-top: 20px;
+                }
+            }
+            .td-mob-wall {
+                width: 100%;
+                > * {
+                    width: 100%;
                 }
             }
             .td-label {
