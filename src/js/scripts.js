@@ -67,12 +67,14 @@ $(function () {
 	$(".time-mask").mask("99:99");
 	$(".date-mask").mask("99.99.9999");
 
-	Fancybox.bind('[data-fancybox]', {
-        Thumbs : {
-			type: "classic",
-			showOnStart: false
-		  }
-    });  
+	if ($('[data-fancybox]').length > 0) {
+		Fancybox.bind('[data-fancybox]', {
+			Thumbs : {
+				type: "classic",
+				showOnStart: false
+			}
+		}); 	
+	} 
 
 	$.datepicker.regional['ru'] = {
 		closeText: 'Закрыть',

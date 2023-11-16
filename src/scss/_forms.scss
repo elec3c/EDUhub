@@ -950,9 +950,6 @@ textarea.input {
     }
     &__label {
         margin-bottom: 10px;
-        .req {
-            color: #FE5233;
-        }
     }
     &__tb {
         margin-top: 20px;
@@ -975,6 +972,9 @@ textarea.input {
     }
 }
 
+.req {
+    color: #FE5233;
+}
 
 .search {
     &__form {
