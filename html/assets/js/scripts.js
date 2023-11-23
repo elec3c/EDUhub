@@ -994,8 +994,10 @@ $(function () {
 			$(this).parent().remove();
 		})
 		
+		const level = ($(this).attr('data-level') ==  undefined) ? ':not([data-level]' : '[data-level='+$(this).attr('data-level')+']';
+		
 
-		$(parent).find('.js-camp-inputs-row').last().after(row_new);
+		$(parent).find('.js-camp-inputs-row'+level).last().after(row_new);
 		$(row_new).find('.styler').styler();
 		$(row_new).find('.datepicker-input').datepicker({
 			// minDate: 0,
@@ -1060,6 +1062,8 @@ $(function () {
 			$(item).slideUp();
 		}
 	})
+
+
 	/**************************************************************
 	CAMP  таблицы
 	**************************************************************/
@@ -1541,3 +1545,120 @@ $(function () {
 	});
 })(jQuery);
 
+
+
+
+
+/**************************************************************
+
+**************************************************************/
+let Mapss = function geoadres(adress) {
+	var resultlat = '';
+	var resultlng = '';
+	$.ajax({
+		async: false,
+		dataType: "json",
+		url: 'http://maps.google.com/maps/api/geocode/json?address=' + adress,
+		success: function (data) {
+			console.log(data);
+			for (var key in data.results) {
+				resultlat = data.results[key].geometry.location.lat;
+				resultlng = data.results[key].geometry.location.lng;
+			}
+		}
+	});
+	return {
+		lat: resultlat,
+		lng: resultlng
+	}
+}
+
+function initMap() {
+	if ($('.js-cmp-create-address-map').length) {
+		const zoomMap = 12;
+
+		const myLatLng = { lat: 53.902735, lng: 27.555696 };
+		let mapAll = [];
+		mapAll.push( new google.maps.Map(document.querySelector(".js-cmp-create-address-map"), {
+				zoom: zoomMap,
+				center: myLatLng,
+			})
+		);	
+			
+		//map.setCenter(arrLatLng[i]);
+	
+		// new google.maps.Marker({
+		// 	position: myLatLng,
+		// 	map,
+		// 	title: "Big Dipper Campfire"
+		// });
+
+		$('.js-cmp-create-address-add').click(function(e) {
+			const inputs = $(this).parents('.js-camp-inputs');
+
+			setTimeout(() => {
+				const mapWrap = $(inputs).find('.js-cmp-create-address-map').last();
+				$(mapWrap).html('').attr('data-index', $(inputs).find('.js-cmp-create-address-map').length-1);
+				
+				mapAll.push( new google.maps.Map($(mapWrap)[0], {
+						zoom: zoomMap,
+						center: myLatLng,
+					})
+				);	
+			}, 100);
+		})
+
+		let marker = '';
+		$('.js-cmp-create-address-addr, .js-cmp-create-address-city').blur(function() { 
+			const inputs = $(this).parents('.js-camp-inputs-row');
+			const city = $(inputs).find('.js-cmp-create-address-city').val().trim(),
+				  addr = $(inputs).find('.js-cmp-create-address-addr').val().trim();
+	
+			if (city === '' || addr === '') return;
+			
+			const address = city  + ' ' + addr;
+			const LatLng = new Mapss(address);
+			//const LatLng = { lat: 53.902735, lng: 27.555696 };
+			
+			//console.log(LatLng);
+			$(inputs).find('.js-cmp-create-address-lat').val(LatLng.lat);
+			$(inputs).find('.js-cmp-create-address-lng').val(LatLng.lng);
+	
+			const index = parseInt($(inputs).find('.js-cmp-create-address-map').attr('data-index'));
+			console.log(index);
+			const map = mapAll[index]
+			marker = new google.maps.Marker({
+				position: LatLng,
+				map,
+				title: address
+			});
+
+			//console.log(marker);
+		});
+
+		$('.js-cmp-create-address-lat, .js-cmp-create-address-lng').blur(function() { 
+			
+			
+			const inputs = $(this).parents('.js-camp-inputs-row');
+			const lat = $(inputs).find('.js-cmp-create-address-lat').val().trim(),
+				  lng = $(inputs).find('.js-cmp-create-address-lng').val().trim();
+
+			const LatLng = new google.maps.LatLng(lat,lng);
+				  
+			if (lat === '' || lng === '') return;	  
+
+			const index = parseInt($(inputs).find('.js-cmp-create-address-map').attr('data-index'));
+			const map = mapAll[index]
+			marker.setMap(null);
+			marker.setPosition(LatLng);
+			marker.setMap(map);
+			map.setCenter(LatLng);
+		});
+
+	}
+}
+
+$(function () {
+
+
+});	
