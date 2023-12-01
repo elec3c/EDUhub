@@ -35,7 +35,58 @@
     <main class="content__wrapper">
         
 
-        <section class="lk section__mgb">
+
+<section class="cmp_sale">
+            <div class="container">
+                
+                {insert 'file:chunks/lk/lk.loyalty.step.tpl'}                
+                
+
+                {if (intval($my_company_id) > 0) && ($isGroup)}
+                            {'!pdoPage' | snippet :[
+                                'ajaxMode'=>'default',
+                                'idx'=>5,
+                                'class'=>'EduPartnership',
+                                'tvPrefix'=>'',
+                                'processTVs'=>'1',
+                                'limit'=>'10',                            
+                                'loadModels'=>'partnership',
+                                'innerJoin'=>[
+                                    'EduPartnershipResponse'=>[
+                                        'class'=>'EduPartnershipResponse',
+                                        'on'=>'EduPartnership.id = EduPartnershipResponse.partnership_id',
+                                        ]
+                                ],                                    
+                                'select'=>[
+                                    'EduPartnership'=>'*',
+                                    'EduPartnershipResponse'=>'EduPartnershipResponse.status_id as status_id',
+                                ],
+                                'where'=>[                              
+                                    'EduPartnershipResponse.status_id:IN' => [5,51],
+                                    'EduPartnership.to_user_id' => $my_company_id
+                                ],
+                                'sortby'=>[
+                                    'EduPartnership.id'=>'DESC'
+                                ],                            
+                                'tplWrapper'=>'@FILE chunks/lk/lk.loyalty.wrapper.tpl',
+                                'tpl'=>'@FILE chunks/lk/lk.loyalty.partnership.block.tpl',
+                            ]?:'<p class="section__intro">Ничего не найдено</p>'}
+                {else}
+                <div class="loyalty__step-content__buttons">
+                     <p>Узнайте, является ли ваша компания партнером EDUhub?</p><br/>
+                    <a href="{24 | url}"><button class="btn">Узнать</button></a>
+                </div>
+                                    
+                {/if}
+                
+            </div>
+        </section><!--  -->
+        
+        
+
+
+
+        {*<section class="lk section__mgb">
             <div class="container">
                 <div class="section__head">
                     <h2 class="section__title">{$_modx->resource.longtitle?:$_modx->resource.pagetitle}</h2>
@@ -84,7 +135,7 @@
                 {/if}
 
             </div>
-        </section><!-- lk -->
+        </section>*}
 	</main><!--content__wrapper-->
 	
 {else}

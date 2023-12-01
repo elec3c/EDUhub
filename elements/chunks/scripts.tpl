@@ -18,9 +18,14 @@
 
 {include 'file:chunks/ajax.form.redirectJS.tpl'} 
 
-{if $_modx->resource.template in [3,7,9,24,25]}
+{if ($_modx->resource.id in [1,504,1397,1136]) || ($_modx->resource.template in [7,9])}
 <script type="text/javascript" src="/assets/custom/filter.save.js"></script>
 {/if}
+
+{if ($_modx->resource.template in [27,33])}
+<script type="text/javascript" src="/assets/custom/filter.camp.save.js"></script>
+{/if}
+
 {if ($_modx->resource.template in [10,11,18]) && ($_modx->resource.id in [1127,1128,1129])}
 <script type="text/javascript" src="/assets/custom/partnership.programs.js"></script>
 {/if}

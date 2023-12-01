@@ -1543,6 +1543,9 @@ CAMP WRAP
         gap: 30px;
         justify-content: space-between;
         padding-right: 20px;
+        &-action .link {
+            white-space: nowrap;
+        }
     }
     &__addfood {
         display: flex;
@@ -1765,6 +1768,9 @@ CAMP WRAP
         text-align: left;
         display: flex;
         gap: 32px;
+        &.cols--center {
+            justify-content: center;
+        }
         &-col {
             flex: 1 0 0;
             min-width: 158px;
@@ -1775,6 +1781,13 @@ CAMP WRAP
                 height: 100%;
                 border-right: 1px solid #F3EDFD;
                 content: '';
+            }
+            &.col--auto {
+                flex: 0 0 auto;
+                min-width: 130px;
+                &::after {
+                    display: none;
+                }
             }
         }
         &-label {
@@ -1791,9 +1804,21 @@ CAMP WRAP
             margin: 0;
         }
     }
+    &__cid {
+        
+        display: flex;
+        gap: 20px;
+    }
     &__inpwsm {
         width: 130px;
         padding-left: 10px;
+    }
+    &__bmt {
+        margin-top: 32px;
+    }
+    &__t {
+        font-size: 14px;
+        margin-bottom: 12px;
     }
     &__buttons {
         display: flex;
@@ -2739,6 +2764,12 @@ CAMP WRAP
                 margin: 0 -1*$pd-container;
                 & + tr {
                     margin-top: 20px;
+                }
+            }
+            .td-mob-wall {
+                width: 100%;
+                > * {
+                    width: 100%;
                 }
             }
             .td-label {
