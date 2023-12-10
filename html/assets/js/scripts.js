@@ -1531,6 +1531,34 @@ $(function () {
 		$(step_form).removeClass('active').prev('.js-step-form').addClass('active');
 
 	});	
+
+
+
+	$('.js-input-code').keydown(function(e){
+		$(this).val('');
+	});
+	 
+	$('.js-input-code').keyup(function(e){
+		var $wrap = $(this).closest('.js-code');
+		var $inputs = $wrap.find('.js-input-code');	
+		var val = $(this).val();
+		
+		// Ввод только цифр
+		if(val == val.replace(/[0-9]/, '')) {
+			$(this).val('');
+			return false;
+		}
+		
+		// Передача фокуса следующему innput
+		$inputs.eq($inputs.index(this) + 1).focus();
+	 
+		// Заполнение input hidden
+		var fullval = '';
+		$inputs.each(function(){
+			fullval = fullval + (parseInt($(this).val()) || '0');
+		});
+		$wrap.find('.js-code-val').val(fullval);
+	});
 });
 
 
