@@ -1,5 +1,9 @@
 {set $isOK = ($_modx->user.id | ismember : ['Administrator','Users'])}
-{set $confirm_phone = $_modx->user.id | user:'confirm_phone'?:0}            
+
+{set $phone1 = $_modx->user.id | user:'mobilephone'}
+{set $phone2 = $_modx->user.id | user:'phone'}
+{set $confirm_phone = ( ($.php.preg_replace("/[^\+0-9]/", "", $phone1) == $.php.preg_replace("/[^\+0-9]/", "", $phone2)) ? ($phone2) : (0) )}
+
 <div class="detail__aside">
     <div class="detail__sticky">
         <div class="dcard">

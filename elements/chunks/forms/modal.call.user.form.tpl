@@ -4,6 +4,8 @@
     <input type="hidden" name="user_name" value="{$_modx->user.id | user:'username'}" />
     <input type="hidden" name="school_id" value="{$schoolid?:$_modx->resource.course_owner}" />
     <input type="hidden" name="resource_id" value="{$groupid?:$_modx->resource.id}" />
+    <input type="hidden" name="type" value="{$type?:'group'}" />
+    
 	<input name="controll" class="no-display" type="text">
 	<input type="hidden" name="form" value="Заказ обратного звонка пользователем">
 

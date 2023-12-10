@@ -1,4 +1,73 @@
-<div class="loyalty">
+                <div class="cmp_sale__wrap">
+                    <div class="cmp_sale__hint">Здесь вы найдете информацию о поиске курсов по оптимальной цене.</div>
+
+                    <div class="cmp_sale__carousel swiper js-cmp-sale-carousel">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide cmp_sale__card">
+                                <div class="cmp_sale__card-head">
+                                    <div class="cmp_sale__card-icon"><img src="assets/images/icons/sale/brifecase-cross.svg" alt=""></div>
+                                    <h3 class="cmp_sale__card-title">Все предложения <br>
+                                        от школ - партнеров</h3>
+                                </div>
+                                <div class="cmp_sale__card-desc">Подборка курсов от школ-партнеров.</div>
+                                <div class="cmp_sale__card-buttons">
+                                    <a href="{1386 | url}" class="btn btn--purple btn--sm w-all">Перейти</a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide cmp_sale__card">
+                                <div class="cmp_sale__card-head">
+                                    <div class="cmp_sale__card-icon"><img src="assets/images/icons/sale/message-question.svg" alt=""></div>
+                                    <h3 class="cmp_sale__card-title">Не нашли подходящий курс?</h3>
+                                </div>
+                                <div class="cmp_sale__card-desc">Оставьте запрос на подбор курса и получите уведомление о новых курсах, соответствующих вашим параметрам.
+                                </div>
+                                <div class="cmp_sale__card-buttons">
+                                    <button class="btn btn--purple btn--sm w-all" data-open-popup="kviz">Оставить запрос</button>
+                                    {*<a href="" class="btn btn--purple btn--sm w-all">Оставить запрос</a>*}
+                                </div>
+                            </div>
+                            <div class="swiper-slide cmp_sale__card">
+                                <div class="cmp_sale__card-head">
+                                    <div class="cmp_sale__card-icon"><img src="assets/images/icons/sale/timer.svg" alt=""></div>
+                                    <h3 class="cmp_sale__card-title">Нет времени ждать старт группы?</h3>
+                                </div>
+                                <div class="cmp_sale__card-desc">Не ждите, начните учиться сегодня - выберите действующую группу 
+                                    и забронируйте место.</div>
+                                <div class="cmp_sale__card-buttons">
+                                    <a href="{1717 | url}" class="btn btn--purple btn--sm w-all">Перейти</a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide cmp_sale__card">
+                                <div class="cmp_sale__card-head">
+                                    <div class="cmp_sale__card-icon"><img src="assets/images/icons/sale/calendar-2.svg" alt=""></div>
+                                    <h3 class="cmp_sale__card-title">Ближайшие страрты</h3>
+                                </div>
+                                <div class="cmp_sale__card-desc">Сравните старты групп 
+                                    во всех учебных центрах, включая предложения 
+                                    школ-партнеров.
+                                    </div>
+                                <div class="cmp_sale__card-buttons">
+                                    <a href="{1718 | url}" class="btn btn--purple btn--sm w-all">Перейти</a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide cmp_sale__card">
+                                <div class="cmp_sale__card-head">
+                                    <div class="cmp_sale__card-icon"><img src="assets/images/icons/sale/search-normal.svg" alt=""></div>
+                                    <h3 class="cmp_sale__card-title">Найти всё</h3>
+                                </div>
+                                <div class="cmp_sale__card-desc">Посмотреть курсы от всех школ.</div>
+                                <div class="cmp_sale__card-buttons">
+                                    <a href="{18 | url}" class="btn btn--purple btn--sm w-all">Перейти</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+
+
+
+{*<div class="loyalty">
                     <div class="loyalty__steps lk__wraplr section__lr">
                         
                         <div class="loyalty__step">
@@ -67,4 +136,4 @@
                             </div>
                         </div>
                     </div>
-                </div><!--loyalty-->
+                </div>*}

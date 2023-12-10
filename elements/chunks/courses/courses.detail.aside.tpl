@@ -131,7 +131,7 @@
         
         {if ($_modx->resource.parent != 61) || $isEmployees}
         <div class="btns_cfs detail__aside-buttons">
-        {set $cnt = $_modx->runSnippet('!callCheckUID', [
+        {set $isUID = $_modx->runSnippet('!callCheckUID', [
             'user_id'      => $_modx->user.id , 
             'group_id'     => $_modx->resource.id,
             'school_id'    => $user_id
@@ -206,18 +206,11 @@
                     {/if}
                 </div>
 
-
-                
-        
-
            {*include 'file:chunks/compare/compare.button.tpl'*}
-
-
-
 
             {if ('' | isloggedin : 'web')}
                 {if (($isEmployees) || ($isOK && ($promote['lead'] > 0))) && $confirm_phone}
-                    {if $cnt == 0}
+                    {if $isUID}
                         <button class="btn w-all" data-open-popup="call_to_school_reg" data-groupid="{$page_id}">Обратный звонок</button>
                     {else}
                         <button class="btn btn--more">

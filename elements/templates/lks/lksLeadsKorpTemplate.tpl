@@ -20,6 +20,9 @@
                         
                 {elseif $subscribeCheck['expire'] > 0}
                     
+                        {set $schools_direction = '!getSchoolsCurrDirection' | snippet :['user_id'=>$user_id, 'direction_type'=>'b2b']}
+                        {set $schools_sub_direction = '!getSchoolsCurrDirection' | snippet :['user_id'=>$user_id, 'direction_type'=>'sub_b2b']}
+                    
                         <div id="pdopage">
                             <div class="rows">
                                 {'!pdoPage' | snippet :[
@@ -33,9 +36,20 @@
                                     'sortby'=>[
                                         'EduTender.id'=>'DESC',
                                     ],
+                                    'where'=>[
+                                        'EduTender.cat_id:IN'=>$schools_direction,
+                                        'EduTender.sub_cat_id:IN'=>$schools_sub_direction
+                                    ],                                            
+                            
                                     'tpl'=>'@FILE chunks/lks/lks.leads.korp.block.tpl'
                                 ]?:'<p class="section__intro">Ничего не найдено</p>'}
                             </div>
+                            
+                            
+                            
+                                                        
+                            
+                            
                             <div class="section__buttons">
                                 {$_modx->getPlaceholder('page.nav')}
                             </div>

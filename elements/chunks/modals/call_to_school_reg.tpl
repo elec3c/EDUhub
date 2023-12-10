@@ -33,6 +33,7 @@
                     'form' => $form,
                     'groupid' => $groupid,
                     'schoolid' => $schoolid,
+                    'type' => $type,
                     'hooks' => 'csrf,callRequest',
                     'emailSubject' => $subject,
                     'emailTo' => $emailto,

@@ -47,7 +47,7 @@
                                     {*<a href="" class="cglistener-edit">
                                         <img src="assets/images/icons/edit-purple.svg" alt="Edit">
                                     </a>*}
-                                    <a href="{$_modx->makeUrl(505)}?delete={$id}" class="cglistener-remove">
+                                    <a href="{$_modx->makeUrl(505)}?delete={$id}&user_id={$user_id}" class="cglistener-remove">
                                         <img src="assets/images/icons/remove.svg" alt="Remove">
                                     </a>
                                 </div>

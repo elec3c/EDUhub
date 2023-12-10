@@ -9,7 +9,7 @@
                 <h1 class="cmp_hero__title">{$title}</h1>
                 <div class="cmp_hero__desc">{$description}</div>
                 <div class="cmp_hero__buttons hide-mobile-lg">
-                    <button class="btn btn--purple btn--sm">Получить доп. скидку</button>
+                    <button class="btn btn--purple btn--sm" data-open-popup="kviz2">Записаться</button>
                 </div>   
                 <div class="cmp_hero__star4 cmp_star cmp_star--45 star--cc"></div> 
             </div>
@@ -17,7 +17,7 @@
         </div>
 
         <div class="cmp_hero__buttons show-mobile-lg">
-            <button class="btn btn--purple btn--sm w-all">Получить доп. скидку</button>
+            <button class="btn btn--purple btn--sm" data-open-popup="kviz2">Записаться</button>
         </div>   
 
         <div class="cmp_hero__cards">

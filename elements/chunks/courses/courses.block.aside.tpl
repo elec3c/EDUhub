@@ -287,12 +287,12 @@
         {if $page_id | resource: 'template' in [7,8,9]}
             {if ('' | isloggedin : 'web')}
                 {if $isOK && $isPromote && $confirm_phone}
-                    {set $cnt = $_modx->runSnippet('!callCheckUID', [
+                    {set $isUID = $_modx->runSnippet('!callCheckUID', [
                                                        'user_id'      => $_modx->user.id , 
                                                        'group_id'     => $page_id,
                                                        'school_id'    => $course_owner
                     ])}
-                    {if $cnt == 0}
+                    {if $isUID}
                         {set $school_id = $page_id | resource:'course_owner'}
                         <button class="btn w-all" data-open-popup="call_to_school_reg{$id}" data-schoolid="{$school_id}" data-groupid="{$page_id}">Обратный звонок</button>
                         {include 'file:chunks/modals/call_to_school_reg.tpl' groupid=$page_id schoolid=$school_id}

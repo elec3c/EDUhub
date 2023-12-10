@@ -16,49 +16,53 @@
 {if $type == 'diff'}
 
 
-{if is_array($query['sales'])}
-    {set $sales = $query['sales']}
-{else}
-    {set $sales = []} 
-{/if}
+    {if is_array($query['sales'])}
+        {set $sales = $query['sales']}
+    {else}
+        {set $sales = []} 
+    {/if}
 
-                                
-
-
-{set $sales_list = '!pdoResources' | snippet : [
-    'parents'=>'61',
-    'depth'=>0,
-    'limit'=>0,
-    'includeTVs'=>'course_group_title, course_owner',
-    'sales'=>$sales,
-    'a_discount_for_what'=>$a_discount_for_what,
-    'a_discount_unit'=>$a_discount_unit,
-    'curr_page_id'=>$_modx->resource.id,
-    
+                            
+    {set $sales_list = '!pdoResources' | snippet : [
+        'parents'=>'61',
+        'depth'=>0,
+        'limit'=>0,
+        'includeTVs'=>'course_group_title, course_owner',
+        'sales'=>$sales,
+        'type'=>$type,
         
-    'tpl'=>'@CODE 
+        'a_discount_for_what'=>$a_discount_for_what,
+        'a_discount_unit'=>$a_discount_unit,
+        'curr_page_id'=>$_modx->resource.id,
         
-                {set $discount = $sales[$id][\'discount\']}
-                {set $discount_unit = $a_discount_unit[$sales[$id][\'discount_unit\']]}
-                {set $discount_for_what = $a_discount_for_what[$sales[$id][\'discount_for_what\']]}
-                        
-                {if intval($discount) && !empty($discount_unit) && !empty($discount_for_what)}
-                    {set $title = $_pls[\'tv.course_group_title\']?:$pagetitle}
-                    {set $title = ucfirst(trim(str_replace(\'Шаблон\',\'\',$title)))}
-                    
-                    {if  $curr_page_id in [1397,1121,1126,1136]}
-                        <div class="ssrequest__item-rowc2"><div><a href="{$id | url}" style="text-decoration: underline;">{$title|truncate:60:" ..."}</a></div><div>{$discount}&nbsp;{$discount_unit}&nbsp;({$discount_for_what})</div></div>                                        
-                    {else}                    
-                        <div class="ssrequest__item-rowc2"><div>{$title|truncate:60:" ..."}</div><div>{$discount}&nbsp;{$discount_unit}&nbsp;({$discount_for_what})</div></div>                                        
-                    {/if}
-                {/if}
-                                
-                ',
+        'tpl'=>'@FILE chunks/partnership/partnership.discount.prepare.list.tpl',
         'tplWrapper'=>'@INLINE {$output}',
         'where'=>["course_owner"=>$from_user_id]
-                                
-    ]?:'-'}
-
+                                    
+        ]?:'-'}
+{else}
+    
+        {set $sales_all = '!pdoResources' | snippet : [
+            'parents'=>'61',
+            'depth'=>0,
+            'limit'=>0,
+            'includeTVs'=>'course_group_title, course_owner',
+            'sales'=>$sales,
+            'type'=>$type,
+            
+            'discount'=>$discount,
+            'discount_unit'=>$discount_unit,
+            'discount_for_what'=>$discount_for_what,
+            
+            'curr_page_id'=>$_modx->resource.id,
+            
+            'tpl'=>'@FILE chunks/partnership/partnership.discount.prepare.all.tpl',
+            'tplWrapper'=>'@INLINE {$output}',
+            'where'=>["course_owner"=>$from_user_id]
+                                        
+            ]?:'-'}    
+            
+    
 {/if}
 
 

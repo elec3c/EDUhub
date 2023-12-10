@@ -114,10 +114,11 @@
             {include 'file:chunks/modals/queue_add_step_by_step.tpl'}
             {include 'file:chunks/modals/queue_thank.tpl'}
         {/if}
-        
-        
-        
-        
+        {if $_modx->resource.template in [27,33]}
+            {include 'file:chunks/modals/queue_camp_add_step_by_step.tpl'}
+            {include 'file:chunks/modals/queue_camp_thank.tpl'}
+        {/if}
+        {include 'file:chunks/modals/call_camp.tpl'}
     {/block}
 
     {block 'scripts'}
