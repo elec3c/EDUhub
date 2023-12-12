@@ -45,8 +45,9 @@
 <script type="text/javascript" src="/assets/custom/corporate.employee.js"></script>
 {/if}
 
-{if ($_modx->resource.id in [2023]) || $_modx->parent.id === 2021} {* Для функционала "Лагеря" *}
-	<script src="/app/assets/js/camp.js"></script>
+{if ($_modx->resource.id in [2023]) || $_modx->resource.parent === 2021} {* Для функционала "Лагеря" *}
+	<script type="text/javascript" src="/assets/custom/camp.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js?_v=20231113180917"></script>
 {/if}
 
 

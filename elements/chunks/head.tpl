@@ -76,12 +76,12 @@
 
 
 <link rel="preload" href="/assets/js/swiper/swiper-bundle.min.css" as="style" onload="this.rel='stylesheet'">
-<link href="/assets/css/styles.min.css" rel="stylesheet">
+{*<link href="/assets/css/styles.min.css" rel="stylesheet"> Старый вызов css*}
+<link rel="stylesheet" href="/app/assets/css/styles.min.css">
 <link href="/assets/custom/custom.css" rel="stylesheet">
 
-{if ($_modx->resource.id in [2023]) || $_modx->parent.id === 2021} {* Для функционала "Лагеря" *}
-	<link rel="stylesheet" href="/app/assets/css/styles.min.css">
-	<link rel="stylesheet" href="/app/assets/css/camp.css">
+{if ($_modx->resource.id in [2023]) || $_modx->resource.parent === 2021} {* Для функционала "Лагеря" *}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css?_v=20231113180917"/>
 {/if}
 
 {if $_modx->resource.id in [802,803]}
