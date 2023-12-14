@@ -2,6 +2,7 @@
 
 }
 
+
 .input--camp {
     height: 42px;
     padding: 0 14px;
@@ -293,5 +294,27 @@ textarea.input--camp {
         //     z-index: -1;
         // }
          
+    }
+}
+
+
+.capm-wrap .form__polit {
+    a {
+        text-decoration: none;
+        color: $bg-purple;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    .jq-checkbox {
+        background-color: #FFF;
+        width: 16px;
+        height: 16px;
+        border: 1px solid #C8C8E4;
+        &.checked {
+            background-image: url(../images/icons/check-small-camp.svg);
+            background-color: $bg-purple;
+            border-color: $bg-purple;
+        }
     }
 }
