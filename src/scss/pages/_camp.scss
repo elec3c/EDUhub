@@ -10,6 +10,7 @@ CAMP WRAP
 **************************************************************/
 .capm-wrap {
     color: $color-body-camp;
+    font-weight: 600;
     .section__title {
         
         color: $color-title-camp;
@@ -3441,7 +3442,137 @@ CAMP WRAP
 /**************************************************************
 
 **************************************************************/
+.tender {
+    &__table {
+        max-width: 1100px;
+        margin: 0 auto;
+        &-row {
+            // display: flex;
+            // align-items: center;
+            // gap: 40px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        &-col {
+            padding: 24px 20px;  
+            border-bottom: 1px solid #F3EDFD;          
+        }
+        &-date {
+            width: 15%;
+            white-space: nowrap;
+            font-size: 18px;
+        }
+        &-name {
+            width: 50%;
+            font-size: 22px;
+        }
+        &-action {
+            width: 25%;
+        }
+        &-link {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: $color-body-camp;
+            padding: 8px 0;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+                color: $bg-purple;
+            }
+            img {
+                flex: 0 0 auto;
+                width: 24px;
+            }
+        }
+        &-status {
+           
+        }
 
+    }
+    &__inpwsm {
+        width: 130px;
+    }
+    &__add {
+        max-width: 500px;
+        .input__label {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .form__lcheck {
+            gap: 10px;
+            color: #00001C;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        &-buttons {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+    }
+
+
+    @media (max-width: $md-desktop) {
+        &__table {
+            margin: 0 -20px;
+            &-row {
+                gap: 20px;
+            }
+            &-col + &-col {
+                // padding-left: 0;
+            }
+            &-name {
+                font-size: 18px;
+                width: auto;
+            }
+        }
+    }
+    @media (max-width: $md-tablet-sm) {
+        &__table {
+            margin: 0 -1*$pd-container;
+            &-row {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px 20px;
+                border-bottom: 1px solid #F3EDFD;  
+                padding: 12px $pd-container;
+            }
+            &-col {
+                padding: 0;
+                border: none;
+                flex: 0 0 auto;
+            }
+            &-date {
+                width: auto;
+            }
+            &-name {
+                width: auto;
+                flex: 1 0 0;
+            }
+            &-action {
+                width: 100%;
+                order: 5;
+            }
+            &-status {
+                width: 100%;
+            }
+        }
+
+        
+    }
+    @media (max-width: $md-mobile-lg) {
+        &__add {
+            &-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+            
+            }
+        }
+    }
+}
 
 
 

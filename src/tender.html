@@ -1,0 +1,105 @@
+@@include('html/head.html', {
+"title": "Мои тендеры"
+})
+
+<section class="wrapper capm-wrap" id="top">
+
+    @@include('html/camp/cmp_header.html', {
+        "active_menu": "",
+        "auth": "user"
+    })
+
+    <main class="content__wrapper">
+
+        
+        @@include('html/camp/camp_lknav.html', {
+            "active_menu": "tender",
+            "type": ""
+        })
+
+        
+
+        <section class="tender section__mg section__first">
+            <div class="container">
+                <div class="section__head section__head--cols cols--tabcol mb--md">
+                    <h2 class="section__title">Мои тендеры</h2>
+                    <div class="section__head-action">
+                        <a href="tender-add.html" class="btn btn--sm btn--purple"><span>Добавить тендер</span></a>
+                    </div>
+                </div>
+                
+                <table class="tender__table" cellpadding="0" cellspacing="0">
+                    <tr class="tender__table-row">
+                        <td class="tender__table-col tender__table-date">18.10.2023</td>
+                        <td class="tender__table-col tender__table-name">Название тендера 1</td>
+                        <td class="tender__table-col tender__table-action">
+                            <a href="tender-change.html" class="tender__table-link">
+                                <img src="assets/images/icons/edit-purple.svg" alt="">
+                                Редактировать
+                            </a>
+                        </td>
+                        <td class="tender__table-col tender__table-status">Действующий</td>
+                    </tr>
+                    <tr class="tender__table-row">
+                        <td class="tender__table-col tender__table-date">21.09.2023</td>
+                        <td class="tender__table-col tender__table-name">Название тендера 2</td>
+                        <td class="tender__table-col tender__table-action">
+                            <a href="tender-change.html" class="tender__table-link">
+                                <img src="assets/images/icons/edit-purple.svg" alt="">
+                                Редактировать
+                            </a>
+                        </td>
+                        <td class="tender__table-col tender__table-status">Завершен</td>
+                    </tr>
+                    <tr class="tender__table-row">
+                        <td class="tender__table-col tender__table-date">18.08.2023</td>
+                        <td class="tender__table-col tender__table-name">Название тендера 3</td>
+                        <td class="tender__table-col tender__table-action">
+                            <a href="tender-change.html" class="tender__table-link">
+                                <img src="assets/images/icons/edit-purple.svg" alt="">
+                                Редактировать
+                            </a>
+                        </td>
+                        <td class="tender__table-col tender__table-status">Действующий</td>
+                    </tr>
+                    <tr class="tender__table-row">
+                        <td class="tender__table-col tender__table-date">11.08.2023</td>
+                        <td class="tender__table-col tender__table-name">Название тендера 4</td>
+                        <td class="tender__table-col tender__table-action">
+                            <a href="tender-change.html" class="tender__table-link">
+                                <img src="assets/images/icons/edit-purple.svg" alt="">
+                                Редактировать
+                            </a>
+                        </td>
+                        <td class="tender__table-col tender__table-status">Завершен</td>
+                    </tr>
+                    <tr class="tender__table-row">
+                        <td class="tender__table-col tender__table-date">08.08.2023</td>
+                        <td class="tender__table-col tender__table-name">Название тендера 5</div>
+                        <td class="tender__table-col tender__table-action">
+                            <a href="tender-change.html" class="tender__table-link">
+                                <img src="assets/images/icons/edit-purple.svg" alt="">
+                                Редактировать
+                            </a>
+                        </td>
+                        <td class="tender__table-col tender__table-status">Действующий</td>
+                    </tr>
+                </table>
+            </div>
+        </section><!--  -->
+
+
+    </main>
+    <!--content__wrapper-->
+   
+    @@include('html/camp/cmp_footer.html', {
+        "active_menu": ""
+    })
+
+</section>
+
+@@include('html/popup.html', {})
+
+</body>
+
+</html>

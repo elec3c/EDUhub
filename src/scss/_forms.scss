@@ -29,12 +29,20 @@ input, button { -webkit-appearance: none;}
 }
 .input__sign {
     font-size: 12px;
+    &.mt {
+        margin-top: 6px;
+    }
 }
 .input__row {
     position: relative;
     margin-bottom: 10px;
     * + .btn {
         margin-top: 10px;
+    }
+}
+.input__box {
+    & + & {
+        margin-top: 20px;
     }
 }
 .inputs__code {

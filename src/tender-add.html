@@ -1,0 +1,216 @@
+@@include('html/head.html', {
+"title": "Создание тендера"
+})
+
+<section class="wrapper capm-wrap" id="top">
+
+    @@include('html/camp/cmp_header.html', {
+        "active_menu": "",
+        "auth": "user"
+    })
+
+    <main class="content__wrapper">
+
+        
+        @@include('html/camp/camp_lknav.html', {
+            "active_menu": "tender",
+            "type": ""
+        })
+
+        
+
+        <section class="tender section__mg section__first">
+            <div class="container">
+                <div class="section__head section__head--cols cols--tabcol mb--md">
+                    <h2 class="section__title">Создание тендера</h2>
+                </div>
+                
+                <form action="" method="post" class="tender__add" enctype="multipart/form-data">
+                    <input name="controll" class="no-display" type="text">
+
+                    <div class="input__box">
+                        <div class="input__label">1. Название тендера</div>
+                        <div class="input__row">
+                            <input type="text" name="name" class="input input--camp" placeholder="Введите название">
+                        </div>
+                    </div>
+                    <div class="input__box">
+                        <div class="input__label">2. Категория курсов <span class="req">*</span></div>
+                        <div class="input__row">
+                            <select class="styler styler--camp" name="category" data-placeholder="Категория">
+                                <option value=""></option>
+                                <option value="Инностранные языки">Инностранные языки</option>
+                                <option value="Разработка для iOS">Разработка для iOS</option>
+                                <option value="Рекрутинг в IT">Рекрутинг в IT</option>
+                                <option value="Бизнес-анализ">Бизнес-анализ</option>
+                                <option value="Project Manager">Project Manager</option>
+                                <option value="Тестировщики">Тестировщики</option>
+                            </select>
+                        </div>
+                        <div class="input__row">
+                            <textarea name="category_note" class="input input--camp" placeholder="Примечание"></textarea>
+                        </div>
+                    </div>
+                    <div class="input__box">
+                        <div class="input__label">3. Подкатегория курсов</div>
+                        <div class="input__row">
+                            <select class="styler styler--camp" name="subcategory" data-placeholder="Подкатегория">
+                                <option value=""></option>
+                                <option value="Инностранные языки">Инностранные языки</option>
+                                <option value="Разработка для iOS">Разработка для iOS</option>
+                                <option value="Рекрутинг в IT">Рекрутинг в IT</option>
+                                <option value="Бизнес-анализ">Бизнес-анализ</option>
+                                <option value="Project Manager">Project Manager</option>
+                                <option value="Тестировщики">Тестировщики</option>
+                            </select>
+                        </div>
+                        <div class="input__row">
+                            <textarea name="subcategory_note" class="input input--camp" placeholder="Примечание"></textarea>
+                        </div>
+                    </div>
+                    <div class="input__box">
+                        <div class="input__label">4. Пожелания к курсу</div>
+                        <div class="input__row">
+                            <textarea name="wishes" class="input input--camp" placeholder="Пожелания к курсу"></textarea>
+                        </div>
+                    </div>
+                    <div class="input__box">
+                        <div class="input__label">5. Форма обучения</div>
+                        <div class="input__row">
+                            <select class="styler styler--camp" name="form" data-placeholder="Форма обучения">
+                                <option value=""></option>
+                                <option value="очное">очное</option>
+                                <option value="онлайн">онлайн</option>
+                            </select>
+                        </div>
+                        <div class="input__row">
+                            <textarea name="form_note" class="input input--camp" placeholder="Примечание"></textarea>
+                        </div>
+                    </div>
+                    <div class="input__box">
+                        <div class="input__label">6. Формат обучения</div>
+                        <div class="input__row">
+                            <select class="styler styler--camp" name="format" data-placeholder="Формат обучения">
+                                <option value=""></option>
+                                <option value="Формат обучения 1">Формат обучения 1</option>
+                                <option value="Формат обучения 2">Формат обучения 2</option>
+                                <option value="Формат обучения 3">Формат обучения 3</option>
+                            </select>
+                        </div>
+                        <div class="input__row">
+                            <textarea name="format_note" class="input input--camp" placeholder="Примечание"></textarea>
+                        </div>
+                    </div>
+                    <div class="input__box">
+                        <div class="input__label">7. Время занятий</div>
+                        <div class="input__row">
+                            <select class="styler styler--camp" name="time"  data-placeholder="выбрать">
+                                <option value=""></option>
+                                <option value="9:00">9:00</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="12:00">12:00</option>
+                                <option value="13:00">13:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                                <option value="18:00">18:00</option>
+                            </select>
+                        </div>
+                        <div class="input__row">
+                            <textarea name="time_note" class="input input--camp" placeholder="Примечание"></textarea>
+                        </div>
+                    </div>
+                    <div class="input__box">
+                        <div class="input__label">8. Планируемое количество обучающихся (минимально) <span class="req">*</span></div>
+                        <div class="input__row">
+                            <input type="text" name="count" class="input input--camp" placeholder="Количество">
+                        </div>
+                    </div>
+                    <div class="input__box">
+                        <div class="input__label">9. Форма оплаты</div>
+                        <div class="input__row">
+                            <select class="styler styler--camp" name="pay" data-placeholder="Форма оплаты">
+                                <option value=""></option>
+                                <option value="очное">очное</option>
+                                <option value="онлайн">онлайн</option>
+                            </select>
+                        </div>
+                        <div class="input__row">
+                            <textarea name="pay_note" class="input input--camp" placeholder="Примечание"></textarea>
+                        </div>
+                    </div>
+                    <div class="input__box">
+                        <div class="input__label">10. Сопроводительное письмо</div>
+                        <div class="input__row">
+                            <textarea name="cover_letter" class="input input--camp" placeholder="Введите описание"></textarea>
+                            <div class="input__sign mt">Нельзя указывать контакты, название организации и т.д.</div>
+                        </div>
+                    </div>
+                    <div class="input__box">
+                        <div class="input__label">11. Дата окончания приема коммерческого предложения</div>
+                        <div class="input__row">
+                            <input type="text" name="date_to" class="tender__inpwsm input input--camp input--date datepicker-input date-mask" placeholder="Дата с">
+                        </div>
+                        <div class="input__row">
+                            <textarea name="date_to_note" class="input input--camp" placeholder="Примечание"></textarea>
+                        </div>
+                    </div>
+                    <div class="input__box">
+                        <div class="input__label">12. Дедлайн по принятию решения</div>
+                        <div class="input__row">
+                            <input type="text" name="date_from" class="tender__inpwsm input input--camp input--date datepicker-input date-mask" placeholder="Дата по">
+                        </div>
+                        <div class="input__row">
+                            <textarea name="date_from_note" class="input input--camp" placeholder="Примечание"></textarea>
+                        </div>
+                    </div>
+                    <div class="input__box">
+                        <div class="input__label">13. Доступ к информации о компании</div>
+                        <div class="input__row">
+                            <label class="form__lcheck"><input type="checkbox" class="styler styler--camp" name="show_name" checked><span>Показывать название компании</span></label>
+                        </div>
+                    </div>
+
+                    <div class="input__box">
+                        <div class="input__label">Администратор</div>
+                        <div class="input__row">
+                            <select class="styler styler--camp" name="form" data-placeholder="Выбрать">
+                                <option value=""></option>
+                                <option value="очное">admin</option>
+                                <option value="онлайн">user</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input__box">                        
+                        <label class="form__polit">
+                            <input type="checkbox" name="polit" class="styler styler--camp">
+                            <span>Согласен с услувиями  <a href="">пользовательского соглашения</a></span>
+                        </label>
+                    </div>
+                    
+                    <div class="tender__add-buttons">
+                        <button class="btn btn--purple btn--sm" type="submit">Создать тендер</button>
+                        <button class="btn btn--bdpurple btn--sm" type="button">Отмена</button>
+                    </div>
+                </form>
+            </div>
+        </section><!--  -->
+
+
+    </main>
+    <!--content__wrapper-->
+   
+    @@include('html/camp/cmp_footer.html', {
+        "active_menu": ""
+    })
+
+</section>
+
+@@include('html/popup.html', {})
+
+</body>
+
+</html>
