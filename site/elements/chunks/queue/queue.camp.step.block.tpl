@@ -9,12 +9,11 @@
                     <div class="cmp_plan__steps">
                         <div class="cmp_plan__step">
                             <div class="cmp_plan__step-title">1 ШАГ</div>
-                            <div class="cmp_plan__step-text">Укажите возраст ребенка и тематику</div>
+                            <div class="cmp_plan__step-text">Выберите тематику, период и локацию</div>
                         </div>
                         <div class="cmp_plan__step">
                             <div class="cmp_plan__step-title">2 ШАГ</div>
-                            <div class="cmp_plan__step-text">Выберите дату 
-                                <span class="nowrap">и удобную</span> локацию</div>
+                            <div class="cmp_plan__step-text">Укажите возраст ребенка и email </div>
                         </div>
                         <div class="cmp_plan__step">
                             <div class="cmp_plan__step-title">3 ШАГ</div>

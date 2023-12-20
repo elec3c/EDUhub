@@ -67,10 +67,12 @@
         {include 'file:chunks/modals/confirm_phone.tpl'}
         {include 'file:chunks/modals/confirm_phone_thank.tpl'}        
         {include 'file:chunks/modals/confirm_phone_msg.tpl'}
-        {if $_modx->resource.id in [1127,1128]}
+        {set $partnership_join_rid =  $_modx->config['partnership_join_rid'] | split}
+        {if $_modx->resource.id in $partnership_join_rid} {* partnership_join_rid *}
             {include 'file:chunks/modals/partnership_join_thank.tpl'}
         {/if}
-        {if $_modx->resource.id in [803,802]}
+        {set $tender_rid =  $_modx->config['tender_rid'] | split}
+        {if $_modx->resource.id in $tender_rid} {* tender_rid *}        
             {include 'file:chunks/modals/tender_add.tpl'}
             {include 'file:chunks/modals/tender_dogovor_thank.tpl'}
             {include 'file:chunks/modals/tender_dogovor_declain.tpl'}
@@ -82,7 +84,8 @@
             {include 'file:chunks/modals/tender_money.tpl'}
             {include 'file:chunks/modals/tender_no_set_direction.tpl'}
         {/if}
-        {if $_modx->resource.parent in [1122,1123]}
+        {set $partnership_pid =  $_modx->config['partnership_pid'] | split}
+        {if $_modx->resource.parent in $partnership_pid} {* partnership_pid *}
             {include 'file:chunks/modals/partnership_add.tpl'}
             {include 'file:chunks/modals/partnership_dogovor_wait_add.tpl'}
             {include 'file:chunks/modals/partnership_dogovor_wait.tpl'}
@@ -100,27 +103,30 @@
             {include 'file:chunks/modals/partnership_dogovor_declain.tpl'}
             
         {/if}        
-        {if $_modx->resource.id in [313]}
+
+        {set $promote_buy_rid =  $_modx->config['promote_buy_rid'] | split}
+        {if $_modx->resource.id in $promote_buy_rid} {* promote_buy_rid *}        
             {include 'file:chunks/modals/promote_buy.tpl'}
         {/if}
         
-        {if $_modx->resource.id in [24]}
+        {set $employee_connect_rid =  $_modx->config['employee_connect_rid'] | split}
+        {if $_modx->resource.id in $employee_connect_rid} {* employee_connect_rid *}        
             {include 'file:chunks/modals/compisreg_check.tpl'}
             {include 'file:chunks/modals/compisreg_thank.tpl'}
             {include 'file:chunks/modals/employee_connect_thank.tpl'}
         {/if}
         {include 'file:chunks/modals/policy_popup.tpl'}
-        {if ($_modx->resource.id in [1,504,1397,1136]) || ($_modx->resource.template in [7,9])}
+        {set $queue_add_rid =  $_modx->config['queue_add_rid'] | split}
+        {set $queue_add_tid =  $_modx->config['queue_add_tid'] | split}
+        {if ($_modx->resource.id in $queue_add_rid) || ($_modx->resource.template in $queue_add_tid)}  {* queue_add_rid *} {* queue_add_tid *}        
             {include 'file:chunks/modals/queue_add_step_by_step.tpl'}
             {include 'file:chunks/modals/queue_thank.tpl'}
         {/if}
-        {if $_modx->resource.template in [29]}
+        {set $queue_camp_add_tid =  $_modx->config['queue_camp_add_tid'] | split}
+        {if $_modx->resource.template in $queue_camp_add_tid} {* queue_camp_add_tid *}        
             {include 'file:chunks/modals/queue_camp_add_step_by_step.tpl'}
             {include 'file:chunks/modals/queue_camp_thank.tpl'}
         {/if}        
-        
-        
-        
         
     {/block}
 

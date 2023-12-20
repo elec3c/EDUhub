@@ -67,8 +67,10 @@
                 </div>
             </div>
         </div>*}
-
-        <section class="cmp_create section__mg section__first">
+        {set $pid = $.get.pid?:0}
+        {set $userId = $pid | resource :'userId'}
+        {if (($userId > 0) && ($_modx->user.id==$userId))}
+            <section class="cmp_create section__mg section__first">
             <div class="container">
                 <div class="section__head section__head--cols mb--md">
                     <h2 class="section__title">{$_modx->resource.pagetitle}</h2>
@@ -452,5 +454,14 @@
             </div>
 
         </section><!--  -->
+        {else}
+            <div class="container">
+                {if ($userId > 0) && ($tplId in [27,33])}
+                    <p>Вы не являетесь владельцем лагеря!</p>
+                {else}
+                    <p>Ошибочка вышла!</p>
+                {/if}
+            </div>
+        {/if}
 
 {/block}

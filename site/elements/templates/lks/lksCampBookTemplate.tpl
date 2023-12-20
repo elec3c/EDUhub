@@ -22,13 +22,11 @@
                     </ul>
                 </div>
                 
-                
                 <div class="cmp_lkthead mb--sm">
                     <div class="cmp_lkthead__act">
                         <div class="cmp_lkthead__label">Бронь ({$countBook})</div>
                     </div>
                 </div>
-                
                 
             </div>    
 
@@ -90,8 +88,6 @@
                             </td>
                         </tr>
 
-
-
                         <div id="pdopage">
                             <div class="rows">
                                 {'!pdoPage' | snippet :[
@@ -114,14 +110,13 @@
                                     'sortby'=>[
                                         'EduCampLeads.id'=>'DESC',
                                     ]
-                                    'tpl'=>'@FILE chunks/lk/lk.camp.leads.block.tpl'
+                                    'tpl'=>'@FILE chunks/lks/lks.camp.leads.block.tpl'
                                 ]?:'<p class="section__intro">Ничего не найдено</p>'}
                             </div>
                             <div class="section__buttons">
                                 {$_modx->getPlaceholder('page.nav')}
                             </div>
                         </div>
-                        
                     </table>
                 </div>  
                 <form method="post" action="" class="cmp_lktablesform js-cmp-lktablesform" data-form="new" data-action="create" data-user="{$_modx->user.id}" data-type="leads" style="display: none;">

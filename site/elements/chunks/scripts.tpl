@@ -21,7 +21,7 @@
 {if ($_modx->resource.id in [1,504,1397,1136]) || ($_modx->resource.template in [7,9])}
 <script type="text/javascript" src="/assets/custom/filter.save.js"></script>
 {/if}
-{if ($_modx->resource.template in [29])}
+{if ($_modx->resource.template in [29,35])}
 <script type="text/javascript" src="/assets/custom/filter.camp.save.js"></script>
 {/if}
 {if ($_modx->resource.template in [10,11,18]) && ($_modx->resource.id in [1127,1128,1129])}

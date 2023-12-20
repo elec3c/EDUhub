@@ -85,23 +85,40 @@
                             </div>
                             <div class="form__row" id="oblast">
                                 <div class="form__label">Область{*<span class="req">*</span>*}</div>
-                                    <select class="styler styler--camp" name="camp_city" id="course_city"{* data-required=""*} data-placeholder="Город">
+                                    <select class="styler styler--camp" name="camp_area" id="course_city"{* data-required=""*} data-placeholder="Область">
                                         <option class="option-hide" value="">&nbsp;</option>
-                                        <option class="no" value="Минская">Минская</option>
-                                        <option class="no" value="Брестская">Брестская</option>
-                                        <option class="no" value="Витебская">Витебская</option>
-                                        <option class="no" value="Гомельская">Гомельская</option>
-                                        <option class="no" value="Гроденская">Гроденская</option>
-                                        <option class="no" value="Могилёвская">Могилёвская</option>
-                                        
+                                        {'!getValuesTV' | snippet : ['tvid' => '153']}
                                     </select>
                             </div>
-                            <div class="kviz__bmt"  id="rasstoyanie">
-                                <div class="form__row">
-                                    <div class="form__label">Расстояние от города</div>
-                                    <input name="rasstoyanie"  class="input input--camp" placeholder="Расточник от города" >
-                                </div>
+                            
+                            
+                            <div class="form__row"  id="metro">
+                                <div class="form__label">Метро</div>
+                                    <select class="styler styler--camp" name="camp_metro" id="course_metro" data-placeholder="Метро">
+                                        <option class="option-hide" value="">&nbsp;</option>
+                                        {'!getListCities' | snippet : ['name' => 'metro','option'=>'1', 'chained' => 'minsk', 'city'=>'Минск']}
+                                    </select>
                             </div>
+
+                            <div class="form__row" id="rasstoyanie">
+                                <div class="form__label">Расстояние от города не более чем</div>
+                                <select class="styler styler--camp" name="camp_distance" data-placeholder="Расстояние от города">
+                                    <option class="option-hide" value="">&nbsp;</option>
+                                    {'!getValuesTV' | snippet : ['tvid' => '154']}
+                                </select>                                    
+                            </div>
+
+                            
+                            <div class="form__row" id="transfer">
+                                <div class="form__label">Трансфер из города</div>
+                                <select class="styler styler--camp" name="camp_transfer_city" data-placeholder="Трансфер из города">
+                                    <option class="option-hide" value="">&nbsp;</option>
+                                    <option class="no" value="">Не требуется</option>
+                                    {'!getListCities' | snippet : ['name' => 'city','option'=>'1']}
+                                </select>
+                            </div>
+                            
+
                             
                             {*<div class="form__row">
                                 <div class="form__label">Микрорайон</div>
@@ -112,21 +129,15 @@
                                     <option value="Категория 3">Категория 3</option>
                                 </select>
                             </div>*}
-                            <div class="form__row"  id="metro">
-                                <div class="form__label">Метро</div>
-                                    <select class="styler styler--camp" name="camp_metro" id="course_metro" data-placeholder="Метро">
-                                        <option class="option-hide" value="">&nbsp;</option>
-                                        {'!getListCities' | snippet : ['name' => 'metro','option'=>'1', 'chained' => 'minsk', 'city'=>'Минск']}
-                                    </select>
-                            </div>
-                            <div class="form__row" id="transfer">
+
+                            {*<div class="form__row" id="transfer">
                                 <div class="form__label">Трансфер из области</div>
-                                <select class="styler styler--camp" name="camp_transfer_region" data-placeholder="Область">
+                                <select class="styler styler--camp" name="camp_transfer_area" data-placeholder="Область">
                                     <option class="option-hide" value="">&nbsp;</option>
                                     <option class="no" value="">Не требуется</option>
                                     {'!getValuesTV' | snippet : ['tvid' => '152']}
                                 </select>
-                            </div>
+                            </div>*}
                         </div>
                     
                         <div class="kviz__buttons">

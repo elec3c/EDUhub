@@ -5,6 +5,29 @@
         {set $userId = $pid | resource :'userId'}
         {set $tplId = $pid | resource :'template'}
         
+        {set $camp_group = $pid | resource :'camp_group'}
+        {if $camp_group}
+            {set $rows = json_decode($camp_group, true)}            
+            {foreach $rows as $idx => $row}
+                {set $date_unique = strtotime($row.date_from)~'_'~strtotime($row.date_to)}
+                {set $group_name = $row.name}
+                
+                        {set $G[$row.address][$date_unique][$group_name]['address'] = $row.address}
+                        {set $G[$row.address][$date_unique][$group_name]['name'] = $row.name}
+                        {set $G[$row.address][$date_unique][$group_name]['cabinet'] = $row.cabinet}
+                        {set $G[$row.address][$date_unique][$group_name]['shift'] = $row.shift}
+                        {set $G[$row.address][$date_unique][$group_name]['count'] = $row.count}
+                        {set $G[$row.address][$date_unique][$group_name]['date_from'] = $row.date_from}
+                        {set $G[$row.address][$date_unique][$group_name]['date_to'] = $row.date_to}
+                        {set $G[$row.address][$date_unique][$group_name]['age_from'] = $row.age_from}
+                        {set $G[$row.address][$date_unique][$group_name]['age_to'] = $row.age_to}
+                        {set $G[$row.address][$date_unique][$group_name]['time_from'] = strtotime($row.date_from)}
+                        {set $G[$row.address][$date_unique][$group_name]['time_to'] = strtotime($row.date_to)}
+                        
+            {/foreach}                    
+        {/if}
+        
+        
         {if (($userId > 0) && ($_modx->user.id==$userId))}
             {set $countLeads = '!getCountDataForCamp' | snippet :['user_id'=>$userId,'pid'=>$pid,'type'=>'leads']}
             <section class="cmp_create section__mg section__first">
@@ -20,7 +43,8 @@
                         <li><a href="{2100 | url}?pid={$pid}">Договоры</a></li>
                     </ul>
                 </div>
-
+                
+                
                 <div class="cmp_lkthead mb--sm">
                     <div class="cmp_lkthead__act">
                         <div class="cmp_lkthead__label">Лиды ({$countLeads})</div>
@@ -29,10 +53,12 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
             
             <div class="container container--lg">
                 <div class="cmp_lktables fs--sm">
+                    
                     <table class="js-lktables" data-type="leads">
                         <tr>
                             <th class="text--left w-all">ФИО родителя</th>
@@ -88,8 +114,6 @@
                             </td>
                         </tr>
 
-
-
                         <div id="pdopage">
                             <div class="rows">
                                 {'!pdoPage' | snippet :[
@@ -112,16 +136,19 @@
                                     'sortby'=>[
                                         'EduCampLeads.id'=>'DESC',
                                     ]
-                                    'tpl'=>'@FILE chunks/lk/lk.camp.leads.block.tpl'
+                                    'tpl'=>'@FILE chunks/lks/lks.camp.leads.block.tpl'
                                 ]?:'<p class="section__intro">Ничего не найдено</p>'}
                             </div>
                             <div class="section__buttons">
                                 {$_modx->getPlaceholder('page.nav')}
                             </div>
                         </div>
-                        
                     </table>
-                </div>  
+                </div>
+                
+                
+                
+                
                 <form method="post" action="" class="cmp_lktablesform js-cmp-lktablesform" data-form="new" data-action="create" data-user="{$_modx->user.id}" data-type="leads" style="display: none;">
                     
                     <input type="hidden" name="pid" value="{$pid}"/>

@@ -295,8 +295,10 @@
                                     {'!getValuesTV' | snippet : ['tvid' => '129', 'chained' => '1362']}
                                 </select>
                             </div>
-                            
-                            
+                            <div class="form__row">
+                                <div class="form__label">Когда готовы начать обучение?</div>
+                                <input type="text" name="begin_date_from" class="input input--camp input--date cmp_create__inpwsm datepicker-input date-mask" placeholder="Дата с">
+                            </div>
                             <div id="address_block">    
                                 <div class="form__row">
                                     <div class="form__label">Город</div>
