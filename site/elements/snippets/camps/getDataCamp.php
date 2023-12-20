@@ -22,8 +22,6 @@ if($constructorId){
 
 $q->where($where);
 
-$modx->log(1, print_r($where,1));
-
 if ($q->prepare() && $q->stmt->execute()) {
 
     //echo $query->toSQL(); // так можно проверить sql запрос

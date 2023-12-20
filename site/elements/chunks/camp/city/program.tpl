@@ -3,6 +3,7 @@
     <div class="cmp_program__star3 cmp_star cmp_star--120"></div> 
 
     <div class="container">
+        {if $description}
         <div class="section__pd--mdx">
             <div class="section__head mb--md">
                 <h2 class="section__title">Описание программы</h2>
@@ -12,7 +13,7 @@
                 <div class="cmp_program__star1 cmp_star cmp_star--160 star--cc"></div> 
             </div>
         </div>
-        
+        {/if}
         <div class="section__pd--mdx">
             <div class="section__head mb--md">
                 <h2 class="section__title">Программа</h2>

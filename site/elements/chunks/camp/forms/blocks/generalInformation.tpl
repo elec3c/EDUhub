@@ -23,6 +23,7 @@
                                 <span>{$subject['name']}</span>
                             </label>
                         {/foreach}
+                        <span class="invalid-feedback" data-error="{$prefixForm}subjects"></span>
                     </div>
                 {/if}
                 {* min - минимальное значение TV, max - максимвальное значением ТV *}
@@ -39,29 +40,36 @@
                     <div>
                         <div class="cmp_create__irow-label">Возраст</div>
                         <div class="cmp_create__ci">
-                            <div class="cmp_create__ci-col">
-                                <div class="cmp_create__irow-label">От</div>
-                                <select class="styler styler--camp cmp_create__inpwsm" name="{$prefixForm}age_from" data-placeholder="выбрать">
-                                    <option value=""></option>
-                                    {foreach $ages as $age}
-                                        <option value="{$age}" {if $age == $minValueCampAges}selected{/if}>{$age}</option>
-                                    {/foreach}
-                                </select>
+                            <div>
+                                <div class="cmp_create__ci-col">
+                                    <div class="cmp_create__irow-label">От</div>
+                                    <select class="styler styler--camp cmp_create__inpwsm" name="{$prefixForm}age_from" data-placeholder="выбрать">
+                                        <option value=""></option>
+                                        {foreach $ages as $age}
+                                            <option value="{$age}" {if $age == $minValueCampAges}selected{/if}>{$age}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <span class="invalid-feedback" data-error="{$prefixForm}age_from"></span>
                             </div>
-                            <div class="cmp_create__ci-col">
-                                <div class="cmp_create__irow-label">До</div>
-                                <select class="styler styler--camp cmp_create__inpwsm" name="{$prefixForm}age_to" data-placeholder="выбрать">
-                                    <option value=""></option>
-                                    {foreach $ages as $age}
-                                        <option value="{$age}" {if $age == $maxValueCampAges}selected{/if}>{$age}</option>
-                                    {/foreach}
-                                </select>
+                            <div>
+                                <div class="cmp_create__ci-col">
+                                    <div class="cmp_create__irow-label">До</div>
+                                    <select class="styler styler--camp cmp_create__inpwsm" name="{$prefixForm}age_to" data-placeholder="выбрать">
+                                        <option value=""></option>
+                                        {foreach $ages as $age}
+                                            <option value="{$age}" {if $age == $maxValueCampAges}selected{/if}>{$age}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <span class="invalid-feedback" data-error="{$prefixForm}age_to"></span>
                             </div>
                         </div>
                     </div>
                     <div>
                         <div class="cmp_create__irow-label">Количество детей в группе</div>
-                        <input type="number" name="{$prefixForm}number_children_group" class="input input--camp cmp_create__inpwsm" placeholder="10" min="1" max="99" value="{$_modx->resource.campNumberChildrenGroup}">
+                        <input type="number" name="{$prefixForm}number_children_group" class="input input--camp cmp_create__inpwsm" placeholder="10" min="0" max="99" value="{$_modx->resource.campNumberChildrenGroup}">
+                        <span class="invalid-feedback" data-error="{$prefixForm}number_children_group"></span>
                     </div>
                 </div>
                 <div class="cmp_create__irow cmp_create__imw">

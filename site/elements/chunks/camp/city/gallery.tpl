@@ -25,6 +25,7 @@
     ',
     'list' => 'camps',
     'where' => [
-        'UserFile.parent' => $_modx->resource.id
+        'UserFile.parent' => $_modx->resource.id,
+        'UserFile.list' => 'camps'
     ]
 ]}

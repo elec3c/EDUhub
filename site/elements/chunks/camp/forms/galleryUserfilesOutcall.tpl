@@ -1,7 +1,7 @@
-<div style="margin-top: 40px;">
+<div>
     <div class="cmp_create__blocks js-accord-item">
         <div class="cmp_create__blocks-head js-accord-toggle">
-            <div class="cmp_create__blocks-title">Фотогалерея</div>
+            <div class="cmp_create__blocks-title">Фотогалерея (для блока "Условия размещения")</div>
         </div>
         <div class="cmp_create__blocks-body js-accord-body js-camp-inputs">
             <div class="userfiles-form-wrapper">

@@ -1064,3 +1064,40 @@ ul {
 .courses__block-props__row + .courses__block-props__row.courses__block-props__row-old {
     padding-top: 24px;
 }
+/* Camp page -- START*/
+.text-error,
+.invalid-feedback {
+    display: block;
+    margin: 6px 0;
+    color: red;
+    font-size: 14px;
+}
+.text-error--active {
+    margin: 6px 0;
+}
+.btn--xs {
+    height: 24px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.mb-10 {
+    margin-bottom: 10px;
+}
+/* Camp page -- END*/
+/* Header -- START*/
+.header__linkcat {
+    margin-left: 20px;
+}
+.header__wrap > .header__menu {
+    margin-left: 6px;
+    gap: 8px;
+}
+input.is-invalid,
+select.is-invalid,
+select.is-invalid.styler--camp + .jq-selectbox__select,
+textarea.is-invalid {
+    border: 1px solid red;
+}
+
+
+/* Header -- END*/

@@ -8,10 +8,9 @@
             'select'=>[
                 'modResource'=>'*'
             ],
-            'parents' => 2021,
+            'parents' => $_modx->config.section_id_created_camps,
             'limit' => 0,
             'ajaxMode' => 'scroll',
-            'templates' => 27,
             'filters'=> 'tv|camp_ages,tv|camp_class_time,tv|camp_subjects,tv|camp_date_from:dateRange',
             'aliases'=>'tv|camp_ages==ages,tv|class_time,tv|camp_subjects,tv|camp_date_from==date_from',
             'showEmptyFilters'   =>'true',

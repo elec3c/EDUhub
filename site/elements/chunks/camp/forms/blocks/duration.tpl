@@ -19,6 +19,7 @@
                         {set $durationDateTo = $_modx->resource.camp_date_to | date : "d.m.Y"}
                     {/if}
                 {/if}
+
                 <div class="cmp_create__times">
                     <div class="cmp_create__irow-label">Длительность</div>
                     <div class="cmp_create__ci">
@@ -32,7 +33,7 @@
                         </div>
                     </div>
                 </div>
-
+                {if $.get['type'] === 'urban'}
                 {set $weekdays = ['Пн.','Вт.','Ср.','Чт.','Пт.','Сб.','Вс.']}
                 <div class="cmp_create__irow">
                     <div class="cmp_create__irow-label">Дни занятий</div>
@@ -94,7 +95,7 @@
                         </div>
                     </div>
                 </div>
-
+                {/if}
 
 
             </div>

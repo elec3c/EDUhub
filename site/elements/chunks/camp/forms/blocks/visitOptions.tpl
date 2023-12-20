@@ -3,9 +3,6 @@
         <div class="cmp_create__blocks-title">Варианты посещений</div>
     </div>
     {set $data = $data['visitOptions']['data']['table']}
-{*    <pre>*}
-{*        {$data|print_r}*}
-{*    </pre>*}
     {foreach $data as $row}
         {switch $row.period}
             {case 'fullday'}{* Полный день *}
@@ -104,6 +101,7 @@
                 <div class="cmp_create__irow">
                     <div class="cmp_create__irow-label">Время</div>
                     <div class="cmp_create__ci">
+                        <div>
                         <div class="cmp_create__ci-col">
                             <div class="cmp_create__irow-label">От</div>
                             <select class="styler styler--camp cmp_create__inpwsm" name="{$prefixForm}visit_options_time_from_{$key}" data-placeholder="выбрать">
@@ -112,6 +110,7 @@
                                     <option value="{$time}"{if $time === $item.timeFrom} selected{/if}>{$time}</option>
                                 {/foreach}
                             </select>
+                        </div>
                         </div>
                         <div class="cmp_create__ci-col">
                             <div class="cmp_create__irow-label">До</div>

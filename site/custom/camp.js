@@ -115,6 +115,16 @@ $(document).on('fetchit:error', function(e) {
         case 'create-camp':
             let imagesProgramError = data.cc_program_photo;
             let imagesMainError = data.cc_main_photo;
+            //console.log(data);
+            // console.log(response);
+            for (var key in data) {
+                // console.log(key);
+                let inputFormBlock = document.querySelector('[data-error='+key+']');
+                let formBlock = inputFormBlock.closest('.js-accord-item');
+                formBlock.classList.add('opened');
+                formBlock.querySelector('.js-accord-body').style.display = 'block';
+            }
+
 
             if(imagesProgramError){
 

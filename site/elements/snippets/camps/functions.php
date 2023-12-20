@@ -1,5 +1,4 @@
 <?php
-
 // Functions --------------------------------
 // Генерация рандомного hash
 function generateRandomString($length = 8) {
@@ -22,6 +21,7 @@ function changeDateFormat($dateStr) {
     }
 }
 
+// Валидация файлов
 function isFileValid($modx, $file, $allowedExtensions, $maxFileSize) {
     $errors = [];
 
@@ -29,7 +29,7 @@ function isFileValid($modx, $file, $allowedExtensions, $maxFileSize) {
     if (!is_array($file['error'])) {
         $file = array($file); // Преобразуем одиночный файл в массив
     }
-    
+
     foreach ($file['error'] as $key => $error) {
         if ($error === UPLOAD_ERR_OK) {
             $fileExtension = strtolower(pathinfo($file['name'][$key], PATHINFO_EXTENSION));
@@ -61,6 +61,7 @@ function pbTableSet($modx, $edit, $resourceId, $constructor_id, $chunkName, $tab
         'gallery' => 6,
         'reviews' => 7,
         'faq' => 8,
+        'accommodationConditions' => 9,
     ];
 
     $rank = $chunkRanks[$chunkName] ?: 1;

@@ -31,6 +31,7 @@
                         <span>{$item}</span>
                     </label>
                 {/foreach}
+                <span class="invalid-feedback" data-error="{$prefixForm}meals"></span>
             </div>
         </div>
     </div>

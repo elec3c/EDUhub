@@ -1,3 +1,11 @@
+{switch $_modx->resource.camp_format}
+    {case 'outcall'}
+        {set $constructor_id = 14}
+        {set $tplPathPrices = '@FILE chunks/camp/outcall/pricesAndDiscountsList.tpl'}
+    {case 'urban'}
+        {set $constructor_id = 10}
+        {set $tplPathPrices = '@FILE chunks/camp/city/pricesAndDiscountsList.tpl'}
+{/switch}
 <section class="cmp_prices  cmp_sbg section__pd--mdx section__mg">
     <div class="container">
         <div class="section__head mb--md">
@@ -14,10 +22,10 @@
                     'sortby' => 'rank',
                     'sortdir' => 'asc',
                     'limit' => 1,
-                    'tpl' => '@FILE chunks/camp/city/pricesAndDiscountsList.tpl',
+                    'tpl' => $tplPathPrices,
                     'where' => [
                         'resource_id' => $_modx->resource.id,
-                        'constructor_id' => 10,
+                        'constructor_id' => $constructor_id,
                         'active' => 1
                     ],
                 ]}

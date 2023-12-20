@@ -1,10 +1,22 @@
 <?php
+
 /** @var object $modx */
 /** @var object $FetchIt */
 /** @var array $scriptProperties */
 
+if(empty($_POST)){
+    // Если POST пустой, сниппет не отрабатывает дальше
+    return;
+}
+
 require_once(MODX_ASSETS_PATH . 'elements/snippets/camps/functions.php'); // функции
 $edit = $modx->getOption('edit', $scriptProperties);
+$campType = $modx->getOption('campType', $scriptProperties); // Тип лагеря, приходит из параметра сниппета из GET параметра
+
+if($campType !== 'urban' && $campType !== 'outcall'){
+    $campType = 'urban';
+}
+
 $prefixForm = 'cc_';
 $resourceParentId = (int) $modx->getOption('section_id_created_camps');; // ID каталога для созданных ресурсов
 $resourceTemplateId = (int) $modx->getOption('city_camp_template_id'); // ID шаблона для созданных ресурсов
@@ -36,6 +48,11 @@ $campProgramDescriptionArr = $_POST[$prefixForm . 'program_description_arr']; //
 $campProgramDateStartArr = $_POST[$prefixForm . 'program_date_start_arr']; // Дата начала пункта программы
 $campProgramDateEndRowArr = $_POST[$prefixForm . 'program_date_end_arr']; // Дата окончания пункта программы
 $campProgramImagesArr = $_FILES[$prefixForm . 'program_photo']; // Фото программы
+
+// pricesOutcall - Стоимость (для выездных лагерей)
+$campOutcallPriceArr = $_POST[$prefixForm . 'outcall_price']; // Цена
+$campOutcallPriceDateToArr = $_POST[$prefixForm . 'outcall_price_date_to']; // Действует "До"
+$campOutcallFullprice = (int) $_POST[$prefixForm . 'outcall_fullprice']; // Полная стоимость
 
 // Visit options - Варианты посещений
 $campTypeVisitFullday = $_POST[$prefixForm . 'visit_options_fullday']; // Чекбокс "Полный день"
@@ -106,23 +123,76 @@ $campReviewTextArr = $_POST[$prefixForm . 'review_text']; // Текст отзы
 $campFaqQuestionArr = $_POST[$prefixForm . 'faq_question']; // Вопрос
 $campFaqAnswerArr = $_POST[$prefixForm . 'faq_answer']; // Ответ
 
-$campDraft = $_POST[$prefixForm . 'draft']; // Чекбокс "Черновик"
+// Условия размещения для выездных лагерей
+$campOutcallNameObject = $_POST[$prefixForm . 'name_object']; // Название объекта
+$campOutcallDescriptionPlace = $_POST[$prefixForm . 'description_place']; // Описание места размещения детей
+$campOutcallSite = $_POST[$prefixForm . 'website_link']; // Ссылка на сайт
+$campRegion = $_POST[$prefixForm . 'region']; // Область
+$campDistance = (int) $_POST[$prefixForm . 'distance']; // Расстояние
+$campOutcallAddress = $_POST[$prefixForm . 'outcall_address']; // Адрес от областного центра
+$campOutcallTransferLocation = $_POST[$prefixForm . 'transfer_location']; // Трансфер "от"
+$campOutcallTransferTime = $_POST[$prefixForm . 'transfer_time']; // Время трансфера
+$campOutcallPool = $_POST[$prefixForm . 'pool']; // Бассейн
+$campOutcallRoomsArr = $_POST[$prefixForm . 'outcall_rooms'];// Размещение в номерах
+$campOutcallWcArr = $_POST[$prefixForm . 'outcall_wc'];// Размещение в номерах
+
+// Чекбокс "Черновик"
+$campDraft = $_POST[$prefixForm . 'draft'];
 
 // Валидация --------------------------------
 if (!$campName) $errors[$prefixForm . 'title'] = 'Укажите название лагеря';
+if (!$campAgeFrom) $errors[$prefixForm . 'age_from'] = 'Укажите возраст';
+if (!$campAgeTo) $errors[$prefixForm . 'age_to'] = 'Укажите возраст';
+if (!$campNumberChildrenInGroup) $errors[$prefixForm . 'number_children_group'] = 'Укажите количество';
+if(!$campSubjectsArr) $errors[$prefixForm . 'subjects'] = 'Выберите тематику лагеря';
+if(!$campMeals) $errors[$prefixForm . 'meals'] = 'Выберите тип питания';
 
-//// Валидация "Скидки"
-//if (!$campDiscountStaff) $errors[$prefixForm . 'staff_discount_price'] = 'Укажите скидку для сотрудников компании и партнеров';
-//if (!$campDiscountUsers) $errors[$prefixForm . 'users_discount_price'] = 'Укажите скидку для пользователей сайта';
-//
-//// Валидация "Продолжительность лагеря"
-//if (!$campDurationFrom) $errors[$prefixForm . 'duration_camp_from'] = 'Укажите дату';
-//if (!$campDurationTo) $errors[$prefixForm . 'duration_camp_to'] = 'Укажите дату';
-//if (!$campDurationTimeFrom) $errors[$prefixForm . 'duration_time_from'] = 'Укажите время';
-//if (!$campDurationTimeTo) $errors[$prefixForm . 'duration_time_to'] = 'Укажите время';
-//if (!$campDurationWeekdaysFrom) $errors[$prefixForm . 'duration_weekdays_from'] = 'Укажите день недели';
-//if (!$campDurationWeekdaysTo) $errors[$prefixForm . 'duration_weekdays_to'] = 'Укажите день недели';
+// Валидация "Скидки"
+if (!$campDiscountStaff) $errors[$prefixForm . 'staff_discount_price'] = 'Укажите скидку для сотрудников компании и партнеров';
+if (!$campDiscountUsers) $errors[$prefixForm . 'users_discount_price'] = 'Укажите скидку для пользователей сайта';
 
+// Валидация "Продолжительность лагеря"
+if (!$campDurationFrom) $errors[$prefixForm . 'duration_camp_from'] = 'Укажите дату';
+if (!$campDurationTo) $errors[$prefixForm . 'duration_camp_to'] = 'Укажите дату';
+
+
+
+
+
+
+
+// Валидация "Варианты посещений"
+//$campTypeVisitFullday = $_POST[$prefixForm . 'visit_options_fullday']; // Чекбокс "Полный день"
+//$campTypeVisitBeforeLunch = $_POST[$prefixForm . 'visit_options_before_lunch']; // Чекбокс "До обеда"
+//$campTypeVisitAfterLunch = $_POST[$prefixForm . 'visit_options_after_lunch']; // Чекбокс "После обеда"
+//$campTypeVisitOneday = $_POST[$prefixForm . 'visit_options_oneday']; // Чекбокс "Один день"
+
+if($campTypeVisitFullday){
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Валидация "Стоимость"
+if($campType === 'outcall'){
+    if (!$campOutcallFullprice) $errors[$prefixForm . 'outcall_fullprice'] = 'Укажите стоимость';
+}
+if($campType === 'urban'){
+    if (!$campDurationTimeFrom) $errors[$prefixForm . 'duration_time_from'] = 'Укажите время';
+    if (!$campDurationTimeTo) $errors[$prefixForm . 'duration_time_to'] = 'Укажите время';
+    if (!$campDurationWeekdaysFrom) $errors[$prefixForm . 'duration_weekdays_from'] = 'Укажите день недели';
+    if (!$campDurationWeekdaysTo) $errors[$prefixForm . 'duration_weekdays_to'] = 'Укажите день недели';
+}
 // if (!$campSlogan) $errors[$prefixForm . 'slogan'] = 'Укажите слоган';
 // if (!$campProgramDescription) $errors[$prefixForm . 'program_description'] = 'Укажите описание программы';
 
@@ -206,6 +276,8 @@ $heroArray = array(
     "weekDaysTo" => $campDurationWeekdaysTo,
     "image" => $campMainImage,
     'meals' => $campMeals,
+    'transferLocation' => $campOutcallTransferLocation,
+    'transferTime' => $campOutcallTransferTime,
     'conditioner' => ($campСonditioner === 'on') ? 1 : 0,
     'freeParking' => ($campFreeParking === 'on') ? 1 : 0,
     'freeWiFi' => ($campFreeWiFi === 'on') ? 1 : 0,
@@ -248,6 +320,9 @@ $resource->setTVValue('campNumberChildrenGroup', $campNumberChildrenInGroup); //
 $resource->setTVValue('camp_date_from', changeDateFormat($campDurationFrom)); // Продолжительность лагеря - дата начала
 $resource->setTVValue('camp_date_to', changeDateFormat($campDurationTo)); // Продолжительность лагеря - дата окончания
 $resource->setTVValue('camp_subjects', implode('||',$campSubjectsArr));// Тематики лагеря
+$resource->setTVValue('camp_format', $campType);// Тип лагеря
+$resource->setTVValue('camp_meals', $campMeals);// Питание
+$resource->setTVValue('camp_wifi', $campFreeWiFi); // Free Wi-Fi
 $resource->save();
 
 // Program - Программа --------------------------------
@@ -275,8 +350,6 @@ if(count($campProgramDescriptionArr) === 1 && empty($campProgramDescriptionArr[0
 //
 //}
 
-$modx->log(1,'campProgramsArrEmpty'.$campProgramsArrEmpty);
-
 if($campProgramsArrEmpty !== true){
     for ($i = 0; $i < count($campProgramDescriptionArr); $i++) {
         $programs[] = array(
@@ -295,78 +368,111 @@ if($campProgramsArrEmpty !== true){
     pbTableSet($modx, $edit, $resourceId,4,'program',1,13, $programArray, $programs);
 }
 
+// pricesOutcall - Стоимость (для выездных лагерей)
+if($campType === 'outcall') {
+
+    $outcallPriceTable = array();
+    $outcallPriceArrEmpty = false;
+
+    if(count($campOutcallPriceArr) === 1 && empty($campOutcallPriceArr[0])){
+        $outcallPriceArrEmpty = true;
+    }
+
+    if($outcallPriceArrEmpty !== true){
+
+        for ($i = 0; $i < count($campOutcallPriceArr); $i++) {
+            $outcallPriceTable[] = array(
+                "price" => $campOutcallPriceArr[$i],
+                "date_to" => changeDateFormat($campOutcallPriceDateToArr[$i])
+            );
+        }
+
+        $outcallPriceArray = array(
+            "fullprice" => $campOutcallFullprice,
+            "table" => $outcallPriceTable
+        );
+
+        pbTableSet($modx, $edit, $resourceId,14,'pricesOutcall',9,57, $outcallPriceArray, $outcallPriceTable);
+
+    }
+
+}
+
 // Groups - Группы --------------------------------
 // Добавляем только чанк, логика работы в migx и чанке
 pbTableSet($modx, $edit, $resourceId, 12, 'groups');
 
 // Visit options - Варианты посещений --------------------------------
-$visitOptions = array();
-$visitOptionsPrices = array();
-$visitOptionsTv = array();
+if($campType === 'urban'){ // Если лагерь городской
 
-if($campTypeVisitFullday === 'on'){ // Чекбокс "Полный день"
-    $visitOptionsTv[] = 'fullday';
-    $visitOptionsPrices['fullday'] = dataFilling($campVisitPriceArrFullday, $campVisitNewPriceArrFullday, $campVisitDateArrFullday);
-    $visitOptions['fullday'] = array(
-        'period' => 'fullday',
-        'timeFrom' => $campVisitTimeFromFullday,
-        'timeTo' => $campVisitTimeToFullday,
-        'description' => $campVisitDescriptionFullday,
-        'prices' => $visitOptionsPrices['fullday']
+    $visitOptions = array();
+    $visitOptionsPrices = array();
+    $visitOptionsTv = array();
+
+    if($campTypeVisitFullday === 'on'){ // Чекбокс "Полный день"
+        $visitOptionsTv[] = 'fullday';
+        $visitOptionsPrices['fullday'] = dataFilling($campVisitPriceArrFullday, $campVisitNewPriceArrFullday, $campVisitDateArrFullday);
+        $visitOptions['fullday'] = array(
+            'period' => 'fullday',
+            'timeFrom' => $campVisitTimeFromFullday,
+            'timeTo' => $campVisitTimeToFullday,
+            'description' => $campVisitDescriptionFullday,
+            'prices' => $visitOptionsPrices['fullday']
+        );
+
+    }
+
+    if($campTypeVisitBeforeLunch === 'on'){// Чекбокс "До обеда"
+        $visitOptionsTv[] = 'beforeLunch';
+        $visitOptionsPrices['beforeLunch'] = dataFilling($campVisitPriceArrBeforeLunch, $campVisitNewPriceArrBeforeLunch, $campVisitDateArrBeforeLunch);
+        $visitOptions['beforeLunch'] = array(
+            'period' => 'beforeLunch',
+            'timeFrom' => $campVisitTimeFromBeforeLunch,
+            'timeTo' => $campVisitTimeToBeforeLunch,
+            'description' => $campVisitDescriptionBeforeLunch,
+            'prices' => $visitOptionsPrices['beforeLunch']
+        );
+    }
+
+    if($campTypeVisitAfterLunch === 'on'){// Чекбокс "После обеда"
+        $visitOptionsTv[] = 'afterLunch';
+        $visitOptionsPrices['afterLunch'] = dataFilling($campVisitPriceArrAfterLunch, $campVisitNewPriceArrAfterLunch, $campVisitDateArrAfterLunch);
+        $visitOptions['afterLunch'] = array(
+            'period' => 'afterLunch',
+            'timeFrom' => $campVisitTimeFromAfterLunch,
+            'timeTo' => $campVisitTimeToAfterLunch,
+            'description' => $campVisitDescriptionAfterLunch,
+            'prices' => $visitOptionsPrices['afterLunch']
+        );
+    }
+
+    if($campTypeVisitOneday === 'on'){// Чекбокс "Один день"
+        $visitOptionsTv[] = 'oneday';
+        $visitOptionsPrices['oneday'] = dataFilling($campVisitPriceArrOneday, $campVisitNewPriceArrOneday, $campVisitDateArrOneday);
+        $visitOptions['oneday'] = array(
+            'period' => 'oneday',
+            'timeFrom' => $campVisitTimeFromOneday,
+            'timeTo' => $campVisitTimeToOneday,
+            'description' => $campVisitDescriptionOneday,
+            'prices' => $visitOptionsPrices['oneday']
+        );
+    }
+
+    $visitOptionsArray = array(
+        "table" => $visitOptions
     );
 
+    // Заполняем TV camp_class_time для поиска по "Время занятий"
+    if(!empty($visitOptionsTv)){
+        $visitOptionsTvString = implode('||',$visitOptionsTv);
+    } else {
+        $visitOptionsTvString = '';
+    }
+    $resource->setTVValue('camp_class_time', $visitOptionsTvString);
+    $resource->save();
+
+    pbTableSet($modx, $edit, $resourceId,10,'visitOptions',7,28, $visitOptionsArray, $visitOptions);
 }
-
-if($campTypeVisitBeforeLunch === 'on'){// Чекбокс "До обеда"
-    $visitOptionsTv[] = 'beforeLunch';
-    $visitOptionsPrices['beforeLunch'] = dataFilling($campVisitPriceArrBeforeLunch, $campVisitNewPriceArrBeforeLunch, $campVisitDateArrBeforeLunch);
-    $visitOptions['beforeLunch'] = array(
-        'period' => 'beforeLunch',
-        'timeFrom' => $campVisitTimeFromBeforeLunch,
-        'timeTo' => $campVisitTimeToBeforeLunch,
-        'description' => $campVisitDescriptionBeforeLunch,
-        'prices' => $visitOptionsPrices['beforeLunch']
-    );
-}
-
-if($campTypeVisitAfterLunch === 'on'){// Чекбокс "После обеда"
-    $visitOptionsTv[] = 'afterLunch';
-    $visitOptionsPrices['afterLunch'] = dataFilling($campVisitPriceArrAfterLunch, $campVisitNewPriceArrAfterLunch, $campVisitDateArrAfterLunch);
-    $visitOptions['afterLunch'] = array(
-        'period' => 'afterLunch',
-        'timeFrom' => $campVisitTimeFromAfterLunch,
-        'timeTo' => $campVisitTimeToAfterLunch,
-        'description' => $campVisitDescriptionAfterLunch,
-        'prices' => $visitOptionsPrices['afterLunch']
-    );
-}
-
-if($campTypeVisitOneday === 'on'){// Чекбокс "Один день"
-    $visitOptionsTv[] = 'oneday';
-    $visitOptionsPrices['oneday'] = dataFilling($campVisitPriceArrOneday, $campVisitNewPriceArrOneday, $campVisitDateArrOneday);
-    $visitOptions['oneday'] = array(
-        'period' => 'oneday',
-        'timeFrom' => $campVisitTimeFromOneday,
-        'timeTo' => $campVisitTimeToOneday,
-        'description' => $campVisitDescriptionOneday,
-        'prices' => $visitOptionsPrices['oneday']
-    );
-}
-
-$visitOptionsArray = array(
-    "table" => $visitOptions
-);
-
-// Заполняем TV camp_class_time для поиска по "Время занятий"
-if(!empty($visitOptionsTv)){
-    $visitOptionsTvString = implode('||',$visitOptionsTv);
-} else {
-    $visitOptionsTvString = '';
-}
-$resource->setTVValue('camp_class_time', $visitOptionsTvString);
-$resource->save();
-
-pbTableSet($modx, $edit, $resourceId,10,'visitOptions',7,28, $visitOptionsArray, $visitOptions);
 
 // pricesAndDiscounts - Скидки
 $discounts = array();
@@ -396,7 +502,7 @@ $discountsArray = array(
 
 pbTableSet($modx, $edit, $resourceId, 11, 'pricesAndDiscounts',6,29, $discountsArray, $discounts);
 
-// Продолжительность лагеря
+// termsAndFood - Условия, питание
 
 // Advantages - Наши преимущества --------------------------------
 $advantages = array();
@@ -498,7 +604,7 @@ if($campReviewsArrEmpty !== true){
 
 }
 
-// // FAQ - Часто задаваемые вопросы --------------------------------
+// FAQ - Часто задаваемые вопросы --------------------------------
 $faq = array();
 $campFaqArrEmpty = false;
 
@@ -521,6 +627,25 @@ if($campFaqArrEmpty !== true){
 
     pbTableSet($modx, $edit, $resourceId, 7, 'faq', 4, 24, $faqArray, $faq);
 
+}
+
+// Условия размещения
+if($campType === 'outcall'){ // Если лагерь выездной
+    $accommodationConditionsArr = array(
+        'nameObject' => $campOutcallNameObject,
+        'descriptionPlace' => $campOutcallDescriptionPlace,
+        'websiteLink' => $campOutcallSite,
+    );
+    pbTableSet($modx, $edit, $resourceId, 13, 'accommodationConditions', null, null, $accommodationConditionsArr);
+
+    $resource->setTVValue('camp_region', $campRegion); // Область
+    $resource->setTVValue('camp_distance', $campDistance); // Расстояние
+    $resource->setTVValue('camp_outcall_address', $campOutcallAddress); // Адрес от областного центра
+    $resource->setTVValue('camp_pool', $campOutcallPool); // Адрес от областного центра
+    $resource->setTVValue('camp_rooms', implode('||', $campOutcallRoomsArr));// Размещение в номерах
+    $resource->setTVValue('camp_wc', implode('||', $campOutcallWcArr));// Санузел.душ
+
+    $resource->save();
 }
 
 // Чистим кэш ресурса

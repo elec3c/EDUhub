@@ -1,9 +1,5 @@
 {extends 'file:templates/BaseTemplate.tpl'}
 {block 'content'}
-
-{*    <div class="container">*}
-{*        {'!forTest' | snippet: [] }*}
-{*    </div>*}
     {if $.get['edit'] === 'true' && $_modx->user.id == $_modx->resource.id | resource: 'userId'}
         {'!FetchIt' | snippet : [
             'snippet' => 'createCamp',
@@ -11,7 +7,8 @@
             'successMessage' => 'Успех',
             'clearFieldsOnSuccess' => false,
             'resourceId' => $_modx->resource.id,
-            'edit' => true
+            'edit' => true,
+            'campType' => $.get['type']
         ]}
     {else}
         {'!PageBlocks' | snippet : [
