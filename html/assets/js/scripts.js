@@ -1586,7 +1586,7 @@ let Mapss = function geoadres(adress) {
 	$.ajax({
 		async: false,
 		dataType: "json",
-		url: 'http://maps.google.com/maps/api/geocode/json?address=' + adress,
+		url: 'https://maps.google.com/maps/api/geocode/json?address=' + adress+'&sensor=false',
 		success: function (data) {
 			console.log(data);
 			for (var key in data.results) {
@@ -1606,7 +1606,7 @@ function initMap() {
 		const zoomMap = 12;
 
 		const myLatLng = { lat: 53.902735, lng: 27.555696 };
-		let mapAll = [];
+		let mapAll = [], markers = [];
 		mapAll.push( new google.maps.Map(document.querySelector(".js-cmp-create-address-map"), {
 				zoom: zoomMap,
 				center: myLatLng,
@@ -1645,23 +1645,28 @@ function initMap() {
 			if (city === '' || addr === '') return;
 			
 			const address = city  + ' ' + addr;
-			const LatLng = new Mapss(address);
-			//const LatLng = { lat: 53.902735, lng: 27.555696 };
+			//const LatLng = new Mapss(address);
+			const LatLng = { lat: 53.902735, lng: 27.555696 };
 			
 			//console.log(LatLng);
 			$(inputs).find('.js-cmp-create-address-lat').val(LatLng.lat);
 			$(inputs).find('.js-cmp-create-address-lng').val(LatLng.lng);
 	
 			const index = parseInt($(inputs).find('.js-cmp-create-address-map').attr('data-index'));
-			console.log(index);
-			const map = mapAll[index]
-			marker = new google.maps.Marker({
-				position: LatLng,
-				map,
-				title: address
-			});
-
-			//console.log(marker);
+			
+			const map = mapAll[index];
+			if (markers[index] === undefined) {				
+				markers[index] =  new google.maps.Marker({
+					position: LatLng,
+					map,
+					title: address
+				});
+			} else {
+				markers[index].setMap(null);
+				markers[index].setPosition(LatLng);
+				markers[index].setMap(map);
+			}
+			console.log(markers[index]);
 		});
 
 		$('.js-cmp-create-address-lat, .js-cmp-create-address-lng').blur(function() { 
@@ -1677,9 +1682,9 @@ function initMap() {
 
 			const index = parseInt($(inputs).find('.js-cmp-create-address-map').attr('data-index'));
 			const map = mapAll[index]
-			marker.setMap(null);
-			marker.setPosition(LatLng);
-			marker.setMap(map);
+			markers[index].setMap(null);
+			markers[index].setPosition(LatLng);
+			markers[index].setMap(map);
 			map.setCenter(LatLng);
 		});
 
