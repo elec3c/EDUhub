@@ -761,6 +761,7 @@ $(function () {
 							let compressedData = canvas.toDataURL("image/jpeg", 0.7);
 
 
+
 							$(input).parent('.uploading').find('img').remove()
 							$(input).parent('.uploading').addClass('no-empty').append('<img class="" src="' + compressedData + '" />');
 
@@ -768,6 +769,7 @@ $(function () {
 								console.log('upd');
 								$(input).parents('.js-cmp-create-addprogr').find('.js-cmp-create-addprogr-action').removeClass('hide');
 							}
+
 						}),
 							(img.onerror = function (err) {
 								reject(err);
@@ -1086,6 +1088,8 @@ $(function () {
 	});
 
 
+
+
 	$('.js-cmp-tbform-group-add-row').click(function(e) {
 		e.preventDefault();
 
@@ -1114,17 +1118,18 @@ $(function () {
 		}, 1)
 
 	})
+
 	$('.js-cmp-tbform-group').submit(function(e) {
 		e.preventDefault();
 
 		const form = $(this);
 		const data = new FormData($(form)[0]);
-
-		
+		data.append('user_id', $(form).attr('data-user'));
+		data.append('pid', $(form).attr('data-pid'));
 
 		$.ajax({
 			type: 'POST',
-			url: '/assets/connectors/camp-leads.php',
+			url: '/assets/connectors/camp-group.php',
 			data: data,
 			processData: false,
 			contentType: false,
@@ -1212,7 +1217,13 @@ $(function () {
 
 		const data = new FormData($(form)[0]);
 		const action = $(form).attr('data-form');
-		data.append('action', action);
+		
+
+		data.append('user_id', $(form).attr('data-user'));
+		data.append('action', $(form).attr('data-action'));
+		data.append('id', $(form).attr('data-id')); // for edit
+		
+
 
 		const type = $(form).attr('data-type');
 		const lktables = $('.js-lktables[data-type='+type+']');
@@ -1267,7 +1278,7 @@ $(function () {
 
 
 					const row_form = $(form).clone(true);
-					$(row_form).attr({'data-type': '', 'data-form': 'change', 'data-id': res.id});
+					$(row_form).attr({'data-type': '', 'data-action': 'edit', 'data-form': 'change', 'data-id': res.id});
 					
 					$(row_form).find('input.styler').each(function() {
 		
@@ -1316,6 +1327,7 @@ $(function () {
 
 		const row = $(this).parents('.js-cmp-lktables-row');
 		const data = new FormData();
+
 		data.append('action', 'delete');
 		data.append('id', $(row).attr('data-id'));
 
@@ -1341,12 +1353,14 @@ $(function () {
 
 	});
 	
+
 	$('body').on('click', '.js-cmp-lktables-row-change_status', function (e) {
 		e.preventDefault();
 
 		const row = $(this).parents('.js-cmp-lktables-row');
 		const data = new FormData();
 		data.append('action', 'change_status');
+		data.append('user_id', $(row).attr('data-user'));
 		data.append('status', $(this).attr('data-status'));
 		data.append('id', $(row).attr('data-id'));
 
@@ -1382,11 +1396,13 @@ $(function () {
 	}
 
 
+
 	$('body').on('click', '.js-cmp-lktables-row-clone', function (e) {
 		e.preventDefault();
 
 		const row = $(this).parents('.js-cmp-lktables-row');
 		const data = new FormData();
+
 		data.append('action', 'clone');
 		data.append('id', $(row).attr('data-id'));
 
